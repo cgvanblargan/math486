@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
+  <bibinfo>
+    <author>
+      <personname>Dr. Russ deForest</personname>
+      <department>Department of Mathematics</department>
+      <institution>Penn State University</institution>
+    </author>
+    <date>
+      <today />
+    </date>
+
+    <copyright>
+      <year>2026</year>
+      <holder>Russ deForest</holder>
+      <shortlicense>
+        Authored in <pretext />.
+      </shortlicense>
+    </copyright>
+
+  </bibinfo>
+
+  <titlepage>
+    <titlepage-items/>
+  </titlepage>
+
+  <colophon xml:id="front-colophon">
+    <colophon-items/>
+  </colophon>
+
+  <preface xml:id="preface">
+    <title>How to Use This Guide</title>
+    <p>
+      This is not a textbook. Our required text is
+      <em>Game Theory in Action</em> by Stephen Schecter and Herbert Gintis, and
+      that book carries the actual content of the course. What you're looking at
+      here is a companion that tells you <em>how</em> to read it: what to read
+      carefully, what to skim, where to pause and think before reading on, and
+      places to reflect on an idea in your own words.
+    </p>
+    <p>
+      Each page in this guide corresponds to a short chunk of reading. Here's how
+      to work through a page:
+      <ul>
+        <li>Read the framing paragraph at the top before opening the book &#8212; it tells you what to watch for.</li>
+        <li>Follow the reading directive: it will tell you which sections to read and how closely.</li>
+        <li>When you hit a "pause and think" or reflection prompt, actually stop and engage with it before moving on. These aren't busywork &#8212; they're where a lot of the real learning happens.</li>
+        <li>Checkpoint questions are quick, low-stakes checks that you caught the key idea. If one surprises you, it's worth rereading that bit of the book.</li>
+      </ul>
+    </p>
+    <p>
+      <alert>Note.</alert> This guide will be built out gradually over the
+      semester, a page at a time, alongside the course itself.
+    </p>
+  </preface>
+
+</frontmatter>

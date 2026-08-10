@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- PLACEHOLDER PAGE, replace this content, and this file will no
+     longer be touched by tools/build_structure.py.
+     Note: PreTeXt has no page element; a "page" in this book is just
+     a section nested inside a chapter's section (PreTeXt infers the
+     heading level from nesting depth), matching the math250 convention. -->
+<section xml:id="page2-strategies" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Strategies</title>
+
+  <p>
+    <alert>Placeholder.</alert> Content for this page has not been written yet.
+  </p>
+</section>

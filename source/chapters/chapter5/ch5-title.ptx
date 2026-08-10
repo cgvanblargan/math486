@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AUTO-GENERATED INDEX FILE, edit tools/book_structure.yaml and rerun
+     tools/build_structure.py instead of hand-editing the include list. -->
+<chapter xml:id="ch-mixed-strategy-nash-equilibria" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Mixed Strategy Nash Equilibria</title>
+
+  <introduction>
+    <p>
+      Content for this chapter has not been written yet.
+    </p>
+  </introduction>
+
+  <section xml:id="ch-mixed-strategy-nash-equilibria-placeholder">
+    <title>Placeholder</title>
+    <p>
+      <alert>Placeholder.</alert> This chapter has no sections yet. Add
+      real sections/pages to this chapter in tools/book_structure.yaml and
+      rerun tools/build_structure.py.
+    </p>
+  </section>
+
+</chapter>

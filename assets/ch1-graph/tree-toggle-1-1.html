@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony's Accident: Interactive Game Tree</title>
+<style>
+  :root {
+    --ink: #2c3e50;
+    --decision: #1a5276;
+    --terminal: #6e2c00;
+    --path: #1e8449;
+    --payoff: #922b21;
+    --muted: #7f8c8d;
+    --bg-btn: #ecf0f1;
+    --bg-btn-active: #2c3e50;
+  }
+  body {
+    margin: 0;
+    padding: 12px 16px 20px;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+  button {
+    font-family: serif;
+    font-size: 14px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--decision);
+    background: var(--bg-btn);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  button.active {
+    background: var(--bg-btn-active);
+    color: white;
+    border-color: var(--bg-btn-active);
+  }
+  .caption {
+    text-align: center;
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    min-height: 20px;
+    margin-bottom: 4px;
+  }
+  svg { display: block; margin: 0 auto; max-width: 950px; width: 100%; height: auto; }
+  .edge { stroke: var(--ink); stroke-width: 2; fill: none; }
+  .edge-highlight { stroke: var(--path); stroke-width: 5; }
+  .action-label { font-size: 15px; fill: var(--ink); }
+  .action-label-highlight { fill: var(--path); font-weight: bold; }
+  .node-decision { fill: white; stroke: var(--decision); stroke-width: 2.5; }
+  .node-terminal { fill: white; stroke: var(--terminal); stroke-width: 2.5; }
+  .node-label { font-size: 14px; fill: var(--ink); text-anchor: middle; }
+  .type-tag { font-size: 12px; font-style: italic; text-anchor: middle; opacity: 0; transition: opacity 0.25s; }
+  .type-tag.show { opacity: 1; }
+  .tag-decision { fill: var(--decision); }
+  .tag-terminal { fill: var(--terminal); }
+  .payoff-label { font-size: 14px; text-anchor: middle; fill: var(--muted); font-weight: normal; }
+  .payoff-label.show-payoffs { fill: var(--payoff); font-weight: bold; }
+  .path-node { stroke: var(--path) !important; stroke-width: 4 !important; }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="btn-plain" class="active">Plain tree</button>
+  <button id="btn-types">Highlight node types</button>
+  <button id="btn-path">Show a sample path</button>
+  <button id="btn-payoffs">Show payoffs</button>
+</div>
+<div class="caption" id="caption"></div>
+
+<svg viewBox="0 0 950 500" role="img" aria-label="Interactive game tree for Tony's Accident">
+
+  <!-- Edges -->
+  <!-- root -> send80 (terminal) -->
+  <path class="edge" id="edge-send80" d="M475,65 L150,220"/>
+  <!-- root -> demand receipt (decision) -->
+  <path class="edge" id="edge-demand" d="M475,65 L475,220"/>
+  <!-- root -> send40 (decision) -->
+  <path class="edge" id="edge-send40" d="M475,65 L800,220"/>
+
+  <!-- demand receipt node -> its two terminals -->
+  <path class="edge" id="edge-demand-repair" d="M475,240 L350,420"/>
+  <path class="edge" id="edge-demand-norepair" d="M475,240 L600,420"/>
+
+  <!-- send40 node -> its two terminals -->
+  <path class="edge" id="edge-send40-repair" d="M800,240 L675,420"/>
+  <path class="edge" id="edge-send40-norepair" d="M800,240 L925,420"/>
+
+  <!-- Action labels -->
+  <text class="action-label" x="270" y="140">send $80</text>
+  <text class="action-label" x="440" y="150">demand receipt</text>
+  <text class="action-label" x="680" y="140">send $40</text>
+  <text class="action-label" id="lbl-demand-repair" x="365" y="335">repair</text>
+  <text class="action-label" id="lbl-demand-norepair" x="565" y="335">don't repair</text>
+  <text class="action-label" id="lbl-send40-repair" x="690" y="335">repair</text>
+  <text class="action-label" id="lbl-send40-norepair" x="895" y="335">don't repair</text>
+
+  <!-- Root node: Tony (decision) -->
+  <circle class="node-decision" id="node-root" cx="475" cy="55" r="18"/>
+  <text class="node-label" x="475" y="30">Tony</text>
+  <text class="type-tag tag-decision" id="tag-root" x="475" y="18">decision node</text>
+
+  <!-- Decision node: Vic (demand receipt branch) -->
+  <circle class="node-decision" id="node-demand" cx="475" cy="230" r="16"/>
+  <text class="node-label" x="475" y="207">Vic</text>
+  <text class="type-tag tag-decision" id="tag-demand" x="475" y="195">decision node</text>
+
+  <!-- Decision node: Vic (send $40 branch) -->
+  <circle class="node-decision" id="node-send40" cx="800" cy="230" r="16"/>
+  <text class="node-label" x="800" y="207">Vic</text>
+  <text class="type-tag tag-decision" id="tag-send40" x="800" y="195">decision node</text>
+
+  <!-- Terminal: send $80 -->
+  <rect class="node-terminal" id="node-t-send80" x="130" y="220" width="40" height="24" rx="4"/>
+  <text class="type-tag tag-terminal" id="tag-t-send80" x="150" y="270">terminal node</text>
+  <text class="payoff-label" id="pay-t-send80" x="150" y="290">(&#8722;80, 80)</text>
+
+  <!-- Terminal: demand receipt -> repair -->
+  <rect class="node-terminal" id="node-t-dr" x="330" y="420" width="40" height="24" rx="4"/>
+  <text class="type-tag tag-terminal" id="tag-t-dr" x="350" y="465">terminal node</text>
+  <text class="payoff-label" id="pay-t-dr" x="350" y="405">(&#8722;80, 20)</text>
+
+  <!-- Terminal: demand receipt -> don't repair -->
+  <rect class="node-terminal" id="node-t-dn" x="580" y="420" width="40" height="24" rx="4"/>
+  <text class="type-tag tag-terminal" id="tag-t-dn" x="600" y="465">terminal node</text>
+  <text class="payoff-label" id="pay-t-dn" x="600" y="405">(0, 0)</text>
+
+  <!-- Terminal: send40 -> repair -->
+  <rect class="node-terminal" id="node-t-40r" x="655" y="420" width="40" height="24" rx="4"/>
+  <text class="type-tag tag-terminal" id="tag-t-40r" x="675" y="465">terminal node</text>
+  <text class="payoff-label" id="pay-t-40r" x="675" y="405">(&#8722;80, 20)</text>
+
+  <!-- Terminal: send40 -> don't repair -->
+  <rect class="node-terminal" id="node-t-40n" x="905" y="420" width="40" height="24" rx="4"/>
+  <text class="type-tag tag-terminal" id="tag-t-40n" x="925" y="465">terminal node</text>
+  <text class="payoff-label" id="pay-t-40n" x="925" y="405">(&#8722;40, 40)</text>
+
+</svg>
+
+<script>
+  const modes = ["plain", "types", "path", "payoffs"];
+  const buttons = {
+    plain: document.getElementById("btn-plain"),
+    types: document.getElementById("btn-types"),
+    path: document.getElementById("btn-path"),
+    payoffs: document.getElementById("btn-payoffs"),
+  };
+  const caption = document.getElementById("caption");
+  const captions = {
+    plain: "This is the full tree, exactly as it appears in Figure 1.2: Tony chooses first, then (in two of the three cases) Vic responds.",
+    types: "Circles are decision nodes -- someone has to choose an action here. Rectangles are terminal nodes -- the game ends here and both players get a payoff.",
+    path: "One complete path from root to a terminal node: Tony demands a receipt, then Vic repairs the car. A strategy for the whole game corresponds to a full path like this one -- but it also has to say what a player WOULD do at nodes the path never actually reaches.",
+    payoffs: "At every terminal node the payoff is listed as (Tony's payoff, Vic's payoff)."
+  };
+
+  const pathEdgeIds = ["edge-demand", "edge-demand-repair"];
+  const pathNodeIds = ["node-root", "node-demand", "node-t-dr"];
+  const pathLabelIds = ["lbl-demand-repair"];
+
+  function setMode(mode) {
+    modes.forEach(m => buttons[m].classList.toggle("active", m === mode));
+    caption.textContent = captions[mode];
+
+    // reset everything
+    document.querySelectorAll(".type-tag").forEach(el => el.classList.remove("show"));
+    document.querySelectorAll(".edge").forEach(el => el.classList.remove("edge-highlight"));
+    document.querySelectorAll(".action-label").forEach(el => el.classList.remove("action-label-highlight"));
+    document.querySelectorAll(".node-decision, .node-terminal").forEach(el => el.classList.remove("path-node"));
+    document.querySelectorAll(".payoff-label").forEach(el => el.classList.remove("show-payoffs"));
+
+    if (mode === "types") {
+      document.querySelectorAll(".type-tag").forEach(el => el.classList.add("show"));
+    }
+    if (mode === "path") {
+      pathEdgeIds.forEach(id => document.getElementById(id).classList.add("edge-highlight"));
+      pathNodeIds.forEach(id => document.getElementById(id).classList.add("path-node"));
+      pathLabelIds.forEach(id => document.getElementById(id).classList.add("action-label-highlight"));
+    }
+    if (mode === "payoffs") {
+      document.querySelectorAll(".payoff-label").forEach(el => el.classList.add("show-payoffs"));
+    }
+  }
+
+  Object.keys(buttons).forEach(mode => {
+    buttons[mode].addEventListener("click", () => setMode(mode));
+  });
+
+  setMode("plain");
+</script>
+
+</body>
+</html>

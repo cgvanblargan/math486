@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- The docinfo block is the analogue to the latex preamble -->
+<!-- This is where you can define macros and other book-wide -->
+<!-- settings. -->
+<docinfo xmlns:xi="http://www.w3.org/2001/XInclude">
+  <document-id>deforest-gametheory-math486</document-id>
+  <blurb shelf="Math">
+    A reading companion and study guide for Game Theory (Math 486) at Penn State
+    University, built around the required textbook "Game Theory in Action" by
+    Schecter and Gintis.
+  </blurb>
+
+  <!-- macros for defining latex math shortcuts. -->
+  <macros> \newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R} </macros>
+
+  <!-- If you put any latex-image elements you can include preambles -->
+  <!-- for those in the next element. -->
+  <latex-image-preamble> \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} </latex-image-preamble>
+
+  <!--
+    CONVENTIONS FOR THIS BOOK. See tools/README.md for full notes.
+    This book is a reading companion, not a self contained textbook.
+    Two reusable custom block types are used throughout, both built from
+    the task element, so they get consistent numbering and styling
+    automatically:
+
+      1. Reading directive: tells the student what to read and how.
+         (xml:id prefix: "read-")
+      2. Reflection: a written, ungraded reflective question.
+         (xml:id prefix: "reflect-")
+
+    Auto graded "checkpoint" questions use the normal exercise element
+    (xml:id prefix: "check-").
+
+    See source/chapters/chapter1/sections/sec-what-is-a-game/page1-what-is-a-game.ptx
+    for a fully worked example of all three in context.
+  -->
+
+</docinfo>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 1.2 Vocabulary</title>
+<style>
+  :root {
+    --ink: #2c3e50;
+    --accent: #1a5276;
+    --correct: #1e8449;
+    --incorrect: #922b21;
+    --muted: #7f8c8d;
+    --bg: #f7f7f5;
+  }
+  body {
+    margin: 0;
+    padding: 10px 4px 20px;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  details {
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  summary {
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--accent);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+";
+    font-size: 20px;
+    color: var(--muted);
+  }
+  details[open] summary::after { content: "\2212"; }
+  .body {
+    padding: 0 14px 14px;
+  }
+  .body p { font-size: 15px; line-height: 1.45; margin: 6px 0; }
+  .checkpoint {
+    margin-top: 10px;
+    padding: 10px 12px;
+    border-left: 3px solid var(--accent);
+    background: white;
+  }
+  .checkpoint p.q { font-weight: bold; margin: 0 0 8px; font-size: 14.5px; }
+  .choice {
+    display: block;
+    width: 100%;
+    text-align: left;
+    font-family: serif;
+    font-size: 14px;
+    padding: 6px 10px;
+    margin: 4px 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background: white;
+    cursor: pointer;
+  }
+  .choice:hover { background: #eef2f5; }
+  .choice.correct { background: #eafaf1; border-color: var(--correct); color: var(--correct); font-weight: bold; }
+  .choice.incorrect { background: #fdedec; border-color: var(--incorrect); color: var(--incorrect); }
+  .feedback { font-size: 13.5px; margin-top: 6px; font-style: italic; }
+</style>
+</head>
+<body>
+
+<div id="accordion"></div>
+
+<script>
+const terms = [
+  {
+    term: "Decision node",
+    def: "A point in the game tree where it is some player's turn to choose an action. In Figure 1.2, Tony's node at the root and Vic's two nodes are all decision nodes.",
+    question: "In Figure 1.2 (Tony's Accident), how many decision nodes are there in total?",
+    choices: ["2", "3", "4"],
+    correctIndex: 1,
+    feedback: ["Not quite -- count Tony's node plus every node where Vic gets to choose.", "Right: Tony's root node, plus Vic's node after \u201cdemand receipt,\u201d plus Vic's node after \u201csend $40.\u201d", "Close, but recount -- not every branch leads to a new decision node."]
+  },
+  {
+    term: "Terminal node",
+    def: "A point in the tree where the game ends and every player receives a payoff. Terminal nodes have no further actions leading out of them.",
+    question: "What's different about a terminal node compared to a decision node?",
+    choices: ["No one chooses anything there -- the game is over and payoffs are handed out.", "It's just the node drawn at the top of the tree.", "It's a node where only one player has an action available."],
+    correctIndex: 0,
+    feedback: ["Exactly -- terminal nodes are where the outcome is finally determined.", "That describes the root node, not a terminal node.", "That's not quite it either -- a terminal node has no actions available to anyone."]
+  },
+  {
+    term: "Action",
+    def: "A choice available to the player who is 'on the move' at a decision node. In Figure 1.2, Tony's actions at the root are 'send $80,' 'demand receipt,' and 'send $40.'",
+    question: "At Vic's decision node (after Tony demands a receipt), what are Vic's available actions?",
+    choices: ["send $80 and send $40", "repair and don't repair", "There are no actions available to Vic"],
+    correctIndex: 1,
+    feedback: ["Those are Tony's actions at the root, not Vic's.", "Right -- once it's Vic's turn, his choices are to repair the car or not.", "Vic does have a choice here -- that's what makes his node a decision node."]
+  },
+  {
+    term: "Payoff",
+    def: "The value each player receives at a terminal node, usually written as an ordered tuple (Tony's payoff, Vic's payoff). Payoffs are what each player is ultimately trying to do well by.",
+    question: "At the terminal node reached by 'demand receipt' then 'repair,' the payoff is (\u221280, 20). What does the 20 represent?",
+    choices: ["Vic's payoff", "Tony's payoff", "The total money that changed hands"],
+    correctIndex: 0,
+    feedback: ["That's Tony's payoff, not Vic's -- payoffs are listed (Tony, Vic) here.", "Right -- by convention the payoffs are listed in the order (Tony, Vic), so 20 is Vic's payoff.", "Not quite -- payoffs represent each player's own value, not a shared total."]
+  },
+  {
+    term: "Extensive form game",
+    def: "A representation of a game as a tree: decision nodes, actions branching out from them, and terminal nodes with payoffs. It captures who moves when, what they know, and what everyone gets in the end.",
+    question: "Why is a tree a natural way to represent a game like Tony's Accident?",
+    choices: ["Because it shows the sequence of choices, and how one player's move opens up (or closes off) the next player's options.", "Because trees are easier to draw than tables.", "Because there's always exactly one player in a game tree."],
+    correctIndex: 0,
+    feedback: ["Not the main reason -- ease of drawing isn't the point.", "Exactly -- the branching structure is exactly the sequential, contingent nature of the interaction.", "Game trees usually involve more than one player -- that's the whole point."]
+  }
+];
+
+const container = document.getElementById("accordion");
+
+terms.forEach((t, ti) => {
+  const details = document.createElement("details");
+
+  const summary = document.createElement("summary");
+  summary.textContent = t.term;
+  details.appendChild(summary);
+
+  const body = document.createElement("div");
+  body.className = "body";
+
+  const defP = document.createElement("p");
+  defP.textContent = t.def;
+  body.appendChild(defP);
+
+  const cp = document.createElement("div");
+  cp.className = "checkpoint";
+
+  const q = document.createElement("p");
+  q.className = "q";
+  q.textContent = "Quick check: " + t.question;
+  cp.appendChild(q);
+
+  const feedbackEl = document.createElement("div");
+  feedbackEl.className = "feedback";
+
+  t.choices.forEach((choiceText, ci) => {
+    const btn = document.createElement("button");
+    btn.className = "choice";
+    btn.textContent = choiceText;
+    btn.addEventListener("click", () => {
+      cp.querySelectorAll(".choice").forEach(b => { b.classList.remove("correct", "incorrect"); b.disabled = true; });
+      if (ci === t.correctIndex) {
+        btn.classList.add("correct");
+      } else {
+        btn.classList.add("incorrect");
+      }
+      feedbackEl.textContent = t.feedback[ci];
+      feedbackEl.style.color = (ci === t.correctIndex) ? "#1e8449" : "#922b21";
+    });
+    cp.appendChild(btn);
+  });
+
+  cp.appendChild(feedbackEl);
+  body.appendChild(cp);
+  details.appendChild(body);
+  container.appendChild(details);
+});
+</script>
+
+</body>
+</html>

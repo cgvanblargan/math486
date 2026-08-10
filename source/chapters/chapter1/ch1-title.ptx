@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AUTO-GENERATED INDEX FILE, edit tools/book_structure.yaml and rerun
+     tools/build_structure.py instead of hand-editing the include list. -->
+<chapter xml:id="ch-backward-induction" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Backward Induction</title>
+
+  <xi:include href="./sections/sec-what-is-a-game.ptx" />
+  <xi:include href="./sections/sec-strategies.ptx" />
+  <xi:include href="./sections/sec-backward-induction-technique.ptx" />
+</chapter>

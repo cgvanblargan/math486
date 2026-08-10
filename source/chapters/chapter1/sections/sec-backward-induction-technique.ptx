@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- AUTO-GENERATED INDEX FILE, edit tools/book_structure.yaml and rerun
+     tools/build_structure.py instead of hand-editing the include list. -->
+<section xml:id="sec-backward-induction-technique" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Backward Induction</title>
+
+  <xi:include href="./sec-backward-induction-technique/page3-backward-induction.ptx" />
+</section>

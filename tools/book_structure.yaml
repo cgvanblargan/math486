@@ -1,0 +1,104 @@
+# book_structure.yaml
+# ---------------------------------------------------------------
+# This file is the single source of truth for the book's chapter /
+# section / page structure. Run `python3 tools/build_structure.py`
+# after editing this file to (re)generate the .ptx skeleton.
+#
+# The generator is SAFE TO RE-RUN: it will create any files/folders
+# that don't exist yet, and rewrite the "index" files (chapter title
+# files and section files, which just contain xi:include chains) --
+# but it will NEVER overwrite a page file that already has real
+# content. Only files still marked as untouched placeholders get
+# regenerated.
+#
+# Fields:
+#   num     - your own label (doesn't have to match the textbook's
+#             numbering -- just used in comments/filenames)
+#   title   - chapter or section title shown in the book
+#   id      - xml:id used in the PreTeXt source (must be unique)
+#   book_ref - (optional) which book section(s) this covers, just
+#             for your own reference -- not shown to students
+#   status  - "content" (a real page we've written) or "placeholder"
+#
+# A chapter with an empty "sections" list is a bare stub: it gets a
+# title and a "content coming soon" placeholder, nothing else, ready
+# to be filled in later by editing this file and rerunning the script.
+# ---------------------------------------------------------------
+
+chapters:
+  - num: 1
+    title: "Backward Induction"
+    id: ch-backward-induction
+    sections:
+      - num: "1.1-1.2"
+        title: "What is an Extensive Form Game?"
+        id: sec-what-is-a-game
+        book_ref: "1.1-1.2"
+        pages:
+          - title: "What is an Extensive Form Game?"
+            id: page1-what-is-a-game
+            file: page1-what-is-a-game.ptx
+            status: content
+      - num: "1.3"
+        title: "Strategies"
+        id: sec-strategies
+        book_ref: "1.3"
+        pages:
+          - title: "Strategies"
+            id: page2-strategies
+            file: page2-strategies.ptx
+            status: placeholder
+      - num: "1.4"
+        title: "Backward Induction"
+        id: sec-backward-induction-technique
+        book_ref: "1.4"
+        pages:
+          - title: "Backward Induction"
+            id: page3-backward-induction
+            file: page3-backward-induction.ptx
+            status: placeholder
+
+  - num: 2
+    title: "Eliminating Dominated Strategies"
+    id: ch-eliminating-dominated-strategies
+    sections: []
+
+  - num: 3
+    title: "Nash Equilibria"
+    id: ch-nash-equilibria
+    sections: []
+
+  - num: 4
+    title: "Games in Extensive Form with Incomplete Information"
+    id: ch-incomplete-information
+    sections: []
+
+  - num: 5
+    title: "Mixed Strategy Nash Equilibria"
+    id: ch-mixed-strategy-nash-equilibria
+    sections: []
+
+  - num: 6
+    title: "More about Games in Extensive Form with Complete Information"
+    id: ch-more-extensive-form
+    sections: []
+
+  - num: 7
+    title: "Symmetries of Games"
+    id: ch-symmetries-of-games
+    sections: []
+
+  - num: 8
+    title: "Alternatives to the Nash Equilibrium"
+    id: ch-alternatives-to-nash
+    sections: []
+
+  - num: 9
+    title: "Differential Equations"
+    id: ch-differential-equations
+    sections: []
+
+  - num: 10
+    title: "Evolutionary Dynamics"
+    id: ch-evolutionary-dynamics
+    sections: []

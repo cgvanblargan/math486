@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<pretext xml:lang="en-US" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <!-- we first include a file which contains the docinfo element: -->
+  <xi:include href="./docinfo.ptx" />
+
+  <book xml:id="math486-game-theory">
+    <title>Game Theory: Reading Companion for Math 486</title>
+    <subtitle>Penn State University</subtitle>
+
+    <!-- Include frontmatter -->
+    <xi:include href="./frontmatter.ptx" />
+
+    <!-- Include chapters -->
+    <xi:include href="./chapters/chapter1/ch1-title.ptx" />
+    <xi:include href="./chapters/chapter2/ch2-title.ptx" />
+    <xi:include href="./chapters/chapter3/ch3-title.ptx" />
+    <xi:include href="./chapters/chapter4/ch4-title.ptx" />
+    <xi:include href="./chapters/chapter5/ch5-title.ptx" />
+    <xi:include href="./chapters/chapter6/ch6-title.ptx" />
+    <xi:include href="./chapters/chapter7/ch7-title.ptx" />
+    <xi:include href="./chapters/chapter8/ch8-title.ptx" />
+    <xi:include href="./chapters/chapter9/ch9-title.ptx" />
+    <xi:include href="./chapters/chapter10/ch10-title.ptx" />
+
+    <!-- Include backmatter -->
+    <xi:include href="./backmatter.ptx" />
+
+  </book>
+</pretext>
