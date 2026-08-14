@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page4-ultimatum-and-centipede" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Ultimatum Game and the Centipede Game</title>
+
+  <p>
+    On this page we'll look at two more examples. Both can be analyzed with backward induction.
+    However, we will see some counterintuitive results that 
+    have us considering some nuanced points about backward induction. While backward induction might give us the truly
+     "rational" solution, there are often other considerations when people choose their strategies!
+  </p>
+
+  <assemblage xml:id="read-1-7">
+    <title>Section 1.7, The Ultimatum Game</title>
+    <p>
+      <alert> Read Section 1.7.</alert> 
+    </p>
+
+    <p> The backward induction here is quick, but it results
+      in a solution that you might not feel great about!</p>
+  </assemblage>
+
+  Let's reflect on this further:
+
+  <exercise xml:id="check-ultimatum-psychology">
+    <statement>
+      <p>
+        Backward induction says Player 2 should accept any positive offer,
+        even $1, since something beats nothing. So Player 1 should offer
+        as little as possible to maximize their earnings. But in real experiments, people routinely
+        reject offers below around $40. What's the best explanation for
+        this?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice>
+        <statement>
+          <p>Player 2 doesn't understand the rules of the game.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, this behavior shows up consistently even when
+            players clearly understand the game. Something else is going
+            on.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>A low offer feels unfair, and people are often willing to
+          sacrifice their own payoff to punish someone treating them
+          unfairly.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. This connects back to Section 1.6: rejecting a low
+            offer functions like an implied threat, punishing an unfair
+            offer at a real cost to yourself. It also suggests that
+            "payoff" might mean more than just dollars, being treated
+            fairly can be worth something too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Player 2 is simply being irrational, and there's no way to
+          make sense of this within game theory.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The book suggests a way to make this rational
+            again, by reconsidering what actually belongs in Player 2's
+            payoff.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The next section explores a game that's a bit more interesting.
+  </p>
+
+  <p>
+    Here's the setup for Section 1.8's game:
+    Two players, Mutt and Jeff, start with $2 each and take turns. On your turn (let's say you're Mutt), you can cooperate
+    (the game master hands you $1) or defect (you steal $2 from the other
+    player). <alert>The game ends the moment someone defects, or once both
+    players have reached $100, whichever comes first. </alert>
+  </p>
+
+
+<p>Go through the interactive below to play the game (it doesn't go through all rounds!). </p>
+  <interactive xml:id="centipede-game" iframe="ch1-graph/centipede-game-interactive.html" width="100%" aspect="4:3">
+    <title>Play the Centipede Game</title>
+  </interactive>
+
+  <p>If you chose to cooperate every round, you'll notice that Jeff defected on round 98. This
+  ensures he'll get $101, since he knows that if he waits and cooperates instead, you (being
+  rational) would defect right back at him on the very next move for $100, leaving him with only
+  $99. Knowing Jeff will think this way, you realize you would have been better off defecting
+  yourself back on round 97, walking away with $100 instead of $98. Would this change Jeff's
+  strategy if he suspects you'd reason this far ahead?
+  </p>
+  <assemblage xml:id="read-1-8">
+    <title>Section 1.8, Rosenthal's Centipede Game</title>
+    <p>
+    <alert>  Read Section 1.8.</alert>
+    </p>
+
+    <p>This section finds the rational strategy for both players using backward induction. 
+    You can think about this first on your own! Are you surprised by the result? </p>
+  </assemblage>
+
+ <p>So, continuing the logic we realized in the paragraph before the reading, we find the rational strategy
+ would be for you to defect on the first (!!!) round. Leaving you with four dollars, and Jeff with nothing. 
+ In the following question, consider why it might be a better strategy to cooperate for longer. </p>
+  
+  <exercise xml:id="check-centipede-signaling">
+    <statement>
+      <p>
+        We just saw that the "rational" strategy, found through backward
+        induction, is for you to defect on the very first round, leaving
+        you with a pretty measly payoff. Why might someone choose an
+        "irrational" strategy instead, and cooperate for much longer than
+        that?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Cooperating signals to Jeff that you're willing to keep
+          cooperating for a while, which gives both of you a shot at
+          raising your totals much higher than an immediate defection
+          ever could.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Backward induction assumes both players are
+            flawlessly rational and know the other is too, all the way
+            down. In practice, cooperating early is a kind of signal, an
+            invitation to keep building the pot together, and it's worth
+            the risk because the potential upside (climbing toward $100)
+            is so much bigger than the guaranteed small payoff from
+            defecting immediately.
+          </p>
+        </feedback>
+      </choice>
+
+      <choice>
+        <statement>
+          <p>Because we know Jeff will not defect until round 98.</p>
+        </statement>
+        <feedback>
+          <p>
+            We don't know what Jeff will do!
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Because Jeff's rational strategy in this case would be to cooperate, thus raising both of your totals.</p>
+        </statement>
+        <feedback>
+          <p>
+            The rational response for Jeff, in the case you cooperate, is still to defect!
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+</section>

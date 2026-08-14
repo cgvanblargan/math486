@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- AUTO-GENERATED INDEX FILE, edit tools/book_structure.yaml and rerun
-     tools/build_structure.py instead of hand-editing the include list. -->
-<section xml:id="sec-what-is-a-game" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>What is an Extensive Form Game?</title>
-
-  <xi:include href="./sec-what-is-a-game/page1-what-is-a-game.ptx" />
-</section>

@@ -18,17 +18,20 @@
   <!-- for those in the next element. -->
   <latex-image-preamble> \usepackage{tikz, pgfplots} \usetikzlibrary{positioning,matrix,arrows} \usetikzlibrary{shapes,decorations,shadows,fadings,patterns} \usetikzlibrary{decorations.markings} </latex-image-preamble>
 
-  <!--
-    CONVENTIONS FOR THIS BOOK. See tools/README.md for full notes.
+ <!--
+    CONVENTIONS FOR THIS BOOK. See README.md for full notes.
     This book is a reading companion, not a self contained textbook.
-    Two reusable custom block types are used throughout, both built from
-    the task element, so they get consistent numbering and styling
-    automatically:
+    Two reusable custom block types are used throughout:
 
       1. Reading directive: tells the student what to read and how.
+         Built from assemblage (renamed book-wide to "Reading" below).
+         Assemblage gives a full bordered box with the title on its own
+         line, unlike remark (thin border only, run-in title) or task
+         (no box at all by default). This book dedicates assemblage
+         exclusively to reading directives.
          (xml:id prefix: "read-")
       2. Reflection: a written, ungraded reflective question.
-         (xml:id prefix: "reflect-")
+         Built from task. (xml:id prefix: "reflect-", type="reflection")
 
     Auto graded "checkpoint" questions use the normal exercise element
     (xml:id prefix: "check-").
@@ -36,5 +39,5 @@
     See source/chapters/chapter1/sections/sec-what-is-a-game/page1-what-is-a-game.ptx
     for a fully worked example of all three in context.
   -->
-
+  <rename element="assemblage" xml:lang="en-US">Reading</rename>
 </docinfo>

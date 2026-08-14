@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page1-what-is-a-game" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>What is an Extensive Form Game?</title>
+
+  <p>
+    This is our first example of a <em>game</em> in the mathematical sense: two
+    people, each trying to do the best for themselves, where what's "best"
+    depends on what the other person does. It looks like a simple story about
+    a fender-bender, but the way we turn it into a diagram, a
+    <term>game tree</term>, is a structure we will use for the rest of
+    the semester. Pay close attention to how the story becomes a picture.
+  </p>
+
+  <assemblage xml:id="read-1-1">
+    <title>Section 1.1, Tony's Accident</title>
+    <p>
+      Read Section 1.1 of <em>Game Theory in Action</em>.
+    </p>
+  </assemblage>
+
+  <task xml:id="reflect-1-1" type="reflection">
+    <title>Pause and Reflect</title>
+    <statement>
+      <p>
+        Before you read on in the book: if you were advising Tony after the
+        first game tree (Figure 1.1), what would you tell him to do?
+      </p>
+      <p>
+        Now that you've seen how the book resolves it, Tony is out
+        $80 no matter what he does, does that match your instinct?
+        The authors write, "We did not like this game." What do you think is
+        bugging them about it, if anything is bugging you too?
+      </p>
+      <p>
+        Write a few sentences. There's no single right answer here, this is
+        about noticing your own intuition before the math takes over.
+      </p>
+    </statement>
+  </task>
+
+  <assemblage xml:id="read-1-2">
+    <title>Section 1.2, Games in Extensive Form with Complete Information</title>
+    <p>
+      Read Section 1.2.
+    </p>
+  </assemblage>
+
+  <p>
+    All of this is really just formalizing the type of game we're studying
+    right now: an <em>extensive form game with complete information</em>.
+    Here's the informal version, which is honestly the important part.
+  </p>
+
+  <p>
+    "Extensive form" is really just the name for representing a game as a
+    <em>tree</em>, the same kind you just saw in Figure 1.2. There's a
+    single starting point, the root node, where the first player to move
+    makes their choice. Each choice branches out to a new point in the
+    tree, sometimes another player's turn, sometimes the end of the game.
+    Every branch eventually dead-ends at a terminal node, where the game is
+    over and everyone gets their payoff. Because it's a tree, there's never
+    any ambiguity about how you got somewhere: if you know where you are,
+    you know the exact sequence of choices that got you there.
+  </p>
+
+  <p>
+    "Complete information" means everyone can see the entire tree, at every
+    point, not just their own branch, not just their own payoffs. Nobody is
+    missing information about the structure of the game or what's at stake
+    for anyone else. (That's different from not knowing what your opponent
+    will actually choose, that's the whole point of playing a game, and
+    it's still totally allowed under complete information. Complete
+    information just means you know the rules and the stakes, not that you
+    can read minds.)
+  </p>
+
+  <p>
+    To make that concrete: imagine Tony has no idea whether the repair is
+    actually worth $20 to Vic or $200. Tony can still see the tree's
+    <em>shape</em>, the actions, the order of play, but he can't fill in
+    Vic's payoffs with any real confidence. That's a game with
+    <em>incomplete</em> information. It's still a perfectly good tree, and
+    Tony and Vic are still playing a real game, but Tony is missing a piece
+    of the picture that complete information would have handed him for
+    free. (This is exactly the kind of situation Chapter 4 is built
+    around.)
+  </p>
+
+  <p>
+    That's really the whole idea. Everything below is vocabulary for
+    talking about the pieces of a tree precisely, worth having on hand for
+    reference, but the big picture is just: draw the tree, make sure
+    everyone can see the whole thing.
+  </p>
+
+  <p>
+    Below is the second game tree from the book (Figure 1.2), where Tony has
+    a third option: send $40 up front and the rest once Vic provides a
+    receipt. Use the buttons to explore what the different pieces of the
+    tree are called.
+  </p>
+
+  <figure xml:id="fig-tree-toggle-1-1">
+    <caption>
+      An interactive version of Figure 1.2. Toggle between plain view, root
+      and terminal nodes, a sample path through the tree, and the payoffs
+      at each terminal node.
+    </caption>
+    <interactive xml:id="interactive-tree-toggle-1-1"
+      iframe="ch1-graph/tree-toggle-1-1.html" width="100%" aspect="9:5">
+      <static>
+        <p>
+          A game tree for Tony's Accident with three of Tony's actions at
+          the root (send $80, demand receipt, send $40), Vic responding
+          with repair/don't repair after "demand receipt" and after "send
+          $40," and payoffs (&#8722;80, 80), (&#8722;80, 20), (0, 0),
+          (&#8722;80, 20), (&#8722;40, 40) at the five terminal nodes, in
+          that order.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    For reference, here's the precise vocabulary from 1.2, tied back to the
+    diagram above.
+  </p>
+
+  <figure xml:id="fig-vocab-accordion-1-2">
+    <caption>Key vocabulary from Section 1.2.</caption>
+    <interactive xml:id="interactive-vocab-accordion-1-2"
+      iframe="ch1-graph/vocab-accordion-1-2.html" width="100%" aspect="3:2">
+      <static>
+        <p>
+          A list of five vocabulary items with definitions: players, nodes,
+          and moves; root node and terminal node; path and history;
+          labeling; and the payoff function.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+</section>

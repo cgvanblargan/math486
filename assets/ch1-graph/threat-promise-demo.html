@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Threats and Promises: Big Monkey and Little Monkey</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --path: #1e8449;
+    --payoff: #922b21;
+    --muted: #5a6a6d;
+    --commit: #8a5c14;
+    --panel-bg: #f7f7f5;
+    --focus: #2563eb;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--ink); }
+  svg { display: block; margin: 0 auto; max-width: 1050px; width: 100%; height: auto; }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+  .controls { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; margin-bottom: 8px; }
+  button {
+    font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--ink); background: white; color: var(--ink); cursor: pointer;
+  }
+  button.active { background: var(--ink); color: white; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .caption {
+    max-width: 720px; margin: 10px auto 0; padding: 10px 14px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    font-size: 14.5px; line-height: 1.45; text-align: center;
+  }
+  .edge { stroke: var(--ink); stroke-width: 1.5; fill: none; transition: opacity 0.3s, stroke 0.3s, stroke-width 0.3s; }
+  .edge.faded { opacity: 0.25; }
+  .edge.actual { stroke: var(--path); stroke-width: 4; }
+  .edge.threatened { stroke: var(--commit); stroke-width: 2; stroke-dasharray: 4 3; }
+  .action-label { font-size: 26px; fill: var(--ink); transition: opacity 0.3s; }
+  .action-label.faded { opacity: 0.3; }
+  .action-label.actual { fill: var(--path); font-weight: bold; }
+  .node-dot { fill: var(--ink); }
+  .player-label { font-size: 26px; fill: var(--ink); }
+  .payoff-pair { font-size: 27px; text-anchor: middle; fill: var(--payoff); font-weight: bold; transition: opacity 0.3s; }
+  .payoff-pair.faded { opacity: 0.35; }
+  .commit-tag { font-size: 27px; font-weight: bold; fill: var(--commit); text-anchor: middle; opacity: 0; transition: opacity 0.3s; }
+  .criterion-tag { font-size: 27px; font-weight: bold; fill: var(--payoff); text-anchor: start; opacity: 0; transition: opacity 0.3s; }
+  .criterion-tag.show { opacity: 1; }
+  .commit-tag.show { opacity: 1; }
+  .node-c-tag { font-size: 20px; font-weight: bold; font-style: italic; fill: var(--muted); text-anchor: middle; opacity: 0; transition: opacity 0.3s; }
+  .node-c-tag.show { opacity: 1; }
+  .pi-tag { font-size: 19px; font-weight: bold; fill: var(--payoff); text-anchor: middle; opacity: 0; transition: opacity 0.3s; }
+  .pi-tag.show { opacity: 1; }
+  .node-c-arrow { stroke: var(--muted); stroke-width: 2; fill: none; opacity: 0; transition: opacity 0.3s; marker-end: url(#arrowhead); }
+  .node-c-arrow.show { opacity: 1; }
+
+  .strike-mark {
+    stroke: #c0392b;
+    stroke-width: 4.5;
+    stroke-linecap: round;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .strike-mark.show { opacity: 1; }
+  .given-up-label {
+    font-size: 27px;
+    font-weight: bold;
+    font-style: italic;
+    fill: #c0392b;
+    text-anchor: middle;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .given-up-label.show { opacity: 1; }
+</style>
+</head>
+<body>
+
+<h2 style="text-align:center; font-family:serif; font-size:20px; margin:4px 0 12px; color:var(--ink);">Threat and Promise Interactive</h2>
+<div id="detail-intro" style="display:none; max-width:720px; margin:0 auto 10px; font-family:serif; font-size:15px; line-height:1.4; text-align:center; color:var(--muted);"></div>
+
+<div class="controls">
+  <button id="btn-original" class="active" aria-pressed="true">Original (rational)</button>
+  <button id="btn-threat" aria-pressed="false">Show threat</button>
+  <button id="btn-promise" aria-pressed="false">Show promise</button>
+</div>
+<div class="caption" id="caption" role="status" aria-live="polite"></div>
+<div class="sr-only" id="sr-status" role="status" aria-live="polite"></div>
+
+<svg viewBox="0 0 1050 590" role="img" aria-label="Big Monkey and Little Monkey tree, showing the effect of a threat or promise">
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="var(--muted)"/>
+    </marker>
+  </defs>
+  <path class="edge" id="edge-root-wait" d="M525,60 L300,190"/>
+  <path class="edge" id="edge-root-climb" d="M525,60 L750,190"/>
+  <path class="edge" id="edge-l1-wait" d="M300,190 L150,340"/>
+  <path class="edge" id="edge-l1-climb" d="M300,190 L450,340"/>
+  <path class="edge" id="edge-l2-wait" d="M750,190 L600,340"/>
+  <path class="edge" id="edge-l2-climb" d="M750,190 L900,340"/>
+
+  <text class="action-label" id="lbl-root-wait" x="415" y="115" text-anchor="end">wait</text>
+  <text class="action-label" id="lbl-root-climb" x="635" y="115" text-anchor="start">climb</text>
+  <text class="action-label" id="lbl-l1-wait" x="225" y="252" text-anchor="end">wait</text>
+  <text class="action-label" id="lbl-l1-climb" x="375" y="252" text-anchor="start">climb</text>
+  <text class="action-label" id="lbl-l2-wait" x="675" y="252" text-anchor="end">wait</text>
+  <text class="action-label" id="lbl-l2-climb" x="825" y="252" text-anchor="start">climb</text>
+
+  <circle class="node-dot" cx="525" cy="60" r="5"/>
+  <text class="player-label" x="535" y="52">Big Monkey</text>
+
+  <circle class="node-dot" cx="300" cy="190" r="5"/>
+  <text class="player-label" x="340" y="180">Little Monkey</text>
+  <text class="node-c-tag" id="tag-c-l1" x="150" y="150">node c</text>
+  <line class="node-c-arrow" id="arrow-c-l1" x1="190" y1="160" x2="288" y2="185"/>
+  <text class="commit-tag" id="commit-l1" x="220" y="230">committed: wait (m')</text>
+  <text class="pi-tag" id="pi-l1" x="150" y="178" style="display:none"></text>
+
+  <circle class="node-dot" cx="750" cy="190" r="5"/>
+  <text class="player-label" x="760" y="182">Little Monkey</text>
+  <text class="node-c-tag" id="tag-c-l2" x="620" y="150">node c</text>
+  <line class="node-c-arrow" id="arrow-c-l2" x1="660" y1="158" x2="740" y2="183"/>
+  <text class="commit-tag" id="commit-l2" x="830" y="230">committed: climb (m')</text>
+  <text class="pi-tag" id="pi-l2" x="620" y="178" style="display:none"></text>
+
+  <text class="criterion-tag" id="criterion-l1" x="300" y="425"></text>
+  <text class="criterion-tag" id="criterion-l2" x="750" y="425"></text>
+
+  <circle class="node-dot" cx="150" cy="340" r="5"/>
+  <text class="payoff-pair" id="pay-wait-wait" x="150" y="365">(0, 0)</text>
+  <text class="pi-tag" id="pi-under-wait-wait" x="150" y="392" style="font-size:38px">&#960;&#8321;'=0, &#960;&#8322;'=0</text>
+
+  <circle class="node-dot" cx="450" cy="340" r="5"/>
+  <text class="payoff-pair" id="pay-wait-climb" x="450" y="365">(9, 1)</text>
+  <text class="pi-tag" id="pi-under-wait-climb" x="450" y="392" style="font-size:38px">&#960;&#8321;=9, &#960;&#8322;=1</text>
+
+  <circle class="node-dot" cx="600" cy="340" r="5"/>
+  <text class="payoff-pair" id="pay-climb-wait" x="600" y="365">(4, 4)</text>
+  <text class="pi-tag" id="pi-under-climb-wait" x="600" y="392" style="font-size:38px">&#960;&#8321;=4, &#960;&#8322;=4</text>
+
+  <circle class="node-dot" cx="900" cy="340" r="5"/>
+  <text class="payoff-pair" id="pay-climb-climb" x="900" y="365">(5, 3)</text>
+  <text class="pi-tag" id="pi-under-climb-climb" x="900" y="392" style="font-size:38px">&#960;&#8321;'=5, &#960;&#8322;'=3</text>
+
+  <g id="strike-l1" transform="translate(375,265)">
+    <line class="strike-mark" x1="-14" y1="-14" x2="14" y2="14"/>
+    <line class="strike-mark" x1="-14" y1="14" x2="14" y2="-14"/>
+  </g>
+  <text class="given-up-label" id="label-l1" x="375" y="292">(move given up, m)</text>
+
+  <g id="strike-l2" transform="translate(675,265)">
+    <line class="strike-mark" x1="-14" y1="-14" x2="14" y2="14"/>
+    <line class="strike-mark" x1="-14" y1="14" x2="14" y2="-14"/>
+  </g>
+  <text class="given-up-label" id="label-l2" x="675" y="292">(move given up, m)</text>
+</svg>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const detail = params.get("detail") === "1";
+  if (detail) {
+    document.getElementById("detail-intro").style.display = "block";
+    document.getElementById("detail-intro").textContent =
+      "\u03c0 and \u03c0' are the rational and committed payoffs, m and m' are the rational and committed moves, and c is the node where the commitment happens. All are labeled in the diagram below, matching the book's definition.";
+  }
+
+  const els = {
+    edges: ["edge-root-wait","edge-root-climb","edge-l1-wait","edge-l1-climb","edge-l2-wait","edge-l2-climb"],
+    labels: ["lbl-root-wait","lbl-root-climb","lbl-l1-wait","lbl-l1-climb","lbl-l2-wait","lbl-l2-climb"],
+    payoffs: ["pay-wait-wait","pay-wait-climb","pay-climb-wait","pay-climb-climb"]
+  };
+
+  const captions = {
+    original: {
+      html: "This is the rational outcome we found earlier: Big Monkey waits, Little Monkey climbs, ending (9, 1).",
+      plain: "This is the rational outcome we found earlier: Big Monkey waits, Little Monkey climbs, ending (9, 1)."
+    },
+    threat: {
+      html: "Little Monkey threatens to wait if Big Monkey waits, and has built up a reputation of keeping his threat. What does a rational Big Monkey do now, knowing this?<br><br>See the updated tree below, notice which move is crossed out.",
+      plain: "Little Monkey threatens to wait if Big Monkey waits, and has built up a reputation of keeping his threat. What does a rational Big Monkey do now, knowing this? See the updated tree below, notice which move is crossed out."
+    },
+    promise: {
+      html: "Little Monkey promises to climb if Big Monkey climbs, and has built up a reputation of keeping his promise. Does this change what a rational Big Monkey does?<br><br>See the updated tree below, notice which move is crossed out.",
+      plain: "Little Monkey promises to climb if Big Monkey climbs, and has built up a reputation of keeping his promise. Does this change what a rational Big Monkey does? See the updated tree below, notice which move is crossed out."
+    }
+  };
+
+
+  function measureWidth(text, fontSize, bold) {
+    const tmp = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    tmp.setAttribute("font-size", fontSize);
+    if (bold) tmp.setAttribute("font-weight", "bold");
+    tmp.style.visibility = "hidden";
+    tmp.textContent = text;
+    document.querySelector("svg").appendChild(tmp);
+    const width = tmp.getComputedTextLength();
+    tmp.remove();
+    return width;
+  }
+
+  function buildBulletList(textId, centerX, baseY, items) {
+    const textEl = document.getElementById(textId);
+    textEl.innerHTML = "";
+    const bulletIndent = 26;
+    const mainLineHeight = 32;
+    const subLineHeight = 22;
+    const itemGap = 10;
+    let widths = [];
+    items.forEach(item => {
+      widths.push(measureWidth("\u2022 " + item.main, 27, true));
+      widths.push(bulletIndent + measureWidth(item.sub, 16, false));
+    });
+    const maxWidth = Math.max(...widths);
+    const startX = centerX - maxWidth / 2;
+    let y = baseY;
+    items.forEach(item => {
+      const mainSpan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      mainSpan.setAttribute("x", startX);
+      mainSpan.setAttribute("y", y);
+      mainSpan.setAttribute("font-size", "27");
+      mainSpan.setAttribute("font-weight", "bold");
+      mainSpan.textContent = "\u2022 " + item.main;
+      textEl.appendChild(mainSpan);
+      y += mainLineHeight;
+      const subSpan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      subSpan.setAttribute("x", startX + bulletIndent);
+      subSpan.setAttribute("y", y);
+      subSpan.setAttribute("font-size", "16");
+      subSpan.setAttribute("font-weight", "normal");
+      subSpan.setAttribute("font-style", "italic");
+      subSpan.textContent = item.sub;
+      textEl.appendChild(subSpan);
+      y += subLineHeight + itemGap;
+    });
+  }
+
+  function resetAll() {
+    els.edges.forEach(id => document.getElementById(id).classList.remove("faded", "actual", "threatened"));
+    els.labels.forEach(id => document.getElementById(id).classList.remove("faded", "actual"));
+    els.payoffs.forEach(id => document.getElementById(id).classList.remove("faded"));
+    document.querySelectorAll(".commit-tag, .node-c-tag, .pi-tag, .given-up-label, .node-c-arrow, .criterion-tag").forEach(el => el.classList.remove("show"));
+    document.querySelectorAll(".strike-mark").forEach(el => el.classList.remove("show"));
+  }
+
+  function showOriginal() {
+    resetAll();
+    document.getElementById("edge-root-wait").classList.add("actual");
+    document.getElementById("edge-l1-climb").classList.add("actual");
+    document.getElementById("lbl-root-wait").classList.add("actual");
+    document.getElementById("lbl-l1-climb").classList.add("actual");
+    ["edge-root-climb","edge-l1-wait","edge-l2-wait","edge-l2-climb"].forEach(id =>
+      document.getElementById(id).classList.add("faded"));
+    ["pay-wait-wait","pay-climb-wait","pay-climb-climb"].forEach(id =>
+      document.getElementById(id).classList.add("faded"));
+  }
+
+  function showThreat() {
+    resetAll();
+    document.getElementById("edge-l1-climb").classList.add("threatened");
+    document.getElementById("lbl-l1-climb").classList.add("faded");
+    document.getElementById("lbl-l1-wait").classList.add("faded");
+    document.getElementById("pay-wait-climb").classList.add("faded");
+    document.getElementById("commit-l1").classList.add("show");
+    document.getElementById("strike-l1").classList.add("show");
+    document.getElementById("label-l1").classList.add("show");
+    document.querySelectorAll("#strike-l1 .strike-mark").forEach(el => el.classList.add("show"));
+    if (detail) {
+      document.getElementById("tag-c-l1").classList.add("show");
+      document.getElementById("arrow-c-l1").classList.add("show");
+      document.getElementById("pi-under-wait-wait").classList.add("show");
+      document.getElementById("pi-under-wait-climb").classList.add("show");
+      buildBulletList("criterion-l1", 525, 445, [
+        { main: "\u03c0\u2082' < \u03c0\u2082", sub: "(Little Monkey commits to an irrational choice for both threats and promises)" },
+        { main: "threat: \u03c0\u2081' < \u03c0\u2081", sub: "(Big Monkey will be worse off here for a threat)" }
+      ]);
+      document.getElementById("criterion-l1").classList.add("show");
+    }
+  }
+
+  function showPromise() {
+    resetAll();
+    document.getElementById("edge-l2-wait").classList.add("threatened");
+    document.getElementById("lbl-l2-wait").classList.add("faded");
+    document.getElementById("lbl-l2-climb").classList.add("faded");
+    document.getElementById("pay-climb-wait").classList.add("faded");
+    document.getElementById("commit-l2").classList.add("show");
+    document.getElementById("strike-l2").classList.add("show");
+    document.getElementById("label-l2").classList.add("show");
+    document.querySelectorAll("#strike-l2 .strike-mark").forEach(el => el.classList.add("show"));
+    if (detail) {
+      document.getElementById("tag-c-l2").classList.add("show");
+      document.getElementById("arrow-c-l2").classList.add("show");
+      document.getElementById("pi-under-climb-wait").classList.add("show");
+      document.getElementById("pi-under-climb-climb").classList.add("show");
+      buildBulletList("criterion-l2", 525, 445, [
+        { main: "\u03c0\u2082' < \u03c0\u2082", sub: "(Little Monkey commits to an irrational choice for both threats and promises)" },
+        { main: "promise: \u03c0\u2081' > \u03c0\u2081", sub: "(Big Monkey will be better off here for a promise)" }
+      ]);
+      document.getElementById("criterion-l2").classList.add("show");
+    }
+  }
+
+  const buttons = {
+    original: document.getElementById("btn-original"),
+    threat: document.getElementById("btn-threat"),
+    promise: document.getElementById("btn-promise")
+  };
+  const caption = document.getElementById("caption");
+
+  const srStatus = document.getElementById("sr-status");
+
+  function setMode(mode) {
+    Object.keys(buttons).forEach(m => {
+      const isActive = m === mode;
+      buttons[m].classList.toggle("active", isActive);
+      buttons[m].setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+    caption.innerHTML = captions[mode].html;
+    srStatus.textContent = captions[mode].plain;
+    if (mode === "original") showOriginal();
+    if (mode === "threat") showThreat();
+    if (mode === "promise") showPromise();
+  }
+
+  buttons.original.addEventListener("click", () => setMode("original"));
+  buttons.threat.addEventListener("click", () => setMode("threat"));
+  buttons.promise.addEventListener("click", () => setMode("promise"));
+
+  setMode("original");
+</script>
+
+</body>
+</html>

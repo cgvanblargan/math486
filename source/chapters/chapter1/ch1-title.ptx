@@ -4,7 +4,10 @@
 <chapter xml:id="ch-backward-induction" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Backward Induction</title>
 
-  <xi:include href="./sections/sec-what-is-a-game.ptx" />
-  <xi:include href="./sections/sec-strategies.ptx" />
-  <xi:include href="./sections/sec-backward-induction-technique.ptx" />
+  <xi:include href="./page1-what-is-a-game.ptx" />
+  <xi:include href="./page2-strategies.ptx" />
+  <xi:include href="./page3-big-monkey-little-monkey.ptx" />
+  <xi:include href="./page4-ultimatum-and-centipede.ptx" />
+
+ 
 </chapter>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page3-threats-promises" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Threats and Promises</title>
+
+  <p>
+    We just spent a lot of time building up some of the notation so let's get back to looking at an example. 
+    The following example is the "Big and Little Monkey" example found in 1.5 in the book. Before we have you read it,
+    you should explore the game in the interactive below.
+  </p>
+
+<p>
+    First, the basic setup (there will be more context given in the reading later): There are two hungry monkeys (Big Monkey and Little Monkey), 
+    and a coconut hanging from a branch that both monkeys want to eat.
+    Someone has to climb to shake it down if they want ot eat it!
+    Big Monkey decides first:
+    wait or climb. Then Little Monkey decides: wait or climb. The net
+    payoffs for every combination are shown at the bottom of the tree
+    below (in the reading you will get more context for why each pay-off is the number in the tree).
+  </p>
+
+  <p>
+   Like before, we'll assume both players are rational. Perform backward induction on the tree below to see
+   what the resulting pay-offs are!
+  </p>
+
+  <figure xml:id="fig-bmlm-interactive">
+    <caption>
+      Work through Big Monkey and Little Monkey one decision at a time,
+      starting from the nodes closest to the end.
+    </caption>
+    <interactive xml:id="interactive-bmlm"
+      iframe="ch1-graph/big-monkey-little-monkey-interactive.html" width="100%" aspect="10:9">
+      <static>
+        <p>
+          An interactive walkthrough of backward induction on Big Monkey
+          and Little Monkey. Working from Little Monkey's two nodes back to
+          Big Monkey's root node, a rational Little Monkey climbs if Big
+          Monkey waits (payoff 1 beats 0) and waits if Big Monkey climbs
+          (payoff 4 beats 3). Knowing this, a rational Big Monkey waits,
+          since a payoff of 9 beats the 4 he'd get by climbing. The
+          predicted outcome is payoffs (9, 1).
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    What you just did is backward induction again, on a brand new tree.
+    Now read 1.5, where the book fills in the full story of the game.
+  </p>
+
+  <assemblage xml:id="read-1-5">
+    <title>Section 1.5, Big Monkey and Little Monkey 1</title>
+    <p>
+      <alert>Read Section 1.5.  </alert>
+      
+    </p>
+
+    <p> This will give a fuller context to the example you just worked through! It should be pretty quick.</p>
+  </assemblage>
+
+<p> Sometimes only working through the backwards induction obscures some of the intuition behind the result. 
+Let's consider the following question.
+ </p>
+  <exercise xml:id="check-why-big-monkey-waits">
+    <statement>
+      <p>
+        Both monkeys would rather wait while the other climbs. So what is
+        it about the setup that lets Big Monkey be the one who gets to
+        wait, while Little Monkey ends up climbing?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice>
+        <statement>
+          <p>Big Monkey is simply bigger and stronger, so Little Monkey has no real choice.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, size determines the climbing cost, not who gets to
+            decide what.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Big Monkey moves first, so his choice to wait is already locked in by the time Little Monkey has to decide. Little Monkey is responding to an already-fixed situation, and climbing is his best remaining option given that.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. It's specifically about move order, not raw payoff
+            size. If the order were reversed and Little Monkey moved
+            first, he'd be the one getting to wait instead.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Big Monkey's payoffs happen to be higher across the whole table, so who moves when doesn't really matter.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, flip the move order and the outcome flips too, even
+            though the payoff table stays exactly the same.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+
+
+  <p>
+    Now clearly Little Monkey is in a sub-optimal position here. There is more nuance to a 
+    game strategy that we need consider. In the next section the book explores "threats" and "promises" in games.
+   If little monkey has a reputation for always waiting, will Big Monkey still wait?
+   On the other hand, if little monkey likes to collaborate and climb together, will Big Monkey be on board?
+Explore both options by pressing the "threat" and "promise" buttons in the interactive below!
+  </p>
+
+  <figure xml:id="fig-threat-promise-demo">
+    <caption>
+      See what happens when Little Monkey commits to a different move than
+      his rational one.
+    </caption>
+    <interactive xml:id="interactive-threat-promise"
+      iframe="ch1-graph/threat-promise-demo.html" width="100%" aspect="3:2">
+      <static>
+        <p>
+          A demonstration of two commitments Little Monkey could make. If
+          Little Monkey commits to waiting no matter what, Big Monkey's
+          best response changes from waiting to climbing, and the outcome
+          becomes (4, 4) instead of (9, 1). If Little Monkey instead
+          promises to climb whenever Big Monkey climbs, Big Monkey's
+          overall decision doesn't change (he still prefers waiting, 9
+          beats 5), so the outcome stays (9, 1).
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <exercise xml:id="check-threat-outcome">
+    <statement>
+      <p>
+        If Little Monkey threatens to wait no matter what, what does a
+        rational Big Monkey do, and what's the final outcome?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice>
+        <statement>
+          <p>Big Monkey still waits, and since Little Monkey follows through on the threat, they get (0, 0).</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, this misses the whole point of a credible threat:
+            it's designed to change Big Monkey's mind, so it never
+            actually has to be carried out.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Big Monkey climbs instead, avoiding the threatened (0, 0). The game ends (4, 4).</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Believing the threat, Big Monkey compares a locked-in
+            0 (waiting) against 4 (climbing), and climbs.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Nothing changes, Big Monkey still gets 9, since threats don't affect a rational player.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, threats work precisely because they change what's
+            rational for the other player to do.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-promise-outcome">
+    <statement>
+      <p>
+        If Little Monkey promises to climb if Big Monkey climbs, what does
+        a rational Big Monkey do, and what's the final outcome?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice>
+        <statement>
+          <p>Big Monkey climbs, since the promise makes climbing more attractive (5 beats the old 4). The game ends (5, 3).</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, and this is the tempting trap: Big Monkey isn't
+            comparing 5 to the old 4, he's comparing 5 to what waiting
+            still gets him, 9.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Big Monkey still waits, since even with the promise, 9 beats 5. The game ends (9, 1), unchanged.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The promise is real, Little Monkey genuinely would
+            climb if Big Monkey did, but it doesn't end up mattering,
+            since Big Monkey never climbs in the first place.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The promise breaks the game, since it contradicts backward induction.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, nothing breaks. Little Monkey is just choosing a
+            worse move for himself, which is always allowed, it just
+            doesn't always change the outcome.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-1-6">
+    <title>Section 1.6, Threats, Promises, Commitments</title>
+    <p>
+     <alert> Read Section 1.6 </alert>.
+    </p>
+
+    <p>This reading formalizes the idea of a threat and promise more. It's easy to get lost in the notation, so keep the following
+    in mind:  
+    <ul>
+      <li>
+        <p>
+          In both threats in promises, player 1 is committing to an "irrational" move for them. It is a move that
+          makes their pay-off at this specific node worse, in hopes that this changes players 2 decision earlier in the tree. 
+        </p>
+      </li>
+      <li>
+        <p>
+          Player 1 gives a <alert>threat</alert> at given node if they commit to a move that makes the pay-off
+          worse for player 2 at this node.
+        </p>
+      </li>
+       <li>
+        <p>
+          Player 1 gives a <alert>promise</alert> at given node if they commit to a move that makes the pay-off
+          better for player 2 at this node.
+        </p>
+      </li>
+    </ul></p>
+  </assemblage>
+
+  <p>
+    The book gives this a precise, general definition using
+    <m>\pi_1, \pi_2</m> for the rational payoffs and
+    <m>\pi_1', \pi_2'</m> for the committed payoffs, at whichever node the
+    commitment happens (the book calls it node <m>c</m>). Explore the same
+    diagram again below, this time labeled with that notation.
+  </p>
+
+  <p>
+  In the diagram below, the player making the threat or promise
+  (Little Monkey) is <alert>player 2</alert>. So the roles of player 1
+  and player 2 are reversed from the definition in the book, which
+  assumes player 1 is the one making the threat.
+</p>
+
+  <figure xml:id="fig-threat-promise-demo-detail">
+    <caption>
+      The same demonstration, now labeled with the book's node and payoff
+      notation.
+    </caption>
+    <interactive xml:id="interactive-threat-promise-detail"
+      iframe="ch1-graph/threat-promise-demo.html?detail=1" width="100%" aspect="3:2">
+      <static>
+        <p>
+          The same threat and promise demonstration, labeled with node c
+          and the payoff notation. For the threat, node c is the node
+          after "wait," where the rational payoffs
+          (&#960;&#8321;,&#960;&#8322;)=(9,1) become the committed payoffs
+          (&#960;&#8321;',&#960;&#8322;')=(0,0), both going down. For the
+          promise, node c is the node after "climb," where the rational
+          payoffs (4,4) become the committed payoffs (5,3): Little
+          Monkey's own payoff goes down while Big Monkey's goes up.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+</section>
