@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tony's Accident: Interactive Game Tree</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --path: #1e8449;
+    --payoff: #922b21;
+    --root: #6b3fa0;
+    --terminal: #1a5276;
+    --muted: #5a6a6d;
+    --bg-btn: #ecf0f1;
+    --bg-btn-active: #2c3e50;
+  }
+  body {
+    margin: 0;
+    padding: 10px 12px 14px;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+    margin-bottom: 6px;
+  }
+  button {
+    font-family: serif;
+    font-size: 13px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--bg-btn-active);
+    background: var(--bg-btn);
+    color: var(--ink);
+    cursor: pointer;
+  }
+  button:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+  }
+  button.active {
+    background: var(--bg-btn-active);
+    color: white;
+    border-color: var(--bg-btn-active);
+  }
+  .caption {
+    text-align: center;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    min-height: 18px;
+    margin-bottom: 2px;
+  }
+  svg { display: block; margin: 0 auto; max-width: 1050px; width: 100%; height: auto; }
+  .edge { stroke: var(--ink); stroke-width: 1.5; fill: none; }
+  .edge-highlight { stroke: var(--path); stroke-width: 4; }
+  .action-label { font-size: 26px; fill: var(--ink); }
+  .action-label-highlight { fill: var(--path); font-weight: bold; }
+  .node-dot { fill: var(--ink); }
+  .node-dot.path-node { fill: var(--path); }
+  .player-label { font-size: 26px; fill: var(--ink); }
+  .type-tag { font-size: 25px; font-style: italic; text-anchor: middle; opacity: 0; transition: opacity 0.25s; }
+  .type-tag.show { opacity: 1; }
+  .tag-root { fill: var(--root); }
+  .tag-terminal { fill: var(--terminal); }
+  .payoff-group { opacity: 0; transition: opacity 0.25s; }
+  .payoff-group.show-payoffs { opacity: 1; }
+  .payoff-e { font-size: 24px; text-anchor: middle; fill: var(--muted); font-style: italic; }
+  .payoff-pair { font-size: 27px; text-anchor: middle; fill: var(--payoff); font-weight: bold; }
+  .payoff-pi { font-size: 25px; text-anchor: middle; fill: var(--payoff); }
+</style>
+</head>
+<body>
+
+<div class="controls">
+  <button id="btn-plain" class="active" aria-pressed="true">Plain tree</button>
+  <button id="btn-types" aria-pressed="false">Root &amp; terminal nodes</button>
+  <button id="btn-path" aria-pressed="false">Show a sample path</button>
+  <button id="btn-payoffs" aria-pressed="false">Show payoffs</button>
+</div>
+<div class="caption" id="caption" role="status" aria-live="polite"></div>
+
+<svg viewBox="0 0 1050 495" role="img" aria-label="Interactive game tree for Tony's Accident">
+
+  <!-- Edges -->
+  <path class="edge" id="edge-send80" d="M660,60 L170,190"/>
+  <path class="edge" id="edge-demand" d="M660,60 L465,190"/>
+  <path class="edge" id="edge-send40" d="M660,60 L855,190"/>
+
+  <path class="edge" id="edge-demand-repair" d="M465,190 L370,340"/>
+  <path class="edge" id="edge-demand-norepair" d="M465,190 L560,340"/>
+  <path class="edge" id="edge-send40-repair" d="M855,190 L760,340"/>
+  <path class="edge" id="edge-send40-norepair" d="M855,190 L950,340"/>
+
+  <!-- Action labels, tucked near the parent, straddling their own edge -->
+  <text class="action-label" x="395" y="118" text-anchor="end">send $80</text>
+  <text class="action-label" x="545" y="128" text-anchor="end">demand</text>
+  <text class="action-label" x="568" y="128" text-anchor="start">receipt</text>
+  <text class="action-label" x="775" y="118" text-anchor="start">send $40</text>
+
+  <text class="action-label" id="lbl-demand-repair" x="410" y="252" text-anchor="end">repair</text>
+  <text class="action-label" id="lbl-demand-norepair" x="518" y="252" text-anchor="start">don't repair</text>
+  <text class="action-label" x="800" y="252" text-anchor="end">repair</text>
+  <text class="action-label" x="908" y="252" text-anchor="start">don't repair</text>
+
+  <!-- Root node: Tony -->
+  <circle class="node-dot" id="node-root" cx="660" cy="60" r="5"/>
+  <text class="player-label" x="670" y="52">Tony</text>
+  <text class="type-tag tag-root" id="tag-root" x="760" y="14">root node</text>
+
+  <!-- Nonterminal node: Vic (demand receipt branch) -->
+  <circle class="node-dot" id="node-demand" cx="465" cy="190" r="5"/>
+  <text class="player-label" x="497" y="180">Vic</text>
+
+  <!-- Nonterminal node: Vic (send $40 branch) -->
+  <circle class="node-dot" id="node-send40" cx="855" cy="190" r="5"/>
+  <text class="player-label" x="865" y="182">Vic</text>
+
+  <!-- Terminal: send $80 (e1) -->
+  <circle class="node-dot" id="node-t-send80" cx="170" cy="190" r="5"/>
+  <text class="type-tag tag-terminal" id="tag-t-send80" x="170" y="205">terminal node</text>
+  <g class="payoff-group" id="pay-t-send80">
+    <text class="payoff-e" x="170" y="223">e&#8321;</text>
+    <text class="payoff-pair" x="170" y="251">(&#8722;80, 80)</text>
+    <text class="payoff-pi" x="170" y="277">
+      <tspan x="170" dy="0">&#960;&#8321;(e&#8321;)=&#8722;80</tspan>
+      <tspan x="170" dy="1.15em">&#960;&#8322;(e&#8321;)=80</tspan>
+    </text>
+  </g>
+
+  <!-- Terminal: demand receipt -> repair (e2) -->
+  <circle class="node-dot" id="node-t-dr" cx="370" cy="340" r="5"/>
+  <text class="type-tag tag-terminal" id="tag-t-dr" x="370" y="355">terminal node</text>
+  <g class="payoff-group" id="pay-t-dr">
+    <text class="payoff-e" x="370" y="373">e&#8322;</text>
+    <text class="payoff-pair" x="370" y="401">(&#8722;80, 20)</text>
+    <text class="payoff-pi" x="370" y="427">
+      <tspan x="370" dy="0">&#960;&#8321;(e&#8322;)=&#8722;80</tspan>
+      <tspan x="370" dy="1.15em">&#960;&#8322;(e&#8322;)=20</tspan>
+    </text>
+  </g>
+
+  <!-- Terminal: demand receipt -> don't repair (e3) -->
+  <circle class="node-dot" id="node-t-dn" cx="560" cy="340" r="5"/>
+  <text class="type-tag tag-terminal" id="tag-t-dn" x="560" y="355">terminal node</text>
+  <g class="payoff-group" id="pay-t-dn">
+    <text class="payoff-e" x="560" y="373">e&#8323;</text>
+    <text class="payoff-pair" x="560" y="401">(0, 0)</text>
+    <text class="payoff-pi" x="560" y="427">
+      <tspan x="560" dy="0">&#960;&#8321;(e&#8323;)=0</tspan>
+      <tspan x="560" dy="1.15em">&#960;&#8322;(e&#8323;)=0</tspan>
+    </text>
+  </g>
+
+  <!-- Terminal: send40 -> repair (e4) -->
+  <circle class="node-dot" id="node-t-40r" cx="760" cy="340" r="5"/>
+  <text class="type-tag tag-terminal" id="tag-t-40r" x="760" y="355">terminal node</text>
+  <g class="payoff-group" id="pay-t-40r">
+    <text class="payoff-e" x="760" y="373">e&#8324;</text>
+    <text class="payoff-pair" x="760" y="401">(&#8722;80, 20)</text>
+    <text class="payoff-pi" x="760" y="427">
+      <tspan x="760" dy="0">&#960;&#8321;(e&#8324;)=&#8722;80</tspan>
+      <tspan x="760" dy="1.15em">&#960;&#8322;(e&#8324;)=20</tspan>
+    </text>
+  </g>
+
+  <!-- Terminal: send40 -> don't repair (e5) -->
+  <circle class="node-dot" id="node-t-40n" cx="950" cy="340" r="5"/>
+  <text class="type-tag tag-terminal" id="tag-t-40n" x="950" y="355">terminal node</text>
+  <g class="payoff-group" id="pay-t-40n">
+    <text class="payoff-e" x="950" y="373">e&#8325;</text>
+    <text class="payoff-pair" x="950" y="401">(&#8722;40, 40)</text>
+    <text class="payoff-pi" x="950" y="427">
+      <tspan x="950" dy="0">&#960;&#8321;(e&#8325;)=&#8722;40</tspan>
+      <tspan x="950" dy="1.15em">&#960;&#8322;(e&#8325;)=40</tspan>
+    </text>
+  </g>
+
+</svg>
+
+<script>
+  const modes = ["plain", "types", "path", "payoffs"];
+  const buttons = {
+    plain: document.getElementById("btn-plain"),
+    types: document.getElementById("btn-types"),
+    path: document.getElementById("btn-path"),
+    payoffs: document.getElementById("btn-payoffs"),
+  };
+  const caption = document.getElementById("caption");
+  const captions = {
+    plain: "This is the full tree, exactly as it appears in Figure 1.2: Tony chooses first, then (in two of the three cases) Vic responds.",
+    types: "The top node -- Tony's first move -- is the root node (there's always exactly one). The five nodes at the bottom, where a payoff pair is written, are the terminal nodes.",
+    path: "One complete path from root to a terminal node: Tony demands a receipt, then Vic repairs the car. A strategy for the whole game corresponds to a full path like this one, but it also has to say what a player WOULD do at nodes the path never actually reaches.",
+    payoffs: "Each terminal node is labeled e\u2081 through e\u2085 here so we can refer to them individually. At each one, Tony's payoff is \u03c0\u2081 and Vic's payoff is \u03c0\u2082."
+  };
+
+  const pathEdgeIds = ["edge-demand", "edge-demand-repair"];
+  const pathNodeIds = ["node-root", "node-demand", "node-t-dr"];
+  const pathLabelIds = ["lbl-demand-repair"];
+
+  function setMode(mode) {
+    modes.forEach(m => {
+      const isActive = m === mode;
+      buttons[m].classList.toggle("active", isActive);
+      buttons[m].setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+    caption.textContent = captions[mode];
+
+    document.querySelectorAll(".type-tag").forEach(el => el.classList.remove("show"));
+    document.querySelectorAll(".edge").forEach(el => el.classList.remove("edge-highlight"));
+    document.querySelectorAll(".action-label").forEach(el => el.classList.remove("action-label-highlight"));
+    document.querySelectorAll(".node-dot").forEach(el => el.classList.remove("path-node"));
+    document.querySelectorAll(".payoff-group").forEach(el => el.classList.remove("show-payoffs"));
+
+    if (mode === "types") {
+      document.querySelectorAll(".type-tag").forEach(el => el.classList.add("show"));
+    }
+    if (mode === "path") {
+      pathEdgeIds.forEach(id => document.getElementById(id).classList.add("edge-highlight"));
+      pathNodeIds.forEach(id => document.getElementById(id).classList.add("path-node"));
+      pathLabelIds.forEach(id => document.getElementById(id).classList.add("action-label-highlight"));
+    }
+    if (mode === "payoffs") {
+      document.querySelectorAll(".payoff-group").forEach(el => el.classList.add("show-payoffs"));
+    }
+  }
+
+  Object.keys(buttons).forEach(mode => {
+    buttons[mode].addEventListener("click", () => setMode(mode));
+  });
+
+  setMode("plain");
+</script>
+
+</body>
+</html>

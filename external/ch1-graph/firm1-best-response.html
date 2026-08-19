@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firm 1's Optimal Choice</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #922b21;
+    --curve: #2563eb;
+    --tangent: #1e8449;
+  }
+  body { margin: 0; padding: 10px 14px 18px; font-family: serif; background: transparent; color: var(--ink); }
+  h2 { text-align: center; font-size: 19px; margin: 4px 0 10px; }
+  .slider-row {
+    max-width: 560px; margin: 0 auto 14px; padding: 10px 18px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    display: flex; align-items: center; gap: 14px; font-size: 15px;
+  }
+  .slider-row label { white-space: nowrap; font-weight: bold; }
+  .slider-row input[type=range] { flex: 1; }
+  .slider-row .s-value { min-width: 100px; text-align: right; font-weight: bold; color: var(--accent); }
+  .panel {
+    max-width: 560px; margin: 0 auto; background: var(--panel-bg); border: 1px solid #d5d8dc;
+    border-radius: 10px; padding: 14px; text-align: center;
+  }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  .readout { max-width: 560px; margin: 12px auto 0; text-align: center; font-size: 15px; }
+  .readout b { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useMemo } = React;
+
+function pi1(s) { return 8 * s - s * s; }
+
+function CurvePanel({ sPointer }) {
+  const W = 480, H = 360;
+  const marginL = 60, marginR = 25, marginT = 30, marginB = 50;
+  const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
+  const S_LO = 0, S_HI = 10;
+  const sStar = 4, peakVal = pi1(sStar);
+
+  const N = 200;
+  const pts = [];
+  let yMin = Infinity, yMax = -Infinity;
+  for (let i = 0; i <= N; i++) {
+    const s = S_LO + (S_HI - S_LO) * i / N;
+    const y = pi1(s);
+    pts.push([s, y]);
+    if (y < yMin) yMin = y;
+    if (y > yMax) yMax = y;
+  }
+  const yPad = (yMax - yMin) * 0.15;
+  yMin -= yPad; yMax += yPad;
+
+  const toX = (s) => marginL + (s - S_LO) / (S_HI - S_LO) * plotW;
+  const toY = (y) => marginT + (yMax - y) / (yMax - yMin) * plotH;
+
+  const curveD = pts.map(([s, y], i) => (i === 0 ? "M" : "L") + toX(s).toFixed(1) + "," + toY(y).toFixed(1)).join(" ");
+  const pointerY = pi1(sPointer);
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      <line x1={marginL} y1={marginT} x2={marginL} y2={H - marginB} stroke="#888" />
+      <line x1={marginL} y1={H - marginB} x2={W - marginR} y2={H - marginB} stroke="#888" />
+      {yMin < 0 && yMax > 0 &&
+        <line x1={marginL} y1={toY(0)} x2={W - marginR} y2={toY(0)} stroke="#ccc" />}
+      <path d={curveD} fill="none" stroke="#2563eb" strokeWidth="2.5" />
+
+      <line x1={toX(sStar - 2.5)} y1={toY(peakVal)} x2={toX(sStar + 2.5)} y2={toY(peakVal)}
+        stroke="#1e8449" strokeWidth="2" strokeDasharray="6 4" />
+      <line x1={toX(sStar)} y1={toY(peakVal)} x2={toX(sStar)} y2={H - marginB}
+        stroke="#922b21" strokeWidth="1.5" strokeDasharray="3 3" />
+      <circle cx={toX(sStar)} cy={toY(peakVal)} r="5" fill="#922b21" />
+
+      <line x1={toX(sPointer)} y1={toY(pointerY)} x2={toX(sPointer)} y2={H - marginB}
+        stroke="#5a6a6d" strokeWidth="1" strokeDasharray="2 3" />
+      <circle cx={toX(sPointer)} cy={toY(pointerY)} r="5" fill="#2563eb" stroke="white" strokeWidth="1.5" />
+
+      <text x={W - marginR - 25} y={H - marginB + 20} fontFamily="serif" fontSize="13" fill="#1a1a1a">s &#8594;</text>
+      <text x="18" y={marginT + plotH/2} fontFamily="serif" fontSize="13" fill="#1a1a1a"
+        transform={`rotate(-90, 18, ${marginT + plotH/2})`}>&#960;&#8321;(s, b(s))</text>
+      <text x={toX(sStar) + 10} y={toY(peakVal) - 12} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#1e8449">
+        d&#960;&#8321;/ds = 0
+      </text>
+      <text x={toX(sStar) - 35} y={H - marginB + 20} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#922b21">
+        s = s* = 4
+      </text>
+    </svg>
+  );
+}
+
+function App() {
+  const [s, setS] = useState(1);
+  const y = useMemo(() => pi1(s), [s]);
+
+  return (
+    <div>
+      <h2>Firm 1's Payoff, Anticipating Firm 2's Best Response</h2>
+      <div className="slider-row">
+        <label htmlFor="s-slider">Firm 1's production, s:</label>
+        <input id="s-slider" type="range" min="0" max="10" step="0.1" value={s}
+          onChange={(e) => setS(parseFloat(e.target.value))} />
+        <span className="s-value">s = {s.toFixed(1)}, &#960;&#8321; = ${y.toFixed(2)}</span>
+      </div>
+      <div className="panel">
+        <CurvePanel sPointer={s} />
+      </div>
+      <div className="readout">
+        The maximum occurs at <b>s = s* = 4</b>, giving Firm 1 a payoff of <b>$16</b>.
+        Slide s to see how far off any other choice leaves Firm 1.
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</body>
+</html>

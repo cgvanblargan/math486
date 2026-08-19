@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 1.2 Vocabulary</title>
+<style>
+  :root {
+    --ink: #2c3e50;
+    --accent: #1a5276;
+    --muted: #5a6a6d;
+    --bg: #f7f7f5;
+  }
+  body {
+    margin: 0;
+    padding: 10px 4px 20px;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  details {
+    border: 1px solid #d5d8dc;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    background: var(--bg);
+    overflow: hidden;
+  }
+  summary {
+    cursor: pointer;
+    padding: 10px 14px;
+    font-size: 17px;
+    font-weight: bold;
+    color: var(--accent);
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary:focus-visible {
+    outline: 3px solid #2563eb;
+    outline-offset: 2px;
+  }
+  summary::after {
+    content: "+";
+    font-size: 20px;
+    color: var(--muted);
+  }
+  details[open] summary::after { content: "\2212"; }
+  .body {
+    padding: 0 14px 14px;
+  }
+  .body p { font-size: 15px; line-height: 1.45; margin: 6px 0; }
+  .tie-back {
+    margin-top: 8px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: var(--accent);
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div id="accordion"></div>
+
+<script>
+const terms = [
+  {
+    term: "Players, nodes, and moves",
+    def: "A game in extensive form with complete information starts with three basic ingredients: a set of players P, a set of nodes N, and a set of actions or moves B. Each move connects two nodes, a start and an end.",
+    tieBack: "In the diagram above, the players are Tony and Vic, the nodes are the black dots, and the moves are the lines connecting them."
+  },
+  {
+    term: "Root node and terminal node",
+    def: "A root node is a node that represents the the start of the first move a game; a game has exactly one. A terminal node is a node that isn't the start of any move, so once you reach one, the game is over.",
+    tieBack: "Click \u201cRoot & terminal nodes\u201d on the diagram above: the very top dot (Tony's first move) is the root node, and the five dots at the bottom, where the payoffs sit, are the terminal nodes."
+  },
+  {
+    term: "Path and history",
+    def: "A path is a sequence of moves where each move's end is the next move's start, and a complete path is one that isn't part of any longer path. Paths are also called histories, and complete paths are complete histories, so you'll see both words used for the same idea.",
+    tieBack: "In the diagram, following the lines from the root all the way down to any one terminal node traces out a complete path (or complete history)."
+  },
+  {
+    term: "Labeling",
+    def: "Every nonterminal node gets labeled with whose turn it is there. This is called labeling, and it's really just a fancy name for \u201cwhose move is this.\u201d",
+    tieBack: "In the diagram, the root is labeled Tony, and the two nodes below it are both labeled Vic."
+  },
+  {
+    term: "Payoff function",
+    def: "For each player i, a payoff function \u03c0\u1d62 assigns a number to every complete path (or, since this is a finite game, to every terminal node). If e is a terminal node, \u03c0\u2081(e) is Tony's payoff there and \u03c0\u2082(e) is Vic's.",
+    tieBack: "Click \u201cShow payoffs\u201d on the diagram above to see both the plain payoff pair and the \u03c0\u1d62 notation at each terminal node."
+  }
+];
+
+const container = document.getElementById("accordion");
+
+terms.forEach((t) => {
+  const details = document.createElement("details");
+
+  const summary = document.createElement("summary");
+  summary.textContent = t.term;
+  details.appendChild(summary);
+
+  const body = document.createElement("div");
+  body.className = "body";
+
+  const defP = document.createElement("p");
+  defP.textContent = t.def;
+  body.appendChild(defP);
+
+  const tieP = document.createElement("p");
+  tieP.className = "tie-back";
+  tieP.textContent = t.tieBack;
+  body.appendChild(tieP);
+
+  details.appendChild(body);
+  container.appendChild(details);
+});
+</script>
+
+</body>
+</html>

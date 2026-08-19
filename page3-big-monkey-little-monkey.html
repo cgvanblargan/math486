@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Big Monkey and Little Monkey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta name="twitter:description" content='A reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='A reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.40bd1420d3277749.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.b388362b5f43738a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Reading Companion for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Dr. Russ deForest</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page2-strategies-and-backward-induction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-backward-induction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-eliminating-dominated-strategies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page3-big-monkey-little-monkey.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Big Monkey and Little Monkey</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-eliminating-dominated-strategies-placeholder.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-nash-equilibria-placeholder.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-incomplete-information-placeholder.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria-placeholder.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-more-extensive-form-placeholder.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-symmetries-of-games-placeholder.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Alternatives to the Nash Equilibrium</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-alternatives-to-nash-placeholder.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-equations.html" class="internal"><span class="codenumber">9</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-differential-equations-placeholder.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-evolutionary-dynamics.html" class="internal"><span class="codenumber">10</span> <span class="title">Evolutionary Dynamics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-evolutionary-dynamics-placeholder.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page3-big-monkey-little-monkey">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Big Monkey and Little Monkey</span>
+</h2>
+<div class="para" id="page3-big-monkey-little-monkey-2">Time to use the tools you’ve built up so far on a brand new example, no reading first. Here’s the setup.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-big-monkey-little-monkey-3">Big Monkey and Little Monkey want to eat a coconut hanging from a branch. Someone has to climb the tree and shake it down before either of them can eat. If Big Monkey climbs, it costs him some energy. If Little Monkey climbs, it barely costs him anything, he’s small. Whoever doesn’t climb gets a head start eating once the coconut falls. Big Monkey decides first: wait or climb. Then Little Monkey decides: wait or climb. The net payoffs (in energy) for every combination are shown at the bottom of the tree below.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-big-monkey-little-monkey-4">We’re going to assume every player is rational: if one action gives them a strictly better payoff than another, they take it. That’s the whole rule you need. Use it to work out what each monkey would actually do below, one node at a time.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bmlm-interactive"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/big-monkey-little-monkey-interactive.html" id="interactive-bmlm" style="width:600px; height:457px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-bmlm.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Work through Big Monkey and Little Monkey one decision at a time, starting from the nodes closest to the end.<div class="autopermalink" data-description="Figure 1.3.1"><a href="#fig-bmlm-interactive" title="Copy heading and permalink for Figure 1.3.1" aria-label="Copy heading and permalink for Figure 1.3.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page3-big-monkey-little-monkey-6">What you just did is backward induction again, on a brand new tree. Now read 1.5, where the book fills in the story (kilocalories, why the costs are what they are) and confirms the result.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-1-5"><h3 class="heading"><span class="title">Section 1.5, Big Monkey and Little Monkey 1.</span></h3>
+<div class="para" id="read-1-5-2">Read Section 1.5.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 1.5, Big Monkey and Little Monkey 1"><a href="#read-1-5" title="Copy heading and permalink for Reading: Section 1.5, Big Monkey and Little Monkey 1" aria-label="Copy heading and permalink for Reading: Section 1.5, Big Monkey and Little Monkey 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-why-big-monkey-waits"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-why-big-monkey-waits-1-1">Both monkeys would rather wait while the other climbs. So what is it about the setup that lets Big Monkey be the one who gets to wait, while Little Monkey ends up climbing?<div class="autopermalink" data-description="Paragraph"><a href="#check-why-big-monkey-waits-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-why-big-monkey-waits" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-why-big-monkey-waits_opt_a">
+<div class="para" id="check-why-big-monkey-waits-2-1-1-1">Big Monkey is simply bigger and stronger, so Little Monkey has no real choice.</div>
+</li>
+<li data-component="feedback" id="rs-check-why-big-monkey-waits_opt_a">
+<div class="para" id="check-why-big-monkey-waits-2-1-2-1">Not quite, size determines the climbing cost, not who gets to decide what.</div>
+</li>
+<li data-component="answer" id="rs-check-why-big-monkey-waits_opt_b" data-correct="">
+<div class="para" id="check-why-big-monkey-waits-2-2-1-1">Big Monkey moves first, so his choice to wait is already locked in by the time Little Monkey has to decide. Little Monkey is responding to an already-fixed situation, and climbing is his best remaining option given that.</div>
+</li>
+<li data-component="feedback" id="rs-check-why-big-monkey-waits_opt_b">
+<div class="para" id="check-why-big-monkey-waits-2-2-2-1">Correct. It’s specifically about move order, not raw payoff size. If the order were reversed and Little Monkey moved first, he’d be the one getting to wait instead.</div>
+</li>
+<li data-component="answer" id="rs-check-why-big-monkey-waits_opt_c">
+<div class="para" id="check-why-big-monkey-waits-2-3-1-1">Big Monkey’s payoffs happen to be higher across the whole table, so who moves when doesn’t really matter.</div>
+</li>
+<li data-component="feedback" id="rs-check-why-big-monkey-waits_opt_c">
+<div class="para" id="check-why-big-monkey-waits-2-3-2-1">Not quite, flip the move order and the outcome flips too, even though the payoff table stays exactly the same.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.2"><a href="#check-why-big-monkey-waits" title="Copy heading and permalink for Checkpoint 1.3.2" aria-label="Copy heading and permalink for Checkpoint 1.3.2">🔗</a></div>
+</article>
+<div class="para" id="page3-big-monkey-little-monkey-9">That’s really the deeper point of backward induction: it’s not just a technique for solving a tree, it’s what gives a player confidence that their move is actually safe. Big Monkey can predict Little Monkey’s future rational response before it happens, precisely because he trusts that Little Monkey is rational too.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-big-monkey-little-monkey-10">Here’s a strange wrinkle, though. What if Little Monkey could commit, in advance, to something other than his rational plan, even something that’s worse for him at that one spot, specifically to change how Big Monkey reacts? Explore the two buttons below before reading anything else.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-threat-promise-demo"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/threat-promise-demo.html" id="interactive-threat-promise" style="width:600px; height:333px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-threat-promise.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>See what happens when Little Monkey commits to a different move than his rational one.<div class="autopermalink" data-description="Figure 1.3.3"><a href="#fig-threat-promise-demo" title="Copy heading and permalink for Figure 1.3.3" aria-label="Copy heading and permalink for Figure 1.3.3">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-threat-outcome"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-threat-outcome-1-1">If Little Monkey threatens to wait no matter what, what does a rational Big Monkey do, and what’s the final outcome?<div class="autopermalink" data-description="Paragraph"><a href="#check-threat-outcome-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-threat-outcome" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-threat-outcome_opt_a">
+<div class="para" id="check-threat-outcome-2-1-1-1">Big Monkey still waits, and since Little Monkey follows through on the threat, they get (0, 0).</div>
+</li>
+<li data-component="feedback" id="rs-check-threat-outcome_opt_a">
+<div class="para" id="check-threat-outcome-2-1-2-1">Not quite, this misses the whole point of a credible threat: it’s designed to change Big Monkey’s mind, so it never actually has to be carried out.</div>
+</li>
+<li data-component="answer" id="rs-check-threat-outcome_opt_b" data-correct="">
+<div class="para" id="check-threat-outcome-2-2-1-1">Big Monkey climbs instead, avoiding the threatened (0, 0). The game ends (4, 4).</div>
+</li>
+<li data-component="feedback" id="rs-check-threat-outcome_opt_b">
+<div class="para" id="check-threat-outcome-2-2-2-1">Correct. Believing the threat, Big Monkey compares a locked-in 0 (waiting) against 4 (climbing), and climbs.</div>
+</li>
+<li data-component="answer" id="rs-check-threat-outcome_opt_c">
+<div class="para" id="check-threat-outcome-2-3-1-1">Nothing changes, Big Monkey still gets 9, since threats don’t affect a rational player.</div>
+</li>
+<li data-component="feedback" id="rs-check-threat-outcome_opt_c">
+<div class="para" id="check-threat-outcome-2-3-2-1">Not quite, threats work precisely because they change what’s rational for the other player to do.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.4"><a href="#check-threat-outcome" title="Copy heading and permalink for Checkpoint 1.3.4" aria-label="Copy heading and permalink for Checkpoint 1.3.4">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-promise-outcome"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-promise-outcome-1-1">If Little Monkey promises to climb if Big Monkey climbs, what does a rational Big Monkey do, and what’s the final outcome?<div class="autopermalink" data-description="Paragraph"><a href="#check-promise-outcome-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-promise-outcome" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-promise-outcome_opt_a">
+<div class="para" id="check-promise-outcome-2-1-1-1">Big Monkey climbs, since the promise makes climbing more attractive (5 beats the old 4). The game ends (5, 3).</div>
+</li>
+<li data-component="feedback" id="rs-check-promise-outcome_opt_a">
+<div class="para" id="check-promise-outcome-2-1-2-1">Not quite, and this is the tempting trap: Big Monkey isn’t comparing 5 to the old 4, he’s comparing 5 to what waiting still gets him, 9.</div>
+</li>
+<li data-component="answer" id="rs-check-promise-outcome_opt_b" data-correct="">
+<div class="para" id="check-promise-outcome-2-2-1-1">Big Monkey still waits, since even with the promise, 9 beats 5. The game ends (9, 1), unchanged.</div>
+</li>
+<li data-component="feedback" id="rs-check-promise-outcome_opt_b">
+<div class="para" id="check-promise-outcome-2-2-2-1">Correct. The promise is real, Little Monkey genuinely would climb if Big Monkey did, but it doesn’t end up mattering, since Big Monkey never climbs in the first place.</div>
+</li>
+<li data-component="answer" id="rs-check-promise-outcome_opt_c">
+<div class="para" id="check-promise-outcome-2-3-1-1">The promise breaks the game, since it contradicts backward induction.</div>
+</li>
+<li data-component="feedback" id="rs-check-promise-outcome_opt_c">
+<div class="para" id="check-promise-outcome-2-3-2-1">Not quite, nothing breaks. Little Monkey is just choosing a worse move for himself, which is always allowed, it just doesn’t always change the outcome.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.3.5"><a href="#check-promise-outcome" title="Copy heading and permalink for Checkpoint 1.3.5" aria-label="Copy heading and permalink for Checkpoint 1.3.5">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="read-1-6"><h3 class="heading"><span class="title">Section 1.6, Threats, Promises, Commitments.</span></h3>
+<div class="para" id="read-1-6-2">Read Section 1.6.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 1.6, Threats, Promises, Commitments"><a href="#read-1-6" title="Copy heading and permalink for Reading: Section 1.6, Threats, Promises, Commitments" aria-label="Copy heading and permalink for Reading: Section 1.6, Threats, Promises, Commitments">🔗</a></div>
+</article>
+<div class="para" id="page3-big-monkey-little-monkey-15">The book gives this a precise, general definition using <span class="process-math">\(\pi_1, \pi_2\)</span> for the rational payoffs and <span class="process-math">\(\pi_1', \pi_2'\)</span> for the committed payoffs, at whichever node the commitment happens (the book calls it node <span class="process-math">\(c\)</span>). Explore the same diagram again below, this time labeled with that notation.<div class="autopermalink" data-description="Paragraph"><a href="#page3-big-monkey-little-monkey-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-threat-promise-demo-detail"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/threat-promise-demo.html?detail=1" id="interactive-threat-promise-detail" style="width:600px; height:333px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-threat-promise-detail.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.3.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The same demonstration, now labeled with the book’s node and payoff notation.<div class="autopermalink" data-description="Figure 1.3.6"><a href="#fig-threat-promise-demo-detail" title="Copy heading and permalink for Figure 1.3.6" aria-label="Copy heading and permalink for Figure 1.3.6">🔗</a></div></figcaption>
+</figure><div class="autopermalink" data-description="Section 1.3: Big Monkey and Little Monkey"><a href="#page3-big-monkey-little-monkey" title="Copy heading and permalink for Section 1.3: Big Monkey and Little Monkey" aria-label="Copy heading and permalink for Section 1.3: Big Monkey and Little Monkey">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page2-strategies-and-backward-induction.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-eliminating-dominated-strategies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

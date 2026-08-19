@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Continuous Games and Stackelberg’s Duopoly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Reading Companion for Math 486: Penn State University">
+<meta name="twitter:description" content='A reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='A reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.5';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.18d8728f6d56e11d.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.b388362b5f43738a.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.8086b62682b271d1.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Reading Companion for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Dr. Russ deForest</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page4-ultimatum-and-centipede.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-backward-induction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-eliminating-dominated-strategies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-nash-equilibria-placeholder.html" class="internal"><span class="codenumber">3.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-incomplete-information-placeholder.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria-placeholder.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-more-extensive-form-placeholder.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-symmetries-of-games-placeholder.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Alternatives to the Nash Equilibrium</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-alternatives-to-nash-placeholder.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-differential-equations.html" class="internal"><span class="codenumber">9</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-differential-equations-placeholder.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-evolutionary-dynamics.html" class="internal"><span class="codenumber">10</span> <span class="title">Evolutionary Dynamics</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch-evolutionary-dynamics-placeholder.html" class="internal"><span class="codenumber">10.1</span> <span class="title">Placeholder</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page5-continuous-games-stackelberg">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Continuous Games and Stackelberg’s Duopoly</span>
+</h2>
+<div class="para" id="page5-continuous-games-stackelberg-2">So far, every game we’ve looked at has had a finite menu of choices at each node: send $80 or demand a receipt, cooperate or defect. What happens when a player can choose <em class="emphasis">any</em> real number instead? That’s where calculus enters game theory, and it’s the subject of this page.<div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-1-9"><h3 class="heading"><span class="title">Section 1.9, Continuous Games.</span></h3>
+<div class="para" id="read-1-9-2">
+<em class="alert">Read Section 1.9.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-1-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-9-3">Pay attention to how backward induction gets adapted here. It’s the same core idea as before, just done with derivatives instead of a finite list of branches to compare.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 1.9, Continuous Games"><a href="#read-1-9" title="Copy heading and permalink for Reading: Section 1.9, Continuous Games" aria-label="Copy heading and permalink for Reading: Section 1.9, Continuous Games">🔗</a></div>
+</article>
+<div class="para" id="page5-continuous-games-stackelberg-4">Let’s put this to work. Stackelberg’s model of duopoly imagines two firms choosing how much of a good to produce, one right after the other. Firm 1 picks its production level <span class="process-math">\(s\)</span> first; then Firm 2 observes <span class="process-math">\(s\)</span> and picks its own production level <span class="process-math">\(t\text{.}\)</span> Each firm’s profit, <span class="process-math">\(\pi_1(s,t)\)</span> and <span class="process-math">\(\pi_2(s,t)\text{,}\)</span> depends on <em class="emphasis">both</em> quantities together, since they’re competing in the same market. You’ll see exactly how these profit formulas are built in the reading below, once you’ve gotten a feel for the logic first.<div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page5-continuous-games-stackelberg-5">Since Firm 1 moves first, it has to reason about how Firm 2 will rationally respond to <em class="emphasis">every</em> production level Firm 1 could possibly choose. In other words, before Firm 1 picks anything, we need to find Firm 2’s best-response function, <span class="process-math">\(t = b(s)\text{:}\)</span> the value of <span class="process-math">\(t\)</span> that maximizes Firm 2’s profit, for each fixed <span class="process-math">\(s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="remark remark-like" id="refresher-derivative-max"><h3 class="heading">
+<span class="type">Remark</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Refresher: finding a max with derivatives.</span>
+</h3>
+<div class="para" id="refresher-derivative-max-2">Setting a derivative equal to zero finds a <em class="alert">critical point</em>, it doesn’t automatically find a maximum. Whether that critical point actually <em class="emphasis">is</em> the max depends on two things:<div class="autopermalink" data-description="Paragraph"><a href="#refresher-derivative-max-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="refresher-derivative-max-3">
+<em class="alert">Shape of the function.</em> If the function is concave (its graph curves downward, like an upside-down parabola) over the whole domain, a critical point is guaranteed to be the single global maximum. Otherwise, a critical point could instead be a minimum, an inflection point, or just one of several local maxima.<div class="autopermalink" data-description="Paragraph"><a href="#refresher-derivative-max-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="refresher-derivative-max-4">
+<em class="alert">The domain.</em> If the domain has boundaries (a variable can’t go below 0, say), the true maximum might sit right at that boundary instead of at a point where the derivative is zero. Boundary points have to be checked separately in that case.<div class="autopermalink" data-description="Paragraph"><a href="#refresher-derivative-max-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="refresher-derivative-max-5">For a function of two variables, like <span class="process-math">\(\pi_2(s,t)\)</span> here, the same idea applies to the <em class="alert">partial derivative</em>: setting <span class="process-math">\(\partial \pi_2/\partial t = 0\)</span> (holding <span class="process-math">\(s\)</span> fixed) finds a critical point of the one-variable curve you get by slicing the surface at that particular <span class="process-math">\(s\text{.}\)</span> You’ll see both situations, the clean derivative case and the boundary case, play out below.<div class="autopermalink" data-description="Paragraph"><a href="#refresher-derivative-max-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Remark 1.5.1: Refresher: finding a max with derivatives"><a href="#refresher-derivative-max" title="Copy heading and permalink for Remark 1.5.1: Refresher: finding a max with derivatives" aria-label="Copy heading and permalink for Remark 1.5.1: Refresher: finding a max with derivatives">🔗</a></div>
+</article>
+<div class="para" id="page5-continuous-games-stackelberg-7">In the interactive below, drag the slider to set Firm 1’s production level <span class="process-math">\(s\text{.}\)</span> The left panel shows the profit surface <span class="process-math">\(\pi_2(s,t)\text{,}\)</span> sliced at your chosen <span class="process-math">\(s\text{;}\)</span> the right panel shows that same slice as a clean 2D curve of <span class="process-math">\(\pi_2\)</span> versus <span class="process-math">\(t\text{.}\)</span> Here, this curve is concave and the domain is unrestricted, so the point where the tangent line is flat (<span class="process-math">\(\partial \pi_2/\partial t = 0\)</span>) is guaranteed to be the actual maximum, no boundary check needed. That peak is Firm 2’s best response, <span class="process-math">\(b(s)\text{,}\)</span> to your chosen <span class="process-math">\(s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-firm2-bestresponse"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/firm2-best-response.html" id="interactive-firm2-bestresponse" style="width:600px; height:337px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-firm2-bestresponse.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Firm 2’s profit as a function of <span class="process-math">\(t\text{,}\)</span> for a fixed <span class="process-math">\(s\)</span> you control. The left panel shows where this curve comes from as a slice of the full profit surface; the right panel shows the slice itself, with the maximum, its flat tangent line, and <span class="process-math">\(b(s)\)</span> labeled.<div class="autopermalink" data-description="Figure 1.5.2"><a href="#fig-firm2-bestresponse" title="Copy heading and permalink for Figure 1.5.2" aria-label="Copy heading and permalink for Figure 1.5.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page5-continuous-games-stackelberg-9">Now that Firm 2’s best response is pinned down for every possible <span class="process-math">\(s\text{,}\)</span> Firm 1 can fold that entire strategy into its own decision. Firm 1’s actual payoff, once Firm 2 responds optimally, is <span class="process-math">\(\pi_1(s, b(s))\text{,}\)</span> a function of <span class="process-math">\(s\)</span> alone. Unlike Firm 2’s problem, there’s no second variable left to slice away here, so this graph is just a single 2D curve: no 3D backdrop needed, since there’s nothing being sliced.<div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-firm1-bestresponse"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/firm1-best-response.html" id="interactive-firm1-bestresponse" style="width:600px; height:337px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-firm1-bestresponse.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Firm 1’s payoff <span class="process-math">\(\pi_1(s, b(s))\)</span> as a function of <span class="process-math">\(s\text{,}\)</span> once Firm 2’s best response is accounted for.<div class="autopermalink" data-description="Figure 1.5.3"><a href="#fig-firm1-bestresponse" title="Copy heading and permalink for Figure 1.5.3" aria-label="Copy heading and permalink for Figure 1.5.3">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page5-continuous-games-stackelberg-11">You’ve now walked through the entire backward induction argument visually, solve Firm 2’s problem first, then fold that into Firm 1’s problem, before seeing a single formula. The reading below fills in the algebra behind exactly what you just watched happen.<div class="autopermalink" data-description="Paragraph"><a href="#page5-continuous-games-stackelberg-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-1-10"><h3 class="heading"><span class="title">Section 1.10, Stackelberg’s Model of Duopoly 1.</span></h3>
+<div class="para" id="read-1-10-2">
+<em class="alert">Read Section 1.10.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-10-3">For Subsection 1.10.1 (the first model): this is where <span class="process-math">\(\pi_1\text{,}\)</span> <span class="process-math">\(\pi_2\text{,}\)</span> and <span class="process-math">\(b(s)\)</span> actually get derived, the algebra behind the two graphs above. Follow this one closely, it’s the pattern the rest of the section reuses. Notice that the domain here is left unrestricted on purpose, and the profit function is concave, which is exactly why setting the derivative to zero is all that’s needed to find the max: no boundary to worry about.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-10-4">For Subsection 1.10.2 (the second model): the setup changes, production and price are no longer allowed to go negative, which makes the profit functions piecewise. You don’t need to grind through re-deriving every piecewise case by hand right now, but pay attention to what’s different (the extra cases, the threshold where price would hit the cost of production) versus what’s the same (it’s still the same optimize-Firm-2-then-Firm-1 logic). This is the boundary situation from the refresher above in action: the book has to check a boundary case explicitly here, rather than relying on a derivative alone. A checkpoint after the reading will ask you to pin down what actually changed and what didn’t.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 1.10, Stackelberg’s Model of Duopoly 1"><a href="#read-1-10" title="Copy heading and permalink for Reading: Section 1.10, Stackelberg’s Model of Duopoly 1" aria-label="Copy heading and permalink for Reading: Section 1.10, Stackelberg’s Model of Duopoly 1">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-stackelberg-second-model"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-stackelberg-second-model-1-1">In the more realistic second model (Subsection 1.10.2), production and price are no longer allowed to go negative. Does this change the equilibrium production levels or profits from the first model?<div class="autopermalink" data-description="Paragraph"><a href="#check-stackelberg-second-model-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-stackelberg-second-model" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-stackelberg-second-model_opt_a" data-correct="">
+<div class="para" id="check-stackelberg-second-model-2-1-1-1">No, the equilibrium is exactly the same: the optimal <span class="process-math">\(s^* =
+4\)</span> was already comfortably within the newly allowed range, so the new boundary never actually comes into play.</div>
+</li>
+<li data-component="feedback" id="rs-check-stackelberg-second-model_opt_a">
+<div class="para" id="check-stackelberg-second-model-2-1-2-1">Correct. The boundary only would have mattered if the unconstrained optimum had pushed production or price into negative territory. Since <span class="process-math">\(s^* = 4\)</span> is well below the threshold where things would break down (production of 8 or more), the "more realistic" version of the model quietly agrees with the simpler one.</div>
+</li>
+<li data-component="answer" id="rs-check-stackelberg-second-model_opt_b">
+<div class="para" id="check-stackelberg-second-model-2-2-1-1">Yes, Firm 1’s profit changes because it now has to account for the possibility of a zero price.</div>
+</li>
+<li data-component="feedback" id="rs-check-stackelberg-second-model_opt_b">
+<div class="para" id="check-stackelberg-second-model-2-2-2-1">Not quite, work through the numbers again: Firm 1’s optimal choice never comes close to the region where price would hit zero, so nothing about the profit calculation actually changes.</div>
+</li>
+<li data-component="answer" id="rs-check-stackelberg-second-model_opt_c">
+<div class="para" id="check-stackelberg-second-model-2-3-1-1">Yes, Firm 2 now chooses to produce nothing, since negative production is no longer allowed.</div>
+</li>
+<li data-component="feedback" id="rs-check-stackelberg-second-model_opt_c">
+<div class="para" id="check-stackelberg-second-model-2-3-2-1">Not quite, Firm 2’s best response, <span class="process-math">\(t^* = 2\text{,}\)</span> is already a positive number, so ruling out negative production doesn’t affect Firm 2’s choice at all.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.5.4"><a href="#check-stackelberg-second-model" title="Copy heading and permalink for Checkpoint 1.5.4" aria-label="Copy heading and permalink for Checkpoint 1.5.4">🔗</a></div>
+</article><div class="autopermalink" data-description="Section 1.5: Continuous Games and Stackelberg’s Duopoly"><a href="#page5-continuous-games-stackelberg" title="Copy heading and permalink for Section 1.5: Continuous Games and Stackelberg’s Duopoly" aria-label="Copy heading and permalink for Section 1.5: Continuous Games and Stackelberg’s Duopoly">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page4-ultimatum-and-centipede.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-eliminating-dominated-strategies.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

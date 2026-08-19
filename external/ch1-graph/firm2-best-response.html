@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Firm 2's Best Response</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #922b21;
+    --curve: #2563eb;
+    --tangent: #1e8449;
+  }
+  body { margin: 0; padding: 10px 14px 18px; font-family: serif; background: transparent; color: var(--ink); }
+  h2 { text-align: center; font-size: 19px; margin: 4px 0 10px; }
+  .slider-row {
+    max-width: 760px; margin: 0 auto 14px; padding: 10px 18px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    display: flex; align-items: center; gap: 14px; font-size: 15px;
+  }
+  .slider-row label { white-space: nowrap; font-weight: bold; }
+  .slider-row input[type=range] { flex: 1; }
+  .slider-row .s-value { min-width: 62px; text-align: right; font-weight: bold; color: var(--accent); }
+  .panels { display: flex; gap: 14px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; }
+  .panel {
+    flex: 1 1 380px; background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    padding: 10px; text-align: center;
+  }
+  .panel h3 { margin: 4px 0 8px; font-size: 15px; color: var(--muted); font-weight: normal; }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  .readout { max-width: 900px; margin: 12px auto 0; text-align: center; font-size: 15px; }
+  .readout b { color: var(--accent); }
+</style>
+</head>
+<body>
+
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useMemo } = React;
+
+function pi2(s, t) { return (16 - 2 * s) * t - 2 * t * t; }
+function bestResponse(s) { return 4 - 0.5 * s; }
+
+// ---- Left panel: standard 3D axes (s,t floor plane, pi2 vertical), fixed angle ----
+function SurfacePanel({ s }) {
+  const S_MIN = 0, S_MAX = 10, S_STEPS = 11;
+  const T_MIN = -2, T_MAX = 10, T_STEPS = 13;
+  const Z_MAX = 40;
+  const W = 420, H = 380;
+  const originX = 130, originY = 300;
+  const scale = 21;
+  const zScale = 2.6;
+
+  // Standard axonometric: s-axis runs to the lower-right, t-axis to the
+  // upper-right, pi2-axis straight up, all from a shared origin corner.
+  function project(sIdx, tIdx, z) {
+    const sFrac = sIdx / (S_STEPS - 1) * (S_MAX - S_MIN);
+    const tFrac = tIdx / (T_STEPS - 1) * (T_MAX - T_MIN);
+    const x = originX + sFrac * scale * 0.95 - tFrac * scale * 0.35;
+    const y = originY - sFrac * scale * 0.32 - tFrac * scale * 0.62 - z * zScale;
+    return [x, y];
+  }
+  const sToIdx = (sv) => (sv - S_MIN) / (S_MAX - S_MIN) * (S_STEPS - 1);
+  const tToIdx = (tv) => (tv - T_MIN) / (T_MAX - T_MIN) * (T_STEPS - 1);
+
+  const gridLinesT = [];
+  for (let si = 0; si < S_STEPS; si++) {
+    const sv = S_MIN + si * (S_MAX - S_MIN) / (S_STEPS - 1);
+    let d = "";
+    for (let ti = 0; ti < T_STEPS; ti++) {
+      const tv = T_MIN + ti * (T_MAX - T_MIN) / (T_STEPS - 1);
+      const [x, y] = project(si, ti, pi2(sv, tv));
+      d += (ti === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+    }
+    gridLinesT.push(d);
+  }
+  const gridLinesS = [];
+  for (let ti = 0; ti < T_STEPS; ti++) {
+    const tv = T_MIN + ti * (T_MAX - T_MIN) / (T_STEPS - 1);
+    let d = "";
+    for (let si = 0; si < S_STEPS; si++) {
+      const sv = S_MIN + si * (S_MAX - S_MIN) / (S_STEPS - 1);
+      const [x, y] = project(si, ti, pi2(sv, tv));
+      d += (si === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+    }
+    gridLinesS.push(d);
+  }
+
+  // origin marker for axis arrows (s=0, t=T_MIN, z=0)
+  const originPt = project(0, 0, 0);
+
+  const sliceIdx = sToIdx(s);
+  let sliceD = "";
+  const N = 60;
+  for (let i = 0; i <= N; i++) {
+    const tv = T_MIN + (T_MAX - T_MIN) * i / N;
+    const [x, y] = project(sliceIdx, tToIdx(tv), pi2(s, tv));
+    sliceD += (i === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+  }
+
+  // axis arrows, from the origin corner (s=0, t=T_MIN, z=0)
+  const sAxisEnd = project(S_STEPS - 1 + 1.3, 0, 0);
+  const tAxisEnd = project(0, T_STEPS - 1 + 1.3, 0);
+  const zAxisEnd = project(0, 0, Z_MAX * 1.1);
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      {/* surface wireframe */}
+      {gridLinesT.map((d, i) => <path key={"t"+i} d={d} fill="none" stroke="#9fb0b8" strokeWidth="1" />)}
+      {gridLinesS.map((d, i) => <path key={"s"+i} d={d} fill="none" stroke="#9fb0b8" strokeWidth="1" />)}
+
+      {/* highlighted slice */}
+      <path d={sliceD} fill="none" stroke="#c0392b" strokeWidth="3" />
+
+      {/* axis arrows */}
+      <line x1={originPt[0]} y1={originPt[1]} x2={sAxisEnd[0]} y2={sAxisEnd[1]} stroke="#1a1a1a" strokeWidth="1.5" markerEnd="url(#arrow)" />
+      <line x1={originPt[0]} y1={originPt[1]} x2={tAxisEnd[0]} y2={tAxisEnd[1]} stroke="#1a1a1a" strokeWidth="1.5" markerEnd="url(#arrow)" />
+      <line x1={originPt[0]} y1={originPt[1]} x2={zAxisEnd[0]} y2={zAxisEnd[1]} stroke="#1a1a1a" strokeWidth="1.5" markerEnd="url(#arrow)" />
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+          <path d="M0,0 L8,4 L0,8 Z" fill="#1a1a1a" />
+        </marker>
+      </defs>
+
+      <text x={sAxisEnd[0] + 4} y={sAxisEnd[1] + 4} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">s</text>
+      <text x={tAxisEnd[0] + 4} y={tAxisEnd[1] - 4} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">t</text>
+      <text x={zAxisEnd[0] - 22} y={zAxisEnd[1] - 2} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">&#960;&#8322;</text>
+
+      <text x="150" y="24" fontFamily="serif" fontSize="12" fontWeight="bold" fill="#c0392b">slice at your chosen s</text>
+    </svg>
+  );
+}
+
+// ---- Right panel: precise 2D curve with tangent + labels ----
+// Fixed window (not recentered/rescaled per s) so movement of the peak is
+// actually visible as s changes.
+const CURVE_T_LO = -2, CURVE_T_HI = 10;
+const CURVE_Y_LO = -25, CURVE_Y_HI = 40;
+
+function CurvePanel({ s }) {
+  const W = 420, H = 360;
+  const marginL = 55, marginR = 20, marginT = 30, marginB = 45;
+  const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
+  const bS = bestResponse(s);
+
+  const N = 200;
+  const pts = [];
+  for (let i = 0; i <= N; i++) {
+    const t = CURVE_T_LO + (CURVE_T_HI - CURVE_T_LO) * i / N;
+    pts.push([t, pi2(s, t)]);
+  }
+  const peakY = pi2(s, bS);
+
+  const toX = (t) => marginL + (t - CURVE_T_LO) / (CURVE_T_HI - CURVE_T_LO) * plotW;
+  const toY = (y) => marginT + (CURVE_Y_HI - y) / (CURVE_Y_HI - CURVE_Y_LO) * plotH;
+
+  const curveD = pts.map(([t, y], i) => (i === 0 ? "M" : "L") + toX(t).toFixed(1) + "," + toY(y).toFixed(1)).join(" ");
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      <line x1={marginL} y1={marginT} x2={marginL} y2={H - marginB} stroke="#888" />
+      <line x1={marginL} y1={H - marginB} x2={W - marginR} y2={H - marginB} stroke="#888" />
+      <line x1={marginL} y1={toY(0)} x2={W - marginR} y2={toY(0)} stroke="#ccc" />
+      <path d={curveD} fill="none" stroke="#2563eb" strokeWidth="2.5" />
+      <line x1={toX(bS - 3)} y1={toY(peakY)} x2={toX(bS + 3)} y2={toY(peakY)}
+        stroke="#1e8449" strokeWidth="2" strokeDasharray="6 4" />
+      <line x1={toX(bS)} y1={toY(peakY)} x2={toX(bS)} y2={H - marginB}
+        stroke="#922b21" strokeWidth="1.5" strokeDasharray="3 3" />
+      <circle cx={toX(bS)} cy={toY(peakY)} r="5" fill="#922b21" />
+      <text x={W - marginR - 25} y={H - marginB + 20} fontFamily="serif" fontSize="13" fill="#1a1a1a">t &#8594;</text>
+      <text x="16" y={marginT + plotH/2} fontFamily="serif" fontSize="13" fill="#1a1a1a"
+        transform={`rotate(-90, 16, ${marginT + plotH/2})`}>&#960;&#8322;(s, t)</text>
+      <text x={toX(bS) + 10} y={toY(peakY) - 10} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#1e8449">
+        &#8706;&#960;&#8322;/&#8706;t = 0
+      </text>
+      <text x={toX(bS) - 45} y={H - marginB + 20} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#922b21">
+        t = b(s) = {bS.toFixed(2)}
+      </text>
+    </svg>
+  );
+}
+
+function App() {
+  const [s, setS] = useState(3);
+  const bS = useMemo(() => bestResponse(s), [s]);
+  const profit = useMemo(() => pi2(s, bS), [s, bS]);
+
+  return (
+    <div>
+      <h2>Firm 2's Best Response, for Fixed s</h2>
+      <div className="slider-row">
+        <label htmlFor="s-slider">Firm 1's production, s:</label>
+        <input id="s-slider" type="range" min="0" max="10" step="0.5" value={s}
+          onChange={(e) => setS(parseFloat(e.target.value))} />
+        <span className="s-value">s = {s.toFixed(1)}</span>
+      </div>
+      <div className="panels">
+        <div className="panel">
+          <h3>The full profit surface &#960;&#8322;(s, t), sliced at your chosen s</h3>
+          <SurfacePanel s={s} />
+        </div>
+        <div className="panel">
+          <h3>That slice, as a precise 2D curve</h3>
+          <CurvePanel s={s} />
+        </div>
+      </div>
+      <div className="readout">
+        Firm 2's best response to <b>s = {s.toFixed(1)}</b> is <b>t = b(s) = {bS.toFixed(2)}</b>,
+        giving Firm 2 a profit of <b>${profit.toFixed(2)}</b>.
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Play the Centipede Game</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --path: #1e8449;
+    --payoff: #922b21;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --focus: #2563eb;
+  }
+  body { margin: 0; padding: 10px 14px 18px; font-family: serif; background: transparent; color: var(--ink); }
+  h2 { text-align: center; font-size: 20px; margin: 4px 0 10px; }
+  .intro {
+    max-width: 720px; margin: 0 auto 16px; padding: 12px 16px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    font-size: 15px; line-height: 1.5;
+  }
+  .intro strong { color: var(--payoff); }
+  .scoreboard {
+    display: flex; justify-content: center; gap: 40px; margin-bottom: 16px;
+    font-size: 17px; font-weight: bold;
+  }
+  .scoreboard span.you { color: var(--path); }
+  .scoreboard span.jeff { color: var(--payoff); }
+  .panel {
+    max-width: 700px; margin: 0 auto; padding: 18px 20px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    text-align: center;
+  }
+  .panel h3 { margin: 0 0 10px; font-size: 19px; }
+  .panel p { font-size: 15px; line-height: 1.5; margin: 0 0 14px; }
+  .choice-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  button.choice-btn {
+    font-family: serif; font-size: 16px; padding: 10px 22px; border-radius: 8px;
+    border: 1.5px solid var(--ink); background: white; color: var(--ink); cursor: pointer;
+  }
+  button.choice-btn:hover { background: #eef2f5; }
+  button.choice-btn:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  button.cooperate { border-color: var(--path); color: var(--path); font-weight: bold; }
+  button.defect { border-color: var(--payoff); color: var(--payoff); font-weight: bold; }
+  .narration { font-style: italic; color: var(--muted); font-size: 15px; margin: 10px 0; }
+  .final-box {
+    max-width: 700px; margin: 0 auto; padding: 18px 20px;
+    border-radius: 10px; text-align: center; display: none;
+  }
+  .final-box.defected-early { background: #fdecea; border: 1.5px solid #c0392b; }
+  .final-box.betrayed { background: #fdecea; border: 1.5px solid #c0392b; }
+  .final-box h3 { margin: 0 0 10px; font-size: 20px; }
+  .final-box p { font-size: 15.5px; line-height: 1.55; text-align: left; }
+  .reset-row { text-align: center; margin-top: 16px; }
+  .reset-btn {
+    font-family: serif; font-size: 13.5px; padding: 6px 14px; border-radius: 999px;
+    border: 1px solid var(--muted); background: white; color: var(--muted); cursor: pointer;
+  }
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+</style>
+</head>
+<body>
+
+<h2>Play the Centipede Game</h2>
+
+<div class="intro">
+  You'll be taking on the role of Mutt (Player 1). Just play this as you
+  naturally would, without overanalyzing it, the backward induction comes
+  later. And don't assume the other player (Jeff) is necessarily playing
+  an optimal strategy either.
+  <br><br>
+  The game will skip ahead to round 97 after round 2. So don't worry, you
+  won't be clicking through every round! Remember, the game ends either when both plays get to 
+  $100, or as soon as someone defects (steals from the other).
+</div>
+
+<div class="scoreboard">
+  <span>You: <span class="you" id="you-total">$2</span></span>
+  <span>Jeff: <span class="jeff" id="jeff-total">$2</span></span>
+</div>
+
+<div class="panel" id="panel">
+  <h3 id="panel-title">Round 1</h3>
+  <p id="panel-text">It's your turn. Cooperate and you get $1. Defect and you steal $2 from Jeff, but the game ends immediately.</p>
+  <div class="choice-row" id="choice-row">
+    <button class="choice-btn cooperate" id="btn-cooperate">Cooperate (+$1)</button>
+    <button class="choice-btn defect" id="btn-defect">Defect (steal $2, ends the game)</button>
+  </div>
+  <p class="narration" id="narration" style="display:none;"></p>
+</div>
+
+<div class="final-box" id="final-box">
+  <h3 id="final-title"></h3>
+  <p id="final-text"></p>
+</div>
+
+<div class="reset-row">
+  <button class="reset-btn" id="reset-btn">Play again</button>
+</div>
+
+<div class="sr-only" id="sr-status" role="status" aria-live="polite"></div>
+
+<script>
+  let you = 2, jeff = 2, round = 1;
+  const youTotalEl = document.getElementById("you-total");
+  const jeffTotalEl = document.getElementById("jeff-total");
+  const panel = document.getElementById("panel");
+  const panelTitle = document.getElementById("panel-title");
+  const panelText = document.getElementById("panel-text");
+  const choiceRow = document.getElementById("choice-row");
+  const narration = document.getElementById("narration");
+  const finalBox = document.getElementById("final-box");
+  const finalTitle = document.getElementById("final-title");
+  const finalText = document.getElementById("final-text");
+  const srStatus = document.getElementById("sr-status");
+
+  function updateScores() {
+    youTotalEl.textContent = "$" + you;
+    jeffTotalEl.textContent = "$" + jeff;
+  }
+
+  function endGame(titleClass, title, text) {
+    panel.style.display = "none";
+    finalBox.className = "final-box " + titleClass;
+    finalBox.style.display = "block";
+    finalTitle.textContent = title;
+    finalText.textContent = text;
+    srStatus.textContent = title + ". " + text;
+  }
+
+  function showRound(n, isLast) {
+    round = n;
+    panelTitle.textContent = "Round " + n;
+    panelText.textContent = "It's your turn again. Cooperate and you get $1. Defect and you steal $2 from Jeff, but the game ends immediately.";
+    narration.style.display = "none";
+    choiceRow.style.display = "flex";
+    srStatus.textContent = "Round " + n + ". Cooperate for $1 or defect to steal $2 from Jeff and end the game.";
+  }
+
+  function handleCooperate() {
+    you += 1;
+    if (round !== 98) {
+      jeff += 1;
+    }
+    updateScores();
+
+    if (round === 1) {
+      choiceRow.style.display = "none";
+      narration.style.display = "block";
+      narration.textContent = "Jeff also cooperates this round.";
+      srStatus.textContent = narration.textContent;
+      setTimeout(() => {
+        showRound(2);
+      }, 1400);
+    } else if (round === 2) {
+      // Skip ahead narration
+      choiceRow.style.display = "none";
+      narration.style.display = "block";
+      narration.textContent = "Many rounds pass. You and Jeff keep cooperating, round after round, both totals climbing steadily...";
+      you = 98; jeff = 98;
+      updateScores();
+      srStatus.textContent = narration.textContent;
+      setTimeout(() => {
+        showRound(97);
+      }, 2200);
+    } else if (round === 97) {
+      you = 99; jeff = 99;
+      updateScores();
+      choiceRow.style.display = "none";
+      narration.style.display = "block";
+      narration.textContent = "Jeff also cooperates this round.";
+      srStatus.textContent = narration.textContent;
+      setTimeout(() => {
+        showRound(98);
+      }, 1400);
+    } else if (round === 98) {
+      // Jeff defects here instead of letting the pot reach $100/$100
+      choiceRow.style.display = "none";
+      updateScores();
+      narration.style.display = "block";
+      narration.textContent = "Right as you go to cooperate, Jeff defects first.";
+      srStatus.textContent = narration.textContent;
+      setTimeout(() => {
+        you = 98; jeff = 101;
+        updateScores();
+        endGame("betrayed", "Jeff defected on round 98.",
+          "You cooperated all the way to round 98 (you still get your $1 for cooperating), but Jeff struck first, stealing $2 from you for a final $101, while you were left with $98. If you'd defected first on round 97, you'd have walked away with $100 instead.");
+      }, 2200);
+    }
+  }
+
+  function handleDefect() {
+    you += 2;
+    jeff -= 2;
+    updateScores();
+    if (round === 1) {
+      endGame("defected-early", "You defected on round 1.",
+        "You: $4. Jeff: $0. The game ends the instant anyone defects, so this is as far as it goes. Notice this is exactly what backward induction will end up predicting, you just got there by instinct instead of analysis.");
+    } else if (round === 2) {
+      endGame("defected-early", "You defected on round 2.",
+        "You: $5. Jeff: $1. A small head start turned into a bigger one the moment you defected.");
+    } else if (round === 97) {
+      endGame("defected-early", "You defected on round 97.",
+        "You: $100. Jeff: $96. You came out ahead here, but notice you still walked away before the game could have kept climbing further.");
+    } else if (round === 98) {
+      endGame("defected-early", "You defected on round 98.",
+        "You: $101. Jeff: $97. You beat Jeff to the punch, he was about to steal from you on this very round.");
+    }
+  }
+
+  document.getElementById("btn-cooperate").addEventListener("click", handleCooperate);
+  document.getElementById("btn-defect").addEventListener("click", handleDefect);
+
+  document.getElementById("reset-btn").addEventListener("click", () => {
+    you = 2; jeff = 2; round = 1;
+    updateScores();
+    finalBox.style.display = "none";
+    panel.style.display = "block";
+    showRound(1);
+  });
+
+  updateScores();
+</script>
+
+</body>
+</html>
