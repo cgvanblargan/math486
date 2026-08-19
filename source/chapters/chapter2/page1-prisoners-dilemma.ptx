@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch2-page1-prisoners-dilemma" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Prisoner's Dilemma and Normal Form</title>
+
+  <p>
+    Chapter 2 looks at games where players move simultaneously instead of
+    taking turns.
+  </p>
+
+  <p>
+    Play the game below against a robot opponent at least three times before
+    reading on.
+  </p>
+
+  <figure xml:id="fig-prisoners-dilemma-robot">
+    <caption>Prisoner's Dilemma, played repeatedly against a robot.</caption>
+    <interactive xml:id="interactive-prisoners-dilemma-robot"
+      iframe="ch2-graph/prisoners-dilemma-robot.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Buttons to choose "refuse" or "talk" each round against a robot
+          opponent, with a payoff matrix, a running table of results, and
+          total years in jail for each player.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <assemblage xml:id="read-2-1">
+    <title>Section 2.1, Prisoner's Dilemma</title>
+    <p>
+      <alert> Read Section 2.1.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    The robot you played against was following <alert>tit-for-tat</alert>: it
+    cooperates on the first round, then simply copies whatever you did the
+    round before. This is a common strategy in the <em>repeated</em>
+    Prisoner's Dilemma, where the same two players face each other over and
+    over. In a single, one-shot round, the rational move is to always talk.
+    But if you're going to face the same opponent again, always talking can
+    backfire: you build a reputation as someone who defects, and future
+    opponents (or the same one) may punish you for it.
+  </p>
+
+  <exercise xml:id="check-pd-defining-feature">
+    <statement>
+      <p>
+        Games structured like the Prisoner's Dilemma can have very different
+        specific payoffs. What's the defining feature that makes a game "a
+        Prisoner's Dilemma," regardless of the exact numbers involved?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>There's a strategy that's always better for each player no
+          matter what the other player does, but if both players use it,
+          they're worse off than if they'd both chosen the alternative.</p>
+        </statement>
+        <feedback>
+          <p>Correct.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Both players always end up with the same payoff.</p>
+        </statement>
+        <feedback>
+          <p>Not quite, check the matrix again, the payoffs aren't equal in every outcome.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>One player always does better than the other, regardless of
+          strategy.</p>
+        </statement>
+        <feedback>
+          <p>Not quite, the game is symmetric, both players face the exact
+          same incentives.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Unlike Tony's Accident or the centipede game, players in the Prisoner's
+    Dilemma don't move one after another, they choose at the same time. Games
+    like this are described using what's called <alert>normal form</alert>,
+    which you'll read about now.
+  </p>
+
+  <assemblage xml:id="read-2-2">
+    <title>Section 2.2, Games in Normal Form</title>
+    <p>
+      <alert> Read Section 2.2.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Here's a different game, also in normal form:
+  </p>
+
+  <p>
+    <em>Player 1's strategies: Up, Down. Player 2's strategies: Left,
+    Right.</em>
+  </p>
+
+  <table xml:id="table-generic-normal-form">
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell>Left</cell>
+        <cell>Right</cell>
+      </row>
+      <row>
+        <cell>Up</cell>
+        <cell>(3, 2)</cell>
+        <cell>(0, 0)</cell>
+      </row>
+      <row>
+        <cell>Down</cell>
+        <cell>(1, 1)</cell>
+        <cell>(4, 3)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <exercise xml:id="check-normal-form-cartesian">
+    <statement>
+      <p>
+        For this game, <m>P = \{1, 2\}</m>, <m>S_1 = \{Up, Down\}</m>, and
+        <m>S_2 = \{Left, Right\}</m>. Which of the following correctly
+        describes <m>S = S_1 \times S_2</m>, the set of strategy profiles?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>S = \{(Up,Left), (Up,Right), (Down,Left), (Down,Right)\}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. <m>S</m> pairs every strategy of Player 1 with every
+            strategy of Player 2, so it's one entry per cell of the matrix,
+            four in this case.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>S = \{Up, Down, Left, Right\}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, this just lists the individual strategies without
+            pairing them. A strategy profile is a <em>choice by both
+            players at once</em>, not a single player's option.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>S = \{(Up,Left), (Down,Right)\}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, this only pairs matching strategies. The cartesian
+            product includes <em>every</em> combination, including
+            (Up,Right) and (Down,Left).
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-normal-form-payoff-eval">
+    <statement>
+      <p>
+        Using the matrix above, what is <m>\pi(Down, Left)</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>(1, 1)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, the strategy profile (Down, Left) is the row Down,
+            column Left, giving payoff 1 to each player.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>(4, 3)</m></p>
+        </statement>
+        <feedback>
+          <p>Not quite, that's the payoff for (Down, Right), not (Down, Left).</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>(3, 2)</m></p>
+        </statement>
+        <feedback>
+          <p>Not quite, that's the payoff for (Up, Left), not (Down, Left).</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+</section>

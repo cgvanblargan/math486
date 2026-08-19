@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page5-continuous-games-stackelberg" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Continuous Games and Stackelberg's Duopoly</title>
+
+  <p>
+    So far, every game we've looked at has had a finite menu of choices at each
+    node: send $80 or demand a receipt, cooperate or defect. What happens when a
+    player can choose <em>any</em> real number instead? That's where calculus
+    enters game theory, and it's the subject of this page.
+  </p>
+
+  <assemblage xml:id="read-1-9">
+    <title>Section 1.9, Continuous Games</title>
+    <p>
+      <alert> Read Section 1.9.</alert>
+    </p>
+    <p>
+      Pay attention to how backward induction gets adapted here. It's the same
+      core idea as before, just done with derivatives instead of a finite list
+      of branches to compare.
+    </p>
+  </assemblage>
+
+  <p>
+    Let's put this to work. Stackelberg's model of duopoly imagines two firms
+    choosing how much of a good to produce, one right after the other. Firm 1
+    picks its production level <m>s</m> first; then Firm 2 observes <m>s</m>
+    and picks its own production level <m>t</m>. Each firm's profit,
+    <m>\pi_1(s,t)</m> and <m>\pi_2(s,t)</m>, depends on <em>both</em>
+    quantities together, since they're competing in the same market. You'll see
+    exactly how these profit formulas are built in the reading below, once
+    you've gotten a feel for the logic first.
+  </p>
+
+  <p>
+    Since Firm 1 moves first, it has to reason about how Firm 2 will
+    rationally respond to <em>every</em> production level Firm 1 could
+    possibly choose. In other words, before Firm 1 picks anything, we need to
+    find Firm 2's best-response function, <m>t = b(s)</m>: the value of
+    <m>t</m> that maximizes Firm 2's profit, for each fixed <m>s</m>.
+  </p>
+
+  <remark xml:id="refresher-derivative-max">
+    <title>Refresher: finding a max with derivatives</title>
+    <p>
+      Setting a derivative equal to zero finds a <alert>critical point</alert>,
+      it doesn't automatically find a maximum. Whether that critical point
+      actually <em>is</em> the max depends on two things:
+    </p>
+    <p>
+      <alert>Shape of the function.</alert> If the function is concave (its
+      graph curves downward, like an upside-down parabola) over the whole
+      domain, a critical point is guaranteed to be the single global maximum.
+      Otherwise, a critical point could instead be a minimum, an inflection
+      point, or just one of several local maxima.
+    </p>
+    <p>
+      <alert>The domain.</alert> If the domain has boundaries (a variable
+      can't go below 0, say), the true maximum might sit right at that
+      boundary instead of at a point where the derivative is zero. Boundary
+      points have to be checked separately in that case.
+    </p>
+    <p>
+      For a function of two variables, like <m>\pi_2(s,t)</m> here, the same
+      idea applies to the <alert>partial derivative</alert>: setting
+      <m>\partial \pi_2/\partial t = 0</m> (holding <m>s</m> fixed) finds a
+      critical point of the one-variable curve you get by slicing the surface
+      at that particular <m>s</m>. You'll see both situations, the clean
+      derivative case and the boundary case, play out below.
+    </p>
+  </remark>
+
+  <p>
+    In the interactive below, drag the slider to set Firm 1's production level
+    <m>s</m>. The left panel shows the profit surface <m>\pi_2(s,t)</m>,
+    sliced at your chosen <m>s</m>; the right panel shows that same slice as a
+    clean 2D curve of <m>\pi_2</m> versus <m>t</m>. Here, this curve is
+    concave and the domain is unrestricted, so the point where the tangent
+    line is flat (<m>\partial \pi_2/\partial t = 0</m>) is guaranteed to be
+    the actual maximum, no boundary check needed. That peak is Firm 2's best
+    response, <m>b(s)</m>, to your chosen <m>s</m>.
+  </p>
+
+  <figure xml:id="fig-firm2-bestresponse">
+    <caption>
+      Firm 2's profit as a function of <m>t</m>, for a fixed <m>s</m> you
+      control. The left panel shows where this curve comes from as a slice of
+      the full profit surface; the right panel shows the slice itself, with
+      the maximum, its flat tangent line, and <m>b(s)</m> labeled.
+    </caption>
+    <interactive xml:id="interactive-firm2-bestresponse"
+      iframe="ch1-graph/firm2-best-response.html" width="100%" aspect="16:9">
+      <static>
+        <p>
+          A slider for Firm 1's production level s, ranging from 0 to 10 in
+          increments of 0.5. A 3D surface plot of pi_2(s,t) on the left,
+          highlighting the curve where the surface is sliced at the current
+          s. A 2D plot on the right of that same slice, pi_2 versus t, with
+          the maximum point marked, a flat tangent line drawn at the maximum
+          labeled "d(pi_2)/dt = 0", and the corresponding t-value labeled "t
+          = b(s)".
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    Now that Firm 2's best response is pinned down for every possible
+    <m>s</m>, Firm 1 can fold that entire strategy into its own decision. Firm
+    1's actual payoff, once Firm 2 responds optimally, is
+    <m>\pi_1(s, b(s))</m>, a function of <m>s</m> alone. Unlike Firm 2's
+    problem, there's no second variable left to slice away here, so this
+    graph is just a single 2D curve: no 3D backdrop needed, since there's
+    nothing being sliced.
+  </p>
+
+  <figure xml:id="fig-firm1-bestresponse">
+    <caption>
+      Firm 1's payoff <m>\pi_1(s, b(s))</m> as a function of <m>s</m>, once
+      Firm 2's best response is accounted for.
+    </caption>
+    <interactive xml:id="interactive-firm1-bestresponse"
+      iframe="ch1-graph/firm1-best-response.html" width="100%" aspect="16:9">
+      <static>
+        <p>
+          A slider lets you set s from 0 to 10. A 2D plot of pi_1(s, b(s))
+          versus s shows a point sweeping along the curve as you move the
+          slider, alongside a fixed marker at the maximum. The maximum point
+          is marked, with a flat tangent line at the maximum labeled
+          "d(pi_1)/ds = 0", and the corresponding s-value labeled "s = s*".
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    You've now walked through the entire backward induction argument
+    visually, solve Firm 2's problem first, then fold that into Firm 1's
+    problem, before seeing a single formula. The reading below fills in the
+    algebra behind exactly what you just watched happen.
+  </p>
+
+  <assemblage xml:id="read-1-10">
+    <title>Section 1.10, Stackelberg's Model of Duopoly 1</title>
+    <p>
+      <alert> Read Section 1.10.</alert>
+    </p>
+    <p>
+      For Subsection 1.10.1 (the first model): this is where <m>\pi_1</m>,
+      <m>\pi_2</m>, and <m>b(s)</m> actually get derived, the algebra behind
+      the two graphs above. Follow this one closely, it's the pattern the
+      rest of the section reuses. Notice that the domain here is left
+      unrestricted on purpose, and the profit function is concave, which is
+      exactly why setting the derivative to zero is all that's needed to find
+      the max: no boundary to worry about.
+    </p>
+    <p>
+      For Subsection 1.10.2 (the second model): the setup changes, production
+      and price are no longer allowed to go negative, which makes the profit
+      functions piecewise. You don't need to grind through re-deriving every
+      piecewise case by hand right now, but pay attention to what's different
+      (the extra cases, the threshold where price would hit the cost of
+      production) versus what's the same (it's still the same
+      optimize-Firm-2-then-Firm-1 logic). This is the boundary situation from
+      the refresher above in action: the book has to check a boundary case
+      explicitly here, rather than relying on a derivative alone. A checkpoint
+      after the reading will ask you to pin down what actually changed and
+      what didn't.
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-stackelberg-second-model">
+    <statement>
+      <p>
+        In the more realistic second model (Subsection 1.10.2), production
+        and price are no longer allowed to go negative. Does this change the
+        equilibrium production levels or profits from the first model?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>No, the equilibrium is exactly the same: the optimal <m>s^* =
+          4</m> was already comfortably within the newly allowed range, so
+          the new boundary never actually comes into play.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The boundary only would have mattered if the
+            unconstrained optimum had pushed production or price into
+            negative territory. Since <m>s^* = 4</m> is well below the
+            threshold where things would break down (production of 8 or
+            more), the "more realistic" version of the model quietly agrees
+            with the simpler one.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Yes, Firm 1's profit changes because it now has to account for
+          the possibility of a zero price.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, work through the numbers again: Firm 1's optimal
+            choice never comes close to the region where price would hit
+            zero, so nothing about the profit calculation actually changes.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Yes, Firm 2 now chooses to produce nothing, since negative
+          production is no longer allowed.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, Firm 2's best response, <m>t^* = 2</m>, is already a
+            positive number, so ruling out negative production doesn't
+            affect Firm 2's choice at all.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+</section>

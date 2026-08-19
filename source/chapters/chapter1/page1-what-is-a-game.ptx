@@ -4,75 +4,47 @@
   <title>What is an Extensive Form Game?</title>
 
   <p>
-    This is our first example of a <em>game</em> in the mathematical sense: two
-    people, each trying to do the best for themselves, where what's "best"
-    depends on what the other person does. It looks like a simple story about
-    a fender-bender, but the way we turn it into a diagram, a
-    <term>game tree</term>, is a structure we will use for the rest of
-    the semester. Pay close attention to how the story becomes a picture.
+    Start by reading the following section in <em>Game Theory in Action</em>! We will break down some of the ideas
+    in the readings in these notes, but the reading itself is central to learning the material. 
   </p>
 
   <assemblage xml:id="read-1-1">
     <title>Section 1.1, Tony's Accident</title>
     <p>
-      Read Section 1.1 of <em>Game Theory in Action</em>.
+     <alert> Read Section 1.1</alert>
     </p>
+
+    <p> Here you will see our first example of a game! You will analyze the game with a <alert> game tree </alert> </p>
   </assemblage>
 
-  <task xml:id="reflect-1-1" type="reflection">
-    <title>Pause and Reflect</title>
-    <statement>
-      <p>
-        Before you read on in the book: if you were advising Tony after the
-        first game tree (Figure 1.1), what would you tell him to do?
-      </p>
-      <p>
-        Now that you've seen how the book resolves it, Tony is out
-        $80 no matter what he does, does that match your instinct?
-        The authors write, "We did not like this game." What do you think is
-        bugging them about it, if anything is bugging you too?
-      </p>
-      <p>
-        Write a few sentences. There's no single right answer here, this is
-        about noticing your own intuition before the math takes over.
-      </p>
-    </statement>
-  </task>
-
+  <p> Now you should have a good feel for how a game tree represents in a game. Before we can really do more, 
+  the book introduces a lot of notation and vocabulary in section 1.2. 
+</p>
   <assemblage xml:id="read-1-2">
     <title>Section 1.2, Games in Extensive Form with Complete Information</title>
     <p>
-      Read Section 1.2.
+      <alert> Read Section 1.2.</alert>
     </p>
+    <p>There is a lot to parse here! After this reading we will summarize many of the terms. </p>
   </assemblage>
 
   <p>
     All of this is really just formalizing the type of game we're studying
     right now: an <em>extensive form game with complete information</em>.
-    Here's the informal version, which is honestly the important part.
   </p>
 
   <p>
     "Extensive form" is really just the name for representing a game as a
-    <em>tree</em>, the same kind you just saw in Figure 1.2. There's a
-    single starting point, the root node, where the first player to move
+    <em>tree</em>, like you saw in Figure 1.2. There's a
+    single starting point (the root node), where the first player to move
     makes their choice. Each choice branches out to a new point in the
-    tree, sometimes another player's turn, sometimes the end of the game.
-    Every branch eventually dead-ends at a terminal node, where the game is
-    over and everyone gets their payoff. Because it's a tree, there's never
-    any ambiguity about how you got somewhere: if you know where you are,
-    you know the exact sequence of choices that got you there.
+    tree, every branch eventually dead-ends at a terminal node, where the game is
+    over and everyone gets their payoff. 
   </p>
 
   <p>
-    "Complete information" means everyone can see the entire tree, at every
-    point, not just their own branch, not just their own payoffs. Nobody is
-    missing information about the structure of the game or what's at stake
-    for anyone else. (That's different from not knowing what your opponent
-    will actually choose, that's the whole point of playing a game, and
-    it's still totally allowed under complete information. Complete
-    information just means you know the rules and the stakes, not that you
-    can read minds.)
+    "Complete information" means everyone knows the structure of the entire tree ahead of time, including the pay-offs.
+    If in the 1.1 example, Tony didn't know how much the repair would cost Vic, then the game would have incomplete information!
   </p>
 
   <p>
@@ -85,13 +57,6 @@
     of the picture that complete information would have handed him for
     free. (This is exactly the kind of situation Chapter 4 is built
     around.)
-  </p>
-
-  <p>
-    That's really the whole idea. Everything below is vocabulary for
-    talking about the pieces of a tree precisely, worth having on hand for
-    reference, but the big picture is just: draw the tree, make sure
-    everyone can see the whole thing.
   </p>
 
   <p>
