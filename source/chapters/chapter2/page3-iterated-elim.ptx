@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch2-page4-order-dependence" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Iterated Elimination of Dominated Strategies</title>
+
+  <assemblage xml:id="read-2-8">
+    <title>Section 2.8, Iterated Elimination of Dominated Strategies</title>
+    <p>
+      <alert>Read Section 2.8.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Here's the payoff matrix from Section 2.9, the Battle of the Bismarck
+    Sea. We'll read the historical context later. For now, let's
+    just look at the iterated elimination itself.
+  </p>
+
+  <table xml:id="table-bismarck-sea">
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell>Imamura sail north</cell>
+        <cell>Imamura sail south</cell>
+      </row>
+      <row>
+        <cell>Kenney search north</cell>
+        <cell>(1&#8531;, &#8722;1&#8531;)</cell>
+        <cell>(1&#189;, &#8722;1&#189;)</cell>
+      </row>
+      <row>
+        <cell>Kenney search south</cell>
+        <cell>(1, &#8722;1)</cell>
+        <cell>(2, &#8722;2)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Before any elimination, neither of Kenney's strategies dominates the
+    other. Let's do the iteration, starting with Imamura, in the
+    interactive below.
+  </p>
+
+  <figure xml:id="fig-bismarck-sea-elimination">
+    <caption>Iterated elimination of dominated strategies, Battle of the Bismarck Sea.</caption>
+    <interactive xml:id="interactive-bismarck-sea-elimination"
+      iframe="ch2-graph/bismarck-sea-elimination.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          The payoff matrix from Section 2.9, with buttons asking which
+          strategy dominates for Imamura, then for Kenney, crossing out
+          eliminated strategies as you go.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <assemblage xml:id="read-2-9">
+    <title>Section 2.9, The Battle of the Bismarck Sea</title>
+    <p>
+      <alert>Read Section 2.9.</alert>
+    </p>
+  </assemblage>
+
+  <assemblage xml:id="read-2-10">
+    <title>Section 2.10, Normal Form of a Game in Extensive Form with Complete Information</title>
+    <p>
+      <alert>Read Section 2.10.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Section 2.10 converts Big Monkey and Little Monkey, from Chapter 1,
+    into normal form. Explore the connection between the two
+    representations below.
+  </p>
+
+  <figure xml:id="fig-normal-extensive-bmlm">
+    <caption>Big Monkey and Little Monkey, normal form and extensive form side by side.</caption>
+    <interactive xml:id="interactive-normal-extensive-bmlm"
+      iframe="ch2-graph/normal-extensive-bmlm.html" width="100%" aspect="16:9">
+      <static>
+        <p>
+          The normal form payoff matrix on the left and the game tree on
+          the right. Clicking a matrix entry highlights the matching path
+          through the tree.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    Now let's use iterated elimination on this normal form matrix.
+  </p>
+
+  <figure xml:id="fig-bmlm-elimination-1">
+    <caption>Iterated elimination of weakly dominated strategies, Big Monkey and Little Monkey (first ordering).</caption>
+    <interactive xml:id="interactive-bmlm-elimination-1"
+      iframe="ch2-graph/bmlm-normal-form-elimination.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Step-by-step iterated elimination on the Big Monkey and Little
+          Monkey matrix, ending at the dominant strategy equilibrium
+          (w, cw).
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    Let's try a different order of elimination on the same matrix.
+  </p>
+
+  <figure xml:id="fig-bmlm-elimination-2">
+    <caption>Iterated elimination of weakly dominated strategies, Big Monkey and Little Monkey (second ordering).</caption>
+    <interactive xml:id="interactive-bmlm-elimination-2"
+      iframe="ch2-graph/bmlm-normal-form-elimination-order2.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          The same matrix, eliminated in a different valid order, ending
+          with two surviving strategy profiles instead of one.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <assemblage xml:id="read-2-11">
+    <title>Section 2.11, Big Monkey and Little Monkey 2</title>
+    <p>
+      <alert>Read Section 2.11.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Same matrix, two valid elimination orders, two different results. The
+    first ordering pinned down a unique dominant strategy equilibrium; the
+    second only pinned down Big Monkey's strategy, leaving Little Monkey's
+    undetermined. This is the order-dependence Section 2.8 warned about:
+    iterated elimination of strictly dominated strategies always gives the
+    same answer no matter the order, but iterated elimination of weakly
+    dominated strategies does not.
+  </p>
+
+</section>

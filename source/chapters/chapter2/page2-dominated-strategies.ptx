@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch2-page2-dominated-strategies" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Dominated Strategies</title>
+
+  <assemblage xml:id="read-2-3">
+    <title>Section 2.3, Dominated Strategies</title>
+    <p>
+      <alert>Read Section 2.3.</alert>
+    </p>
+  </assemblage>
+
+  <assemblage xml:id="read-2-5">
+    <title>Section 2.5, Global Warming</title>
+    <p>
+      <alert>Read Section 2.5.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    We'll show that spending <m>0</m> strictly dominates any <m>x_1 &gt; 0</m>
+    for Player 1 (the same argument works for any other country
+    <m>i</m>). Set up the difference in payoffs, labeled:
+  </p>
+
+  <md>
+    <mrow>
+      \underbrace{\pi_1(0, x_2, \ldots, x_{10})}_{\text{Player 1's payoff when Player 1 spends } 0}
+      -
+      \underbrace{\pi_1(x_1, x_2, \ldots, x_{10})}_{\text{Player 1's payoff when Player 1 spends } x_1 &gt; 0}
+    </mrow>
+  </md>
+
+  <p>
+    which simplifies to:
+  </p>
+
+  <md>
+    <mrow>
+      = -\tfrac{1}{5}x_1 + x_1 = \tfrac{4}{5}x_1 \;&gt;\; 0 \quad \text{(simplified)}
+    </mrow>
+  </md>
+
+  <p>
+    Since this difference is positive, <m>x_1 = 0</m> strictly dominates
+    any <m>x_1 &gt; 0</m> for Player 1, and the same argument applies to
+    every other country.
+  </p>
+
+  <exercise xml:id="check-global-warming-pd">
+    <statement>
+      <p>
+        Why does this global warming game count as a version of the
+        Prisoner's Dilemma?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Every country has a strictly dominant strategy (spend
+          nothing), but if every country instead spent the "dominated"
+          amount of <m>1</m>, every single country would end up better
+          off.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Spending nothing gives every country a payoff of
+            <m>0</m>, but if all ten countries spent <m>1</m>, every
+            country's payoff would be <m>1</m> instead, strictly better.
+            Rational individual behavior (everyone defects) leads to a
+            worse outcome for everyone than if they'd all cooperated,
+            exactly the Prisoner's Dilemma pattern, just with ten players
+            instead of two.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Because each country's payoff depends on what the other
+          countries do.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, that's true of almost every game we've studied so
+            far, not just Prisoner's Dilemma-type games. Something more
+            specific has to hold.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Because there are more than two players.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, the Prisoner's Dilemma pattern isn't about the
+            number of players, the original version had only two.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-2-6">
+    <title>Section 2.6, Hagar's Battles</title>
+    <p>
+      <alert>Read Section 2.6.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Before you finish the reading for Section 2.7, let's explore the first
+    part of the strict dominance argument together, since the book's table
+    can be hard to parse on a first read without having thought it through
+    yourself first.
+  </p>
+
+  <assemblage xml:id="read-2-7-part1">
+    <title>Section 2.7, Second-Price Auctions (Part 1)</title>
+    <p>
+      <alert>Read Section 2.7, up through where the book states the payoff
+      formula <m>\pi_i(b_1,\ldots,b_n)</m>.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    Here's that formula again, labeled:
+  </p>
+
+  <md>
+    <mrow>
+      \underbrace{\pi_i(b_1,\ldots,b_n)}_{\text{payoff to player } i \text{ when the bids are } b_1,\ldots,b_n} \;=\;
+      \begin{cases}
+      \overbrace{0}^{\substack{\text{payoff is } 0 \text{ when player } i\text{'s bid is less than}\\ \text{the highest bid of the others (receives and pays nothing)}}} &amp; \text{if } b_i &lt; h_i, \\[2ex]
+      \underbrace{v_i - h_i}_{\substack{\text{player } i\text{'s bid is higher than everyone else's:}\\ \text{payoff is what they value it minus what they actually pay}}} &amp; \text{if } h_i &lt; b_i.
+      \end{cases}
+    </mrow>
+  </md>
+
+  <p>
+    One thing worth pinning down: in the second case, player <m>i</m> pays
+    <m>h_i</m> &#8212; the highest bid <em>among the other players</em>
+    &#8212; not their own bid <m>b_i</m>. That's the defining feature of a
+    second-price auction: the winner pays what the runner-up bid, not
+    their own bid.
+  </p>
+
+  <p>
+    Now, using just that formula, work out for yourself why bidding your
+    true value <m>v_1</m> weakly dominates every other bid <m>b_1</m>. The
+    two checkpoints below cover the two cases.
+  </p>
+
+  <exercise xml:id="check-auction-v-less-h">
+    <statement>
+      <p>
+        Suppose <m>v_1 &lt; h_1</m> (the object is worth less to you than
+        the highest bid among the others &#8212; you shouldn't win). Why
+        does bidding <m>v_1</m> weakly dominate every other bid in this
+        case?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Bidding <m>v_1</m> gives payoff <m>0</m>. Bidding lower also
+          gives <m>0</m> (you still lose, nothing changes). But bidding
+          high enough to cross above <m>h_1</m> makes you win, paying more
+          than the object is worth to you, a negative payoff. So <m>v_1</m>
+          is never worse than another bid, and sometimes strictly
+          better.</p>
+        </statement>
+        <feedback>
+          <p>Correct. Since you shouldn't win this auction, the only way
+          to do worse than <m>v_1</m> is to accidentally win it by
+          overbidding.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Bidding higher than <m>v_1</m> is always safe, since you
+          only pay <m>h_1</m> regardless of your own bid.</p>
+        </statement>
+        <feedback>
+          <p>Not quite &#8212; that's true when you were already going to
+          win. Here <m>v_1 &lt; h_1</m>, so bidding high enough to win
+          means paying <m>h_1</m>, which is more than the object is worth
+          to you.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Bidding <m>v_1</m> always wins the auction, so it's the
+          obvious best choice.</p>
+        </statement>
+        <feedback>
+          <p>Not quite &#8212; here <m>v_1 &lt; h_1</m>, so bidding
+          <m>v_1</m> loses the auction. The dominance argument doesn't
+          depend on winning.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-auction-h-less-v">
+    <statement>
+      <p>
+        Now suppose <m>h_1 &lt; v_1</m> (the object is worth more to you
+        than the highest bid among the others &#8212; you should win). Why
+        does bidding <m>v_1</m> weakly dominate every other bid in this
+        case?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Bidding <m>v_1</m> gives payoff <m>v_1 - h_1 &gt; 0</m>.
+          Bidding higher still wins and still pays <m>h_1</m>, so the
+          payoff is unchanged. Bidding lower, but still above <m>h_1</m>,
+          also still wins with the same payoff. But bidding low enough to
+          drop below <m>h_1</m> makes you lose entirely, dropping your
+          payoff to <m>0</m> &#8212; worse. So <m>v_1</m> is never worse
+          than another bid, and sometimes strictly better.</p>
+        </statement>
+        <feedback>
+          <p>Correct. Since you were already going to win by bidding
+          <m>v_1</m>, overbidding can't help &#8212; you still just pay
+          <m>h_1</m>. The only danger is underbidding far enough to lose
+          on purpose.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Bidding higher than <m>v_1</m> increases your payoff, since
+          you'll win by a wider margin.</p>
+        </statement>
+        <feedback>
+          <p>Not quite &#8212; the price you pay is <m>h_1</m>, the
+          runner-up's bid, not your own. Bidding higher than <m>v_1</m>
+          doesn't change what you pay, so your payoff stays exactly
+          <m>v_1 - h_1</m>.</p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Bidding lower than <m>v_1</m> is always fine, since you'll
+          still win as long as you bid something positive.</p>
+        </statement>
+        <feedback>
+          <p>Not quite &#8212; if you bid low enough to drop below
+          <m>h_1</m>, you lose the auction entirely, and your payoff drops
+          from <m>v_1-h_1</m> to <m>0</m>.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-2-7-part2">
+    <title>Section 2.7, Second-Price Auctions (Part 2)</title>
+    <p>
+      <alert>Read the rest of Section 2.7.</alert>
+    </p>
+  </assemblage>
+
+  <p>
+    If the reasoning in the checkpoints made sense to you, you've already
+    done the hard part of what the book's table is showing &#8212; just in
+    words instead of rows. The table can be genuinely hard to parse on a
+    first read without having thought it through yourself first, which is
+    exactly why we did the checkpoints before you got here.
+  </p>
+
+  <p>
+    Those checkpoints together prove the first condition needed to show
+    <m>v_1</m> weakly dominates any other bid <m>b_1</m>: for every
+    possible combination of the other players' bids,
+  </p>
+
+  <md>
+    <mrow>\pi_1(v_1,b_2,\ldots,b_n) \;\geq\; \pi_1(b_1,b_2,\ldots,b_n).</mrow>
+  </md>
+
+  <p>
+    The book then shows the second condition needed for weak dominance:
+    that there's <em>at least one</em> combination of the other players'
+    bids where the inequality is strict,
+  </p>
+
+  <md>
+    <mrow>\pi_1(v_1,b_2,\ldots,b_n) \;&gt;\; \pi_1(b_1,b_2,\ldots,b_n).</mrow>
+  </md>
+
+  <p>
+    Here's a quick summary of that argument, without all the detail,
+    since you can read the full version in the book or think it through
+    yourself. Take any <m>b_1 \ne v_1</m>.
+  </p>
+
+  <p>
+    <term>Case 1: <m>b_1 &lt; v_1</m></term>. Suppose the other players'
+    bids are such that <m>h_1 = \max(b_2,\ldots,b_n)</m> satisfies
+    <m>b_1 &lt; h_1 &lt; v_1</m>. Then
+  </p>
+
+  <md>
+    <mrow>
+      \underbrace{\pi_1(v_1,b_2,\ldots,b_n)}_{\substack{v_1 &gt; h_1\text{, so you win.}\\ \text{Payoff: } v_1 - h_1 &gt; 0}}
+      \;&gt;\;
+      \underbrace{\pi_1(b_1,b_2,\ldots,b_n)}_{\substack{b_1 &lt; h_1\text{, so you lose.}\\ \text{Payoff: } 0}}
+    </mrow>
+  </md>
+
+  <p>
+    Why? Think it through yourself before checking the box below.
+  </p>
+
+  <solution>
+    <title>Justification</title>
+    <p>
+      On the left, bidding <m>v_1</m> wins the auction, since
+      <m>v_1 &gt; h_1</m>, so the payoff is <m>v_1 - h_1 &gt; 0</m>. On
+      the right, bidding <m>b_1</m> loses, since <m>b_1 &lt; h_1</m>, so
+      the payoff is <m>0</m>. Bidding your true value wins you an auction
+      that underbidding would have cost you.
+    </p>
+  </solution>
+
+  <p>
+    <term>Case 2: <m>b_1 &gt; v_1</m></term>. Now suppose instead
+    <m>h_1</m> satisfies <m>v_1 &lt; h_1 &lt; b_1</m>. Then
+  </p>
+
+  <md>
+    <mrow>
+      \underbrace{\pi_1(v_1,b_2,\ldots,b_n)}_{\substack{v_1 &lt; h_1\text{, so you lose.}\\ \text{Payoff: } 0}}
+      \;&gt;\;
+      \underbrace{\pi_1(b_1,b_2,\ldots,b_n)}_{\substack{b_1 &gt; h_1\text{, so you win, but pay}\\ h_1 &gt; v_1.\text{ Payoff: } v_1-h_1 &lt; 0}}
+    </mrow>
+  </md>
+
+  <p>
+    Why? Again, try it yourself first.
+  </p>
+
+  <solution>
+    <title>Justification</title>
+    <p>
+      On the left, bidding <m>v_1</m> loses, since <m>v_1 &lt; h_1</m>,
+      so the payoff is <m>0</m>. On the right, bidding <m>b_1</m> wins,
+      since <m>b_1 &gt; h_1</m>, but you're paying <m>h_1</m> for
+      something only worth <m>v_1 &lt; h_1</m> to you, so the payoff is
+      <m>v_1 - h_1 &lt; 0</m>. Overbidding here wins you an auction you'd
+      have been better off losing.
+    </p>
+  </solution>
+
+</section>

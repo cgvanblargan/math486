@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Iterated elimination: Big Monkey and Little Monkey, a second ordering</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto 16px auto;
+  }
+  caption {
+    font-size: 0.85em;
+    margin-bottom: 6px;
+  }
+  td, th {
+    border: 1px solid #333;
+    padding: 8px 12px;
+    text-align: center;
+    min-width: 60px;
+    white-space: nowrap;
+  }
+  th {
+    background: #eee;
+  }
+  .eliminated {
+    background: #f5c6c6;
+    text-decoration: line-through;
+    color: #666;
+  }
+  .eliminated-tag {
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .p1, .p2 {
+    padding: 1px 3px;
+  }
+  .highlight-num {
+    background: #fff2b3;
+    font-weight: bold;
+    border: 1px solid #b3941f;
+    border-radius: 3px;
+  }
+  th.highlight-col {
+    background: #fff2b3;
+    border: 2px solid #b3941f;
+  }
+  .step {
+    display: none;
+  }
+  .step.active {
+    display: block;
+  }
+  .question {
+    text-align: center;
+    margin: 14px 0 8px 0;
+    font-weight: bold;
+  }
+  .buttons {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  button {
+    font: inherit;
+    font-size: 1em;
+    padding: 8px 16px;
+    margin: 0 6px;
+    cursor: pointer;
+    border: 1px solid #666;
+    background: #fff;
+  }
+  button:hover:not(:disabled) {
+    background: #dde7f5;
+  }
+  button:focus-visible {
+    outline: 3px solid #d4841c;
+    outline-offset: 2px;
+  }
+  button:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+  .explanation {
+    max-width: 520px;
+    margin: 8px auto;
+    padding: 10px 14px;
+    background: #eef7ee;
+    border: 1px solid #9c9;
+    border-radius: 4px;
+    display: none;
+  }
+  .wrong {
+    color: #a00;
+    text-align: center;
+    display: none;
+    margin-bottom: 8px;
+  }
+  #status {
+    max-width: 520px;
+    margin: 4px auto 12px auto;
+    min-height: 1.2em;
+    text-align: center;
+  }
+  #final {
+    display: none;
+    max-width: 520px;
+    margin: 12px auto;
+    padding: 10px 14px;
+    background: #eef4fb;
+    border: 1px solid #9bb8dd;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+  }
+  .continue-wrap {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .continue-btn {
+    background: #2a5db0;
+    color: #fff;
+    border: 1px solid #14335e;
+  }
+  .continue-btn:hover {
+    background: #1f4a8c;
+  }
+</style>
+</head>
+<body>
+
+<p style="max-width:520px; margin:0 auto 10px auto; text-align:center;">
+  This time we'll do the elimination in a different order than before, and
+  see that it doesn't finish the same way. At each step, the payoff being
+  compared is highlighted in the columns under discussion.
+</p>
+
+<table id="matrix">
+  <caption>Payoff matrix, Big Monkey and Little Monkey (Section 2.10). Pairs are (Big Monkey's payoff, Little Monkey's payoff).</caption>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col" colspan="4">Little Monkey</th>
+  </tr>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col"></th>
+    <th scope="col" id="col-ww">ww</th>
+    <th scope="col" id="col-wc">wc</th>
+    <th scope="col" id="col-cw">cw</th>
+    <th scope="col" id="col-cc">cc</th>
+  </tr>
+  <tr id="row-w">
+    <th scope="row" rowspan="2">Big Monkey</th>
+    <th scope="row" id="rowhead-w">w</th>
+    <td id="cell-w-ww">(<span class="p1">0</span>, <span class="p2">0</span>)</td>
+    <td id="cell-w-wc">(<span class="p1">0</span>, <span class="p2">0</span>)</td>
+    <td id="cell-w-cw">(<span class="p1">9</span>, <span class="p2">1</span>)</td>
+    <td id="cell-w-cc">(<span class="p1">9</span>, <span class="p2">1</span>)</td>
+  </tr>
+  <tr id="row-c">
+    <th scope="row" id="rowhead-c">c</th>
+    <td id="cell-c-ww">(<span class="p1">4</span>, <span class="p2">4</span>)</td>
+    <td id="cell-c-wc">(<span class="p1">5</span>, <span class="p2">3</span>)</td>
+    <td id="cell-c-cw">(<span class="p1">4</span>, <span class="p2">4</span>)</td>
+    <td id="cell-c-cc">(<span class="p1">5</span>, <span class="p2">3</span>)</td>
+  </tr>
+</table>
+
+<div id="status" role="status" aria-live="polite"></div>
+
+<!-- Step 1a: ww vs cw -->
+<div class="step active" id="step-1a">
+  <div class="question" id="q-1a-label">Comparing Little Monkey's strategies ww and cw: which one dominates the other?</div>
+  <div class="buttons" role="group" aria-labelledby="q-1a-label">
+    <button type="button" onclick="answer('1a','ww')">ww</button>
+    <button type="button" onclick="answer('1a','cw')">cw</button>
+  </div>
+  <div class="wrong" id="wrong-1a" role="alert">Not quite. Compare Little Monkey's payoff (the second number) in each column, row by row.</div>
+  <div class="explanation" id="explain-1a">
+    Correct.
+    <ul>
+      <li>Against Big Monkey's <em>w</em>: cw gives Little Monkey 1, ww gives 0 (1 &gt; 0).</li>
+      <li>Against Big Monkey's <em>c</em>: cw gives Little Monkey 4, ww gives 4 (4 = 4).</li>
+    </ul>
+    Since cw is never worse than ww, and sometimes strictly better, <strong>cw weakly dominates
+    ww</strong>.
+    <p>We do the elimination now.</p>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('1a')">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 1b: wc vs cc -->
+<div class="step" id="step-1b">
+  <div class="question" id="q-1b-label">Comparing Little Monkey's strategies wc and cc: which one dominates the other?</div>
+  <div class="buttons" role="group" aria-labelledby="q-1b-label">
+    <button type="button" onclick="answer('1b','wc')">wc</button>
+    <button type="button" onclick="answer('1b','cc')">cc</button>
+  </div>
+  <div class="wrong" id="wrong-1b" role="alert">Not quite. Compare Little Monkey's payoff (the second number) in each column, row by row.</div>
+  <div class="explanation" id="explain-1b">
+    Correct.
+    <ul>
+      <li>Against Big Monkey's <em>w</em>: cc gives Little Monkey 1, wc gives 0 (1 &gt; 0).</li>
+      <li>Against Big Monkey's <em>c</em>: cc gives Little Monkey 3, wc gives 3 (3 = 3).</li>
+    </ul>
+    Since cc is never worse than wc, and sometimes strictly better, <strong>cc weakly dominates
+    wc</strong>.
+    <p>We do the elimination now.</p>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('1b')">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 2: w vs c for Big Monkey, in the reduced 2x2 game (columns cw, cc) -->
+<div class="step" id="step-2">
+  <div class="question" id="q-2-label">Little Monkey now has only cw and cc left. In this reduced 2&times;2 game, which of Big Monkey's strategies dominates?</div>
+  <div class="buttons" role="group" aria-labelledby="q-2-label">
+    <button type="button" onclick="answer('2','w')">w</button>
+    <button type="button" onclick="answer('2','c')">c</button>
+  </div>
+  <div class="wrong" id="wrong-2" role="alert">Not quite. Compare Big Monkey's payoff (the first number) in the cw and cc columns, row by row.</div>
+  <div class="explanation" id="explain-2">
+    Correct.
+    <ul>
+      <li>In the cw column: w gives Big Monkey 9, c gives 4 (9 &gt; 4).</li>
+      <li>In the cc column: w gives Big Monkey 9, c gives 5 (9 &gt; 5).</li>
+    </ul>
+    Since w is strictly better than c in both remaining columns, <strong>w strictly dominates
+    c</strong> here.
+    <p>We do the elimination now.</p>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('2')">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<!-- Step 3: cw vs cc for Little Monkey, with only row w left -->
+<div class="step" id="step-3">
+  <div class="question" id="q-3-label">Only Big Monkey's w is left. In this reduced 1&times;2 game, does either cw or cc dominate the other for Little Monkey?</div>
+  <div class="buttons" role="group" aria-labelledby="q-3-label">
+    <button type="button" onclick="answer('3','no')">No, neither dominates</button>
+    <button type="button" onclick="answer('3','yes')">Yes, one dominates</button>
+  </div>
+  <div class="wrong" id="wrong-3" role="alert">Not quite. Compare Little Monkey's payoff (the second number) in the one remaining row.</div>
+  <div class="explanation" id="explain-3">
+    Correct. With only Big Monkey's w left, cw gives Little Monkey 1 and cc also gives 1 (1 = 1),
+    a tie, and there's nothing else to compare them against. Neither weakly nor strictly dominates
+    the other, so <strong>no further elimination is possible</strong>.
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('3')">See the result</button>
+    </div>
+  </div>
+</div>
+
+<div id="final">
+  What remains is a 2&times;1 game with two strategy profiles left standing: (w, cw) and (w, cc).
+  This ordering shows that w is a dominant strategy for Big Monkey, but it does <em>not</em> pin
+  down a dominant strategy for Little Monkey, unlike the first ordering, which landed on the
+  single profile (w, cw). Same game, same rules, a different order of elimination, a different
+  (and less complete) result.
+</div>
+
+<script>
+function setEliminatedCol(colLetters) {
+  var head = document.getElementById('col-' + colLetters);
+  head.classList.add('eliminated');
+  head.innerHTML = colLetters + '<span class="eliminated-tag">(eliminated)</span>';
+  ['w', 'c'].forEach(function(row) {
+    document.getElementById('cell-' + row + '-' + colLetters).classList.add('eliminated');
+  });
+}
+
+function setEliminatedRow(rowLetter) {
+  var head = document.getElementById('rowhead-' + rowLetter);
+  head.classList.add('eliminated');
+  head.innerHTML = rowLetter + '<span class="eliminated-tag">(eliminated)</span>';
+  ['ww', 'wc', 'cw', 'cc'].forEach(function(col) {
+    var cell = document.getElementById('cell-' + rowLetter + '-' + col);
+    if (cell) { cell.classList.add('eliminated'); }
+  });
+}
+
+function clearHighlights() {
+  document.querySelectorAll('.p1, .p2').forEach(function(s) {
+    s.classList.remove('highlight-num');
+  });
+  document.querySelectorAll('th.highlight-col').forEach(function(s) {
+    s.classList.remove('highlight-col');
+  });
+}
+
+var stepHighlights = {
+  '1a': { player: 'LM', cols: ['ww', 'cw'], cls: 'p2', rows: ['w', 'c'] },
+  '1b': { player: 'LM', cols: ['wc', 'cc'], cls: 'p2', rows: ['w', 'c'] },
+  '2':  { player: 'BM', cols: ['cw', 'cc'], cls: 'p1', rows: ['w', 'c'] },
+  '3':  { player: 'LM', cols: ['cw', 'cc'], cls: 'p2', rows: ['w'] }
+};
+
+function highlightForStep(step) {
+  clearHighlights();
+  var info = stepHighlights[step];
+  if (!info) { return; }
+
+  if (info.player === 'LM') {
+    info.cols.forEach(function(col) {
+      var head = document.getElementById('col-' + col);
+      if (head && !head.classList.contains('eliminated')) {
+        head.classList.add('highlight-col');
+      }
+    });
+  } else {
+    info.rows.forEach(function(row) {
+      var head = document.getElementById('rowhead-' + row);
+      if (head && !head.classList.contains('eliminated')) {
+        head.classList.add('highlight-col');
+      }
+    });
+  }
+
+  info.rows.forEach(function(row) {
+    info.cols.forEach(function(col) {
+      var cell = document.getElementById('cell-' + row + '-' + col);
+      if (!cell) { return; }
+      var span = cell.querySelector('.' + info.cls);
+      if (span) { span.classList.add('highlight-num'); }
+    });
+  });
+}
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+  var next = document.getElementById('step-' + id);
+  if (next) { next.classList.add('active'); }
+  highlightForStep(id);
+}
+
+function answer(step, choice) {
+  var correct = { '1a': 'cw', '1b': 'cc', '2': 'w', '3': 'no' };
+  var wrongEl = document.getElementById('wrong-' + step);
+  var explainEl = document.getElementById('explain-' + step);
+
+  if (choice !== correct[step]) {
+    wrongEl.style.display = 'block';
+    document.getElementById('status').textContent = 'Not correct yet, try again.';
+    return;
+  }
+  wrongEl.style.display = 'none';
+  explainEl.style.display = 'block';
+  document.querySelectorAll('#step-' + step + ' .buttons button').forEach(function(b){ b.disabled = true; });
+
+  if (step === '1a') {
+    setEliminatedCol('ww');
+    document.getElementById('status').textContent = 'Correct. Little Monkey\u2019s strategy ww is eliminated.';
+  } else if (step === '1b') {
+    setEliminatedCol('wc');
+    document.getElementById('status').textContent = 'Correct. Little Monkey\u2019s strategy wc is eliminated.';
+  } else if (step === '2') {
+    setEliminatedRow('c');
+    document.getElementById('status').textContent = 'Correct. Big Monkey\u2019s strategy c is eliminated.';
+  } else if (step === '3') {
+    document.getElementById('status').textContent = 'Correct. Neither cw nor cc can be eliminated here.';
+  }
+
+  var continueBtn = explainEl.querySelector('.continue-btn');
+  if (continueBtn) { continueBtn.focus(); }
+}
+
+function advance(fromStep) {
+  var nextOf = { '1a': '1b', '1b': '2', '2': '3', '3': 'final' };
+  var next = nextOf[fromStep];
+  if (next === 'final') {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    clearHighlights();
+    document.getElementById('final').style.display = 'block';
+    document.getElementById('status').textContent =
+      'What remains is two strategy profiles, (w, cw) and (w, cc). Big Monkey\u2019s strategy is pinned down, Little Monkey\u2019s is not.';
+  } else {
+    showStep(next);
+  }
+}
+
+highlightForStep('1a');
+</script>
+
+</body>
+</html>

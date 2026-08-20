@@ -2,7 +2,7 @@
 <frontmatter xmlns:xi="http://www.w3.org/2001/XInclude" xml:id="frontmatter">
   <bibinfo>
     <author>
-      <personname>Dr. Russ deForest</personname>
+      <personname>Caroline VanBlargan</personname>
       <department>Department of Mathematics</department>
       <institution>Penn State University</institution>
     </author>
@@ -12,7 +12,7 @@
 
     <copyright>
       <year>2026</year>
-      <holder>Russ deForest</holder>
+      <holder>Caroline VanBlargan</holder>
       <shortlicense>
         Authored in <pretext />.
       </shortlicense>

@@ -6,6 +6,8 @@
 
 
     <xi:include href="./page1-prisoners-dilemma.ptx" />
+     <xi:include href="./page2-dominated-strategies.ptx" />
+     <xi:include href="./page3-iterated-elim.ptx" />
   
 
 </chapter>

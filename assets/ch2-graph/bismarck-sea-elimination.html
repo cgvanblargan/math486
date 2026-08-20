@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Iterated elimination: Battle of the Bismarck Sea</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto 16px auto;
+  }
+  caption {
+    font-size: 0.85em;
+    margin-bottom: 6px;
+  }
+  td, th {
+    border: 1px solid #333;
+    padding: 8px 14px;
+    text-align: center;
+    min-width: 90px;
+  }
+  th {
+    background: #eee;
+  }
+  .col-eliminated {
+    background: #f5c6c6;
+    text-decoration: line-through;
+    color: #666;
+  }
+  .row-eliminated {
+    background: #f5c6c6;
+    text-decoration: line-through;
+    color: #666;
+  }
+  .eliminated-tag {
+    display: block;
+    font-size: 0.75em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .p1, .p2 {
+    padding: 1px 3px;
+  }
+  .highlight-num {
+    background: #fff2b3;
+    font-weight: bold;
+    border: 1px solid #b3941f;
+    border-radius: 3px;
+  }
+  th.highlight-col {
+    background: #fff2b3;
+    border: 2px solid #b3941f;
+  }
+  .question {
+    text-align: center;
+    margin: 16px 0 8px 0;
+    font-weight: bold;
+  }
+  .buttons {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  button {
+    font: inherit;
+    font-size: 1em;
+    padding: 8px 16px;
+    margin: 0 6px;
+    cursor: pointer;
+    border: 1px solid #666;
+    background: #fff;
+  }
+  button:hover:not(:disabled) {
+    background: #dde7f5;
+  }
+  button:focus-visible {
+    outline: 3px solid #d4841c;
+    outline-offset: 2px;
+  }
+  button:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+  .explanation {
+    max-width: 480px;
+    margin: 8px auto;
+    padding: 10px 14px;
+    background: #eef7ee;
+    border: 1px solid #9c9;
+    border-radius: 4px;
+    display: none;
+  }
+  .wrong {
+    color: #a00;
+    text-align: center;
+    display: none;
+    margin-bottom: 8px;
+  }
+  .frac {
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 1.1;
+    margin: 0 2px;
+  }
+  .frac .num {
+    border-bottom: 1px solid #333;
+    padding: 0 3px;
+  }
+  .frac .den {
+    padding: 0 3px;
+  }
+  .explanation ul {
+    margin: 6px 0;
+    padding-left: 20px;
+    text-align: left;
+  }
+  #status {
+    max-width: 480px;
+    margin: 4px auto 12px auto;
+    min-height: 1.2em;
+  }
+  .continue-wrap {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .continue-btn {
+    background: #2a5db0;
+    color: #fff;
+    border: 1px solid #14335e;
+  }
+  .continue-btn:hover {
+    background: #1f4a8c;
+  }
+  #final {
+    display: none;
+    max-width: 480px;
+    margin: 12px auto;
+    padding: 10px 14px;
+    background: #eef4fb;
+    border: 1px solid #9bb8dd;
+    border-radius: 4px;
+    text-align: center;
+    font-weight: bold;
+  }
+</style>
+</head>
+<body>
+
+<p style="max-width:480px; margin:0 auto 10px auto; text-align:center;">
+  At each step, the payoff being compared is highlighted in the columns
+  or rows under discussion.
+</p>
+
+<table id="matrix">
+  <caption>Payoff matrix, Battle of the Bismarck Sea. Rows: Kenney's search choice. Columns: Imamura's sail choice. Pairs are (Kenney's payoff, Imamura's payoff).</caption>
+  <tr>
+    <th scope="col"></th>
+    <th scope="col" id="col-north">Imamura<br>sail north</th>
+    <th scope="col" id="col-south">Imamura<br>sail south</th>
+  </tr>
+  <tr id="row-searchnorth">
+    <th scope="row" id="rowhead-north">Kenney<br>search north</th>
+    <td id="cell-nn">(<span class="p1">1<span class="frac"><span class="num">1</span><span class="den">3</span></span></span>, <span class="p2">&minus;1<span class="frac"><span class="num">1</span><span class="den">3</span></span></span>)</td>
+    <td id="cell-ns">(<span class="p1">1<span class="frac"><span class="num">1</span><span class="den">2</span></span></span>, <span class="p2">&minus;1<span class="frac"><span class="num">1</span><span class="den">2</span></span></span>)</td>
+  </tr>
+  <tr id="row-searchsouth">
+    <th scope="row" id="rowhead-south">Kenney<br>search south</th>
+    <td id="cell-sn">(<span class="p1">1</span>, <span class="p2">&minus;1</span>)</td>
+    <td id="cell-ss">(<span class="p1">2</span>, <span class="p2">&minus;2</span>)</td>
+  </tr>
+</table>
+
+<div id="status" role="status" aria-live="polite"></div>
+
+<div id="q1">
+  <div class="question" id="q1-label">Which strategy dominates the other for Imamura?</div>
+  <div class="buttons" role="group" aria-labelledby="q1-label">
+    <button type="button" onclick="answer1('north')">Sail North</button>
+    <button type="button" onclick="answer1('south')">Sail South</button>
+  </div>
+  <div class="wrong" id="wrong1" role="alert">Not quite. Check each row against both columns for Imamura and try again.</div>
+  <div class="explanation" id="explain1">
+    Correct.
+    <ul>
+      <li>If Kenney searches north: sailing north gives Imamura a better payoff than sailing south (&minus;1&#8531; vs. &minus;1&#189;).</li>
+      <li>If Kenney searches south: sailing north gives Imamura a better payoff than sailing south (&minus;1 vs. &minus;2).</li>
+    </ul>
+    In either case, Imamura will have a better payoff when sailing north, so <strong>sailing north
+    strictly dominates sailing south</strong>.
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance1()">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="q2" style="display:none;">
+  <div class="question" id="q2-label">Now that Imamura is sailing north, which strategy does Kenney pick?</div>
+  <div class="buttons" role="group" aria-labelledby="q2-label">
+    <button type="button" onclick="answer2('north')">Search North</button>
+    <button type="button" onclick="answer2('south')">Search South</button>
+  </div>
+  <div class="wrong" id="wrong2" role="alert">Not quite. Look only at the remaining "sail north" column now that "sail south" is gone.</div>
+  <div class="explanation" id="explain2">
+    Correct. With Imamura's "sail south" eliminated, only the "sail north" column is left. In that
+    single column, Kenney's "search north" pays 1&#8531;, while "search south" pays only 1. So
+    "search north" <strong>strictly dominates</strong> "search south," a dominance Kenney didn't have in the
+    original game, and only appeared once Imamura's row was removed. This is exactly what makes it
+    <em>iterated</em> elimination: eliminating one strategy can expose a new dominance that wasn't
+    there before.
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance2()">Continue</button>
+    </div>
+  </div>
+</div>
+
+<div id="final">
+  What remains is sail north for Imamura, and search north for Kenney. This is in fact what happened.
+</div>
+
+<script>
+function clearHighlights() {
+  document.querySelectorAll('.p1, .p2').forEach(function(s) {
+    s.classList.remove('highlight-num');
+  });
+  document.querySelectorAll('th.highlight-col').forEach(function(s) {
+    s.classList.remove('highlight-col');
+  });
+}
+
+function highlightQ1() {
+  clearHighlights();
+  ['col-north', 'col-south'].forEach(function(id) {
+    document.getElementById(id).classList.add('highlight-col');
+  });
+  ['cell-nn', 'cell-ns', 'cell-sn', 'cell-ss'].forEach(function(id) {
+    var span = document.getElementById(id).querySelector('.p2');
+    if (span) { span.classList.add('highlight-num'); }
+  });
+}
+
+function highlightQ2() {
+  clearHighlights();
+  document.getElementById('rowhead-north').classList.add('highlight-col');
+  document.getElementById('rowhead-south').classList.add('highlight-col');
+  ['cell-nn', 'cell-sn'].forEach(function(id) {
+    var span = document.getElementById(id).querySelector('.p1');
+    if (span) { span.classList.add('highlight-num'); }
+  });
+}
+
+function answer1(choice) {
+  if (choice === 'south') {
+    document.getElementById('wrong1').style.display = 'block';
+    document.getElementById('status').textContent = 'Not correct yet, try again.';
+    return;
+  }
+  document.getElementById('wrong1').style.display = 'none';
+
+  var colSouth = document.getElementById('col-south');
+  colSouth.classList.add('col-eliminated');
+  colSouth.innerHTML = 'Imamura<span class="eliminated-tag">(eliminated)</span><br>sail south';
+
+  ['cell-ns', 'cell-ss'].forEach(function(id) {
+    document.getElementById(id).classList.add('col-eliminated');
+  });
+
+  var explainEl = document.getElementById('explain1');
+  explainEl.style.display = 'block';
+  document.querySelectorAll('#q1 .buttons button').forEach(function(b){ b.disabled = true; });
+  document.getElementById('status').textContent =
+    'Correct. Imamura\u2019s strategy "sail south" is eliminated, since "sail north" strictly dominates it.';
+
+  var continueBtn = explainEl.querySelector('.continue-btn');
+  if (continueBtn) { continueBtn.focus(); }
+}
+
+function advance1() {
+  document.getElementById('q1').style.display = 'none';
+  document.getElementById('q2').style.display = 'block';
+  highlightQ2();
+  var q2Heading = document.getElementById('q2-label');
+  if (q2Heading) { q2Heading.setAttribute('tabindex', '-1'); q2Heading.focus(); }
+}
+
+function answer2(choice) {
+  if (choice === 'south') {
+    document.getElementById('wrong2').style.display = 'block';
+    document.getElementById('status').textContent = 'Not correct yet, try again.';
+    return;
+  }
+  document.getElementById('wrong2').style.display = 'none';
+
+  var rowSouth = document.getElementById('row-searchsouth');
+  rowSouth.classList.add('row-eliminated');
+  var rowHeader = document.getElementById('rowhead-south');
+  rowHeader.classList.add('row-eliminated');
+  rowHeader.innerHTML = 'Kenney<span class="eliminated-tag">(eliminated)</span><br>search south';
+
+  document.getElementById('cell-sn').classList.add('row-eliminated');
+  document.getElementById('cell-ss').classList.add('row-eliminated');
+
+  var explainEl = document.getElementById('explain2');
+  explainEl.style.display = 'block';
+  document.querySelectorAll('#q2 .buttons button').forEach(function(b){ b.disabled = true; });
+  document.getElementById('status').textContent =
+    'Correct. Kenney\u2019s strategy "search south" is eliminated. The only strategy profile left is search north, sail north.';
+
+  var continueBtn = explainEl.querySelector('.continue-btn');
+  if (continueBtn) { continueBtn.focus(); }
+}
+
+function advance2() {
+  document.querySelectorAll('.step, #q1').forEach(function(s) { s.style.display = 'none'; });
+  clearHighlights();
+  document.getElementById('final').style.display = 'block';
+  document.getElementById('status').textContent =
+    'What remains is sail north for Imamura, and search north for Kenney.';
+}
+
+highlightQ1();
+</script>
+
+</body>
+</html>
