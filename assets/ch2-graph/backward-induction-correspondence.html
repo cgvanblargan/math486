@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Backward induction and iterated elimination side by side</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  .intro {
+    max-width: 640px;
+    margin: 0 auto 12px auto;
+    text-align: center;
+  }
+  .layout {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
+  }
+  .panel {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .panel.tree-panel {
+    flex: 1 1 380px;
+  }
+  .panel.matrix-panel {
+    flex: 0 1 300px;
+    font-size: 0.85em;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  h2 {
+    font-size: 1em;
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+  .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 4px 6px;
+    text-align: center;
+  }
+  th {
+    background: #eee;
+  }
+  td {
+    min-width: 40px;
+    white-space: nowrap;
+  }
+  .eliminated {
+    background: #f5c6c6;
+    text-decoration: line-through;
+    color: #666;
+  }
+  .eliminated-tag {
+    display: block;
+    font-size: 0.7em;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  .highlight-num {
+    background: #fff2b3;
+    font-weight: bold;
+    border: 1px solid #b3941f;
+    border-radius: 3px;
+    padding: 1px 3px;
+  }
+  th.strategy-highlight {
+    background: #fff2b3;
+    border: 2px solid #b3941f;
+    font-weight: bold;
+  }
+  svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .edge {
+    stroke: #666;
+    stroke-width: 2;
+    fill: none;
+  }
+  .edge.chosen {
+    stroke: #2a5db0;
+    stroke-width: 5;
+  }
+  .edge.pruned {
+    stroke: #c99;
+    stroke-width: 2;
+    stroke-dasharray: 4 3;
+  }
+  .edge-label {
+    font-size: 13px;
+    fill: #333;
+  }
+  .edge-label.chosen {
+    fill: #14335e;
+    font-weight: bold;
+  }
+  .edge-label.pruned {
+    fill: #b88;
+    text-decoration: line-through;
+  }
+  .node-label, .leaf-label {
+    font-size: 12px;
+    fill: #000;
+    text-anchor: middle;
+  }
+  .node-dot {
+    fill: #333;
+  }
+  .active-ring {
+    fill: none;
+    stroke: #d4841c;
+    stroke-width: 3;
+    opacity: 0;
+  }
+  .active-ring.on {
+    opacity: 1;
+  }
+  .deciding-label {
+    font-size: 15px;
+    font-weight: bold;
+    fill: #a0620f;
+    text-anchor: middle;
+    opacity: 0;
+  }
+  .deciding-label.on {
+    opacity: 1;
+  }
+  .question {
+    text-align: center;
+    margin: 14px 0 8px 0;
+    font-weight: bold;
+  }
+  .buttons {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  button {
+    font: inherit;
+    font-size: 1em;
+    padding: 8px 16px;
+    margin: 0 6px;
+    cursor: pointer;
+    border: 1px solid #666;
+    background: #fff;
+  }
+  button:hover:not(:disabled) {
+    background: #dde7f5;
+  }
+  button:focus-visible {
+    outline: 3px solid #d4841c;
+    outline-offset: 2px;
+  }
+  button:disabled {
+    cursor: default;
+    opacity: 0.6;
+  }
+  .explanation {
+    max-width: 560px;
+    margin: 8px auto;
+    padding: 10px 14px;
+    background: #eef7ee;
+    border: 1px solid #9c9;
+    border-radius: 4px;
+    display: none;
+  }
+  .explanation ul {
+    margin: 6px 0;
+    padding-left: 20px;
+    text-align: left;
+  }
+  .wrong {
+    color: #a00;
+    text-align: center;
+    display: none;
+    margin-bottom: 8px;
+  }
+  .step {
+    display: none;
+  }
+  .step.active {
+    display: block;
+  }
+  .continue-wrap {
+    text-align: center;
+    margin-top: 10px;
+  }
+  .continue-btn {
+    background: #2a5db0;
+    color: #fff;
+    border: 1px solid #14335e;
+  }
+  .continue-btn:hover {
+    background: #1f4a8c;
+  }
+  #status {
+    max-width: 560px;
+    margin: 8px auto;
+    min-height: 1.2em;
+    text-align: center;
+  }
+  #final {
+    display: none;
+    max-width: 560px;
+    margin: 12px auto;
+    padding: 10px 14px;
+    background: #eef4fb;
+    border: 1px solid #9bb8dd;
+    border-radius: 4px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+
+<p class="intro">
+  Work through backward induction on the tree at the left. After each
+  decision, watch what happens to the matrix at the right.
+</p>
+
+<div class="layout">
+
+  <div class="panel tree-panel">
+    <h2 id="tree-heading">Extensive form: backward induction</h2>
+    <svg id="tree" viewBox="0 0 380 300" role="img" aria-labelledby="tree-heading tree-desc">
+      <desc id="tree-desc">
+        Big Monkey moves first at the root, choosing wait or climb. Little
+        Monkey then moves at one of two nodes, choosing wait or climb. The
+        four outcomes, given as (Big Monkey, Little Monkey), are: wait then
+        wait gives (0,0), wait then climb gives (9,1), climb then wait
+        gives (4,4), climb then climb gives (5,3).
+      </desc>
+
+      <path id="edge-root-w" class="edge" d="M190,42 L100,125"></path>
+      <text id="label-root-w" class="edge-label" x="126" y="80">wait</text>
+
+      <path id="edge-root-c" class="edge" d="M190,42 L280,125"></path>
+      <text id="label-root-c" class="edge-label" x="252" y="80">climb</text>
+
+      <path id="edge-w-w" class="edge" d="M100,125 L52,212"></path>
+      <text id="label-w-w" class="edge-label" x="50" y="172">wait</text>
+
+      <path id="edge-w-c" class="edge" d="M100,125 L148,212"></path>
+      <text id="label-w-c" class="edge-label" x="140" y="172">climb</text>
+
+      <path id="edge-c-w" class="edge" d="M280,125 L232,212"></path>
+      <text id="label-c-w" class="edge-label" x="230" y="172">wait</text>
+
+      <path id="edge-c-c" class="edge" d="M280,125 L328,212"></path>
+      <text id="label-c-c" class="edge-label" x="320" y="172">climb</text>
+
+      <circle id="ring-root" class="active-ring" cx="190" cy="42" r="11"></circle>
+      <circle class="node-dot" cx="190" cy="42" r="4"></circle>
+      <text class="node-label" x="190" y="28">Big Monkey</text>
+      <text id="deciding-root" class="deciding-label" x="190" y="14">Deciding here</text>
+
+      <circle id="ring-w" class="active-ring" cx="100" cy="125" r="11"></circle>
+      <circle class="node-dot" cx="100" cy="125" r="4"></circle>
+      <text class="node-label" x="100" y="112">Little Monkey</text>
+      <text id="deciding-w" class="deciding-label" x="100" y="98">Deciding here</text>
+
+      <circle id="ring-c" class="active-ring" cx="280" cy="125" r="11"></circle>
+      <circle class="node-dot" cx="280" cy="125" r="4"></circle>
+      <text class="node-label" x="280" y="112">Little Monkey</text>
+      <text id="deciding-c" class="deciding-label" x="280" y="98">Deciding here</text>
+
+      <text id="leaf-ww" class="leaf-label" x="52" y="230">(0, 0)</text>
+      <text id="leaf-wc" class="leaf-label" x="148" y="230">(9, 1)</text>
+      <text id="leaf-cw" class="leaf-label" x="232" y="230">(4, 4)</text>
+      <text id="leaf-cc" class="leaf-label" x="328" y="230">(5, 3)</text>
+    </svg>
+  </div>
+
+  <div class="panel matrix-panel">
+    <h2 id="matrix-heading">Normal form: iterated elimination</h2>
+    <div class="table-wrap">
+    <table aria-labelledby="matrix-heading">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col" colspan="4">Little Monkey</th>
+      </tr>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col" id="colhead-ww">ww</th>
+        <th scope="col" id="colhead-wc">wc</th>
+        <th scope="col" id="colhead-cw">cw</th>
+        <th scope="col" id="colhead-cc">cc</th>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">Big<br>Monkey</th>
+        <th scope="row" id="rowhead-w">w</th>
+        <td id="cell-w-ww">(<span class="p1">0</span>, <span class="p2">0</span>)</td>
+        <td id="cell-w-wc">(<span class="p1">0</span>, <span class="p2">0</span>)</td>
+        <td id="cell-w-cw">(<span class="p1">9</span>, <span class="p2">1</span>)</td>
+        <td id="cell-w-cc">(<span class="p1">9</span>, <span class="p2">1</span>)</td>
+      </tr>
+      <tr>
+        <th scope="row" id="rowhead-c">c</th>
+        <td id="cell-c-ww">(<span class="p1">4</span>, <span class="p2">4</span>)</td>
+        <td id="cell-c-wc">(<span class="p1">5</span>, <span class="p2">3</span>)</td>
+        <td id="cell-c-cw">(<span class="p1">4</span>, <span class="p2">4</span>)</td>
+        <td id="cell-c-cc">(<span class="p1">5</span>, <span class="p2">3</span>)</td>
+      </tr>
+    </table>
+    </div>
+    <p style="font-size:0.9em; text-align:center; margin-top:8px;">
+      Little Monkey's first letter is what they do if Big Monkey waits.
+      The second letter is what they do if Big Monkey climbs.
+    </p>
+  </div>
+
+</div>
+
+<div id="status" role="status" aria-live="polite"></div>
+
+<div class="step active" id="step-1">
+  <div class="question" id="q-1-label">Start at Little Monkey's node after Big Monkey waits. What does Little Monkey choose here?</div>
+  <div class="buttons" role="group" aria-labelledby="q-1-label">
+    <button type="button" onclick="answer('1','wait')">Wait</button>
+    <button type="button" onclick="answer('1','climb')">Climb</button>
+  </div>
+  <div class="wrong" id="wrong-1" role="alert">Not quite. Compare Little Monkey's payoff at the two outcomes below this node.</div>
+  <div class="explanation" id="explain-1">
+    Correct. Climbing gives Little Monkey 1, waiting gives 0, so Little Monkey climbs.
+    <ul>
+      <li>On the tree: the "wait" branch below this node is pruned away.</li>
+      <li>On the matrix: Little Monkey's first letter is what they do if Big Monkey waits. Deciding to climb here rules out every strategy starting with w, so both ww and wc are eliminated (ww is weakly dominated by cw, and wc is weakly dominated by cc).</li>
+    </ul>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('1')">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-2">
+  <div class="question" id="q-2-label">Now move to Little Monkey's other node, after Big Monkey climbs. What does Little Monkey choose here?</div>
+  <div class="buttons" role="group" aria-labelledby="q-2-label">
+    <button type="button" onclick="answer('2','wait')">Wait</button>
+    <button type="button" onclick="answer('2','climb')">Climb</button>
+  </div>
+  <div class="wrong" id="wrong-2" role="alert">Not quite. Compare Little Monkey's payoff at the two outcomes below this node.</div>
+  <div class="explanation" id="explain-2">
+    Correct. Waiting gives Little Monkey 4, climbing gives 3, so Little Monkey waits.
+    <ul>
+      <li>On the tree: the "climb" branch below this node is pruned away.</li>
+      <li>On the matrix: the second letter is what Little Monkey does if Big Monkey climbs. Deciding to wait here rules out the remaining strategy ending in c, so cc is eliminated (weakly dominated by cw). Little Monkey is left with cw.</li>
+    </ul>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('2')">Continue to next step</button>
+    </div>
+  </div>
+</div>
+
+<div class="step" id="step-3">
+  <div class="question" id="q-3-label">Finally, back up to the root. Knowing how Little Monkey will respond, what does Big Monkey choose?</div>
+  <div class="buttons" role="group" aria-labelledby="q-3-label">
+    <button type="button" onclick="answer('3','wait')">Wait</button>
+    <button type="button" onclick="answer('3','climb')">Climb</button>
+  </div>
+  <div class="wrong" id="wrong-3" role="alert">Not quite. Follow each branch down through Little Monkey's remaining choices and compare Big Monkey's payoff.</div>
+  <div class="explanation" id="explain-3">
+    Correct. Waiting leads to (9, 1) and climbing leads to (4, 4), so Big Monkey waits for a payoff of 9 instead of 4.
+    <ul>
+      <li>On the tree: the "climb" branch from the root is pruned away.</li>
+      <li>On the matrix: with only cw left for Little Monkey, row c is dominated by row w, so c is eliminated.</li>
+    </ul>
+    <div class="continue-wrap">
+      <button type="button" class="continue-btn" onclick="advance('3')">See the result</button>
+    </div>
+  </div>
+</div>
+
+<div id="final">
+  Backward induction on the tree and iterated elimination on the matrix
+  arrived at the same place, one step at a time: Big Monkey waits, Little
+  Monkey plays cw. Every pruning on the tree was an elimination on the
+  matrix. Section 2.12 shows this is not a coincidence.
+</div>
+
+<script>
+function clearHighlights() {
+  document.querySelectorAll('.p1, .p2').forEach(function(s) {
+    s.classList.remove('highlight-num');
+  });
+  document.querySelectorAll('th.strategy-highlight').forEach(function(t) {
+    t.classList.remove('strategy-highlight');
+  });
+  ['ring-root', 'ring-w', 'ring-c'].forEach(function(id) {
+    document.getElementById(id).classList.remove('on');
+  });
+  ['deciding-root', 'deciding-w', 'deciding-c'].forEach(function(id) {
+    document.getElementById(id).classList.remove('on');
+  });
+}
+
+var stepSetup = {
+  '1': {
+    ring: 'ring-w', deciding: 'deciding-w',
+    cells: [['w', 'ww'], ['w', 'wc'], ['w', 'cw'], ['w', 'cc']], cls: 'p2',
+    heads: ['colhead-ww', 'colhead-wc', 'colhead-cw', 'colhead-cc']
+  },
+  '2': {
+    ring: 'ring-c', deciding: 'deciding-c',
+    cells: [['c', 'cw'], ['c', 'cc']], cls: 'p2',
+    heads: ['colhead-cw', 'colhead-cc']
+  },
+  '3': {
+    ring: 'ring-root', deciding: 'deciding-root',
+    cells: [['w', 'cw'], ['c', 'cw']], cls: 'p1',
+    heads: ['rowhead-w', 'rowhead-c']
+  }
+};
+
+function setupStep(step) {
+  clearHighlights();
+  var info = stepSetup[step];
+  if (!info) { return; }
+  document.getElementById(info.ring).classList.add('on');
+  document.getElementById(info.deciding).classList.add('on');
+  info.heads.forEach(function(id) {
+    var head = document.getElementById(id);
+    if (head && !head.classList.contains('eliminated')) {
+      head.classList.add('strategy-highlight');
+    }
+  });
+  info.cells.forEach(function(pair) {
+    var cell = document.getElementById('cell-' + pair[0] + '-' + pair[1]);
+    if (!cell || cell.classList.contains('eliminated')) { return; }
+    var span = cell.querySelector('.' + info.cls);
+    if (span) { span.classList.add('highlight-num'); }
+  });
+}
+
+function pruneEdge(edgeId) {
+  document.getElementById(edgeId).classList.add('pruned');
+  document.getElementById('label-' + edgeId.replace('edge-', '')).classList.add('pruned');
+}
+
+function chooseEdge(edgeId) {
+  document.getElementById(edgeId).classList.add('chosen');
+  document.getElementById('label-' + edgeId.replace('edge-', '')).classList.add('chosen');
+}
+
+function eliminateCol(col) {
+  var head = document.getElementById('colhead-' + col);
+  head.classList.remove('strategy-highlight');
+  head.classList.add('eliminated');
+  head.innerHTML = col + '<span class="eliminated-tag">(eliminated)</span>';
+  ['w', 'c'].forEach(function(row) {
+    document.getElementById('cell-' + row + '-' + col).classList.add('eliminated');
+  });
+}
+
+function eliminateRow(row) {
+  var head = document.getElementById('rowhead-' + row);
+  head.classList.remove('strategy-highlight');
+  head.classList.add('eliminated');
+  head.innerHTML = row + '<span class="eliminated-tag">(eliminated)</span>';
+  ['ww', 'wc', 'cw', 'cc'].forEach(function(col) {
+    document.getElementById('cell-' + row + '-' + col).classList.add('eliminated');
+  });
+}
+
+function showStep(id) {
+  document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+  var next = document.getElementById('step-' + id);
+  if (next) {
+    next.classList.add('active');
+    var label = document.getElementById('q-' + id + '-label');
+    if (label) { label.setAttribute('tabindex', '-1'); label.focus(); }
+  }
+  setupStep(id);
+}
+
+function answer(step, choice) {
+  var correct = { '1': 'climb', '2': 'wait', '3': 'wait' };
+  var wrongEl = document.getElementById('wrong-' + step);
+  var explainEl = document.getElementById('explain-' + step);
+
+  if (choice !== correct[step]) {
+    wrongEl.style.display = 'block';
+    document.getElementById('status').textContent = 'Not correct yet, try again.';
+    return;
+  }
+  wrongEl.style.display = 'none';
+  explainEl.style.display = 'block';
+  document.querySelectorAll('#step-' + step + ' .buttons button').forEach(function(b){ b.disabled = true; });
+
+  clearHighlights();
+
+  if (step === '1') {
+    chooseEdge('edge-w-c');
+    pruneEdge('edge-w-w');
+    eliminateCol('ww');
+    eliminateCol('wc');
+    document.getElementById('status').textContent =
+      'Correct. Little Monkey climbs here. On the matrix, ww and wc are eliminated.';
+  } else if (step === '2') {
+    chooseEdge('edge-c-w');
+    pruneEdge('edge-c-c');
+    eliminateCol('cc');
+    document.getElementById('status').textContent =
+      'Correct. Little Monkey waits here. On the matrix, cc is eliminated, leaving cw.';
+  } else if (step === '3') {
+    chooseEdge('edge-root-w');
+    pruneEdge('edge-root-c');
+    eliminateRow('c');
+    document.getElementById('status').textContent =
+      'Correct. Big Monkey waits. On the matrix, row c is eliminated, leaving (w, cw).';
+  }
+
+  var continueBtn = explainEl.querySelector('.continue-btn');
+  if (continueBtn) { continueBtn.focus(); }
+}
+
+function advance(fromStep) {
+  var nextOf = { '1': '2', '2': '3', '3': 'final' };
+  var next = nextOf[fromStep];
+  if (next === 'final') {
+    document.querySelectorAll('.step').forEach(function(s) { s.classList.remove('active'); });
+    clearHighlights();
+    document.getElementById('final').style.display = 'block';
+    document.getElementById('status').textContent =
+      'Both procedures arrived at the same answer: Big Monkey waits, Little Monkey plays cw.';
+  } else {
+    showStep(next);
+  }
+}
+
+setupStep('1');
+</script>
+
+</body>
+</html>

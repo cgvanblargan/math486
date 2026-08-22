@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comparing Two Strategies: Strict, Weak, or Neither</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #4a5559;
+    --panel-bg: #f7f7f5;
+    --good: #1e6f3d;
+    --wrong-bg: #fdecea;
+    --wrong-border: #c0392b;
+    --correct-bg: #eafaf1;
+    --correct-border: #1e6f3d;
+    --focus: #2563eb;
+    --sel-a: #1d4ed8;
+    --sel-b: #92400e;
+    --sel-a-bg: #dbe6fb;
+    --sel-b-bg: #fbeacd;
+  }
+  body {
+    margin: 0; padding: 10px 12px 18px;
+    font-family: serif; background: transparent; color: var(--ink);
+  }
+  h2 { text-align: center; font-size: 19px; margin: 4px 0 4px; }
+  h3 { font-size: 16.5px; margin: 0 0 10px; }
+  .counter { text-align: center; font-size: 14px; color: var(--muted); margin: 0 0 12px; }
+
+  .panel {
+    max-width: 720px; margin: 0 auto 14px; padding: 14px 18px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+  }
+  .directions { font-size: 15px; line-height: 1.5; margin: 0 0 12px; }
+
+  table { border-collapse: collapse; margin: 0 auto; font-size: 15px; }
+  th, td { border: 1px solid #c9ced1; padding: 7px 12px; text-align: center; }
+  th { background: #ececea; }
+  caption { font-size: 13.5px; color: var(--muted); margin-bottom: 6px; caption-side: top; line-height: 1.45; }
+
+  /* Highlight only the payoff component belonging to the player in question. */
+  .hl-a, .hl-b { padding: 1px 4px; border-radius: 4px; font-weight: bold; }
+  .hl-a { background: var(--sel-a-bg); color: var(--sel-a); box-shadow: inset 0 0 0 1.5px var(--sel-a); }
+  .hl-b { background: var(--sel-b-bg); color: var(--sel-b); box-shadow: inset 0 0 0 1.5px var(--sel-b); }
+  th.head-a { background: var(--sel-a-bg); color: var(--sel-a); }
+  th.head-b { background: var(--sel-b-bg); color: var(--sel-b); }
+  .tag { font-size: 11.5px; font-weight: bold; display: block; letter-spacing: 0.04em; }
+
+  .ctrl-block { margin-top: 16px; }
+  .ctrl-label { font-size: 14.5px; font-weight: bold; display: block; margin-bottom: 8px; }
+  .choice-row { display: flex; flex-wrap: wrap; gap: 8px; }
+
+  button {
+    font-family: serif; font-size: 14.5px; padding: 8px 14px; border-radius: 8px;
+    border: 1.5px solid var(--ink); background: white; color: var(--ink); cursor: pointer;
+  }
+  button:hover:not(:disabled) { background: #eef2f5; }
+  button:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  button:disabled { cursor: default; opacity: 0.5; }
+  button.answer-btn { text-align: left; flex: 1 1 200px; line-height: 1.35; }
+  button.answer-btn.was-wrong {
+    border-color: var(--wrong-border); color: var(--wrong-border);
+    text-decoration: line-through;
+  }
+  button.answer-btn.was-right {
+    border-color: var(--correct-border); background: var(--correct-bg); font-weight: bold;
+  }
+  button.next-btn { border-color: var(--good); color: var(--good); font-weight: bold; }
+  .reset-btn {
+    font-size: 13px; padding: 5px 12px; border-radius: 999px;
+    border: 1px solid var(--muted); color: var(--muted);
+  }
+
+  .feedback {
+    margin-top: 12px; padding: 11px 13px; border-radius: 8px;
+    font-size: 14.5px; line-height: 1.55;
+  }
+  .feedback.correct { background: var(--correct-bg); border: 1px solid var(--correct-border); }
+  .feedback.wrong { background: var(--wrong-bg); border: 1px solid var(--wrong-border); }
+  .feedback .verdict { font-weight: bold; }
+
+  .nav-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 10px; margin-top: 14px; flex-wrap: wrap;
+  }
+
+  .done-box { text-align: center; font-size: 15px; line-height: 1.55; }
+  .done-box .headline { font-weight: bold; color: var(--good); font-size: 16px; }
+  .recap { margin: 12px auto 0; text-align: left; max-width: 560px; font-size: 14.5px; line-height: 1.5; }
+  .recap li { margin-bottom: 6px; }
+
+  .sr-only {
+    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+  @media (max-width: 500px) {
+    button.answer-btn { flex: 1 1 100%; }
+    th, td { padding: 6px 8px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script type="text/babel">
+const { useState, useMemo, useRef, useEffect } = React;
+
+/* ---------- The Section 2.3 example matrix ---------- */
+const ROWS = ["a", "b"];
+const COLS = ["c", "d", "e", "f"];
+const PAYOFF = {
+  a: { c: [1, 2], d: [-1, 2], e: [2, 4], f: [-1, 3] },
+  b: { c: [4, 1], d: [1, 1], e: [3, 1], f: [0, 2] },
+};
+
+const num = (n) => (n < 0 ? "\u2212" + Math.abs(n) : String(n));
+
+function payoffFor(player, own, other) {
+  const cell = player === 1 ? PAYOFF[own][other] : PAYOFF[other][own];
+  return cell[player - 1];
+}
+function opponentStrategies(player) { return player === 1 ? COLS : ROWS; }
+
+/* ---------- The guided sequence ----------
+   Each pair is oriented so that A is the dominating strategy when one exists,
+   which keeps the three answer options identical at every step. The question is
+   always strict versus weak versus neither, never which direction it runs.
+   Ordered so the strict cases come first, weak next, and the two ways dominance
+   can fail last and adjacent, so they contrast directly. */
+const SEQUENCE = [
+  { player: 2, A: "f", B: "c" },
+  { player: 1, A: "b", B: "a" },
+  { player: 2, A: "e", B: "c" },
+  { player: 2, A: "f", B: "d" },
+  { player: 2, A: "e", B: "d" },
+  { player: 2, A: "c", B: "d" },
+  { player: 2, A: "e", B: "f" },
+];
+
+/* ---------- Dominance logic ---------- */
+function analyze(player, sA, sB) {
+  const rows = opponentStrategies(player).map((o) => {
+    const va = payoffFor(player, sA, o);
+    const vb = payoffFor(player, sB, o);
+    return { opp: o, va, vb, diff: va - vb };
+  });
+  const allAgtB = rows.every((r) => r.diff > 0);
+  const allAgeB = rows.every((r) => r.diff >= 0);
+  const someAgtB = rows.some((r) => r.diff > 0);
+
+  let truth;
+  if (allAgtB) truth = "STRICT";
+  else if (allAgeB && someAgtB) truth = "WEAK";
+  else truth = "NEITHER";
+
+  return { rows, truth, tiedEverywhere: rows.every((r) => r.diff === 0) };
+}
+
+/* ---------- Explanations ----------
+   Since the payoffs are no longer laid out column by column on screen, the
+   feedback spells them out. This is where the arithmetic gets confirmed. */
+function columnDetail(rows, sA, sB) {
+  return rows
+    .map((r) => {
+      if (r.diff === 0) return `against ${r.opp}, both give ${num(r.va)}`;
+      return `against ${r.opp}, ${sA} gives ${num(r.va)} and ${sB} gives ${num(r.vb)}`;
+    })
+    .join("; ");
+}
+
+function explain(player, sA, sB, analysis) {
+  const { rows, truth, tiedEverywhere } = analysis;
+  const opp = player === 1 ? "Player 2" : "Player 1";
+  const detail = columnDetail(rows, sA, sB);
+  const ties = rows.filter((r) => r.diff === 0).map((r) => r.opp).join(" and ");
+  const wins = rows.filter((r) => r.diff > 0).map((r) => r.opp).join(" and ");
+  const losses = rows.filter((r) => r.diff < 0).map((r) => r.opp).join(" and ");
+
+  if (truth === "STRICT") {
+    return `Reading across: ${detail}. So ${sA} gives a strictly larger payoff ` +
+      `than ${sB} against every strategy ${opp} might choose, with no ties ` +
+      `anywhere. That is strict dominance. Note ${sA} also weakly dominates ` +
+      `${sB}, since strict dominance always implies weak dominance.`;
+  }
+  if (truth === "WEAK") {
+    return `Reading across: ${detail}. So ${sA} is never worse than ${sB}, and ` +
+      `it is strictly better against ${wins}. Both requirements for weak ` +
+      `dominance are met. It is not strict dominance, because the two are tied ` +
+      `against ${ties}, and strict dominance needs a strictly larger payoff in ` +
+      `every column.`;
+  }
+  if (tiedEverywhere) {
+    return `Reading across: ${detail}. The two strategies give identical ` +
+      `payoffs against everything ${opp} might do. Each one is never worse than ` +
+      `the other, so the first requirement for weak dominance holds in both ` +
+      `directions \u2014 but neither is ever strictly better, so the second ` +
+      `requirement fails in both directions. Neither dominates. That second ` +
+      `requirement is easy to forget, and it does real work later in this chapter.`;
+  }
+  return `Reading across: ${detail}. Neither strategy is always at least as ` +
+    `good as the other: ${sA} is strictly better against ${wins}, while ${sB} ` +
+    `is strictly better against ${losses}. When each strategy wins somewhere, ` +
+    `there is no dominance in either direction.`;
+}
+
+function nudge(picked, truth, tiedEverywhere) {
+  if (picked === "NEITHER" && truth === "WEAK") {
+    return "A tie in one column does not rule out weak dominance \u2014 weak " +
+      "dominance allows ties, as long as there is a strict win somewhere.";
+  }
+  if (picked === "STRICT" && truth === "WEAK") {
+    return "Close. Strict dominance is the stronger condition: it allows no " +
+      "ties at all. Look again for a column where the two are equal.";
+  }
+  if (picked === "WEAK" && truth === "NEITHER" && tiedEverywhere) {
+    return "This is the most common slip. Being never worse is only the first " +
+      "half of the definition of weak dominance.";
+  }
+  if (picked === "STRICT" && truth === "NEITHER") {
+    return "Check every column before deciding. Dominance has to hold against " +
+      "all of the opponent's strategies, not just the first one you looked at.";
+  }
+  if (picked === "WEAK" && truth === "NEITHER") {
+    return "Look for a column where the second strategy comes out ahead. If " +
+      "there is one, the first strategy is not always at least as good.";
+  }
+  if (picked === "NEITHER" && truth === "STRICT") {
+    return "Compare column by column and check whether one strategy wins every " +
+      "single comparison.";
+  }
+  return "Read the two strategies' payoffs column by column before choosing.";
+}
+
+function optionsFor(sA, sB) {
+  return [
+    { id: "STRICT", label: `${sA} strictly dominates ${sB}` },
+    { id: "WEAK", label: `${sA} weakly dominates ${sB}, but not strictly` },
+    { id: "NEITHER", label: "Neither dominates the other" },
+  ];
+}
+
+/* ---------- Payoff matrix display ----------
+   Only the component belonging to the player under consideration is
+   highlighted: the second component for Player 2, the first for Player 1.
+   The strategy's own header cell is highlighted to match. */
+function MatrixTable({ player, sA, sB }) {
+  const roleOf = (own) => (own === sA ? "a" : own === sB ? "b" : null);
+
+  const headClass = (own, forPlayer) => {
+    if (forPlayer !== player) return "";
+    const role = roleOf(own);
+    return role ? "head-" + role : "";
+  };
+
+  const tagFor = (own, forPlayer) => {
+    if (forPlayer !== player) return null;
+    const role = roleOf(own);
+    if (!role) return null;
+    return <span className="tag">{role === "a" ? "FIRST" : "SECOND"}</span>;
+  };
+
+  /* Wrap a payoff component in a highlight span when it belongs to the
+     player in question and to one of the two strategies being compared. */
+  const component = (value, componentPlayer, own) => {
+    if (componentPlayer !== player) return num(value);
+    const role = roleOf(own);
+    if (!role) return num(value);
+    return <span className={"hl-" + role}>{num(value)}</span>;
+  };
+
+  return (
+    <table>
+      <caption>
+        Payoffs are written as (Player 1, Player 2). Only Player {player}'s
+        payoffs matter here, so those are the highlighted numbers. The two
+        strategies being compared are labelled FIRST and SECOND.
+      </caption>
+      <thead>
+        <tr>
+          <th scope="col"><span className="sr-only">Player 1 strategy</span></th>
+          {COLS.map((c) => (
+            <th key={c} scope="col" className={headClass(c, 2)}>
+              Player 2: {c}
+              {tagFor(c, 2)}
+            </th>
+          ))}
+        </tr>
+      </thead>
+      <tbody>
+        {ROWS.map((r) => (
+          <tr key={r}>
+            <th scope="row" className={headClass(r, 1)}>
+              Player 1: {r}
+              {tagFor(r, 1)}
+            </th>
+            {COLS.map((c) => {
+              const [p1, p2] = PAYOFF[r][c];
+              return (
+                <td key={c}>
+                  ({component(p1, 1, r)}, {component(p2, 2, c)})
+                </td>
+              );
+            })}
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
+/* ---------- Main ---------- */
+function App() {
+  const [idx, setIdx] = useState(0);
+  const [tried, setTried] = useState([]);
+  const [settled, setSettled] = useState(false);
+  const [srMsg, setSrMsg] = useState("");
+  const feedbackRef = useRef(null);
+  const headingRef = useRef(null);
+  const firstRender = useRef(true);
+
+  const finished = idx >= SEQUENCE.length;
+  const step = finished ? null : SEQUENCE[idx];
+  const analysis = useMemo(
+    () => (step ? analyze(step.player, step.A, step.B) : null),
+    [step]
+  );
+
+  useEffect(() => {
+    if (firstRender.current) { firstRender.current = false; return; }
+    if (headingRef.current) headingRef.current.focus();
+  }, [idx]);
+
+  useEffect(() => {
+    if (tried.length && feedbackRef.current) feedbackRef.current.focus();
+  }, [tried.length]);
+
+  function submit(optId) {
+    if (settled || tried.includes(optId)) return;
+    const correct = optId === analysis.truth;
+    setTried((prev) => [...prev, optId]);
+    if (correct) { setSettled(true); setSrMsg("Correct."); }
+    else { setSrMsg("Not quite. Try again."); }
+  }
+
+  function next() {
+    const n = idx + 1;
+    setIdx(n);
+    setTried([]);
+    setSettled(false);
+    setSrMsg(
+      n >= SEQUENCE.length
+        ? "All pairs complete."
+        : `Pair ${n + 1} of ${SEQUENCE.length}. Comparing ${SEQUENCE[n].A} ` +
+          `against ${SEQUENCE[n].B} for Player ${SEQUENCE[n].player}.`
+    );
+  }
+
+  function restart() {
+    setIdx(0); setTried([]); setSettled(false);
+    setSrMsg("Restarted at the first pair.");
+  }
+
+  if (finished) {
+    return (
+      <div>
+        <h2>Comparing Two Strategies: Strict, Weak, or Neither?</h2>
+        <div className="panel done-box">
+          <p className="headline">
+            That is all {SEQUENCE.length} pairs from the Section 2.3 matrix.
+          </p>
+          <p style={{ margin: "10px 0 0" }}>
+            Every relationship in this matrix falls into one of three buckets:
+          </p>
+          <ul className="recap">
+            <li>
+              <b>Strict dominance</b> (b over a, f over c, f over d): strictly
+              better in every column, no ties allowed.
+            </li>
+            <li>
+              <b>Weak dominance</b> (e over c, e over d): never worse anywhere,
+              and strictly better in at least one column. Ties are fine, as long
+              as there is a strict win somewhere.
+            </li>
+            <li>
+              <b>No dominance</b> (c and d, e and f): and notice these two failed
+              for different reasons. c and d are tied in every column, so neither
+              is ever strictly better. e and f each win a column, so neither is
+              always at least as good.
+            </li>
+          </ul>
+          <div style={{ marginTop: "14px" }}>
+            <button className="reset-btn" onClick={restart}>Start over</button>
+          </div>
+        </div>
+        <div className="sr-only" role="status" aria-live="polite">{srMsg}</div>
+      </div>
+    );
+  }
+
+  const { player, A, B } = step;
+  const opts = optionsFor(A, B);
+  const lastTry = tried[tried.length - 1];
+  const opp = player === 1 ? "Player 2" : "Player 1";
+
+  return (
+    <div>
+      <h2>Comparing Two Strategies: Strict, Weak, or Neither?</h2>
+      <p className="counter">Pair {idx + 1} of {SEQUENCE.length}</p>
+
+      <div className="panel">
+        <h3 tabIndex={-1} ref={headingRef}>
+          Player {player}: comparing {A} against {B}
+        </h3>
+        <p className="directions">
+          Read Player {player}'s payoffs from {A} and from {B} across the matrix,
+          one choice by {opp} at a time, and decide which relationship holds.
+        </p>
+        <MatrixTable player={player} sA={A} sB={B} />
+
+        <div className="ctrl-block">
+          <span className="ctrl-label" id="answer-label">
+            Which relationship holds?
+          </span>
+          <div className="choice-row" role="group" aria-labelledby="answer-label">
+            {opts.map((o) => {
+              const wasTried = tried.includes(o.id);
+              const isAnswer = settled && o.id === analysis.truth;
+              const cls =
+                "answer-btn" + (isAnswer ? " was-right" : wasTried ? " was-wrong" : "");
+              return (
+                <button
+                  key={o.id}
+                  className={cls}
+                  disabled={settled || wasTried}
+                  onClick={() => submit(o.id)}
+                >
+                  {o.label}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {tried.length > 0 && (
+          <div
+            className={"feedback " + (settled ? "correct" : "wrong")}
+            ref={feedbackRef}
+            tabIndex={-1}
+            role="status"
+            aria-live="polite"
+          >
+            <span className="verdict">{settled ? "Correct." : "Not quite."}</span>{" "}
+            {settled
+              ? explain(player, A, B, analysis)
+              : nudge(lastTry, analysis.truth, analysis.tiedEverywhere) + " Try again."}
+          </div>
+        )}
+
+        <div className="nav-row">
+          <button className="reset-btn" onClick={restart}>Start over</button>
+          <button
+            className="next-btn"
+            onClick={next}
+            disabled={!settled}
+            aria-label={
+              settled
+                ? idx + 1 >= SEQUENCE.length
+                  ? "Finish and see the summary"
+                  : `Go to pair ${idx + 2} of ${SEQUENCE.length}`
+                : "Next pair, available once you have answered correctly"
+            }
+          >
+            {idx + 1 >= SEQUENCE.length ? "Finish" : "Next pair"} &#8594;
+          </button>
+        </div>
+      </div>
+
+      <div className="sr-only" role="status" aria-live="polite">{srMsg}</div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+</body>
+</html>

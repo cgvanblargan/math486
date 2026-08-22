@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch2-page5-critique" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Generalizing the Correspondence and a Critique</title>
+
+  <p>
+    Before reading Section 2.12, work through the backward induction on
+    Big Monkey and Little Monkey below, and watch what happens to the
+    normal form matrix at each step. The idea is that each step of
+    backward induction on the tree corresponds to a step of iterated
+    elimination of weakly dominated strategies on the matrix.
+  </p>
+
+  <figure xml:id="fig-backward-induction-correspondence">
+    <caption>Backward induction on the tree and iterated elimination on the matrix, side by side.</caption>
+    <interactive xml:id="interactive-backward-induction-correspondence"
+      iframe="ch2-graph/backward-induction-correspondence.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          The Big Monkey and Little Monkey game tree on the left and its
+          normal form matrix on the right. At each step you choose a move
+          at the node currently being decided, and the corresponding
+          strategies are eliminated from the matrix.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <assemblage xml:id="read-2-12">
+    <title>Section 2.12, Backward Induction and Iterated Elimination of Dominated Strategies</title>
+   
+    <p>
+      <alert>Skim Section 2.12.</alert> You won't need it for homework.
+      What matters is the intuition you just built in the interactive
+      above.
+    </p>
+
+     <p>
+      This section proves, in general, what you just saw for Big Monkey
+      and Little Monkey: backward induction and iterated elimination of
+      weakly dominated strategies always correspond, step for step, for
+      any two-player extensive form game.
+    </p>
+  </assemblage>
+
+  <p>
+    We end Chapter 2 with a very short reading on the limitations of
+    eliminating dominated strategies.
+  </p>
+
+  <assemblage xml:id="read-2-13">
+    <title>Section 2.13, Critique of Elimination of Dominated Strategies</title>
+    
+    <p>
+      <alert>Read Section 2.13.</alert>
+    </p>
+    <p>
+      This one is quick: the critiques of long backward inductions from
+      Chapter 1 apply to iterated elimination too.
+    </p>
+  </assemblage>
+
+     <p>
+  The big issue we saw is that for iterated elimination of weakly dominated
+  strategies, there can be different reduced games. Let's think about why
+  this happens for weak domination but not strict.
+</p>
+
+<p>
+  In the strict case, suppose you eliminate <m>s_i</m> because <m>s_j</m>
+  strictly dominates it, and now imagine an order where <m>s_j</m> goes
+  first. That doesn't rescue <m>s_i</m>: <m>s_j</m> was itself eliminated by
+  some <m>s_k</m>, and <m>s_k</m> beats <m>s_j</m> beats <m>s_i</m>. With
+  only finitely many strategies, this chain stops at a survivor that
+  dominates <m>s_i</m>. Eliminating the opponent's strategies doesn't rescue
+  it either, since <m>s_j</m> beats <m>s_i</m> against <em>every</em>
+  opponent strategy, so it still beats it against whichever remain.
+</p>
+
+<p>
+  So an elimination that was available stays available, and that is what
+  forces every order to the same place. If weak domination gives different
+  reduced games, the failure has to be exactly here: some order must make an
+  available elimination stop being available, and the strategy that would
+  have been deleted then survives to the end.
+</p>
+
+<p>Now think about this a bit further in the follow question!</p>
+
+<exercise xml:id="check-weak-order-dependence">
+  <statement>
+    <p>
+      Which step of the strict argument breaks for weak domination?
+    </p>
+  </statement>
+  <choices randomize="yes">
+    <choice correct="yes">
+      <statement>
+        <p>
+          The step about the opponent. Weak domination only requires
+          <m>s_j</m> to beat <m>s_i</m> against <em>some</em> opponent
+          strategy, so eliminating that one strategy leaves them tied
+          everywhere and neither dominates. The elimination is gone for
+          good, and <m>s_i</m> survives to the end.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Correct. Strict domination needed <m>s_j</m> to beat <m>s_i</m>
+          against every opponent strategy, which is exactly what made
+          eliminating opponent strategies harmless. Weak domination can
+          rest on a single column, and removing that column removes the
+          domination. One order deletes <m>s_i</m>; the other leaves it
+          standing.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>
+          The chain step. Under weak domination the chain of dominators
+          can run forever without reaching a survivor.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Not quite. That part still works: there are finitely many
+          strategies either way, so a chain of dominators has to stop. The
+          trouble comes from the opponent's side of the matrix.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>
+          None of them. Eliminating a weakly dominated strategy changes the
+          payoffs in the cells that remain.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Not quite. Eliminating a strategy just removes a row or column;
+          every payoff still showing is what it was before. What changes is
+          which comparisons you can still make.
+        </p>
+      </feedback>
+    </choice>
+    <choice>
+      <statement>
+        <p>
+          None of them. Two strategies can weakly dominate each other, so
+          the elimination could go either way.
+        </p>
+      </statement>
+      <feedback>
+        <p>
+          Not quite. If neither is strictly better anywhere, they are tied
+          everywhere and neither weakly dominates the other. The problem
+          isn't domination running both directions, it's a one-way
+          domination disappearing once part of the game is removed.
+        </p>
+      </feedback>
+    </choice>
+  </choices>
+</exercise>
+  
+  </section>

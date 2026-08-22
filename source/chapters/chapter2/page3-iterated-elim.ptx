@@ -1,22 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<section xml:id="ch2-page4-order-dependence" xmlns:xi="http://www.w3.org/2001/XInclude">
+<section xml:id="ch2-page3-iterated-elim" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Iterated Elimination of Dominated Strategies</title>
+
+  <p>We begin this page with a short reading.</p>
 
   <assemblage xml:id="read-2-8">
     <title>Section 2.8, Iterated Elimination of Dominated Strategies</title>
     <p>
       <alert>Read Section 2.8.</alert>
     </p>
+    <p>
+      This section quickly introduces the method of iterated elimination
+      of dominated strategies. After you read, we will demonstrate with an
+      interactive.
+    </p>
   </assemblage>
 
   <p>
-    Here's the payoff matrix from Section 2.9, the Battle of the Bismarck
-    Sea. We'll read the historical context later. For now, let's
-    just look at the iterated elimination itself.
+    So the idea is we try to find a good strategy by getting rid of
+    strategies that are beaten by some other strategy. Now it's time to
+    see this in practice!
+  </p>
+
+  <p>
+    Here's the payoff matrix that you will see later in Section 2.9, the
+    Battle of the Bismarck Sea. You'll get more of the historical context
+    later once we get to the reading. For now, let's just look at the
+    iterated elimination itself.
   </p>
 
   <table xml:id="table-bismarck-sea">
+    <title>Battle of the Bismarck Sea, payoff matrix</title>
     <tabular halign="center">
       <row header="yes">
         <cell></cell>
@@ -39,7 +54,9 @@
   <p>
     Before any elimination, neither of Kenney's strategies dominates the
     other. Let's do the iteration, starting with Imamura, in the
-    interactive below.
+    interactive below. In the interactives on this page, pay attention to
+    whether the strategies are being strictly or weakly dominated, and we
+    will see this distinction matters later on!
   </p>
 
   <figure xml:id="fig-bismarck-sea-elimination">
@@ -61,19 +78,29 @@
     <p>
       <alert>Read Section 2.9.</alert>
     </p>
+
+    <p>The math is actually all done in the last interactive. This reading just gives fuller context.</p>
   </assemblage>
+
+  <p>
+    Next we return to Big Monkey and Little Monkey, this time writing the
+    game in normal form.
+  </p>
 
   <assemblage xml:id="read-2-10">
     <title>Section 2.10, Normal Form of a Game in Extensive Form with Complete Information</title>
     <p>
       <alert>Read Section 2.10.</alert>
     </p>
+
+    <p>This section describes how to convert a game tree (game in extensive form) to a game in normal form.
+     We'll work through this with an interactive shortly.</p>
   </assemblage>
 
   <p>
     Section 2.10 converts Big Monkey and Little Monkey, from Chapter 1,
     into normal form. Explore the connection between the two
-    representations below.
+    representations below. <alert>Click the different payoffs on the table to see the corresponding strategy highlighted in the tree.</alert>
   </p>
 
   <figure xml:id="fig-normal-extensive-bmlm">
@@ -91,7 +118,7 @@
   </figure>
 
   <p>
-    Now let's use iterated elimination on this normal form matrix.
+    We're not done with this example! Let's take this a step further and use iterated elimination on this normal form matrix.
   </p>
 
   <figure xml:id="fig-bmlm-elimination-1">
@@ -109,7 +136,8 @@
   </figure>
 
   <p>
-    Let's try a different order of elimination on the same matrix.
+    Let's try a different order of elimination on the same matrix. <alert>Make sure to go through this one as well, even if you feel you understand
+    iterated elimination! We are going to see an interesting conclusion.</alert>
   </p>
 
   <figure xml:id="fig-bmlm-elimination-2">
@@ -130,16 +158,19 @@
     <p>
       <alert>Read Section 2.11.</alert>
     </p>
+
+    <p>The two examples worked out there are exactly the two interactives above. So, you don't need to
+    re-read every step if you feel good about how we get the two results already.</p>
   </assemblage>
 
   <p>
-    Same matrix, two valid elimination orders, two different results. The
-    first ordering pinned down a unique dominant strategy equilibrium; the
-    second only pinned down Big Monkey's strategy, leaving Little Monkey's
-    undetermined. This is the order-dependence Section 2.8 warned about:
-    iterated elimination of strictly dominated strategies always gives the
-    same answer no matter the order, but iterated elimination of weakly
-    dominated strategies does not.
+    Big Monkey and Little Monkey is illuminating because two valid
+    elimination orders gave two different results. The first ordering
+    pinned down a unique dominant strategy equilibrium; the second only
+    pinned down Big Monkey's strategy, leaving Little Monkey's
+    undetermined. <em> Iterated elimination of strictly dominated strategies
+    always gives the same answer no matter the order, but iterated
+    elimination of weakly dominated strategies does not.</em>
   </p>
 
 </section>
