@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Normal form and extensive form: Big Monkey and Little Monkey</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+  .layout {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 16px;
+    justify-content: center;
+    align-items: flex-start;
+    overflow-x: auto;
+  }
+  .panel {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+  .panel.matrix-panel {
+    flex: 0 1 300px;
+    font-size: 0.85em;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  .panel.tree-panel {
+    flex: 1 1 380px;
+    position: relative;
+  }
+  h2 {
+    font-size: 1em;
+    text-align: center;
+    margin: 0 0 8px 0;
+  }
+  table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  caption {
+    font-size: 0.85em;
+    margin-bottom: 6px;
+  }
+  th, td {
+    border: 1px solid #333;
+    padding: 4px 6px;
+    text-align: center;
+  }
+  th {
+    background: #eee;
+  }
+  td {
+    min-width: 40px;
+  }
+  button.cell {
+    font: inherit;
+    width: 100%;
+    height: 100%;
+    padding: 6px 4px;
+    background: #fff;
+    border: 1px solid #999;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  button.cell:hover {
+    background: #dde7f5;
+  }
+  button.cell[aria-pressed="true"] {
+    background: #2a5db0;
+    color: #fff;
+    font-weight: bold;
+    border: 2px solid #14335e;
+  }
+  button.cell:focus-visible {
+    outline: 3px solid #d4841c;
+    outline-offset: 2px;
+  }
+  th.strategy-highlight {
+    background: #fff2b3;
+    border: 2px solid #b3941f;
+    font-weight: bold;
+  }
+  svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+  }
+  .edge {
+    stroke: #666;
+    stroke-width: 2;
+    fill: none;
+  }
+  .edge.taken {
+    stroke: #2a5db0;
+    stroke-width: 5;
+  }
+  .edge.irrelevant {
+    stroke: #ccc;
+  }
+  .edge-label {
+    font-size: 13px;
+    fill: #333;
+  }
+  .edge-label.taken {
+    fill: #14335e;
+    font-weight: bold;
+  }
+  .node-label, .leaf-label {
+    font-size: 13px;
+    fill: #000;
+    text-anchor: middle;
+  }
+  .leaf-label.taken {
+    font-weight: bold;
+    fill: #14335e;
+  }
+  .node-dot {
+    fill: #333;
+  }
+  .taken-marker {
+    font-size: 12px;
+    fill: #14335e;
+    font-weight: bold;
+  }
+  #status {
+    max-width: 640px;
+    margin: 14px auto 0 auto;
+    padding: 10px 14px;
+    background: #eef4fb;
+    border: 1px solid #9bb8dd;
+    border-radius: 4px;
+    min-height: 1.4em;
+  }
+  .instructions {
+    max-width: 700px;
+    margin: 0 auto 16px auto;
+    text-align: center;
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+  }
+</style>
+</head>
+<body>
+
+<p class="instructions">
+  Click any entry in the payoff matrix on the left to highlight the
+  matching path through the game tree on the right (the first entry is
+  highlighted below as an example).
+</p>
+
+<div class="layout">
+
+  <div class="panel matrix-panel">
+    <h2 id="matrix-heading">Normal form (Section 2.10)</h2>
+    <div class="table-wrap">
+    <table aria-labelledby="matrix-heading">
+      <caption class="sr-only">
+        Payoff matrix for Big Monkey and Little Monkey. Rows are Big
+        Monkey's strategy, wait or climb. Columns are Little Monkey's
+        strategy, one of ww, wc, cw, cc, where the first letter is
+        Little Monkey's move if Big Monkey waits and the second letter
+        is Little Monkey's move if Big Monkey climbs.
+      </caption>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col" colspan="4">Little Monkey</th>
+      </tr>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        <th scope="col" id="colhead-ww">ww</th>
+        <th scope="col" id="colhead-wc">wc</th>
+        <th scope="col" id="colhead-cw">cw</th>
+        <th scope="col" id="colhead-cc">cc</th>
+      </tr>
+      <tr>
+        <th scope="row" rowspan="2">Big<br>Monkey</th>
+        <th scope="row" id="rowhead-w">w</th>
+        <td><button class="cell" id="cell-w-ww" aria-pressed="false">(0, 0)</button></td>
+        <td><button class="cell" id="cell-w-wc" aria-pressed="false">(0, 0)</button></td>
+        <td><button class="cell" id="cell-w-cw" aria-pressed="false">(9, 1)</button></td>
+        <td><button class="cell" id="cell-w-cc" aria-pressed="false">(9, 1)</button></td>
+      </tr>
+      <tr>
+        <th scope="row" id="rowhead-c">c</th>
+        <td><button class="cell" id="cell-c-ww" aria-pressed="false">(4, 4)</button></td>
+        <td><button class="cell" id="cell-c-wc" aria-pressed="false">(5, 3)</button></td>
+        <td><button class="cell" id="cell-c-cw" aria-pressed="false">(4, 4)</button></td>
+        <td><button class="cell" id="cell-c-cc" aria-pressed="false">(5, 3)</button></td>
+      </tr>
+    </table>
+    </div>
+  </div>
+
+  <div class="panel tree-panel">
+    <h2 id="tree-heading">Extensive form (Chapter 1)</h2>
+    <svg id="tree" viewBox="0 0 360 300" role="img" aria-labelledby="tree-heading tree-desc">
+      <desc id="tree-desc">
+        Big Monkey moves first, choosing wait or climb. Little Monkey then
+        moves, choosing wait or climb. The four leaves give payoffs (Big
+        Monkey, Little Monkey): wait-wait gives (0,0), wait-climb gives
+        (9,1), climb-wait gives (4,4), climb-climb gives (5,3).
+      </desc>
+
+      <!-- root to LM-node-wait (Big Monkey waits) -->
+      <path id="edge-root-w" class="edge" d="M180,30 L90,120"></path>
+      <text id="label-root-w" class="edge-label" x="115" y="70">wait</text>
+
+      <!-- root to LM-node-climb (Big Monkey climbs) -->
+      <path id="edge-root-c" class="edge" d="M180,30 L270,120"></path>
+      <text id="label-root-c" class="edge-label" x="245" y="70">climb</text>
+
+      <!-- LM-node-wait to leaf ww -->
+      <path id="edge-w-w" class="edge" d="M90,120 L45,210"></path>
+      <text id="label-w-w" class="edge-label" x="45" y="165">wait</text>
+
+      <!-- LM-node-wait to leaf wc -->
+      <path id="edge-w-c" class="edge" d="M90,120 L135,210"></path>
+      <text id="label-w-c" class="edge-label" x="128" y="165">climb</text>
+
+      <!-- LM-node-climb to leaf cw -->
+      <path id="edge-c-w" class="edge" d="M270,120 L225,210"></path>
+      <text id="label-c-w" class="edge-label" x="220" y="165">wait</text>
+
+      <!-- LM-node-climb to leaf cc -->
+      <path id="edge-c-c" class="edge" d="M270,120 L315,210"></path>
+      <text id="label-c-c" class="edge-label" x="308" y="165">climb</text>
+
+      <circle class="node-dot" cx="180" cy="30" r="4"></circle>
+      <text class="node-label" x="180" y="20">Big Monkey</text>
+
+      <circle class="node-dot" cx="90" cy="120" r="4"></circle>
+      <text class="node-label" x="90" y="112">Little Monkey</text>
+
+      <circle class="node-dot" cx="270" cy="120" r="4"></circle>
+      <text class="node-label" x="270" y="112">Little Monkey</text>
+
+      <text id="leaf-ww" class="leaf-label" x="45" y="230">(0, 0)</text>
+      <text id="leaf-wc" class="leaf-label" x="135" y="230">(9, 1)</text>
+      <text id="leaf-cw" class="leaf-label" x="225" y="230">(4, 4)</text>
+      <text id="leaf-cc" class="leaf-label" x="315" y="230">(5, 3)</text>
+
+      <text id="taken-mark" class="taken-marker" x="180" y="260" text-anchor="middle"></text>
+    </svg>
+  </div>
+
+</div>
+
+<div id="status" role="status" aria-live="polite"></div>
+
+<script>
+// leafInfo[row][col] = { path: [edgeIds...], leafId, payoff, description }
+var cells = [
+  { row: 'w', col: 'ww', bm: 'wait',  lmLetter: 'w', leaf: 'ww', payoff: '(0, 0)' },
+  { row: 'w', col: 'wc', bm: 'wait',  lmLetter: 'w', leaf: 'ww', payoff: '(0, 0)' },
+  { row: 'w', col: 'cw', bm: 'wait',  lmLetter: 'c', leaf: 'wc', payoff: '(9, 1)' },
+  { row: 'w', col: 'cc', bm: 'wait',  lmLetter: 'c', leaf: 'wc', payoff: '(9, 1)' },
+  { row: 'c', col: 'ww', bm: 'climb', lmLetter: 'w', leaf: 'cw', payoff: '(4, 4)' },
+  { row: 'c', col: 'wc', bm: 'climb', lmLetter: 'c', leaf: 'cc', payoff: '(5, 3)' },
+  { row: 'c', col: 'cw', bm: 'climb', lmLetter: 'w', leaf: 'cw', payoff: '(4, 4)' },
+  { row: 'c', col: 'cc', bm: 'climb', lmLetter: 'c', leaf: 'cc', payoff: '(5, 3)' }
+];
+
+var leafOrder = ['ww', 'wc', 'cw', 'cc'];
+
+function allEdgeIds() {
+  return ['edge-root-w','edge-root-c','edge-w-w','edge-w-c','edge-c-w','edge-c-c'];
+}
+
+function clearHighlight() {
+  allEdgeIds().forEach(function(id) {
+    var el = document.getElementById(id);
+    el.classList.remove('taken');
+    document.getElementById('label-' + id.replace('edge-', '')).classList.remove('taken');
+  });
+  leafOrder.forEach(function(l) {
+    document.getElementById('leaf-' + l).classList.remove('taken');
+  });
+  document.getElementById('taken-mark').textContent = '';
+  cells.forEach(function(c) {
+    var btn = document.getElementById('cell-' + c.row + '-' + c.col);
+    btn.setAttribute('aria-pressed', 'false');
+  });
+  document.querySelectorAll('th.strategy-highlight').forEach(function(th) {
+    th.classList.remove('strategy-highlight');
+  });
+}
+
+function highlight(cellInfo) {
+  clearHighlight();
+
+  var pressedBtn = document.getElementById('cell-' + cellInfo.row + '-' + cellInfo.col);
+  pressedBtn.setAttribute('aria-pressed', 'true');
+
+  document.getElementById('rowhead-' + cellInfo.row).classList.add('strategy-highlight');
+  document.getElementById('colhead-' + cellInfo.col).classList.add('strategy-highlight');
+
+  var rootEdge = cellInfo.bm === 'wait' ? 'edge-root-w' : 'edge-root-c';
+  document.getElementById(rootEdge).classList.add('taken');
+  document.getElementById('label-' + rootEdge.replace('edge-', '')).classList.add('taken');
+
+  var secondEdge;
+  if (cellInfo.bm === 'wait') {
+    secondEdge = cellInfo.lmLetter === 'w' ? 'edge-w-w' : 'edge-w-c';
+  } else {
+    secondEdge = cellInfo.lmLetter === 'w' ? 'edge-c-w' : 'edge-c-c';
+  }
+  document.getElementById(secondEdge).classList.add('taken');
+  document.getElementById('label-' + secondEdge.replace('edge-', '')).classList.add('taken');
+
+  document.getElementById('leaf-' + cellInfo.leaf).classList.add('taken');
+
+  var bmWord = cellInfo.bm === 'wait' ? 'waits' : 'climbs';
+  var lmWord = cellInfo.lmLetter === 'w' ? 'waits' : 'climbs';
+  var lmCondition = cellInfo.bm === 'wait' ? 'if Big Monkey waits' : 'if Big Monkey climbs';
+
+  var msg = 'Big Monkey strategy "' + cellInfo.bm + '", Little Monkey strategy "' + cellInfo.col + '". ' +
+    'Big Monkey ' + bmWord + '. Little Monkey\u2019s strategy says ' + lmWord + ' ' + lmCondition +
+    ', so Little Monkey ' + lmWord + '. The path taken leads to payoff ' + cellInfo.payoff + '.';
+
+  document.getElementById('status').textContent = msg;
+}
+
+cells.forEach(function(c) {
+  var btn = document.getElementById('cell-' + c.row + '-' + c.col);
+  btn.addEventListener('click', function() {
+    highlight(c);
+  });
+});
+
+// Start with the first cell already highlighted, so the mechanism is
+// obvious before anyone clicks anything.
+highlight(cells[0]);
+</script>
+
+</body>
+</html>
