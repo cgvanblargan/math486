@@ -4,13 +4,22 @@
   <title>Prisoner's Dilemma and Normal Form</title>
 
   <p>
-    Chapter 2 looks at games where players move simultaneously instead of
-    taking turns.
+    In this chapter, we are going to see a different style of game than we have
+    seen so far. The games in extensive form were represented with a game tree
+    because players took turns, and every scenario could be mapped out as a path
+    through the tree. Now we will look at games where the players decide
+    simultaneously.
   </p>
 
   <p>
-    Play the game below against a robot opponent at least three times before
-    reading on.
+    Perhaps the most well known game in game theory is the <q>Prisoner's
+    Dilemma.</q> You and an accomplice have been arrested and are being
+    questioned in separate rooms, with no way to coordinate. Each of you has the
+    same two options: refuse to talk, or talk and implicate the other. How many
+    years you serve depends on what you <em>both</em> choose, so neither of you
+    controls your own sentence outright. In the interactive below you will play
+    this out repeatedly against a robot opponent. Play at least three rounds
+    before reading on!
   </p>
 
   <figure xml:id="fig-prisoners-dilemma-robot">
@@ -27,24 +36,31 @@
     </interactive>
   </figure>
 
+  <p>
+    Before the reading, think about what the best strategy is. In this scenario,
+    it might not even be clear what <q>best</q> means. Then ask yourself one more thing:
+    what would you do differently if you knew you were only playing a single round, against
+    someone you would never face again?
+    The reading below is about that version of the game.
+  </p>
+
   <assemblage xml:id="read-2-1">
     <title>Section 2.1, Prisoner's Dilemma</title>
     <p>
       <alert> Read Section 2.1.</alert>
     </p>
+
+    <p> Here you will read a quick analysis of the Prisoner's Dilemma. </p>
   </assemblage>
 
-  <p>
-    The robot you played against was following <alert>tit-for-tat</alert>: it
-    cooperates on the first round, then simply copies whatever you did the
-    round before. This is a common strategy in the <em>repeated</em>
-    Prisoner's Dilemma, where the same two players face each other over and
-    over. In a single, one-shot round, the rational move is to always talk.
-    But if you're going to face the same opponent again, always talking can
-    backfire: you build a reputation as someone who defects, and future
-    opponents (or the same one) may punish you for it.
+    <p>
+    More generally, refusing to talk is referred to as <q>cooperating</q> (you
+    are cooperating with the other player), and talking is referred to as
+    <q>defecting.</q> So, with just a single round, the <q>rational</q> solution
+    is to defect. Unfortunately, this means the other player will probably do
+    the same! In practice, there are plenty of reasons someone might cooperate
+    anyway, even though it is not the <q>rational</q> move.
   </p>
-
   <exercise xml:id="check-pd-defining-feature">
     <statement>
       <p>
@@ -86,6 +102,17 @@
   </exercise>
 
   <p>
+    The robot you played against earlier was following the
+    <alert>tit-for-tat</alert> strategy: it cooperates on the first round, then
+    simply copies whatever you did the round before. This is a common strategy
+    in the <em>repeated</em> Prisoner's Dilemma, where the same two players face
+    each other over and over. In a single, one-shot round, the rational move is
+    to always talk. But if you are going to face the same opponent again, always
+    talking can backfire: you build a reputation as someone who defects, and
+    future opponents (or the same one) may punish you for it.
+  </p>
+
+  <p>
     Unlike Tony's Accident or the centipede game, players in the Prisoner's
     Dilemma don't move one after another, they choose at the same time. Games
     like this are described using what's called <alert>normal form</alert>,
@@ -97,31 +124,40 @@
     <p>
       <alert> Read Section 2.2.</alert>
     </p>
+
+    <p>This section describes the three components of a game in normal form.</p>
   </assemblage>
 
   <p>
-    Here's a different game, also in normal form:
-  </p>
-
-  <p>
-    <em>Player 1's strategies: Up, Down. Player 2's strategies: Left,
-    Right.</em>
+    The first two components the book lists are just the players and the
+    strategies available to each player. The third one, the payoff function, is
+    the piece worth slowing down on, along with the notation it is built out of.
+    We will go through all of it carefully to make sure you understand the
+    notation and vocabulary here! Start with the set <m>S = S_1 \times S_2</m>,
+    which for two players is the Cartesian product of their strategy sets. Let's
+    test that on the game below, written in normal form. If you are feeling
+    uncertain about any of the notation or definitions, seeing the correct
+    answers below will clarify things.
   </p>
 
   <table xml:id="table-generic-normal-form">
-    <tabular halign="center">
-      <row header="yes">
+    <title>A game in normal form</title>
+    <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor" />
+      <col right="minor" />
+      <col />
+      <row header="yes" bottom="minor">
         <cell></cell>
-        <cell>Left</cell>
-        <cell>Right</cell>
+        <cell>Player 2: Left</cell>
+        <cell>Player 2: Right</cell>
       </row>
-      <row>
-        <cell>Up</cell>
+      <row bottom="minor">
+        <cell><term>Player 1: Up</term></cell>
         <cell>(3, 2)</cell>
         <cell>(0, 0)</cell>
       </row>
       <row>
-        <cell>Down</cell>
+        <cell><term>Player 1: Down</term></cell>
         <cell>(1, 1)</cell>
         <cell>(4, 3)</cell>
       </row>
@@ -131,15 +167,16 @@
   <exercise xml:id="check-normal-form-cartesian">
     <statement>
       <p>
-        For this game, <m>P = \{1, 2\}</m>, <m>S_1 = \{Up, Down\}</m>, and
-        <m>S_2 = \{Left, Right\}</m>. Which of the following correctly
-        describes <m>S = S_1 \times S_2</m>, the set of strategy profiles?
+        For this game, <m>P = \{1, 2\}</m>,
+        <m>S_1 = \{\text{Up}, \text{Down}\}</m>, and
+        <m>S_2 = \{\text{Left}, \text{Right}\}</m>. Which of the following
+        correctly describes the Cartesian product <m>S = S_1 \times S_2</m>?
       </p>
     </statement>
     <choices randomize="yes">
       <choice correct="yes">
         <statement>
-          <p><m>S = \{(Up,Left), (Up,Right), (Down,Left), (Down,Right)\}</m></p>
+          <p><m>S = \{(\text{Up},\text{Left}), (\text{Up},\text{Right}), (\text{Down},\text{Left}), (\text{Down},\text{Right})\}</m></p>
         </statement>
         <feedback>
           <p>
@@ -151,23 +188,23 @@
       </choice>
       <choice>
         <statement>
-          <p><m>S = \{Up, Down, Left, Right\}</m></p>
+          <p><m>S = \{\text{Up}, \text{Down}, \text{Left}, \text{Right}\}</m></p>
         </statement>
         <feedback>
           <p>
             Not quite, this just lists the individual strategies without
-            pairing them. A strategy profile is a <em>choice by both
-            players at once</em>, not a single player's option.
+            pairing them. The Cartesian product pairs a choice by Player 1
+            with a choice by Player 2, so its entries come two at a time.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
-          <p><m>S = \{(Up,Left), (Down,Right)\}</m></p>
+          <p><m>S = \{(\text{Up},\text{Left}), (\text{Down},\text{Right})\}</m></p>
         </statement>
         <feedback>
           <p>
-            Not quite, this only pairs matching strategies. The cartesian
+            Not quite, this only pairs matching strategies. The Cartesian
             product includes <em>every</em> combination, including
             (Up,Right) and (Down,Left).
           </p>
@@ -176,10 +213,82 @@
     </choices>
   </exercise>
 
+  <p>
+    Now that we have the set <m>S</m>, each individual element of it is called a
+    <alert>strategy profile</alert>. So a strategy profile is one specific
+    choice of strategy for each player, and it lines up with a single cell of
+    the table above. Make sure you can tell the difference between the whole set
+    <m>S</m> and one element of it.
+  </p>
+
+  <exercise xml:id="check-strategy-profile">
+    <statement>
+      <p>
+        Which of the following is a strategy profile for this game?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>(\text{Up}, \text{Right})</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. This says what Player 1 does and what Player 2 does, so
+            it's one element of <m>S</m>, and it points you at the (0, 0)
+            cell of the table.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\text{Down}</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, this is a strategy for Player 1 by itself. A strategy
+            profile has to say what Player 2 is doing too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>(4, 3)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, those are the payoffs sitting in a cell, not the
+            strategies that got you there. The profile that produces them is
+            (Down, Right).
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>S_1 \times S_2</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, that's the set of <em>all</em> the strategy profiles,
+            not one of them. A strategy profile is a single element of it.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The last thing to understand is that the payoff function takes any strategy
+    profile as its input (so it accounts for every combination of strategies the
+    players could choose) and returns the corresponding payoffs. Test your
+    understanding below!
+  </p>
+
   <exercise xml:id="check-normal-form-payoff-eval">
     <statement>
       <p>
-        Using the matrix above, what is <m>\pi(Down, Left)</m>?
+        Using the same table from above, what is
+        <m>\pi(\text{Down}, \text{Left})</m>?
       </p>
     </statement>
     <choices randomize="yes">

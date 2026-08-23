@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 1 exercises.
+
+     One flat list, numbered 1-4 in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch1-exercises">
+  <title>Exercises</title>
+
+  <introduction>
+    <p>Homework exercises for chapter 1.</p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-commissioners">
+    <title>The Pay Increase</title>
+
+    <introduction>
+      <p>
+        Three elected county commissioners, <m>A</m>, <m>B</m>, and
+        <m>C</m>, hold a public vote on whether to give themselves a pay
+        increase. The rules of the vote are as follows.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Each commissioner votes yes (<m>y</m>) or no (<m>n</m>), and
+            the measure passes if at least two of the three vote yes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Votes are announced in order: <m>A</m> votes first; <m>B</m>
+            observes <m>A</m>'s vote and then announces; <m>C</m> observes
+            both votes and then announces.
+          </p>
+        </li>
+        <li>
+          <p>
+            If the measure passes, each commissioner receives a benefit of
+            <m>v</m>, whether or not that commissioner voted for it.
+          </p>
+        </li>
+        <li>
+          <p>
+            Any commissioner who votes yes pays a political cost <m>c</m>,
+            and pays it whether or not the measure passes.
+          </p>
+        </li>
+        <li>
+          <p>
+            Both <m>v</m> and <m>c</m> are positive, with <m>v > c</m>.
+            Benefits and costs are additive, so <m>A</m>'s payoff is
+            <m>A</m>'s benefit minus <m>A</m>'s cost.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        The extensive form game is shown below, with payoffs listed in the
+        order <m>(A, B, C)</m>. Four of the terminal nodes are marked
+        <m>(?,?,?)</m>.
+      </p>
+
+      <figure xml:id="fig-hw-commissioners">
+        <caption>
+          The pay increase game. Payoffs are listed in the order
+          <m>(A, B, C)</m>.
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \resizebox{15cm}{!}{%
+            \begin{tikzpicture}[
+              font=\scriptsize,
+              nd/.style={circle,fill=black,inner sep=1.3pt}
+            ]
+            \useasboundingbox (-11.3,-1.1) rectangle (11.3,5.4);
+            % root
+            \node[nd] (A) at (0,4.5) {};
+            \node[above=3pt of A] {$A$};
+            % B nodes
+            \node[nd] (B1) at (-5.6,3) {};
+            \node[above left=1pt and 2pt of B1] {$B$};
+            \node[nd] (B2) at (5.6,3) {};
+            \node[above right=1pt and 2pt of B2] {$B$};
+            % C nodes
+            \node[nd] (C1) at (-8.4,1.5) {};
+            \node[left=2pt of C1] {$C$};
+            \node[nd] (C2) at (-2.8,1.5) {};
+            \node[left=2pt of C2] {$C$};
+            \node[nd] (C3) at (2.8,1.5) {};
+            \node[left=2pt of C3] {$C$};
+            \node[nd] (C4) at (8.4,1.5) {};
+            \node[left=2pt of C4] {$C$};
+            % terminals
+            \node[nd] (t1) at (-9.8,0) {};
+            \node[nd] (t2) at (-7,0) {};
+            \node[nd] (t3) at (-4.2,0) {};
+            \node[nd] (t4) at (-1.4,0) {};
+            \node[nd] (t5) at (1.4,0) {};
+            \node[nd] (t6) at (4.2,0) {};
+            \node[nd] (t7) at (7,0) {};
+            \node[nd] (t8) at (9.8,0) {};
+            \node[below=3pt of t1] {$(?,?,?)$};
+            \node[below=3pt of t2] {$(?,?,?)$};
+            \node[below=3pt of t3] {$(?,?,?)$};
+            \node[below=3pt of t4] {$(?,?,?)$};
+            \node[below=3pt of t5] {$(v,\,v-c,\,v-c)$};
+            \node[below=3pt of t6] {$(0,\,-c,\,0)$};
+            \node[below=3pt of t7] {$(0,\,0,\,-c)$};
+            \node[below=3pt of t8] {$(0,\,0,\,0)$};
+            % edges
+            \draw (A) -- node[above left] {$y$} (B1);
+            \draw (A) -- node[above right] {$n$} (B2);
+            \draw (B1) -- node[above left] {$y$} (C1);
+            \draw (B1) -- node[above right] {$n$} (C2);
+            \draw (B2) -- node[above left] {$y$} (C3);
+            \draw (B2) -- node[above right] {$n$} (C4);
+            \draw (C1) -- node[above left] {$y$} (t1);
+            \draw (C1) -- node[above right] {$n$} (t2);
+            \draw (C2) -- node[above left] {$y$} (t3);
+            \draw (C2) -- node[above right] {$n$} (t4);
+            \draw (C3) -- node[above left] {$y$} (t5);
+            \draw (C3) -- node[above right] {$n$} (t6);
+            \draw (C4) -- node[above left] {$y$} (t7);
+            \draw (C4) -- node[above right] {$n$} (t8);
+            \end{tikzpicture}}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-commissioners-payoffs">
+      <statement>
+        <p>
+          Determine the payoffs at the four terminal nodes marked
+          <m>(?,?,?)</m>. Include a sketch or screenshot of the game tree
+          with the correct payoffs written in. A verbal description of the
+          actions is not a substitute for the sketch.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-commissioners-counting">
+      <statement>
+        <p>
+          How many strategies does each commissioner have? Report your
+          answers as <m>|S_A|</m>, <m>|S_B|</m>, and <m>|S_C|</m> (these represent the size of 
+          each player's strategy set). You do
+          not need to write out the strategy sets themselves, and you do
+          not need to write an explanation, but show enough work that it is
+          clear how you counted.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-commissioners-strategy-words">
+      <statement>
+        <p>
+          Write out one of <m>C</m>'s strategies, and describe what it
+          means in words. Your description should be in complete sentences,
+          and it should make clear why the thing you wrote down is a
+          strategy rather than a single vote.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          There are four nodes where <m>C</m> is called on to vote, one for
+          each way the first two votes could have gone. A strategy has to
+          say something about all four, including the ones that won't be
+          reached.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-commissioners-bi">
+      <statement>
+        <p>
+          Use backward induction to analyze the game and predict the
+          outcome. Show the steps graphically, in the style of the book's
+          Figures 1.4 and 1.5. Do not write out explanations of each step.
+          Clearly indicate the path through the tree that play will follow.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-commissioners-c-strategy">
+      <statement>
+        <p>
+          According to your backward induction analysis, what is <m>C</m>'s
+          rational strategy? What you report here must be a strategy for
+          <m>C</m>. You may want to revisit the definition of a strategy
+          before answering.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-four-player-entry">
+    <title>Four Players and an Entry Fee</title>
+
+    <introduction>
+      <p>
+        Four players, <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, and <m>P_4</m>,
+        play the following game.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            <em>Entry fee.</em> Before play begins, every player pays a
+            <dollar/>1 entry fee.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>Order of play.</em> Players move one at a time in the order
+            <m>P_1</m>, <m>P_2</m>, <m>P_3</m>, <m>P_4</m>. A player moves
+            only if every player before her has chosen to continue.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>The two choices.</em> On her turn, a player either
+            (E)nds the game or (C)ontinues.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>Ending.</em> A player who plays E pays an additional
+            <dollar/>1. The game ends immediately, and each of the other
+            three players receives <dollar/>11 (<dollar/>10 plus the
+            <dollar/>1 entry fee back). The player who ended the game
+            receives nothing.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>Continuing.</em> A player who plays C pays nothing, and
+            play passes to the next player.
+          </p>
+        </li>
+        <li>
+          <p>
+            <em>Reaching the end.</em> If <m>P_4</m> plays C, the game
+            simply ends with no further payments, and all four players are
+            out their <dollar/>1 entry fee.
+          </p>
+        </li>
+      </ul>
+    </introduction>
+
+    <task xml:id="hw-four-player-entry-tree">
+      <statement>
+        <p>
+          Sketch the extensive form of this game. Be careful to account for
+          every payment at each outcome: all four players pay the
+          <dollar/>1 entry fee before play begins, a player who ends the
+          game pays a further <dollar/>1, and the other three each collect
+          <dollar/>11. Report each player's payoff as the net amount she
+          gains or loses over the whole game.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          The tree is a single chain of four decision nodes. Each node has
+          one branch ending the game and one continuing, so there are five
+          terminal nodes in all.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-four-player-entry-bi">
+      <statement>
+        <p>
+          Determine the backward induction solution.
+        </p>
+      </statement>
+      <remark>
+        <p>
+          There is nothing especially noteworthy about this game. It's here
+          for practice in building an extensive form game from a
+          description and in running backward induction with more than two
+          players.
+        </p>
+      </remark>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-three-player-tree">
+    <title>A Three Player Game</title>
+
+    <introduction>
+      <p>
+        Consider the following extensive form game with three players.
+        Payoffs are listed in the usual way, so that
+        <m>(p_1, p_2, p_3)</m> means <m>p_1</m> is the payoff to player 1,
+        <m>p_2</m> the payoff to player 2, and <m>p_3</m> the payoff to
+        player 3.
+      </p>
+
+      <figure xml:id="fig-hw-three-player-tree">
+        <caption>
+          A three player extensive form game. Payoffs are listed in the
+          order <m>(p_1, p_2, p_3)</m>.
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \resizebox{15cm}{!}{%
+            \begin{tikzpicture}[
+              font=\scriptsize,
+              nd/.style={circle,fill=black,inner sep=1.3pt}
+            ]
+            \useasboundingbox (-11.3,-1.1) rectangle (11.3,6.6);
+            % root
+            \node[nd] (r) at (-2,6) {};
+            \node[above=3pt of r] {$1$};
+            % level 1
+            \node[nd] (h1) at (-9.35,4) {};
+            \node[above left=1pt and 2pt of h1] {$2$};
+            \node[nd] (h2) at (-2.27,4) {};
+            \node[above right=1pt and 2pt of h2] {$2$};
+            \node[nd] (h4) at (5.53,4) {};
+            \node[above right=1pt and 2pt of h4] {$3$};
+            % under h1
+            \node[nd] (a1) at (-10.2,2) {};
+            \node[nd] (a2) at (-8.5,2) {};
+            \node[below=3pt of a1] {$(30,5,0)$};
+            \node[below=3pt of a2] {$(0,6,2)$};
+            % under h2
+            \node[nd] (h3) at (-5.1,2) {};
+            \node[left=2pt of h3] {$3$};
+            \node[nd] (b2) at (-1.7,2) {};
+            \node[nd] (b3) at (0,2) {};
+            \node[below=3pt of b2] {$(20,3,3)$};
+            \node[below=3pt of b3] {$(-1,20,1)$};
+            % under h3
+            \node[nd] (c1) at (-6.8,0) {};
+            \node[nd] (c2) at (-5.1,0) {};
+            \node[nd] (c3) at (-3.4,0) {};
+            \node[below=3pt of c1] {$(10,6,5)$};
+            \node[below=3pt of c2] {$(7,-5,15)$};
+            \node[below=3pt of c3] {$(4,15,2)$};
+            % under h4
+            \node[nd] (d1) at (1.7,2) {};
+            \node[nd] (d2) at (3.4,2) {};
+            \node[nd] (h5) at (6.8,2) {};
+            \node[right=2pt of h5] {$1$};
+            \node[nd] (d4) at (10.2,2) {};
+            \node[below=3pt of d1] {$(-2,8,10)$};
+            \node[below=3pt of d2] {$(10,12,8)$};
+            \node[below=3pt of d4] {$(12,5,7)$};
+            % under h5
+            \node[nd] (e1) at (5.1,0) {};
+            \node[nd] (e2) at (6.8,0) {};
+            \node[nd] (e3) at (8.5,0) {};
+            \node[below=3pt of e1] {$(8,-2,3)$};
+            \node[below=3pt of e2] {$(5,10,5)$};
+            \node[below=3pt of e3] {$(6,12,8)$};
+            % edges from root
+            \draw (r) -- node[above left] {$x$} (h1);
+            \draw (r) -- node[left] {$y$} (h2);
+            \draw (r) -- node[above right] {$z$} (h4);
+            % under h1
+            \draw (h1) -- node[above left] {$x$} (a1);
+            \draw (h1) -- node[above right] {$y$} (a2);
+            % under h2
+            \draw (h2) -- node[above left] {$a$} (h3);
+            \draw (h2) -- node[left] {$b$} (b2);
+            \draw (h2) -- node[above right] {$c$} (b3);
+            % under h3
+            \draw (h3) -- node[above left] {$x$} (c1);
+            \draw (h3) -- node[left] {$y$} (c2);
+            \draw (h3) -- node[above right] {$z$} (c3);
+            % under h4
+            \draw (h4) -- node[above left] {$a$} (d1);
+            \draw (h4) -- node[left] {$b$} (d2);
+            \draw (h4) -- node[right] {$c$} (h5);
+            \draw (h4) -- node[above right] {$d$} (d4);
+            % under h5
+            \draw (h5) -- node[above left] {$a$} (e1);
+            \draw (h5) -- node[left] {$b$} (e2);
+            \draw (h5) -- node[above right] {$c$} (e3);
+            \end{tikzpicture}}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-three-player-counting">
+      <statement>
+        <p>
+          For each player <m>i</m>, determine <m>|S_i|</m> (that is the size of the strategy set for player i). You do not need
+          to write out the strategy sets. An explanation isn't necessary,
+          but include enough work that it's clear how you determined each
+          size.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-three-player-describe">
+      <statement>
+        <p>
+          For player 3, describe in words what is meant by the strategy
+          <m>s_3 = x\,b</m>, where player 3's two decision nodes are taken
+          in left-to-right order. Write your description in complete
+          sentences.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-three-player-bi">
+      <statement>
+        <p>
+          Use backward induction to analyze the game. Indicate graphically
+          the path of play your analysis predicts.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-three-player-strategies">
+      <statement>
+        <p>
+          According to your backward induction analysis, what strategy will
+          each player use? Make sure that what you report for each player
+          really is a strategy.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-three-player-preferred">
+      <statement>
+        <p>
+          Identify at least one outcome that all three players would
+          strictly prefer to the outcome reached by backward induction.
+          That is, every player must be better off, not merely no worse
+          off.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-backward-induction-fails">
+    <title>When Backward Induction Fails</title>
+
+    <introduction>
+      <p>
+        We saw that the backward induction procedure can break down
+        when, at some step, two moves give the deciding player the same
+        best payoff. In both games below, player 2 is indifferent between
+        her two moves, so the procedure breaks down in both. The two games
+        differ in whether that breakdown actually costs us a prediction. In
+        both trees, payoffs are listed in the order <m>(p_1, p_2)</m>.
+      </p>
+
+      <figure xml:id="fig-hw-bi-fails">
+        <caption>
+          Two games. Payoffs are listed in the order <m>(p_1, p_2)</m>.
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \begin{tikzpicture}[
+              font=\scriptsize,
+              nd/.style={circle,fill=black,inner sep=1.3pt}
+            ]
+            \useasboundingbox (-8.3,-2) rectangle (8.3,3.6);
+            % ---- Game A ----
+            \node[nd] (ra) at (-5.6,3) {};
+            \node[above=3pt of ra] {$1$};
+            \node[nd] (aL) at (-7.2,1.5) {};
+            \node[below=3pt of aL] {$(2,2)$};
+            \node[nd] (aR) at (-4,1.5) {};
+            \node[right=2pt of aR] {$2$};
+            \node[nd] (aRL) at (-5,0) {};
+            \node[nd] (aRR) at (-3,0) {};
+            \node[below=3pt of aRL] {$(3,1)$};
+            \node[below=3pt of aRR] {$(0,1)$};
+            \draw (ra) -- node[above left] {$a$} (aL);
+            \draw (ra) -- node[above right] {$b$} (aR);
+            \draw (aR) -- node[above left] {$c$} (aRL);
+            \draw (aR) -- node[above right] {$d$} (aRR);
+            \node at (-5.6,-1.4) {Game A};
+            % ---- Game B ----
+            \node[nd] (rb) at (3.5,3) {};
+            \node[above=3pt of rb] {$1$};
+            \node[nd] (bL) at (1.9,1.5) {};
+            \node[below=3pt of bL] {$(5,3)$};
+            \node[nd] (bR) at (5.1,1.5) {};
+            \node[right=2pt of bR] {$2$};
+            \node[nd] (bRL) at (4.1,0) {};
+            \node[nd] (bRR) at (6.1,0) {};
+            \node[below=3pt of bRL] {$(4,2)$};
+            \node[below=3pt of bRR] {$(1,2)$};
+            \draw (rb) -- node[above left] {$a$} (bL);
+            \draw (rb) -- node[above right] {$b$} (bR);
+            \draw (bR) -- node[above left] {$c$} (bRL);
+            \draw (bR) -- node[above right] {$d$} (bRR);
+            \node at (3.5,-1.4) {Game B};
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-bi-fails-a">
+      <statement>
+        <p>
+          Carry out backward induction on Game A as far as you can. At
+          which node does the procedure break down, and why? Then explain,
+          in complete sentences, why the breakdown leaves player 1 unable
+          to decide between his two moves.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bi-fails-b">
+      <statement>
+        <p>
+          Now turn to Game B. Show that backward induction breaks down at
+          player 2's node for the same reason it did in Game A.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bi-fails-b-obvious">
+      <statement>
+        <p>
+          Even though the procedure breaks down, player 1 has a clearly
+          rational choice in Game B. Identify it, and explain in complete
+          sentences why player 1 can make that choice without knowing what
+          player 2 would do.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Compare player 1's payoff from <m>a</m> with <em>every</em>
+          payoff player 1 could end up with after playing <m>b</m>, rather
+          than with the single payoff backward induction would have
+          assigned to player 2's node.
+        </p>
+      </hint>
+    </task>
+  </exercise>
+
+</exercises>

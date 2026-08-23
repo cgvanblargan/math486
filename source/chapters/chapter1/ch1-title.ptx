@@ -9,6 +9,7 @@
   <xi:include href="./page3-big-monkey-little-monkey.ptx" />
   <xi:include href="./page4-ultimatum-and-centipede.ptx" />
   <xi:include href="./page5-continuous-games-stackelberg.ptx" />
+  <xi:include href="./ch1-exercises.ptx" />
 
  
 </chapter>
