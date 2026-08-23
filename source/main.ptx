@@ -5,7 +5,7 @@
   <xi:include href="./docinfo.ptx" />
 
   <book xml:id="math486-game-theory">
-    <title>Game Theory: Reading Companion for Math 486</title>
+    <title>Game Theory: Interactive Notes for Math 486</title>
     <subtitle>Penn State University</subtitle>
 
     <!-- Include frontmatter -->
@@ -13,7 +13,7 @@
 
     <!-- Include chapters -->
     <xi:include href="./chapters/chapter1/ch1-title.ptx" />
-    <xi:include href="./chapters/chapter2/ch2-title.ptx" />
+  <!--  <xi:include href="./chapters/chapter2/ch2-title.ptx" />
     <xi:include href="./chapters/chapter3/ch3-title.ptx" />
     <xi:include href="./chapters/chapter4/ch4-title.ptx" />
     <xi:include href="./chapters/chapter5/ch5-title.ptx" />
@@ -21,10 +21,10 @@
     <xi:include href="./chapters/chapter7/ch7-title.ptx" />
     <xi:include href="./chapters/chapter8/ch8-title.ptx" />
     <xi:include href="./chapters/chapter9/ch9-title.ptx" />
-    <xi:include href="./chapters/chapter10/ch10-title.ptx" />
+    <xi:include href="./chapters/chapter10/ch10-title.ptx" /> -->
 
     <!-- Include backmatter -->
     <xi:include href="./backmatter.ptx" />
-
+   
   </book>
 </pretext>
