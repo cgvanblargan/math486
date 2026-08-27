@@ -550,4 +550,440 @@
     </task>
   </exercise>
 
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-classifying-commitments">
+    <title>Classifying Commitments</title>
+
+    <introduction>
+      <p>
+        Consider the two player game below. Player 1 moves first and has
+        three choices. Payoffs are listed in the order <m>(p_1, p_2)</m>.
+      </p>
+
+      <p>
+        Where you are asked to verify that a commitment is a threat or a
+        promise, check the definition from Section 1.6 explicitly: identify
+        the node at which the commitment applies, give the rational move
+        and its payoffs <m>(\pi_1, \pi_2)</m>, give the committed move and
+        its payoffs <m>(\pi_1', \pi_2')</m>, and state both comparisons.
+      </p>
+
+      <figure xml:id="fig-hw-classifying-commitments">
+        <caption>
+          A two player game. Payoffs are listed in the order
+          <m>(p_1, p_2)</m>.
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \begin{tikzpicture}[
+              font=\small,
+              nd/.style={circle,fill=black,inner sep=1.4pt}
+            ]
+            \useasboundingbox (-6.4,-0.7) rectangle (5.2,4.4);
+            \node[nd] (r) at (0,3.6) {};
+            \node[above=3pt of r] {Player 1};
+            \node[nd] (n1) at (-4.0,2) {};
+            \node[above left=0pt and 1pt of n1] {Player 2};
+            \node[nd] (n2) at (1.9,2) {};
+            \node[above right=0pt and 1pt of n2] {Player 2};
+            \node[nd] (tc) at (-1.1,1.2) {};
+            \node[below=3pt of tc] {$(4,0)$};
+            \node[nd] (u) at (-5.3,0.4) {};
+            \node[nd] (v) at (-2.9,0.4) {};
+            \node[below=3pt of u] {$(5,2)$};
+            \node[below=3pt of v] {$(1,1)$};
+            \node[nd] (w) at (0.4,0.4) {};
+            \node[nd] (t) at (2.2,0.4) {};
+            \node[nd] (s) at (4.0,0.4) {};
+            \node[below=3pt of w] {$(3,6)$};
+            \node[below=3pt of t] {$(7,4)$};
+            \node[below=3pt of s] {$(0,5)$};
+            \draw (r) -- node[above left] {$a$} (n1);
+            \draw (r) -- node[right,pos=0.5] {$c$} (tc);
+            \draw (r) -- node[above right] {$b$} (n2);
+            \draw (n1) -- node[above left] {$u$} (u);
+            \draw (n1) -- node[above right] {$v$} (v);
+            \draw (n2) -- node[above left] {$w$} (w);
+            \draw (n2) -- node[right,pos=0.45] {$t$} (t);
+            \draw (n2) -- node[above right] {$s$} (s);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-classifying-commitments-bi">
+      <statement>
+        <p>
+          Use backward induction to find the outcome of the game. Show the
+          steps graphically, in the style of the book's Figures 1.4 and
+          1.5.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-classifying-commitments-classify">
+      <introduction>
+        <p>
+          For each of the four announcements below, decide whether it is a
+          <term>threat</term>, a <term>promise</term>, or
+          <term>neither</term>, using the Section 1.6 definition. Do not
+          work out the consequences yet; that is the next part.
+        </p>
+        <p>
+          Write the verification out in full for (i) only: the node, the
+          rational move and its payoffs, the committed move and its
+          payoffs, and both comparisons. For (ii) through (iv), just give
+          the two payoff pairs and your classification. You do not need to
+          show your work or explain how you got there.
+        </p>
+      </introduction>
+
+      <task xml:id="hw-classifying-commitments-v">
+        <statement>
+          <p>
+            Player 2 commits to playing <m>v</m> at the left node.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="hw-classifying-commitments-t">
+        <statement>
+          <p>
+            Player 2 commits to playing <m>t</m> at the right node.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="hw-classifying-commitments-w">
+        <statement>
+          <p>
+            Player 2 commits to playing <m>w</m> at the right node.
+          </p>
+        </statement>
+      </task>
+
+      <task xml:id="hw-classifying-commitments-s">
+        <statement>
+          <p>
+            Player 2 commits to playing <m>s</m> at the right node.
+          </p>
+        </statement>
+      </task>
+    </task>
+
+    <task xml:id="hw-classifying-commitments-consequences">
+      <statement>
+        <p>
+          Now take each announcement in turn. Assuming Player 1 knows about
+          the commitment, and that Player 2 will carry it out if play
+          reaches the node in question, determine the outcome at which the
+          game ends. Then state whether that outcome is better or worse for
+          Player 1, and better or worse for Player 2, than the backward
+          induction outcome from the first part.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        Two of these are worth a second look once you have finished. One is
+        a valid threat Player 2 would genuinely carry out, and yet it
+        leaves <em>both</em> players worse off than if she had said
+        nothing. Another is also a valid threat that changes nothing at
+        all. Making your opponent's current choice unattractive only helps
+        if you check where he goes instead, and a commitment matters only
+        at a node play actually reaches.
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-broken-leg">
+    <title>Big Monkey, Little Monkey, and the Broken Leg</title>
+
+    <introduction>
+      <p>
+        Section 1.6 ends with a suggestion: perhaps Little Monkey should
+        break his own leg and show up on crutches. This exercise takes that
+        suggestion seriously.
+      </p>
+
+      <p>
+        A broken leg does not change Little Monkey's mind, and does not
+        make him braver or more stubborn. What it changes is his
+        <em>payoffs</em>, by making the climb cost real energy. That is,
+        any time Little Monkey chooses <q>climb</q>, his payoff decreases
+        by <m>\ell</m>. Setting <m>\ell = 0</m> returns you to the book's
+        Figure 1.7 exactly.
+      </p>
+
+      <figure xml:id="fig-hw-broken-leg">
+        <caption>
+          Big Monkey and Little Monkey, where climbing costs Little Monkey
+          an extra <m>\ell</m> when he climbs. Payoffs are listed in the
+          order (Big Monkey, Little Monkey).
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \begin{tikzpicture}[
+              font=\small,
+              nd/.style={circle,fill=black,inner sep=1.4pt}
+            ]
+            \useasboundingbox (-6.2,-0.9) rectangle (6.2,3.8);
+            \node[nd] (r) at (0,3) {};
+            \node[above=3pt of r] {Big Monkey};
+            \node[nd] (L) at (-3.2,1.5) {};
+            \node[above left=1pt and 2pt of L] {Little Monkey};
+            \node[nd] (R) at (3.2,1.5) {};
+            \node[above right=1pt and 2pt of R] {Little Monkey};
+            \node[nd] (a) at (-4.8,0) {};
+            \node[nd] (b) at (-1.6,0) {};
+            \node[nd] (c) at (1.6,0) {};
+            \node[nd] (d) at (4.8,0) {};
+            \node[below=3pt of a] {$(0,\,0)$};
+            \node[below=3pt of b] {$(9,\,1-\ell)$};
+            \node[below=3pt of c] {$(4,\,4)$};
+            \node[below=3pt of d] {$(5,\,3-\ell)$};
+            \draw (r) -- node[above left] {wait} (L);
+            \draw (r) -- node[above right] {climb} (R);
+            \draw (L) -- node[above left] {wait} (a);
+            \draw (L) -- node[above right] {climb} (b);
+            \draw (R) -- node[above left] {wait} (c);
+            \draw (R) -- node[above right] {climb} (d);
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-broken-leg-healthy">
+      <statement>
+        <p>
+          Take <m>\ell = 0</m> and run backward induction on the tree
+          above. Confirm that you recover the outcome given in Section 1.5,
+          and state what Little Monkey's payoff is.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-broken-leg-threshold">
+      <statement>
+        <p>
+          Now let <m>\ell</m> vary. Find the value of <m>\ell</m> at which
+          the backward induction outcome changes, and describe what the
+          outcome is on either side of that value. Your answer should
+          identify which of Little Monkey's two decision nodes is
+          responsible for the change, and should say what goes wrong with
+          backward induction exactly at the threshold.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-broken-leg-reversed">
+      <statement>
+        <p>
+          Finally, return to a healthy Little Monkey with <m>\ell = 0</m>,
+          but suppose <em>Little Monkey moves first</em> and Big Monkey
+          second. Draw the new game tree and find the backward induction
+          outcome. Compare it to the outcome Little Monkey's threat
+          produced in Section 1.6. Does the threat give Little Monkey any
+          move he did not already have? Using your answer, say what you
+          think a credible commitment actually gains a player.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        <em>Note.</em> A healthy Little Monkey announcing
+        <q>I will wait no matter what</q> is making a threat in the exact
+        sense of Section 1.6: at his left node, waiting drops his own
+        payoff from <m>1</m> to <m>0</m> and Big Monkey's from <m>9</m> to
+        <m>0</m>. Both fall, which is what a threat requires, and the
+        difficulty is getting Big Monkey to believe it.
+      </p>
+      <p>
+        Once the leg is broken this changes. With <m>\ell > 1</m>, waiting
+        at the left node is simply Little Monkey's <em>rational move</em>.
+        However, if Little Monkey does not have a broken leg, he can make a
+        threat that he will actually break his own leg!
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-centipede-commitment">
+    <title>Commitment in the Centipede Game</title>
+
+    <introduction>
+      <p>
+        This exercise uses a shortened version of Rosenthal's Centipede
+        Game from Section 1.8. The rules are as in the book, except that
+        the game ends sooner. Mutt and Jeff start with $2 each, and
+        Mutt moves first. On a player's turn he has two moves:
+        <term>cooperate</term> (<m>c</m>), in which he does nothing and the
+        game master rewards him with $1; and <term>defect</term>
+        (<m>d</m>), in which he steals $2 from the other player.
+        The game ends when either player defects, or both players have at
+        least $5. Payoffs are dollars held at the end.
+      </p>
+
+      <p>
+        The extensive form is below. The six decision nodes are labelled
+        <m>n_1</m> through <m>n_6</m>, so Mutt owns <m>n_1</m>, <m>n_3</m>,
+        <m>n_5</m> and Jeff owns <m>n_2</m>, <m>n_4</m>, <m>n_6</m>. The
+        amounts above each node are what the players are <em>holding when
+        play arrives there</em>; they are not payoffs. The payoffs are the
+        pairs at the terminal nodes.
+      </p>
+
+      <p>
+        In the commitment parts below, unless a part asks for more, just
+        state the resulting outcome and give a sentence or two saying why.
+        You do not need to show your work or write out the node by node
+        analysis again.
+      </p>
+
+      <figure xml:id="fig-hw-centipede-commitment">
+        <caption>
+          A shortened Centipede Game. The pairs above each decision node
+          are current holdings; the pairs at terminal nodes are payoffs.
+        </caption>
+        <image width="100%">
+          <latex-image>
+            \resizebox{15cm}{!}{%
+            \begin{tikzpicture}[
+              font=\small,
+              nd/.style={circle,fill=black,inner sep=1.4pt}
+            ]
+            \useasboundingbox (-1.1,-2.5) rectangle (15.3,1.8);
+            \foreach \i/\x/\p/\acc in {1/0/Mutt/{(2,2)}, 2/2.4/Jeff/{(3,2)},
+                                       3/4.8/Mutt/{(3,3)}, 4/7.2/Jeff/{(4,3)},
+                                       5/9.6/Mutt/{(4,4)}, 6/12.0/Jeff/{(5,4)}}{
+              \node[nd] (n\i) at (\x,0) {};
+              \node at (\x,0.42) {$n_\i$};
+              \node[font=\footnotesize] at (\x,0.95) {\p};
+              \node[font=\scriptsize] at (\x,1.42) {$\acc$};
+            }
+            \node[nd] (end) at (14.2,0) {};
+            \node[font=\scriptsize] at (14.2,-0.42) {$(5,5)$};
+            \foreach \i/\j in {1/2,2/3,3/4,4/5,5/6}{
+              \draw (n\i) -- node[above,font=\scriptsize] {$c$} (n\j);
+            }
+            \draw (n6) -- node[above,font=\scriptsize] {$c$} (end);
+            \foreach \i/\x/\pay in {1/0/{(4,0)}, 2/2.4/{(1,4)}, 3/4.8/{(5,1)},
+                                    4/7.2/{(2,5)}, 5/9.6/{(6,2)}, 6/12.0/{(3,6)}}{
+              \node[nd] (d\i) at (\x,-1.6) {};
+              \draw (n\i) -- node[right,font=\scriptsize] {$d$} (d\i);
+              \node[font=\scriptsize] at (\x,-2.05) {$\pay$};
+            }
+            \end{tikzpicture}}
+          </latex-image>
+        </image>
+      </figure>
+    </introduction>
+
+    <task xml:id="hw-centipede-commitment-bi">
+      <statement>
+        <p>
+          Use backward induction to find the outcome of the game. You do
+          not need to draw anything. Starting with <m>n_6</m> and working
+          backward, state the move each player chooses at each node. Give
+          the payoff comparison explicitly at <m>n_6</m> and <m>n_5</m>. At
+          the remaining nodes the comparison has the same shape, so just
+          state the move; you do not need to show your work there.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-centipede-commitment-n2">
+      <statement>
+        <p>
+          Suppose Jeff can credibly commit, before play begins, to
+          cooperating at <m>n_2</m>. Verify against the Section 1.6
+          definition whether this is a threat or a promise, and find the
+          new outcome. You should find that the game ends at <m>(5,1)</m>;
+          make sure you can get that answer before going on, since the
+          remaining parts use the same method.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-centipede-commitment-n2-n4">
+      <statement>
+        <p>
+          Now suppose Jeff commits to cooperating at both <m>n_2</m> and
+          <m>n_4</m>. Find the new outcome.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-centipede-commitment-all-three">
+      <statement>
+        <p>
+          Now suppose Jeff commits to cooperating at all three of
+          <m>n_2</m>, <m>n_4</m>, and <m>n_6</m>. Find the new outcome, and
+          explain what you find. Your explanation should say something
+          about which nodes are actually reached.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-centipede-commitment-mutt">
+      <statement>
+        <p>
+          Now suppose instead that <em>Mutt</em> commits to cooperating at
+          <m>n_3</m> and <m>n_5</m>, and that Jeff makes no commitment at
+          all. Find the outcome. Were you surprised?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-centipede-commitment-both">
+      <statement>
+        <p>
+          Finally, suppose Mutt and Jeff can both make commitments. Is
+          there a combination of commitments that ends in a payoff better
+          than <m>4</m> for Mutt <em>and</em> better than <m>2</m> for
+          Jeff? If so, give one and show that it works. If not, explain why
+          not.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ultimatum-commitment">
+    <title>The Ultimatum Game</title>
+
+    <statement>
+      <p>
+        In the Ultimatum Game of Section 1.7, Player 1 is given <m>100</m>
+        one dollar bills and must offer some number <m>x</m> of them, from
+        <m>1</m> to <m>99</m>, to Player 2. If Player 2 accepts, she keeps
+        the bills she was offered and Player 1 keeps the rest. If she
+        rejects, neither player keeps anything. Using the dollar payoffs of
+        the book's Figure 1.9, backward induction predicts that Player 1
+        offers $1 and Player 2 accepts. You may take this as given; you do
+        not need to show it.
+      </p>
+
+      <p>
+        Suppose Player 2 wants to make a commitment (either a promise or a
+        threat), before Player 1 decides, that will improve the outcome for
+        herself. One of the two kinds of commitment from Section 1.6 is
+        available to her here and the other is not. Say which is which, and
+        explain what it is about this game that rules the other one out.
+      </p>
+
+      <p>
+        Then, in your opinion: is there a point past which such a
+        commitment would stop being believable? Say roughly where you think
+        that point is and why. There is no single right answer here; give
+        your reasoning.
+      </p>
+    </statement>
+  </exercise>
+
 </exercises>

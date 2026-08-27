@@ -136,7 +136,7 @@
   listing="no"
   list="no"
   exercise-inline="no"
-  exercise-divisional="no"
+  exercise-divisional="yes"
   exercise-worksheet="no"
   exercise-readingquestion="no"
 />
