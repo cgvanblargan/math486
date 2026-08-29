@@ -965,7 +965,7 @@
   <exercise xml:id="hw-ultimatum-commitment">
     <title>The Ultimatum Game</title>
 
-    <statement>
+    <introduction>
       <p>
         In the Ultimatum Game of Section 1.7, Player 1 is given <m>100</m>
         one dollar bills and must offer some number <m>x</m> of them, from
@@ -976,22 +976,31 @@
         offers $1 and Player 2 accepts. You may take this as given; you do
         not need to show it.
       </p>
+    </introduction>
 
-      <p>
-        Suppose Player 2 wants to make a commitment (either a promise or a
-        threat), before Player 1 decides, that will improve the outcome for
-        herself. One of the two kinds of commitment from Section 1.6 is
-        available to her here and the other is not. Say which is which, and
-        explain what it is about this game that rules the other one out.
-      </p>
+    <task xml:id="hw-ultimatum-commitment-which">
+      <statement>
+        <p>
+          Suppose Player 2 wants to make a commitment (either a promise or
+          a threat), before Player 1 decides, that will improve the outcome
+          for herself. One of the two kinds of commitment from Section 1.6
+          is available to her here and the other is not. Say which is
+          which, and explain what it is about this game that rules the
+          other one out.
+        </p>
+      </statement>
+    </task>
 
-      <p>
-        Then, in your opinion: is there a point past which such a
-        commitment would stop being believable? Say roughly where you think
-        that point is and why. There is no single right answer here; give
-        your reasoning.
-      </p>
-    </statement>
+    <task xml:id="hw-ultimatum-commitment-believable">
+      <statement>
+        <p>
+          In your opinion, is there a point past which such a commitment
+          would stop being believable? Say roughly where you think that
+          point is and why. There is no single right answer here; give your
+          reasoning.
+        </p>
+      </statement>
+    </task>
   </exercise>
 
 </exercises>
