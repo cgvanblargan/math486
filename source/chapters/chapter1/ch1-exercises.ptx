@@ -682,6 +682,11 @@
           Player 1, and better or worse for Player 2, than the backward
           induction outcome from the first part.
         </p>
+        <p>
+          Just give the outcome and the two comparisons for each
+          announcement. You do not need to show the steps that got you
+          there.
+        </p>
       </statement>
     </task>
 
@@ -914,7 +919,8 @@
       <statement>
         <p>
           Now suppose Jeff commits to cooperating at both <m>n_2</m> and
-          <m>n_4</m>. Find the new outcome.
+          <m>n_4</m>. Find the new outcome. You do not need to show the
+          steps.
         </p>
       </statement>
     </task>
@@ -925,7 +931,8 @@
           Now suppose Jeff commits to cooperating at all three of
           <m>n_2</m>, <m>n_4</m>, and <m>n_6</m>. Find the new outcome, and
           explain what you find. Your explanation should say something
-          about which nodes are actually reached.
+          about which nodes are actually reached. Apart from that
+          explanation, you do not need to show the steps.
         </p>
       </statement>
     </task>
@@ -935,7 +942,8 @@
         <p>
           Now suppose instead that <em>Mutt</em> commits to cooperating at
           <m>n_3</m> and <m>n_5</m>, and that Jeff makes no commitment at
-          all. Find the outcome. Were you surprised?
+          all. Find the outcome. You do not need to show the steps. Were
+          you surprised?
         </p>
       </statement>
     </task>
@@ -946,8 +954,8 @@
           Finally, suppose Mutt and Jeff can both make commitments. Is
           there a combination of commitments that ends in a payoff better
           than <m>4</m> for Mutt <em>and</em> better than <m>2</m> for
-          Jeff? If so, give one and show that it works. If not, explain why
-          not.
+          Jeff? If so, give one and state the outcome it produces. If not,
+          explain why not. Either way, you do not need to show the steps.
         </p>
       </statement>
     </task>
