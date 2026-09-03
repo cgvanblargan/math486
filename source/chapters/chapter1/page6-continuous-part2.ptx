@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page6-continuous-part2" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Continuous Games and Stackelberg's Duopoly, Part 2</title>
+
+  <p>
+    We're going to continue with the same example from the previous page, but
+    we'll make the model more realistic by refusing to let production and
+    price be negative. This is covered in Subsection 1.10.2, and it means
+    we'll have to consider boundary cases when looking for a maximum.
+  </p>
+
+  <assemblage xml:id="read-1-10-2">
+    <title>Subsection 1.10.2, The Second Model</title>
+    <p>
+      <alert>Read the rest of Section 1.10 (that is, Subsection 1.10.2).</alert>
+    </p>
+    <p>
+      The first model let production levels and prices go negative, which
+      isn't something that happens in an actual market. This subsection fixes
+      that. As you read, keep track of how the fix makes things more
+      complicated mathematically.
+    </p>
+    <p>
+      There's a lot in common with Part 1, but we have to address some nuanced
+      points now that the model carries further restrictions. You can move
+      through those quickly on a first reading; we'll go over them more
+      carefully in the notes below.
+    </p>
+  </assemblage>
+
+  <p>
+    The general procedure is the same as in Part 1, but some of the reasoning
+    is hard to follow in the book, so we'll break it down further here. Start
+    with the two piecewise profit functions. Here is Firm 1's, labeled:
+  </p>
+
+  <me>
+    \pi_1(s,t) =
+    \begin{cases}
+      \overbrace{\bigl[20 - 2(s+t)\bigr]s - 4s}^{\substack{\text{exactly the payoff from the first model:} \\ \text{price is still } 20 - 2(s+t) \text{ in this range}}}
+        \amp \text{if } 0 \leq s+t \lt 10, \\[4ex]
+      \underbrace{-4s}_{\substack{\text{price has bottomed out at } 0, \text{ so revenue is } 0 \cdot s = 0; \\ \text{profit is } 0 - 4s, \text{ a pure loss of the production cost}}}
+        \amp \text{if } s+t \geq 10.
+    \end{cases}
+  </me>
+
+  <p>
+    Firm 2's is the mirror image, with <m>t</m> in the role of <m>s</m>:
+  </p>
+
+  <me>
+    \pi_2(s,t) =
+    \begin{cases}
+      \bigl[20 - 2(s+t)\bigr]t - 4t \amp \text{if } 0 \leq s+t \lt 10, \\[1ex]
+      -4t \amp \text{if } s+t \geq 10.
+    \end{cases}
+  </me>
+
+  <p>
+    The book brushes over some of the reasoning, so let's take a closer look
+    at Firm 2's payoff function. Drag the slider below. The shaded region
+    marks the production levels that actually earn Firm 2 a profit. Push
+    <m>s</m> upward and watch what happens to it.
+  </p>
+
+  <figure xml:id="fig-firm2-profitable-window">
+    <caption>
+      Firm 2's profit in the second model, for a value of <m>s</m> you
+      control. The shaded region is where profit is positive; the marker is
+      Firm 2's best response.
+    </caption>
+    <interactive xml:id="interactive-firm2-profitable-window"
+      iframe="ch1-graph/firm2-profitable-window.html" width="100%" aspect="10:9">
+      <static>
+        <p>
+          A slider sets Firm 1's production level s from 0 to 10. A plot of
+          Firm 2's profit against its own production t shows a downward
+          parabola that becomes the line -4t once s + t reaches 10. The
+          region where profit is positive, running from t = 0 to t = 8 - s,
+          is shaded, and it narrows as s increases until it disappears
+          entirely at s = 8. A marker tracks Firm 2's best response, which
+          sits at the peak of the parabola while one exists and jumps to
+          t = 0 once s reaches 8.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    <alert>Notice what happens when you compare <m>s \lt 8</m> to
+    <m>s \geq 8</m>:</alert>
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        When <m>s \lt 8</m>: the shaded region is there. Firm 2 earns a
+        positive profit for any <m>t</m> with <m>0 \lt t \lt 8 - s</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        When <m>s \geq 8</m>: the shaded region is gone. There is no
+        production level left that earns Firm 2 a profit.
+      </p>
+    </li>
+  </ul>
+
+  <p>
+    The book gives a brief explanation of why this happens, which we'll
+    examine in a moment. For now, see if you can use the observation above to
+    determine Firm 2's best response in the following scenarios.
+  </p>
+
+  <exercise xml:id="check-best-response-s9">
+    <statement>
+      <p>
+        Firm 1 produces <m>s = 9</m>. What is Firm 2's best response?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>t = 0</m>. Since <m>9 \geq 8</m>, Firm 2's profit on each unit
+          is <m>16 - 18 - 2t = -2 - 2t</m>, negative for every <m>t</m>. Every
+          unit loses money, so producing nothing and earning <m>0</m> is the
+          best available outcome.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Firm 2 isn't producing nothing as a strategic move, it's
+            producing nothing because every alternative loses money.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 4 - \tfrac{1}{2}(9) = -0.5</m>, from the best-response
+          formula.</p>
+        </statement>
+        <feedback>
+          <p>
+            This applies the <m>s \lt 8</m> formula outside the range where
+            it's valid, and negative production is exactly what the second
+            model rules out. It is, though, a good way to see why the second
+            case exists: when the parabola's peak lands at a negative
+            <m>t</m>, the best allowed choice is the nearest point of the
+            domain, <m>t = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 4</m>, the largest value the best-response function
+          takes.</p>
+        </statement>
+        <feedback>
+          <p>
+            <m>t = 4</m> is <m>b(0)</m>, Firm 2's best response when Firm 1
+            produces <em>nothing</em>. That's the opposite end of the range
+            from <m>s = 9</m>. Check which case <m>s = 9</m> falls into before
+            picking a value of <m>t</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-best-response-s7">
+    <statement>
+      <p>
+        Now Firm 1 produces <m>s = 7</m>. What is Firm 2's best response?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>t = 0.5</m>, since <m>7 \lt 8</m> puts us in the first case,
+          where <m>b(s) = 4 - \tfrac{1}{2}s = 4 - 3.5</m>.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The profitable window here is narrow, running only from
+            <m>t = 0</m> to <m>t = 8 - 7 = 1</m>, but it isn't empty, and
+            Firm 2's best response sits right in the middle of it. Set the
+            slider to <m>7</m> and compare.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 0</m>, since <m>s = 7</m> is close enough to <m>8</m> that
+          the price is already at Firm 2's cost.</p>
+        </statement>
+        <feedback>
+          <p>
+            Close isn't the same as reaching it. At <m>s = 7</m> with Firm 2
+            producing nothing, the price is <m>20 - 14 = 6</m>, still above
+            the cost of <m>4</m>. There's a small profit to be had, and Firm
+            2 takes it. The corner solution only kicks in at <m>s = 8</m>
+            exactly.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 1</m>, the right-hand edge of the profitable region.</p>
+        </statement>
+        <feedback>
+          <p>
+            <m>t = 8 - s = 1</m> is where profit falls back <em>to</em> zero,
+            not where it's largest. Producing there earns Firm 2 nothing at
+            all. The maximum is at the peak of the parabola, halfway between
+            the two places profit equals zero.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now let's justify the two cases mathematically, since the book explains
+    this only briefly. Look at <m>\pi_2</m> for <m>0 \leq t \lt 10 - s</m>,
+    and factor the <m>t</m> out of it instead of multiplying everything
+    through:
+  </p>
+
+  <me>
+    \pi_2(s,t) \;=\;
+    \underbrace{\bigl[20 - 2(s+t)\bigr]}_{\text{price } p} t
+    \;-\; \underbrace{4}_{\substack{\text{unit} \\ \text{cost}}} t
+    \;=\;
+    \underbrace{\bigl[\,20 - 2(s+t) - 4\,\bigr]}_{\text{profit on each unit sold}}
+    \cdot \underbrace{t}_{\substack{\text{units} \\ \text{sold}}}.
+  </me>
+
+  <p>
+    Written this way, Firm 2's profit is just <em>profit per unit</em> times
+    <em>number of units</em>. Now suppose <m>s \geq 8</m>. Then
+  </p>
+
+  <me>
+    \underbrace{20 - 2(s+t) - 4}_{\text{profit on each unit}}
+      \;=\; 16 - 2s - 2t
+      \;\leq\; 16 - 16 - 2t
+      \;=\; -2t \;\leq\; 0.
+  </me>
+
+  <p>
+    So Firm 2 loses money on every unit it makes, and producing <em>more</em>
+    only pushes the price further below cost, making the per-unit loss worse.
+    The best Firm 2 can do is produce nothing and break even at <m>0</m>.
+  </p>
+
+  <p>
+    <alert>In contrast, when <m>s \lt 8</m></alert>, the price stays above
+    <m>4</m> and Firm 2 does have room to profit. Multiplying out the top
+    piece and substituting the fixed <m>s</m> gives the function the book
+    graphs in Figure 1.11:
+  </p>
+
+  <me>
+    \pi_2(s,t) =
+    \begin{cases}
+      (16 - 2s)t - 2t^2 \amp \text{if } 0 \leq t \lt 10 - s, \\[1ex]
+      -4t \amp \text{if } t \geq 10 - s.
+    \end{cases}
+  </me>
+
+  <p>
+    That top piece is exactly the <m>\pi_2</m> from the first model, and it's
+    an upside-down parabola, so the derivative test applies to it just as it
+    did there. The maximum sits at <m>t = 4 - \tfrac{1}{2}s</m>.
+  </p>
+
+  <p>
+    Putting the two cases together gives Firm 2's best-response function:
+  </p>
+
+  <me>
+    b(s) =
+    \begin{cases}
+      \overbrace{4 - \tfrac{1}{2}s}^{\substack{\text{the peak of the parabola: the same best} \\ \text{response as in the first model}}}
+        \amp \text{if } 0 \leq s \lt 8, \\[5ex]
+      \underbrace{0}_{\substack{\text{no profitable production level exists, since every } t \gt 0 \\ \text{loses money, so Firm 2 produces nothing and breaks even}}}
+        \amp \text{if } s \geq 8.
+    \end{cases}
+  </me>
+
+  <p>
+    That second case is a <alert>corner solution</alert>: the best choice sits
+    at the edge of the domain rather than where a derivative vanishes. It's
+    the first one in this chapter.
+  </p>
+
+  <p>
+    Now that we know Firm 2's best-response function <m>b(s)</m>, we proceed
+    as before by maximizing Firm 1's payoff function <m>\pi_1(s, b(s))</m>.
+    This time that means dealing with piecewise functions, since <m>\pi_1</m>
+    and <m>b(s)</m> are <em>both</em> piecewise. Before doing any
+    computation, though, we can narrow down where the maximum has to live.
+  </p>
+
+  <exercise xml:id="check-which-case-holds-s-star">
+    <statement>
+      <p>
+        Without computing anything, can you tell which case the optimal
+        <m>s^*</m> falls into: <m>0 \leq s \lt 8</m>, or <m>s \geq 8</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>0 \leq s^* \lt 8</m>. If Firm 1 produced <m>s \geq 8</m> it
+          would drive the price down to its <em>own</em> cost of <m>4</m> or
+          below, so it would earn nothing or lose money. Since Firm 1 can earn
+          a positive profit with a smaller <m>s</m>, the maximum can't be out
+          there.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The threshold <m>s = 8</m> was defined by the price
+            hitting <m>4</m>, and both firms have that same unit cost, so what
+            kills Firm 2's profit at <m>s \geq 8</m> kills Firm 1's too. This
+            is why the book says it won't bother computing
+            <m>\pi_1(s, b(s))</m> for <m>s \geq 8</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>s^* \geq 8</m>, since that drives Firm 2 out of the market
+          entirely and leaves Firm 1 as the only producer.</p>
+        </statement>
+        <feedback>
+          <p>
+            It's true that Firm 2 produces nothing when <m>s \geq 8</m>, but
+            look at what it costs Firm 1 to get there. Being the only seller
+            is worthless if the price you had to create is at or below your
+            own cost of <m>4</m>. Firm 1 wants profit, not market share.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>s^* \geq 8</m>, because profit is price times quantity, so
+          producing more units always earns more.</p>
+        </statement>
+        <feedback>
+          <p>
+            Profit is <em>margin</em> times quantity, not price times
+            quantity, and the margin shrinks as production rises. Past
+            <m>s = 8</m> the margin is zero or negative, so extra units make
+            things worse rather than better.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>There's no way to tell in advance. Both pieces have to be
+          maximized and the two results compared.</p>
+        </statement>
+        <feedback>
+          <p>
+            That's always a safe fallback, but here one piece can be ruled out
+            by an argument rather than a computation: at <m>s \geq 8</m> the
+            price is at or below Firm 1's own cost of <m>4</m>, so its profit
+            there can't be positive.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    So we only need to work on <m>0 \leq s \lt 8</m>. There's still one thing
+    to check before writing down a formula: <m>\pi_1</m> is itself piecewise,
+    split at <m>s + t = 10</m>, so we need to know which piece we land on once
+    <m>t</m> is replaced by <m>b(s)</m>. For <m>0 \leq s \lt 8</m>,
+  </p>
+
+  <me>
+    s + b(s) \;=\; s + 4 - \tfrac{1}{2}s \;=\; 4 + \tfrac{1}{2}s
+      \;\lt\; 4 + \tfrac{1}{2}(8) \;=\; 8 \;\lt\; 10.
+  </me>
+
+  <exercise xml:id="check-which-piece-of-pi1">
+    <statement>
+      <p>
+        What does the computation above tell us?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Total production <m>s + b(s)</m> never reaches <m>10</m> on this
+          range, so <m>\pi_1</m> always stays on its first piece. We can use
+          <m>\bigl[20 - 2(s+t)\bigr]s - 4s</m> and get
+          <m>\pi_1(s, b(s)) = 8s - s^2</m>, exactly as in the first model.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and this is the payoff for pinning down Firm 2's best
+            response first. Once <m>t = b(s)</m>, total production is capped
+            at <m>8</m>, so the second piece of <m>\pi_1</m> is unreachable
+            and the piecewise complication never actually bites.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The price stays positive, but we still have to maximize the
+          second piece of <m>\pi_1</m> separately and compare.</p>
+        </statement>
+        <feedback>
+          <p>
+            The second piece applies only when <m>s + t \geq 10</m>, and the
+            computation shows <m>s + b(s) \lt 8</m> for every <m>s</m> in this
+            range. There's no <m>s</m> left for that piece to describe, so
+            there's nothing to compare against.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Firm 2 always produces less than Firm 1.</p>
+        </statement>
+        <feedback>
+          <p>
+            That happens to be false at small <m>s</m> (at <m>s = 0</m>, Firm
+            2 produces <m>4</m>), and in any case it isn't what the
+            computation is about. The quantity being bounded is the
+            <em>total</em> <m>s + b(s)</m>, which is what decides which piece
+            of <m>\pi_1</m> is in force.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>It tells us directly that <m>s^* = 4</m>.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not yet. This only establishes <em>which formula</em> to maximize.
+            Finding <m>s^*</m> still takes a derivative, which is the next
+            step.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    From here the work is identical to Part 1: maximizing
+    <m>\pi_1(s, b(s)) = 8s - s^2</m> on <m>0 \leq s \lt 8</m> gives
+    <m>s^* = 4</m>, and Firm 2 answers with
+    <m>t^* = b(4) = 4 - \tfrac{1}{2}(4) = 2</m>. The price is
+    <m>p^* = 20 - 2(4+2) = 8</m>, and the profits are <m>16</m> for Firm 1 and
+    <m>8</m> for Firm 2.
+  </p>
+
+  <p>
+    Notice that the more realistic model produces the exact same answer as the
+    first one! Here's a quick recap of the two places the restrictions forced
+    us to do extra work:
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        <alert>Finding <m>b(s)</m>.</alert> For <m>s \geq 8</m>, Firm 1 has
+        already pushed the price down to <m>4</m> or below, so every unit
+        Firm 2 makes loses money and its best response is <m>b(s) = 0</m>.
+        For <m>s \lt 8</m> there's still a profitable window, and on that
+        window <m>\pi_2</m> is the same function as in the first model, and we find the same answer
+        <m>b(s) = 4 - \tfrac{1}{2}s</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Maximizing <m>\pi_1(s, b(s))</m>.</alert> We ruled out
+        <m>s \geq 8</m> for the same reason as above: the price is at or below
+        Firm 1's own cost of <m>4</m>, so producing there loses money too. On
+        <m>0 \leq s \lt 8</m> we found <m>s + b(s) = 4 + \tfrac{1}{2}s \lt
+        10</m>, which keeps <m>\pi_1</m> on its first piece, the same formula
+        as in the first model. So the maximization is the one we already did,
+        and it gives the same <m>s^*</m>, <m>t^*</m>, price, and profits.
+      </p>
+    </li>
+  </ul>
+
+  <assemblage xml:id="read-1-11">
+    <title>Section 1.11, Stackelberg's Model of Duopoly 2</title>
+    <p>
+      <alert>Skim Section 1.11.</alert>
+    </p>
+    <p>
+      This section redoes both models in a more general setting: the price
+      rule becomes <m>p = \alpha - \beta(s+t)</m> and the unit cost becomes
+      <m>c</m>. The procedure is exactly the one you just used, so there's no
+      need to read every line carefully. What you should come away able to do
+      is adapt the method from Section 1.10 when the price and cost are
+      something other than <m>20 - 2(s+t)</m> and <m>4</m>.
+    </p>
+  </assemblage>
+
+  <p>
+    One observation worth pulling out of that section: the general answer is
+    <m>s^* = \dfrac{\alpha - c}{2\beta}</m> and
+    <m>t^* = \dfrac{\alpha - c}{4\beta}</m>, with profits
+    <m>\dfrac{(\alpha-c)^2}{8\beta}</m> and
+    <m>\dfrac{(\alpha-c)^2}{16\beta}</m>. Firm 1 produces twice as much and
+    earns twice as much no matter what <m>\alpha</m>, <m>\beta</m>, and
+    <m>c</m> are, so the 2-to-1 split we found wasn't an accident of our
+    particular numbers. It's what moving first is worth in any model of this
+    shape.
+  </p>
+
+</section>
