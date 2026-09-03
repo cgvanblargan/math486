@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapter Questions</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Georgia, 'Times New Roman', serif;
+    background: transparent;
+    padding: 12px 16px;
+    color: #2c3e50;
+  }
+  .form-header {
+    font-size: 14px;
+    color: #1a5276;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-header::before {
+    content: "?";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: #1a5276;
+    color: white;
+    border-radius: 50%;
+    font-size: 13px;
+    font-family: Georgia, serif;
+    flex-shrink: 0;
+  }
+  .field-group {
+    margin-bottom: 10px;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    color: #2c3e50;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  label em {
+    font-size: 12px;
+    color: #666;
+    font-style: italic;
+  }
+  input[type="text"], textarea {
+    width: 100%;
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    color: #2c3e50;
+    background: #fff;
+    border: 1px solid #b0bec5;
+    border-radius: 3px;
+    padding: 6px 9px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+  input[type="text"]:focus, textarea:focus {
+    border-color: #1a5276;
+  }
+  input[type="text"] { height: 32px; }
+  textarea {
+    height: 70px;
+    resize: vertical;
+    line-height: 1.5;
+  }
+  .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  button {
+    background: #1a5276;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    padding: 7px 20px;
+    font-family: Georgia, serif;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  button:hover { background: #154360; }
+  button:disabled { background: #aaa; cursor: default; }
+  #status {
+    font-size: 13px;
+    font-style: italic;
+    color: #1e8449;
+    display: none;
+  }
+  #status.error { color: #922b21; }
+</style>
+</head>
+<body>
+
+<div class="form-header">Have a question about this section?</div>
+<p style="font-size: 12px; color: #555; font-style: italic; margin-bottom: 10px;">
+Submitted questions will be answered at the start of Friday office hours. 
+I'll post the recording to Canvas with timestamps so you can jump straight to your answer.</p>
+
+<div class="field-group">
+  <label for="subsection">
+    Which section are you on?
+  </label>
+  <input type="text" id="subsection" placeholder="e.g. 1.4.2 or Separation of Variables"/>
+</div>
+
+<div class="field-group">
+  <label for="question">
+    What is your question?
+    <em>(try to be specific if you can!)</em>
+  </label>
+  <textarea id="question" placeholder="Type your question here..."></textarea>
+</div>
+
+<div class="submit-row">
+  <button id="submitBtn" onclick="submitForm()">Submit</button>
+  <span id="status"></span>
+</div>
+
+<script>
+var FORM_ACTION = "https://docs.google.com/forms/d/e/1FAIpQLSfJLe6cUxsy06wDaHATVV2C1Ks1KGFl5O4kKo2cXNLFd6iYDA/formResponse";
+var ENTRY_SUBSECTION = "entry.262656090";
+var ENTRY_QUESTION = "entry.1223861265";
+
+// Auto-fill subsection from URL parameter
+var params = new URLSearchParams(window.location.search);
+var sectionParam = params.get('section');
+if (sectionParam) {
+  document.getElementById('subsection').value = sectionParam;
+}
+
+function submitForm() {
+  var subsection = document.getElementById('subsection').value.trim();
+  var question = document.getElementById('question').value.trim();
+  var status = document.getElementById('status');
+  var btn = document.getElementById('submitBtn');
+
+  if (!subsection || !question) {
+    status.textContent = "Please fill in both fields.";
+    status.className = "error";
+    status.style.display = "inline";
+    return;
+  }
+
+  btn.disabled = true;
+  status.style.display = "none";
+
+  var url = FORM_ACTION + "?" +
+    encodeURIComponent(ENTRY_SUBSECTION) + "=" + encodeURIComponent(subsection) + "&" +
+    encodeURIComponent(ENTRY_QUESTION) + "=" + encodeURIComponent(question) +
+    "&submit=Submit";
+
+  var img = new Image();
+  img.src = url;
+
+  setTimeout(function() {
+    document.getElementById('question').value = '';
+    status.textContent = "Thanks! Your question has been submitted.";
+    status.className = "";
+    status.style.display = "inline";
+    btn.disabled = false;
+  }, 800);
+}
+</script>
+
+</body>
+</html>

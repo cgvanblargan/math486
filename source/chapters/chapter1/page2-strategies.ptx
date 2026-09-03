@@ -278,5 +278,5 @@ an instance of the game). You can think of it as a plan a player makes ahead of 
     the strategy a rational player would actually use, starting from the
     end and working back.
   </p>
-
+<interactive xml:id="question-form-1-2" iframe="question-form.html?section=1.2" width="100%" aspect="2:1"/>
 </section>
