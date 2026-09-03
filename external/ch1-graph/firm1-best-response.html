@@ -16,7 +16,11 @@
     --curve: #2563eb;
     --tangent: #1e8449;
   }
-  body { margin: 0; padding: 10px 14px 18px; font-family: serif; background: transparent; color: var(--ink); }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  #fit { width: 600px; height: 600px; padding: 10px 14px 18px;
+         box-sizing: border-box; transform-origin: top left; }
+  .formula-bar { text-align: center; font-size: 17px; margin: 0 0 10px; color: var(--accent); }
   h2 { text-align: center; font-size: 19px; margin: 4px 0 10px; }
   .slider-row {
     max-width: 560px; margin: 0 auto 14px; padding: 10px 18px;
@@ -37,7 +41,16 @@
 </head>
 <body>
 
-<div id="root"></div>
+<div id="fit"><div id="root"></div></div>
+
+<script>
+  function fitToWidth() {
+    var k = document.documentElement.clientWidth / 600;
+    document.getElementById("fit").style.transform = "scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToWidth);
+  fitToWidth();
+</script>
 
 <script type="text/babel">
 const { useState, useMemo } = React;
@@ -108,6 +121,7 @@ function App() {
   return (
     <div>
       <h2>Firm 1's Payoff, Anticipating Firm 2's Best Response</h2>
+      <div className="formula-bar">&#960;&#8321;(s, b(s)) = 8s &#8722; s&#178;</div>
       <div className="slider-row">
         <label htmlFor="s-slider">Firm 1's production, s:</label>
         <input id="s-slider" type="range" min="0" max="10" step="0.1" value={s}

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Continuous Games and Stackelberg’s Duopoly, Part 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page5-continuous-games-stackelberg.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-backward-induction.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch1-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page6-continuous-part2">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span>
+</h2>
+<div class="para" id="page6-continuous-part2-2">We’re going to continue with the same example from the previous page, but we’ll make the model more realistic by refusing to let production and price be negative. This is covered in Subsection 1.10.2, and it means we’ll have to consider boundary cases when looking for a maximum.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-1-10-2"><h3 class="heading"><span class="title">Subsection 1.10.2, The Second Model.</span></h3>
+<div class="para" id="read-1-10-2-2">
+<em class="alert">Read the rest of Section 1.10 (that is, Subsection 1.10.2).</em><div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-10-2-3">The first model let production levels and prices go negative, which isn’t something that happens in an actual market. This subsection fixes that. As you read, keep track of how the fix makes things more complicated mathematically.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-10-2-4">There’s a lot in common with Part 1, but we have to address some nuanced points now that the model carries further restrictions. You can move through those quickly on a first reading; we’ll go over them more carefully in the notes below.<div class="autopermalink" data-description="Paragraph"><a href="#read-1-10-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Subsection 1.10.2, The Second Model"><a href="#read-1-10-2" title="Copy heading and permalink for Reading: Subsection 1.10.2, The Second Model" aria-label="Copy heading and permalink for Reading: Subsection 1.10.2, The Second Model">🔗</a></div>
+</article>
+<div class="para" id="page6-continuous-part2-4">The general procedure is the same as in Part 1, but some of the reasoning is hard to follow in the book, so we’ll break it down further here. Start with the two piecewise profit functions. Here is Firm 1’s, labeled:<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-5">
+\begin{equation*}
+\pi_1(s,t) =
+\begin{cases}
+\overbrace{\bigl[20 - 2(s+t)\bigr]s - 4s}^{\substack{\text{exactly the payoff from the first model:} \\ \text{price is still } 20 - 2(s+t) \text{ in this range}}}
+\amp \text{if } 0 \leq s+t \lt 10, \\[4ex]
+\underbrace{-4s}_{\substack{\text{price has bottomed out at } 0, \text{ so revenue is } 0 \cdot s = 0; \\ \text{profit is } 0 - 4s, \text{ a pure loss of the production cost}}}
+\amp \text{if } s+t \geq 10.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-6">Firm 2’s is the mirror image, with <span class="process-math">\(t\)</span> in the role of <span class="process-math">\(s\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-7">
+\begin{equation*}
+\pi_2(s,t) =
+\begin{cases}
+\bigl[20 - 2(s+t)\bigr]t - 4t \amp \text{if } 0 \leq s+t \lt 10, \\[1ex]
+-4t \amp \text{if } s+t \geq 10.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-8">The book brushes over some of the reasoning, so let’s take a closer look at Firm 2’s payoff function. Drag the slider below. The shaded region marks the production levels that actually earn Firm 2 a profit. Push <span class="process-math">\(s\)</span> upward and watch what happens to it.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-firm2-profitable-window"><div class="interactive-iframe-container"><iframe src="external/ch1-graph/firm2-profitable-window.html" id="interactive-firm2-profitable-window" style="width:600px; height:540px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-firm2-profitable-window.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Firm 2’s profit in the second model, for a value of <span class="process-math">\(s\)</span> you control. The shaded region is where profit is positive; the marker is Firm 2’s best response.<div class="autopermalink" data-description="Figure 1.6.1"><a href="#fig-firm2-profitable-window" title="Copy heading and permalink for Figure 1.6.1" aria-label="Copy heading and permalink for Figure 1.6.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page6-continuous-part2-10">
+<em class="alert">Notice what happens when you compare <span class="process-math">\(s \lt 8\)</span> to <span class="process-math">\(s \geq 8\text{:}\)</span></em><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="page6-continuous-part2-11">
+<li id="page6-continuous-part2-11-1">
+<div class="para" id="page6-continuous-part2-11-1-1">When <span class="process-math">\(s \lt 8\text{:}\)</span> the shaded region is there. Firm 2 earns a positive profit for any <span class="process-math">\(t\)</span> with <span class="process-math">\(0 \lt t \lt 8 - s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page6-continuous-part2-11-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page6-continuous-part2-11-2">
+<div class="para" id="page6-continuous-part2-11-2-1">When <span class="process-math">\(s \geq 8\text{:}\)</span> the shaded region is gone. There is no production level left that earns Firm 2 a profit.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page6-continuous-part2-11-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="page6-continuous-part2-12">The book gives a brief explanation of why this happens, which we’ll examine in a moment. For now, see if you can use the observation above to determine Firm 2’s best response in the following scenarios.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-best-response-s9"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-best-response-s9-1-1">Firm 1 produces <span class="process-math">\(s = 9\text{.}\)</span> What is Firm 2’s best response?<div class="autopermalink" data-description="Paragraph"><a href="#check-best-response-s9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-s9" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-best-response-s9_opt_a" data-correct="">
+<div class="para" id="check-best-response-s9-2-1-1-1">
+<span class="process-math">\(t = 0\text{.}\)</span> Since <span class="process-math">\(9 \geq 8\text{,}\)</span> Firm 2’s profit on each unit is <span class="process-math">\(16 - 18 - 2t = -2 - 2t\text{,}\)</span> negative for every <span class="process-math">\(t\text{.}\)</span> Every unit loses money, so producing nothing and earning <span class="process-math">\(0\)</span> is the best available outcome.</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s9_opt_a">
+<div class="para" id="check-best-response-s9-2-1-2-1">Correct. Firm 2 isn’t producing nothing as a strategic move, it’s producing nothing because every alternative loses money.</div>
+</li>
+<li data-component="answer" id="rs-check-best-response-s9_opt_b">
+<div class="para" id="check-best-response-s9-2-2-1-1">
+<span class="process-math">\(t = 4 - \tfrac{1}{2}(9) = -0.5\text{,}\)</span> from the best-response formula.</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s9_opt_b">
+<div class="para" id="check-best-response-s9-2-2-2-1">This applies the <span class="process-math">\(s \lt 8\)</span> formula outside the range where it’s valid, and negative production is exactly what the second model rules out. It is, though, a good way to see why the second case exists: when the parabola’s peak lands at a negative <span class="process-math">\(t\text{,}\)</span> the best allowed choice is the nearest point of the domain, <span class="process-math">\(t = 0\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-best-response-s9_opt_c">
+<div class="para" id="check-best-response-s9-2-3-1-1">
+<span class="process-math">\(t = 4\text{,}\)</span> the largest value the best-response function takes.</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s9_opt_c">
+<div class="para" id="check-best-response-s9-2-3-2-1">
+<span class="process-math">\(t = 4\)</span> is <span class="process-math">\(b(0)\text{,}\)</span> Firm 2’s best response when Firm 1 produces <em class="emphasis">nothing</em>. That’s the opposite end of the range from <span class="process-math">\(s = 9\text{.}\)</span> Check which case <span class="process-math">\(s = 9\)</span> falls into before picking a value of <span class="process-math">\(t\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.2"><a href="#check-best-response-s9" title="Copy heading and permalink for Checkpoint 1.6.2" aria-label="Copy heading and permalink for Checkpoint 1.6.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-best-response-s7"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-best-response-s7-1-1">Now Firm 1 produces <span class="process-math">\(s = 7\text{.}\)</span> What is Firm 2’s best response?<div class="autopermalink" data-description="Paragraph"><a href="#check-best-response-s7-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-s7" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-best-response-s7_opt_a" data-correct="">
+<div class="para" id="check-best-response-s7-2-1-1-1">
+<span class="process-math">\(t = 0.5\text{,}\)</span> since <span class="process-math">\(7 \lt 8\)</span> puts us in the first case, where <span class="process-math">\(b(s) = 4 - \tfrac{1}{2}s = 4 - 3.5\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s7_opt_a">
+<div class="para" id="check-best-response-s7-2-1-2-1">Correct. The profitable window here is narrow, running only from <span class="process-math">\(t = 0\)</span> to <span class="process-math">\(t = 8 - 7 = 1\text{,}\)</span> but it isn’t empty, and Firm 2’s best response sits right in the middle of it. Set the slider to <span class="process-math">\(7\)</span> and compare.</div>
+</li>
+<li data-component="answer" id="rs-check-best-response-s7_opt_b">
+<div class="para" id="check-best-response-s7-2-2-1-1">
+<span class="process-math">\(t = 0\text{,}\)</span> since <span class="process-math">\(s = 7\)</span> is close enough to <span class="process-math">\(8\)</span> that the price is already at Firm 2’s cost.</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s7_opt_b">
+<div class="para" id="check-best-response-s7-2-2-2-1">Close isn’t the same as reaching it. At <span class="process-math">\(s = 7\)</span> with Firm 2 producing nothing, the price is <span class="process-math">\(20 - 14 = 6\text{,}\)</span> still above the cost of <span class="process-math">\(4\text{.}\)</span> There’s a small profit to be had, and Firm 2 takes it. The corner solution only kicks in at <span class="process-math">\(s = 8\)</span> exactly.</div>
+</li>
+<li data-component="answer" id="rs-check-best-response-s7_opt_c">
+<div class="para" id="check-best-response-s7-2-3-1-1">
+<span class="process-math">\(t = 1\text{,}\)</span> the right-hand edge of the profitable region.</div>
+</li>
+<li data-component="feedback" id="rs-check-best-response-s7_opt_c">
+<div class="para" id="check-best-response-s7-2-3-2-1">
+<span class="process-math">\(t = 8 - s = 1\)</span> is where profit falls back <em class="emphasis">to</em> zero, not where it’s largest. Producing there earns Firm 2 nothing at all. The maximum is at the peak of the parabola, halfway between the two places profit equals zero.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.3"><a href="#check-best-response-s7" title="Copy heading and permalink for Checkpoint 1.6.3" aria-label="Copy heading and permalink for Checkpoint 1.6.3">🔗</a></div>
+</article>
+<div class="para" id="page6-continuous-part2-15">Now let’s justify the two cases mathematically, since the book explains this only briefly. Look at <span class="process-math">\(\pi_2\)</span> for <span class="process-math">\(0 \leq t \lt 10 - s\text{,}\)</span> and factor the <span class="process-math">\(t\)</span> out of it instead of multiplying everything through:<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-16">
+\begin{equation*}
+\pi_2(s,t) \;=\;
+\underbrace{\bigl[20 - 2(s+t)\bigr]}_{\text{price } p} t
+\;-\; \underbrace{4}_{\substack{\text{unit} \\ \text{cost}}} t
+\;=\;
+\underbrace{\bigl[\,20 - 2(s+t) - 4\,\bigr]}_{\text{profit on each unit sold}}
+\cdot \underbrace{t}_{\substack{\text{units} \\ \text{sold}}}.
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-17">Written this way, Firm 2’s profit is just <em class="emphasis">profit per unit</em> times <em class="emphasis">number of units</em>. Now suppose <span class="process-math">\(s \geq 8\text{.}\)</span> Then<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-18">
+\begin{equation*}
+\underbrace{20 - 2(s+t) - 4}_{\text{profit on each unit}}
+\;=\; 16 - 2s - 2t
+\;\leq\; 16 - 16 - 2t
+\;=\; -2t \;\leq\; 0.
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-19">So Firm 2 loses money on every unit it makes, and producing <em class="emphasis">more</em> only pushes the price further below cost, making the per-unit loss worse. The best Firm 2 can do is produce nothing and break even at <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page6-continuous-part2-20">
+<em class="alert">In contrast, when <span class="process-math">\(s \lt 8\)</span></em>, the price stays above <span class="process-math">\(4\)</span> and Firm 2 does have room to profit. Multiplying out the top piece and substituting the fixed <span class="process-math">\(s\)</span> gives the function the book graphs in Figure 1.11:<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-21">
+\begin{equation*}
+\pi_2(s,t) =
+\begin{cases}
+(16 - 2s)t - 2t^2 \amp \text{if } 0 \leq t \lt 10 - s, \\[1ex]
+-4t \amp \text{if } t \geq 10 - s.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-22">That top piece is exactly the <span class="process-math">\(\pi_2\)</span> from the first model, and it’s an upside-down parabola, so the derivative test applies to it just as it did there. The maximum sits at <span class="process-math">\(t = 4 - \tfrac{1}{2}s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page6-continuous-part2-23">Putting the two cases together gives Firm 2’s best-response function:<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-24">
+\begin{equation*}
+b(s) =
+\begin{cases}
+\overbrace{4 - \tfrac{1}{2}s}^{\substack{\text{the peak of the parabola: the same best} \\ \text{response as in the first model}}}
+\amp \text{if } 0 \leq s \lt 8, \\[5ex]
+\underbrace{0}_{\substack{\text{no profitable production level exists, since every } t \gt 0 \\ \text{loses money, so Firm 2 produces nothing and breaks even}}}
+\amp \text{if } s \geq 8.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para" id="page6-continuous-part2-25">That second case is a <em class="alert">corner solution</em>: the best choice sits at the edge of the domain rather than where a derivative vanishes. It’s the first one in this chapter.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page6-continuous-part2-26">Now that we know Firm 2’s best-response function <span class="process-math">\(b(s)\text{,}\)</span> we proceed as before by maximizing Firm 1’s payoff function <span class="process-math">\(\pi_1(s, b(s))\text{.}\)</span> This time that means dealing with piecewise functions, since <span class="process-math">\(\pi_1\)</span> and <span class="process-math">\(b(s)\)</span> are <em class="emphasis">both</em> piecewise. Before doing any computation, though, we can narrow down where the maximum has to live.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-which-case-holds-s-star"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-which-case-holds-s-star-1-1">Without computing anything, can you tell which case the optimal <span class="process-math">\(s^*\)</span> falls into: <span class="process-math">\(0 \leq s \lt 8\text{,}\)</span> or <span class="process-math">\(s \geq 8\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-which-case-holds-s-star-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-which-case-holds-s-star" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-which-case-holds-s-star_opt_a" data-correct="">
+<div class="para" id="check-which-case-holds-s-star-2-1-1-1">
+<span class="process-math">\(0 \leq s^* \lt 8\text{.}\)</span> If Firm 1 produced <span class="process-math">\(s \geq 8\)</span> it would drive the price down to its <em class="emphasis">own</em> cost of <span class="process-math">\(4\)</span> or below, so it would earn nothing or lose money. Since Firm 1 can earn a positive profit with a smaller <span class="process-math">\(s\text{,}\)</span> the maximum can’t be out there.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-case-holds-s-star_opt_a">
+<div class="para" id="check-which-case-holds-s-star-2-1-2-1">Correct. The threshold <span class="process-math">\(s = 8\)</span> was defined by the price hitting <span class="process-math">\(4\text{,}\)</span> and both firms have that same unit cost, so what kills Firm 2’s profit at <span class="process-math">\(s \geq 8\)</span> kills Firm 1’s too. This is why the book says it won’t bother computing <span class="process-math">\(\pi_1(s, b(s))\)</span> for <span class="process-math">\(s \geq 8\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-which-case-holds-s-star_opt_b">
+<div class="para" id="check-which-case-holds-s-star-2-2-1-1">
+<span class="process-math">\(s^* \geq 8\text{,}\)</span> since that drives Firm 2 out of the market entirely and leaves Firm 1 as the only producer.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-case-holds-s-star_opt_b">
+<div class="para" id="check-which-case-holds-s-star-2-2-2-1">It’s true that Firm 2 produces nothing when <span class="process-math">\(s \geq 8\text{,}\)</span> but look at what it costs Firm 1 to get there. Being the only seller is worthless if the price you had to create is at or below your own cost of <span class="process-math">\(4\text{.}\)</span> Firm 1 wants profit, not market share.</div>
+</li>
+<li data-component="answer" id="rs-check-which-case-holds-s-star_opt_c">
+<div class="para" id="check-which-case-holds-s-star-2-3-1-1">
+<span class="process-math">\(s^* \geq 8\text{,}\)</span> because profit is price times quantity, so producing more units always earns more.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-case-holds-s-star_opt_c">
+<div class="para" id="check-which-case-holds-s-star-2-3-2-1">Profit is <em class="emphasis">margin</em> times quantity, not price times quantity, and the margin shrinks as production rises. Past <span class="process-math">\(s = 8\)</span> the margin is zero or negative, so extra units make things worse rather than better.</div>
+</li>
+<li data-component="answer" id="rs-check-which-case-holds-s-star_opt_d">
+<div class="para" id="check-which-case-holds-s-star-2-4-1-1">There’s no way to tell in advance. Both pieces have to be maximized and the two results compared.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-case-holds-s-star_opt_d">
+<div class="para" id="check-which-case-holds-s-star-2-4-2-1">That’s always a safe fallback, but here one piece can be ruled out by an argument rather than a computation: at <span class="process-math">\(s \geq 8\)</span> the price is at or below Firm 1’s own cost of <span class="process-math">\(4\text{,}\)</span> so its profit there can’t be positive.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.4"><a href="#check-which-case-holds-s-star" title="Copy heading and permalink for Checkpoint 1.6.4" aria-label="Copy heading and permalink for Checkpoint 1.6.4">🔗</a></div>
+</article>
+<div class="para" id="page6-continuous-part2-28">So we only need to work on <span class="process-math">\(0 \leq s \lt 8\text{.}\)</span> There’s still one thing to check before writing down a formula: <span class="process-math">\(\pi_1\)</span> is itself piecewise, split at <span class="process-math">\(s + t = 10\text{,}\)</span> so we need to know which piece we land on once <span class="process-math">\(t\)</span> is replaced by <span class="process-math">\(b(s)\text{.}\)</span> For <span class="process-math">\(0 \leq s \lt 8\text{,}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="displaymath process-math" id="page6-continuous-part2-29">
+\begin{equation*}
+s + b(s) \;=\; s + 4 - \tfrac{1}{2}s \;=\; 4 + \tfrac{1}{2}s
+\;\lt\; 4 + \tfrac{1}{2}(8) \;=\; 8 \;\lt\; 10.
+\end{equation*}
+</div>
+<article class="exercise exercise-like" id="check-which-piece-of-pi1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">1.6.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-which-piece-of-pi1-1-1">What does the computation above tell us?<div class="autopermalink" data-description="Paragraph"><a href="#check-which-piece-of-pi1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-which-piece-of-pi1" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-which-piece-of-pi1_opt_a" data-correct="">
+<div class="para" id="check-which-piece-of-pi1-2-1-1-1">Total production <span class="process-math">\(s + b(s)\)</span> never reaches <span class="process-math">\(10\)</span> on this range, so <span class="process-math">\(\pi_1\)</span> always stays on its first piece. We can use <span class="process-math">\(\bigl[20 - 2(s+t)\bigr]s - 4s\)</span> and get <span class="process-math">\(\pi_1(s, b(s)) = 8s - s^2\text{,}\)</span> exactly as in the first model.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-piece-of-pi1_opt_a">
+<div class="para" id="check-which-piece-of-pi1-2-1-2-1">Correct, and this is the payoff for pinning down Firm 2’s best response first. Once <span class="process-math">\(t = b(s)\text{,}\)</span> total production is capped at <span class="process-math">\(8\text{,}\)</span> so the second piece of <span class="process-math">\(\pi_1\)</span> is unreachable and the piecewise complication never actually bites.</div>
+</li>
+<li data-component="answer" id="rs-check-which-piece-of-pi1_opt_b">
+<div class="para" id="check-which-piece-of-pi1-2-2-1-1">The price stays positive, but we still have to maximize the second piece of <span class="process-math">\(\pi_1\)</span> separately and compare.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-piece-of-pi1_opt_b">
+<div class="para" id="check-which-piece-of-pi1-2-2-2-1">The second piece applies only when <span class="process-math">\(s + t \geq 10\text{,}\)</span> and the computation shows <span class="process-math">\(s + b(s) \lt 8\)</span> for every <span class="process-math">\(s\)</span> in this range. There’s no <span class="process-math">\(s\)</span> left for that piece to describe, so there’s nothing to compare against.</div>
+</li>
+<li data-component="answer" id="rs-check-which-piece-of-pi1_opt_c">
+<div class="para" id="check-which-piece-of-pi1-2-3-1-1">Firm 2 always produces less than Firm 1.</div>
+</li>
+<li data-component="feedback" id="rs-check-which-piece-of-pi1_opt_c">
+<div class="para" id="check-which-piece-of-pi1-2-3-2-1">That happens to be false at small <span class="process-math">\(s\)</span> (at <span class="process-math">\(s = 0\text{,}\)</span> Firm 2 produces <span class="process-math">\(4\)</span>), and in any case it isn’t what the computation is about. The quantity being bounded is the <em class="emphasis">total</em> <span class="process-math">\(s + b(s)\text{,}\)</span> which is what decides which piece of <span class="process-math">\(\pi_1\)</span> is in force.</div>
+</li>
+<li data-component="answer" id="rs-check-which-piece-of-pi1_opt_d">
+<div class="para" id="check-which-piece-of-pi1-2-4-1-1">It tells us directly that <span class="process-math">\(s^* = 4\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-which-piece-of-pi1_opt_d">
+<div class="para" id="check-which-piece-of-pi1-2-4-2-1">Not yet. This only establishes <em class="emphasis">which formula</em> to maximize. Finding <span class="process-math">\(s^*\)</span> still takes a derivative, which is the next step.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 1.6.5"><a href="#check-which-piece-of-pi1" title="Copy heading and permalink for Checkpoint 1.6.5" aria-label="Copy heading and permalink for Checkpoint 1.6.5">🔗</a></div>
+</article>
+<div class="para" id="page6-continuous-part2-31">From here the work is identical to Part 1: maximizing <span class="process-math">\(\pi_1(s, b(s)) = 8s - s^2\)</span> on <span class="process-math">\(0 \leq s \lt 8\)</span> gives <span class="process-math">\(s^* = 4\text{,}\)</span> and Firm 2 answers with <span class="process-math">\(t^* = b(4) = 4 - \tfrac{1}{2}(4) = 2\text{.}\)</span> The price is <span class="process-math">\(p^* = 20 - 2(4+2) = 8\text{,}\)</span> and the profits are <span class="process-math">\(16\)</span> for Firm 1 and <span class="process-math">\(8\)</span> for Firm 2.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page6-continuous-part2-32">Notice that the more realistic model produces the exact same answer as the first one! Here’s a quick recap of the two places the restrictions forced us to do extra work:<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="page6-continuous-part2-33">
+<li id="page6-continuous-part2-33-1">
+<div class="para" id="page6-continuous-part2-33-1-1">
+<em class="alert">Finding <span class="process-math">\(b(s)\text{.}\)</span></em> For <span class="process-math">\(s \geq 8\text{,}\)</span> Firm 1 has already pushed the price down to <span class="process-math">\(4\)</span> or below, so every unit Firm 2 makes loses money and its best response is <span class="process-math">\(b(s) = 0\text{.}\)</span> For <span class="process-math">\(s \lt 8\)</span> there’s still a profitable window, and on that window <span class="process-math">\(\pi_2\)</span> is the same function as in the first model, and we find the same answer <span class="process-math">\(b(s) = 4 - \tfrac{1}{2}s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-33-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page6-continuous-part2-33-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page6-continuous-part2-33-2">
+<div class="para" id="page6-continuous-part2-33-2-1">
+<em class="alert">Maximizing <span class="process-math">\(\pi_1(s, b(s))\text{.}\)</span></em> We ruled out <span class="process-math">\(s \geq 8\)</span> for the same reason as above: the price is at or below Firm 1’s own cost of <span class="process-math">\(4\text{,}\)</span> so producing there loses money too. On <span class="process-math">\(0 \leq s \lt 8\)</span> we found <span class="process-math">\(s + b(s) = 4 + \tfrac{1}{2}s \lt
+10\text{,}\)</span> which keeps <span class="process-math">\(\pi_1\)</span> on its first piece, the same formula as in the first model. So the maximization is the one we already did, and it gives the same <span class="process-math">\(s^*\text{,}\)</span> <span class="process-math">\(t^*\text{,}\)</span> price, and profits.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-33-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page6-continuous-part2-33-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<article class="assemblage assemblage-like" id="read-1-11"><h3 class="heading"><span class="title">Section 1.11, Stackelberg’s Model of Duopoly 2.</span></h3>
+<div class="para" id="read-1-11-2">
+<em class="alert">Skim Section 1.11.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-1-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-1-11-3">This section redoes both models in a more general setting: the price rule becomes <span class="process-math">\(p = \alpha - \beta(s+t)\)</span> and the unit cost becomes <span class="process-math">\(c\text{.}\)</span> The procedure is exactly the one you just used, so there’s no need to read every line carefully. What you should come away able to do is adapt the method from Section 1.10 when the price and cost are something other than <span class="process-math">\(20 - 2(s+t)\)</span> and <span class="process-math">\(4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-1-11-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 1.11, Stackelberg’s Model of Duopoly 2"><a href="#read-1-11" title="Copy heading and permalink for Reading: Section 1.11, Stackelberg’s Model of Duopoly 2" aria-label="Copy heading and permalink for Reading: Section 1.11, Stackelberg’s Model of Duopoly 2">🔗</a></div>
+</article>
+<div class="para" id="page6-continuous-part2-35">One observation worth pulling out of that section: the general answer is <span class="process-math">\(s^* = \dfrac{\alpha - c}{2\beta}\)</span> and <span class="process-math">\(t^* = \dfrac{\alpha - c}{4\beta}\text{,}\)</span> with profits <span class="process-math">\(\dfrac{(\alpha-c)^2}{8\beta}\)</span> and <span class="process-math">\(\dfrac{(\alpha-c)^2}{16\beta}\text{.}\)</span> Firm 1 produces twice as much and earns twice as much no matter what <span class="process-math">\(\alpha\text{,}\)</span> <span class="process-math">\(\beta\text{,}\)</span> and <span class="process-math">\(c\)</span> are, so the 2-to-1 split we found wasn’t an accident of our particular numbers. It’s what moving first is worth in any model of this shape.<div class="autopermalink" data-description="Paragraph"><a href="#page6-continuous-part2-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=1.6" id="question-form-1-6" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-1-6.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 1.6: Continuous Games and Stackelberg’s Duopoly, Part 2"><a href="#page6-continuous-part2" title="Copy heading and permalink for Section 1.6: Continuous Games and Stackelberg’s Duopoly, Part 2" aria-label="Copy heading and permalink for Section 1.6: Continuous Games and Stackelberg’s Duopoly, Part 2">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page5-continuous-games-stackelberg.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch1-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

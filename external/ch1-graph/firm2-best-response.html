@@ -16,7 +16,14 @@
     --curve: #2563eb;
     --tangent: #1e8449;
   }
-  body { margin: 0; padding: 10px 14px 18px; font-family: serif; background: transparent; color: var(--ink); }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  /* Fixed design canvas: laid out at 900x640, then scaled to whatever
+     width the PreTeXt iframe gives us. Keeps the two panels side by
+     side at every screen size. */
+  #fit { width: 900px; height: 650px; padding: 10px 14px 18px;
+         box-sizing: border-box; transform-origin: top left; }
+  .formula-bar { text-align: center; font-size: 17px; margin: 0 0 10px; color: var(--accent); }
   h2 { text-align: center; font-size: 19px; margin: 4px 0 10px; }
   .slider-row {
     max-width: 760px; margin: 0 auto 14px; padding: 10px 18px;
@@ -26,10 +33,12 @@
   .slider-row label { white-space: nowrap; font-weight: bold; }
   .slider-row input[type=range] { flex: 1; }
   .slider-row .s-value { min-width: 62px; text-align: right; font-weight: bold; color: var(--accent); }
-  .panels { display: flex; gap: 14px; max-width: 900px; margin: 0 auto; flex-wrap: wrap; }
+  /* Grid, not flex: two fixed columns cannot wrap or stack, ever. */
+  .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+            max-width: 900px; margin: 0 auto; }
   .panel {
-    flex: 1 1 380px; background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
-    padding: 10px; text-align: center;
+    min-width: 0; background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    padding: 6px; text-align: center;
   }
   .panel h3 { margin: 4px 0 8px; font-size: 15px; color: var(--muted); font-weight: normal; }
   svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
@@ -39,12 +48,30 @@
 </head>
 <body>
 
-<div id="root"></div>
+<div id="fit"><div id="root"></div></div>
+
+<script>
+  // Scale the 900px design canvas down to the iframe width.
+  function fitToWidth() {
+    var k = document.documentElement.clientWidth / 900;
+    document.getElementById("fit").style.transform = "scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToWidth);
+  fitToWidth();
+</script>
 
 <script type="text/babel">
 const { useState, useMemo } = React;
 
 function pi2(s, t) { return (16 - 2 * s) * t - 2 * t * t; }
+// Trim a trailing ".0" so labels read "10" rather than "10.0".
+function fmt(x) { return Number.isInteger(x) ? String(x) : x.toFixed(1); }
+// Concrete profit formula with the slider value substituted in.
+function concreteFormula(s) {
+  const a = 16 - 2 * s;
+  const lead = a < 0 ? "\u2212" + fmt(Math.abs(a)) : fmt(a);
+  return "\u03C0\u2082(" + fmt(s) + ", t) = " + lead + "t \u2212 2t\u00B2";
+}
 function bestResponse(s) { return 4 - 0.5 * s; }
 
 // ---- Left panel: standard 3D axes (s,t floor plane, pi2 vertical), fixed angle ----
@@ -52,10 +79,10 @@ function SurfacePanel({ s }) {
   const S_MIN = 0, S_MAX = 10, S_STEPS = 11;
   const T_MIN = -2, T_MAX = 10, T_STEPS = 13;
   const Z_MAX = 40;
-  const W = 420, H = 380;
-  const originX = 130, originY = 300;
-  const scale = 21;
-  const zScale = 2.6;
+  const W = 430, H = 440;
+  const originX = 135, originY = 350;
+  const scale = 22;
+  const zScale = 3.0;
 
   // Standard axonometric: s-axis runs to the lower-right, t-axis to the
   // upper-right, pi2-axis straight up, all from a shared origin corner.
@@ -128,11 +155,11 @@ function SurfacePanel({ s }) {
         </marker>
       </defs>
 
-      <text x={sAxisEnd[0] + 4} y={sAxisEnd[1] + 4} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">s</text>
-      <text x={tAxisEnd[0] + 4} y={tAxisEnd[1] - 4} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">t</text>
-      <text x={zAxisEnd[0] - 22} y={zAxisEnd[1] - 2} fontFamily="serif" fontSize="14" fontWeight="bold" fill="#1a1a1a">&#960;&#8322;</text>
+      <text x={sAxisEnd[0] + 4} y={sAxisEnd[1] + 4} fontFamily="serif" fontSize="17" fontWeight="bold" fill="#1a1a1a">s</text>
+      <text x={tAxisEnd[0] + 4} y={tAxisEnd[1] - 4} fontFamily="serif" fontSize="17" fontWeight="bold" fill="#1a1a1a">t</text>
+      <text x={zAxisEnd[0] - 22} y={zAxisEnd[1] - 2} fontFamily="serif" fontSize="17" fontWeight="bold" fill="#1a1a1a">&#960;&#8322;</text>
 
-      <text x="150" y="24" fontFamily="serif" fontSize="12" fontWeight="bold" fill="#c0392b">slice at your chosen s</text>
+      <text x="150" y="24" fontFamily="serif" fontSize="16" fontWeight="bold" fill="#c0392b">slice at your chosen s</text>
     </svg>
   );
 }
@@ -144,8 +171,8 @@ const CURVE_T_LO = -2, CURVE_T_HI = 10;
 const CURVE_Y_LO = -25, CURVE_Y_HI = 40;
 
 function CurvePanel({ s }) {
-  const W = 420, H = 360;
-  const marginL = 55, marginR = 20, marginT = 30, marginB = 45;
+  const W = 430, H = 440;
+  const marginL = 58, marginR = 20, marginT = 46, marginB = 48;
   const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
   const bS = bestResponse(s);
 
@@ -164,6 +191,8 @@ function CurvePanel({ s }) {
 
   return (
     <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      <text x={W/2} y="22" textAnchor="middle" fontFamily="serif" fontSize="18"
+        fontWeight="bold" fill="#922b21">{concreteFormula(s)}</text>
       <line x1={marginL} y1={marginT} x2={marginL} y2={H - marginB} stroke="#888" />
       <line x1={marginL} y1={H - marginB} x2={W - marginR} y2={H - marginB} stroke="#888" />
       <line x1={marginL} y1={toY(0)} x2={W - marginR} y2={toY(0)} stroke="#ccc" />
@@ -173,13 +202,13 @@ function CurvePanel({ s }) {
       <line x1={toX(bS)} y1={toY(peakY)} x2={toX(bS)} y2={H - marginB}
         stroke="#922b21" strokeWidth="1.5" strokeDasharray="3 3" />
       <circle cx={toX(bS)} cy={toY(peakY)} r="5" fill="#922b21" />
-      <text x={W - marginR - 25} y={H - marginB + 20} fontFamily="serif" fontSize="13" fill="#1a1a1a">t &#8594;</text>
-      <text x="16" y={marginT + plotH/2} fontFamily="serif" fontSize="13" fill="#1a1a1a"
-        transform={`rotate(-90, 16, ${marginT + plotH/2})`}>&#960;&#8322;(s, t)</text>
-      <text x={toX(bS) + 10} y={toY(peakY) - 10} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#1e8449">
+      <text x={W - marginR - 25} y={H - marginB + 20} fontFamily="serif" fontSize="16" fill="#1a1a1a">t &#8594;</text>
+      <text x="16" y={marginT + plotH/2} fontFamily="serif" fontSize="16" fill="#1a1a1a"
+        transform={`rotate(-90, 16, ${marginT + plotH/2})`}>{`\u03C0\u2082(${fmt(s)}, t)`}</text>
+      <text x={toX(bS) + 10} y={toY(peakY) - 10} fontFamily="serif" fontSize="16" fontWeight="bold" fill="#1e8449">
         &#8706;&#960;&#8322;/&#8706;t = 0
       </text>
-      <text x={toX(bS) - 45} y={H - marginB + 20} fontFamily="serif" fontSize="12" fontWeight="bold" fill="#922b21">
+      <text x={toX(bS) - 45} y={H - marginB + 20} fontFamily="serif" fontSize="16" fontWeight="bold" fill="#922b21">
         t = b(s) = {bS.toFixed(2)}
       </text>
     </svg>
@@ -193,7 +222,7 @@ function App() {
 
   return (
     <div>
-      <h2>Firm 2's Best Response, for Fixed s</h2>
+      <div className="formula-bar">&#960;&#8322;(s, t) = (16 &#8722; 2s)t &#8722; 2t&#178;</div>
       <div className="slider-row">
         <label htmlFor="s-slider">Firm 1's production, s:</label>
         <input id="s-slider" type="range" min="0" max="10" step="0.5" value={s}
@@ -202,11 +231,11 @@ function App() {
       </div>
       <div className="panels">
         <div className="panel">
-          <h3>The full profit surface &#960;&#8322;(s, t), sliced at your chosen s</h3>
+          <h3>The surface &#960;&#8322;(s, t), sliced at your chosen s</h3>
           <SurfacePanel s={s} />
         </div>
         <div className="panel">
-          <h3>That slice, as a precise 2D curve</h3>
+          <h3>That slice, with s held fixed at your chosen value</h3>
           <CurvePanel s={s} />
         </div>
       </div>
