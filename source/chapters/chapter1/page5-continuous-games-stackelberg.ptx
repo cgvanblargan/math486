@@ -13,24 +13,42 @@
   <assemblage xml:id="read-1-9">
     <title>Section 1.9, Continuous Games</title>
     <p>
-      <alert> Read Section 1.9.</alert>
+      <alert>Read Section 1.9.</alert>
     </p>
     <p>
       Pay attention to how backward induction gets adapted here. It's the same
-      core idea as before, just done with derivatives instead of a finite list
-      of branches to compare.
+      core idea as before, but instead of a finite number of nodes to compare,
+      you have to consider values over an interval. We'll look at an example
+      before moving on to the next section.
     </p>
   </assemblage>
 
   <p>
-    Let's put this to work. Stackelberg's model of duopoly imagines two firms
+    Let's look at an example. In the next section you'll read about
+    <em>Stackelberg's model of duopoly</em>, which deals with two firms
     choosing how much of a good to produce, one right after the other. Firm 1
     picks its production level <m>s</m> first; then Firm 2 observes <m>s</m>
     and picks its own production level <m>t</m>. Each firm's profit,
     <m>\pi_1(s,t)</m> and <m>\pi_2(s,t)</m>, depends on <em>both</em>
-    quantities together, since they're competing in the same market. You'll see
-    exactly how these profit formulas are built in the reading below, once
-    you've gotten a feel for the logic first.
+    quantities together, since they're competing in the same market.
+  </p>
+
+  <p>
+    Right now, we'll take the profit functions as given. In the book's
+    numerical example they work out to
+  </p>
+
+  <md>
+    <mrow>\pi_1(s,t) \amp = (16 - 2t)s - 2s^2,</mrow>
+    <mrow>\pi_2(s,t) \amp = (16 - 2s)t - 2t^2.</mrow>
+  </md>
+
+  <p>
+    Where those come from is exactly what the reading will cover, and we'll
+    take a closer look at the formulas once you've read it. For now, notice the
+    one feature that drives everything on this page: <alert>each firm's profit
+    contains the <em>other</em> firm's production level.</alert> That's what
+    makes this a game rather than two separate calculus problems.
   </p>
 
   <p>
@@ -41,45 +59,56 @@
     <m>t</m> that maximizes Firm 2's profit, for each fixed <m>s</m>.
   </p>
 
-  <remark xml:id="refresher-derivative-max">
-    <title>Refresher: finding a max with derivatives</title>
-    <p>
-      Setting a derivative equal to zero finds a <alert>critical point</alert>,
-      it doesn't automatically find a maximum. Whether that critical point
-      actually <em>is</em> the max depends on two things:
-    </p>
-    <p>
-      <alert>Shape of the function.</alert> If the function is concave (its
-      graph curves downward, like an upside-down parabola) over the whole
-      domain, a critical point is guaranteed to be the single global maximum.
-      Otherwise, a critical point could instead be a minimum, an inflection
-      point, or just one of several local maxima.
-    </p>
-    <p>
-      <alert>The domain.</alert> If the domain has boundaries (a variable
-      can't go below 0, say), the true maximum might sit right at that
-      boundary instead of at a point where the derivative is zero. Boundary
-      points have to be checked separately in that case.
-    </p>
-    <p>
-      For a function of two variables, like <m>\pi_2(s,t)</m> here, the same
-      idea applies to the <alert>partial derivative</alert>: setting
-      <m>\partial \pi_2/\partial t = 0</m> (holding <m>s</m> fixed) finds a
-      critical point of the one-variable curve you get by slicing the surface
-      at that particular <m>s</m>. You'll see both situations, the clean
-      derivative case and the boundary case, play out below.
-    </p>
-  </remark>
+  <example xml:id="eg-refresher-derivative-max">
+    <title>Refresher: when does setting a derivative to zero find a maximum?</title>
+    <statement>
+      <p>
+        We're about to maximize a function by setting a derivative equal to
+        zero. Before we do: a critical point isn't automatically a maximum.
+        What has to be true for that shortcut to be valid, and what does it
+        mean to do this to a function of two variables?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <alert>Shape of the function.</alert> If the function is concave (its
+        graph curves downward, like an upside-down parabola) over the whole
+        domain, a critical point is guaranteed to be the single global
+        maximum. Otherwise a critical point could instead be a minimum, an
+        inflection point, or just one of several local maxima.
+      </p>
+      <p>
+        <alert>The domain.</alert> If the domain has boundaries (a variable
+        can't go below <m>0</m>, say), the true maximum might sit right at
+        that boundary instead of at a point where the derivative is zero.
+        Boundary points have to be checked separately in that case.
+      </p>
+      <p>
+        <alert>Two variables.</alert> For a function like <m>\pi_2(s,t)</m>,
+        the same idea applies to the <alert>partial derivative</alert>:
+        setting <m>\partial \pi_2/\partial t = 0</m> (holding <m>s</m> fixed)
+        finds a critical point of the one-variable curve you get by slicing
+        the surface at that particular <m>s</m>. Everything you know about
+        one-variable max/min problems applies to that slice.
+      </p>
+      <p>
+        Both conditions hold for us here, which is why the work below is as
+        short as it is. Keep them in mind anyway: when the model gets more
+        realistic in Subsection 1.10.2, the domain grows a boundary and this
+        stops being automatic.
+      </p>
+    </solution>
+  </example>
 
   <p>
     In the interactive below, drag the slider to set Firm 1's production level
     <m>s</m>. The left panel shows the profit surface <m>\pi_2(s,t)</m>,
     sliced at your chosen <m>s</m>; the right panel shows that same slice as a
-    clean 2D curve of <m>\pi_2</m> versus <m>t</m>. Here, this curve is
-    concave and the domain is unrestricted, so the point where the tangent
-    line is flat (<m>\partial \pi_2/\partial t = 0</m>) is guaranteed to be
-    the actual maximum, no boundary check needed. That peak is Firm 2's best
-    response, <m>b(s)</m>, to your chosen <m>s</m>.
+    clean 2D curve of <m>\pi_2</m> versus <m>t</m>. Here the curve is concave
+    and the domain is unrestricted, so the point where the tangent line is
+    flat (<m>\partial \pi_2/\partial t = 0</m>) is guaranteed to be the actual
+    maximum, no boundary check needed. That peak is Firm 2's best response,
+    <m>b(s)</m>, to your chosen <m>s</m>.
   </p>
 
   <figure xml:id="fig-firm2-bestresponse">
@@ -90,7 +119,7 @@
       the maximum, its flat tangent line, and <m>b(s)</m> labeled.
     </caption>
     <interactive xml:id="interactive-firm2-bestresponse"
-      iframe="ch1-graph/firm2-best-response.html" width="100%" aspect="16:9">
+      iframe="ch1-graph/firm2-best-response.html" width="100%" aspect="45:32">
       <static>
         <p>
           A slider for Firm 1's production level s, ranging from 0 to 10 in
@@ -106,22 +135,70 @@
   </figure>
 
   <p>
+    Watching the peak slide as you drag <m>s</m> is the whole content of the
+    best-response function: every position of the slider gives one value of
+    <m>b(s)</m>. Here's that same argument done with algebra instead of a
+    slider. Try it yourself first if you'd like.
+  </p>
+
+  <example xml:id="eg-derive-best-response">
+    <title>Deriving Firm 2's best response <m>b(s)</m></title>
+    <statement>
+      <p>
+        Hold <m>s</m> fixed and find the value of <m>t</m> that maximizes
+        <m>\pi_2(s,t) = (16 - 2s)t - 2t^2</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        With <m>s</m> held fixed, this is a quadratic in <m>t</m> whose
+        <m>t^2</m> coefficient is <m>-2</m>, so its graph is an upside-down
+        parabola no matter what <m>s</m> is. By the refresher above, a
+        critical point is therefore the global maximum, and we can find it by
+        setting the partial derivative equal to zero:
+      </p>
+      <me>\frac{\partial \pi_2}{\partial t} = 16 - 2s - 4t = 0.</me>
+      <p>
+        Solving for <m>t</m> gives Firm 2's best-response function:
+      </p>
+      <me>t = b(s) = 4 - \tfrac{1}{2}s.</me>
+      <p>
+        This is a <em>strategy</em>, not a single move: it tells Firm 2 what
+        to do at every node it could find itself at. Check it against the
+        interactive by setting the slider to <m>s = 4</m> and confirming the
+        peak sits at <m>t = 2</m>.
+      </p>
+    </solution>
+  </example>
+
+  <p>
     Now that Firm 2's best response is pinned down for every possible
     <m>s</m>, Firm 1 can fold that entire strategy into its own decision. Firm
     1's actual payoff, once Firm 2 responds optimally, is
-    <m>\pi_1(s, b(s))</m>, a function of <m>s</m> alone. Unlike Firm 2's
-    problem, there's no second variable left to slice away here, so this
-    graph is just a single 2D curve: no 3D backdrop needed, since there's
-    nothing being sliced.
+    <m>\pi_1(s, b(s))</m>, a function of <m>s</m> alone. Substituting
+    <m>b(s) = 4 - \tfrac{1}{2}s</m> into <m>\pi_1(s,t) = (16 - 2t)s - 2s^2</m>
+    gives
+  </p>
+
+  <me>
+    \pi_1\bigl(s, b(s)\bigr)
+      = \left(16 - 2\left(4 - \tfrac{1}{2}s\right)\right)s - 2s^2
+      = 8s - s^2.
+  </me>
+
+  <p>
+    That is the function graphed below. Unlike Firm 2's problem, there's no
+    second variable left to slice away here, so this graph is just a single 2D
+    curve: no 3D backdrop needed, since there's nothing being sliced.
   </p>
 
   <figure xml:id="fig-firm1-bestresponse">
     <caption>
-      Firm 1's payoff <m>\pi_1(s, b(s))</m> as a function of <m>s</m>, once
-      Firm 2's best response is accounted for.
+      Firm 1's payoff <m>\pi_1(s, b(s)) = 8s - s^2</m> as a function of
+      <m>s</m>, once Firm 2's best response is accounted for.
     </caption>
     <interactive xml:id="interactive-firm1-bestresponse"
-      iframe="ch1-graph/firm1-best-response.html" width="100%" aspect="16:9">
+      iframe="ch1-graph/firm1-best-response.html" width="100%" aspect="1:1">
       <static>
         <p>
           A slider lets you set s from 0 to 10. A 2D plot of pi_1(s, b(s))
@@ -135,64 +212,639 @@
   </figure>
 
   <p>
-    You've now walked through the entire backward induction argument
-    visually, solve Firm 2's problem first, then fold that into Firm 1's
-    problem, before seeing a single formula. The reading below fills in the
-    algebra behind exactly what you just watched happen.
+    The slider shows you roughly where the peak sits. Here is how to pin it
+    down exactly.
   </p>
 
-  <assemblage xml:id="read-1-10">
-    <title>Section 1.10, Stackelberg's Model of Duopoly 1</title>
+  <example xml:id="eg-derive-firm1-optimum">
+    <title>Finding Firm 1's optimal production level <m>s^*</m></title>
+    <statement>
+      <p>
+        Maximize <m>\pi_1(s, b(s)) = 8s - s^2</m>, then work out what both
+        firms actually produce and earn.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        The <m>s^2</m> coefficient is negative, so this is an upside-down
+        parabola and the derivative test suffices:
+      </p>
+      <me>\frac{d}{ds}\,\pi_1\bigl(s, b(s)\bigr) = 8 - 2s = 0 \quad\Longrightarrow\quad s^* = 4.</me>
+      <p>
+        Firm 2 then responds with <m>t^* = b(4) = 4 - \tfrac{1}{2}(4) = 2</m>,
+        the price is <m>p^* = 20 - 2(4 + 2) = 8</m>, and the profits are
+      </p>
+      <md>
+        <mrow>\pi_1(s^*,t^*) \amp = (16 - 2 \cdot 2)4 - 2 \cdot 4^2 = 16,</mrow>
+        <mrow>\pi_2(s^*,t^*) \amp = (16 - 2 \cdot 4)2 - 2 \cdot 2^2 = 8.</mrow>
+      </md>
+      <p>
+        Firm 1 produces twice as much and earns twice as much. <alert>It is
+        better to be the firm that moves first.</alert> That's worth pausing
+        on, since in the Ultimatum Game moving first was also an advantage,
+        but for a completely different reason.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    You've now walked through the entire backward induction argument:
+  </p>
+
+  <ol>
+    <li>
+      <p>
+        Solve Firm 2's problem first, giving the best-response function
+        <m>b(s)</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        Then write out <m>\pi_1(s, b(s))</m>, the payoff function for Firm 1
+        assuming Firm 2 will always respond rationally to each <m>s</m> value.
+      </p>
+    </li>
+    <li>
+      <p>
+        Last, find the <m>s^*</m> that maximizes <m>\pi_1(s, b(s))</m>. Then
+        you know Firm 1 chooses <m>s^*</m>, and Firm 2 chooses
+        <m>t = b(s^*)</m>.
+      </p>
+    </li>
+  </ol>
+
+  <p>
+    What we haven't done is say where <m>\pi_1</m> and <m>\pi_2</m> came from
+    in the first place. That's the reading.
+  </p>
+
+  <assemblage xml:id="read-1-10-1">
+    <title>Section 1.10 through Subsection 1.10.1, Stackelberg's Model of Duopoly</title>
     <p>
-      <alert> Read Section 1.10.</alert>
+      <alert>Read Section 1.10 up through Subsection 1.10.1. Stop before
+      Subsection 1.10.2.</alert>
     </p>
     <p>
-      For Subsection 1.10.1 (the first model): this is where <m>\pi_1</m>,
-      <m>\pi_2</m>, and <m>b(s)</m> actually get derived, the algebra behind
-      the two graphs above. Follow this one closely, it's the pattern the
-      rest of the section reuses. Notice that the domain here is left
-      unrestricted on purpose, and the profit function is concave, which is
-      exactly why setting the derivative to zero is all that's needed to find
-      the max: no boundary to worry about.
+      The backward induction in 1.10.1 is the argument we just did, so you can
+      move through it quickly and use it to check your understanding. What's
+      genuinely new is the setup <em>before</em> the calculus starts: the
+      price rule, the cost functions, and how those combine into <m>\pi_1</m>
+      and <m>\pi_2</m>. Read that part slowly.
     </p>
     <p>
-      For Subsection 1.10.2 (the second model): the setup changes, production
-      and price are no longer allowed to go negative, which makes the profit
-      functions piecewise. You don't need to grind through re-deriving every
-      piecewise case by hand right now, but pay attention to what's different
-      (the extra cases, the threshold where price would hit the cost of
-      production) versus what's the same (it's still the same
-      optimize-Firm-2-then-Firm-1 logic). This is the boundary situation from
-      the refresher above in action: the book has to check a boundary case
-      explicitly here, rather than relying on a derivative alone. A checkpoint
-      after the reading will ask you to pin down what actually changed and
-      what didn't.
+      Notice also that the domain here is left unrestricted on purpose:
+      production levels are allowed to be any real numbers, even negative
+      ones. That's not realistic, and the book says so. It's a deliberate
+      simplification that keeps the concavity argument clean, with no boundary
+      to check.
     </p>
   </assemblage>
 
-  <exercise xml:id="check-stackelberg-second-model">
+  <p>
+    Now let's take the profit functions apart. Every Stackelberg-type model in
+    this chapter is built from the same four moves, and naming them makes the
+    more general version in Section 1.11 feel like review:
+  </p>
+
+  <ol>
+    <li>
+      <p>
+        <alert>Price rule.</alert> Total production is <m>q = s + t</m>, and
+        price falls as <m>q</m> rises: <m>p = 20 - 2(s+t)</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Revenue.</alert> Each firm sells its own quantity at that
+        shared market price: <m>ps</m> for Firm 1, <m>pt</m> for Firm 2.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Cost.</alert> Both firms have unit cost <m>4</m>, so
+        <m>c_1(s) = 4s</m> and <m>c_2(t) = 4t</m>.
+      </p>
+    </li>
+    <li>
+      <p><alert>Profit is revenue minus cost.</alert></p>
+    </li>
+  </ol>
+
+  <p>
+    Assembling those for Firm 1:
+  </p>
+
+  <me>
+    \pi_1(s,t) \;=\;
+    \underbrace{\underbrace{\bigl[\,20 - 2(s+t)\,\bigr]}_{\text{price } p}
+    \cdot \underbrace{s}_{\substack{\text{Firm 1's} \\ \text{quantity}}}}_{\text{revenue}}
+    \;-\; \underbrace{4s}_{\text{cost } c_1(s)}
+    \;=\; (16 - 2t)s - 2s^2.
+  </me>
+
+  <p>
+    Firm 2's is the mirror image, with <m>t</m> in the role of <m>s</m>:
+  </p>
+
+  <me>
+    \pi_2(s,t) \;=\; \bigl[\,20 - 2(s+t)\,\bigr]t - 4t \;=\; (16 - 2s)t - 2t^2.
+  </me>
+
+  <p>
+    The single most important thing to see here is that <m>s</m> and <m>t</m>
+    enter the price rule together, as a sum. Neither firm controls the price;
+    they control it jointly, and that's the only channel through which one
+    firm's decision touches the other's profit.
+  </p>
+
+  <exercise xml:id="check-build-profit-functions">
     <statement>
       <p>
-        In the more realistic second model (Subsection 1.10.2), production
-        and price are no longer allowed to go negative. Does this change the
-        equilibrium production levels or profits from the first model?
+        Suppose we rerun the model with different numbers. Price falls
+        according to <m>p = 30 - 3(s+t)</m>, and both firms now have a unit
+        cost of production of <m>6</m>. Which of the following is Firm 2's
+        profit function, <em>before</em> any simplifying?
       </p>
     </statement>
     <choices randomize="yes">
       <choice correct="yes">
         <statement>
-          <p>No, the equilibrium is exactly the same: the optimal <m>s^* =
-          4</m> was already comfortably within the newly allowed range, so
-          the new boundary never actually comes into play.</p>
+          <p><m>\pi_2(s,t) = \bigl[30 - 3(s+t)\bigr]t - 6t</m></p>
         </statement>
         <feedback>
           <p>
-            Correct. The boundary only would have mattered if the
+            Correct. Price times Firm 2's <em>own</em> quantity, minus Firm
+            2's <em>own</em> cost. The rival's production <m>s</m> shows up
+            only inside the price, which is exactly the structure of the
+            original model.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\pi_2(s,t) = \bigl[30 - 3(s+t)\bigr](s+t) - 6t</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. This charges Firm 2 for its own production but credits
+            it with revenue from <em>everything</em> both firms sold. Firm 2
+            only earns money on the <m>t</m> units it produced itself.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\pi_2(s,t) = \bigl[30 - 3t\bigr]t - 6t</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Dropping <m>s</m> from the price rule says Firm 1's
+            production has no effect on the market price. If that were true
+            there'd be no game here at all, just two unrelated optimization
+            problems.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\pi_2(s,t) = \bigl[30 - 3(s+t)\bigr]t - 6s</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, check the cost term. Firm 2 pays to produce its own
+            <m>t</m> units; Firm 1's production bill is Firm 1's problem.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-why-t-in-pi1">
+    <statement>
+      <p>
+        Firm 1 never chooses <m>t</m>. So why does <m>t</m> appear in Firm 1's
+        profit function <m>\pi_1(s,t) = (16-2t)s - 2s^2</m> at all?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>Both firms sell into the same market at a single price, and that
+          price depends on the total quantity <m>s + t</m>. More production by
+          Firm 2 pushes the price down, which lowers what Firm 1 earns on
+          every unit it sells.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and this is the whole reason backward induction is needed
+            here. If <m>t</m> didn't appear in <m>\pi_1</m>, Firm 1 could just
+            maximize its own profit directly and ignore Firm 2 entirely.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Because Firm 1 has to pay part of Firm 2's production costs.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Each firm pays only its own costs: <m>c_1(s) = 4s</m>
+            for Firm 1 and <m>c_2(t) = 4t</m> for Firm 2. The link between the
+            firms runs through the price, not through costs.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Because Firm 1 moves first, so it has to commit to a value of
+          <m>t</m> on Firm 2's behalf.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Firm 1 only chooses <m>s</m>. It <em>anticipates</em>
+            <m>t</m> through the best-response function <m>b(s)</m>, but it
+            never chooses <m>t</m>, and <m>t</m> would sit in <m>\pi_1</m>
+            even if the two firms moved simultaneously.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-concavity-slice">
+    <statement>
+      <p>
+        To find <m>b(s)</m>, we held <m>s</m> fixed and set
+        <m>\partial \pi_2/\partial t = 0</m>, then stopped. What justifies
+        stopping there, rather than doing more work to confirm we found a
+        maximum?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>For any fixed <m>s</m>, the function
+          <m>\pi_2 = (16-2s)t - 2t^2</m> is a quadratic in <m>t</m> with a
+          negative <m>t^2</m> coefficient, so every slice is an upside-down
+          parabola with one global maximum, and <m>t</m> ranges over all real
+          numbers, so there's no boundary to check.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Both conditions from the refresher hold, and notice the
+            <m>t^2</m> coefficient is <m>-2</m> regardless of <m>s</m>, so
+            this argument covers every slice at once, not just the one
+            currently on your screen.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Setting a derivative equal to zero always finds a maximum.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. It finds a critical point, which could be a minimum or
+            an inflection point. We need the concavity to know which one we
+            got.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The interactive shows a peak, so we can see the maximum is
+          there.</p>
+        </statement>
+        <feedback>
+          <p>
+            The picture is good evidence, but it only shows finitely many
+            values of <m>s</m> over a limited window. The concavity argument
+            is what covers <em>every</em> <m>s</m> at once.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    With <m>\pi_1</m> and <m>\pi_2</m> understood, the next step is to make
+    the model more realistic by refusing to let production and price go
+    negative. That's Subsection 1.10.2, and it's where the boundary case from
+    the refresher finally earns its keep.
+  </p>
+
+ <!-- ==================================================================
+     1.10.2 BLOCK, v3.
+     Order now follows the book: the s >= 8 case is settled first, and
+     the simplified formula appears only for the s < 8 case, where it is
+     actually used.
+
+     Needs: assets/ch1-graph/firm2-profitable-window.html
+     ================================================================== -->
+
+  <assemblage xml:id="read-1-10-2">
+    <title>Subsection 1.10.2, The Second Model</title>
+    <p>
+      <alert>Read the rest of Section 1.10 (that is, Subsection 1.10.2).</alert>
+    </p>
+    <p>
+      The first model let production levels and prices go negative, which
+      isn't something that happens in an actual market. This subsection fixes
+      that. As you read, keep track of what the fix costs us mathematically:
+      the profit functions stop being single formulas and become piecewise.
+    </p>
+  </assemblage>
+
+  <p>
+    The general procedure is the same, but there are some nuanced points now. 
+    Some of the reasoning is hard to follow in the book, so we will break it down a bit more here. 
+    Here is Firm 1's, labeled:
+  </p>
+
+  <me>
+    \pi_1(s,t) =
+    \begin{cases}
+      \overbrace{\bigl[20 - 2(s+t)\bigr]s - 4s}^{\substack{\text{exactly the payoff from the first model:} \\ \text{price is still } 20 - 2(s+t) \text{ in this range}}}
+        \amp \text{if } 0 \leq s+t \lt 10, \\[4ex]
+      \underbrace{-4s}_{\substack{\text{price has bottomed out at } 0, \text{ so revenue is } 0 \cdot s = 0; \\ \text{profit is } 0 - 4s, \text{ a pure loss of the production cost}}}
+        \amp \text{if } s+t \geq 10.
+    \end{cases}
+  </me>
+
+  <p>
+    Firm 2's is the mirror image, with <m>t</m> in the role of <m>s</m>:
+  </p>
+
+  <me>
+    \pi_2(s,t) =
+    \begin{cases}
+      \bigl[20 - 2(s+t)\bigr]t - 4t \amp \text{if } 0 \leq s+t \lt 10, \\[1ex]
+      -4t \amp \text{if } s+t \geq 10.
+    \end{cases}
+  </me>
+
+  <p>
+    The book brushes over some of the reasoning, so 
+    let's take a closer look at Firm 2's pay-off function. Drag the slider below. The
+    shaded region marks the production levels that actually earn Firm 2 a
+    profit. Push <m>s</m> upward and watch what happens to it.
+  </p>
+
+  <figure xml:id="fig-firm2-profitable-window">
+    <caption>
+      Firm 2's profit in the second model, for a value of <m>s</m> you
+      control. The shaded region is where profit is positive; the marker is
+      Firm 2's best response.
+    </caption>
+    <interactive xml:id="interactive-firm2-profitable-window"
+      iframe="ch1-graph/firm2-profitable-window.html" width="100%" aspect="10:9">
+      <static>
+        <p>
+          A slider sets Firm 1's production level s from 0 to 10. A plot of
+          Firm 2's profit against its own production t shows a downward
+          parabola that becomes the line -4t once s + t reaches 10. The
+          region where profit is positive, running from t = 0 to t = 8 - s,
+          is shaded, and it narrows as s increases until it disappears
+          entirely at s = 8. A marker tracks Firm 2's best response, which
+          sits at the peak of the parabola while one exists and jumps to
+          t = 0 once s reaches 8.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    <alert>Notice what happens once you set <m> s <8 </m> vs <m>s \geq 8</m></alert>:
+    <ul>
+      <li>
+        <p>
+          When <m> s <8 </m>: Firm 2 is profitable when <m> 0< s+t < 10 </m>
+        </p>
+      </li>
+      <li>s <m>s \geq 8</m>: The shaded region is gone: there is no production level
+    left that earns Firm 2 a profit. 
+        </li>
+      </ul> 
+  </p>
+
+
+
+<p> The book gives a brief explanation on why this happens, which we will examine in a bit. But, for now, 
+see if you can use the above observation to determine Firm 2's best response in the following scenarios: </p>
+
+ <exercise xml:id="check-best-response-s9">
+    <statement>
+      <p>
+        Firm 1 produces <m>s = 9</m>. What is Firm 2's best response?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>t = 0</m>. Since <m>9 \geq 8</m>, Firm 2's profit on each unit
+          is <m>16 - 18 - 2t = -2 - 2t</m>, negative for every <m>t</m>. Every
+          unit loses money, so producing nothing and earning <m>0</m> is the
+          best available outcome.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Firm 2 isn't producing nothing as a strategic move, it's
+            producing nothing because every alternative loses money.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 4 - \tfrac{1}{2}(9) = -0.5</m>, from the best-response
+          formula.</p>
+        </statement>
+        <feedback>
+          <p>
+            This applies the <m>s \lt 8</m> formula outside the range where
+            it's valid, and negative production is exactly what the second
+            model rules out. It is, though, a good way to see why the second
+            case exists: when the parabola's peak lands at a negative
+            <m>t</m>, the best allowed choice is the nearest point of the
+            domain, <m>t = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 4</m>, the largest value the best-response function
+          takes.</p>
+        </statement>
+        <feedback>
+          <p>
+            <m>t = 4</m> is <m>b(0)</m>, Firm 2's best response when Firm 1
+            produces <em>nothing</em>. That's the opposite end of the range
+            from <m>s = 9</m>. Check which case <m>s = 9</m> falls into before
+            picking a value of <m>t</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-best-response-s7">
+    <statement>
+      <p>
+        Now Firm 1 produces <m>s = 7</m>. What is Firm 2's best response?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>t = 0.5</m>, since <m>7 \lt 8</m> puts us in the first case,
+          where <m>b(s) = 4 - \tfrac{1}{2}s = 4 - 3.5</m>.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The profitable window here is narrow, running only from
+            <m>t = 0</m> to <m>t = 8 - 7 = 1</m>, but it isn't empty, and
+            Firm 2's best response sits right in the middle of it. Set the
+            slider to <m>7</m> and compare.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 0</m>, since <m>s = 7</m> is close enough to <m>8</m> that
+          the price is already at Firm 2's cost.</p>
+        </statement>
+        <feedback>
+          <p>
+            Close isn't the same as reaching it. At <m>s = 7</m> with Firm 2
+            producing nothing, the price is <m>20 - 14 = 6</m>, still above
+            the cost of <m>4</m>. There's a small profit to be had, and Firm
+            2 takes it. The corner solution only kicks in at <m>s = 8</m>
+            exactly.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>t = 1</m>, the right-hand edge of the profitable region.</p>
+        </statement>
+        <feedback>
+          <p>
+            <m>t = 8 - s = 1</m> is where profit falls back <em>to</em> zero,
+            not where it's largest. Producing there earns Firm 2 nothing at
+            all. The maximum is at the peak of the parabola, halfway between
+            the two places profit equals zero.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now let's mathematically justify the two cases (as the book very briefly explains why). 
+    Look at <m>\pi_2</m> for <m>0 \leq t < 10-s </m>, and factor the <m>t</m> out of it
+    instead of multiplying everything through:
+  </p>
+
+  <me>
+    \pi_2(s,t) \;=\;
+    \underbrace{\bigl[20 - 2(s+t)\bigr]}_{\text{price } p} t
+    \;-\; \underbrace{4}_{\substack{\text{unit} \\ \text{cost}}} t
+    \;=\;
+    \underbrace{\bigl[\,20 - 2(s+t) - 4\,\bigr]}_{\text{profit on each unit sold}}
+    \cdot \underbrace{t}_{\substack{\text{units} \\ \text{sold}}}.
+  </me>
+
+  <p>
+    Written this way, Firm 2's profit is just <em>profit per unit</em> times
+    <em>number of units</em>. Now suppose <m>s \geq 8</m>. Then
+  </p>
+
+  <me>
+    \underbrace{20 - 2(s+t) - 4}_{\text{profit on each unit}}
+      \;=\; 16 - 2s - 2t
+      \;\leq\; 16 - 16 - 2t
+      \;=\; -2t \;\leq\; 0.
+  </me>
+
+  <p>
+    So Firm 2 loses money on every unit it makes, and producing <em>more</em>
+    only pushes the price further below cost, making the per-unit loss worse.
+    The best Firm 2 can do is produce nothing
+    and break even at <m>0</m>.
+  </p>
+
+ 
+
+  <p>
+    <alert>In contrast, when <m>s \lt 8</m></alert>, the price stays above
+    <m>4</m> and Firm 2 does have room to profit. Multiplying out the top
+    piece and substituting the fixed <m>s</m> gives the function the book
+    graphs in Figure 1.11:
+  </p>
+
+  <me>
+    \pi_2(s,t) =
+    \begin{cases}
+      (16 - 2s)t - 2t^2 \amp \text{if } 0 \leq t \lt 10 - s, \\[1ex]
+      -4t \amp \text{if } t \geq 10 - s.
+    \end{cases}
+  </me>
+
+  <p>
+    That top piece is an upside-down parabola, so the derivative test applies
+    to it exactly as it did in the first model, and the maximum sits at
+    <m>t = 4 - \tfrac{1}{2}s</m>.
+  </p>
+
+ 
+
+  <p>
+    Putting the two cases together gives Firm 2's best-response function:
+  </p>
+
+  <me>
+    b(s) =
+    \begin{cases}
+      \overbrace{4 - \tfrac{1}{2}s}^{\substack{\text{the peak of the parabola: the same best} \\ \text{response as in the first model}}}
+        \amp \text{if } 0 \leq s \lt 8, \\[5ex]
+      \underbrace{0}_{\substack{\text{no profitable production level exists, since every } t \gt 0 \\ \text{loses money, so Firm 2 produces nothing and breaks even}}}
+        \amp \text{if } s \geq 8.
+    \end{cases}
+  </me>
+
+  <p>
+    That second case is a <alert>corner solution</alert>: the best choice sits
+    at the edge of the domain rather than where a derivative vanishes. It's
+    the first one in this chapter.
+  </p>
+
+  <p>
+    Firm 1 never wants <m>s \geq 8</m> anyway, since that pushes the price to
+    its own cost of production or below. And on the range it does care about,
+    the piecewise complication never bites: for <m>0 \leq s \lt 8</m>,
+    <m>s + b(s) = 4 + \tfrac{1}{2}s \lt 8 \lt 10</m>, so <m>\pi_1</m> stays on
+    its first piece and <m>\pi_1(s, b(s)) = 8s - s^2</m> exactly as before.
+  </p>
+
+  <exercise xml:id="check-stackelberg-second-model">
+    <statement>
+      <p>
+        Putting it together: does restricting production and price to be
+        nonnegative change the equilibrium production levels or profits?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>No. The optimal <m>s^* = 4</m> was already comfortably below the
+          threshold of <m>8</m>, so the new boundary never comes into
+          play.</p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The boundary would only have mattered if the
             unconstrained optimum had pushed production or price into
-            negative territory. Since <m>s^* = 4</m> is well below the
-            threshold where things would break down (production of 8 or
-            more), the "more realistic" version of the model quietly agrees
-            with the simpler one.
+            negative territory. We get the same <m>t^* = 2</m>,
+            <m>p^* = 8</m>, and profits of <m>16</m> and <m>8</m>.
           </p>
         </feedback>
       </choice>
@@ -203,26 +855,72 @@
         </statement>
         <feedback>
           <p>
-            Not quite, work through the numbers again: Firm 1's optimal
-            choice never comes close to the region where price would hit
-            zero, so nothing about the profit calculation actually changes.
+            Not quite. Firm 1's optimal choice never comes close to the
+            region where the price would hit zero, so nothing about the
+            profit calculation changes.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
-          <p>Yes, Firm 2 now chooses to produce nothing, since negative
-          production is no longer allowed.</p>
+          <p>Yes, Firm 2 now produces nothing, since negative production is
+          no longer allowed.</p>
         </statement>
         <feedback>
           <p>
-            Not quite, Firm 2's best response, <m>t^* = 2</m>, is already a
-            positive number, so ruling out negative production doesn't
-            affect Firm 2's choice at all.
+            Not quite. Producing nothing is Firm 2's best response only when
+            <m>s \geq 8</m>. At the equilibrium <m>s^* = 4</m>, Firm 2's best
+            response is <m>t^* = 2</m>, so the restriction doesn't bind.
           </p>
         </feedback>
       </choice>
     </choices>
   </exercise>
+
+  <p>
+    Worth carrying forward from this section:
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        <alert>The model changed; the method didn't.</alert> Piecewise
+        payoffs mean extra work, not different work: each piece gets
+        examined, and the boundary <m>t = 0</m> gets checked separately,
+        because a derivative can't see it.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Profit is margin times quantity.</alert> Factoring
+        <m>\pi_2</m> as <m>\bigl[p - 4\bigr]t</m> rather than multiplying it
+        out is what makes the <m>s \geq 8</m> case a one-line argument.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Two thresholds, two jobs.</alert> <m>s = 8</m> is where the
+        price meets Firm 2's <em>cost</em>, which is what closes the
+        profitable window. <m>s + t = 10</m> is where the price hits
+        <em>zero</em>, which is where the payoff switches pieces.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>The answer didn't move.</alert> Still <m>s^* = 4</m>,
+        <m>t^* = 2</m>, <m>p^* = 8</m>, profits <m>16</m> and <m>8</m>.
+        Realism cost us nothing here, because the optimum was never near the
+        boundary.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>A question to carry forward.</alert> That held for these
+        particular numbers. Would it hold for a different price rule or cost?
+        Section 1.11 redoes all of this with symbols, which is what lets you
+        answer that.
+      </p>
+    </li>
+  </ul>
 
 </section>

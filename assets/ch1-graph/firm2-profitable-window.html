@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When Can Firm 2 Make Any Money?</title>
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #922b21;
+    --curve: #2563eb;
+    --tangent: #1e8449;
+  }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  /* Fixed design canvas: laid out at 700x630, then scaled to the iframe width. */
+  #fit { width: 700px; height: 630px; padding: 10px 14px 18px;
+         box-sizing: border-box; transform-origin: top left; }
+  .formula-bar { text-align: center; font-size: 17px; margin: 0 0 10px; color: var(--accent); }
+  .slider-row {
+    max-width: 620px; margin: 0 auto 14px; padding: 10px 18px;
+    background: var(--panel-bg); border: 1px solid #d5d8dc; border-radius: 10px;
+    display: flex; align-items: center; gap: 14px; font-size: 15px;
+  }
+  .slider-row input[type=range] { flex: 1; }
+  .s-value { font-weight: bold; min-width: 74px; text-align: right; }
+  .panel {
+    max-width: 660px; margin: 0 auto; background: var(--panel-bg);
+    border: 1px solid #d5d8dc; border-radius: 10px; padding: 6px; text-align: center;
+  }
+  svg { display: block; margin: 0 auto; max-width: 100%; height: auto; }
+  .readout {
+    max-width: 620px; margin: 12px auto 0; text-align: center; font-size: 16px;
+    min-height: 24px;
+  }
+  .readout b { color: var(--accent); }
+  .readout.closed b { color: #1a1a1a; }
+</style>
+</head>
+<body>
+
+<div id="fit"><div id="root"></div></div>
+
+<script>
+  function fitToWidth() {
+    var k = document.documentElement.clientWidth / 700;
+    document.getElementById("fit").style.transform = "scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToWidth);
+  fitToWidth();
+</script>
+
+<script type="text/babel">
+const { useState } = React;
+
+// Second model: price bottoms out at 0 once s + t reaches 10.
+function pi2(s, t) {
+  return (s + t < 10) ? (16 - 2 * s) * t - 2 * t * t : -4 * t;
+}
+function fmt(x) { return Number.isInteger(x) ? String(x) : x.toFixed(1); }
+
+// Concrete formula for the parabola piece, with s substituted in.
+function concreteFormula(s) {
+  const a = 16 - 2 * s;
+  const lead = a < 0 ? "\u2212" + fmt(Math.abs(a)) : fmt(a);
+  return "\u03C0\u2082(" + fmt(s) + ", t) = " + lead + "t \u2212 2t\u00B2";
+}
+
+const T_LO = 0, T_HI = 10;
+const Y_LO = -45, Y_HI = 40;
+
+function Plot({ s }) {
+  const W = 640, H = 410;
+  const marginL = 62, marginR = 24, marginT = 46, marginB = 50;
+  const plotW = W - marginL - marginR, plotH = H - marginT - marginB;
+
+  const toX = (t) => marginL + (t - T_LO) / (T_HI - T_LO) * plotW;
+  const toY = (y) => marginT + (Y_HI - y) / (Y_HI - Y_LO) * plotH;
+
+  // The curve, drawn across the whole visible domain.
+  const N = 400;
+  let curveD = "";
+  for (let i = 0; i <= N; i++) {
+    const t = T_LO + (T_HI - T_LO) * i / N;
+    curveD += (i === 0 ? "M" : "L") + toX(t).toFixed(1) + "," + toY(pi2(s, t)).toFixed(1) + " ";
+  }
+
+  // Profitable window: pi2 = t(16 - 2s - 2t) > 0 exactly when 0 < t < 8 - s.
+  const windowTop = 8 - s;
+  const hasWindow = windowTop > 0;
+  let bandD = "";
+  if (hasWindow) {
+    const M = 200;
+    bandD = "M" + toX(0).toFixed(1) + "," + toY(0).toFixed(1) + " ";
+    for (let i = 0; i <= M; i++) {
+      const t = windowTop * i / M;
+      bandD += "L" + toX(t).toFixed(1) + "," + toY(pi2(s, t)).toFixed(1) + " ";
+    }
+    bandD += "L" + toX(windowTop).toFixed(1) + "," + toY(0).toFixed(1) + " Z";
+  }
+
+  // Best response: the parabola's peak while it is inside the domain, else the corner.
+  const tPeak = 4 - 0.5 * s;
+  const best = tPeak > 0 ? tPeak : 0;
+  const bestProfit = pi2(s, best);
+
+  const kink = 10 - s;                      // where the price bottoms out
+  const showKink = kink > T_LO && kink < T_HI;
+
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width={W} height={H}>
+      <defs>
+        <clipPath id="plotclip">
+          <rect x={marginL} y={marginT} width={plotW} height={plotH} />
+        </clipPath>
+      </defs>
+
+      <text x={W / 2} y="22" textAnchor="middle" fontFamily="serif" fontSize="18"
+        fontWeight="bold" fill="#922b21">{concreteFormula(s)}</text>
+
+      <g clipPath="url(#plotclip)">
+        {hasWindow &&
+          <path d={bandD} fill="#1e8449" fillOpacity="0.16" stroke="none" />}
+        <path d={curveD} fill="none" stroke="#2563eb" strokeWidth="2.5" />
+      </g>
+
+      {/* axes */}
+      <line x1={marginL} y1={marginT} x2={marginL} y2={H - marginB} stroke="#888" />
+      <line x1={marginL} y1={toY(0)} x2={W - marginR} y2={toY(0)} stroke="#1a1a1a" strokeWidth="1.2" />
+
+      {/* the window's right edge, where profit returns to zero */}
+      {hasWindow &&
+        <g>
+          <line x1={toX(windowTop)} y1={toY(0)} x2={toX(windowTop)} y2={marginT + 8}
+            stroke="#1e8449" strokeWidth="1.5" strokeDasharray="4 4" />
+          <text x={toX(windowTop)} y={marginT + 4} textAnchor="middle" fontFamily="serif"
+            fontSize="15" fill="#1e8449">t = 8 &#8722; s = {fmt(windowTop)}</text>
+        </g>}
+
+      {/* where the two pieces meet */}
+      {showKink &&
+        <g>
+          <line x1={toX(kink)} y1={toY(0)} x2={toX(kink)} y2={H - marginB}
+            stroke="#b0b0b0" strokeWidth="1.2" strokeDasharray="3 3" />
+          <text x={toX(kink)} y={H - marginB + 34} textAnchor="middle" fontFamily="serif"
+            fontSize="14" fill="#5a6a6d">t = 10 &#8722; s</text>
+        </g>}
+
+      {/* best response marker */}
+      <circle cx={toX(best)} cy={toY(bestProfit)} r="6" fill="#922b21" />
+      <text x={toX(best) + (best > 8 ? -12 : 12)} y={toY(bestProfit) - 12}
+        textAnchor={best > 8 ? "end" : "start"} fontFamily="serif" fontSize="16"
+        fontWeight="bold" fill="#922b21">
+        best t = {fmt(best)}
+      </text>
+
+      {/* axis labels and ticks */}
+      {[0, 2, 4, 6, 8, 10].map((t) => (
+        <g key={"tick" + t}>
+          <line x1={toX(t)} y1={toY(0)} x2={toX(t)} y2={toY(0) + 5} stroke="#1a1a1a" />
+          <text x={toX(t)} y={toY(0) + 20} textAnchor="middle" fontFamily="serif"
+            fontSize="14" fill="#1a1a1a">{t}</text>
+        </g>
+      ))}
+      <text x={W - marginR - 6} y={toY(0) - 10} textAnchor="end" fontFamily="serif"
+        fontSize="16" fill="#1a1a1a">t &#8594;</text>
+      <text x="18" y={marginT + plotH / 2} fontFamily="serif" fontSize="16" fill="#1a1a1a"
+        transform={`rotate(-90, 18, ${marginT + plotH / 2})`}>{`\u03C0\u2082(${fmt(s)}, t)`}</text>
+    </svg>
+  );
+}
+
+function App() {
+  const [s, setS] = useState(3);
+  const windowTop = 8 - s;
+  const open = windowTop > 0;
+
+  return (
+    <div>
+      <div className="formula-bar">
+        Shaded where Firm 2 turns a profit &#8212; drag s and watch it close
+      </div>
+      <div className="slider-row">
+        <label htmlFor="s-slider">Firm 1's production, s:</label>
+        <input id="s-slider" type="range" min="0" max="10" step="0.5" value={s}
+          onChange={(e) => setS(parseFloat(e.target.value))} />
+        <span className="s-value">s = {s.toFixed(1)}</span>
+      </div>
+      <div className="panel">
+        <Plot s={s} />
+      </div>
+      <div className={open ? "readout" : "readout closed"}>
+        {open
+          ? <span>Profitable production levels: <b>0 &lt; t &lt; {fmt(windowTop)}</b>.
+              Firm 2's best response is <b>t = {fmt(4 - 0.5 * s)}</b>.</span>
+          : <span><b>No profitable production level exists.</b> Firm 2's best response
+              is <b>t = 0</b>: produce nothing and break even.</span>}
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+</script>
+
+</body>
+</html>
