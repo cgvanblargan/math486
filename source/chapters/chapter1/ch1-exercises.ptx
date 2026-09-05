@@ -1003,5 +1003,390 @@
     </task>
   </exercise>
 
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-duopoly-different-costs-1">
+    <title>A Duopoly Where the Firms Have Different Costs</title>
+
+    <introduction>
+      <p>
+        In Section 1.10 both firms had the same unit cost of production.
+        Here we work through a Stackelberg duopoly in which they do not.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Firm 1 chooses a quantity <m>q_1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Firm 2 observes <m>q_1</m> and then chooses a quantity
+            <m>q_2</m>.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        The market price is
+      </p>
+
+      <me>p = 150 - q_1 - q_2,</me>
+
+      <p>
+        and the cost functions are <m>c_1(q_1) = 9q_1</m> and
+        <m>c_2(q_2) = 4q_2</m>. Notice that Firm 2 is the cheaper producer.
+        Each firm's payoff is its total profit, revenue minus cost.
+      </p>
+
+      <p>
+        <alert>As in Subsection 1.10.1, we place no restrictions on
+        <m>q_1</m> and <m>q_2</m> in this exercise</alert>: they may be any
+        real numbers, even ones that make the price negative. This is not
+        realistic, and we will fix it in the next exercise. For now it
+        keeps every function you work with a single upside-down parabola,
+        with no boundary to check!
+      </p>
+    </introduction>
+
+    <task xml:id="hw-duopoly-different-costs-1-payoffs">
+      <statement>
+        <p>
+          Determine the payoff function for each firm. Build each one from
+          the price rule and that firm's own cost, and simplify. Reference
+          the notes or book to confirm you are setting it up correctly! The
+          only differences here are the price and cost functions.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-1-br">
+      <statement>
+        <p>
+          Find Firm 2's best-response function <m>b(q_1)</m>. Before taking
+          a derivative, say in one sentence why a critical point is
+          guaranteed to be the maximum here.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-1-substitute">
+      <statement>
+        <p>
+          Substitute to obtain <m>\pi_1\bigl(q_1, b(q_1)\bigr)</m>, and
+          simplify it to a function of <m>q_1</m> alone.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-1-outcome">
+      <statement>
+        <p>
+          Finish the backward induction to determine the rational outcome of the
+          game. Report <m>q_1^*</m>, <m>q_2^*</m>, the resulting market
+          price, and each firm's profit.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-1-ratio">
+      <statement>
+        <p>
+          In Section 1.11 the book shows that when both firms have the same
+          unit cost, Firm 1 produces twice as much and earns twice as much
+          as Firm 2, whatever <m>\alpha</m>, <m>\beta</m>, and <m>c</m>
+          happen to be. Check whether that holds in this game. Then say, in
+          a sentence or two, which assumption of Section 1.11 fails here.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Compute the two ratios <m>q_1^*/q_2^*</m> and
+          <m>\pi_1/\pi_2</m> and compare them to <m>2</m>. They are not
+          equal to each other either.
+        </p>
+      </hint>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-duopoly-different-costs-2">
+    <title>The Same Duopoly, Without Negative Quantities</title>
+
+    <introduction>
+      <p>
+        We now redo the previous exercise the way Subsection 1.10.2 redoes
+        Subsection 1.10.1. The two firms and their costs are unchanged:
+        <m>c_1(q_1) = 9q_1</m> and <m>c_2(q_2) = 4q_2</m>. What changes is
+        that production levels must be nonnegative,
+        <m>0 \leq q_1 \lt \infty</m> and <m>0 \leq q_2 \lt \infty</m>, and
+        that the price is not allowed to fall below zero:
+      </p>
+
+      <me>
+        p =
+        \begin{cases}
+          150 - q_1 - q_2 \amp \text{if } q_1 + q_2 \lt 150, \\[1ex]
+          0 \amp \text{if } q_1 + q_2 \geq 150.
+        \end{cases}
+      </me>
+
+      <p>
+        Work this exercise the same way we worked through the example in
+        Subsection 1.10.2. Part of the point is to see where the
+        restrictions force extra work, and where they turn out not to
+        matter.
+      </p>
+
+      <p>
+        <alert>One warning before you start.</alert> In Subsection 1.10.2
+        several different cutoffs all happened to land on the same number,
+        <m>s = 8</m>, because the two firms there had the same unit cost.
+        Here they come apart. You will find more than one threshold in the
+        course of this exercise, and they are different numbers. Keep track
+        of which one you are computing and why.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-duopoly-different-costs-2-payoffs">
+      <statement>
+        <p>
+          Write the payoff function for each firm. Each one is now
+          piecewise. Say in one sentence what the second piece represents
+          for the firm in question.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-2-threshold2">
+      <statement>
+        <p>
+          Find the smallest value of <m>q_1</m> with the property that Firm
+          2 cannot earn a positive profit, no matter which <m>q_2</m> it
+          chooses. Justify your answer with an inequality, not with a
+          graph.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          On the first piece, factor <m>q_2</m> out of <m>\pi_2</m> rather
+          than multiplying everything through. Written that way,
+          <m>\pi_2</m> is Firm 2's profit on each unit sold times the
+          number of units sold, and you can ask when that first factor can
+          be positive.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-2-br">
+      <statement>
+        <p>
+          Using the previous part, write Firm 2's best-response function
+          <m>b(q_1)</m>. It should be piecewise, with the value on each
+          piece justified. For the piece where Firm 2 produces nothing, use
+          your conclusion from the previous part to explain why <m>0</m> is
+          the <em>best</em> available choice, not merely an allowed one.
+          This second piece is a <term>corner solution</term>, like the one
+          in the notes.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-2-threshold1">
+      <statement>
+        <p>
+          Now find the corresponding threshold for Firm 1: the smallest
+          <m>q_1</m> at which Firm 1 itself can no longer earn a positive
+          profit. <alert>Take Firm 2 to be producing nothing at all
+          here</alert>, which is the most favorable case for Firm 1. You
+          should get a different number than in the earlier part. Say which
+          of the two thresholds rules out part of the domain when we go
+          looking for Firm 1's optimal <m>q_1</m>, and why it is that one.
+        </p>
+      </statement>
+      <remark>
+        <p>
+          In Subsection 1.10.2 these two thresholds are the same number,
+          <m>s = 8</m>, because both firms have the same unit cost. That is
+          why the book can dispose of both cases at once. Here they come
+          apart, and only one of them is doing any work.
+        </p>
+      </remark>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-2-piece">
+      <statement>
+        <p>
+          Both <m>\pi_1</m> and <m>b(q_1)</m> are piecewise, so before
+          writing a formula for <m>\pi_1\bigl(q_1, b(q_1)\bigr)</m> we have
+          to know which piece of <m>\pi_1</m> is in force. Compute
+          <m>q_1 + b(q_1)</m> on the range of <m>q_1</m> left over from the
+          previous part, and use it to show that only the first piece of
+          <m>\pi_1</m> can occur.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-duopoly-different-costs-2-outcome">
+      <statement>
+        <p>
+          Finish the backward induction. Report <m>q_1^*</m>,
+          <m>q_2^*</m>, the market price, and each firm's profit, and
+          compare your answer to the one you found in the previous
+          exercise.
+        </p>
+        <p>
+          Before you report your answer, confirm that the <m>q_1^*</m> you
+          found actually lies in the range you carved out earlier, and say
+          so explicitly.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        As in the book, the more realistic model gives exactly the same
+        answer as the unrestricted one. The restrictions cost you two
+        pieces of extra work, both of which turned out to be
+        housekeeping: a case in <m>b(q_1)</m> that the optimal <m>q_1</m>
+        never reaches, and a second piece of <m>\pi_1</m> that
+        <m>q_1 + b(q_1)</m> never gets to.
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-manufacturer-retailer">
+    <title>Manufacturer and Retailer</title>
+
+    <introduction>
+      <p>
+        A large retailer buys a particular model of tablet from a
+        manufacturer and sells it in its stores. We model this as a two
+        player game. The structure is close to a Stackelberg duopoly, but
+        the two players here are not competitors: one sells to the other.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            It costs the manufacturer <dollar/>100 to make each tablet. The
+            manufacturer chooses a wholesale price <m>w</m> per tablet,
+            with <m>w \in [100, \infty)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The retailer observes <m>w</m> and then chooses a quantity
+            <m>q \in [0,\infty)</m> to buy from the manufacturer.
+          </p>
+        </li>
+        <li>
+          <p>
+            The retailer sells every tablet it buys, at the market price
+            <m>p = 500 - 0.1q</m>.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        For each player the payoff is total profit, revenue minus cost. As
+        in Subsection 1.10.1, we let the price formula apply for all
+        <m>q</m>, even where it returns a negative price; you will see that
+        no rational player goes anywhere near there.
+      </p>
+
+      <p>
+        The restriction <m>w \geq 100</m> will not cause you any trouble,
+        since no manufacturer would set a wholesale price below what a
+        tablet costs it to make. The restriction <m>q \geq 0</m> does give
+        you one corner case to attend to, though. It is this: for a
+        wholesale price high enough, the retailer's best response is
+        <m>q = 0</m>, since it can no longer resell at a profit. You should
+        find where that happens and handle it, but you do not have to hunt
+        for any other cases.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-manufacturer-retailer-payoffs">
+      <statement>
+        <p>
+          Write the payoff function for each player. Be careful about what
+          each player pays and what each player receives; the wholesale
+          price is revenue to one of them and a cost to the other.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-manufacturer-retailer-br">
+      <statement>
+        <p>
+          Find the retailer's best-response function <m>b(w)</m>, including
+          the corner case described above.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-manufacturer-retailer-outcome">
+      <statement>
+        <p>
+          Use backward induction to determine the rational outcome of the
+          game. Report the wholesale price, the quantity, the price
+          consumers pay, and each player's profit.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-manufacturer-retailer-direct">
+      <statement>
+        <p>
+          Now suppose the manufacturer sells directly to consumers instead,
+          with no retailer involved. It chooses a quantity <m>q</m> to
+          make, faces the same market price <m>p</m> the retailer faced,
+          and has total profit <m>pq - 100q</m>. Find the manufacturer's
+          optimal choice of <m>q</m>, together with the resulting price and
+          profit.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          There is no second player here, so there is no game and no
+          backward induction. This part is a one-variable maximization.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-manufacturer-retailer-compare">
+      <statement>
+        <p>
+          Make a table comparing the two scenarios. Include the quantity
+          sold, the price consumers pay, and each firm's profit, along with
+          the combined profit of the manufacturer and retailer in the
+          first scenario.
+        </p>
+        <p>
+          Then answer in a short paragraph: the two firms in the first
+          scenario each behaved rationally, so why do they end up with less
+          between them than the single firm does on its own? Your answer
+          should say something about what the retailer treats as its cost
+          per tablet, and how that compares to what a tablet actually costs
+          to produce.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        This is an example of <term>double marginalization</term>. A markup
+        is taken twice on the way to the consumer, and because the retailer
+        decides how much to buy as though each tablet cost what it paid
+        rather than what it cost to make, the chain sells fewer tablets
+        than a single firm would. Notice that consumers do worse under the
+        two-firm arrangement as well, which is not what we usually expect
+        when a single firm takes over a whole market.
+      </p>
+    </conclusion>
+  </exercise>
+
 <interactive xml:id="question-form-1-ex" iframe="question-form.html?section=chapter 1 exercises" width="100%" aspect="2:1"/>
 </exercises>
