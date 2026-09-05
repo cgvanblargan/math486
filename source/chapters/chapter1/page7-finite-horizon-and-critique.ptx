@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page7-finite-horizon-and-critique" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Finite Horizon Games and a Critique of Backward Induction</title>
+
+  <p>
+    This page has two quick readings from the book. We won't be going into more
+    of the technical details here.
+  </p>
+
+  <assemblage xml:id="read-1-12">
+    <title>Section 1.12, Backward Induction for Finite Horizon Games</title>
+    <p>
+      <alert>Read Section 1.12 (quickly).</alert>
+    </p>
+    <p>
+      You can just read and get the gist for this section. We aren't
+      going further into this at the moment!
+    </p>
+  </assemblage>
+
+  <p>
+    And now for a somewhat reflective reading.
+  </p>
+
+  <assemblage xml:id="read-1-13">
+    <title>Section 1.13, Critique of Backward Induction</title>
+    <p>
+      <alert>Read Section 1.13.</alert>
+    </p>
+    <p>
+      This is an interesting reading that you should go through to think about
+      some of the bigger picture behind backward induction. There is not any
+      technical information from this section that we need to spend time on
+      right now.
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-1-7" iframe="question-form.html?section=1.7" width="100%" aspect="2:1"/>
+</section>
