@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page2-inspection-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Two Harder Examples: Water Pollution and Arguing over Marbles</title>
+
+  <p>
+    Both games on this page are still solved by inspection, but each one breaks
+    something we could rely on before. Water Pollution has three players, so
+    there is no payoff matrix to draw. Arguing over Marbles gives each player
+    infinitely many strategies, so we cannot check them one at a time.
+  </p>
+
+  <assemblage xml:id="read-3-3">
+    <title>Section 3.3, Water Pollution 1</title>
+    <p>
+      <alert>Read Section 3.3.</alert>
+    </p>
+    <p>
+      This one you can read straight through. The reasoning is the same
+      inspection we have been doing, just organized by how many firms purify
+      rather than by cells of a matrix. Pay attention to that organization,
+      since it is how we handle any game with more than two players.
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-water-pollution">
+    <statement>
+      <p>
+        The profiles where two firms purify and one pollutes are Nash
+        equilibria. In those profiles the polluter gets <m>0</m> while each
+        purifier gets <m>-1</m>. Why can a purifier not improve its own payoff
+        by switching to polluting?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Because two firms would then be polluting, which triggers the
+            treatment cost for everybody, and the switcher's payoff would drop
+            from <m>-1</m> to <m>-3</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and this is the free rider problem in miniature. The
+            purifiers can see that the polluter is doing better than they are,
+            and neither of them can do anything about it alone. Notice also
+            that the profile where all three firms pollute is a Nash
+            equilibrium too, so this game has four of them.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Because once a profile is a Nash equilibrium, the definition does
+            not allow a player to change strategy.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The definition never forbids anything. It says that if a player
+            were to change strategy on their own, they would not end up better
+            off. Working out what would happen after such a change is exactly
+            how we test a profile.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Because purifying is a dominant strategy for every firm.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            It is not. If the other two firms both purify, a firm does better
+            by polluting, since it saves the cost of purifying and the lake
+            stays clean. That is precisely why the profile where all three
+            purify fails to be an equilibrium.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now for the harder one. Arguing over Marbles is the first game in the
+    course where a player has infinitely many strategies to choose from, and
+    it is worth slowing down for. We are going to read the setup and then work
+    through the analysis together rather than reading it.
+  </p>
+
+  <assemblage xml:id="read-3-4-setup">
+    <title>Section 3.4, Arguing over Marbles: the setup only</title>
+    <p>
+      <alert>Read the beginning of Section 3.4, stopping after the list of
+      payoffs.</alert>
+    </p>
+    <p>
+      That is the paragraph describing the two children and the three bulleted
+      rules for the payoffs. Stop when the book begins inspecting strategy
+      profiles. We will do that part below, and then you will read the book's
+      version afterwards to compare.
+    </p>
+  </assemblage>
+
+  <p>
+    The payoff rules are easier to feel than to read. In the interactive
+    below, move either child's number and watch which rule takes over.
+  </p>
+
+  <figure xml:id="fig-marbles-explorer">
+    <caption>
+      How the payoffs work. The argument ends when the first child gives up,
+      so it lasts as long as the smaller of the two numbers.
+    </caption>
+    <interactive xml:id="interactive-marbles-explorer"
+      iframe="ch3-graph/marbles-payoff-explorer.html" width="100%" aspect="7:6">
+      <static>
+        <p>
+          A number line from 0 to 1 carrying both children's numbers, with a
+          slider for each. A marker shows where the argument ends, at whichever
+          number is smaller, and a sentence reports who gets the marbles. Both
+          payoffs are displayed with the current numbers substituted in, and a
+          table of the three payoff rules highlights whichever rule is in force.
+          Moving one child's number past the other switches the highlighted
+          rule and reverses who wins the marbles.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    With the payoffs in hand we can hunt for Nash equilibria. There are
+    infinitely many strategy profiles, so checking them one at a time is
+    hopeless. Instead we split them into regions and handle a whole region at
+    once. The book uses three: profiles with <m>s \lt t</m>, profiles with
+    <m>s = t</m>, and profiles with <m>s \gt t</m>. Every profile lands in
+    exactly one of them.
+  </p>
+
+  <p>
+    Start with <m>s \lt t</m>. That region splits further into three cases,
+    and in each one your job is the same: decide whether either child can do
+    better by changing her own number.
+  </p>
+
+  <figure xml:id="fig-marbles-s-lt-t">
+    <caption>
+      Inspecting the profiles with <m>s \lt t</m>.
+    </caption>
+    <interactive xml:id="interactive-marbles-s-lt-t"
+      iframe="ch3-graph/marbles-s-less-than-t.html" width="100%" aspect="1:1">
+      <static>
+        <p>
+          A three step walkthrough of the region where Player 1's number is
+          smaller than Player 2's. Each step shows a number line with the two
+          numbers positioned for that case, a shaded band marking which choices
+          keep a profile inside the case, and the payoffs written symbolically.
+          A multiple choice question asks which child, if any, can improve. The
+          first two cases fail the definition, and the third, the single profile
+          with <m>s = 0</m> and <m>t = 1</m>, is a Nash equilibrium. It is not a
+          strict one, since Player 2 has other numbers that pay her exactly as
+          well.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    That settles two of the three regions, because the game is symmetric:
+    swapping the two children turns any profile with <m>s \lt t</m> into one
+    with <m>s \gt t</m>, so the same work applies with the labels exchanged.
+    All that is left is the profiles where the two
+    children pick the same number.
+  </p>
+
+  <figure xml:id="fig-marbles-s-eq-t">
+    <caption>
+      Inspecting the profiles where both children pick the same number, so
+      that <m>s = t</m>.
+    </caption>
+    <interactive xml:id="interactive-marbles-s-eq-t"
+      iframe="ch3-graph/marbles-s-equals-t.html" width="100%" aspect="1:1">
+      <static>
+        <p>
+          A two step walkthrough of the profiles where both children choose the
+          same number and split the marbles. When that shared number is below 1,
+          either child can do better by raising her number above the other's.
+          When it is exactly 1, raising is impossible, but either child can do
+          better by dropping to 0 and giving up at once. Neither case produces a
+          Nash equilibrium, so the only equilibria of the whole game are
+          <m>(0,1)</m> and <m>(1,0)</m>.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    It is worth naming the shape of what we just did, because it comes back
+    whenever a strategy set is too big to check profile by profile:
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        Split every strategy profile into a few regions, so that each profile
+        lands in exactly one region.
+      </p>
+    </li>
+    <li>
+      <p>
+        In each region, either name a player and a specific strategy she could
+        switch to that pays her more, or show that no such switch exists.
+      </p>
+    </li>
+    <li>
+      <p>
+        Use symmetry to skip any region that is a mirror image of one you have
+        already done.
+      </p>
+    </li>
+  </ul>
+
+  <p>
+    One detail from the second bullet is easy to miss and worth stating on its
+    own. When you name the switch, the new strategy does not have to stay
+    inside the region you are working in. A region tells us which profiles are
+    being tested, not which strategies a player is allowed to pick. In the
+    case with <m>s = 0</m> above, the only move that helps Player 1 takes her
+    out of <m>s \lt t</m> entirely.
+  </p>
+
+  <assemblage xml:id="read-3-4-rest">
+    <title>The Rest of Section 3.4</title>
+    <p>
+      <alert>Read the rest of Section 3.4.</alert>
+    </p>
+    <p>
+      You have already done this reasoning, so move through the case analysis
+      quickly and use it to check your own work against the book's. Do read the
+      closing paragraphs properly: the book compares this game to Chicken and
+      mentions that it is a version of the War of Attrition.
+    </p>
+  </assemblage>
+
+  <assemblage xml:id="read-3-5">
+    <title>Section 3.5, Tobacco Market (optional)</title>
+    <p>
+      <alert>Section 3.5 is optional. Read it if you are interested, or skip
+      it.</alert>
+    </p>
+    <p>
+      It is another inspection problem, this time with three players and
+      continuous strategies, and it uses calculus to locate the candidate
+      equilibrium. Nothing on this page depends on it, and we will meet the
+      same technique in a cleaner form in Section 3.11 when we get to Cournot's
+      duopoly. If you do read it, the piecewise payoff function caused by the
+      price support is the same kind of thing we saw in Stackelberg's second
+      model back in Section 1.10.
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-3-2" iframe="question-form.html?section=3.2" width="100%" aspect="2:1"/>
+</section>

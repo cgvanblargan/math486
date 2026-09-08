@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arguing over Marbles: inspecting the profiles with s &lt; t</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #4d5c5f;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --improve: #922b21;
+    --stable: #196f3d;
+    --line: #d5d8dc;
+    --dim: #6b6b6b;
+  }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  /* Fixed design canvas: laid out at 700x700, then scaled to fit its container. */
+  #fit { width: 700px; height: 700px; padding: 8px 14px 14px; box-sizing: border-box;
+         transform-origin: top left; }
+  .step-bar { max-width: 640px; margin: 0 auto 2px; display: flex;
+              align-items: center; justify-content: space-between;
+              font-size: 16px; color: var(--muted); }
+  svg { display: block; margin: 0 auto; }
+
+  .nline { stroke: var(--ink); stroke-width: 2; }
+  .cap { stroke: var(--ink); stroke-width: 2; }
+  .band { fill: #cfe0ef; }
+  .band-out { fill: #ececec; }
+  .band-label { font-size: 16.5px; fill: var(--muted); font-style: italic; }
+  .end-label { font-size: 17.5px; fill: var(--muted); }
+  .row-title { font-size: 16.5px; fill: var(--muted); font-style: italic; }
+  .dot { fill: var(--accent); }
+  .dot-label { font-size: 24px; fill: var(--accent); font-style: italic; }
+  .pay { font-size: 19px; fill: var(--ink); }
+
+  .qbox { max-width: 640px; margin: 6px auto 0; background: var(--panel-bg);
+          border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
+          box-sizing: border-box; height: 430px; overflow-y: auto; }
+  .qbox h3 { margin: 0 0 6px; font-size: 18px; color: var(--accent); }
+  .qbox .stem { margin: 0 0 10px; font-size: 16.5px; line-height: 1.45; }
+  .opts { display: flex; flex-direction: column; gap: 7px; }
+  .opt { font-family: serif; font-size: 16.5px; text-align: left; padding: 8px 12px;
+         border: 1px solid var(--line); border-radius: 8px; background: #ffffff;
+         color: var(--ink); cursor: pointer; line-height: 1.35; }
+  .opt:hover:not(:disabled) { background: #eef3f8; }
+  .opt:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  .opt.wrong { background: #faf1f0; border-color: #b08c88; color: var(--muted); }
+  .opt:disabled { cursor: default; }
+  .chosen { font-size: 16.5px; margin: 0 0 10px; padding: 8px 12px; background: #eef6f0;
+            border: 1px solid #a9cfb8; border-radius: 8px; }
+  .chosen .lab { font-weight: bold; color: var(--stable); }
+  .fb { font-size: 16.5px; line-height: 1.5; }
+  .fb .row { margin: 8px 0; padding: 8px 12px; border-radius: 8px; background: #ffffff;
+             border: 1px solid var(--line); }
+  .fb .row.fails { border-left: 4px solid var(--improve); }
+  .fb .row.holds { border-left: 4px solid var(--stable); }
+  .fb .who { font-weight: bold; }
+  .fb .verdict { margin-top: 10px; }
+  .fb .verdict b.no { color: var(--improve); }
+  .fb .verdict b.ne { color: var(--stable); }
+  .keypoint { margin-top: 10px; background: #fdf6e3; border: 1px solid #d9c48f;
+              border-left: 5px solid #8a5a0b; border-radius: 8px; padding: 10px 13px; }
+  .keypoint b { color: #7a4f09; }
+  .summary { margin-top: 10px; background: #eef6f0; border: 1px solid #a9cfb8;
+             border-left: 5px solid var(--stable); border-radius: 8px; padding: 11px 13px; }
+  .summary b { color: var(--stable); }
+
+  .controls { max-width: 640px; margin: 8px auto 0; display: flex;
+              justify-content: space-between; gap: 12px; }
+  button.nav { font-family: serif; font-size: 16.5px; padding: 7px 18px;
+               border: 1px solid var(--line); border-radius: 8px; background: #ffffff;
+               color: var(--accent); cursor: pointer; }
+  button.nav:hover:not(:disabled) { background: var(--panel-bg); }
+  button.nav:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  button.nav:disabled { color: #767676; cursor: default; }
+  button.nav.primary { border-color: var(--accent); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="fit">
+  <div class="step-bar">
+    <span id="step-text">Case 1 of 3</span>
+    <span>Profiles with <i>s</i> &lt; <i>t</i></span>
+  </div>
+
+  <svg id="board" width="660" height="176" viewBox="0 0 660 176" role="img"
+       aria-labelledby="svg-title svg-desc">
+    <title id="svg-title">Number line showing the two children's numbers</title>
+    <desc id="svg-desc"></desc>
+  </svg>
+
+  <div class="qbox" id="qbox"></div>
+
+  <div class="controls">
+    <button class="nav" id="restart" type="button">Start over</button>
+    <button class="nav primary" id="next" type="button" disabled>Next case</button>
+  </div>
+</div>
+
+<script>
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 700);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var MINUS = "\u2212", PI = "\u03C0", A1 = "\u2081", A2 = "\u2082";
+
+  var LX0 = 120, LX1 = 570, W = LX1 - LX0, LY = 82;
+  function px(v) { return LX0 + v * W; }
+  function clampX(x) { return Math.max(LX0 + 58, Math.min(LX1 - 58, x)); }
+  function el(n, a, txt) {
+    var e = document.createElementNS(SVGNS, n);
+    for (var k in a) { e.setAttribute(k, a[k]); }
+    if (txt !== undefined) { e.textContent = txt; }
+    return e;
+  }
+
+  var OPT_TEXT = {
+    "p1-lower": "Player 1 can improve by lowering her number",
+    "p1-jump":  "Player 1 can improve by choosing a number greater than t",
+    "p2-lower": "Player 2 can improve by lowering her number t",
+    "none":     "Neither child can improve, so these are Nash equilibria",
+    "none-one": "Neither child can improve, so this is a Nash equilibrium"
+  };
+
+  // Arguing over Marbles, Section 3.4. With s < t the argument ends after s hours
+  // and Player 2 gets the marbles, so pi_1 = -s and pi_2 = 1 - s.
+  // The dot positions below are illustrative; no numeric values are shown.
+  var CASES = [
+    {
+      id: 1, label: "0 \u003c s \u003c t \u2264 1", s: 0.32, t: 0.68, corner: false,
+      answer: "p1-lower", opts: ["p1-lower", "p2-lower", "none"],
+      stem: "Player 1's number sits strictly between 0 and Player 2's number, so " +
+            PI + A1 + "(s, t) = " + MINUS + "s and " + PI + A2 + "(s, t) = 1 " +
+            MINUS + " s. Which of these holds for every profile in this case?",
+      desc: "A number line from 0 to 1. Player 1's number s sits between 0 and Player " +
+            "2's number t, and t sits short of 1. A shaded band from 0 to t marks the " +
+            "choices of s that keep the profile inside this case."
+    },
+    {
+      id: 2, label: "s = 0 and 0 \u003c t \u003c 1", s: 0.0, t: 0.55, corner: false,
+      answer: "p1-jump", opts: ["p1-lower", "p1-jump", "none"],
+      stem: "Player 1 gives up immediately, so " + PI + A1 + " = 0 and " + PI + A2 +
+            " = 1. She is already as low as she can go. Which of these holds for every " +
+            "profile in this case?",
+      desc: "A number line from 0 to 1. Player 1's number s is at 0, the left end, and " +
+            "Player 2's number t sits partway along, short of 1."
+    },
+    {
+      id: 3, label: "s = 0 and t = 1", s: 0.0, t: 1.0, corner: true,
+      answer: "none-one", opts: ["p1-lower", "p1-jump", "none-one"],
+      stem: "One single profile. Player 2 is willing to argue the whole hour and Player " +
+            "1 gives up at once, so " + PI + A1 + " = 0 and " + PI + A2 + " = 1. " +
+            "Remember that ruling this one in means checking both children. Which of " +
+            "these is true?",
+      desc: "A number line from 0 to 1. Player 1's number s is at 0 and Player 2's " +
+            "number t is at 1, so the shaded band covers the whole line."
+    }
+  ];
+
+  var step = 0;
+  var svg = document.getElementById("board");
+  var qbox = document.getElementById("qbox");
+  var stepText = document.getElementById("step-text");
+  var nextBtn = document.getElementById("next");
+  var svgDesc = document.getElementById("svg-desc");
+
+  function clearBoard() {
+    Array.prototype.slice.call(svg.childNodes).forEach(function (k) {
+      if (!(k.id === "svg-title" || k.id === "svg-desc")) { svg.removeChild(k); }
+    });
+  }
+
+  function draw(c) {
+    clearBoard();
+    svgDesc.textContent = c.desc;
+
+    svg.appendChild(el("text", { x: 330, y: 24, class: "row-title",
+                                 "text-anchor": "middle" },
+      "Every profile in this case looks like this."));
+
+    svg.appendChild(el("rect", { x: px(0), y: LY - 8, width: px(c.t) - px(0),
+                                 height: 16, class: "band" }));
+    if (c.t < 0.985) {
+      svg.appendChild(el("rect", { x: px(c.t), y: LY - 8, width: px(1) - px(c.t),
+                                   height: 16, class: "band-out" }));
+    }
+    svg.appendChild(el("line", { x1: px(0), y1: LY, x2: px(1), y2: LY, class: "nline" }));
+    svg.appendChild(el("line", { x1: px(0), y1: LY - 10, x2: px(0), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("line", { x1: px(1), y1: LY - 10, x2: px(1), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("text", { x: px(0), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "0"));
+    svg.appendChild(el("text", { x: px(1), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "1"));
+    svg.appendChild(el("text", { x: clampX(px(c.t / 2)), y: LY + 32, class: "band-label",
+                                 "text-anchor": "middle" }, "s \u003c t"));
+    if (c.t < 0.9) {
+      svg.appendChild(el("text", { x: clampX(px((1 + c.t) / 2)), y: LY + 32,
+                                   class: "band-label", "text-anchor": "middle" },
+                          "s \u003e t"));
+    }
+
+    [[c.s, "s"], [c.t, "t"]].forEach(function (d) {
+      svg.appendChild(el("circle", { cx: px(d[0]), cy: LY, r: 8, class: "dot" }));
+      svg.appendChild(el("text", { x: px(d[0]), y: LY - 20, "text-anchor": "middle",
+                                   class: "dot-label" }, d[1]));
+    });
+
+    svg.appendChild(el("text", { x: 330, y: LY + 74, class: "pay",
+                                 "text-anchor": "middle" },
+      PI + A1 + " = " + MINUS + "s        " + PI + A2 + " = 1 " + MINUS + " s"));
+  }
+
+  function render() {
+    if (step >= CASES.length) { return finish(); }
+    var c = CASES[step];
+    draw(c);
+    stepText.textContent = "Case " + (step + 1) + " of 3";
+    nextBtn.disabled = true;
+
+    qbox.innerHTML = "<h3>Case " + c.id + ": " + c.label + "</h3>" +
+      "<p class=\"stem\">" + c.stem + "</p>" +
+      "<div class=\"opts\" id=\"opts\"></div>" +
+      "<div class=\"fb\" id=\"fb\" aria-live=\"polite\"></div>";
+
+    var wrap = document.getElementById("opts");
+    c.opts.forEach(function (k) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "opt"; b.textContent = OPT_TEXT[k];
+      b.addEventListener("click", function () { choose(k, b, c); });
+      wrap.appendChild(b);
+    });
+  }
+
+  function choose(k, btn, c) {
+    var fb = document.getElementById("fb");
+    if (k !== c.answer) {
+      btn.className = "opt wrong"; btn.disabled = true;
+      fb.innerHTML = "<b style=\"color:var(--improve)\">Not quite.</b> Check that child's " +
+        "own payoff, with the other child's number left exactly where it is.";
+      return;
+    }
+    var btns = qbox.querySelectorAll(".opt");
+    for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+    document.getElementById("opts").outerHTML =
+      "<p class=\"chosen\"><span class=\"lab\">Your answer:</span> " + OPT_TEXT[k] + "</p>";
+    fb.innerHTML = feedbackFor(c);
+    nextBtn.disabled = false;
+    nextBtn.textContent = (step === CASES.length - 1) ? "See the conclusion" : "Next case";
+    nextBtn.focus();
+  }
+
+  function feedbackFor(c) {
+    if (c.id === 1) {
+      return "<div class=\"row fails\"><span class=\"who\">Player 1:</span> her payoff is " +
+        MINUS + "s, so any smaller number pays her more. One profitable move is all we " +
+        "need.</div>" +
+        "<div class=\"row holds\"><span class=\"who\">Player 2:</span> her payoff is 1 " +
+        MINUS + " s, which does not involve t at all as long as t stays above s. " +
+        "Lowering t to s or below only makes her worse off.</div>" +
+        "<div class=\"verdict\">One child with a profitable move is enough, so " +
+        "<b class=\"no\">none of these profiles is a Nash equilibrium</b>.</div>" +
+        "<div class=\"keypoint\"><b>What about raising s to be larger than t?</b> That " +
+        "works whenever t \u003c 1. But this case includes t = 1, and then no such " +
+        "number exists. Lowering s works for every profile in the case, so it is the " +
+        "argument to give.</div>";
+    }
+    if (c.id === 2) {
+      return "<div class=\"row fails\"><span class=\"who\">Player 1:</span> lowering is " +
+        "gone, since she is already at 0. Any number greater than t makes her the winner " +
+        "and pays 1 " + MINUS + " t, which is positive because t \u003c 1.</div>" +
+        "<div class=\"row holds\"><span class=\"who\">Player 2:</span> she already has 1, " +
+        "the full value of the marbles.</div>" +
+        "<div class=\"verdict\">So <b class=\"no\">none of these profiles is a Nash " +
+        "equilibrium</b> either.</div>";
+    }
+    return "<div class=\"row holds\"><span class=\"who\">Player 1:</span> she cannot go " +
+      "below 0, and she cannot get past t either, since t = 1 is the largest number there " +
+      "is. Every other choice pays her " + MINUS + "s, and matching at 1 pays " + MINUS +
+      "0.5.</div>" +
+      "<div class=\"row holds\"><span class=\"who\">Player 2:</span> she already has 1. " +
+      "Any positive number leaves her payoff at exactly 1, and dropping to 0 gives her " +
+      "half the marbles.</div>" +
+      "<div class=\"verdict\">Both children check out, so <b class=\"ne\">(0, 1) is a " +
+      "Nash equilibrium</b>, and it is the only one with s \u003c t.</div>" +
+      "<div class=\"keypoint\"><b>Worth noticing:</b> Player 2 has other numbers that do " +
+      "exactly as well as t = 1, so her condition holds with an equality rather than a " +
+      "strict inequality. This equilibrium is <em>not</em> strict.</div>";
+  }
+
+  function finish() {
+    clearBoard();
+    svgDesc.textContent = "A number line from 0 to 1 with Player 1's number at 0 and " +
+      "Player 2's number at 1, the one surviving profile in this region.";
+    svg.appendChild(el("text", { x: 330, y: 24, class: "row-title",
+                                 "text-anchor": "middle" },
+      "The one profile with s \u003c t that survived"));
+    svg.appendChild(el("line", { x1: px(0), y1: LY, x2: px(1), y2: LY, class: "nline" }));
+    svg.appendChild(el("line", { x1: px(0), y1: LY - 10, x2: px(0), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("line", { x1: px(1), y1: LY - 10, x2: px(1), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("text", { x: px(0), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "0"));
+    svg.appendChild(el("text", { x: px(1), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "1"));
+    svg.appendChild(el("circle", { cx: px(0), cy: LY, r: 8, class: "dot" }));
+    svg.appendChild(el("text", { x: px(0), y: LY - 20, class: "dot-label",
+                                 "text-anchor": "middle" }, "s"));
+    svg.appendChild(el("circle", { cx: px(1), cy: LY, r: 8, class: "dot" }));
+    svg.appendChild(el("text", { x: px(1), y: LY - 20, class: "dot-label",
+                                 "text-anchor": "middle" }, "t"));
+    svg.appendChild(el("text", { x: 330, y: LY + 74, class: "pay",
+                                 "text-anchor": "middle" },
+      PI + A1 + " = 0        " + PI + A2 + " = 1"));
+
+    stepText.textContent = "All three cases checked";
+    nextBtn.disabled = true;
+    qbox.innerHTML = "<h3>The region s \u003c t is finished</h3>" +
+      "<p class=\"stem\">Three cases covered every profile with s \u003c t, and exactly " +
+      "one survived.</p>" +
+      "<div class=\"summary\"><b>(0, 1) is the only Nash equilibrium with s \u003c t.</b> " +
+      "The game treats the two children identically, so swapping their roles turns every " +
+      "profile with s \u003c t into one with s \u003e t. Everything we just proved holds " +
+      "there with the labels exchanged, which is why the book settles s \u003e t in a " +
+      "single sentence and concludes that (1, 0) is the only equilibrium in that region. " +
+      "That leaves the profiles where the two children pick the same number.</div>";
+  }
+
+  nextBtn.addEventListener("click", function () { step += 1; render(); });
+  document.getElementById("restart").addEventListener("click", function () {
+    step = 0; nextBtn.textContent = "Next case"; render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

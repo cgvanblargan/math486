@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arguing over Marbles: how the payoffs work</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #4d5c5f;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --line: #d5d8dc;
+    --dim: #6b6b6b;
+  }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  /* Fixed design canvas: laid out at 700x600, then scaled to fit its container. */
+  #fit { width: 700px; height: 600px; padding: 8px 14px 14px; box-sizing: border-box;
+         transform-origin: top left; }
+  .lead { max-width: 640px; margin: 0 auto 4px; font-size: 16.5px; color: var(--muted);
+          text-align: center; font-style: italic; }
+  svg { display: block; margin: 0 auto; }
+
+  .nline { stroke: var(--ink); stroke-width: 2; }
+  .cap { stroke: var(--ink); stroke-width: 2; }
+  .endbar { stroke: var(--dim); stroke-width: 1.5; stroke-dasharray: 4 3; }
+  .end-label { font-size: 17.5px; fill: var(--muted); }
+  .ends-label { font-size: 15px; fill: var(--dim); font-style: italic; }
+  .dot { fill: var(--accent); }
+  .dot-label { font-size: 24px; fill: var(--accent); font-style: italic; }
+
+  .sliders { max-width: 640px; margin: 2px auto 0; background: #ffffff;
+             border: 1px solid var(--line); border-radius: 10px; padding: 8px 16px 10px;
+             box-sizing: border-box; }
+  .srow { display: flex; align-items: center; gap: 12px; }
+  .srow + .srow { margin-top: 4px; }
+  .srow .tag { font-size: 17px; width: 172px; white-space: nowrap; }
+  .srow .tag i { font-size: 19px; }
+  input[type=range] { flex: 1; accent-color: #1a5276; height: 26px; cursor: grab; }
+  input[type=range]:active { cursor: grabbing; }
+  input[type=range]:focus-visible { outline: 3px solid #2563eb; outline-offset: 3px; }
+
+  .story { max-width: 640px; margin: 6px auto 0; font-size: 16.5px; text-align: center;
+           color: var(--ink); min-height: 22px; }
+
+  .payoffs { max-width: 640px; margin: 6px auto 0; display: flex; gap: 12px; }
+  .pbox { flex: 1; background: var(--panel-bg); border: 1px solid var(--line);
+          border-radius: 10px; padding: 8px 14px; }
+  .pbox .head { font-size: 15px; color: var(--muted); font-style: italic; }
+  .pbox .val { font-size: 19px; margin-top: 2px; }
+
+  table { max-width: 640px; margin: 8px auto 0; border-collapse: collapse; width: 100%; }
+  caption { font-size: 15px; color: var(--muted); font-style: italic;
+            text-align: left; padding-bottom: 4px; }
+  th, td { border: 1px solid var(--line); padding: 6px 10px; font-size: 17px;
+           text-align: left; }
+  th { background: var(--panel-bg); color: var(--muted); font-weight: normal;
+       font-style: italic; font-size: 15px; }
+  tr.on td { background: #eaf2f9; font-weight: bold; color: var(--accent); }
+  td.rule { white-space: nowrap; }
+</style>
+</head>
+<body>
+
+<div id="fit">
+  <p class="lead">Drag either number and watch what happens to the payoffs.</p>
+
+  <svg id="board" width="660" height="134" viewBox="0 0 660 134" role="img"
+       aria-labelledby="svg-title svg-desc">
+    <title id="svg-title">Number line with both children's numbers</title>
+    <desc id="svg-desc"></desc>
+  </svg>
+
+  <div class="sliders">
+    <div class="srow">
+      <span class="tag">Player 1 picks <i>s</i> = <b id="sval">0.30</b></span>
+      <input type="range" id="s-slider" min="0" max="1" step="0.01" value="0.3"
+             aria-label="Player 1's number s">
+    </div>
+    <div class="srow">
+      <span class="tag">Player 2 picks <i>t</i> = <b id="tval">0.70</b></span>
+      <input type="range" id="t-slider" min="0" max="1" step="0.01" value="0.7"
+             aria-label="Player 2's number t">
+    </div>
+  </div>
+
+  <p class="story" id="story" aria-live="polite"></p>
+
+  <div class="payoffs">
+    <div class="pbox">
+      <div class="head">Player 1's payoff</div>
+      <div class="val" id="p1">&#960;&#8321; = &#8722;0.30</div>
+    </div>
+    <div class="pbox">
+      <div class="head">Player 2's payoff</div>
+      <div class="val" id="p2">&#960;&#8322; = 1 &#8722; 0.30 = 0.70</div>
+    </div>
+  </div>
+
+  <table>
+    <caption>The three payoff rules. The highlighted row is the one in force right now.</caption>
+    <thead>
+      <tr><th>When</th><th>What happens</th><th>&#960;&#8321;</th><th>&#960;&#8322;</th></tr>
+    </thead>
+    <tbody>
+      <tr id="r-lt"><td class="rule"><i>s</i> &lt; <i>t</i></td>
+        <td>Player 1 gives up first</td><td>&#8722;<i>s</i></td><td>1 &#8722; <i>s</i></td></tr>
+      <tr id="r-eq"><td class="rule"><i>s</i> = <i>t</i></td>
+        <td>They give up together and split</td>
+        <td>&#189; &#8722; <i>s</i></td><td>&#189; &#8722; <i>s</i></td></tr>
+      <tr id="r-gt"><td class="rule"><i>s</i> &gt; <i>t</i></td>
+        <td>Player 2 gives up first</td><td>1 &#8722; <i>t</i></td><td>&#8722;<i>t</i></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<script>
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 600);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var MINUS = "\u2212", PI = "\u03C0", A1 = "\u2081", A2 = "\u2082";
+
+  var LX0 = 120, LX1 = 570, W = LX1 - LX0, LY = 60;
+  function px(v) { return LX0 + v * W; }
+  function n2(x) {
+    var r = Math.round(x * 100) / 100;
+    if (Math.abs(r) < 1e-9) { return "0.00"; }
+    return (r < 0 ? MINUS : "") + Math.abs(r).toFixed(2);
+  }
+  function el(n, a, txt) {
+    var e = document.createElementNS(SVGNS, n);
+    for (var k in a) { e.setAttribute(k, a[k]); }
+    if (txt !== undefined) { e.textContent = txt; }
+    return e;
+  }
+
+  var svg = document.getElementById("board");
+  var svgDesc = document.getElementById("svg-desc");
+  var sSlider = document.getElementById("s-slider");
+  var tSlider = document.getElementById("t-slider");
+  var sVal = document.getElementById("sval"), tVal = document.getElementById("tval");
+  var p1El = document.getElementById("p1"), p2El = document.getElementById("p2");
+  var story = document.getElementById("story");
+  var rows = { lt: document.getElementById("r-lt"),
+               eq: document.getElementById("r-eq"),
+               gt: document.getElementById("r-gt") };
+
+  function regionOf(s, t) {
+    if (Math.abs(s - t) < 1e-9) { return "eq"; }
+    return s < t ? "lt" : "gt";
+  }
+  // Arguing over Marbles, Section 3.4.
+  function pay(s, t) {
+    var r = regionOf(s, t);
+    if (r === "eq") { return [0.5 - s, 0.5 - s]; }
+    if (r === "lt") { return [-s, 1 - s]; }
+    return [1 - t, -t];
+  }
+  function payText(who, s, t) {
+    var r = regionOf(s, t), head = PI + (who === 0 ? A1 : A2) + " = ";
+    if (r === "eq") { return head + "0.5 " + MINUS + " " + n2(s) + " = " + n2(0.5 - s); }
+    if (r === "lt") {
+      return who === 0 ? head + MINUS + n2(s)
+                       : head + "1 " + MINUS + " " + n2(s) + " = " + n2(1 - s);
+    }
+    return who === 0 ? head + "1 " + MINUS + " " + n2(t) + " = " + n2(1 - t)
+                     : head + MINUS + n2(t);
+  }
+
+  function draw() {
+    var s = parseFloat(sSlider.value), t = parseFloat(tSlider.value);
+    s = Math.round(s * 100) / 100; t = Math.round(t * 100) / 100;
+    var r = regionOf(s, t), p = pay(s, t), ends = Math.min(s, t);
+
+    while (svg.childNodes.length) {
+      var k = svg.childNodes[0];
+      if (k.id === "svg-title" || k.id === "svg-desc") { break; }
+      svg.removeChild(k);
+    }
+    Array.prototype.slice.call(svg.childNodes).forEach(function (k) {
+      if (!(k.id === "svg-title" || k.id === "svg-desc")) { svg.removeChild(k); }
+    });
+
+    svg.appendChild(el("line", { x1: px(0), y1: LY, x2: px(1), y2: LY, class: "nline" }));
+    svg.appendChild(el("line", { x1: px(0), y1: LY - 10, x2: px(0), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("line", { x1: px(1), y1: LY - 10, x2: px(1), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("text", { x: px(0), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "0"));
+    svg.appendChild(el("text", { x: px(1), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "1"));
+    // Units sit right at the end of the axis, where they read as an axis label.
+    svg.appendChild(el("text", { x: px(1) + 16, y: LY + 6, class: "ends-label" },
+      "hours"));
+
+    // The argument itself ends at whichever number is smaller.
+    svg.appendChild(el("line", { x1: px(ends), y1: LY + 6, x2: px(ends), y2: LY + 40,
+                                 class: "endbar" }));
+    svg.appendChild(el("text", {
+      x: Math.max(LX0 + 66, Math.min(LX1 - 66, px(ends))), y: LY + 56,
+      class: "ends-label", "text-anchor": "middle" },
+      "argument ends after " + n2(ends) + " hours"));
+
+    var sep = Math.abs(px(s) - px(t)) < 26;
+    [[s, "s", 0], [t, "t", sep ? -22 : 0]].forEach(function (d) {
+      svg.appendChild(el("circle", { cx: px(d[0]), cy: LY, r: 8, class: "dot" }));
+      svg.appendChild(el("text", { x: px(d[0]), y: LY - 20 + d[2], "text-anchor": "middle",
+                                   class: "dot-label" }, d[1]));
+    });
+
+    sVal.textContent = n2(s); tVal.textContent = n2(t);
+    p1El.textContent = payText(0, s, t);
+    p2El.textContent = payText(1, s, t);
+
+    var tale = { lt: "Player 1 gives up first, so Player 2 gets the marbles.",
+                 eq: "They give up at the same moment, so they split the marbles.",
+                 gt: "Player 2 gives up first, so Player 1 gets the marbles." };
+    story.textContent = tale[r];
+
+    ["lt", "eq", "gt"].forEach(function (k) {
+      rows[k].className = (k === r) ? "on" : "";
+    });
+
+    svgDesc.textContent = "A number line from 0 to 1. Player 1's number s is at " + n2(s) +
+      " and Player 2's number t is at " + n2(t) + ". The argument ends after " +
+      n2(ends) + " hours. Player 1's payoff is " + n2(p[0]) +
+      " and Player 2's is " + n2(p[1]) + ".";
+  }
+
+  sSlider.addEventListener("input", draw);
+  tSlider.addEventListener("input", draw);
+  draw();
+})();
+</script>
+
+</body>
+</html>

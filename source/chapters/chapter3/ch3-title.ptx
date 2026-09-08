@@ -4,19 +4,8 @@
 <chapter xml:id="ch-nash-equilibria" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Nash Equilibria</title>
 
-  <introduction>
-    <p>
-      Content for this chapter has not been written yet.
-    </p>
-  </introduction>
 
-  <section xml:id="ch-nash-equilibria-placeholder">
-    <title>Placeholder</title>
-    <p>
-      <alert>Placeholder.</alert> This chapter has no sections yet. Add
-      real sections/pages to this chapter in tools/book_structure.yaml and
-      rerun tools/build_structure.py.
-    </p>
-  </section>
+    <xi:include href="./page1-nash-definition.ptx" />
+     <xi:include href="./page2-inspection-examples.ptx" />
 
 </chapter>
