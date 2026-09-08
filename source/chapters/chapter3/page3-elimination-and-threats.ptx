@@ -1,0 +1,650 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page3-elimination-and-threats" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Elimination Revisited, and Threats and Promises Again</title>
+
+  <p>
+    Back on the first page of this chapter we noticed something in passing. In
+    the Prisoner's Dilemma, <m>\text{talk}</m> strictly dominates
+    <m>\text{refuse}</m> for both executives, so eliminating dominated
+    strategies would have landed on <m>(\text{talk}, \text{talk})</m>, which is
+    exactly the Nash equilibrium we found by inspection. That was left as an
+    observation. Section 3.6 turns it into a theorem, and tells us how far it
+    can be pushed.
+  </p>
+
+  <p>
+    This matters more than it might look. We spent all of Chapter 2 eliminating
+    dominated strategies without ever saying what the surviving strategies
+    were <em>for</em>. The answer, it turns out, is that they are where the
+    Nash equilibria live, at least if we are careful about which kind of
+    dominance we used.
+  </p>
+
+  <assemblage xml:id="read-3-6">
+    <title>Section 3.6, Finding Nash Equilibria by Iterated Elimination of
+    Dominated Strategies</title>
+    <p>
+      <alert>Read Section 3.6 up through the end of the paragraph beginning
+      <q>In contrast,</q> just after Theorem 3.2.</alert>
+    </p>
+    <p>
+      That gets you both theorem statements and the discussion around them,
+      which is all we will use. The rest of the section is the proof.
+      <alert>You may skip the proof entirely.</alert> Read it if you are
+      interested, and do come back to it if you ever want to see how an
+      induction on <q>the <m>k</m>th strategy eliminated</q> is set up, but
+      nothing on this page or in your homework depends on it.
+    </p>
+  </assemblage>
+
+  <p>
+    Let's collect what those two theorems actually say. Both of them start the
+    same way: you take a game <m>G</m>, run iterated elimination on it, and
+    call the smaller game you end up with <m>H</m>.
+  </p>
+
+  <p>
+    Theorem 3.1 covers <em>weak</em> elimination. It says that every Nash
+    equilibrium of <m>H</m> is still a Nash equilibrium of <m>G</m>, and in
+    particular, if <m>H</m> is a single strategy profile, then that profile is
+    a Nash equilibrium of <m>G</m>. That second part is just the statement that
+    a dominant strategy equilibrium is a Nash equilibrium.
+  </p>
+
+  <p>
+    Theorem 3.2 covers <em>strict</em> elimination, and it says considerably
+    more. Statement (1) is that the order of elimination does not matter; you
+    reach the same <m>H</m> no matter how you get there. Statement (2) is that
+    any strategy you eliminated along the way was not part of any Nash
+    equilibrium of <m>G</m> to begin with. Statement (3) is the same
+    conclusion as Theorem 3.1, that equilibria of <m>H</m> are equilibria of
+    <m>G</m>. And statement (4) says that if <m>H</m> is a single strategy
+    profile, that profile is a strict Nash equilibrium of <m>G</m>, and there
+    are no others.
+  </p>
+
+  <p>
+    Statement (1) should feel familiar. Back on the last page of Chapter 2 we
+    worked out by hand why an elimination that is available under strict
+    dominance stays available, and why that is exactly what fails for weak
+    dominance. That argument is what statement (1) is asserting in general.
+  </p>
+
+  <p>
+    Statement (2) is the genuinely new one, and its idea is worth having even
+    though you are skipping the proof. Suppose <m>s_i</m> was eliminated
+    because <m>t_i</m> strictly dominates it, and suppose <m>s_i</m> shows up
+    somewhere in a strategy profile. Swap <m>s_i</m> for <m>t_i</m> and leave
+    everyone else alone. Player <m>i</m>'s payoff goes up, so that profile was
+    never a Nash equilibrium. Notice where strictness earns its keep: with weak
+    dominance that swap only gets you <m>\geq</m>, and <m>\geq</m> is precisely
+    what a Nash equilibrium is allowed to have.
+  </p>
+
+  <p>
+    Now here is the punchline, which the book states in words rather than as a
+    numbered statement, so it is easy to read past. Put statement (2) together
+    with statement (3):
+  </p>
+
+  <p>
+    <em>If you use iterated elimination of strictly dominated strategies, then
+    <m>G</m> and <m>H</m> have exactly the same Nash equilibria.</em>
+  </p>
+
+  <p>
+    One direction is statement (3) itself. For the other direction, take a Nash
+    equilibrium <m>s^*</m> of <m>G</m>. By statement (2) none of its pieces
+    <m>s_i^*</m> were ever eliminated, so <m>s^*</m> is still a strategy
+    profile of the smaller game <m>H</m>. And it is still an equilibrium there
+    for a slightly boring reason: <m>H</m> gives each player <em>fewer</em>
+    strategies to deviate to than <m>G</m> did, so a profile that survived
+    every deviation in <m>G</m> certainly survives the shorter list in
+    <m>H</m>.
+  </p>
+
+  <p>
+    So for strict elimination, shrinking the game costs you nothing at all. Find
+    the equilibria of <m>H</m> and you have found every equilibrium of
+    <m>G</m>. This is the practical reason we bother eliminating in the first
+    place.
+  </p>
+
+  <p>
+    For weak elimination, only one direction survives. Nash equilibria of
+    <m>H</m> are still equilibria of <m>G</m>, so nothing false gets
+    introduced, but equilibria of <m>G</m> can be destroyed on the way down.
+    <alert>Weak elimination can lose you equilibria; strict elimination
+    cannot.</alert> Keep that sentence somewhere handy, because it is the one
+    result from this section you will actually use.
+  </p>
+
+  <exercise xml:id="check-strict-vs-weak-loss">
+    <statement>
+      <p>
+        You run iterated elimination on a game <m>G</m> and get a reduced game
+        <m>H</m>. What is the difference between having used strict dominance
+        and having used weak dominance?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Either way, every Nash equilibrium of <m>H</m> is one of
+            <m>G</m>. But with weak dominance, <m>G</m> may have equilibria
+            that no longer appear in <m>H</m>, while with strict dominance it
+            cannot.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Both theorems give you the <q>nothing false is
+            introduced</q> direction. Only strict dominance gives you the
+            <q>nothing is lost</q> direction, and that is statement (2) of
+            Theorem 3.2 doing the work.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            With weak dominance, <m>H</m> may contain a Nash equilibrium that
+            was not a Nash equilibrium of <m>G</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, and this is the direction that is safe in both cases.
+            Theorem 3.1 says explicitly that every Nash equilibrium of <m>H</m>
+            is also one of <m>G</m>, weak dominance included. The danger runs
+            the other way: an equilibrium of <m>G</m> can go missing.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            With weak dominance you can only eliminate one strategy per player,
+            while with strict dominance you can keep going.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Nothing limits how many strategies you can eliminate in
+            either case. We eliminated repeatedly with weak dominance all
+            through Chapter 2.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            With weak dominance the payoffs in the surviving cells change,
+            which is why the equilibria can differ.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Eliminating a strategy just deletes a row or a column,
+            and every payoff still showing is exactly what it was before. What
+            changes is which comparisons you are still able to make.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The next check is about reading statement (2) carefully, since it is phrased
+    in terms of a single player's strategy rather than a whole profile.
+  </p>
+
+  <exercise xml:id="check-strategy-vs-profile">
+    <statement>
+      <p>
+        Statement (2) of Theorem 3.2 says that each strategy eliminated in the
+        course of iterated elimination of strictly dominated strategies is not
+        part of any Nash equilibrium of <m>G</m>. What does that let you
+        conclude about a strategy profile <m>s = (s_1, \ldots, s_n)</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            If even one player's strategy <m>s_i</m> was eliminated, then the
+            whole profile <m>s</m> fails to be a Nash equilibrium of <m>G</m>,
+            no matter what the other players are doing.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. A single eliminated component is enough to disqualify the
+            entire profile, which is why statement (2) is such a strong claim.
+            It is also what lets us conclude that every Nash equilibrium of
+            <m>G</m> is built entirely out of surviving strategies, and so is
+            still sitting there in <m>H</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            If every player's strategy <m>s_i</m> was eliminated, then <m>s</m>
+            fails to be a Nash equilibrium of <m>G</m>. If only some were
+            eliminated, the statement says nothing.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, and this reads the statement as weaker than it is. The
+            claim is about each eliminated strategy on its own: any profile
+            containing it is disqualified. One bad component is enough.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            If <m>s</m> survives to the reduced game <m>H</m>, then <m>s</m> is
+            a Nash equilibrium of <m>G</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That is not statement (2), and it is not true either. Surviving
+            elimination does not make a profile an equilibrium; plenty of
+            profiles in <m>H</m> are not equilibria of anything. Statement (3)
+            is the one about profiles, and it applies to Nash equilibria of
+            <m>H</m>, not to every profile of <m>H</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            An eliminated strategy <m>s_i</m> is never a best response to
+            anything, so no player would ever use it.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is stronger than what statement (2) claims, and it is a
+            different kind of statement. Statement (2) rules out eliminated
+            strategies appearing in Nash equilibria; it does not talk about
+            best responses at all. We will get to best responses in the next
+            section.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-single-profile-conclusion">
+    <statement>
+      <p>
+        Suppose iterated elimination of <em>strictly</em> dominated strategies
+        reduces a game <m>G</m> all the way down to a single strategy profile
+        <m>(s_1^*, \ldots, s_n^*)</m>. What can you conclude?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            It is a strict Nash equilibrium of <m>G</m>, and <m>G</m> has no
+            other Nash equilibria.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and this is the best possible outcome of a reduction. The
+            <q>no others</q> half comes from statement (2): any other
+            equilibrium would have to use a strategy that got eliminated, and
+            those cannot appear in equilibria at all.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It is a Nash equilibrium of <m>G</m>, but <m>G</m> may well have
+            others that the elimination missed.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is the right conclusion for <em>weak</em> elimination, not
+            strict. Under strict elimination nothing gets missed, since
+            statement (2) rules out the eliminated strategies appearing in any
+            equilibrium.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It is the unique Nash equilibrium of <m>G</m>, though it need not
+            be a strict one.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Uniqueness is right, but you get strictness for free here as well.
+            Every alternative strategy was eliminated, and the comparisons
+            behind a strict elimination are all strict inequalities.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It is a Nash equilibrium of the reduced game <m>H</m>, but you
+            cannot say anything about <m>G</m> without checking directly.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Transferring conclusions from <m>H</m> back to <m>G</m>
+            is the entire purpose of these two theorems, so that you do not
+            have to go back and check the original game by hand.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now we put the theorems to work on a game we know very well, and something
+    interesting happens.
+  </p>
+
+  <assemblage xml:id="read-3-7">
+    <title>Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises,
+    and Commitments Revisited</title>
+    <p>
+      <alert>Read Section 3.7.</alert>
+    </p>
+    <p>
+      This is a short section with no new machinery in it, and it closes a loop
+      we opened all the way back in Section 1.6. It uses the same normal form
+      matrix you worked with in Chapter 2, and both of the elimination orders
+      you stepped through there. Read it properly rather than skimming; the
+      payoff is conceptual rather than computational.
+    </p>
+  </assemblage>
+
+  <p>
+    Here is the matrix again for reference, with Big Monkey moving first, as it
+    appeared in Section 2.10 and in the two elimination interactives from
+    Chapter 2.
+  </p>
+
+  <table xml:id="table-bmlm-normal-form-3-7">
+    <title>Big Monkey and Little Monkey in normal form, Big Monkey first</title>
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell>Little Monkey: ww</cell>
+        <cell>Little Monkey: wc</cell>
+        <cell>Little Monkey: cw</cell>
+        <cell>Little Monkey: cc</cell>
+      </row>
+      <row>
+        <cell>Big Monkey: w</cell>
+        <cell>(0, 0)</cell>
+        <cell>(0, 0)</cell>
+        <cell>(9, 1)</cell>
+        <cell>(9, 1)</cell>
+      </row>
+      <row>
+        <cell>Big Monkey: c</cell>
+        <cell>(4, 4)</cell>
+        <cell>(5, 3)</cell>
+        <cell>(4, 4)</cell>
+        <cell>(5, 3)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    In Chapter 2 we ran iterated elimination of weakly dominated strategies on
+    this matrix in two different orders. The first order took us all the way
+    down to the single profile <m>(w, cw)</m>. The second order stopped at a
+    <m>2 \times 1</m> game, leaving both <m>(w, cw)</m> and <m>(w, cc)</m>
+    standing. At the time, the point was that the two orders disagreed. Now we
+    have the vocabulary to say what that disagreement cost us.
+  </p>
+
+  <p>
+    Since these were weak eliminations, Theorem 3.1 applies and Theorem 3.2
+    does not. So we know that <m>(w, cw)</m> and <m>(w, cc)</m> really are Nash
+    equilibria of the original game, and we know we have no guarantee of having
+    found them all. And in fact we have not: <m>(c, ww)</m> is a third Nash
+    equilibrium, and no order of weak elimination will ever produce it.
+  </p>
+
+  <p>
+    Those three profiles are worth naming in words, because we have met all of
+    them before under different descriptions.
+  </p>
+
+  <ul>
+    <li>
+      <p>
+        <m>(w, cw)</m> is the backward induction outcome from Chapter 1. Big
+        Monkey waits, Little Monkey climbs, and the payoffs are <m>(9, 1)</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>(w, cc)</m> contains Little Monkey's <em>promise</em> from Section
+        1.6: she will climb even if Big Monkey climbs. The payoffs are again
+        <m>(9, 1)</m>.
+      </p>
+    </li>
+    <li>
+      <p>
+        <m>(c, ww)</m> contains Little Monkey's <em>threat</em> from Section
+        1.6: she will wait even if Big Monkey waits. The payoffs are
+        <m>(4, 4)</m>.
+      </p>
+    </li>
+  </ul>
+
+  <p>
+    Look at the payoffs in that list. The threat changes the outcome of the
+    game and the promise does not, which is exactly what Section 1.6 told us
+    without the language of Nash equilibria. Hold onto that; we will come back
+    to it at the bottom of the page.
+  </p>
+
+  <p>
+    The book verifies <m>(c, ww)</m> for us in words, and its argument has two
+    halves, one per player. If Little Monkey commits in advance to waiting no
+    matter what Big Monkey does, then Big Monkey can do no better than to
+    climb. And if Big Monkey climbs, then Little Monkey can do no better than
+    to wait, which is what <m>ww</m> has her do. Those two sentences together
+    are the definition of a Nash equilibrium applied to this profile.
+  </p>
+
+  <p>
+    You are going to write the same kind of argument for the other two
+    equilibria. Work each one out before revealing the answer.
+  </p>
+
+  <exercise xml:id="verify-w-cc">
+    <title>Verifying the promise, <m>(w, cc)</m></title>
+    <statement>
+      <p>
+        Write the two-sentence argument showing that <m>(w, cc)</m> is a Nash
+        equilibrium: one sentence about Big Monkey's incentive, one about
+        Little Monkey's. Use the same shape as the book's argument for
+        <m>(c, ww)</m>, and cite the payoffs from the matrix above.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Check one player at a time, holding the other one fixed. For Big
+        Monkey, read down the <m>cc</m> column and compare his two payoffs. For
+        Little Monkey, read across the <m>w</m> row and compare her four.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        If Little Monkey commits in advance to climbing no matter what Big
+        Monkey does, then Big Monkey can do no better than to wait: waiting
+        pays him <m>9</m> and climbing pays him <m>5</m>. And if Big Monkey
+        waits, Little Monkey can do no better than to climb, which is what
+        <m>cc</m> has her do: across the <m>w</m> row her payoffs are
+        <m>0, 0, 1, 1</m>, and <m>cc</m> gives her one of the two best.
+      </p>
+      <p>
+        Notice the <q>one of the two best.</q> Little Monkey ties with
+        <m>cw</m> rather than beating it, so her half of the argument only
+        gives <m>\geq</m>. That is all the definition asks for, but it does
+        mean this equilibrium is not a strict one.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="verify-w-cw">
+    <title>Verifying backward induction's answer, <m>(w, cw)</m></title>
+    <statement>
+      <p>
+        Now do the same for <m>(w, cw)</m>. Then answer a second question:
+        comparing your argument to the one you just wrote for <m>(w, cc)</m>,
+        what actually changed and what did not?
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Big Monkey is now looking down the <m>cw</m> column instead of the
+        <m>cc</m> column. Little Monkey is reading across the same row she was
+        before.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        If Little Monkey commits in advance to <m>cw</m>, then Big Monkey can
+        do no better than to wait: waiting pays him <m>9</m> and climbing pays
+        him <m>4</m>. And if Big Monkey waits, Little Monkey can do no better
+        than <m>cw</m>: across the <m>w</m> row her payoffs are
+        <m>0, 0, 1, 1</m>, and <m>cw</m> gives her one of the two best.
+      </p>
+      <p>
+        What changed: exactly one number. Big Monkey's alternative was
+        <m>5</m> against <m>cc</m> and is <m>4</m> against <m>cw</m>. Either
+        way it loses to <m>9</m>, so the conclusion was never in doubt.
+      </p>
+      <p>
+        What did not change: Little Monkey's half of the argument, at all. It
+        is the same row, the same four payoffs <m>0, 0, 1, 1</m>, and the same
+        tie between <m>cw</m> and <m>cc</m>. We are pointing at a different one
+        of two cells that hold the same number.
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    That last observation deserves a name. <m>(w, cw)</m> and <m>(w, cc)</m>
+    are two genuinely different strategy profiles, and yet they pay both
+    players identically and their verifications are the same argument twice.
+    Something must distinguish them, so what is it?
+  </p>
+
+  <exercise xml:id="check-off-path">
+    <statement>
+      <p>
+        What is the actual difference between Little Monkey's strategies
+        <m>cw</m> and <m>cc</m>, given that Big Monkey is playing <m>w</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            They differ only in what Little Monkey would do if Big Monkey
+            climbed. Big Monkey does not climb, so that part of her strategy is
+            never carried out and the two strategies produce identical play.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and this is the heart of Section 3.7. A strategy has to
+            specify a move at <em>every</em> node, including nodes the game
+            never actually reaches. Little Monkey's promise costs her nothing
+            precisely because it is never tested. This is also the honest
+            answer to the book's question of why the normal form has equilibria
+            that backward induction does not find, and it is an idea we will
+            return to in a later chapter.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            One of them is a strict Nash equilibrium and the other is not.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Neither is strict, in fact. In both cases Little Monkey ties: her
+            payoff in the <m>w</m> row is <m>1</m> for <m>cw</m> and <m>1</m>
+            for <m>cc</m>, so switching between them costs her nothing. That
+            tie is the reason neither equilibrium is strict.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Little Monkey prefers one of them, so she would choose that one if
+            given the chance.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            She is indifferent. Both give her <m>1</m> when Big Monkey waits.
+            If she strictly preferred one of them, the other could not have
+            been a Nash equilibrium in the first place.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            They differ in what Little Monkey does when Big Monkey waits, which
+            is the branch that actually gets played.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite; look at the labels again. Both <m>cw</m> and <m>cc</m>
+            begin with <m>c</m>, which is Little Monkey's move in response to
+            Big Monkey waiting. It is the second letter, her response to Big
+            Monkey climbing, where they part ways.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    One more thing worth noticing before we move on, since it will matter on
+    the next page. None of these three equilibria is strict, and Little Monkey
+    is the reason every time. In the <m>w</m> row she is indifferent between
+    <m>cw</m> and <m>cc</m>; in the <m>c</m> row she is indifferent between
+    <m>ww</m> and <m>cw</m>. She is never made strictly worse off by deviating.
+  </p>
+
+  <p>
+    Notice in particular that <m>cw</m> is among her best replies in
+    <em>both</em> of Big Monkey's rows. Keep an eye on that when we start
+    drawing boxes in Section 3.9.
+  </p>
+
+  <interactive xml:id="question-form-3-3" iframe="question-form.html?section=3.3" width="100%" aspect="2:1"/>
+</section>
