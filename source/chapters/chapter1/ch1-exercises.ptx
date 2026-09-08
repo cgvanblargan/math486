@@ -791,10 +791,8 @@
           Finally, return to a healthy Little Monkey with <m>\ell = 0</m>,
           but suppose <em>Little Monkey moves first</em> and Big Monkey
           second. Draw the new game tree and find the backward induction
-          outcome. Compare it to the outcome Little Monkey's threat
-          produced in Section 1.6. Does the threat give Little Monkey any
-          move he did not already have? Using your answer, say what you
-          think a credible commitment actually gains a player.
+          outcome. Then compare any similarities and differences between this version where Little Monkey
+          goes first and the original game with a threat. Do they feel like essentially the same game or not, and why?
         </p>
       </statement>
     </task>
