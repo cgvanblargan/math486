@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Nash Equilibrium and Two Important Examples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-nash-equilibria.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page2-inspection-examples.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two Harder Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page1-nash-definition">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Nash Equilibrium and Two Important Examples</span>
+</h2>
+<div class="para" id="page1-nash-definition-2">It’s time to learn about one of the biggest concepts in game theory: the Nash equilibrium!<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-3-1"><h3 class="heading"><span class="title">Section 3.1, Big Monkey and Little Monkey 3 and the Definition of Nash Equilibria.</span></h3>
+<div class="para" id="read-3-1-2">
+<em class="alert">Read Section 3.1.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-3-1-3">This section introduces the definition of a Nash equilibrium. It’s essentially a strategy profile where no player has an incentive to change their strategy, which is where the term “equilibrium” comes from.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 3.1, Big Monkey and Little Monkey 3 and the Definition of Nash Equilibria"><a href="#read-3-1" title="Copy heading and permalink for Reading: Section 3.1, Big Monkey and Little Monkey 3 and the Definition of Nash Equilibria" aria-label="Copy heading and permalink for Reading: Section 3.1, Big Monkey and Little Monkey 3 and the Definition of Nash Equilibria">🔗</a></div>
+</article>
+<div class="para" id="page1-nash-definition-4">We’ll take a moment to rewrite all the notation just introduced, so you have it in one place for reference. It might also be helpful to reread it here now.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-nash-definition-5">We write <span class="process-math">\(s^* = (s_1^*, \ldots, s_n^*)\)</span> for the strategy profile we are testing to determine if it’s an equilibrium. The profile <span class="process-math">\(s^*\)</span> is a Nash equilibrium provided:<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="page1-nash-definition-6">
+<li id="page1-nash-definition-6-1">
+<div class="para" id="page1-nash-definition-6-1-1">For every <span class="process-math">\(s_1 \in S_1\text{,}\)</span> <span class="process-math">\(\pi_1(s_1^*, s_2^*, \ldots, s_n^*)
+\geq \pi_1(s_1, s_2^*, \ldots, s_n^*)\)</span> (in the compact notation: <span class="process-math">\(\pi_1(s^*) \geq \pi_1(s_1, s^*_{-1})\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-6-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page1-nash-definition-6-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page1-nash-definition-6-2">
+<div class="para" id="page1-nash-definition-6-2-1">For every <span class="process-math">\(s_2 \in S_2\text{,}\)</span> <span class="process-math">\(\pi_2(s_1^*, s_2^*, \ldots, s_n^*)
+\geq \pi_2(s_1^*, s_2, s_3^*, \ldots, s_n^*)\)</span> (<span class="process-math">\(\pi_2(s^*) \geq \pi_2(s_2, s^*_{-2})\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page1-nash-definition-6-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page1-nash-definition-6-3">
+<div class="para" id="page1-nash-definition-6-3-1">and so on, down to<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-6-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page1-nash-definition-6-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page1-nash-definition-6-4">
+<div class="para" id="page1-nash-definition-6-4-1">For every <span class="process-math">\(s_n \in S_n\text{,}\)</span> <span class="process-math">\(\pi_n(s_1^*, \ldots, s_n^*)
+\geq \pi_n(s_1^*, \ldots, s_{n-1}^*, s_n)\)</span> (<span class="process-math">\(\pi_n(s^*) \geq \pi_n(s_n, s^*_{-n})\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-6-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page1-nash-definition-6-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="page1-nash-definition-7">Take the first bullet as the model for all of them. It asks: if player 1 alone switches to some other strategy <span class="process-math">\(s_1\text{,}\)</span> while everyone else stays exactly where they are, does player 1’s payoff go up? If the answer is never, then player 1’s condition is satisfied.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-nash-definition-8">The quickest way to write the definition is with the more compact version: <span class="process-math">\(s^*\)</span> is a Nash equilibrium if for each <span class="process-math">\(i = 1, \ldots, n\)</span> it holds that <span class="process-math">\(\pi_i(s^*) \geq \pi_i(s_i, s^*_{-i})\)</span> for every <span class="process-math">\(s_i \in S_i\text{.}\)</span> However, you should also have a good sense of what this means conceptually in words, which is tested in the check below!<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-nash-in-words"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-nash-in-words-1-1">Suppose <span class="process-math">\(s^*\)</span> is a Nash equilibrium of some game. Which of the following says what that means?<div class="autopermalink" data-description="Paragraph"><a href="#check-nash-in-words-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-nash-in-words" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-nash-in-words_opt_a" data-correct="">
+<div class="para" id="check-nash-in-words-2-1-1-1">If the players are all at <span class="process-math">\(s^*\text{,}\)</span> then no player can raise their own payoff by changing strategy on their own, with everyone else staying put.</div>
+</li>
+<li data-component="feedback" id="rs-check-nash-in-words_opt_a">
+<div class="para" id="check-nash-in-words-2-1-2-1">Correct. Notice the two things this sentence is careful about: the change is made by a single player, and everyone else is held fixed.</div>
+</li>
+<li data-component="answer" id="rs-check-nash-in-words_opt_b">
+<div class="para" id="check-nash-in-words-2-2-1-1">If the players are all at <span class="process-math">\(s^*\text{,}\)</span> then every player is getting the highest payoff available to them anywhere in the game.</div>
+</li>
+<li data-component="feedback" id="rs-check-nash-in-words_opt_b">
+<div class="para" id="check-nash-in-words-2-2-2-1">This is much stronger than the definition. A player’s payoff depends on what everyone else does, so the highest payoff available to them somewhere in the game may not be reachable by anything they can do themselves. We’ll see a game shortly where both players would rather be somewhere else entirely.</div>
+</li>
+<li data-component="answer" id="rs-check-nash-in-words_opt_c">
+<div class="para" id="check-nash-in-words-2-3-1-1">Each player’s strategy in <span class="process-math">\(s^*\)</span> gives them a higher payoff than their other strategies, no matter what the other players do.</div>
+</li>
+<li data-component="feedback" id="rs-check-nash-in-words_opt_c">
+<div class="para" id="check-nash-in-words-2-3-2-1">That’s the definition of a dominant strategy from Chapter 2, not of a Nash equilibrium. The difference is the phrase “no matter what the other players do.” The Nash condition only compares payoffs while the other players are held fixed at <span class="process-math">\(s^*_{-i}\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.1.1"><a href="#check-nash-in-words" title="Copy heading and permalink for Checkpoint 3.1.1" aria-label="Copy heading and permalink for Checkpoint 3.1.1">🔗</a></div>
+</article>
+<div class="para" id="page1-nash-definition-10">Section 3.1 also defines a <dfn class="terminology">strict</dfn> Nash equilibrium, which is the same idea with <span class="process-math">\(\geq\)</span> replaced by <span class="process-math">\(\gt\text{.}\)</span> Note the containment: every strict Nash equilibrium is a Nash equilibrium, but not every Nash equilibrium is strict.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-strict-nash"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-strict-nash-1-1">Suppose <span class="process-math">\(s^*\)</span> is a Nash equilibrium. What else must be true for <span class="process-math">\(s^*\)</span> to be a <em class="emphasis">strict</em> Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-strict-nash-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-strict-nash" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-strict-nash_opt_a" data-correct="">
+<div class="para" id="check-strict-nash-2-1-1-1">Each inequality in the definition is strict. That is, every player, changing to any other strategy of their own while everyone else stays put, gets a strictly lower payoff.</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-nash_opt_a">
+<div class="para" id="check-strict-nash-2-1-2-1">Correct. Every inequality, for every player and every alternative strategy that player has.</div>
+</li>
+<li data-component="answer" id="rs-check-strict-nash_opt_b">
+<div class="para" id="check-strict-nash-2-2-1-1">At least one of the inequalities in the definition is strict, meaning some player would do strictly worse by changing their strategy on their own.</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-nash_opt_b">
+<div class="para" id="check-strict-nash-2-2-2-1">Not quite. Strict means <em class="emphasis">every</em> inequality is strict, not just one of them. A profile where one player would do strictly worse by deviating, but another player has a tie, is still a Nash equilibrium, just not a strict one.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.1.2"><a href="#check-strict-nash" title="Copy heading and permalink for Checkpoint 3.1.2" aria-label="Copy heading and permalink for Checkpoint 3.1.2">🔗</a></div>
+</article>
+<div class="para" id="page1-nash-definition-12">Now let’s actually practice using the definition. Section 3.2 finds Nash equilibria by <em class="emphasis">inspection</em>, which means checking every strategy profile against the definition. The two interactives below walk through all four profiles of the first two examples in that section. The first one is the familiar Prisoner’s Dilemma! After you answer each question, press “next” at the bottom to move on to the next strategy profile.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-pd-inspection"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/prisoners-dilemma-inspection.html" id="interactive-pd-inspection" style="width:600px; height:720px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-pd-inspection.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Inspecting all four strategy profiles of the Prisoner’s Dilemma. At each profile, decide whether either executive can do better by changing strategy on their own.<div class="autopermalink" data-description="Figure 3.1.3"><a href="#fig-pd-inspection" title="Copy heading and permalink for Figure 3.1.3" aria-label="Copy heading and permalink for Figure 3.1.3">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page1-nash-definition-14">As you just saw, the Prisoner’s Dilemma has exactly one Nash equilibrium, and it leads to a bad outcome for both executives. Keep that in mind as you work through the next game, which behaves quite differently! This next example is “Stag Hunt,” and more context about the setup will come in the reading that follows.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-stag-hunt-inspection"><div class="interactive-iframe-container"><iframe src="external/ch3-graph/stag-hunt-inspection.html" id="interactive-stag-hunt-inspection" style="width:600px; height:720px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-stag-hunt-inspection.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The same procedure applied to Stag Hunt. This time more than one profile survives.<div class="autopermalink" data-description="Figure 3.1.4"><a href="#fig-stag-hunt-inspection" title="Copy heading and permalink for Figure 3.1.4" aria-label="Copy heading and permalink for Figure 3.1.4">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-comparing-pd-stag"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-comparing-pd-stag-1-1">You’ve now found the Nash equilibria of two games by inspection. The Prisoner’s Dilemma had one, <span class="process-math">\((\text{talk}, \text{talk})\text{,}\)</span> paying <span class="process-math">\((-6,-6)\text{,}\)</span> even though both executives would rather have <span class="process-math">\((-1,-1)\text{.}\)</span> Stag Hunt had two, and both hunters prefer <span class="process-math">\((\text{stag}, \text{stag})\)</span> to <span class="process-math">\((\text{hare},
+\text{hare})\text{.}\)</span> Taken together, what do these two results tell you about Nash equilibria?<div class="autopermalink" data-description="Paragraph"><a href="#check-comparing-pd-stag-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-comparing-pd-stag" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-comparing-pd-stag_opt_a" data-correct="">
+<div class="para" id="check-comparing-pd-stag-2-1-1-1">A Nash equilibrium may or may not be good for the players. It is a profile the game can get stuck at, because no player can improve their own payoff by changing strategy alone.</div>
+</li>
+<li data-component="feedback" id="rs-check-comparing-pd-stag_opt_a">
+<div class="para" id="check-comparing-pd-stag-2-1-2-1">Correct, and this is the one statement that covers both games at once. “Stuck” is the right word: the definition says nothing about whether an equilibrium is a good outcome, only that no single player can walk away from it and do better.</div>
+</li>
+<li data-component="answer" id="rs-check-comparing-pd-stag_opt_b">
+<div class="para" id="check-comparing-pd-stag-2-2-1-1">A Nash equilibrium is the outcome that is best for all the players.</div>
+</li>
+<li data-component="feedback" id="rs-check-comparing-pd-stag_opt_b">
+<div class="para" id="check-comparing-pd-stag-2-2-2-1">The Prisoner’s Dilemma rules this out. Both executives would rather have <span class="process-math">\((-1,-1)\)</span> than the equilibrium payoff <span class="process-math">\((-6,-6)\text{,}\)</span> and yet the equilibrium is where the game gets stuck.</div>
+</li>
+<li data-component="answer" id="rs-check-comparing-pd-stag_opt_c">
+<div class="para" id="check-comparing-pd-stag-2-3-1-1">A Nash equilibrium is an outcome that no player would rather trade for a different one.</div>
+</li>
+<li data-component="feedback" id="rs-check-comparing-pd-stag_opt_c">
+<div class="para" id="check-comparing-pd-stag-2-3-2-1">Again the Prisoner’s Dilemma is the counterexample. Both executives would happily trade <span class="process-math">\((-6,-6)\)</span> for <span class="process-math">\((-1,-1)\text{.}\)</span> What they cannot do is get there by changing strategy on their own, and that’s the only thing the definition asks about.</div>
+</li>
+<li data-component="answer" id="rs-check-comparing-pd-stag_opt_d">
+<div class="para" id="check-comparing-pd-stag-2-4-1-1">Every game has exactly one Nash equilibrium, and it is the best outcome each player can guarantee for themselves.</div>
+</li>
+<li data-component="feedback" id="rs-check-comparing-pd-stag_opt_d">
+<div class="para" id="check-comparing-pd-stag-2-4-2-1">Stag Hunt rules this out on the first count: it has two. We’ll see games with more than two, and later on games with none at all in pure strategies.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.1.5"><a href="#check-comparing-pd-stag" title="Copy heading and permalink for Checkpoint 3.1.5" aria-label="Copy heading and permalink for Checkpoint 3.1.5">🔗</a></div>
+</article>
+<div class="para" id="page1-nash-definition-17">Let’s think about how this all relates to the strictly dominant strategies we saw in Chapter 2. In the Prisoner’s Dilemma, <span class="process-math">\(\text{talk}\)</span> strictly dominates <span class="process-math">\(\text{refuse}\)</span> for both executives, so elimination of dominated strategies would have found <span class="process-math">\((\text{talk}, \text{talk})\)</span> too. This results in a strategy profile that is also the Nash equilibrium!<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-nash-definition-18">On the other hand, Stag Hunt has no dominant strategies at all, which might seem odd since <span class="process-math">\((\text{stag}, \text{stag})\)</span> gives a payoff of <span class="process-math">\((2,2)\text{,}\)</span> the best possible outcome for all players! Check on your own using the definition that <span class="process-math">\(\text{stag}\)</span> is not a dominant strategy. On top of that, there is a second Nash equilibrium in Stag Hunt which gives a worse payoff of <span class="process-math">\((1,1)\)</span> to both players.<div class="autopermalink" data-description="Paragraph"><a href="#page1-nash-definition-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-3-2"><h3 class="heading"><span class="title">Section 3.2, Finding Nash Equilibria by Inspection.</span></h3>
+<div class="para" id="read-3-2-2">
+<em class="alert">Read Section 3.2.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 3.2, Finding Nash Equilibria by Inspection"><a href="#read-3-2" title="Copy heading and permalink for Reading: Section 3.2, Finding Nash Equilibria by Inspection" aria-label="Copy heading and permalink for Reading: Section 3.2, Finding Nash Equilibria by Inspection">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-chicken-bos"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-chicken-bos-1-1">Chicken, Battle of the Sexes, and Stag Hunt all have two Nash equilibria. What separates the first two games from Stag Hunt?<div class="autopermalink" data-description="Paragraph"><a href="#check-chicken-bos-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-chicken-bos" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-chicken-bos_opt_a" data-correct="">
+<div class="para" id="check-chicken-bos-2-1-1-1">In Stag Hunt both players prefer the same one of the two equilibria, while in Chicken and Battle of the Sexes each player prefers a different one.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-bos_opt_a">
+<div class="para" id="check-chicken-bos-2-1-2-1">Correct. In Stag Hunt the players agree about which equilibrium they want and the difficulty is getting there together. In Chicken and Battle of the Sexes they disagree, so there’s a genuine conflict over which equilibrium should happen. That’s why Stag Hunt is called a pure coordination game and the other two are not.</div>
+</li>
+<li data-component="answer" id="rs-check-chicken-bos_opt_b">
+<div class="para" id="check-chicken-bos-2-2-1-1">Chicken and Battle of the Sexes have two Nash equilibria, while Stag Hunt has only one.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-bos_opt_b">
+<div class="para" id="check-chicken-bos-2-2-2-1">Stag Hunt has two: <span class="process-math">\((\text{stag}, \text{stag})\)</span> and <span class="process-math">\((\text{hare}, \text{hare})\text{.}\)</span> You verified both of them in the interactive above.</div>
+</li>
+<li data-component="answer" id="rs-check-chicken-bos_opt_c">
+<div class="para" id="check-chicken-bos-2-3-1-1">The equilibria in Chicken and Battle of the Sexes are not strict, while the ones in Stag Hunt are.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-bos_opt_c">
+<div class="para" id="check-chicken-bos-2-3-2-1">All of these equilibria are strict. In Battle of the Sexes, for instance, if Alice leaves the concert while Bob stays there, her payoff drops from <span class="process-math">\(2\)</span> to <span class="process-math">\(0\text{,}\)</span> a strict decrease. Strictness isn’t what distinguishes these games.</div>
+</li>
+<li data-component="answer" id="rs-check-chicken-bos_opt_d">
+<div class="para" id="check-chicken-bos-2-4-1-1">In Chicken and Battle of the Sexes, a player can reach their preferred equilibrium by changing strategy on their own.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-bos_opt_d">
+<div class="para" id="check-chicken-bos-2-4-2-1">If that were true, the profile they started at would not have been a Nash equilibrium in the first place. That’s exactly what the definition rules out. Getting from one equilibrium to the other requires both players to move.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.1.6"><a href="#check-chicken-bos" title="Copy heading and permalink for Checkpoint 3.1.6" aria-label="Copy heading and permalink for Checkpoint 3.1.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="reflect-alice"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="reflect-alice-1-1">Section 3.2.4 ends by asking you a question directly. If you were Alice, which event would you go to, and why? There’s no single right answer here! Notice that the definition of Nash equilibrium gives you no help at all in choosing between the two equilibria, which is a gap in the theory rather than a gap in your understanding. Chapter 5 comes back to it.<div class="autopermalink" data-description="Paragraph"><a href="#reflect-alice-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.1.7"><a href="#reflect-alice" title="Copy heading and permalink for Checkpoint 3.1.7" aria-label="Copy heading and permalink for Checkpoint 3.1.7">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.1" id="question-form-3-1" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-3-1.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 3.1: The Nash Equilibrium and Two Important Examples"><a href="#page1-nash-definition" title="Copy heading and permalink for Section 3.1: The Nash Equilibrium and Two Important Examples" aria-label="Copy heading and permalink for Section 3.1: The Nash Equilibrium and Two Important Examples">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-nash-equilibria.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="page2-inspection-examples.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

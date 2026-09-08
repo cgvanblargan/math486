@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arguing over Marbles: inspecting the profiles with s = t</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #4d5c5f;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --improve: #922b21;
+    --stable: #196f3d;
+    --line: #d5d8dc;
+    --dim: #6b6b6b;
+  }
+  html, body { overflow: hidden; }
+  body { margin: 0; padding: 0; font-family: serif; background: transparent; color: var(--ink); }
+  /* Fixed design canvas: laid out at 700x700, then scaled to fit its container. */
+  #fit { width: 700px; height: 700px; padding: 8px 14px 14px; box-sizing: border-box;
+         transform-origin: top left; }
+  .step-bar { max-width: 640px; margin: 0 auto 2px; display: flex;
+              align-items: center; justify-content: space-between;
+              font-size: 16px; color: var(--muted); }
+  svg { display: block; margin: 0 auto; }
+
+  .nline { stroke: var(--ink); stroke-width: 2; }
+  .cap { stroke: var(--ink); stroke-width: 2; }
+  .end-label { font-size: 17.5px; fill: var(--muted); }
+  .row-title { font-size: 16.5px; fill: var(--muted); font-style: italic; }
+  .note-label { font-size: 15px; fill: var(--dim); font-style: italic; }
+  .dot { fill: var(--accent); }
+  .dot-ring { fill: none; stroke: var(--accent); stroke-width: 2; }
+  .dot-label { font-size: 24px; fill: var(--accent); font-style: italic; }
+  .pay { font-size: 19px; fill: var(--ink); }
+
+  .qbox { max-width: 640px; margin: 6px auto 0; background: var(--panel-bg);
+          border: 1px solid var(--line); border-radius: 10px; padding: 12px 16px;
+          box-sizing: border-box; height: 430px; overflow-y: auto; }
+  .qbox h3 { margin: 0 0 6px; font-size: 18px; color: var(--accent); }
+  .qbox .stem { margin: 0 0 10px; font-size: 16.5px; line-height: 1.45; }
+  .opts { display: flex; flex-direction: column; gap: 7px; }
+  .opt { font-family: serif; font-size: 16.5px; text-align: left; padding: 8px 12px;
+         border: 1px solid var(--line); border-radius: 8px; background: #ffffff;
+         color: var(--ink); cursor: pointer; line-height: 1.35; }
+  .opt:hover:not(:disabled) { background: #eef3f8; }
+  .opt:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  .opt.wrong { background: #faf1f0; border-color: #b08c88; color: var(--muted); }
+  .opt:disabled { cursor: default; }
+  .chosen { font-size: 16.5px; margin: 0 0 10px; padding: 8px 12px; background: #eef6f0;
+            border: 1px solid #a9cfb8; border-radius: 8px; }
+  .chosen .lab { font-weight: bold; color: var(--stable); }
+  .fb { font-size: 16.5px; line-height: 1.5; }
+  .fb .row { margin: 8px 0; padding: 8px 12px; border-radius: 8px; background: #ffffff;
+             border: 1px solid var(--line); }
+  .fb .row.fails { border-left: 4px solid var(--improve); }
+  .fb .who { font-weight: bold; }
+  .fb .verdict { margin-top: 10px; }
+  .fb .verdict b.no { color: var(--improve); }
+  .keypoint { margin-top: 10px; background: #fdf6e3; border: 1px solid #d9c48f;
+              border-left: 5px solid #8a5a0b; border-radius: 8px; padding: 10px 13px; }
+  .keypoint b { color: #7a4f09; }
+  .summary { margin-top: 10px; background: #eef6f0; border: 1px solid #a9cfb8;
+             border-left: 5px solid var(--stable); border-radius: 8px; padding: 11px 13px; }
+  .summary b { color: var(--stable); }
+
+  .controls { max-width: 640px; margin: 8px auto 0; display: flex;
+              justify-content: space-between; gap: 12px; }
+  button.nav { font-family: serif; font-size: 16.5px; padding: 7px 18px;
+               border: 1px solid var(--line); border-radius: 8px; background: #ffffff;
+               color: var(--accent); cursor: pointer; }
+  button.nav:hover:not(:disabled) { background: var(--panel-bg); }
+  button.nav:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  button.nav:disabled { color: #767676; cursor: default; }
+  button.nav.primary { border-color: var(--accent); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="fit">
+  <div class="step-bar">
+    <span id="step-text">Case 1 of 2</span>
+    <span>Profiles with <i>s</i> = <i>t</i></span>
+  </div>
+
+  <svg id="board" width="660" height="176" viewBox="0 0 660 176" role="img"
+       aria-labelledby="svg-title svg-desc">
+    <title id="svg-title">Number line showing both children on the same number</title>
+    <desc id="svg-desc"></desc>
+  </svg>
+
+  <div class="qbox" id="qbox"></div>
+
+  <div class="controls">
+    <button class="nav" id="restart" type="button">Start over</button>
+    <button class="nav primary" id="next" type="button" disabled>Next case</button>
+  </div>
+</div>
+
+<script>
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 700);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var MINUS = "\u2212", PI = "\u03C0", A1 = "\u2081", A2 = "\u2082", HALF = "\u00BD";
+
+  var LX0 = 120, LX1 = 570, W = LX1 - LX0, LY = 82;
+  function px(v) { return LX0 + v * W; }
+  function clampX(x) { return Math.max(LX0 + 58, Math.min(LX1 - 58, x)); }
+  function el(n, a, txt) {
+    var e = document.createElementNS(SVGNS, n);
+    for (var k in a) { e.setAttribute(k, a[k]); }
+    if (txt !== undefined) { e.textContent = txt; }
+    return e;
+  }
+
+  var OPT_TEXT = {
+    "raise": "Either child can improve by raising her number above the other's",
+    "lower": "Either child can improve by lowering her number",
+    "none":  "Neither child can improve, so these are Nash equilibria",
+    "none-one": "Neither child can improve, so this is a Nash equilibrium"
+  };
+
+  // Arguing over Marbles, Section 3.4. When both children pick the same number
+  // the argument ends after s hours and they split, so pi_1 = pi_2 = 1/2 - s.
+  var CASES = [
+    {
+      id: 1, label: "s = t \u003c 1", at: 0.42, note: "anywhere strictly below 1",
+      answer: "raise", opts: ["raise", "lower", "none"],
+      payline: PI + A1 + " = " + PI + A2 + " = " + HALF + " " + MINUS + " s",
+      stem: "Both children choose the same number, somewhere strictly below 1. They give " +
+            "up at the same moment and split the marbles, so each one gets " + HALF +
+            " " + MINUS + " s. Which of these holds for every profile in this case?",
+      desc: "A number line from 0 to 1 with a single marked point partway along, where " +
+            "both children have chosen the same number."
+    },
+    {
+      id: 2, label: "s = t = 1", at: 1.0, note: "both at the far end",
+      answer: "lower", opts: ["raise", "lower", "none-one"],
+      payline: PI + A1 + " = " + PI + A2 + " = " + MINUS + "0.5",
+      stem: "Both children are willing to argue the whole hour. The argument runs the " +
+            "full hour and they split the marbles, so each gets " + HALF + " " + MINUS +
+            " 1, that is " + MINUS + "0.5. Which of these is true?",
+      desc: "A number line from 0 to 1 with a single marked point at the right end, " +
+            "where both children have chosen 1."
+    }
+  ];
+
+  var step = 0;
+  var svg = document.getElementById("board");
+  var qbox = document.getElementById("qbox");
+  var stepText = document.getElementById("step-text");
+  var nextBtn = document.getElementById("next");
+  var svgDesc = document.getElementById("svg-desc");
+
+  function clearBoard() {
+    Array.prototype.slice.call(svg.childNodes).forEach(function (k) {
+      if (!(k.id === "svg-title" || k.id === "svg-desc")) { svg.removeChild(k); }
+    });
+  }
+
+  function drawLine() {
+    svg.appendChild(el("line", { x1: px(0), y1: LY, x2: px(1), y2: LY, class: "nline" }));
+    svg.appendChild(el("line", { x1: px(0), y1: LY - 10, x2: px(0), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("line", { x1: px(1), y1: LY - 10, x2: px(1), y2: LY + 10, class: "cap" }));
+    svg.appendChild(el("text", { x: px(0), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "0"));
+    svg.appendChild(el("text", { x: px(1), y: LY + 32, class: "end-label",
+                                 "text-anchor": "middle" }, "1"));
+  }
+
+  function draw(c) {
+    clearBoard();
+    svgDesc.textContent = c.desc;
+    svg.appendChild(el("text", { x: 330, y: 24, class: "row-title",
+                                 "text-anchor": "middle" },
+      "Both children landed on the same number."));
+    drawLine();
+    // One point carries both children, so it gets a ring to show the doubling up.
+    svg.appendChild(el("circle", { cx: px(c.at), cy: LY, r: 13, class: "dot-ring" }));
+    svg.appendChild(el("circle", { cx: px(c.at), cy: LY, r: 8, class: "dot" }));
+    svg.appendChild(el("text", { x: px(c.at), y: LY - 24, "text-anchor": "middle",
+                                 class: "dot-label" }, "s = t"));
+    svg.appendChild(el("text", { x: clampX(px(c.at)), y: LY + 52, class: "note-label",
+                                 "text-anchor": "middle" }, c.note));
+    svg.appendChild(el("text", { x: 330, y: LY + 82, class: "pay",
+                                 "text-anchor": "middle" }, c.payline));
+  }
+
+  function render() {
+    if (step >= CASES.length) { return finish(); }
+    var c = CASES[step];
+    draw(c);
+    stepText.textContent = "Case " + (step + 1) + " of 2";
+    nextBtn.disabled = true;
+
+    qbox.innerHTML = "<h3>Case " + c.id + ": " + c.label + "</h3>" +
+      "<p class=\"stem\">" + c.stem + "</p>" +
+      "<div class=\"opts\" id=\"opts\"></div>" +
+      "<div class=\"fb\" id=\"fb\" aria-live=\"polite\"></div>";
+
+    var wrap = document.getElementById("opts");
+    c.opts.forEach(function (k) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "opt"; b.textContent = OPT_TEXT[k];
+      b.addEventListener("click", function () { choose(k, b, c); });
+      wrap.appendChild(b);
+    });
+  }
+
+  function choose(k, btn, c) {
+    var fb = document.getElementById("fb");
+    if (k !== c.answer) {
+      btn.className = "opt wrong"; btn.disabled = true;
+      fb.innerHTML = "<b style=\"color:var(--improve)\">Not quite.</b> Check that child's " +
+        "own payoff, with the other child's number left exactly where it is.";
+      return;
+    }
+    var btns = qbox.querySelectorAll(".opt");
+    for (var i = 0; i < btns.length; i++) { btns[i].disabled = true; }
+    document.getElementById("opts").outerHTML =
+      "<p class=\"chosen\"><span class=\"lab\">Your answer:</span> " + OPT_TEXT[k] + "</p>";
+    fb.innerHTML = feedbackFor(c);
+    nextBtn.disabled = false;
+    nextBtn.textContent = (step === CASES.length - 1) ? "See the conclusion" : "Next case";
+    nextBtn.focus();
+  }
+
+  function feedbackFor(c) {
+    if (c.id === 1) {
+      return "<div class=\"row fails\"><span class=\"who\">Player 1:</span> if she picks " +
+        "any number above t, she stops being the one who gives up first. The argument " +
+        "still ends after t hours, but now she wins the marbles, so her payoff rises " +
+        "from " + HALF + " " + MINUS + " s to 1 " + MINUS + " s.</div>" +
+        "<div class=\"row fails\"><span class=\"who\">Player 2:</span> the same move is " +
+        "open to her, for the same reason. The game treats the two children " +
+        "identically.</div>" +
+        "<div class=\"verdict\">Either child alone can do better, so <b class=\"no\">none " +
+        "of these profiles is a Nash equilibrium</b>.</div>" +
+        "<div class=\"keypoint\"><b>Why raising and not lowering?</b> Giving up at once " +
+        "pays 0, which beats " + HALF + " " + MINUS + " s only when s is above " + HALF +
+        ". Raising works for every s in this case.</div>";
+    }
+    return "<div class=\"row fails\"><span class=\"who\">Player 1:</span> raising is not " +
+      "available now, since 1 is the largest number there is. But dropping to 0 makes her " +
+      "give up immediately, which pays her 0 rather than " + MINUS + "0.5.</div>" +
+      "<div class=\"row fails\"><span class=\"who\">Player 2:</span> the same move is open " +
+      "to her.</div>" +
+      "<div class=\"verdict\">So <b class=\"no\">this profile is not a Nash equilibrium " +
+      "either</b>.</div>" +
+      "<div class=\"keypoint\"><b>Notice the reversal.</b> One case earlier the improving " +
+      "move was to raise your number. Here it is to lower it. Arguing all hour and " +
+      "splitting is the worst outcome in the game, so giving up at once is better than " +
+      "sticking it out.</div>";
+  }
+
+  function finish() {
+    clearBoard();
+    svgDesc.textContent = "A number line from 0 to 1 with marked points at 0 and 1, the " +
+      "two Nash equilibria of the game.";
+    svg.appendChild(el("text", { x: 330, y: 24, class: "row-title",
+                                 "text-anchor": "middle" },
+      "The two Nash equilibria of the whole game"));
+    drawLine();
+    svg.appendChild(el("circle", { cx: px(0), cy: LY, r: 8, class: "dot" }));
+    svg.appendChild(el("circle", { cx: px(1), cy: LY, r: 8, class: "dot" }));
+    svg.appendChild(el("text", { x: px(0), y: LY - 24, class: "dot-label",
+                                 "text-anchor": "middle" }, "(0, 1)"));
+    svg.appendChild(el("text", { x: px(1), y: LY - 24, class: "dot-label",
+                                 "text-anchor": "middle" }, "(1, 0)"));
+    svg.appendChild(el("text", { x: 330, y: LY + 82, class: "pay",
+                                 "text-anchor": "middle" },
+      "one child argues the whole hour, the other gives up at once"));
+
+    stepText.textContent = "Both cases checked";
+    nextBtn.disabled = true;
+    qbox.innerHTML = "<h3>Both children on the same number: finished</h3>" +
+      "<p class=\"stem\">No profile of this kind survives. Whatever number the two " +
+      "children land on together, one of them can do better by breaking away from " +
+      "it.</p>" +
+      "<div class=\"summary\"><b>The only Nash equilibria are (0, 1) and (1, 0).</b> " +
+      "That is every profile checked: s \u003c t gave us (0, 1), symmetry gave us " +
+      "(1, 0) from the region s \u003e t, and matching numbers gave us nothing. One " +
+      "equilibrium is " +
+      "better for Player 1 and the other is better for Player 2, which is why the book " +
+      "says this game is reminiscent of Chicken. If one child is willing to argue the " +
+      "whole hour, the best the other can do is give up at once and hand over the " +
+      "marbles.</div>";
+  }
+
+  nextBtn.addEventListener("click", function () { step += 1; render(); });
+  document.getElementById("restart").addEventListener("click", function () {
+    step = 0; nextBtn.textContent = "Next case"; render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
