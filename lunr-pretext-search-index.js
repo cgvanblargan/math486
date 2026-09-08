@@ -460,6 +460,159 @@ var ptx_lunr_docs = [
   "body": " Manufacturer and Retailer   A large retailer buys a particular model of tablet from a manufacturer and sells it in its stores. We model this as a two player game. The structure is close to a Stackelberg duopoly, but the two players here are not competitors: one sells to the other.    It costs the manufacturer $100 to make each tablet. The manufacturer chooses a wholesale price per tablet, with .    The retailer observes and then chooses a quantity to buy from the manufacturer.    The retailer sells every tablet it buys, at the market price .    For each player the payoff is total profit, revenue minus cost. As in Subsection 1.10.1, we let the price formula apply for all , even where it returns a negative price; you will see that no rational player goes anywhere near there.  The restriction will not cause you any trouble, since no manufacturer would set a wholesale price below what a tablet costs it to make. The restriction does give you one corner case to attend to, though. It is this: for a wholesale price high enough, the retailer's best response is , since it can no longer resell at a profit. You should find where that happens and handle it, but you do not have to hunt for any other cases.     Write the payoff function for each player. Be careful about what each player pays and what each player receives; the wholesale price is revenue to one of them and a cost to the other.      Find the retailer's best-response function , including the corner case described above.      Use backward induction to determine the rational outcome of the game. Report the wholesale price, the quantity, the price consumers pay, and each player's profit.      Now suppose the manufacturer sells directly to consumers instead, with no retailer involved. It chooses a quantity to make, faces the same market price the retailer faced, and has total profit . Find the manufacturer's optimal choice of , together with the resulting price and profit.    There is no second player here, so there is no game and no backward induction. This part is a one-variable maximization.      Make a table comparing the two scenarios. Include the quantity sold, the price consumers pay, and each firm's profit, along with the combined profit of the manufacturer and retailer in the first scenario.  Then answer in a short paragraph: the two firms in the first scenario each behaved rationally, so why do they end up with less between them than the single firm does on its own? Your answer should say something about what the retailer treats as its cost per tablet, and how that compares to what a tablet actually costs to produce.     This is an example of double marginalization . A markup is taken twice on the way to the consumer, and because the retailer decides how much to buy as though each tablet cost what it paid rather than what it cost to make, the chain sells fewer tablets than a single firm would. Notice that consumers do worse under the two-firm arrangement as well, which is not what we usually expect when a single firm takes over a whole market.   "
 },
 {
+  "id": "ch1-answers",
+  "level": "1",
+  "url": "ch1-answers.html",
+  "type": "Section",
+  "number": "1.9",
+  "title": "Answers to Ch. 1 Exercises",
+  "body": " Answers to Ch. 1 Exercises  Answers to the first four exercises of this chapter. Click Solution under any part to reveal its answer.  These are answers, not worked solutions. Enough is shown that you can tell whether your own work landed in the right place, but the intermediate steps are yours to supply. Where a question asks for a tree or for backward induction shown graphically, the picture is the answer, so the picture is given.    1. The Pay Increase   (a) The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.        (b) Sizes of the strategy sets   How many strategies does each commissioner have?     , , .     (c) One of C's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .        (d) Backward induction   Analyze the game by backward induction and indicate the path of play.    The diagram of the backward induction is below, with highlighted branches that are chosen at each step of the process. The outcome is the path , , . The payoffs are .   Backward induction on the pay increase game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The pay increase game tree with the backward induction moves drawn as thick edges.        (e) C's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.       2. Four Players and an Entry Fee   (a) The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.    The diagram of the tree is given below.   The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.        (b) The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .       3. A Three Player Game   (a) Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.     (b) What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .     (c) Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff . The highlighted moves that are chosen at each step in backward induction are shown below.   Backward induction on the three player game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The three player game tree with the backward induction moves drawn as thick edges.        (d) Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.     (e) An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .          4. When Backward Induction Fails   (a) Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.     (b) The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.     (c) Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.     "
+},
+{
+  "id": "ch1-answers-2",
+  "level": "2",
+  "url": "ch1-answers.html#ch1-answers-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Solution "
+},
+{
+  "id": "ans-commissioners-payoffs",
+  "level": "2",
+  "url": "ch1-answers.html#ans-commissioners-payoffs",
+  "type": "Example",
+  "number": "1.9.1",
+  "title": "(a) The four unknown terminal payoffs.",
+  "body": " (a) The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.      "
+},
+{
+  "id": "ans-commissioners-counting",
+  "level": "2",
+  "url": "ch1-answers.html#ans-commissioners-counting",
+  "type": "Example",
+  "number": "1.9.3",
+  "title": "(b) Sizes of the strategy sets.",
+  "body": " (b) Sizes of the strategy sets   How many strategies does each commissioner have?     , , .   "
+},
+{
+  "id": "ans-commissioners-strategy-words",
+  "level": "2",
+  "url": "ch1-answers.html#ans-commissioners-strategy-words",
+  "type": "Example",
+  "number": "1.9.4",
+  "title": "(c) One of C’s strategies, in words.",
+  "body": " (c) One of C's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .      "
+},
+{
+  "id": "ans-commissioners-bi",
+  "level": "2",
+  "url": "ch1-answers.html#ans-commissioners-bi",
+  "type": "Example",
+  "number": "1.9.5",
+  "title": "(d) Backward induction.",
+  "body": " (d) Backward induction   Analyze the game by backward induction and indicate the path of play.    The diagram of the backward induction is below, with highlighted branches that are chosen at each step of the process. The outcome is the path , , . The payoffs are .   Backward induction on the pay increase game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The pay increase game tree with the backward induction moves drawn as thick edges.      "
+},
+{
+  "id": "ans-commissioners-c-strategy",
+  "level": "2",
+  "url": "ch1-answers.html#ans-commissioners-c-strategy",
+  "type": "Example",
+  "number": "1.9.7",
+  "title": "(e) C’s rational strategy.",
+  "body": " (e) C's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.   "
+},
+{
+  "id": "ans-four-player-tree",
+  "level": "2",
+  "url": "ch1-answers.html#ans-four-player-tree",
+  "type": "Example",
+  "number": "1.9.8",
+  "title": "(a) The extensive form.",
+  "body": " (a) The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.    The diagram of the tree is given below.   The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.      "
+},
+{
+  "id": "ans-four-player-bi",
+  "level": "2",
+  "url": "ch1-answers.html#ans-four-player-bi",
+  "type": "Example",
+  "number": "1.9.10",
+  "title": "(b) The backward induction solution.",
+  "body": " (b) The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .   "
+},
+{
+  "id": "ans-three-player-counting",
+  "level": "2",
+  "url": "ch1-answers.html#ans-three-player-counting",
+  "type": "Example",
+  "number": "1.9.11",
+  "title": "(a) Sizes of the strategy sets.",
+  "body": " (a) Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.   "
+},
+{
+  "id": "ans-three-player-describe",
+  "level": "2",
+  "url": "ch1-answers.html#ans-three-player-describe",
+  "type": "Example",
+  "number": "1.9.12",
+  "title": "(b) What the strategy <span class=\"process-math\">\\(x\\,b\\)<\/span> means.",
+  "body": " (b) What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .   "
+},
+{
+  "id": "ans-three-player-bi",
+  "level": "2",
+  "url": "ch1-answers.html#ans-three-player-bi",
+  "type": "Example",
+  "number": "1.9.13",
+  "title": "(c) Backward induction.",
+  "body": " (c) Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff . The highlighted moves that are chosen at each step in backward induction are shown below.   Backward induction on the three player game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The three player game tree with the backward induction moves drawn as thick edges.      "
+},
+{
+  "id": "ans-three-player-strategies",
+  "level": "2",
+  "url": "ch1-answers.html#ans-three-player-strategies",
+  "type": "Example",
+  "number": "1.9.15",
+  "title": "(d) Each player’s strategy.",
+  "body": " (d) Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.   "
+},
+{
+  "id": "ans-three-player-preferred",
+  "level": "2",
+  "url": "ch1-answers.html#ans-three-player-preferred",
+  "type": "Example",
+  "number": "1.9.16",
+  "title": "(e) An outcome all three prefer.",
+  "body": " (e) An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .      "
+},
+{
+  "id": "ans-bi-fails-a",
+  "level": "2",
+  "url": "ch1-answers.html#ans-bi-fails-a",
+  "type": "Example",
+  "number": "1.9.17",
+  "title": "(a) Where Game A breaks down.",
+  "body": " (a) Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.   "
+},
+{
+  "id": "ans-bi-fails-b",
+  "level": "2",
+  "url": "ch1-answers.html#ans-bi-fails-b",
+  "type": "Example",
+  "number": "1.9.18",
+  "title": "(b) The same breakdown in Game B.",
+  "body": " (b) The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.   "
+},
+{
+  "id": "ans-bi-fails-b-obvious",
+  "level": "2",
+  "url": "ch1-answers.html#ans-bi-fails-b-obvious",
+  "type": "Example",
+  "number": "1.9.19",
+  "title": "(c) Player 1’s rational choice in Game B.",
+  "body": " (c) Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.   "
+},
+{
   "id": "ch2-page1-prisoners-dilemma",
   "level": "1",
   "url": "ch2-page1-prisoners-dilemma.html",
