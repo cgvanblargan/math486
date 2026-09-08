@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 1 answers.
+
+    -->
+
+<section xml:id="ch1-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Answers to Ch. 1 Exercises</title>
+
+    <p>
+      Answers to the first four exercises of this chapter. Click
+      <term>Solution</term> under any part to reveal its answer.
+    </p>
+    <p>
+      These are answers, not worked solutions. Enough is shown that you can
+      tell whether your own work landed in the right place, but the
+      intermediate steps are yours to supply. Where a question asks for a
+      tree or for backward induction shown graphically, the picture is the
+      answer, so the picture is given.
+    </p>
+
+  <!-- ============================================================ -->
+  <paragraphs xml:id="ans-hw-commissioners">
+    <title>1. The Pay Increase</title>
+
+    <example xml:id="ans-commissioners-payoffs">
+      <title>(a) The four unknown terminal payoffs</title>
+      <statement>
+        <p>
+          Determine the payoffs at the four terminal nodes marked
+          <m>(?,?,?)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          From left to right: <m>(v-c,\,v-c,\,v-c)</m>,
+          <m>(v-c,\,v-c,\,v)</m>, <m>(v-c,\,v,\,v-c)</m>, and
+          <m>(-c,\,0,\,0)</m>. Only the last of these is a node where the
+          measure fails: <m>A</m> voted yes alone, so <m>A</m> pays
+          <m>c</m> and nobody collects <m>v</m>.
+        </p>
+
+        <figure xml:id="fig-ans-commissioners-payoffs">
+          <caption>
+            The pay increase game with all payoffs filled in. Payoffs are
+            listed in the order <m>(A, B, C)</m>.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The pay increase game tree with all eight terminal payoffs
+              filled in.
+            </shortdescription>
+            <latex-image>
+              \resizebox{15cm}{!}{%
+              \begin{tikzpicture}[
+                font=\scriptsize,
+                nd/.style={circle,fill=black,inner sep=1.3pt}
+              ]
+              \useasboundingbox (-11.3,-1.1) rectangle (11.3,5.4);
+              \node[nd] (A) at (0,4.5) {};
+              \node[above=3pt of A] {$A$};
+              \node[nd] (B1) at (-5.6,3) {};
+              \node[above left=1pt and 2pt of B1] {$B$};
+              \node[nd] (B2) at (5.6,3) {};
+              \node[above right=1pt and 2pt of B2] {$B$};
+              \node[nd] (C1) at (-8.4,1.5) {};
+              \node[left=2pt of C1] {$C$};
+              \node[nd] (C2) at (-2.8,1.5) {};
+              \node[left=2pt of C2] {$C$};
+              \node[nd] (C3) at (2.8,1.5) {};
+              \node[left=2pt of C3] {$C$};
+              \node[nd] (C4) at (8.4,1.5) {};
+              \node[left=2pt of C4] {$C$};
+              \node[nd] (t1) at (-9.8,0) {};
+              \node[nd] (t2) at (-7,0) {};
+              \node[nd] (t3) at (-4.2,0) {};
+              \node[nd] (t4) at (-1.4,0) {};
+              \node[nd] (t5) at (1.4,0) {};
+              \node[nd] (t6) at (4.2,0) {};
+              \node[nd] (t7) at (7,0) {};
+              \node[nd] (t8) at (9.8,0) {};
+              \node[below=3pt of t1] {$(v-c,\,v-c,\,v-c)$};
+              \node[below=3pt of t2] {$(v-c,\,v-c,\,v)$};
+              \node[below=3pt of t3] {$(v-c,\,v,\,v-c)$};
+              \node[below=3pt of t4] {$(-c,\,0,\,0)$};
+              \node[below=3pt of t5] {$(v,\,v-c,\,v-c)$};
+              \node[below=3pt of t6] {$(0,\,-c,\,0)$};
+              \node[below=3pt of t7] {$(0,\,0,\,-c)$};
+              \node[below=3pt of t8] {$(0,\,0,\,0)$};
+              \draw (A) -- node[above left] {$y$} (B1);
+              \draw (A) -- node[above right] {$n$} (B2);
+              \draw (B1) -- node[above left] {$y$} (C1);
+              \draw (B1) -- node[above right] {$n$} (C2);
+              \draw (B2) -- node[above left] {$y$} (C3);
+              \draw (B2) -- node[above right] {$n$} (C4);
+              \draw (C1) -- node[above left] {$y$} (t1);
+              \draw (C1) -- node[above right] {$n$} (t2);
+              \draw (C2) -- node[above left] {$y$} (t3);
+              \draw (C2) -- node[above right] {$n$} (t4);
+              \draw (C3) -- node[above left] {$y$} (t5);
+              \draw (C3) -- node[above right] {$n$} (t6);
+              \draw (C4) -- node[above left] {$y$} (t7);
+              \draw (C4) -- node[above right] {$n$} (t8);
+              \end{tikzpicture}}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+
+    <example xml:id="ans-commissioners-counting">
+      <title>(b) Sizes of the strategy sets</title>
+      <statement>
+        <p>
+          How many strategies does each commissioner have?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>|S_A| = 2</m>, <m>|S_B| = 2^2 = 4</m>,
+          <m>|S_C| = 2^4 = 16</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-commissioners-strategy-words">
+      <title>(c) One of C's strategies, in words</title>
+      <statement>
+        <p>
+          Write out one of <m>C</m>'s strategies and describe what it means.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Any of the sixteen is acceptable. Listing <m>C</m>'s move at each
+          of his four nodes, from left to right, gives a strategy. For
+          example, the strategy <m>n\,n\,n\,y</m> corresponds to the
+          following in words:
+          <ul>
+          <li>
+            <p>
+              If <m>A</m> chooses <m>y</m> and <m>B</m> chooses <m>y</m>,
+              then <m>C</m> chooses <m>n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> chooses <m>y</m> and <m>B</m> chooses <m>n</m>,
+              then <m>C</m> chooses <m>n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> chooses <m>n</m> and <m>B</m> chooses <m>y</m>,
+              then <m>C</m> chooses <m>n</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If <m>A</m> chooses <m>n</m> and <m>B</m> chooses <m>n</m>,
+              then <m>C</m> chooses <m>y</m>.
+            </p>
+          </li>
+          </ul>
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-commissioners-bi">
+      <title>(d) Backward induction</title>
+      <statement>
+        <p>
+          Analyze the game by backward induction and indicate the path of
+          play.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The diagram of the backward induction is below, with highlighted
+          branches that are chosen at each step of the process. The outcome
+          is the path <m>A: n</m>, <m>B: y</m>, <m>C: y</m>. The payoffs
+          are <m>(v,\,v-c,\,v-c)</m>.
+        </p>
+
+        <figure xml:id="fig-ans-commissioners-bi">
+          <caption>
+            Backward induction on the pay increase game. Thick edges are
+            the selected moves; the boxed payoff is the predicted outcome.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The pay increase game tree with the backward induction moves
+              drawn as thick edges.
+            </shortdescription>
+            <latex-image>
+              \resizebox{15cm}{!}{%
+              \begin{tikzpicture}[
+                font=\scriptsize,
+                nd/.style={circle,fill=black,inner sep=1.3pt},
+                pick/.style={line width=1.6pt}
+              ]
+              \useasboundingbox (-11.3,-1.1) rectangle (11.3,5.4);
+              \node[nd] (A) at (0,4.5) {};
+              \node[above=3pt of A] {$A$};
+              \node[nd] (B1) at (-5.6,3) {};
+              \node[above left=1pt and 2pt of B1] {$B$};
+              \node[nd] (B2) at (5.6,3) {};
+              \node[above right=1pt and 2pt of B2] {$B$};
+              \node[nd] (C1) at (-8.4,1.5) {};
+              \node[left=2pt of C1] {$C$};
+              \node[nd] (C2) at (-2.8,1.5) {};
+              \node[left=2pt of C2] {$C$};
+              \node[nd] (C3) at (2.8,1.5) {};
+              \node[left=2pt of C3] {$C$};
+              \node[nd] (C4) at (8.4,1.5) {};
+              \node[left=2pt of C4] {$C$};
+              \node[nd] (t1) at (-9.8,0) {};
+              \node[nd] (t2) at (-7,0) {};
+              \node[nd] (t3) at (-4.2,0) {};
+              \node[nd] (t4) at (-1.4,0) {};
+              \node[nd] (t5) at (1.4,0) {};
+              \node[nd] (t6) at (4.2,0) {};
+              \node[nd] (t7) at (7,0) {};
+              \node[nd] (t8) at (9.8,0) {};
+              \node[below=3pt of t1] {$(v-c,\,v-c,\,v-c)$};
+              \node[below=3pt of t2] {$(v-c,\,v-c,\,v)$};
+              \node[below=3pt of t3] {$(v-c,\,v,\,v-c)$};
+              \node[below=3pt of t4] {$(-c,\,0,\,0)$};
+              \node[below=3pt of t5,draw,rounded corners,inner sep=3pt]
+                {$(v,\,v-c,\,v-c)$};
+              \node[below=3pt of t6] {$(0,\,-c,\,0)$};
+              \node[below=3pt of t7] {$(0,\,0,\,-c)$};
+              \node[below=3pt of t8] {$(0,\,0,\,0)$};
+              \draw (A) -- node[above left] {$y$} (B1);
+              \draw[pick] (A) -- node[above right] {$n$} (B2);
+              \draw (B1) -- node[above left] {$y$} (C1);
+              \draw[pick] (B1) -- node[above right] {$n$} (C2);
+              \draw[pick] (B2) -- node[above left] {$y$} (C3);
+              \draw (B2) -- node[above right] {$n$} (C4);
+              \draw (C1) -- node[above left] {$y$} (t1);
+              \draw[pick] (C1) -- node[above right] {$n$} (t2);
+              \draw[pick] (C2) -- node[above left] {$y$} (t3);
+              \draw (C2) -- node[above right] {$n$} (t4);
+              \draw[pick] (C3) -- node[above left] {$y$} (t5);
+              \draw (C3) -- node[above right] {$n$} (t6);
+              \draw (C4) -- node[above left] {$y$} (t7);
+              \draw[pick] (C4) -- node[above right] {$n$} (t8);
+              \end{tikzpicture}}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+
+    <example xml:id="ans-commissioners-c-strategy">
+      <title>(e) C's rational strategy</title>
+      <statement>
+        <p>
+          According to your backward induction analysis, what is <m>C</m>'s
+          rational strategy?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The rational strategy is the rational decision <m>C</m> would
+          make at each node he is at. We start with the move at the
+          leftmost node, which gives the strategy
+          <m>s_C = (n,\,y,\,y,\,n)</m>. In words, <m>C</m> votes yes
+          exactly when his vote is the deciding one.
+        </p>
+      </solution>
+    </example>
+  </paragraphs>
+
+  <!-- ============================================================ -->
+  <paragraphs xml:id="ans-hw-four-player-entry">
+    <title>2. Four Players and an Entry Fee</title>
+
+    <example xml:id="ans-four-player-tree">
+      <title>(a) The extensive form</title>
+      <statement>
+        <p>
+          Sketch the extensive form, reporting each player's payoff as a
+          net amount.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The diagram of the tree is given below.
+        </p>
+
+        <figure xml:id="fig-ans-four-player-tree">
+          <caption>
+            The entry fee game in extensive form. Payoffs are net amounts,
+            listed in the order <m>(P_1, P_2, P_3, P_4)</m>.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              A chain of four decision nodes, each with an end branch and
+              a continue branch.
+            </shortdescription>
+            <latex-image>
+              \resizebox{15cm}{!}{%
+              \begin{tikzpicture}[
+                font=\scriptsize,
+                nd/.style={circle,fill=black,inner sep=1.3pt}
+              ]
+              \useasboundingbox (-2.6,-3.1) rectangle (14.6,1.2);
+              \node[nd] (p1) at (0,0) {};
+              \node[above=4pt of p1] {$P_1$};
+              \node[nd] (p2) at (3.6,0) {};
+              \node[above=4pt of p2] {$P_2$};
+              \node[nd] (p3) at (7.2,0) {};
+              \node[above=4pt of p3] {$P_3$};
+              \node[nd] (p4) at (10.8,0) {};
+              \node[above=4pt of p4] {$P_4$};
+              \node[nd] (end) at (14.4,0) {};
+              \node[nd] (e1) at (0,-2) {};
+              \node[nd] (e2) at (3.6,-2) {};
+              \node[nd] (e3) at (7.2,-2) {};
+              \node[nd] (e4) at (10.8,-2) {};
+              \node[below=3pt of e1] {$(-2,\,10,\,10,\,10)$};
+              \node[below=3pt of e2] {$(10,\,-2,\,10,\,10)$};
+              \node[below=3pt of e3] {$(10,\,10,\,-2,\,10)$};
+              \node[below=3pt of e4] {$(10,\,10,\,10,\,-2)$};
+              \node[below=3pt of end] {$(-1,\,-1,\,-1,\,-1)$};
+              \draw (p1) -- node[left] {$E$} (e1);
+              \draw (p2) -- node[left] {$E$} (e2);
+              \draw (p3) -- node[left] {$E$} (e3);
+              \draw (p4) -- node[left] {$E$} (e4);
+              \draw (p1) -- node[above] {$C$} (p2);
+              \draw (p2) -- node[above] {$C$} (p3);
+              \draw (p3) -- node[above] {$C$} (p4);
+              \draw (p4) -- node[above] {$C$} (end);
+              \end{tikzpicture}}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+
+    <example xml:id="ans-four-player-bi">
+      <title>(b) The backward induction solution</title>
+      <statement>
+        <p>
+          Determine the backward induction solution.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Every player continues. The predicted path is <m>C, C, C, C</m>
+          and the payoff is <m>(-1,\,-1,\,-1,\,-1)</m>.
+        </p>
+      </solution>
+    </example>
+  </paragraphs>
+
+  <!-- ============================================================ -->
+  <paragraphs xml:id="ans-hw-three-player-tree">
+    <title>3. A Three Player Game</title>
+
+    <example xml:id="ans-three-player-counting">
+      <title>(a) Sizes of the strategy sets</title>
+      <statement>
+        <p>
+          For each player <m>i</m>, determine <m>|S_i|</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>|S_1| = 3 \cdot 3 = 9</m>, <m>|S_2| = 2 \cdot 3 = 6</m>,
+          <m>|S_3| = 3 \cdot 4 = 12</m>. Player 1 moves at the root (three
+          moves) and at the node reached by <m>z, c</m> (three moves);
+          player 2 moves at two nodes, with two and three moves; player 3
+          moves at two nodes, with three and four moves. Multiply the
+          number of moves across a player's own nodes.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-three-player-describe">
+      <title>(b) What the strategy <m>x\,b</m> means</title>
+      <statement>
+        <p>
+          Describe in words what is meant by <m>s_3 = x\,b</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          If player 1 plays <m>y</m> and player 2 responds with <m>a</m>,
+          then player 3 plays <m>x</m>. If player 1 plays <m>z</m>, then
+          player 3 plays <m>b</m>.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-three-player-bi">
+      <title>(c) Backward induction</title>
+      <statement>
+        <p>
+          Analyze the game by backward induction and indicate the path of
+          play.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The path of play is <m>x</m> then <m>y</m>, ending with a payoff
+          <m>(0,\,6,\,2)</m>. The highlighted moves that are chosen at each
+          step in backward induction are shown below.
+        </p>
+
+        <figure xml:id="fig-ans-three-player-bi">
+          <caption>
+            Backward induction on the three player game. Thick edges are
+            the selected moves; the boxed payoff is the predicted outcome.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The three player game tree with the backward induction moves
+              drawn as thick edges.
+            </shortdescription>
+            <latex-image>
+              \resizebox{15cm}{!}{%
+              \begin{tikzpicture}[
+                font=\scriptsize,
+                nd/.style={circle,fill=black,inner sep=1.3pt},
+                pick/.style={line width=1.6pt}
+              ]
+              \useasboundingbox (-11.3,-1.1) rectangle (11.3,6.6);
+              \node[nd] (r) at (-2,6) {};
+              \node[above=3pt of r] {$1$};
+              \node[nd] (h1) at (-9.35,4) {};
+              \node[above left=1pt and 2pt of h1] {$2$};
+              \node[nd] (h2) at (-2.27,4) {};
+              \node[above right=1pt and 2pt of h2] {$2$};
+              \node[nd] (h4) at (5.53,4) {};
+              \node[above right=1pt and 2pt of h4] {$3$};
+              \node[nd] (a1) at (-10.2,2) {};
+              \node[nd] (a2) at (-8.5,2) {};
+              \node[below=3pt of a1] {$(30,5,0)$};
+              \node[below=3pt of a2,draw,rounded corners,inner sep=3pt]
+                {$(0,6,2)$};
+              \node[nd] (h3) at (-5.1,2) {};
+              \node[left=2pt of h3] {$3$};
+              \node[nd] (b2) at (-1.7,2) {};
+              \node[nd] (b3) at (0,2) {};
+              \node[below=3pt of b2] {$(20,3,3)$};
+              \node[below=3pt of b3] {$(-1,20,1)$};
+              \node[nd] (c1) at (-6.8,0) {};
+              \node[nd] (c2) at (-5.1,0) {};
+              \node[nd] (c3) at (-3.4,0) {};
+              \node[below=3pt of c1] {$(10,6,5)$};
+              \node[below=3pt of c2] {$(7,-5,15)$};
+              \node[below=3pt of c3] {$(4,15,2)$};
+              \node[nd] (d1) at (1.7,2) {};
+              \node[nd] (d2) at (3.4,2) {};
+              \node[nd] (h5) at (6.8,2) {};
+              \node[right=2pt of h5] {$1$};
+              \node[nd] (d4) at (10.2,2) {};
+              \node[below=3pt of d1] {$(-2,8,10)$};
+              \node[below=3pt of d2] {$(10,12,8)$};
+              \node[below=3pt of d4] {$(12,5,7)$};
+              \node[nd] (e1) at (5.1,0) {};
+              \node[nd] (e2) at (6.8,0) {};
+              \node[nd] (e3) at (8.5,0) {};
+              \node[below=3pt of e1] {$(8,-2,3)$};
+              \node[below=3pt of e2] {$(5,10,5)$};
+              \node[below=3pt of e3] {$(6,12,8)$};
+              \draw[pick] (r) -- node[above left] {$x$} (h1);
+              \draw (r) -- node[left] {$y$} (h2);
+              \draw (r) -- node[above right] {$z$} (h4);
+              \draw (h1) -- node[above left] {$x$} (a1);
+              \draw[pick] (h1) -- node[above right] {$y$} (a2);
+              \draw (h2) -- node[above left] {$a$} (h3);
+              \draw (h2) -- node[left] {$b$} (b2);
+              \draw[pick] (h2) -- node[above right] {$c$} (b3);
+              \draw (h3) -- node[above left] {$x$} (c1);
+              \draw[pick] (h3) -- node[left] {$y$} (c2);
+              \draw (h3) -- node[above right] {$z$} (c3);
+              \draw[pick] (h4) -- node[above left] {$a$} (d1);
+              \draw (h4) -- node[left] {$b$} (d2);
+              \draw (h4) -- node[right] {$c$} (h5);
+              \draw (h4) -- node[above right] {$d$} (d4);
+              \draw[pick] (h5) -- node[above left] {$a$} (e1);
+              \draw (h5) -- node[left] {$b$} (e2);
+              \draw (h5) -- node[above right] {$c$} (e3);
+              \end{tikzpicture}}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </example>
+
+    <example xml:id="ans-three-player-strategies">
+      <title>(d) Each player's strategy</title>
+      <statement>
+        <p>
+          What strategy will each player use?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Taking each player's nodes left to right, <m>s_1 = x\,a</m>,
+          <m>s_2 = y\,c</m>, and <m>s_3 = y\,a</m>. Each of these names a
+          move at both of that player's nodes, including the ones off the
+          predicted path. Reporting only <m>x</m> for player 1, or only
+          <m>y</m> for player 2, gives a move rather than a strategy.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-three-player-preferred">
+      <title>(e) An outcome all three prefer</title>
+      <statement>
+        <p>
+          Identify an outcome all three players strictly prefer to the
+          backward induction outcome.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The predicted outcome leads to a payoff <m>(0,\,6,\,2)</m>, so we
+          need an outcome beating <m>0</m>, <m>6</m>, and <m>2</m> in all
+          three coordinates at once. The following three all work:
+          <ol>
+          <li>
+            <p>
+              The terminal node <m>(10,\,12,\,8)</m>, reached by <m>1</m>
+              playing <m>z</m> and <m>3</m> playing <m>b</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The terminal node with a payoff of <m>(5,\,10,\,5)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              The terminal node with a payoff of <m>(6,\,12,\,8)</m>.
+            </p>
+          </li>
+          </ol>
+        </p>
+      </solution>
+    </example>
+  </paragraphs>
+
+  <!-- ============================================================ -->
+  <paragraphs xml:id="ans-hw-backward-induction-fails">
+    <title>4. When Backward Induction Fails</title>
+
+    <example xml:id="ans-bi-fails-a">
+      <title>(a) Where Game A breaks down</title>
+      <statement>
+        <p>
+          At which node does the procedure break down in Game A, and why
+          does that leave player 1 unable to decide?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          It breaks down at player 2's node. Both <m>c</m> and <m>d</m> pay
+          player 2 the same amount, <m>1</m>, so there is no unique best
+          move there and no single payoff pair to fold back up to the root.
+        </p>
+        <p>
+          Player 1 is then stuck. He does not know whether choosing
+          <m>a</m> or <m>b</m> will lead to a better payoff, because he
+          does not know what player 2 will choose at the right node.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-bi-fails-b">
+      <title>(b) The same breakdown in Game B</title>
+      <statement>
+        <p>
+          Show that backward induction breaks down at player 2's node in
+          Game B for the same reason.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 2 gets <m>2</m> from <m>c</m> and <m>2</m> from <m>d</m>,
+          so the payoffs are equal and backward induction cannot predict
+          what happens at this node.
+        </p>
+      </solution>
+    </example>
+
+    <example xml:id="ans-bi-fails-b-obvious">
+      <title>(c) Player 1's rational choice in Game B</title>
+      <statement>
+        <p>
+          Identify player 1's rational choice and explain why he can make
+          it without knowing what player 2 would do.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 1 should play <m>a</m>. It pays him <m>5</m>, while the
+          only payoffs he can reach after <m>b</m> are <m>4</m> and
+          <m>1</m>, and <m>5</m> beats both. He therefore does not need to
+          know, or guess, how player 2 breaks her tie: whichever move she
+          would make, <m>a</m> leaves him better off.
+        </p>
+      </solution>
+    </example>
+  </paragraphs>
+</section>
