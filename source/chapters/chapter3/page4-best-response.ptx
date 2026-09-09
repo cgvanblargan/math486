@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page4-best-response" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Finding Nash Equilibria Using Best Response</title>
+
+  <p>
+    So far we have found Nash equilibria two ways: by inspecting profiles one
+    at a time, and by eliminating dominated strategies and hoping the theorems
+    from the last page let us keep what survives. This page gives us the method
+    we will use for the rest of the course. It is faster than inspection, it
+    never loses an equilibrium the way weak elimination can, and once you have
+    the hang of it you can read the answer off a matrix in about a minute.
+  </p>
+
+  <assemblage xml:id="read-3-8">
+    <title>Section 3.8, Finding Nash Equilibria Using Best Response</title>
+    <p>
+      <alert>Read Section 3.8.</alert> It is two pages and mostly notation.
+    </p>
+  </assemblage>
+
+  <p>
+    Two notational points before we go on, since the book writes things out
+    longhand and we are going to compress them.
+  </p>
+
+  <p>
+    First, recall <m>s_{-i}</m> from the first page of this chapter. It means
+    the strategies of everybody except player <m>i</m>. On page 1 we only ever
+    used it with a star, as <m>s^*_{-i}</m>, because we were always talking
+    about the other players sitting at their equilibrium strategies. Here we
+    need the plain version too: <m>s_{-i}</m> is just some fixed choice by
+    everyone else, not necessarily an equilibrium one.
+  </p>
+
+  <p>
+    Second, the book writes player 1's best response set as
+    <m>B_1(s_2, \ldots, s_n)</m>, and for a general player <m>i</m> it would
+    have to write <m>B_i(s_1, \ldots, s_{i-1}, s_{i+1}, \ldots, s_n)</m>, with
+    an awkward gap where <m>s_i</m> would go. We will write
+    <m>B_i(s_{-i})</m> instead. It means exactly the same thing, and it is the
+    same compression we used on page 1 when we shortened the definition of a
+    Nash equilibrium. Do not go looking for <m>B_i(s_{-i})</m> in the
+    textbook; that notation is ours, not theirs.
+  </p>
+
+  <p>
+    Now the definition itself. The key thing to notice is that a best response
+    is not defined for a player on their own. It is only defined once you have
+    fixed what everyone else is doing. Given that fixed choice
+    <m>s_{-i}</m>, player <m>i</m>'s best responses are the strategies that
+    give player <m>i</m> the highest payoff available against it. There may be
+    more than one, since two strategies can tie for the highest payoff. That is
+    why <m>B_i(s_{-i})</m> is a <em>set</em>, and why the book calls the
+    mapping a best response <term>correspondence</term> rather than a
+    function.
+  </p>
+
+  <exercise xml:id="check-best-response-words">
+    <statement>
+      <p>
+        In words, what is a best response for player <m>i</m>?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Hold the other players' strategies fixed. Player <m>i</m>'s best
+            responses to that are the strategies giving player <m>i</m> the
+            highest payoff available against it, and there may be more than one
+            if some of them tie.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Both halves matter: a best response only makes sense
+            relative to a fixed <m>s_{-i}</m>, and there can be several of
+            them at once.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Hold the other players' strategies fixed. Player <m>i</m>'s best
+            response is <em>the</em> strategy giving player <m>i</m> the
+            highest payoff against it.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Almost, but the word <q>the</q> is doing damage. Nothing stops two
+            strategies from tying for the highest payoff, in which case both
+            are best responses. You will see exactly this happen in the next
+            section, and it is the reason <m>B_i(s_{-i})</m> is a set.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            The strategy that gives player <m>i</m> the highest payoff no
+            matter what the other players do.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That is a dominant strategy, which is a much stronger condition and
+            usually does not exist. A best response is always a response
+            <em>to something</em>; change what the other players are doing and
+            player <m>i</m>'s best response can change with it.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The reason we care is the sentence at the end of Section 3.8, which is
+    worth stating on its own because it is what every method on this page
+    rests on. A strategy profile
+    <m>s^* = (s_1^*, \ldots, s_n^*)</m> is a Nash equilibrium <em>if and only
+    if</em> every player's own piece of it is a best response to what everyone
+    else is doing:
+  </p>
+
+  <p>
+    <m>s_i^* \in B_i(s^*_{-i})</m> for every player <m>i = 1, \ldots, n</m>.
+  </p>
+
+  <p>
+    This is not a new fact so much as the definition of a Nash equilibrium
+    read in a different order. Saying that player <m>i</m> cannot improve by
+    deviating from <m>s_i^*</m> is the same as saying <m>s_i^*</m> is already
+    as good as anything else available against <m>s^*_{-i}</m>, which is what
+    being a best response means. What is new is that it turns finding
+    equilibria into a checklist: work out each player's best responses
+    separately, then look for the profiles where every player's condition holds
+    at once.
+  </p>
+
+  <exercise xml:id="check-best-response-nash">
+    <statement>
+      <p>
+        In words, how does best response connect to Nash equilibrium?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>s^*</m> is a Nash equilibrium exactly when every player's
+            strategy <m>s_i^*</m> is a best response to the other players'
+            strategies <m>s^*_{-i}</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct, and note that it has to hold for <em>every</em> player at
+            the same time. One player being happy is not enough.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>s^*</m> is a Nash equilibrium exactly when every player's
+            strategy <m>s_i^*</m> is a best response to <m>s_{-i}</m> for
+            every possible choice <m>s_{-i}</m> by the other players.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is the dominant strategy condition again, and it is much
+            stronger than what a Nash equilibrium requires. The Nash condition
+            only asks about one particular <m>s_{-i}</m>, namely
+            <m>s^*_{-i}</m>. This is the same distinction the checkpoint on
+            page 1 was drawing, now in best response language.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>s^*</m> is a Nash equilibrium exactly when at least one player's
+            strategy <m>s_i^*</m> is a best response to <m>s^*_{-i}</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not enough. If only some players are best responding, the ones who
+            are not can improve their payoff by switching, and that is exactly
+            what a Nash equilibrium forbids. Every player's condition has to
+            hold simultaneously.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-3-9">
+    <title>Section 3.9, Big Monkey and Little Monkey 5</title>
+    <p>
+      <alert>Read Section 3.9.</alert>
+    </p>
+    <p>
+      This is the same matrix you have now seen in Chapter 2 and on the last
+      page, so you can spend your attention on the boxes rather than the game.
+      Pay attention to how the boxes are drawn, because your homework will ask
+      you to produce them and will explicitly ask you <em>not</em> to write out
+      your reasoning in words.
+    </p>
+  </assemblage>
+
+  <p>
+    Here is the matrix once more, unboxed, so you can work along.
+  </p>
+
+  <table xml:id="table-bmlm-best-response">
+    <title>Big Monkey and Little Monkey in normal form, Big Monkey first</title>
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell>ww</cell>
+        <cell>wc</cell>
+        <cell>cw</cell>
+        <cell>cc</cell>
+      </row>
+      <row>
+        <cell>w</cell>
+        <cell>(0, 0)</cell>
+        <cell>(0, 0)</cell>
+        <cell>(9, 1)</cell>
+        <cell>(9, 1)</cell>
+      </row>
+      <row>
+        <cell>c</cell>
+        <cell>(4, 4)</cell>
+        <cell>(5, 3)</cell>
+        <cell>(4, 4)</cell>
+        <cell>(5, 3)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Let's do one of Little Monkey's best responses carefully, because it is the
+    interesting one. Suppose Big Monkey plays <m>c</m>. To find Little Monkey's
+    best responses to that, we hold <m>c</m> fixed and look only at the
+    <m>c</m> row. Her payoffs are the second entries, so reading across we get
+    <m>4, 3, 4, 3</m>. The highest is <m>4</m>, and it occurs twice, under
+    <m>ww</m> and under <m>cw</m>. So <em>both</em> of those are best
+    responses, and we box her <m>4</m> in each of those two cells.
+  </p>
+
+  <p>
+    That tie is not a quirk of this example, it is the whole reason for the
+    word <q>correspondence.</q> Little Monkey's best response to <m>c</m> is a
+    set with two things in it, so there is no way to write it as a function
+    that returns one strategy. The book points out that Big Monkey's best
+    response correspondence, by contrast, happens to be a function here, since
+    he never ties.
+  </p>
+
+  <p>
+    Big Monkey's direction works the same way with the roles of rows and
+    columns swapped. His strategies are the rows, so to find his best response
+    you fix one of Little Monkey's <em>columns</em> and read down it, comparing
+    his payoffs, which are the first entries. Against <m>ww</m> he compares
+    <m>0</m> and <m>4</m>, so he climbs, and we box the <m>4</m>.
+  </p>
+
+  <exercise xml:id="check-box-big-monkey">
+    <statement>
+      <p>
+        To find Big Monkey's best response to Little Monkey's strategy
+        <m>cw</m>, what do you do, and what do you box?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Look down the <m>cw</m> column, compare Big Monkey's payoffs
+            <m>9</m> and <m>4</m>, and box the <m>9</m> in the <m>w</m> row.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Fixing Little Monkey's strategy means fixing a column,
+            and Big Monkey's payoffs are the first entries. He waits, so the
+            <m>9</m> gets boxed.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Look across the <m>w</m> row, compare Big Monkey's payoffs
+            <m>0, 0, 9, 9</m>, and box the two <m>9</m>s.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This compares Big Monkey's payoff against four different things
+            Little Monkey might do, which is not a best response question at
+            all. A best response requires the other player's strategy to be
+            held fixed, and here that means staying inside a single column.
+            Reading across a row is how you find <em>Little Monkey's</em> best
+            responses.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Look down the <m>cw</m> column, compare the payoffs <m>1</m> and
+            <m>4</m>, and box the <m>4</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right column, wrong entries. Those are Little Monkey's payoffs, the
+            second numbers in each pair. Big Monkey's are the first numbers, so
+            the comparison is <m>9</m> against <m>4</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Once every box is drawn, the payoff is immediate. A cell is a Nash
+    equilibrium exactly when <em>every</em> entry in it is boxed, because that
+    is what our condition <m>s_i^* \in B_i(s^*_{-i})</m> for all <m>i</m>
+    looks like on a matrix. A cell where only some entries are boxed means at
+    least one player is not best responding, and that player would rather
+    switch.
+  </p>
+
+  <exercise xml:id="check-all-boxed">
+    <statement>
+      <p>
+        Draw all the boxes for the matrix above, then use them. Which of these
+        cells is a Nash equilibrium?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>(c, ww)</m>, with payoffs <m>(4, 4)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. In the <m>ww</m> column Big Monkey's <m>4</m> beats his
+            <m>0</m>, so it is boxed. In the <m>c</m> row Little Monkey's
+            <m>4</m> ties for her highest, so it is boxed too. Both entries
+            boxed, so it is a Nash equilibrium, and it is the threat
+            equilibrium from the last page.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(c, wc)</m>, with payoffs <m>(5, 3)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Big Monkey's <m>5</m> is indeed boxed, and it is the largest payoff
+            he can get anywhere in this matrix. But look at Little Monkey. In
+            the <m>c</m> row her payoffs are <m>4, 3, 4, 3</m>, so her <m>3</m>
+            here is not boxed and she would rather switch to <m>ww</m> or
+            <m>cw</m>. A big payoff for one player is not what makes a cell an
+            equilibrium; every entry has to be boxed.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(c, cw)</m>, with payoffs <m>(4, 4)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Little Monkey's <m>4</m> is boxed here, since it ties for her
+            highest in the <m>c</m> row. But in the <m>cw</m> column Big
+            Monkey's <m>4</m> loses to the <m>9</m> above it, so his entry is
+            not boxed and he would rather wait. Compare this with
+            <m>(c, ww)</m>, which has the same payoffs <m>(4, 4)</m> but is an
+            equilibrium. The payoffs alone cannot tell you; the boxes can.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-3-10">
+    <title>Section 3.10, Water Pollution 2</title>
+    <p>
+      <alert>Read Section 3.10.</alert>
+    </p>
+    <p>
+      This is the same technique with three players instead of two, and there
+      is nothing new to learn beyond the bookkeeping. It is worth reading
+      closely anyway, because this is the exact format your homework will use.
+    </p>
+  </assemblage>
+
+  <p>
+    One thing about the three player case is worth saying out loud, because it
+    is the only part of the method that is genuinely different and it is easy
+    to get wrong. With three players the game is drawn as two matrices, one for
+    each of player 3's strategies. Players 1 and 2 work exactly as before,
+    inside whichever matrix you are looking at: player 1 reads down columns,
+    player 2 reads across rows, both staying in a single table.
+  </p>
+
+  <p>
+    Player 3 is the exception. Fixing the strategies of players 1 and 2 means
+    fixing a <em>cell position</em>, and player 3's two options are the two
+    tables. So you compare the third entry of the same cell in the top table
+    against the third entry of that cell in the bottom table, and box the
+    larger. That comparison runs between the tables rather than inside one of
+    them. As always, a profile is a Nash equilibrium when all three entries in
+    its cell are boxed.
+  </p>
+
+  <assemblage xml:id="read-3-11">
+    <title>Section 3.11, Cournot Duopoly</title>
+    <p>
+      <alert>Read Section 3.11.</alert> Read it for the idea rather than the
+      algebra; you will not be asked to reproduce this computation.
+    </p>
+  </assemblage>
+
+  <p>
+    This section closes a loop we opened at the end of page 2. When we did the
+    Tobacco Market we found ourselves taking partial derivatives and setting
+    them to zero, and it was not entirely clear what we were computing. Now it
+    is: we were finding best responses. In a game with finitely many
+    strategies you find a best response by comparing entries in a column, and
+    in a game where strategies are real numbers you find it with calculus, but
+    it is the same question either way.
+  </p>
+
+  <p>
+    The picture is the thing to take away. Each firm's best response is a
+    function of the other firm's quantity, so each one graphs as a curve, and a
+    Nash equilibrium is a point where both players are simultaneously best
+    responding, which is a point where the curves cross. That is the same
+    condition <m>s_i^* \in B_i(s^*_{-i})</m> for all <m>i</m> that we have
+    been checking with boxes all page, drawn in the plane instead of in a
+    matrix. Boxes work for finite games; the definition itself works for
+    everything.
+  </p>
+
+  <interactive xml:id="question-form-3-4" iframe="question-form.html?section=3.4" width="100%" aspect="2:1"/>
+</section>
