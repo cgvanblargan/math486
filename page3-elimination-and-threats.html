@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Elimination Revisited, and Threats and Promises Again</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.2.10';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.e3f9706509fcf6f7.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.c5ba0ffa5f963084.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.efe427683fc41f98.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page2-inspection-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page4-best-response.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two Harder Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page3-elimination-and-threats">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elimination Revisited, and Threats and Promises Again</span>
+</h2>
+<div class="para" id="page3-elimination-and-threats-2">Back on the first page of this chapter we noticed something in passing. In the Prisoner’s Dilemma, <span class="process-math">\(\text{talk}\)</span> strictly dominates <span class="process-math">\(\text{refuse}\)</span> for both executives, so eliminating dominated strategies would have landed on <span class="process-math">\((\text{talk}, \text{talk})\text{,}\)</span> which is exactly the Nash equilibrium we found by inspection. That was left as an observation. Section 3.6 turns it into a theorem, and tells us how far it can be pushed.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-3">This matters more than it might look. We spent all of Chapter 2 eliminating dominated strategies without ever saying what the surviving strategies were <em class="emphasis">for</em>. The answer, it turns out, is that they are where the Nash equilibria live, at least if we are careful about which kind of dominance we used.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-3-6"><h3 class="heading"><span class="title">Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies.</span></h3>
+<div class="para" id="read-3-6-2">
+<em class="alert">Read Section 3.6 up through the end of the paragraph beginning “In contrast,” just after Theorem 3.2.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-3-6-3">That gets you both theorem statements and the discussion around them, which is all we will use. The rest of the section is the proof. <em class="alert">You may skip the proof entirely.</em> Read it if you are interested, and do come back to it if you ever want to see how an induction on “the <span class="process-math">\(k\)</span>th strategy eliminated” is set up, but nothing on this page or in your homework depends on it.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies"><a href="#read-3-6" title="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies" aria-label="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-5">Let’s collect what those two theorems actually say. Both of them start the same way: you take a game <span class="process-math">\(G\text{,}\)</span> run iterated elimination on it, and call the smaller game you end up with <span class="process-math">\(H\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-6">Theorem 3.1 covers <em class="emphasis">weak</em> elimination. It says that every Nash equilibrium of <span class="process-math">\(H\)</span> is still a Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> and in particular, if <span class="process-math">\(H\)</span> is a single strategy profile, then that profile is a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> That second part is just the statement that a dominant strategy equilibrium is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-7">Theorem 3.2 covers <em class="emphasis">strict</em> elimination, and it says considerably more. Statement (1) is that the order of elimination does not matter; you reach the same <span class="process-math">\(H\)</span> no matter how you get there. Statement (2) is that any strategy you eliminated along the way was not part of any Nash equilibrium of <span class="process-math">\(G\)</span> to begin with. Statement (3) is the same conclusion as Theorem 3.1, that equilibria of <span class="process-math">\(H\)</span> are equilibria of <span class="process-math">\(G\text{.}\)</span> And statement (4) says that if <span class="process-math">\(H\)</span> is a single strategy profile, that profile is a strict Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> and there are no others.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-8">Statement (1) should feel familiar. Back on the last page of Chapter 2 we worked out by hand why an elimination that is available under strict dominance stays available, and why that is exactly what fails for weak dominance. That argument is what statement (1) is asserting in general.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-9">Statement (2) is the genuinely new one, and its idea is worth having even though you are skipping the proof. Suppose <span class="process-math">\(s_i\)</span> was eliminated because <span class="process-math">\(t_i\)</span> strictly dominates it, and suppose <span class="process-math">\(s_i\)</span> shows up somewhere in a strategy profile. Swap <span class="process-math">\(s_i\)</span> for <span class="process-math">\(t_i\)</span> and leave everyone else alone. Player <span class="process-math">\(i\)</span>’s payoff goes up, so that profile was never a Nash equilibrium. Notice where strictness earns its keep: with weak dominance that swap only gets you <span class="process-math">\(\geq\text{,}\)</span> and <span class="process-math">\(\geq\)</span> is precisely what a Nash equilibrium is allowed to have.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-10">Now here is the punchline, which the book states in words rather than as a numbered statement, so it is easy to read past. Put statement (2) together with statement (3):<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-11">
+<em class="emphasis">If you use iterated elimination of strictly dominated strategies, then <span class="process-math">\(G\)</span> and <span class="process-math">\(H\)</span> have exactly the same Nash equilibria.</em><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-12">One direction is statement (3) itself. For the other direction, take a Nash equilibrium <span class="process-math">\(s^*\)</span> of <span class="process-math">\(G\text{.}\)</span> By statement (2) none of its pieces <span class="process-math">\(s_i^*\)</span> were ever eliminated, so <span class="process-math">\(s^*\)</span> is still a strategy profile of the smaller game <span class="process-math">\(H\text{.}\)</span> And it is still an equilibrium there for a slightly boring reason: <span class="process-math">\(H\)</span> gives each player <em class="emphasis">fewer</em> strategies to deviate to than <span class="process-math">\(G\)</span> did, so a profile that survived every deviation in <span class="process-math">\(G\)</span> certainly survives the shorter list in <span class="process-math">\(H\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-13">So for strict elimination, shrinking the game costs you nothing at all. Find the equilibria of <span class="process-math">\(H\)</span> and you have found every equilibrium of <span class="process-math">\(G\text{.}\)</span> This is the practical reason we bother eliminating in the first place.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-14">For weak elimination, only one direction survives. Nash equilibria of <span class="process-math">\(H\)</span> are still equilibria of <span class="process-math">\(G\text{,}\)</span> so nothing false gets introduced, but equilibria of <span class="process-math">\(G\)</span> can be destroyed on the way down. <em class="alert">Weak elimination can lose you equilibria; strict elimination cannot.</em> Keep that sentence somewhere handy, because it is the one result from this section you will actually use.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-strict-vs-weak-loss"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-strict-vs-weak-loss-1-1">You run iterated elimination on a game <span class="process-math">\(G\)</span> and get a reduced game <span class="process-math">\(H\text{.}\)</span> What is the difference between having used strict dominance and having used weak dominance?<div class="autopermalink" data-description="Paragraph"><a href="#check-strict-vs-weak-loss-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-strict-vs-weak-loss" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-strict-vs-weak-loss_opt_a" data-correct="">
+<div class="para" id="check-strict-vs-weak-loss-2-1-1-1">Either way, every Nash equilibrium of <span class="process-math">\(H\)</span> is one of <span class="process-math">\(G\text{.}\)</span> But with weak dominance, <span class="process-math">\(G\)</span> may have equilibria that no longer appear in <span class="process-math">\(H\text{,}\)</span> while with strict dominance it cannot.</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-vs-weak-loss_opt_a">
+<div class="para" id="check-strict-vs-weak-loss-2-1-2-1">Correct. Both theorems give you the “nothing false is introduced” direction. Only strict dominance gives you the “nothing is lost” direction, and that is statement (2) of Theorem 3.2 doing the work.</div>
+</li>
+<li data-component="answer" id="rs-check-strict-vs-weak-loss_opt_b">
+<div class="para" id="check-strict-vs-weak-loss-2-2-1-1">With weak dominance, <span class="process-math">\(H\)</span> may contain a Nash equilibrium that was not a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-vs-weak-loss_opt_b">
+<div class="para" id="check-strict-vs-weak-loss-2-2-2-1">Not quite, and this is the direction that is safe in both cases. Theorem 3.1 says explicitly that every Nash equilibrium of <span class="process-math">\(H\)</span> is also one of <span class="process-math">\(G\text{,}\)</span> weak dominance included. The danger runs the other way: an equilibrium of <span class="process-math">\(G\)</span> can go missing.</div>
+</li>
+<li data-component="answer" id="rs-check-strict-vs-weak-loss_opt_c">
+<div class="para" id="check-strict-vs-weak-loss-2-3-1-1">With weak dominance you can only eliminate one strategy per player, while with strict dominance you can keep going.</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-vs-weak-loss_opt_c">
+<div class="para" id="check-strict-vs-weak-loss-2-3-2-1">Not quite. Nothing limits how many strategies you can eliminate in either case. We eliminated repeatedly with weak dominance all through Chapter 2.</div>
+</li>
+<li data-component="answer" id="rs-check-strict-vs-weak-loss_opt_d">
+<div class="para" id="check-strict-vs-weak-loss-2-4-1-1">With weak dominance the payoffs in the surviving cells change, which is why the equilibria can differ.</div>
+</li>
+<li data-component="feedback" id="rs-check-strict-vs-weak-loss_opt_d">
+<div class="para" id="check-strict-vs-weak-loss-2-4-2-1">Not quite. Eliminating a strategy just deletes a row or a column, and every payoff still showing is exactly what it was before. What changes is which comparisons you are still able to make.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.3.1"><a href="#check-strict-vs-weak-loss" title="Copy heading and permalink for Checkpoint 3.3.1" aria-label="Copy heading and permalink for Checkpoint 3.3.1">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-16">The next check is about reading statement (2) carefully, since it is phrased in terms of a single player’s strategy rather than a whole profile.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-strategy-vs-profile"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-strategy-vs-profile-1-1">Statement (2) of Theorem 3.2 says that each strategy eliminated in the course of iterated elimination of strictly dominated strategies is not part of any Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> What does that let you conclude about a strategy profile <span class="process-math">\(s = (s_1, \ldots, s_n)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-strategy-vs-profile-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-strategy-vs-profile" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-strategy-vs-profile_opt_a" data-correct="">
+<div class="para" id="check-strategy-vs-profile-2-1-1-1">If even one player’s strategy <span class="process-math">\(s_i\)</span> was eliminated, then the whole profile <span class="process-math">\(s\)</span> fails to be a Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> no matter what the other players are doing.</div>
+</li>
+<li data-component="feedback" id="rs-check-strategy-vs-profile_opt_a">
+<div class="para" id="check-strategy-vs-profile-2-1-2-1">Correct. A single eliminated component is enough to disqualify the entire profile, which is why statement (2) is such a strong claim. It is also what lets us conclude that every Nash equilibrium of <span class="process-math">\(G\)</span> is built entirely out of surviving strategies, and so is still sitting there in <span class="process-math">\(H\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-strategy-vs-profile_opt_b">
+<div class="para" id="check-strategy-vs-profile-2-2-1-1">If every player’s strategy <span class="process-math">\(s_i\)</span> was eliminated, then <span class="process-math">\(s\)</span> fails to be a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> If only some were eliminated, the statement says nothing.</div>
+</li>
+<li data-component="feedback" id="rs-check-strategy-vs-profile_opt_b">
+<div class="para" id="check-strategy-vs-profile-2-2-2-1">Not quite, and this reads the statement as weaker than it is. The claim is about each eliminated strategy on its own: any profile containing it is disqualified. One bad component is enough.</div>
+</li>
+<li data-component="answer" id="rs-check-strategy-vs-profile_opt_c">
+<div class="para" id="check-strategy-vs-profile-2-3-1-1">If <span class="process-math">\(s\)</span> survives to the reduced game <span class="process-math">\(H\text{,}\)</span> then <span class="process-math">\(s\)</span> is a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-strategy-vs-profile_opt_c">
+<div class="para" id="check-strategy-vs-profile-2-3-2-1">That is not statement (2), and it is not true either. Surviving elimination does not make a profile an equilibrium; plenty of profiles in <span class="process-math">\(H\)</span> are not equilibria of anything. Statement (3) is the one about profiles, and it applies to Nash equilibria of <span class="process-math">\(H\text{,}\)</span> not to every profile of <span class="process-math">\(H\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-strategy-vs-profile_opt_d">
+<div class="para" id="check-strategy-vs-profile-2-4-1-1">An eliminated strategy <span class="process-math">\(s_i\)</span> is never a best response to anything, so no player would ever use it.</div>
+</li>
+<li data-component="feedback" id="rs-check-strategy-vs-profile_opt_d">
+<div class="para" id="check-strategy-vs-profile-2-4-2-1">This is stronger than what statement (2) claims, and it is a different kind of statement. Statement (2) rules out eliminated strategies appearing in Nash equilibria; it does not talk about best responses at all. We will get to best responses in the next section.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.3.2"><a href="#check-strategy-vs-profile" title="Copy heading and permalink for Checkpoint 3.3.2" aria-label="Copy heading and permalink for Checkpoint 3.3.2">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-single-profile-conclusion"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-single-profile-conclusion-1-1">Suppose iterated elimination of <em class="emphasis">strictly</em> dominated strategies reduces a game <span class="process-math">\(G\)</span> all the way down to a single strategy profile <span class="process-math">\((s_1^*, \ldots, s_n^*)\text{.}\)</span> What can you conclude?<div class="autopermalink" data-description="Paragraph"><a href="#check-single-profile-conclusion-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-single-profile-conclusion" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-single-profile-conclusion_opt_a" data-correct="">
+<div class="para" id="check-single-profile-conclusion-2-1-1-1">It is a strict Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> and <span class="process-math">\(G\)</span> has no other Nash equilibria.</div>
+</li>
+<li data-component="feedback" id="rs-check-single-profile-conclusion_opt_a">
+<div class="para" id="check-single-profile-conclusion-2-1-2-1">Correct, and this is the best possible outcome of a reduction. The “no others” half comes from statement (2): any other equilibrium would have to use a strategy that got eliminated, and those cannot appear in equilibria at all.</div>
+</li>
+<li data-component="answer" id="rs-check-single-profile-conclusion_opt_b">
+<div class="para" id="check-single-profile-conclusion-2-2-1-1">It is a Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> but <span class="process-math">\(G\)</span> may well have others that the elimination missed.</div>
+</li>
+<li data-component="feedback" id="rs-check-single-profile-conclusion_opt_b">
+<div class="para" id="check-single-profile-conclusion-2-2-2-1">This is the right conclusion for <em class="emphasis">weak</em> elimination, not strict. Under strict elimination nothing gets missed, since statement (2) rules out the eliminated strategies appearing in any equilibrium.</div>
+</li>
+<li data-component="answer" id="rs-check-single-profile-conclusion_opt_c">
+<div class="para" id="check-single-profile-conclusion-2-3-1-1">It is the unique Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> though it need not be a strict one.</div>
+</li>
+<li data-component="feedback" id="rs-check-single-profile-conclusion_opt_c">
+<div class="para" id="check-single-profile-conclusion-2-3-2-1">Uniqueness is right, but you get strictness for free here as well. Every alternative strategy was eliminated, and the comparisons behind a strict elimination are all strict inequalities.</div>
+</li>
+<li data-component="answer" id="rs-check-single-profile-conclusion_opt_d">
+<div class="para" id="check-single-profile-conclusion-2-4-1-1">It is a Nash equilibrium of the reduced game <span class="process-math">\(H\text{,}\)</span> but you cannot say anything about <span class="process-math">\(G\)</span> without checking directly.</div>
+</li>
+<li data-component="feedback" id="rs-check-single-profile-conclusion_opt_d">
+<div class="para" id="check-single-profile-conclusion-2-4-2-1">Not quite. Transferring conclusions from <span class="process-math">\(H\)</span> back to <span class="process-math">\(G\)</span> is the entire purpose of these two theorems, so that you do not have to go back and check the original game by hand.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.3.3"><a href="#check-single-profile-conclusion" title="Copy heading and permalink for Checkpoint 3.3.3" aria-label="Copy heading and permalink for Checkpoint 3.3.3">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-19">Now we put the theorems to work on a game we know very well, and something interesting happens.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-3-7"><h3 class="heading"><span class="title">Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited.</span></h3>
+<div class="para" id="read-3-7-2">
+<em class="alert">Read Section 3.7.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-3-7-3">This is a short section with no new machinery in it, and it closes a loop we opened all the way back in Section 1.6. It uses the same normal form matrix you worked with in Chapter 2, and both of the elimination orders you stepped through there. Read it properly rather than skimming; the payoff is conceptual rather than computational.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited"><a href="#read-3-7" title="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited" aria-label="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-21">Here is the matrix again for reference, with Big Monkey moving first, as it appeared in Section 2.10 and in the two elimination interactives from Chapter 2.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-bmlm-normal-form-3-7"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big Monkey and Little Monkey in normal form, Big Monkey first<div class="autopermalink" data-description="Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first"><a href="#table-bmlm-normal-form-3-7" title="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first" aria-label="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: ww</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: wc</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: cw</th>
+<th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: cc</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Big Monkey: w</td>
+<td class="c m b0 r0 l0 t0 lines">(0, 0)</td>
+<td class="c m b0 r0 l0 t0 lines">(0, 0)</td>
+<td class="c m b0 r0 l0 t0 lines">(9, 1)</td>
+<td class="c m b0 r0 l0 t0 lines">(9, 1)</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Big Monkey: c</td>
+<td class="c m b0 r0 l0 t0 lines">(4, 4)</td>
+<td class="c m b0 r0 l0 t0 lines">(5, 3)</td>
+<td class="c m b0 r0 l0 t0 lines">(4, 4)</td>
+<td class="c m b0 r0 l0 t0 lines">(5, 3)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="page3-elimination-and-threats-23">In Chapter 2 we ran iterated elimination of weakly dominated strategies on this matrix in two different orders. The first order took us all the way down to the single profile <span class="process-math">\((w, cw)\text{.}\)</span> The second order stopped at a <span class="process-math">\(2 \times 1\)</span> game, leaving both <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> standing. At the time, the point was that the two orders disagreed. Now we have the vocabulary to say what that disagreement cost us.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-24">Since these were weak eliminations, Theorem 3.1 applies and Theorem 3.2 does not. So we know that <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> really are Nash equilibria of the original game, and we know we have no guarantee of having found them all. And in fact we have not: <span class="process-math">\((c, ww)\)</span> is a third Nash equilibrium, and no order of weak elimination will ever produce it.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-25">Those three profiles are worth naming in words, because we have met all of them before under different descriptions.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="page3-elimination-and-threats-26">
+<li id="page3-elimination-and-threats-26-1">
+<div class="para" id="page3-elimination-and-threats-26-1-1">
+<span class="process-math">\((w, cw)\)</span> is the backward induction outcome from Chapter 1. Big Monkey waits, Little Monkey climbs, and the payoffs are <span class="process-math">\((9, 1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-26-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-26-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page3-elimination-and-threats-26-2">
+<div class="para" id="page3-elimination-and-threats-26-2-1">
+<span class="process-math">\((w, cc)\)</span> contains Little Monkey’s <em class="emphasis">promise</em> from Section 1.6: she will climb even if Big Monkey climbs. The payoffs are again <span class="process-math">\((9, 1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-26-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-26-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page3-elimination-and-threats-26-3">
+<div class="para" id="page3-elimination-and-threats-26-3-1">
+<span class="process-math">\((c, ww)\)</span> contains Little Monkey’s <em class="emphasis">threat</em> from Section 1.6: she will wait even if Big Monkey waits. The payoffs are <span class="process-math">\((4, 4)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-26-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-26-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="page3-elimination-and-threats-27">Look at the payoffs in that list. The threat changes the outcome of the game and the promise does not, which is exactly what Section 1.6 told us without the language of Nash equilibria. Hold onto that; we will come back to it at the bottom of the page.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-28">The book verifies <span class="process-math">\((c, ww)\)</span> for us in words, and its argument has two halves, one per player. If Little Monkey commits in advance to waiting no matter what Big Monkey does, then Big Monkey can do no better than to climb. And if Big Monkey climbs, then Little Monkey can do no better than to wait, which is what <span class="process-math">\(ww\)</span> has her do. Those two sentences together are the definition of a Nash equilibrium applied to this profile.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-29">You are going to write the same kind of argument for the other two equilibria. Work each one out before revealing the answer.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="verify-w-cc"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying the promise, <span class="process-math">\((w, cc)\)</span>.</span>
+</h3>
+<div class="para" id="verify-w-cc-2-1">Write the two-sentence argument showing that <span class="process-math">\((w, cc)\)</span> is a Nash equilibrium: one sentence about Big Monkey’s incentive, one about Little Monkey’s. Use the same shape as the book’s argument for <span class="process-math">\((c, ww)\text{,}\)</span> and cite the payoffs from the matrix above.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="verify-w-cc-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="verify-w-cc-3-1">Check one player at a time, holding the other one fixed. For Big Monkey, read down the <span class="process-math">\(cc\)</span> column and compare his two payoffs. For Little Monkey, read across the <span class="process-math">\(w\)</span> row and compare her four.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cc-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.3.5.1"><a href="#verify-w-cc-3" title="Copy heading and permalink for Hint 3.3.5.1" aria-label="Copy heading and permalink for Hint 3.3.5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.3.5: Verifying the promise, (w, cc)"><a href="#verify-w-cc" title="Copy heading and permalink for Checkpoint 3.3.5: Verifying the promise, (w, cc)" aria-label="Copy heading and permalink for Checkpoint 3.3.5: Verifying the promise, (w, cc)">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="verify-w-cw"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying backward induction’s answer, <span class="process-math">\((w, cw)\)</span>.</span>
+</h3>
+<div class="para" id="verify-w-cw-2-1">Now do the same for <span class="process-math">\((w, cw)\text{.}\)</span> Then answer a second question: comparing your argument to the one you just wrote for <span class="process-math">\((w, cc)\text{,}\)</span> what actually changed and what did not?<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="verify-w-cw-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="verify-w-cw-3-1">Big Monkey is now looking down the <span class="process-math">\(cw\)</span> column instead of the <span class="process-math">\(cc\)</span> column. Little Monkey is reading across the same row she was before.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.3.6.1"><a href="#verify-w-cw-3" title="Copy heading and permalink for Hint 3.3.6.1" aria-label="Copy heading and permalink for Hint 3.3.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 3.3.6: Verifying backward induction’s answer, (w, cw)"><a href="#verify-w-cw" title="Copy heading and permalink for Checkpoint 3.3.6: Verifying backward induction’s answer, (w, cw)" aria-label="Copy heading and permalink for Checkpoint 3.3.6: Verifying backward induction’s answer, (w, cw)">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-32">That last observation deserves a name. <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> are two genuinely different strategy profiles, and yet they pay both players identically and their verifications are the same argument twice. Something must distinguish them, so what is it?<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-off-path"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-off-path-1-1">What is the actual difference between Little Monkey’s strategies <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{,}\)</span> given that Big Monkey is playing <span class="process-math">\(w\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-off-path-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-off-path" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-off-path_opt_a" data-correct="">
+<div class="para" id="check-off-path-2-1-1-1">They differ only in what Little Monkey would do if Big Monkey climbed. Big Monkey does not climb, so that part of her strategy is never carried out and the two strategies produce identical play.</div>
+</li>
+<li data-component="feedback" id="rs-check-off-path_opt_a">
+<div class="para" id="check-off-path-2-1-2-1">Correct, and this is the heart of Section 3.7. A strategy has to specify a move at <em class="emphasis">every</em> node, including nodes the game never actually reaches. Little Monkey’s promise costs her nothing precisely because it is never tested. This is also the honest answer to the book’s question of why the normal form has equilibria that backward induction does not find, and it is an idea we will return to in a later chapter.</div>
+</li>
+<li data-component="answer" id="rs-check-off-path_opt_b">
+<div class="para" id="check-off-path-2-2-1-1">One of them is a strict Nash equilibrium and the other is not.</div>
+</li>
+<li data-component="feedback" id="rs-check-off-path_opt_b">
+<div class="para" id="check-off-path-2-2-2-1">Neither is strict, in fact. In both cases Little Monkey ties: her payoff in the <span class="process-math">\(w\)</span> row is <span class="process-math">\(1\)</span> for <span class="process-math">\(cw\)</span> and <span class="process-math">\(1\)</span> for <span class="process-math">\(cc\text{,}\)</span> so switching between them costs her nothing. That tie is the reason neither equilibrium is strict.</div>
+</li>
+<li data-component="answer" id="rs-check-off-path_opt_c">
+<div class="para" id="check-off-path-2-3-1-1">Little Monkey prefers one of them, so she would choose that one if given the chance.</div>
+</li>
+<li data-component="feedback" id="rs-check-off-path_opt_c">
+<div class="para" id="check-off-path-2-3-2-1">She is indifferent. Both give her <span class="process-math">\(1\)</span> when Big Monkey waits. If she strictly preferred one of them, the other could not have been a Nash equilibrium in the first place.</div>
+</li>
+<li data-component="answer" id="rs-check-off-path_opt_d">
+<div class="para" id="check-off-path-2-4-1-1">They differ in what Little Monkey does when Big Monkey waits, which is the branch that actually gets played.</div>
+</li>
+<li data-component="feedback" id="rs-check-off-path_opt_d">
+<div class="para" id="check-off-path-2-4-2-1">Not quite; look at the labels again. Both <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\)</span> begin with <span class="process-math">\(c\text{,}\)</span> which is Little Monkey’s move in response to Big Monkey waiting. It is the second letter, her response to Big Monkey climbing, where they part ways.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 3.3.7"><a href="#check-off-path" title="Copy heading and permalink for Checkpoint 3.3.7" aria-label="Copy heading and permalink for Checkpoint 3.3.7">🔗</a></div>
+</article>
+<div class="para" id="page3-elimination-and-threats-34">One more thing worth noticing before we move on, since it will matter on the next page. None of these three equilibria is strict, and Little Monkey is the reason every time. In the <span class="process-math">\(w\)</span> row she is indifferent between <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{;}\)</span> in the <span class="process-math">\(c\)</span> row she is indifferent between <span class="process-math">\(ww\)</span> and <span class="process-math">\(cw\text{.}\)</span> She is never made strictly worse off by deviating.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-34" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-elimination-and-threats-35">Notice in particular that <span class="process-math">\(cw\)</span> is among her best replies in <em class="emphasis">both</em> of Big Monkey’s rows. Keep an eye on that when we start drawing boxes in Section 3.9.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.3" id="question-form-3-3" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-3-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 3.3: Elimination Revisited, and Threats and Promises Again"><a href="#page3-elimination-and-threats" title="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again" aria-label="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page2-inspection-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="page4-best-response.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
