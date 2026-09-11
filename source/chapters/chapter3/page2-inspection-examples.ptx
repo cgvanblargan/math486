@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="page2-inspection-examples" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Two Harder Examples: Water Pollution and Arguing over Marbles</title>
+  <title>Two More Examples: Water Pollution and Arguing over Marbles</title>
 
   <p>
-    Both games on this page are still solved by inspection, but each one breaks
-    something we could rely on before. Water Pollution has three players, so
-    there is no payoff matrix to draw. Arguing over Marbles gives each player
-    infinitely many strategies, so we cannot check them one at a time.
+    On this page we explore two more games and their equilibria. We start with
+    the Water Pollution game, which has three players. This makes the analysis
+    a little different because we can't just look at one table.
   </p>
 
   <assemblage xml:id="read-3-3">
@@ -16,10 +15,10 @@
       <alert>Read Section 3.3.</alert>
     </p>
     <p>
-      This one you can read straight through. The reasoning is the same
-      inspection we have been doing, just organized by how many firms purify
-      rather than by cells of a matrix. Pay attention to that organization,
-      since it is how we handle any game with more than two players.
+      Read this one and try to figure out whether each of the four
+      possibilities discussed is a Nash equilibrium before the book tells you
+      the answer! After this, the book gives further context on these
+      so-called <q>free-rider</q> problems.
     </p>
   </assemblage>
 
@@ -28,11 +27,11 @@
       <p>
         The profiles where two firms purify and one pollutes are Nash
         equilibria. In those profiles the polluter gets <m>0</m> while each
-        purifier gets <m>-1</m>. Why can a purifier not improve its own payoff
+        purifier gets <m>-1</m>. Why can't a purifier improve its own payoff
         by switching to polluting?
       </p>
     </statement>
-    <choices randomize="yes">
+    <choices randomize="no">
       <choice correct="yes">
         <statement>
           <p>
@@ -43,11 +42,11 @@
         </statement>
         <feedback>
           <p>
-            Correct, and this is the free rider problem in miniature. The
+            Correct, and this is the free-rider problem in miniature. The
             purifiers can see that the polluter is doing better than they are,
             and neither of them can do anything about it alone. Notice also
             that the profile where all three firms pollute is a Nash
-            equilibrium too, so this game has four of them.
+            equilibrium, so this game has four of them.
           </p>
         </feedback>
       </choice>
@@ -86,10 +85,7 @@
   </exercise>
 
   <p>
-    Now for the harder one. Arguing over Marbles is the first game in the
-    course where a player has infinitely many strategies to choose from, and
-    it is worth slowing down for. We are going to read the setup and then work
-    through the analysis together rather than reading it.
+    And now it's time to... argue over marbles!
   </p>
 
   <assemblage xml:id="read-3-4-setup">
@@ -107,8 +103,9 @@
   </assemblage>
 
   <p>
-    The payoff rules are easier to feel than to read. In the interactive
-    below, move either child's number and watch which rule takes over.
+    Before we begin the analysis, take a moment to make sure you understand
+    the payoff rules by exploring them with the interactive below. Move either
+    child's number and watch which rule applies.
   </p>
 
   <figure xml:id="fig-marbles-explorer">
@@ -133,18 +130,17 @@
   </figure>
 
   <p>
-    With the payoffs in hand we can hunt for Nash equilibria. There are
-    infinitely many strategy profiles, so checking them one at a time is
-    hopeless. Instead we split them into regions and handle a whole region at
-    once. The book uses three: profiles with <m>s \lt t</m>, profiles with
-    <m>s = t</m>, and profiles with <m>s \gt t</m>. Every profile lands in
-    exactly one of them.
+    Time to look for some Nash equilibria! What makes this a bit harder is
+    that there are infinitely many options for <m>s</m> and <m>t</m>. We follow
+    the book's analysis, which essentially breaks into five different cases.
+    Reading the book's reasoning can be confusing if you don't think it through
+    on your own first! So we will look at a few cases together, and you can
+    think through the rest on your own.
   </p>
 
   <p>
-    Start with <m>s \lt t</m>. That region splits further into three cases,
-    and in each one your job is the same: decide whether either child can do
-    better by changing her own number.
+    In the widget below you will explore three subcases of <m>s \lt t</m>. In
+    each, decide whether either child can do better by changing her own number.
   </p>
 
   <figure xml:id="fig-marbles-s-lt-t">
@@ -170,67 +166,36 @@
   </figure>
 
   <p>
-    That settles two of the three regions, because the game is symmetric:
-    swapping the two children turns any profile with <m>s \lt t</m> into one
-    with <m>s \gt t</m>, so the same work applies with the labels exchanged.
-    All that is left is the profiles where the two
-    children pick the same number.
-  </p>
-
-  <figure xml:id="fig-marbles-s-eq-t">
-    <caption>
-      Inspecting the profiles where both children pick the same number, so
-      that <m>s = t</m>.
-    </caption>
-    <interactive xml:id="interactive-marbles-s-eq-t"
-      iframe="ch3-graph/marbles-s-equals-t.html" width="100%" aspect="1:1">
-      <static>
+    So we have concluded that for <m>s \lt t</m>, the only Nash equilibrium is
+    <m>(s, t) = (0, 1)</m>. See if you can work out the following before
+    reading on:
+    <ul>
+      <li>
         <p>
-          A two step walkthrough of the profiles where both children choose the
-          same number and split the marbles. When that shared number is below 1,
-          either child can do better by raising her number above the other's.
-          When it is exactly 1, raising is impossible, but either child can do
-          better by dropping to 0 and giving up at once. Neither case produces a
-          Nash equilibrium, so the only equilibria of the whole game are
-          <m>(0,1)</m> and <m>(1,0)</m>.
+          For <m>t \lt s</m>, can you use the symmetry of the payoff functions
+          to quickly deduce the single equilibrium, without going through all
+          three subcases again?
         </p>
-      </static>
-    </interactive>
-  </figure>
-
-  <p>
-    It is worth naming the shape of what we just did, because it comes back
-    whenever a strategy set is too big to check profile by profile:
-  </p>
-
-  <ul>
-    <li>
-      <p>
-        Split every strategy profile into a few regions, so that each profile
-        lands in exactly one region.
-      </p>
-    </li>
-    <li>
-      <p>
-        In each region, either name a player and a specific strategy she could
-        switch to that pays her more, or show that no such switch exists.
-      </p>
-    </li>
-    <li>
-      <p>
-        Use symmetry to skip any region that is a mirror image of one you have
-        already done.
-      </p>
-    </li>
-  </ul>
-
-  <p>
-    One detail from the second bullet is easy to miss and worth stating on its
-    own. When you name the switch, the new strategy does not have to stay
-    inside the region you are working in. A region tells us which profiles are
-    being tested, not which strategies a player is allowed to pick. In the
-    case with <m>s = 0</m> above, the only move that helps Player 1 takes her
-    out of <m>s \lt t</m> entirely.
+      </li>
+      <li>
+        <p>
+          For <m>s = t</m>, do any Nash equilibria exist in the following
+          cases?
+          <ol>
+            <li>
+              <p>
+                When <m>s = t \lt 1</m>?
+              </p>
+            </li>
+            <li>
+              <p>
+                When <m>s = t = 1</m>?
+              </p>
+            </li>
+          </ol>
+        </p>
+      </li>
+    </ul>
   </p>
 
   <assemblage xml:id="read-3-4-rest">
@@ -240,9 +205,9 @@
     </p>
     <p>
       You have already done this reasoning, so move through the case analysis
-      quickly and use it to check your own work against the book's. Do read the
-      closing paragraphs properly: the book compares this game to Chicken and
-      mentions that it is a version of the War of Attrition.
+      quickly and use it to check your own work against the book's. After the
+      case analysis, you can read the book's discussion of the War of
+      Attrition.
     </p>
   </assemblage>
 
@@ -253,13 +218,7 @@
       it.</alert>
     </p>
     <p>
-      It is another inspection problem, this time with three players and
-      continuous strategies, and it uses calculus to locate the candidate
-      equilibrium. Nothing on this page depends on it, and we will meet the
-      same technique in a cleaner form in Section 3.11 when we get to Cournot's
-      duopoly. If you do read it, the piecewise payoff function caused by the
-      price support is the same kind of thing we saw in Stackelberg's second
-      model back in Section 1.10.
+      A fun econ one, if that's your thing.
     </p>
   </assemblage>
 
