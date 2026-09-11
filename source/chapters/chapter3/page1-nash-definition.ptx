@@ -30,8 +30,8 @@
 
   <p>
     We write <m>s^* = (s_1^*, \ldots, s_n^*)</m> for the strategy profile we
-    are testing to determine if it's an equilibrium. The profile <m>s^*</m> is
-    a Nash equilibrium provided:
+    are testing to determine whether it's an equilibrium. The profile
+    <m>s^*</m> is a Nash equilibrium provided:
   </p>
 
   <ul>
@@ -51,7 +51,7 @@
     </li>
     <li>
       <p>
-        and so on, down to
+        And so on, down to
       </p>
     </li>
     <li>
@@ -64,10 +64,9 @@
   </ul>
 
   <p>
-    Take the first bullet as the model for all of them. It asks: if player 1
-    alone switches to some other strategy <m>s_1</m>, while everyone else
-    stays exactly where they are, does player 1's payoff go up? If the answer
-    is never, then player 1's condition is satisfied.
+    Let's put the first bullet point into words: if player 1 alone switches
+    to some other strategy <m>s_1</m>, while everyone else stays exactly where
+    they are, then player 1's payoff <em>will not go up</em>.
   </p>
 
   <p>
@@ -85,23 +84,7 @@
         following says what that means?
       </p>
     </statement>
-    <choices randomize="yes">
-      <choice correct="yes">
-        <statement>
-          <p>
-            If the players are all at <m>s^*</m>, then no player can raise
-            their own payoff by changing strategy on their own, with everyone
-            else staying put.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Notice the two things this sentence is careful about: the
-            change is made by a single player, and everyone else is held
-            fixed.
-          </p>
-        </feedback>
-      </choice>
+    <choices randomize="no">
       <choice>
         <statement>
           <p>
@@ -116,6 +99,22 @@
             available to them somewhere in the game may not be reachable by
             anything they can do themselves. We'll see a game shortly where
             both players would rather be somewhere else entirely.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            If the players are all at <m>s^*</m>, then no player can raise
+            their own payoff by changing strategy on their own, with everyone
+            else staying put.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Notice the two things this sentence is careful about: the
+            change is made by a single player, and everyone else is held
+            fixed.
           </p>
         </feedback>
       </choice>
@@ -141,9 +140,9 @@
 
   <p>
     Section 3.1 also defines a <term>strict</term> Nash equilibrium, which is
-    the same idea with <m>\geq</m> replaced by <m>\gt</m>. Note the
-    containment: every strict Nash equilibrium is a Nash equilibrium, but not
-    every Nash equilibrium is strict.
+    the same idea with <m>\geq</m> replaced by <m>\gt</m>. Note that every
+    strict Nash equilibrium is a Nash equilibrium, but not every Nash
+    equilibrium is strict.
   </p>
 
   <exercise xml:id="check-strict-nash">
@@ -153,22 +152,7 @@
         <m>s^*</m> to be a <em>strict</em> Nash equilibrium?
       </p>
     </statement>
-    <choices randomize="yes">
-      <choice correct="yes">
-        <statement>
-          <p>
-            Each inequality in the definition is strict. That is, every
-            player, changing to any other strategy of their own while everyone
-            else stays put, gets a strictly lower payoff.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Every inequality, for every player and every alternative
-            strategy that player has.
-          </p>
-        </feedback>
-      </choice>
+    <choices randomize="no">
       <choice>
         <statement>
           <p>
@@ -186,16 +170,46 @@
           </p>
         </feedback>
       </choice>
+      <choice>
+        <statement>
+          <p>
+            It must be the only Nash equilibrium of the game.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Strictness is about the inequalities at this one profile, not
+            about how many equilibria the game has. You'll see shortly that
+            Stag Hunt has two Nash equilibria, and both of them are strict.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Each inequality in the definition is strict. That is, every
+            player, changing to any other strategy of their own while everyone
+            else stays put, gets a strictly lower payoff.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Every inequality, for every player and every alternative
+            strategy that player has.
+          </p>
+        </feedback>
+      </choice>
     </choices>
   </exercise>
 
   <p>
     Now let's actually practice using the definition. Section 3.2 finds Nash
-    equilibria by <em>inspection</em>, which means checking every strategy
-    profile against the definition. The two interactives below walk through
-    all four profiles of the first two examples in that section. The first one
-    is the familiar Prisoner's Dilemma! After you answer each question, press
-    <q>next</q> at the bottom to move on to the next strategy profile.
+    equilibria by <em>inspection</em>, which means checking the definition for
+    every strategy profile. The two widgets below will walk you through all
+    four profiles of each of the first two examples in that section. The first
+    one is the familiar Prisoner's Dilemma! After you answer each question,
+    press <q>Next profile</q> at the bottom to move on to the next strategy
+    profile.
   </p>
 
   <figure xml:id="fig-pd-inspection">
@@ -265,7 +279,7 @@
         about Nash equilibria?
       </p>
     </statement>
-    <choices randomize="yes">
+    <choices randomize="no">
       <choice correct="yes">
         <statement>
           <p>
@@ -316,21 +330,6 @@
           </p>
         </feedback>
       </choice>
-      <choice>
-        <statement>
-          <p>
-            Every game has exactly one Nash equilibrium, and it is the best
-            outcome each player can guarantee for themselves.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Stag Hunt rules this out on the first count: it has two. We'll see
-            games with more than two, and later on games with none at all in
-            pure strategies.
-          </p>
-        </feedback>
-      </choice>
     </choices>
   </exercise>
 
@@ -338,17 +337,17 @@
     Let's think about how this all relates to the strictly dominant strategies
     we saw in Chapter 2. In the Prisoner's Dilemma, <m>\text{talk}</m>
     strictly dominates <m>\text{refuse}</m> for both executives, so
-    elimination of dominated strategies would have found
-    <m>(\text{talk}, \text{talk})</m> too. This results in a strategy profile
-    that is also the Nash equilibrium!
+    eliminating dominated strategies would have found
+    <m>(\text{talk}, \text{talk})</m> too, which is exactly the Nash
+    equilibrium!
   </p>
 
   <p>
     On the other hand, Stag Hunt has no dominant strategies at all, which
     might seem odd since <m>(\text{stag}, \text{stag})</m> gives a payoff of
-    <m>(2,2)</m>, the best possible outcome for all players! Check on your own
-    using the definition that <m>\text{stag}</m> is not a dominant strategy.
-    On top of that, there is a second Nash equilibrium in Stag Hunt which
+    <m>(2,2)</m>, the best possible outcome for both players! Check on your
+    own, using the definition, that <m>\text{stag}</m> is not a dominant
+    strategy. On top of that, Stag Hunt has a second Nash equilibrium, which
     gives a worse payoff of <m>(1,1)</m> to both players.
   </p>
 
@@ -357,30 +356,32 @@
     <p>
       <alert>Read Section 3.2.</alert>
     </p>
-    <ul>
-      <li>
-        <p>
-          Subsection 3.2.1 can be read very quickly, as we just worked through
-          the Prisoner's Dilemma.
-        </p>
-      </li>
-      <li>
-        <p>
-          Subsection 3.2.2 on Stag Hunt can also be read somewhat quickly,
-          since we just worked through the math. The book does give additional
-          context and reflection, though, and it defines a <term>pure
-          coordination game</term> as a game with several Nash equilibria, one
-          of which is best for all players.
-        </p>
-      </li>
-      <li>
-        <p>
-          Read 3.2.3 (Chicken) and 3.2.4 (Battle of the Sexes) properly. Both
-          have two Nash equilibria, and as you read, pay attention to how the
-          two players feel about them.
-        </p>
-      </li>
-    </ul>
+    <p>
+      <ul>
+        <li>
+          <p>
+            Subsection 3.2.1 can be read very quickly, as we just worked
+            through the Prisoner's Dilemma.
+          </p>
+        </li>
+        <li>
+          <p>
+            Subsection 3.2.2 on Stag Hunt can also be read somewhat quickly,
+            since we just worked through the math. The book does give
+            additional context and reflection, though, and it defines a
+            <term>pure coordination game</term> as a game with several Nash
+            equilibria, one of which is best for all players.
+          </p>
+        </li>
+        <li>
+          <p>
+            Read Subsections 3.2.3 (Chicken) and 3.2.4 (Battle of the Sexes)
+            carefully. Both have two Nash equilibria, and as you read, pay
+            attention to how the two players feel about them.
+          </p>
+        </li>
+      </ul>
+    </p>
   </assemblage>
 
   <exercise xml:id="check-chicken-bos">
@@ -390,7 +391,23 @@
         equilibria. What separates the first two games from Stag Hunt?
       </p>
     </statement>
-    <choices randomize="yes">
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            The equilibria in Chicken and Battle of the Sexes are not strict,
+            while the ones in Stag Hunt are.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            All of these equilibria are strict. In Battle of the Sexes, for
+            instance, if Alice leaves the concert while Bob stays there, her
+            payoff drops from <m>2</m> to <m>0</m>, a strict decrease.
+            Strictness isn't what distinguishes these games.
+          </p>
+        </feedback>
+      </choice>
       <choice correct="yes">
         <statement>
           <p>
@@ -406,37 +423,6 @@
             and Battle of the Sexes they disagree, so there's a genuine
             conflict over which equilibrium should happen. That's why Stag
             Hunt is called a pure coordination game and the other two are not.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            Chicken and Battle of the Sexes have two Nash equilibria, while
-            Stag Hunt has only one.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Stag Hunt has two: <m>(\text{stag}, \text{stag})</m> and
-            <m>(\text{hare}, \text{hare})</m>. You verified both of them in
-            the interactive above.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            The equilibria in Chicken and Battle of the Sexes are not strict,
-            while the ones in Stag Hunt are.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            All of these equilibria are strict. In Battle of the Sexes, for
-            instance, if Alice leaves the concert while Bob stays there, her
-            payoff drops from <m>2</m> to <m>0</m>, a strict decrease.
-            Strictness isn't what distinguishes these games.
           </p>
         </feedback>
       </choice>
