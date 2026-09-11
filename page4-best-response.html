@@ -140,21 +140,17 @@ eBookConfig.enable_chatcodes =  false;
 <h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finding Nash Equilibria Using Best Response</span>
 </h2>
-<div class="para" id="page4-best-response-2">So far we have found Nash equilibria two ways: by inspecting profiles one at a time, and by eliminating dominated strategies and hoping the theorems from the last page let us keep what survives. This page gives us the method we will use for the rest of the course. It is faster than inspection, it never loses an equilibrium the way weak elimination can, and once you have the hang of it you can read the answer off a matrix in about a minute.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-2">We start with a reading to explore another way to find Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="assemblage assemblage-like" id="read-3-8"><h3 class="heading"><span class="title">Section 3.8, Finding Nash Equilibria Using Best Response.</span></h3>
 <div class="para" id="read-3-8-2">
-<em class="alert">Read Section 3.8.</em> It is two pages and mostly notation.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read Section 3.8.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-3-8-3">An equivalent way to think of a strategy profile that is a Nash equilibrium is that each player’s strategy is a <em class="emphasis">best response</em> to the rest of the strategy profile.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 3.8, Finding Nash Equilibria Using Best Response"><a href="#read-3-8" title="Copy heading and permalink for Reading: Section 3.8, Finding Nash Equilibria Using Best Response" aria-label="Copy heading and permalink for Reading: Section 3.8, Finding Nash Equilibria Using Best Response">🔗</a></div>
 </article>
-<div class="para" id="page4-best-response-4">Two notational points before we go on, since the book writes things out longhand and we are going to compress them.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-5">First, recall <span class="process-math">\(s_{-i}\)</span> from the first page of this chapter. It means the strategies of everybody except player <span class="process-math">\(i\text{.}\)</span> On page 1 we only ever used it with a star, as <span class="process-math">\(s^*_{-i}\text{,}\)</span> because we were always talking about the other players sitting at their equilibrium strategies. Here we need the plain version too: <span class="process-math">\(s_{-i}\)</span> is just some fixed choice by everyone else, not necessarily an equilibrium one.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-6">Second, the book writes player 1’s best response set as <span class="process-math">\(B_1(s_2, \ldots, s_n)\text{,}\)</span> and for a general player <span class="process-math">\(i\)</span> it would have to write <span class="process-math">\(B_i(s_1, \ldots, s_{i-1}, s_{i+1}, \ldots, s_n)\text{,}\)</span> with an awkward gap where <span class="process-math">\(s_i\)</span> would go. We will write <span class="process-math">\(B_i(s_{-i})\)</span> instead. It means exactly the same thing, and it is the same compression we used on page 1 when we shortened the definition of a Nash equilibrium. Do not go looking for <span class="process-math">\(B_i(s_{-i})\)</span> in the textbook; that notation is ours, not theirs.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-7">Now the definition itself. The key thing to notice is that a best response is not defined for a player on their own. It is only defined once you have fixed what everyone else is doing. Given that fixed choice <span class="process-math">\(s_{-i}\text{,}\)</span> player <span class="process-math">\(i\)</span>’s best responses are the strategies that give player <span class="process-math">\(i\)</span> the highest payoff available against it. There may be more than one, since two strategies can tie for the highest payoff. That is why <span class="process-math">\(B_i(s_{-i})\)</span> is a <em class="emphasis">set</em>, and why the book calls the mapping a best response <dfn class="terminology">correspondence</dfn> rather than a function.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-4">Before moving on, let’s make sure we understand both the conceptual meaning of this and the notation!<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-best-response-words"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -164,18 +160,18 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-best-response-words-1-1">In words, what is a best response for player <span class="process-math">\(i\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-best-response-words-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-words" data-multipleanswers="false" data-random="">
-<li data-component="answer" id="rs-check-best-response-words_opt_a" data-correct="">
-<div class="para" id="check-best-response-words-2-1-1-1">Hold the other players’ strategies fixed. Player <span class="process-math">\(i\)</span>’s best responses to that are the strategies giving player <span class="process-math">\(i\)</span> the highest payoff available against it, and there may be more than one if some of them tie.</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-words" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-best-response-words_opt_a">
+<div class="para" id="check-best-response-words-2-1-1-1">Hold the other players’ strategies fixed. Player <span class="process-math">\(i\)</span>’s best response is <em class="emphasis">the</em> strategy giving player <span class="process-math">\(i\)</span> the highest payoff against it.</div>
 </li>
 <li data-component="feedback" id="rs-check-best-response-words_opt_a">
-<div class="para" id="check-best-response-words-2-1-2-1">Correct. Both halves matter: a best response only makes sense relative to a fixed <span class="process-math">\(s_{-i}\text{,}\)</span> and there can be several of them at once.</div>
+<div class="para" id="check-best-response-words-2-1-2-1">Almost, but the word “the” is misleading. Nothing stops two strategies from tying for the highest payoff, in which case both are best responses. You will see exactly this happen in the next section, and it is the reason <span class="process-math">\(B_i(s_{-i})\)</span> is a set.</div>
 </li>
-<li data-component="answer" id="rs-check-best-response-words_opt_b">
-<div class="para" id="check-best-response-words-2-2-1-1">Hold the other players’ strategies fixed. Player <span class="process-math">\(i\)</span>’s best response is <em class="emphasis">the</em> strategy giving player <span class="process-math">\(i\)</span> the highest payoff against it.</div>
+<li data-component="answer" id="rs-check-best-response-words_opt_b" data-correct="">
+<div class="para" id="check-best-response-words-2-2-1-1">Hold the other players’ strategies fixed. Player <span class="process-math">\(i\)</span>’s best responses to that are the strategies giving player <span class="process-math">\(i\)</span> the highest payoff available against it, and there may be more than one if some of them tie.</div>
 </li>
 <li data-component="feedback" id="rs-check-best-response-words_opt_b">
-<div class="para" id="check-best-response-words-2-2-2-1">Almost, but the word “the” is doing damage. Nothing stops two strategies from tying for the highest payoff, in which case both are best responses. You will see exactly this happen in the next section, and it is the reason <span class="process-math">\(B_i(s_{-i})\)</span> is a set.</div>
+<div class="para" id="check-best-response-words-2-2-2-1">Correct. Both halves matter: a best response only makes sense relative to a fixed <span class="process-math">\(s_{-i}\text{,}\)</span> and there can be several of them at once.</div>
 </li>
 <li data-component="answer" id="rs-check-best-response-words_opt_c">
 <div class="para" id="check-best-response-words-2-3-1-1">The strategy that gives player <span class="process-math">\(i\)</span> the highest payoff no matter what the other players do.</div>
@@ -187,12 +183,18 @@ eBookConfig.enable_chatcodes =  false;
 </div></div>
 <div class="autopermalink" data-description="Checkpoint 3.4.1"><a href="#check-best-response-words" title="Copy heading and permalink for Checkpoint 3.4.1" aria-label="Copy heading and permalink for Checkpoint 3.4.1">🔗</a></div>
 </article>
-<div class="para" id="page4-best-response-9">The reason we care is the sentence at the end of Section 3.8, which is worth stating on its own because it is what every method on this page rests on. A strategy profile <span class="process-math">\(s^* = (s_1^*, \ldots, s_n^*)\)</span> is a Nash equilibrium <em class="emphasis">if and only if</em> every player’s own piece of it is a best response to what everyone else is doing:<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-6">It is also worth reviewing the notation <span class="process-math">\(s_{-i}\)</span> from earlier in this chapter! It means the strategies of everybody <em class="emphasis">except</em> player <span class="process-math">\(i\text{.}\)</span> So when we examine a Nash equilibrium <span class="process-math">\((s_1^*, s_2^*, \ldots, s_n^*)\text{,}\)</span> we have <span class="process-math">\(s^*_{-i} = (s_1^*, \ldots, s_{i-1}^*, s_{i+1}^*, \ldots, s_n^*)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="page4-best-response-10">
-<span class="process-math">\(s_i^* \in B_i(s^*_{-i})\)</span> for every player <span class="process-math">\(i = 1, \ldots, n\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-7">Furthermore, we can use a more concise notation for best response! For example, <span class="process-math">\(B_1(s_{-1})\)</span> denotes the set of player 1’s best responses when the other players’ strategies are fixed at some specific profile <span class="process-math">\(s_{-1}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="page4-best-response-11">This is not a new fact so much as the definition of a Nash equilibrium read in a different order. Saying that player <span class="process-math">\(i\)</span> cannot improve by deviating from <span class="process-math">\(s_i^*\)</span> is the same as saying <span class="process-math">\(s_i^*\)</span> is already as good as anything else available against <span class="process-math">\(s^*_{-i}\text{,}\)</span> which is what being a best response means. What is new is that it turns finding equilibria into a checklist: work out each player’s best responses separately, then look for the profiles where every player’s condition holds at once.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="page4-best-response-8">
+<div class="para">With this notation, we can write the book’s formulation of Nash equilibrium in terms of best response even more concisely! That is, <span class="process-math">\(s^* = (s_1^*, \ldots, s_n^*)\)</span> is a Nash equilibrium if and only if</div>
+<div class="displaymath process-math" id="page4-best-response-8-2">
+\begin{equation*}
+s_i^* \in B_i(s^*_{-i}) \text{ for every player } i = 1, \ldots, n.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-best-response-nash"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -202,43 +204,45 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-best-response-nash-1-1">In words, how does best response connect to Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-best-response-nash-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-nash" data-multipleanswers="false" data-random="">
-<li data-component="answer" id="rs-check-best-response-nash_opt_a" data-correct="">
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-best-response-nash" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-best-response-nash_opt_a">
 <div class="para" id="check-best-response-nash-2-1-1-1">
-<span class="process-math">\(s^*\)</span> is a Nash equilibrium exactly when every player’s strategy <span class="process-math">\(s_i^*\)</span> is a best response to the other players’ strategies <span class="process-math">\(s^*_{-i}\text{.}\)</span>
-</div>
+<span class="process-math">\(s^*\)</span> is a Nash equilibrium exactly when every player’s strategy <span class="process-math">\(s_i^*\)</span> is a best response to <span class="process-math">\(s_{-i}\)</span> for every possible choice <span class="process-math">\(s_{-i}\)</span> by the other players.</div>
 </li>
 <li data-component="feedback" id="rs-check-best-response-nash_opt_a">
-<div class="para" id="check-best-response-nash-2-1-2-1">Correct, and note that it has to hold for <em class="emphasis">every</em> player at the same time. One player being happy is not enough.</div>
+<div class="para" id="check-best-response-nash-2-1-2-1">This is the dominant strategy condition again, and it is much stronger than what a Nash equilibrium requires. The Nash condition only asks about one particular <span class="process-math">\(s_{-i}\text{,}\)</span> namely <span class="process-math">\(s^*_{-i}\text{.}\)</span> This is the same distinction the checkpoint on page 1 was drawing, now in best response language.</div>
 </li>
 <li data-component="answer" id="rs-check-best-response-nash_opt_b">
 <div class="para" id="check-best-response-nash-2-2-1-1">
-<span class="process-math">\(s^*\)</span> is a Nash equilibrium exactly when every player’s strategy <span class="process-math">\(s_i^*\)</span> is a best response to <span class="process-math">\(s_{-i}\)</span> for every possible choice <span class="process-math">\(s_{-i}\)</span> by the other players.</div>
-</li>
-<li data-component="feedback" id="rs-check-best-response-nash_opt_b">
-<div class="para" id="check-best-response-nash-2-2-2-1">This is the dominant strategy condition again, and it is much stronger than what a Nash equilibrium requires. The Nash condition only asks about one particular <span class="process-math">\(s_{-i}\text{,}\)</span> namely <span class="process-math">\(s^*_{-i}\text{.}\)</span> This is the same distinction the checkpoint on page 1 was drawing, now in best response language.</div>
-</li>
-<li data-component="answer" id="rs-check-best-response-nash_opt_c">
-<div class="para" id="check-best-response-nash-2-3-1-1">
 <span class="process-math">\(s^*\)</span> is a Nash equilibrium exactly when at least one player’s strategy <span class="process-math">\(s_i^*\)</span> is a best response to <span class="process-math">\(s^*_{-i}\text{.}\)</span>
 </div>
 </li>
+<li data-component="feedback" id="rs-check-best-response-nash_opt_b">
+<div class="para" id="check-best-response-nash-2-2-2-1">Not enough. If only some players are best responding, the ones who are not can improve their payoff by switching, and that is exactly what a Nash equilibrium forbids. Every player’s condition has to hold simultaneously.</div>
+</li>
+<li data-component="answer" id="rs-check-best-response-nash_opt_c" data-correct="">
+<div class="para" id="check-best-response-nash-2-3-1-1">
+<span class="process-math">\(s^*\)</span> is a Nash equilibrium exactly when every player’s strategy <span class="process-math">\(s_i^*\)</span> is a best response to the other players’ strategies <span class="process-math">\(s^*_{-i}\text{.}\)</span>
+</div>
+</li>
 <li data-component="feedback" id="rs-check-best-response-nash_opt_c">
-<div class="para" id="check-best-response-nash-2-3-2-1">Not enough. If only some players are best responding, the ones who are not can improve their payoff by switching, and that is exactly what a Nash equilibrium forbids. Every player’s condition has to hold simultaneously.</div>
+<div class="para" id="check-best-response-nash-2-3-2-1">Correct, and note that it has to hold for <em class="emphasis">every</em> player at the same time. One player being happy is not enough.</div>
 </li>
 </ul>
 </div></div>
 <div class="autopermalink" data-description="Checkpoint 3.4.2"><a href="#check-best-response-nash" title="Copy heading and permalink for Checkpoint 3.4.2" aria-label="Copy heading and permalink for Checkpoint 3.4.2">🔗</a></div>
 </article>
+<div class="para" id="page4-best-response-10">Now for a quick example from the book demonstrating this.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="assemblage assemblage-like" id="read-3-9"><h3 class="heading"><span class="title">Section 3.9, Big Monkey and Little Monkey 5.</span></h3>
 <div class="para" id="read-3-9-2">
 <em class="alert">Read Section 3.9.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-9-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-3-9-3">This is the same matrix you have now seen in Chapter 2 and on the last page, so you can spend your attention on the boxes rather than the game. Pay attention to how the boxes are drawn, because your homework will ask you to produce them and will explicitly ask you <em class="emphasis">not</em> to write out your reasoning in words.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-3-9-3">This is the same matrix you have now seen in Chapter 2 and on the last page, so you can spend your attention on the boxes rather than the game. Pay attention to how the boxes are drawn, because your homework will ask you to analyze games in this way.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-9-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 3.9, Big Monkey and Little Monkey 5"><a href="#read-3-9" title="Copy heading and permalink for Reading: Section 3.9, Big Monkey and Little Monkey 5" aria-label="Copy heading and permalink for Reading: Section 3.9, Big Monkey and Little Monkey 5">🔗</a></div>
 </article>
-<div class="para" id="page4-best-response-14">Here is the matrix once more, unboxed, so you can work along.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-12">For reference, here is the matrix once more (unboxed).<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <figure class="table table-like" id="table-bmlm-best-response"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big Monkey and Little Monkey in normal form, Big Monkey first<div class="autopermalink" data-description="Table 3.4.3: Big Monkey and Little Monkey in normal form, Big Monkey first"><a href="#table-bmlm-best-response" title="Copy heading and permalink for Table 3.4.3: Big Monkey and Little Monkey in normal form, Big Monkey first" aria-label="Copy heading and permalink for Table 3.4.3: Big Monkey and Little Monkey in normal form, Big Monkey first">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
@@ -264,11 +268,7 @@ eBookConfig.enable_chatcodes =  false;
 </tr>
 </table></div>
 </figure>
-<div class="para" id="page4-best-response-16">Let’s do one of Little Monkey’s best responses carefully, because it is the interesting one. Suppose Big Monkey plays <span class="process-math">\(c\text{.}\)</span> To find Little Monkey’s best responses to that, we hold <span class="process-math">\(c\)</span> fixed and look only at the <span class="process-math">\(c\)</span> row. Her payoffs are the second entries, so reading across we get <span class="process-math">\(4, 3, 4, 3\text{.}\)</span> The highest is <span class="process-math">\(4\text{,}\)</span> and it occurs twice, under <span class="process-math">\(ww\)</span> and under <span class="process-math">\(cw\text{.}\)</span> So <em class="emphasis">both</em> of those are best responses, and we box her <span class="process-math">\(4\)</span> in each of those two cells.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-17">That tie is not a quirk of this example, it is the whole reason for the word “correspondence.” Little Monkey’s best response to <span class="process-math">\(c\)</span> is a set with two things in it, so there is no way to write it as a function that returns one strategy. The book points out that Big Monkey’s best response correspondence, by contrast, happens to be a function here, since he never ties.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-18">Big Monkey’s direction works the same way with the roles of rows and columns swapped. His strategies are the rows, so to find his best response you fix one of Little Monkey’s <em class="emphasis">columns</em> and read down it, comparing his payoffs, which are the first entries. Against <span class="process-math">\(ww\)</span> he compares <span class="process-math">\(0\)</span> and <span class="process-math">\(4\text{,}\)</span> so he climbs, and we box the <span class="process-math">\(4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-14">The main thing to be careful about is the bookkeeping: whether you read across a row or down a column, and which entry of each payoff pair you compare. It helps to first ask yourself whose best response you are finding. You move through <em class="emphasis">that</em> player’s options while the other player’s strategy stays fixed, and you compare only <em class="emphasis">that</em> player’s payoffs.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-box-big-monkey"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
@@ -278,7 +278,7 @@ eBookConfig.enable_chatcodes =  false;
 <div class="para" id="check-box-big-monkey-1-1">To find Big Monkey’s best response to Little Monkey’s strategy <span class="process-math">\(cw\text{,}\)</span> what do you do, and what do you box?<div class="autopermalink" data-description="Paragraph"><a href="#check-box-big-monkey-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-box-big-monkey" data-multipleanswers="false" data-random="">
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-box-big-monkey" data-multipleanswers="false">
 <li data-component="answer" id="rs-check-box-big-monkey_opt_a" data-correct="">
 <div class="para" id="check-box-big-monkey-2-1-1-1">Look down the <span class="process-math">\(cw\)</span> column, compare Big Monkey’s payoffs <span class="process-math">\(9\)</span> and <span class="process-math">\(4\text{,}\)</span> and box the <span class="process-math">\(9\)</span> in the <span class="process-math">\(w\)</span> row.</div>
 </li>
@@ -303,68 +303,62 @@ eBookConfig.enable_chatcodes =  false;
 </div></div>
 <div class="autopermalink" data-description="Checkpoint 3.4.4"><a href="#check-box-big-monkey" title="Copy heading and permalink for Checkpoint 3.4.4" aria-label="Copy heading and permalink for Checkpoint 3.4.4">🔗</a></div>
 </article>
-<div class="para" id="page4-best-response-20">Once every box is drawn, the payoff is immediate. A cell is a Nash equilibrium exactly when <em class="emphasis">every</em> entry in it is boxed, because that is what our condition <span class="process-math">\(s_i^* \in B_i(s^*_{-i})\)</span> for all <span class="process-math">\(i\)</span> looks like on a matrix. A cell where only some entries are boxed means at least one player is not best responding, and that player would rather switch.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-16">Now let’s check that you understand how the “best response boxes” relate to Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-all-boxed"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.4.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-all-boxed-1-1">Draw all the boxes for the matrix above, then use them. Which of these cells is a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-all-boxed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-all-boxed-1-1">Once all the best response boxes are drawn in a matrix, how can you tell which cells are Nash equilibria?<div class="autopermalink" data-description="Paragraph"><a href="#check-all-boxed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-all-boxed" data-multipleanswers="false" data-random="">
-<li data-component="answer" id="rs-check-all-boxed_opt_a" data-correct="">
-<div class="para" id="check-all-boxed-2-1-1-1">
-<span class="process-math">\((c, ww)\text{,}\)</span> with payoffs <span class="process-math">\((4, 4)\text{.}\)</span>
-</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-all-boxed" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-all-boxed_opt_a">
+<div class="para" id="check-all-boxed-2-1-1-1">A cell is a Nash equilibrium when at least one payoff in it is boxed.</div>
 </li>
 <li data-component="feedback" id="rs-check-all-boxed_opt_a">
-<div class="para" id="check-all-boxed-2-1-2-1">Correct. In the <span class="process-math">\(ww\)</span> column Big Monkey’s <span class="process-math">\(4\)</span> beats his <span class="process-math">\(0\text{,}\)</span> so it is boxed. In the <span class="process-math">\(c\)</span> row Little Monkey’s <span class="process-math">\(4\)</span> ties for her highest, so it is boxed too. Both entries boxed, so it is a Nash equilibrium, and it is the threat equilibrium from the last page.</div>
-</li>
-<li data-component="answer" id="rs-check-all-boxed_opt_b">
-<div class="para" id="check-all-boxed-2-2-1-1">
-<span class="process-math">\((c, wc)\text{,}\)</span> with payoffs <span class="process-math">\((5, 3)\text{.}\)</span>
+<div class="para" id="check-all-boxed-2-1-2-1">Not enough. An unboxed payoff means that player is not best responding, so they would rather switch. For example, in <span class="process-math">\((c, wc)\)</span> Big Monkey’s <span class="process-math">\(5\)</span> is boxed, but Little Monkey’s <span class="process-math">\(3\)</span> is not, and she would rather switch to <span class="process-math">\(ww\)</span> or <span class="process-math">\(cw\text{.}\)</span>
 </div>
+</li>
+<li data-component="answer" id="rs-check-all-boxed_opt_b" data-correct="">
+<div class="para" id="check-all-boxed-2-2-1-1">A cell is a Nash equilibrium exactly when <em class="emphasis">every</em> payoff in it is boxed.</div>
 </li>
 <li data-component="feedback" id="rs-check-all-boxed_opt_b">
-<div class="para" id="check-all-boxed-2-2-2-1">Big Monkey’s <span class="process-math">\(5\)</span> is indeed boxed, and it is the largest payoff he can get anywhere in this matrix. But look at Little Monkey. In the <span class="process-math">\(c\)</span> row her payoffs are <span class="process-math">\(4, 3, 4, 3\text{,}\)</span> so her <span class="process-math">\(3\)</span> here is not boxed and she would rather switch to <span class="process-math">\(ww\)</span> or <span class="process-math">\(cw\text{.}\)</span> A big payoff for one player is not what makes a cell an equilibrium; every entry has to be boxed.</div>
+<div class="para" id="check-all-boxed-2-2-2-1">Correct. A boxed payoff means that player is best responding to what the others are doing in that cell, so a fully boxed cell is one where every player is best responding at once.</div>
 </li>
 <li data-component="answer" id="rs-check-all-boxed_opt_c">
-<div class="para" id="check-all-boxed-2-3-1-1">
-<span class="process-math">\((c, cw)\text{,}\)</span> with payoffs <span class="process-math">\((4, 4)\text{.}\)</span>
-</div>
+<div class="para" id="check-all-boxed-2-3-1-1">A cell is a Nash equilibrium when its boxed payoffs are the largest ones in the matrix.</div>
 </li>
 <li data-component="feedback" id="rs-check-all-boxed_opt_c">
-<div class="para" id="check-all-boxed-2-3-2-1">Little Monkey’s <span class="process-math">\(4\)</span> is boxed here, since it ties for her highest in the <span class="process-math">\(c\)</span> row. But in the <span class="process-math">\(cw\)</span> column Big Monkey’s <span class="process-math">\(4\)</span> loses to the <span class="process-math">\(9\)</span> above it, so his entry is not boxed and he would rather wait. Compare this with <span class="process-math">\((c, ww)\text{,}\)</span> which has the same payoffs <span class="process-math">\((4, 4)\)</span> but is an equilibrium. The payoffs alone cannot tell you; the boxes can.</div>
+<div class="para" id="check-all-boxed-2-3-2-1">The size of the payoffs is not what matters. For example, <span class="process-math">\((c, ww)\)</span> and <span class="process-math">\((c, cw)\)</span> both have payoffs <span class="process-math">\((4, 4)\text{,}\)</span> but only <span class="process-math">\((c, ww)\)</span> is a Nash equilibrium: in the <span class="process-math">\(cw\)</span> column, Big Monkey’s <span class="process-math">\(4\)</span> loses to the <span class="process-math">\(9\)</span> above it, so it is not boxed. The payoffs alone cannot tell you; the boxes can.</div>
 </li>
 </ul>
 </div></div>
 <div class="autopermalink" data-description="Checkpoint 3.4.5"><a href="#check-all-boxed" title="Copy heading and permalink for Checkpoint 3.4.5" aria-label="Copy heading and permalink for Checkpoint 3.4.5">🔗</a></div>
 </article>
+<div class="para" id="page4-best-response-18">This works because a boxed payoff means that player is best responding to the other player’s strategy. So a cell with every payoff boxed is one where <em class="emphasis">every</em> player is best responding at the same time, which is exactly our condition <span class="process-math">\(s_i^* \in B_i(s^*_{-i})\)</span> for every player <span class="process-math">\(i\text{,}\)</span> drawn on a matrix.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-best-response-19">Time to read another example, this time with three players!<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="assemblage assemblage-like" id="read-3-10"><h3 class="heading"><span class="title">Section 3.10, Water Pollution 2.</span></h3>
 <div class="para" id="read-3-10-2">
 <em class="alert">Read Section 3.10.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-10-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-3-10-3">This is the same technique with three players instead of two, and there is nothing new to learn beyond the bookkeeping. It is worth reading closely anyway, because this is the exact format your homework will use.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-3-10-3">This is the same technique with three players instead of two, so it takes some more careful bookkeeping. See if you can do the boxing yourself on Table 3.1, then check your work against the book’s Table 3.2.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-10-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 3.10, Water Pollution 2"><a href="#read-3-10" title="Copy heading and permalink for Reading: Section 3.10, Water Pollution 2" aria-label="Copy heading and permalink for Reading: Section 3.10, Water Pollution 2">🔗</a></div>
 </article>
-<div class="para" id="page4-best-response-23">One thing about the three player case is worth saying out loud, because it is the only part of the method that is genuinely different and it is easy to get wrong. With three players the game is drawn as two matrices, one for each of player 3’s strategies. Players 1 and 2 work exactly as before, inside whichever matrix you are looking at: player 1 reads down columns, player 2 reads across rows, both staying in a single table.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-24">Player 3 is the exception. Fixing the strategies of players 1 and 2 means fixing a <em class="emphasis">cell position</em>, and player 3’s two options are the two tables. So you compare the third entry of the same cell in the top table against the third entry of that cell in the bottom table, and box the larger. That comparison runs between the tables rather than inside one of them. As always, a profile is a Nash equilibrium when all three entries in its cell are boxed.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page4-best-response-21">The only part of the method that should feel different here is Firm 3. Once you fix strategies for Firm 1 and Firm 2, you compare Firm 3’s payoffs in that same cell position across the two tables (moving between the two tables while staying in a fixed position is how you change Firm 3’s strategy!!).<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="assemblage assemblage-like" id="read-3-11"><h3 class="heading"><span class="title">Section 3.11, Cournot Duopoly.</span></h3>
 <div class="para" id="read-3-11-2">
-<em class="alert">Read Section 3.11.</em> Read it for the idea rather than the algebra; you will not be asked to reproduce this computation.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Skim Section 3.11.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-11-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-3-11-3">You can read this one as carefully (or not!) as you like. It explores best responses and Nash equilibria in the context of a continuous game, but we aren’t going into this topic right now.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-11-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 3.11, Cournot Duopoly"><a href="#read-3-11" title="Copy heading and permalink for Reading: Section 3.11, Cournot Duopoly" aria-label="Copy heading and permalink for Reading: Section 3.11, Cournot Duopoly">🔗</a></div>
-</article>
-<div class="para" id="page4-best-response-26">This section closes a loop we opened at the end of page 2. When we did the Tobacco Market we found ourselves taking partial derivatives and setting them to zero, and it was not entirely clear what we were computing. Now it is: we were finding best responses. In a game with finitely many strategies you find a best response by comparing entries in a column, and in a game where strategies are real numbers you find it with calculus, but it is the same question either way.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page4-best-response-27">The picture is the thing to take away. Each firm’s best response is a function of the other firm’s quantity, so each one graphs as a curve, and a Nash equilibrium is a point where both players are simultaneously best responding, which is a point where the curves cross. That is the same condition <span class="process-math">\(s_i^* \in B_i(s^*_{-i})\)</span> for all <span class="process-math">\(i\)</span> that we have been checking with boxes all page, drawn in the plane instead of in a matrix. Boxes work for finite games; the definition itself works for everything.<div class="autopermalink" data-description="Paragraph"><a href="#page4-best-response-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.4" id="question-form-3-4" style="width:600px; height:300px; display: block; "></iframe></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.4" id="question-form-3-4" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-3-4.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
 <div class="autopermalink" data-description="Section 3.4: Finding Nash Equilibria Using Best Response"><a href="#page4-best-response" title="Copy heading and permalink for Section 3.4: Finding Nash Equilibria Using Best Response" aria-label="Copy heading and permalink for Section 3.4: Finding Nash Equilibria Using Best Response">🔗</a></div>
 </section>
