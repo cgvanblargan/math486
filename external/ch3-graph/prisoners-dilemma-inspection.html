@@ -120,7 +120,7 @@
 <div id="fit">
   <div class="step-bar">
     <span id="step-text">Profile 1 of 4</span>
-    <span>Inspection means checking every profile, not just the promising ones.</span>
+    <span>Inspection means checking every profile</span>
   </div>
 
   <svg id="board" width="660" height="305" viewBox="0 0 660 305" role="group"
@@ -344,10 +344,7 @@
     if (s.kind === "symmetry") {
       var m = s.mirror;
       stem = "This profile is the mirror image of " + profName(m[0], m[1]) +
-             ", which you just checked. The game is symmetric: the two executives " +
-             "have the same strategies and face the same payoffs, so swapping their " +
-             "roles turns one profile into the other. You should be able to name the " +
-             "answer without redoing the arithmetic.";
+             ", which you just checked. The reasoning should be similar." ;
       opts = symmetryOptions(s.i, s.j);
     } else {
       stem = "Suppose the executives are at this profile. Is either one better off " +
