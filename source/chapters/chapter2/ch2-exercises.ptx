@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 2 exercises.
+
+     One flat list, numbered 1-4 in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch2-exercises">
+  <title>Exercises</title>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-hawk-dove">
+    <title>Hawk and Dove</title>
+
+    <introduction>
+      <p>
+        The Hawk-Dove game is a two-player game used to analyze animal
+        behavior in territorial conflicts among animals of the same
+        species. There are two strategies available to each player.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            <term>hawk</term> (<m>h</m>): fight aggressively until you
+            prevail or are injured.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>dove</term> (<m>d</m>): bluff by displaying, but retreat
+            if the other player begins to fight.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        We use two parameters, both positive real numbers.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            <m>v</m>: the value of the territory or object being fought
+            over.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>w</m>: the cost of getting injured in fighting.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        This leads to the payoff matrix shown below. The factor of
+        <m>\frac{1}{2}</m> when both players use the same strategy
+        indicates an expected payoff, assuming each player has an equal
+        chance of prevailing.
+      </p>
+
+      <table xml:id="table-hw-hawk-dove">
+        <title>Hawk-Dove payoff matrix</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>h</m></cell>
+            <cell>Player 2: <m>d</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>h</m></cell>
+            <cell><m>\left(\frac{v-w}{2},\; \frac{v-w}{2}\right)</m></cell>
+            <cell><m>(v,\; 0)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>d</m></cell>
+            <cell><m>(0,\; v)</m></cell>
+            <cell><m>\left(\frac{v}{2},\; \frac{v}{2}\right)</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        Throughout this exercise, assume that <m>w</m> is some fixed
+        positive value, and that <m>v</m> can be any positive real number.
+        In particular, <m>v</m> need not be an integer or even a rational
+        number.
+      </p>
+
+      <p>
+        Your solutions should demonstrate your reasoning. It is not enough
+        to state an answer with no explanation, or without some work that
+        demonstrates your thinking.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-hawk-dove-inequalities">
+      <statement>
+        <p>
+          Use payoff notation to indicate the two inequalities that must be
+          satisfied so that <m>d</m> is strictly dominated by <m>h</m> for
+          player 1. Since the game is symmetric, we only need to consider
+          the perspective of player 1.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-strict">
+      <statement>
+        <p>
+          Use the result from part (a) to find all values of <m>v > 0</m>
+          such that <m>d</m> is strictly dominated by <m>h</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-none">
+      <statement>
+        <p>
+          Find all values of <m>v > 0</m> such that the resulting game has
+          no dominated strategy, either strictly or weakly.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-weak">
+      <statement>
+        <p>
+          Find all values of <m>v > 0</m> such that the resulting game has
+          a strategy that is weakly, but not strictly, dominated. Indicate
+          which strategy is dominated.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-three-player-iesds">
+    <title>A Three Player Game in Normal Form</title>
+
+    <statement>
+      <p>
+        In this exercise, we consider a three player game in normal form
+        where each player has two strategies <m>A</m> and <m>B</m>. That
+        is, <m>S_i = \{A, B\}</m> for each player <m>i</m>.
+      </p>
+
+      <p>
+        We can represent such a game using two tables: one for when player
+        3 plays <m>A</m>, and a second for when player 3 plays <m>B</m>.
+        These tables are shown below, with payoffs listed in the usual
+        order, (player 1, player 2, player 3).
+      </p>
+
+      <table xml:id="table-hw-three-player-a">
+        <title>Player 3 plays <m>A</m></title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>A</m></cell>
+            <cell>Player 2: <m>B</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>A</m></cell>
+            <cell>(20, 10, 15)</cell>
+            <cell>(5, 30, 20)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>B</m></cell>
+            <cell>(10, 15, 10)</cell>
+            <cell>(0, 10, 30)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <table xml:id="table-hw-three-player-b">
+        <title>Player 3 plays <m>B</m></title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>A</m></cell>
+            <cell>Player 2: <m>B</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>A</m></cell>
+            <cell>(20, 20, 10)</cell>
+            <cell>(25, 15, 15)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>B</m></cell>
+            <cell>(15, 20, 5)</cell>
+            <cell>(30, 25, 20)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        This is a single normal form game represented using two tables.
+        These are not two separate games.
+      </p>
+
+      <p>
+        Analyze this game using iterated elimination of strictly dominated
+        strategies. Be sure to state the order in which strategies are
+        eliminated. If you find a dominant strategy equilibrium, state that
+        equilibrium.
+      </p>
+    </statement>
+
+    <hint>
+      <p>
+        When stating a dominant strategy equilibrium, we need to state the
+        strategy profile. The strategy profile determines the payoffs, but
+        it is not equivalent to the payoffs.
+      </p>
+    </hint>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-tragedy-commons">
+    <title>The Common Pasture</title>
+
+    <introduction>
+      <p>
+        Prior to the British agricultural revolution in the 17th century,
+        most agriculture in Britain occurred on common land.
+      </p>
+
+      <p>
+        Consider a common pasture where <m>N</m> individuals graze their
+        cows. The pasture can productively support <m>kN</m> cows. If the
+        total number of cows exceeds <m>kN</m>, the pasture becomes
+        degraded and will support fewer cows.
+      </p>
+
+      <p>
+        Suppose that each individual currently grazes <m>k</m> cows. We
+        will assume that each individual has two strategies available.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            The <term>responsible</term> strategy (<m>R</m>): continue
+            grazing <m>k</m> cows.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>irresponsible</term> strategy (<m>I</m>): graze
+            <m>k+1</m> cows.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        Each cow in the pasture above the <m>kN</m> limit imposes a cost
+        <m>c > 0</m> to the community in terms of degradation. This cost is
+        shared equally by all individuals. Thus, for every cow above
+        <m>kN</m> in the pasture, each individual experiences a cost of
+        <m>\frac{c}{N}</m>. Each individual also realizes a profit <m>p</m>
+        for each of their cows that graze in the pasture.
+      </p>
+
+      <p>
+        Assume <m>\frac{c}{N} \lt p \lt c</m>. That is, the cost of grazing
+        an extra cow, to the community as a whole, is greater than the
+        profit from the cow, but each individual's share of the cost is
+        less than the profit.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-tragedy-commons-payoffs">
+      <statement>
+        <p>
+          Let <m>\pi_i(s_i, m)</m> denote the payoff to player <m>i</m>
+          when <m>m</m> other players have chosen to graze <m>k+1</m> cows,
+          where <m>m \in \{0, 1, \ldots, N-1\}</m>. Write out the payoff to
+          player <m>i</m> for each of their own strategy choices. That is,
+          determine the payoffs <m>\pi_i(R, m)</m> and <m>\pi_i(I, m)</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tragedy-commons-dominance">
+      <statement>
+        <p>
+          Use these payoffs to prove that <m>R</m> is strictly dominated by
+          <m>I</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tragedy-commons-compare">
+      <statement>
+        <p>
+          If every player uses their dominant strategy <m>I</m>, what is
+          the payoff to each player? How does this compare with the payoff
+          if every player instead plays their dominated strategy <m>R</m>?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tragedy-commons-pd">
+      <statement>
+        <p>
+          How does this game compare with the prisoner's dilemma game?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-bank-location">
+    <title>Locating Two Banks</title>
+
+    <introduction>
+      <p>
+        Two competing banks each plan to open a branch along the main
+        avenue of a particular city. The avenue has 99 blocks and each bank
+        can open their new branch in any one of the 99 blocks. It is
+        possible that they could each choose the same block.
+      </p>
+
+      <p>
+        We will make the following assumptions.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Each of the 99 blocks is home to exactly 100 residents, and
+            each resident will become a customer of one of the two bank
+            branches.
+          </p>
+        </li>
+        <li>
+          <p>
+            The 99 blocks can be represented as regions along a line, as
+            shown in <xref ref="fig-hw-bank-blocks" />.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each resident will become a customer of the bank that is
+            closest to the block where they live.
+          </p>
+        </li>
+        <li>
+          <p>
+            If a particular block is equidistant from both banks, we will
+            assume half the residents from that block become customers of
+            one bank, and half become customers of the second bank.
+          </p>
+        </li>
+        <li>
+          <p>
+            The payoff to each bank is the total number of new customers.
+          </p>
+        </li>
+        <li>
+          <p>
+            The players <m>A</m> and <m>B</m> will simultaneously choose
+            where to build their respective banks. Neither knows in advance
+            where the other is choosing to locate.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each player has the strategy set
+            <m>S_i = \{1, 2, \ldots, 99\}</m>, denoting their location
+            choices.
+          </p>
+        </li>
+      </ul>
+
+      <figure xml:id="fig-hw-bank-blocks">
+        <caption>The 99 blocks of the avenue, represented as regions along a line.</caption>
+        <image width="80%">
+          <shortdescription>
+            A horizontal line divided into consecutive blocks labeled 1
+            through 6, then a gap indicated by dots, then a final block
+            labeled 99.
+          </shortdescription>
+          <latex-image>
+            \begin{tikzpicture}[font=\small]
+              \draw[thick] (0,0) -- (6,0);
+              \foreach \x in {0,1,2,3,4,5,6} { \draw (\x,0.18) -- (\x,-0.18); }
+              \foreach \x/\lab in {0/1, 1/2, 2/3, 3/4, 4/5, 5/6} {
+                \node at (\x+0.5,0.5) {$\lab$};
+              }
+              \node at (7,0) {$\cdots$};
+              \draw[thick] (8,0) -- (9,0);
+              \draw (8,0.18) -- (8,-0.18);
+              \draw (9,0.18) -- (9,-0.18);
+              \node at (8.5,0.5) {$99$};
+            \end{tikzpicture}
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        As an example of the customer counts, suppose bank <m>A</m> is in
+        block 20 and bank <m>B</m> is in block 60. Then all the residents
+        from blocks 1 through 39 will become customers of bank <m>A</m>,
+        all of the residents from blocks 41 through 99 will become
+        customers of bank <m>B</m>, and the residents of block 40 will be
+        divided between the two banks. Bank <m>A</m> will have 3950 new
+        customers and bank <m>B</m> will have 5950 new customers.
+      </p>
+
+      <p>
+        In solving this problem, please do not write out a
+        <m>99 \times 99</m> matrix game. It is also not necessary to
+        determine payoff functions for each bank. Instead, you might begin
+        by fixing the location of one bank and thinking about how the
+        payoff of the other bank changes as the location of that bank
+        varies.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-bank-location-not-dominated">
+      <statement>
+        <p>
+          Argue that for <m>A</m> the strategy <m>s_A = 2</m> is not
+          dominated by <m>s_A = 3</m>. Recalling the definition of a
+          dominated strategy, you need to show that there is at least one
+          choice for player <m>B</m> such that player <m>A</m> does better
+          by choosing <m>s_A = 2</m> instead of <m>s_A = 3</m>.
+        </p>
+        <p>
+          It doesn't matter that we have chosen <m>A</m> here. The problem
+          is symmetric and the same result will hold for <m>B</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bank-location-endpoints">
+      <statement>
+        <p>
+          Argue that <m>s_A = 1</m> is strictly dominated by
+          <m>s_A = 2</m>. Because the game is symmetric in the two players,
+          an argument for <m>A</m> also settles the case for <m>B</m>, so
+          you only need to do this once.
+        </p>
+        <p>
+          You are not asked to repeat the computation showing that
+          <m>s_i = 99</m> is strictly dominated by <m>s_i = 98</m>.
+          Instead, describe a correspondence between block numbers that
+          turns the argument you just gave into the argument for
+          <m>s_i = 99</m>, and say why payoffs are unaffected by it.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          To show that <m>s_A = 2</m> strictly dominates <m>s_A = 1</m>,
+          fix player <m>A</m> at block 1, compare with <m>A</m> at block 2,
+          and break into three cases according to where <m>B</m> locates:
+        </p>
+        <ul>
+          <li>
+            <p><m>s_B = 1</m></p>
+          </li>
+          <li>
+            <p><m>s_B = 2</m></p>
+          </li>
+          <li>
+            <p><m>s_B \geq 3</m></p>
+          </li>
+        </ul>
+        <p>
+          In the third case, the increase in <m>A</m>'s payoff from moving
+          to block 2 is the same for every value of <m>s_B</m> in that
+          case.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-bank-location-reduce">
+      <statement>
+        <p>
+          Following the work in the previous step we eliminate the strictly
+          dominated strategies 1 and 99 from each player's strategy set.
+          Briefly explain, without going through the explicit computations
+          you did in part (b), why after eliminating blocks 1 and 99 as
+          strategy choices, <m>s_i = 2</m> is strictly dominated by
+          <m>s_i = 3</m> and <m>s_i = 98</m> is strictly dominated by
+          <m>s_i = 97</m>.
+        </p>
+        <p>
+          Also address: in part (a) you showed that <m>s_A = 2</m> is not
+          dominated by <m>s_A = 3</m> in the original game. What changed?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bank-location-center">
+      <statement>
+        <p>
+          We can continue this process of iterated elimination of strictly
+          dominated strategies, eventually arriving at the reduced game
+          where <m>S_i = \{49, 50, 51\}</m>. Check that in this reduced
+          game, <m>s_i = 49</m> and <m>s_i = 51</m> are both strictly
+          dominated by <m>s_i = 50</m>.
+        </p>
+        <p>
+          For <m>s_A = 49</m>, show the explicit computations supporting
+          your reasoning in each of the three cases for <m>B</m>'s choice:
+          <m>s_B = 49</m>, <m>s_B = 50</m>, and <m>s_B = 51</m>. Then
+          explain why the argument for <m>s_A = 51</m> is similar. Because
+          the game is symmetric in the two players, the same argument works
+          for <m>B</m>, so you do not need to repeat it.
+        </p>
+        <p>
+          Note that although we have eliminated all other locations as
+          strategy choices for each bank, we have not eliminated the
+          locations themselves. All of these customers still exist. We have
+          only eliminated choices on where to locate each bank.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bank-location-dse">
+      <statement>
+        <p>
+          Based on the results from part (d), is <m>(50, 50)</m> a dominant
+          strategy equilibrium of the original game? Briefly explain.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bank-location-strictly-dominant">
+      <statement>
+        <p>
+          In the original game, before any strategies are eliminated, does
+          <m>s_i = 50</m> strictly dominate every other strategy available
+          to player <m>i</m>? Explain why or why not.
+        </p>
+       
+      </statement>
+    </task>
+  </exercise>
+
+</exercises>

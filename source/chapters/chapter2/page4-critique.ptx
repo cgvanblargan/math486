@@ -59,7 +59,7 @@
       Chapter 1 apply to iterated elimination too.
     </p>
   </assemblage>
-
+<!--
      <p>
   The big issue we saw is that for iterated elimination of weakly dominated
   strategies, there can be different reduced games. Let's think about why
@@ -80,7 +80,7 @@
 <p>
   So an elimination that was available stays available, and that is what
   forces every order to the same place. If weak domination gives different
-  reduced games, the failure has to be exactly here: some order must make an
+  reduced games, the failure has to be that: some order must make an
   available elimination stop being available, and the strategy that would
   have been deleted then survives to the end.
 </p>
@@ -163,5 +163,5 @@
     </choice>
   </choices>
 </exercise>
-  
+  -->
   </section>

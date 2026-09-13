@@ -10,17 +10,49 @@
     <p>
       <alert>Read Section 2.8.</alert>
     </p>
-    <p>
+       <p>
       This section quickly introduces the method of iterated elimination
-      of dominated strategies. After you read, we will demonstrate with an
-      interactive.
+      of dominated strategies. It also gives us two terms we will use for
+      the rest of the course, <term>dominant strategy</term> and
+      <term>dominant strategy equilibrium</term>, which are defined at the
+      very end of the section. After you read, we will restate those and
+      then demonstrate the method with an interactive.
     </p>
   </assemblage>
 
-  <p>
-    So the idea is we try to find a good strategy by getting rid of
-    strategies that are beaten by some other strategy. Now it's time to
-    see this in practice!
+   
+ 
+
+   <p>
+     So the idea is we try to find a good strategy by getting rid of
+    strategies that are beaten by some other strategy. Let's restate the two new terms for reference.
+    <ul>
+      <li>
+        <p>
+           Run iterated
+    elimination until no dominated strategies remain, and look at the
+    reduced game you are left with. If player <m>i</m> has exactly one
+    strategy <m>s_i^*</m> remaining, then <m>s_i^*</m> is called a
+    <term>dominant strategy</term> for player <m>i</m>.
+        </p>
+      </li>
+        <li>
+        <p>If every player is
+    left with exactly one strategy, then the strategy profile
+    <m>(s_1^*, \ldots, s_n^*)</m> is called a
+    <term>dominant strategy equilibrium</term>.
+          
+        </p>
+      </li>
+    </ul> 
+  </p>
+
+     <p>
+    Be careful with these definitions! A dominant strategy <m>s_i^*</m>
+    survives the elimination process, but this does not mean that
+    <m>s_i^*</m> beats every other strategy in the original game. You can observe this for
+    this in the Battle of the Bismarck Sea below, where neither of Kenney's
+    strategies dominates the other to begin with.
   </p>
 
   <p>
@@ -165,10 +197,10 @@
 
   <p>
     Big Monkey and Little Monkey is illuminating because two valid
-    elimination orders gave two different results. The first ordering
-    pinned down a unique dominant strategy equilibrium; the second only
+    elimination orders gave two different results!! The first ordering
+    found a unique dominant strategy equilibrium; the second only
     pinned down Big Monkey's strategy, leaving Little Monkey's
-    undetermined. <em> Iterated elimination of strictly dominated strategies
+    undetermined. In the monkey example, we eliminated weakly dominated strategies. <em> Iterated elimination of strictly dominated strategies
     always gives the same answer no matter the order, but iterated
     elimination of weakly dominated strategies does not.</em>
   </p>
