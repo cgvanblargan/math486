@@ -70,7 +70,7 @@
   </figure>
 
   <p>
-    Two of those pairs are worth pinning down before we move on.
+    Let's examine two of those pairs again before moving on.
   </p>
 
   <exercise xml:id="check-c-vs-d">
@@ -232,7 +232,7 @@
 
   <p>
     So a country's payoff is its share of the benefits minus what it spent.
-    Notice the asymmetry that drives everything here: a country pays for all
+    Notice the asymmetry that is the source of the "dilemma" here: a country pays for all
     of its own expenditure, but only collects a tenth of the benefit that
     expenditure creates.
   </p>
