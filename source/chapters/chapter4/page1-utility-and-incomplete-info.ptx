@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page1-utility-and-incomplete-info" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Utility, Lotteries, and Incomplete Information</title>
+
+  <p>
+    This chapter is where we let chance into our games. The first two
+    sections set up the tools we'll need, so read them and keep moving. The
+    real work starts in Section 4.3.
+  </p>
+
+  <assemblage xml:id="read-4-1">
+    <title>Section 4.1, Utility Functions and Lotteries</title>
+    <p>
+      <alert>Read Section 4.1.</alert> Two ideas:
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            A <term>utility function</term> <m>u(s)</m>, where <m>s</m> is an
+            amount of money received. It is increasing
+            (<m>u'(s) \gt 0</m>) and concave down (<m>u''(s) \lt 0</m>), so
+            each additional dollar is worth a little less than the one before.
+          </p>
+        </li>
+        <li>
+          <p>
+            A <term>lottery</term>: outcomes <m>x_1, \ldots, x_n</m> with
+            probabilities <m>p_1, \ldots, p_n</m> summing to <m>1</m>. Its
+            <term>expected value</term> is
+            <me>E[x] = p_1 x_1 + \cdots + p_n x_n,</me>
+            and its expected utility is
+            <m>E[u(x)] = p_1 u(x_1) + \cdots + p_n u(x_n)</m>. The
+            <term>expected utility principle</term> says you prefer the
+            lottery with the higher expected utility.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <assemblage xml:id="read-4-2">
+    <title>Section 4.2, Buying Fire Insurance</title>
+    <p>
+      <alert>Read Section 4.2.</alert> A decision problem, not a game. To
+      decide whether to insure, attach a probability and a payoff to each
+      outcome<mdash/>fire or no fire, premium paid or not<mdash/>and compare
+      the two options.
+    </p>
+  </assemblage>
+
+  <p>
+    We don't have anything to break down yet, because everything so far has
+    been setting the scene for games in extensive form with <term>incomplete
+    information</term>.
+  </p>
+
+  <p>
+    Back in Chapter 1 we studied games in extensive form with <term>complete
+    information</term>: whenever it was your turn, you knew every move made
+    before yours, so you always knew where you were in the game tree. Now we
+    allow chance into the tree. Once part of what has already happened was
+    decided at random, or is hidden from you, you may not know which node
+    you're standing at.
+  </p>
+
+  <p>
+    Poker is the standard example. After the deal you know your own hand but
+    not anyone else's. What you <em>can</em> do is assign probabilities to the
+    hands your opponents might be holding. Section 4.3 makes that precise.
+  </p>
+
+  <assemblage xml:id="read-4-3">
+    <title>Section 4.3, Games in Extensive Form with Incomplete Information</title>
+    <p>
+      <alert>Read Section 4.3.</alert> Terminology to watch for:
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            <term>Nature</term>: nodes assigned to chance rather than to a
+            player. The probabilities on Nature's moves sum to <m>1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>Information set</term>: a group of a player's nodes that the
+            player cannot tell apart. The available moves are identical at
+            every node of the set.
+          </p>
+        </li>
+        <li>
+          <p>
+            A strategy must assign the same move to every node of an
+            information set.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>probability of a path</term>: the product of the
+            probabilities of Nature's moves along it.
+          </p>
+        </li>
+        <li>
+          <p>
+            The <term>expected payoff</term> of a strategy profile: sum the
+            payoff of each complete path times that path's probability.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      The last paragraph splits into two cases. If only Nature's nodes come
+      before an information set, backward induction still works using expected
+      value. If a player moved first, it doesn't, and we convert to normal
+      form instead.
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-4-1" iframe="question-form.html?section=4.1-4.3" width="100%" aspect="2:1"/>
+</section>

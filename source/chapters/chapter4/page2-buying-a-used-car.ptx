@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page2-buying-a-used-car" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Buying a Used Car</title>
+
+  <p>
+    Here's our first real example of a game with incomplete information. A
+    customer wants to know whether a used car is worth the price. The salesman
+    knows whether it is, and she doesn't. He'd like to sell the car, and he'd
+    also like a reputation for telling the truth, so it isn't obvious what he
+    should say or whether she should believe him.
+  </p>
+
+  <assemblage xml:id="read-4-4-setup">
+    <title>Section 4.4, Setting Up the Game</title>
+    <p>
+      <alert>Read Section 4.4 from the beginning through the two lists of
+      strategies.</alert> Stop when you reach the paragraph beginning
+      <q>Consider the salesman to be Player 1.</q>
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            Nature moves first and decides whether the car is good (with
+            probability <m>p</m>) or bad (with probability <m>1-p</m>). The
+            salesman sees Nature's move. The customer does not.
+          </p>
+        </li>
+        <li>
+          <p>
+            Pay attention to why backward induction won't work here, and
+            notice that it's the second case from Section 4.3: the customer's
+            information sets have a node in front of them where the
+            <em>salesman</em> made a choice.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each player gets four strategies, each named by two letters. Read
+            both lists carefully. The letters do not mean the same thing for
+            the two players, which is the subject of the next couple of
+            questions.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <p>
+    Here's the game tree, so you have it nearby while you work through the
+    questions below.
+  </p>
+
+  <figure xml:id="fig-used-car-tree">
+    <caption>
+      Buying a used car. The salesman's payoff is listed first. The two dashed
+      curves are the customer's information sets: the upper one joins the two
+      nodes where the salesman has said <q>good,</q> and the lower one joins
+      the two nodes where he has said <q>bad.</q> In each case she cannot tell
+      which of the two nodes she is at, because she cannot see Nature's move.
+    </caption>
+    <image width="100%">
+      <shortdescription>
+        Game tree for buying a used car, with Nature moving first, then the
+        salesman, then the customer, and eight terminal payoffs.
+      </shortdescription>
+      <description>
+        <p>
+          A game tree with four levels. At the top, a node labeled N for
+          Nature has two branches: a left branch labeled g with probability p,
+          and a right branch labeled b with probability 1 minus p.
+        </p>
+        <p>
+          Each of Nature's branches leads to a node labeled S for the
+          salesman, and each salesman node has two branches labeled g and b,
+          standing for what he tells the customer.
+        </p>
+        <p>
+          Each of the four salesman branches leads to a node labeled C for the
+          customer, and each customer node has two branches labeled g and b,
+          standing for what she concludes about the car.
+        </p>
+        <p>
+          Reading the eight terminal payoffs from left to right, with the
+          salesman's payoff first, they are: 3 and 1; 1 and 0; 2 and 1; 0 and
+          0; 2 and 0; 0 and 1; 3 and 0; 1 and 1.
+        </p>
+        <p>
+          Two dashed curves mark the customer's information sets. The first
+          joins the leftmost customer node to the third customer node, which
+          are the two nodes reached when the salesman says the car is good.
+          The second joins the second customer node to the rightmost customer
+          node, which are the two nodes reached when the salesman says the car
+          is bad.
+        </p>
+      </description>
+      <latex-image>
+        \resizebox{15cm}{!}{%
+        \begin{tikzpicture}[
+          font=\scriptsize,
+          nd/.style={circle,fill=black,inner sep=1.3pt}
+        ]
+        \useasboundingbox (-10.2,0.0) rectangle (10.2,6.7);
+
+        % Nature
+        \node[nd] (N) at (0,6) {};
+        \node[above=3pt of N] {$N$};
+
+        % Salesman nodes
+        \node[nd] (S1) at (-5,4.3) {};
+        \node[above left=1pt and 2pt of S1] {$S$};
+        \node[nd] (S2) at (5,4.3) {};
+        \node[above right=1pt and 2pt of S2] {$S$};
+
+        \draw (N) -- node[above left=0pt and 1pt] {$g$} (S1);
+        \draw (N) -- node[above right=0pt and 1pt] {$b$} (S2);
+        \node at (-3.1,5.6) {probability $= p$};
+        \node at (3.3,5.6) {probability $= 1-p$};
+
+        % Customer nodes
+        \node[nd] (C1) at (-7.5,2.6) {};
+        \node[above left=1pt and 2pt of C1] {$C$};
+        \node[nd] (C2) at (-2.5,2.6) {};
+        \node[above right=1pt and 2pt of C2] {$C$};
+        \node[nd] (C3) at (2.5,2.6) {};
+        \node[above left=1pt and 2pt of C3] {$C$};
+        \node[nd] (C4) at (7.5,2.6) {};
+        \node[above right=1pt and 2pt of C4] {$C$};
+
+        \draw (S1) -- node[above left=0pt and 1pt] {$g$} (C1);
+        \draw (S1) -- node[above right=0pt and 1pt] {$b$} (C2);
+        \draw (S2) -- node[above left=0pt and 1pt] {$g$} (C3);
+        \draw (S2) -- node[above right=0pt and 1pt] {$b$} (C4);
+
+        % Terminal nodes
+        \node (T1) at (-8.8,0.8) {$(3,1)$};
+        \node (T2) at (-6.2,0.8) {$(1,0)$};
+        \node (T3) at (-3.8,0.8) {$(2,1)$};
+        \node (T4) at (-1.2,0.8) {$(0,0)$};
+        \node (T5) at (1.2,0.8) {$(2,0)$};
+        \node (T6) at (3.8,0.8) {$(0,1)$};
+        \node (T7) at (6.2,0.8) {$(3,0)$};
+        \node (T8) at (8.8,0.8) {$(1,1)$};
+
+        \draw (C1) -- node[above left=0pt and 0pt] {$g$} (T1);
+        \draw (C1) -- node[above right=0pt and 0pt] {$b$} (T2);
+        \draw (C2) -- node[above left=0pt and 0pt] {$g$} (T3);
+        \draw (C2) -- node[above right=0pt and 0pt] {$b$} (T4);
+        \draw (C3) -- node[above left=0pt and 0pt] {$g$} (T5);
+        \draw (C3) -- node[above right=0pt and 0pt] {$b$} (T6);
+        \draw (C4) -- node[above left=0pt and 0pt] {$g$} (T7);
+        \draw (C4) -- node[above right=0pt and 0pt] {$b$} (T8);
+
+        % Information sets
+        \draw[dashed] (C1) .. controls (-5.5,3.35) and (0.5,3.35) .. (C3);
+        \draw[dashed] (C2) .. controls (0.5,1.85) and (5.5,1.85) .. (C4);
+        \end{tikzpicture}
+        }
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    Both players label their strategies with the same four pairs of letters,
+    <m>gg</m>, <m>gb</m>, <m>bg</m>, and <m>bb</m>, but the letters answer
+    different questions. Let's make sure that's clear before we go any
+    further.
+  </p>
+
+  <exercise xml:id="check-salesman-gg">
+    <statement>
+      <p>
+        What does the salesman's strategy <m>gg</m> tell him to do?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Say the car is good, whether Nature made it good or bad.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. His first letter is what he says when the car is good,
+            and his second letter is what he says when the car is bad. Both
+            are <m>g</m> here, so he says the car is good either way.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Say the car is good when it is good, and say it is bad when it is
+            bad.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That's <m>gb</m>, the always-tell-the-truth strategy. Check the
+            second letter: in <m>gg</m> it's a <m>g</m>, so he says
+            <q>good</q> even on a bad car.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Nature has made the car good on both of its branches.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The letters in a strategy describe what the player does, not what
+            Nature did. Nature still picks a good car with probability
+            <m>p</m> and a bad one with probability <m>1-p</m>, no matter
+            which strategy the salesman uses.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-customer-gb">
+    <statement>
+      <p>
+        Now the other player. What does the customer's strategy <m>gb</m> tell
+        her to do?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            If the salesman says the car is good, conclude it's good; if he
+            says it's bad, conclude it's bad. In other words, always believe
+            him.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Her letters are answers to <q>what do I do if he says
+            good</q> and <q>what do I do if he says bad,</q> in that order.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Conclude the car is good when it really is good, and bad when it
+            really is bad. In other words, get it right every time.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is the one to watch out for. The customer can't see the car,
+            so she has no strategy that keys off whether it's actually good.
+            All she observes is what the salesman said, so that's what her two
+            letters respond to. Compare this with the salesman, whose letters
+            <em>do</em> key off Nature's move, since he can see it.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Conclude the car is good, no matter what the salesman says.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That's her <m>gg</m> strategy. In <m>gb</m> the second letter is a
+            <m>b</m>, so if he says the car is bad, she goes along with it.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Let's put the two together and follow a strategy profile through the tree.
+    Take <m>(gg, gb)</m>, where the salesman always says the car is good and
+    the customer always believes him. Remember the salesman is Player 1, so
+    his strategy is listed first.
+  </p>
+
+  <exercise xml:id="check-bad-car-payoffs">
+    <statement>
+      <p>
+        Suppose the players use <m>(gg, gb)</m> and Nature makes the car
+        <em>bad</em>. What are the payoffs?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>(2,0)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. He says the car is good, she believes him and buys it, so
+            he collects 2 points for the sale. He doesn't get the truth point,
+            because the car was bad. She's wrong about the car, so she gets 0.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(3,0)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            He does sell the car, which is worth 2 points. But the extra point
+            is for telling the truth, and he said a bad car was good. Follow
+            the <m>b</m> branch out of Nature and then the <m>g</m> branch out
+            of <m>S</m> to see this on the tree.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(0,1)</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is what happens if the customer decides the car is bad and
+            walks away. But her strategy here is <m>gb</m>, and he said
+            <q>good,</q> so she uses her first letter and concludes the car is
+            good.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    That's one of Nature's two branches. The profile <m>(gg, gb)</m> doesn't
+    pick out a single path through the tree, though, because Nature could go
+    either way. The widget below puts both paths side by side and asks what
+    we can say about the payoffs.
+  </p>
+
+  <figure xml:id="fig-used-car-expected-payoff">
+    <caption>
+      Both paths that the strategy profile <m>(gg, gb)</m> allows, and what
+      they tell us about the salesman's payoff.
+    </caption>
+    <interactive xml:id="interactive-used-car-expected-payoff"
+      iframe="ch4-graph/used-car-expected-payoff.html" width="100%" aspect="5:6">
+      <static>
+        <p>
+          A two stage walkthrough built on the used car game tree. The tree is
+          redrawn with Nature's branches labeled with probability p on the
+          left and probability 1 minus p on the right. Both paths allowed by
+          the strategy profile gg for the salesman and gb for the customer are
+          highlighted at once: the path in which Nature makes the car good,
+          the salesman says good, and the customer concludes good, ending at
+          payoffs 3 for the salesman and 1 for the customer; and the path in
+          which Nature makes the car bad, the salesman says good, and the
+          customer concludes good, ending at payoffs 2 for the salesman and 0
+          for the customer.
+        </p>
+        <p>
+          In the first stage, a two choice question asks which statement
+          describes the salesman's payoff under this profile. The correct
+          statement is that his payoff is 3 with probability p and 2 with
+          probability 1 minus p. The incorrect statement reverses the two
+          probabilities, giving payoff 3 with probability 1 minus p and 2 with
+          probability p. Feedback points back to Nature's branches to show
+          which probability goes with which payoff.
+        </p>
+        <p>
+          Pressing Next moves to the second stage, which sets p equal to three
+          quarters. The display restates that the salesman's payoff is 3 with
+          probability three quarters and 2 with probability one quarter, and
+          asks for his expected payoff, recalling the definition of expected
+          value from Section 4.1. The two choices are written out as full
+          computations. The correct one is three quarters times 3 plus one
+          quarter times 2, which equals eleven quarters. The incorrect one is
+          one half times 3 plus one half times 2, which equals five halves;
+          its arithmetic is right but it weights Nature's two branches equally
+          instead of by their probabilities. The stage closes by stating that
+          the salesman's expected payoff in this strategy profile is eleven
+          quarters.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    You just built the payoff for one strategy profile out of two paths and
+    their probabilities. There are sixteen profiles in this game, and every
+    one of them works the same way. The rest of Section 4.4 does exactly that
+    and collects the results into a payoff matrix.
+  </p>
+
+  <assemblage xml:id="read-4-4-matrix">
+    <title>Section 4.4, Building the Payoff Matrix</title>
+    <p>
+      <alert>Pick up where you stopped and read through the paragraph
+      beginning <q>Let us assume <m>p \gt \frac{1}{2}</m>.</q></alert> Right
+      after that paragraph you'll see the payoff matrix a second time with
+      boxes already drawn on it. Stop before that one, because you're about to
+      draw those boxes yourself.
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            The book traces the profile <m>(gg, bg)</m> through its two paths,
+            <m>ggb</m> and <m>bgb</m>, the same way we just did for
+            <m>(gg, gb)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Then comes the shortcut worth remembering: write down the payoff
+            matrix for a good car and the payoff matrix for a bad car
+            separately, then combine them as <m>p</m> times the first plus
+            <m>1-p</m> times the second.
+          </p>
+        </li>
+        <li>
+          <p>
+            The last paragraph you'll read explains why we assume
+            <m>p \gt \frac{1}{2}</m> and reminds you how best response boxing
+            works. We covered boxing back in Section 3.9.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <p>
+    Now let's find the Nash equilibria. In the widget below you'll box the
+    customer's best responses one row at a time. Keep in mind that we're
+    assuming <m>p \gt \frac{1}{2}</m>, and that some rows may have more than
+    one best response in them.
+  </p>
+
+  <figure xml:id="fig-used-car-best-response">
+    <caption>
+      Finding the customer's best responses in the used car game, then reading
+      off the Nash equilibria.
+    </caption>
+    <interactive xml:id="interactive-used-car-best-response"
+      iframe="ch4-graph/used-car-best-response.html" width="100%" aspect="5:6">
+      <static>
+        <p>
+          A guided walkthrough of best response boxing on the used car payoff
+          matrix, with the salesman as the row player and the customer as the
+          column player. The matrix entries, written with the salesman's
+          payoff first, are as follows. Row gg: 2 plus p and p; 2 plus p and
+          p; p and 1 minus p; p and 1 minus p. Row gb: 3 and p; 1 plus 2p and
+          1; 3 minus 2p and 0; 1 and 1 minus p. Row bg: 2 and p; 2 minus 2p
+          and 0; 2p and 1; 0 and 1 minus p. Row bb: 3 minus p and p; 1 minus p
+          and 1 minus p; 3 minus p and p; 1 minus p and 1 minus p. Throughout,
+          p is assumed to be greater than one half.
+        </p>
+        <p>
+          The walkthrough takes the salesman's four strategies one at a time.
+          For each, that row is highlighted and the salesman's payoffs in the
+          row are dimmed so that only the customer's payoffs stand out. A
+          dashed outline appears around the customer's payoff in every cell of
+          the row, marking where a box can be drawn. Selecting a cell turns
+          that dashed outline into a solid box. The task is to box every cell
+          giving the customer her highest payoff in that row, then press Check.
+          More than one cell may be correct. After checking, a box that belongs
+          turns green, a box drawn where it does not belong turns red, and any
+          best response left unboxed appears as a green dashed outline. Boxes
+          from rows already completed stay in place as the student moves on, so
+          the matrix fills in one row at a time.
+        </p>
+        <p>
+          In row gg the customer's payoffs are p, p, 1 minus p, and 1 minus p,
+          so the first two cells tie for best, since p is greater than one
+          half. In row gb her payoffs are p, 1, 0, and 1 minus p, so the
+          second cell is the unique best. In row bg her payoffs are p, 0, 1,
+          and 1 minus p, so the third cell is the unique best. In row bb her
+          payoffs are p, 1 minus p, p, and 1 minus p, so the first and third
+          cells tie for best. Feedback for rows gg and bb points out that this
+          is where the assumption that p is greater than one half is needed,
+          and feedback for rows gb and bg points out that no assumption about
+          p is needed there.
+        </p>
+        <p>
+          Pressing Next skips the parallel work for the salesman and displays
+          the completed matrix with all boxes drawn, on the customer's best
+          responses across each row and on the salesman's best responses down
+          each column. A final multiple choice question asks which strategy
+          profiles are Nash equilibria, that is, which cells have both payoffs
+          boxed. The answer is the two profiles gg paired with gb, and bb
+          paired with bg.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    Notice that <m>(gg, gb)</m> is one of the two equilibria, which is the
+    same profile we traced through the tree earlier.
+  </p>
+
+  <assemblage xml:id="read-4-4-conclusion">
+    <title>Section 4.4, Wrapping Up</title>
+    <p>
+      <alert>Read the last two paragraphs of Section 4.4.</alert> We just did
+      this work, so you can move through it quickly, but there are two things
+      in there worth collecting.
+    </p>
+    <p>
+      <ul>
+        <li>
+          <p>
+            The two equilibria pay the customer the same amount, but the
+            salesman prefers the first one.
+          </p>
+        </li>
+        <li>
+          <p>
+            Neither player needs to know the exact value of <m>p</m>. Knowing
+            that <m>p \gt \frac{1}{2}</m> is enough to find the equilibria.
+            That answers the question the section raised at the very
+            beginning, when it said we'd come back to whether anyone needs to
+            know these probabilities.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-4-2" iframe="question-form.html?section=4.4" width="100%" aspect="2:1"/>
+</section>

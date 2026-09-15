@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buying a Used Car: Payoffs of a Strategy Profile</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --improve: #922b21;
+    --stable: #1e8449;
+    --line: #d5d8dc;
+  }
+  html, body { overflow: hidden; }
+  body {
+    margin: 0; padding: 0;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  /* Fixed design canvas: laid out at 700x840, then scaled to the iframe width. */
+  #fit {
+    width: 700px; height: 840px;
+    padding: 8px 14px 16px;
+    box-sizing: border-box;
+    transform-origin: top left;
+  }
+  .step-bar {
+    max-width: 640px; margin: 0 auto 4px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 16px; color: var(--muted);
+  }
+  svg { display: block; margin: 0 auto; }
+
+  .edge { stroke: var(--line); stroke-width: 1.6; fill: none; }
+  .edge.lit { stroke: var(--accent); stroke-width: 3.4; }
+  .infoset { stroke: var(--muted); stroke-width: 1.6; fill: none; stroke-dasharray: 5 4; }
+  .node { fill: var(--ink); }
+  .node.lit { fill: var(--accent); }
+  .node-label { font-size: 17px; fill: var(--ink); text-anchor: middle; }
+  .move-label { font-size: 15px; fill: var(--muted); text-anchor: middle; }
+  .move-label.lit { fill: var(--accent); font-weight: bold; }
+  .prob-label { font-size: 15.5px; fill: var(--muted); text-anchor: middle; }
+  .prob-label.lit { fill: var(--accent); font-weight: bold; }
+  .leaf { font-size: 17px; fill: #9a9a9a; text-anchor: middle; }
+  .leaf.lit { fill: var(--ink); font-weight: bold; }
+  .leaf-box { fill: none; stroke: none; }
+  .leaf-box.lit { fill: #dce9f5; stroke: var(--accent); stroke-width: 2; }
+  .caption-note { font-size: 15px; fill: var(--muted); text-anchor: middle; }
+
+  .qbox {
+    max-width: 640px; margin: 8px auto 0;
+    background: var(--panel-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    height: 392px;
+    overflow-y: auto;
+  }
+  .qbox h3 { margin: 0 0 6px; font-size: 19px; color: var(--accent); }
+  .qbox .stem { margin: 0 0 10px; font-size: 17.5px; line-height: 1.5; }
+  .opts { display: flex; flex-direction: column; gap: 7px; }
+  .opt {
+    font-family: serif; font-size: 17px; text-align: left;
+    padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+    background: #ffffff; color: var(--ink); cursor: pointer; line-height: 1.35;
+  }
+  .opt:hover:not(:disabled) { background: #eef3f8; }
+  .opt:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  .opt.wrong { background: #faf1f0; border-color: #c8a5a1; color: var(--muted); }
+  .opt:disabled { cursor: default; }
+
+  .chosen {
+    font-size: 17px; margin: 0 0 10px; padding: 8px 12px;
+    background: #eef6f0; border: 1px solid #bcd9c6; border-radius: 8px;
+  }
+  .chosen .lab { font-weight: bold; color: var(--stable); }
+
+  .fb { font-size: 17px; line-height: 1.6; }
+  .fb .calc-row {
+    margin: 8px 0; padding: 8px 12px; border-radius: 8px;
+    background: #ffffff; border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    font-size: 17px;
+  }
+  .fb .calc-row.miss { border-left-color: var(--improve); }
+  .fb .verdict { margin-top: 10px; }
+
+  .summary {
+    margin-top: 10px;
+    background: #eef6f0; border: 1px solid #bcd9c6;
+    border-left: 5px solid var(--stable);
+    border-radius: 8px; padding: 11px 14px;
+    font-size: 17px; line-height: 1.55;
+  }
+  .summary b { color: var(--stable); }
+
+  .controls {
+    max-width: 640px; margin: 9px auto 0;
+    display: flex; justify-content: space-between; gap: 12px;
+  }
+  button.nav {
+    font-family: serif; font-size: 16.5px; padding: 8px 20px;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: #ffffff; color: var(--accent); cursor: pointer;
+  }
+  button.nav:hover:not(:disabled) { background: var(--panel-bg); }
+  button.nav:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  button.nav:disabled { color: #b0b0b0; cursor: default; }
+  button.nav.primary { border-color: var(--accent); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="fit">
+  <div class="step-bar">
+    <span id="step-text">Step 1 of 2</span>
+    <span>Strategy profile (gg, gb)</span>
+  </div>
+
+  <svg id="tree" width="660" height="330" viewBox="0 0 660 330" role="group"
+       aria-label="Used car game tree with the two paths allowed by the profile gg, gb highlighted"></svg>
+
+  <div class="qbox" id="qbox"></div>
+
+  <div class="controls">
+    <button class="nav" id="restart" type="button">Start over</button>
+    <button class="nav primary" id="next" type="button" disabled>Next</button>
+  </div>
+</div>
+
+<script>
+  // Scale to fit BOTH dimensions, so the canvas never overflows its container
+  // no matter what aspect ratio the iframe ends up with.
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 840);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  var SVGNS = "http://www.w3.org/2000/svg";
+
+  // Buying a Used Car, Section 4.4. Salesman is Player 1, customer is Player 2.
+  // Leaves are indexed 0..7 reading left to right. Each leaf records the
+  // complete path that reaches it: Nature's move, the salesman's word, and
+  // the customer's conclusion.
+  var LEAVES = [
+    { nature: "g", said: "g", concl: "g", pay: [3, 1], x: 26 },
+    { nature: "g", said: "g", concl: "b", pay: [1, 0], x: 113 },
+    { nature: "g", said: "b", concl: "g", pay: [2, 1], x: 200 },
+    { nature: "g", said: "b", concl: "b", pay: [0, 0], x: 287 },
+    { nature: "b", said: "g", concl: "g", pay: [2, 0], x: 373 },
+    { nature: "b", said: "g", concl: "b", pay: [0, 1], x: 460 },
+    { nature: "b", said: "b", concl: "g", pay: [3, 0], x: 547 },
+    { nature: "b", said: "b", concl: "b", pay: [1, 1], x: 634 }
+  ];
+
+  // The profile under study: salesman gg (always say good), customer gb
+  // (always believe him). Leaf 0 is reached when Nature picks a good car,
+  // leaf 4 when Nature picks a bad one.
+  var LIT_LEAVES = [0, 4];
+
+  var NX = 330, NY = 26;
+  var SX = [170, 490], SY = 92;
+  var CX = [90, 268, 446, 600], CY = 162;
+  var LY = 244;
+
+  var step = 0;
+  var answered = false;
+  var picked = [null, null];
+
+  var svg = document.getElementById("tree");
+  var qbox = document.getElementById("qbox");
+  var stepText = document.getElementById("step-text");
+  var nextBtn = document.getElementById("next");
+
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) { n.setAttribute(k, attrs[k]); }
+    if (text !== undefined) { n.textContent = text; }
+    return n;
+  }
+  function pairText(p) { return "(" + p[0] + ", " + p[1] + ")"; }
+
+  // Which customer node sits above each leaf. Leaves 0,1 hang off customer
+  // node 0; leaves 2,3 off node 1; and so on.
+  function leafParent(k) { return Math.floor(k / 2); }
+  // Which salesman node sits above each customer node.
+  function custParent(c) { return c < 2 ? 0 : 1; }
+
+  function isLitLeaf(k) { return LIT_LEAVES.indexOf(k) !== -1; }
+  function isLitCust(c) {
+    return isLitLeaf(c * 2) || isLitLeaf(c * 2 + 1);
+  }
+  function isLitSales(s) {
+    return isLitCust(s * 2) || isLitCust(s * 2 + 1);
+  }
+
+  function buildTree() {
+    while (svg.firstChild) { svg.removeChild(svg.firstChild); }
+
+    var k, c, s, cls;
+
+    // Nature's two edges.
+    for (s = 0; s < 2; s += 1) {
+      cls = "edge" + (isLitSales(s) ? " lit" : "");
+      svg.appendChild(el("line", {
+        x1: NX, y1: NY + 9, x2: SX[s], y2: SY - 9, "class": cls
+      }));
+    }
+    // Salesman edges down to the customer nodes.
+    for (c = 0; c < 4; c += 1) {
+      cls = "edge" + (isLitCust(c) ? " lit" : "");
+      svg.appendChild(el("line", {
+        x1: SX[custParent(c)], y1: SY + 9, x2: CX[c], y2: CY - 9, "class": cls
+      }));
+    }
+    // Customer edges down to the leaves.
+    for (k = 0; k < 8; k += 1) {
+      cls = "edge" + (isLitLeaf(k) ? " lit" : "");
+      svg.appendChild(el("line", {
+        x1: CX[leafParent(k)], y1: CY + 9, x2: LEAVES[k].x, y2: LY - 16, "class": cls
+      }));
+    }
+
+    // Information sets. The customer cannot tell leaf-group 0 from group 2
+    // (the salesman said "good" at both), nor group 1 from group 3 (he said
+    // "bad" at both). The two curves bow in opposite directions so that
+    // neither passes through the node sitting between their endpoints.
+    svg.appendChild(el("path", {
+      d: "M " + CX[0] + " " + CY + " C " + (CX[0] + 60) + " " + (CY - 34) +
+         ", " + (CX[2] - 60) + " " + (CY - 34) + ", " + CX[2] + " " + CY,
+      "class": "infoset"
+    }));
+    svg.appendChild(el("path", {
+      d: "M " + CX[1] + " " + CY + " C " + (CX[1] + 60) + " " + (CY + 34) +
+         ", " + (CX[3] - 60) + " " + (CY + 34) + ", " + CX[3] + " " + CY,
+      "class": "infoset"
+    }));
+
+    // Nodes.
+    svg.appendChild(el("circle", { cx: NX, cy: NY, r: 5.5, "class": "node lit" }));
+    svg.appendChild(el("text", { x: NX, y: NY - 11, "class": "node-label" }, "N"));
+    for (s = 0; s < 2; s += 1) {
+      svg.appendChild(el("circle", {
+        cx: SX[s], cy: SY, r: 5.5, "class": "node" + (isLitSales(s) ? " lit" : "")
+      }));
+      svg.appendChild(el("text", { x: SX[s], y: SY - 11, "class": "node-label" }, "S"));
+    }
+    for (c = 0; c < 4; c += 1) {
+      svg.appendChild(el("circle", {
+        cx: CX[c], cy: CY, r: 5.5, "class": "node" + (isLitCust(c) ? " lit" : "")
+      }));
+      svg.appendChild(el("text", { x: CX[c], y: CY - 11, "class": "node-label" }, "C"));
+    }
+
+    // Probability labels on Nature's branches.
+    svg.appendChild(el("text", {
+      x: 218, y: NY + 34, "class": "prob-label" + (isLitSales(0) ? " lit" : "")
+    }, "probability p"));
+    svg.appendChild(el("text", {
+      x: 448, y: NY + 34, "class": "prob-label" + (isLitSales(1) ? " lit" : "")
+    }, "probability 1 \u2212 p"));
+
+    // Move labels.
+    svg.appendChild(el("text", {
+      x: 240, y: NY + 16, "class": "move-label" + (isLitSales(0) ? " lit" : "")
+    }, "g"));
+    svg.appendChild(el("text", {
+      x: 424, y: NY + 16, "class": "move-label" + (isLitSales(1) ? " lit" : "")
+    }, "b"));
+    for (c = 0; c < 4; c += 1) {
+      svg.appendChild(el("text", {
+        x: (SX[custParent(c)] + CX[c]) / 2 + (c % 2 === 0 ? -10 : 10),
+        y: (SY + CY) / 2,
+        "class": "move-label" + (isLitCust(c) ? " lit" : "")
+      }, c % 2 === 0 ? "g" : "b"));
+    }
+    for (k = 0; k < 8; k += 1) {
+      svg.appendChild(el("text", {
+        x: (CX[leafParent(k)] + LEAVES[k].x) / 2 + (k % 2 === 0 ? -9 : 9),
+        y: (CY + LY) / 2 - 4,
+        "class": "move-label" + (isLitLeaf(k) ? " lit" : "")
+      }, k % 2 === 0 ? "g" : "b"));
+    }
+
+    // Leaves.
+    for (k = 0; k < 8; k += 1) {
+      if (isLitLeaf(k)) {
+        svg.appendChild(el("rect", {
+          x: LEAVES[k].x - 33, y: LY - 17, width: 66, height: 26,
+          rx: 5, "class": "leaf-box lit"
+        }));
+      }
+      svg.appendChild(el("text", {
+        x: LEAVES[k].x, y: LY, "class": "leaf" + (isLitLeaf(k) ? " lit" : "")
+      }, pairText(LEAVES[k].pay)));
+    }
+
+    svg.appendChild(el("text", { x: 330, y: LY + 34, "class": "caption-note" },
+      "Salesman's payoff first. The two highlighted paths are the ones (gg, gb) allows."));
+    svg.appendChild(el("text", { x: 330, y: LY + 54, "class": "caption-note" },
+      "Dashed curves join the nodes the customer cannot tell apart."));
+  }
+
+  var STEPS = [
+    {
+      title: "Reading both paths at once",
+      stem: "The salesman plays gg, so he says the car is good on either of " +
+            "Nature's branches. The customer plays gb, so when she hears " +
+            "\u201Cgood\u201D she concludes the car is good. Both highlighted " +
+            "paths end in a sale. Which statement describes the salesman's payoff?",
+      opts: [
+        {
+          text: "His payoff is 3 with probability p, and 2 with probability 1 \u2212 p.",
+          ok: true,
+          fb: "<div class=\"calc-row\"><b>Correct.</b> Good car, probability p: he sells the car " +
+              "(2 points) and told the truth (1 point), so he gets 3.</div>" +
+              "<div class=\"calc-row\">Bad car, probability 1 \u2212 p: he sells the " +
+              "car (2 points) but said a bad car was good, so no truth point. He gets 2.</div>" +
+              "<div class=\"verdict\">The probability on each path is just the " +
+              "probability of Nature's move along it, since Nature is the only " +
+              "chance node in this tree.</div>"
+        },
+        {
+          text: "His payoff is 3 with probability 1 \u2212 p, and 2 with probability p.",
+          ok: false,
+          fb: "<div class=\"calc-row\">The two probabilities are swapped. Follow " +
+              "the left branch out of N, which has probability p: the car is good, " +
+              "he says good, she buys, and he collects 3.</div>" +
+              "<div class=\"calc-row\">The right branch has probability 1 \u2212 p: " +
+              "the car is bad, he still says good, she still buys, and he collects 2 " +
+              "because he doesn't get the truth point.</div>"
+        }
+      ],
+      after: ""
+    },
+    {
+      title: "Putting a number on it",
+      stem: "Now suppose p = 3/4. You just determined that the salesman's payoff " +
+            "is 3 with probability 3/4 and 2 with probability 1/4. Recall the " +
+            "definition of expected value from Section 4.1. What is his expected " +
+            "payoff?",
+      opts: [
+        {
+          text: "(3/4)(3) + (1/4)(2) = 11/4",
+          ok: true,
+          fb: "<div class=\"calc-row\"><b>Correct.</b> Each payoff is weighted by " +
+              "the probability of the path that produces it, exactly as in the " +
+              "definition of expected value.</div>"
+        },
+        {
+          text: "(1/2)(3) + (1/2)(2) = 5/2",
+          ok: false,
+          fb: "<div class=\"calc-row miss\">The arithmetic here is fine, but the " +
+              "two payoffs are being weighted equally.</div>" +
+              "<div class=\"verdict\">That would be the right setup only if Nature's " +
+              "two branches were equally likely. Here the car is good with " +
+              "probability 3/4 and bad with probability 1/4, so each payoff needs to " +
+              "be weighted by its own probability.</div>"
+        }
+      ],
+      after: "<div class=\"summary\">So the <b>salesman's expected payoff in " +
+             "the strategy profile (gg, gb) is 11/4</b>.</div>"
+    }
+  ];
+
+  function render() {
+    var st = STEPS[step];
+    var i, html;
+
+    buildTree();
+    stepText.textContent = "Step " + (step + 1) + " of " + STEPS.length;
+    nextBtn.disabled = true;
+    nextBtn.textContent = (step === STEPS.length - 1) ? "Finished" : "Next";
+
+    if (picked[step] !== null) {
+      showAnswer(picked[step]);
+      return;
+    }
+
+    answered = false;
+    html = "<h3>" + st.title + "</h3><p class=\"stem\">" + st.stem + "</p>" +
+           "<div class=\"opts\" id=\"opts\">";
+    for (i = 0; i < st.opts.length; i += 1) {
+      html += "<button class=\"opt\" type=\"button\" data-i=\"" + i + "\">" +
+              st.opts[i].text + "</button>";
+    }
+    html += "</div><div class=\"fb\" id=\"fb\"></div>";
+    qbox.innerHTML = html;
+
+    var btns = qbox.querySelectorAll(".opt");
+    for (i = 0; i < btns.length; i += 1) {
+      btns[i].addEventListener("click", onPick);
+    }
+  }
+
+  function onPick(ev) {
+    if (answered) { return; }
+    var i = parseInt(ev.currentTarget.getAttribute("data-i"), 10);
+    if (!STEPS[step].opts[i].ok) {
+      // A wrong choice is marked and explained, but the question stays open
+      // so the student can find the right one.
+      ev.currentTarget.classList.add("wrong");
+      ev.currentTarget.disabled = true;
+      document.getElementById("fb").innerHTML = STEPS[step].opts[i].fb;
+      return;
+    }
+    answered = true;
+    picked[step] = i;
+    showAnswer(i);
+  }
+
+  function showAnswer(i) {
+    var st = STEPS[step];
+    answered = true;
+    qbox.innerHTML =
+      "<h3>" + st.title + "</h3>" +
+      "<p class=\"chosen\"><span class=\"lab\">Your answer:</span> " +
+      st.opts[i].text + "</p>" +
+      "<div class=\"fb\">" + st.opts[i].fb + "</div>" +
+      st.after;
+    nextBtn.disabled = (step === STEPS.length - 1);
+    if (!nextBtn.disabled) { nextBtn.focus(); }
+  }
+
+  nextBtn.addEventListener("click", function () {
+    if (step < STEPS.length - 1) {
+      step += 1;
+      render();
+    }
+  });
+  document.getElementById("restart").addEventListener("click", function () {
+    step = 0;
+    picked = [null, null];
+    answered = false;
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>

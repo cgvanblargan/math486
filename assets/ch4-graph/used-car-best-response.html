@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buying a Used Car: Best Responses and Nash Equilibria</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --improve: #922b21;
+    --stable: #1e8449;
+    --line: #d5d8dc;
+  }
+  html, body { overflow: hidden; }
+  body {
+    margin: 0; padding: 0;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  /* Fixed design canvas: laid out at 700x840, then scaled to the iframe width. */
+  #fit {
+    width: 700px; height: 840px;
+    padding: 8px 14px 16px;
+    box-sizing: border-box;
+    transform-origin: top left;
+  }
+  .step-bar {
+    max-width: 640px; margin: 0 auto 4px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 16px; color: var(--muted);
+  }
+  svg { display: block; margin: 0 auto; }
+
+  .cell-box { fill: #ffffff; stroke: var(--line); stroke-width: 1.5; }
+  .cell-box.active { fill: #dce9f5; stroke: var(--accent); stroke-width: 2.5; }
+  .cell-hit { fill: transparent; cursor: pointer; }
+  .cell-hit:focus-visible { outline: 3px solid #2563eb; outline-offset: -3px; }
+
+  .pay { font-size: 20px; fill: var(--ink); }
+  .pay.dim { fill: #a8a8a8; }
+  .pay.strong { font-weight: bold; }
+
+  /* Three states, with dashed always meaning "no box drawn here" and solid
+     always meaning "a box is drawn here."
+       ghost  : a box could go here, nothing drawn yet
+       drawn  : the student has boxed this payoff
+       right / wrong / missed : the same boxes after grading */
+  .ghost-box, .drawn-box, .box-right, .box-wrong, .box-missed,
+  .box-cust, .box-sales { pointer-events: none; }
+  .ghost-box {
+    fill: none; stroke: #b9c2c4; stroke-width: 1.8; stroke-dasharray: 4 4;
+  }
+  .cell-hit:hover + .ghost-box,
+  .cell-hit:focus-visible + .ghost-box {
+    stroke: var(--accent); stroke-width: 2.4;
+  }
+  .drawn-box { fill: none; stroke: var(--accent); stroke-width: 2.8; }
+  .box-right  { fill: none; stroke: var(--stable); stroke-width: 2.8; }
+  .box-wrong  { fill: none; stroke: var(--improve); stroke-width: 2.8; }
+  .box-missed {
+    fill: none; stroke: var(--stable); stroke-width: 2.4; stroke-dasharray: 5 3;
+  }
+  .box-cust { fill: none; stroke: var(--stable); stroke-width: 2.5; }
+  .box-sales { fill: none; stroke: var(--improve); stroke-width: 2.5; }
+
+  .strat-label { font-size: 18px; fill: var(--ink); }
+  .player-label { font-size: 18px; font-weight: bold; fill: var(--accent); }
+  .assume-note { font-size: 15px; fill: var(--muted); text-anchor: middle; }
+
+  .qbox {
+    max-width: 640px; margin: 8px auto 0;
+    background: var(--panel-bg);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 16px;
+    box-sizing: border-box;
+    height: 338px;
+    overflow-y: auto;
+  }
+  .qbox h3 { margin: 0 0 6px; font-size: 19px; color: var(--accent); }
+  .qbox .stem { margin: 0 0 10px; font-size: 17.5px; line-height: 1.5; }
+  .opts { display: flex; flex-direction: column; gap: 7px; }
+  .opt {
+    font-family: serif; font-size: 17px; text-align: left;
+    padding: 8px 12px; border: 1px solid var(--line); border-radius: 8px;
+    background: #ffffff; color: var(--ink); cursor: pointer; line-height: 1.35;
+  }
+  .opt:hover:not(:disabled) { background: #eef3f8; }
+  .opt:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  .opt.wrong { background: #faf1f0; border-color: #c8a5a1; color: var(--muted); }
+  .opt:disabled { cursor: default; }
+
+  .chosen {
+    font-size: 17px; margin: 0 0 10px; padding: 8px 12px;
+    background: #eef6f0; border: 1px solid #bcd9c6; border-radius: 8px;
+  }
+  .chosen .lab { font-weight: bold; color: var(--stable); }
+
+  .fb { font-size: 17px; line-height: 1.6; }
+  .fb .calc-row {
+    margin: 8px 0; padding: 8px 12px; border-radius: 8px;
+    background: #ffffff; border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    font-size: 17px;
+  }
+  .fb .calc-row.miss { border-left-color: var(--improve); }
+  .fb .verdict { margin-top: 10px; }
+
+  .summary {
+    margin-top: 10px;
+    background: #eef6f0; border: 1px solid #bcd9c6;
+    border-left: 5px solid var(--stable);
+    border-radius: 8px; padding: 11px 14px;
+    font-size: 17px; line-height: 1.55;
+  }
+  .summary b { color: var(--stable); }
+
+  .controls {
+    max-width: 640px; margin: 9px auto 0;
+    display: flex; justify-content: space-between; gap: 12px;
+  }
+  button.nav {
+    font-family: serif; font-size: 16.5px; padding: 8px 20px;
+    border: 1px solid var(--line); border-radius: 8px;
+    background: #ffffff; color: var(--accent); cursor: pointer;
+  }
+  button.nav:hover:not(:disabled) { background: var(--panel-bg); }
+  button.nav:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  button.nav:disabled { color: #b0b0b0; cursor: default; }
+  button.nav.primary { border-color: var(--accent); font-weight: bold; }
+</style>
+</head>
+<body>
+
+<div id="fit">
+  <div class="step-bar">
+    <span id="step-text">Row 1 of 4</span>
+    <span>Assume p &gt; 1/2</span>
+  </div>
+
+  <svg id="board" width="660" height="398" viewBox="0 0 660 398" role="group"
+       aria-label="Payoff matrix for the used car game, salesman as row player and customer as column player"></svg>
+
+  <div class="qbox" id="qbox"></div>
+
+  <div class="controls">
+    <button class="nav" id="restart" type="button">Start over</button>
+    <button class="nav primary" id="next" type="button" disabled>Next row</button>
+  </div>
+</div>
+
+<script>
+  // Scale to fit BOTH dimensions, so the canvas never overflows its container
+  // no matter what aspect ratio the iframe ends up with.
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 840);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+</script>
+
+<script>
+(function () {
+  "use strict";
+
+  var SVGNS = "http://www.w3.org/2000/svg";
+  var MINUS = "\u2212";
+
+  // Buying a Used Car, Section 4.4. Salesman is the row player, customer the
+  // column player. Entries are written as strings because they carry the
+  // parameter p. Each cell is [salesman's payoff, customer's payoff].
+  var STRATS = ["gg", "gb", "bg", "bb"];
+  var PAY = [
+    [["2+p", "p"],      ["2+p", "p"],       ["p", "1" + MINUS + "p"],    ["p", "1" + MINUS + "p"]],
+    [["3", "p"],        ["1+2p", "1"],      ["3" + MINUS + "2p", "0"],   ["1", "1" + MINUS + "p"]],
+    [["2", "p"],        ["2" + MINUS + "2p", "0"], ["2p", "1"],          ["0", "1" + MINUS + "p"]],
+    [["3" + MINUS + "p", "p"], ["1" + MINUS + "p", "1" + MINUS + "p"],
+     ["3" + MINUS + "p", "p"], ["1" + MINUS + "p", "1" + MINUS + "p"]]
+  ];
+
+  // The customer's best responses, one list per row of the matrix. Rows gg and
+  // bb each have two, because two of her strategies tie.
+  var CUST_BEST = [[0, 1], [1], [2], [0, 2]];
+  // The salesman's best responses, one row index per column.
+  var SALES_BEST = [1, 0, 3, 1];
+
+  var ROW_FB = [
+    {
+      list: "Her payoffs across this row are p, p, 1" + MINUS + "p, and 1" + MINUS + "p.",
+      why: "This is the trickiest comparison in the problem, so here it is in full. " +
+           "We are told p &gt; 1/2. Subtracting p from both sides of that gives " +
+           "1" + MINUS + "p &lt; 1/2 as well. Putting the two together, " +
+           "<b>1" + MINUS + "p &lt; 1/2 &lt; p</b>, so p is the larger payoff and the " +
+           "first two cells beat the last two. Those first two are equal to each " +
+           "other, so they tie and <b>both get boxed</b>. Notice we could not have " +
+           "settled this row at all without the assumption: with no information " +
+           "about p, there is no way to say whether p or 1" + MINUS + "p is bigger.",
+      tie: true
+    },
+    {
+      list: "Her payoffs across this row are p, 1, 0, and 1" + MINUS + "p.",
+      why: "A payoff of 1 is the most she can earn anywhere in this game, so gb " +
+           "wins outright. No assumption about p is needed here.",
+      tie: false
+    },
+    {
+      list: "Her payoffs across this row are p, 0, 1, and 1" + MINUS + "p.",
+      why: "Again a payoff of 1 settles it, this time at bg. No assumption about " +
+           "p is needed here either.",
+      tie: false
+    },
+    {
+      list: "Her payoffs across this row are p, 1" + MINUS + "p, p, and 1" + MINUS + "p.",
+      why: "The same tricky comparison as the first row, so it is worth repeating. " +
+           "Because p &gt; 1/2 we also have 1" + MINUS + "p &lt; 1/2, and therefore " +
+           "<b>1" + MINUS + "p &lt; 1/2 &lt; p</b>. That makes p the larger payoff, and " +
+           "the two cells paying p tie with each other, so <b>both get boxed</b>. " +
+           "This is the second and last place the assumption p &gt; 1/2 is needed. " +
+           "The other two rows were settled by a payoff of 1, which beats anything " +
+           "else in the game no matter what p is.",
+      tie: true
+    }
+  ];
+
+  var X0 = 142, Y0 = 88, CW = 128, CH = 62;
+  var step = 0;               // 0..3 are the rows, 4 is the conclusion
+  var selected = [[], [], [], []];
+  var checked = [false, false, false, false];
+  var finalPicked = null;
+
+  var svg = document.getElementById("board");
+  var qbox = document.getElementById("qbox");
+  var stepText = document.getElementById("step-text");
+  var nextBtn = document.getElementById("next");
+
+  function el(name, attrs, text) {
+    var n = document.createElementNS(SVGNS, name);
+    for (var k in attrs) { n.setAttribute(k, attrs[k]); }
+    if (text !== undefined) { n.textContent = text; }
+    return n;
+  }
+  // All boxes around the customer's payoff share one footprint, so the
+  // ghost, the drawn box and the graded box land in exactly the same place.
+  function custRect(x, y, cls) {
+    return el("rect", {
+      x: x + CW / 2 + 2, y: y + CH / 2 - 15, width: 52, height: 30,
+      rx: 4, "class": cls
+    });
+  }
+  function cellX(j) { return X0 + j * CW; }
+  function cellY(i) { return Y0 + i * CH; }
+  function sameSet(a, b) {
+    var i;
+    if (a.length !== b.length) { return false; }
+    for (i = 0; i < b.length; i += 1) {
+      if (a.indexOf(b[i]) === -1) { return false; }
+    }
+    return true;
+  }
+  function profName(i, j) { return "(" + STRATS[i] + ", " + STRATS[j] + ")"; }
+
+  function onToggle(ev) {
+    var t = ev.currentTarget;
+    var i = parseInt(t.getAttribute("data-i"), 10);
+    var j = parseInt(t.getAttribute("data-j"), 10);
+    var at;
+    if (step > 3 || i !== step || checked[step]) { return; }
+    at = selected[i].indexOf(j);
+    if (at === -1) { selected[i].push(j); } else { selected[i].splice(at, 1); }
+    paint();
+  }
+  function onKey(ev) {
+    if (ev.key === "Enter" || ev.key === " " || ev.key === "Spacebar") {
+      ev.preventDefault();
+      onToggle(ev);
+    }
+  }
+
+  function paint() {
+    var i, j, x, y, active, showAllBoxes, hit, label, isSel, isBest;
+    while (svg.firstChild) { svg.removeChild(svg.firstChild); }
+
+    showAllBoxes = (step > 3);
+
+    svg.appendChild(el("text", { x: X0 + 2 * CW, y: 32, "class": "player-label",
+      "text-anchor": "middle" }, "Customer"));
+    svg.appendChild(el("text", { x: 34, y: Y0 + 2 * CH, "class": "player-label",
+      "text-anchor": "middle",
+      transform: "rotate(-90 34 " + (Y0 + 2 * CH) + ")" }, "Salesman"));
+
+    for (j = 0; j < 4; j += 1) {
+      svg.appendChild(el("text", {
+        x: cellX(j) + CW / 2, y: Y0 - 12, "class": "strat-label", "text-anchor": "middle"
+      }, STRATS[j]));
+    }
+    for (i = 0; i < 4; i += 1) {
+      svg.appendChild(el("text", {
+        x: X0 - 14, y: cellY(i) + CH / 2 + 6, "class": "strat-label", "text-anchor": "end"
+      }, STRATS[i]));
+    }
+
+    for (i = 0; i < 4; i += 1) {
+      active = (!showAllBoxes && i === step);
+      for (j = 0; j < 4; j += 1) {
+        x = cellX(j);
+        y = cellY(i);
+        svg.appendChild(el("rect", {
+          x: x, y: y, width: CW, height: CH,
+          "class": "cell-box" + (active ? " active" : "")
+        }));
+
+        // The salesman's payoff is dimmed while the customer's row is in play,
+        // so that only the numbers being compared stand out.
+        svg.appendChild(el("text", {
+          x: x + CW / 2 - 4, y: y + CH / 2 + 6, "text-anchor": "end",
+          "class": "pay" + (active ? " dim" : "")
+        }, "(" + PAY[i][j][0] + ","));
+        svg.appendChild(el("text", {
+          x: x + CW / 2 + 4, y: y + CH / 2 + 6, "text-anchor": "start",
+          "class": "pay" + (active ? " strong" : "")
+        }, PAY[i][j][1] + ")"));
+
+        isSel = selected[i].indexOf(j) !== -1;
+        isBest = CUST_BEST[i].indexOf(j) !== -1;
+
+        if (active && !checked[i]) {
+          // The hit target goes in first so that the ghost box, which follows
+          // it, can respond to hover and focus through a sibling selector.
+          label = "Row " + STRATS[i] + ", column " + STRATS[j] +
+                  ", customer's payoff " + PAY[i][j][1] +
+                  (isSel ? ", boxed" : ", not boxed");
+          hit = el("rect", {
+            x: x, y: y, width: CW, height: CH, "class": "cell-hit",
+            tabindex: "0", role: "button", "aria-label": label,
+            "aria-pressed": isSel ? "true" : "false",
+            "data-i": i, "data-j": j
+          });
+          hit.addEventListener("click", onToggle);
+          hit.addEventListener("keydown", onKey);
+          svg.appendChild(hit);
+          svg.appendChild(custRect(x, y, isSel ? "drawn-box" : "ghost-box"));
+        } else if (active && checked[i]) {
+          // Grading the row that was just checked. A box the student drew is
+          // green if it belongs and red if it does not; a box they should have
+          // drawn but didn't shows dashed.
+          if (isSel) {
+            svg.appendChild(custRect(x, y, isBest ? "box-right" : "box-wrong"));
+          } else if (isBest) {
+            svg.appendChild(custRect(x, y, "box-missed"));
+          }
+        } else if ((checked[i] || showAllBoxes) && isBest) {
+          // A row that is already settled keeps its boxes as we move on, so
+          // the finished matrix builds up one row at a time.
+          svg.appendChild(custRect(x, y, "box-cust"));
+        }
+
+        if (showAllBoxes && SALES_BEST[j] === i) {
+          svg.appendChild(el("rect", {
+            x: x + CW / 2 - 62, y: y + CH / 2 - 15, width: 60, height: 30,
+            rx: 4, "class": "box-sales"
+          }));
+        }
+      }
+    }
+
+    svg.appendChild(el("text", { x: 330, y: Y0 + 4 * CH + 26, "class": "assume-note" },
+      "Salesman's payoff first. Throughout, we assume p > 1/2."));
+    if (showAllBoxes) {
+      svg.appendChild(el("text", { x: 330, y: Y0 + 4 * CH + 46, "class": "assume-note" },
+        "Green boxes are the customer's best responses across each row; red boxes are the salesman's down each column."));
+    }
+  }
+
+  function renderRow() {
+    var st = step;
+    stepText.textContent = "Row " + (st + 1) + " of 4";
+    nextBtn.textContent = (st === 3) ? "Next: find the Nash equilibria" : "Next row";
+    nextBtn.disabled = !checked[st];
+
+    if (checked[st]) {
+      showRowFeedback();
+      return;
+    }
+    qbox.innerHTML =
+      "<h3>The salesman plays " + STRATS[st] + "</h3>" +
+      "<p class=\"stem\">Suppose the salesman is using " + STRATS[st] + ". Look " +
+      "along this row and select <em>every</em> cell where the customer gets her " +
+      "highest payoff. There may be more than one. Her payoffs are the second " +
+      "number in each cell, shown in bold, and the dashed outlines show where a " +
+      "box can go. Press Check when you're done.</p>" +
+      "<div class=\"opts\"><button class=\"opt\" type=\"button\" id=\"check\">Check my boxes</button></div>" +
+      "<div class=\"fb\" id=\"fb\"></div>";
+    document.getElementById("check").addEventListener("click", function () {
+      if (selected[st].length === 0) {
+        document.getElementById("fb").innerHTML =
+          "<div class=\"calc-row miss\">Select at least one cell first. Every row " +
+          "has a best response in it somewhere.</div>";
+        return;
+      }
+      checked[st] = true;
+      paint();
+      showRowFeedback();
+    });
+    paint();
+  }
+
+  function showRowFeedback() {
+    var st = step;
+    var right = sameSet(selected[st], CUST_BEST[st]);
+    var names = [], k;
+    for (k = 0; k < CUST_BEST[st].length; k += 1) {
+      names.push(STRATS[CUST_BEST[st][k]]);
+    }
+    qbox.innerHTML =
+      "<h3>The salesman plays " + STRATS[st] + "</h3>" +
+      "<div class=\"fb\">" +
+      "<div class=\"calc-row" + (right ? "" : " miss") + "\">" +
+      (right ? "<b>Correct.</b> " : "<b>Not quite.</b> ") +
+      "The best response" + (CUST_BEST[st].length > 1 ? "s are " : " is ") +
+      names.join(" and ") + ".</div>" +
+      "<div class=\"calc-row\">" + ROW_FB[st].list + "</div>" +
+      "<div class=\"verdict\">" + ROW_FB[st].why + "</div>" +
+      "</div>";
+    nextBtn.disabled = false;
+    nextBtn.focus();
+    paint();
+  }
+
+  var FINAL_OPTS = [
+    {
+      text: "(gg, gb) and (bb, bg)",
+      ok: true,
+      fb: "<div class=\"calc-row\"><b>Correct.</b> These are the only two cells with a box on " +
+          "<em>both</em> payoffs, which is exactly what a Nash equilibrium needs: " +
+          "neither player can do better by changing strategy on their own.</div>" +
+          "<div class=\"summary\">At <b>(gg, gb)</b> the salesman always says the car " +
+          "is good and the customer always believes him. At <b>(bb, bg)</b> he always " +
+          "says it is bad and she never believes him. Notice that (gg, gb) is the " +
+          "profile we traced through the game tree earlier.</div>"
+    },
+    {
+      text: "(gb, gg) and (gb, bb)",
+      ok: false,
+      fb: "<div class=\"calc-row miss\">Both of these have a box on the salesman's " +
+          "payoff only. That tells us he is happy where he is, but says nothing " +
+          "about the customer.</div>" +
+          "<div class=\"verdict\">Check the customer's payoff in each of those cells " +
+          "against the rest of its row. If she can do better by moving on her own, " +
+          "the profile is not an equilibrium.</div>"
+    },
+    {
+      text: "(gg, gg) and (bb, gg)",
+      ok: false,
+      fb: "<div class=\"calc-row miss\">These two have a box on the customer's payoff " +
+          "only, so we have checked her and not him.</div>" +
+          "<div class=\"verdict\">A Nash equilibrium has to satisfy every player at " +
+          "once, so look for cells where both numbers are boxed.</div>"
+    }
+  ];
+
+  function renderFinal() {
+    var i, html;
+    stepText.textContent = "All four rows boxed";
+    nextBtn.disabled = true;
+    nextBtn.textContent = "Finished";
+    paint();
+
+    if (finalPicked !== null) {
+      qbox.innerHTML =
+        "<h3>Reading off the equilibria</h3>" +
+        "<p class=\"chosen\"><span class=\"lab\">Your answer:</span> " +
+        FINAL_OPTS[finalPicked].text + "</p>" +
+        "<div class=\"fb\">" + FINAL_OPTS[finalPicked].fb + "</div>";
+      return;
+    }
+
+    html = "<h3>Reading off the equilibria</h3>" +
+      "<p class=\"stem\">We've saved you the parallel work for the salesman and drawn " +
+      "his boxes too. His go around the first payoff in each cell, comparing down a " +
+      "column, since a column is where the customer is held fixed. Looking at the " +
+      "finished matrix, which strategy profiles are Nash equilibria?</p>" +
+      "<div class=\"opts\" id=\"opts\">";
+    for (i = 0; i < FINAL_OPTS.length; i += 1) {
+      html += "<button class=\"opt\" type=\"button\" data-i=\"" + i + "\">" +
+              FINAL_OPTS[i].text + "</button>";
+    }
+    html += "</div><div class=\"fb\" id=\"fb\"></div>";
+    qbox.innerHTML = html;
+
+    var btns = qbox.querySelectorAll(".opt");
+    for (i = 0; i < btns.length; i += 1) {
+      btns[i].addEventListener("click", function (ev) {
+        var k = parseInt(ev.currentTarget.getAttribute("data-i"), 10);
+        if (!FINAL_OPTS[k].ok) {
+          ev.currentTarget.classList.add("wrong");
+          ev.currentTarget.disabled = true;
+          document.getElementById("fb").innerHTML = FINAL_OPTS[k].fb;
+          return;
+        }
+        finalPicked = k;
+        renderFinal();
+      });
+    }
+  }
+
+  function render() {
+    if (step > 3) { renderFinal(); } else { renderRow(); }
+  }
+
+  nextBtn.addEventListener("click", function () {
+    if (step <= 3) {
+      step += 1;
+      render();
+    }
+  });
+  document.getElementById("restart").addEventListener("click", function () {
+    step = 0;
+    selected = [[], [], [], []];
+    checked = [false, false, false, false];
+    finalPicked = null;
+    nextBtn.textContent = "Next row";
+    render();
+  });
+
+  render();
+})();
+</script>
+
+</body>
+</html>
