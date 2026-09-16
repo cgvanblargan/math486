@@ -2,29 +2,46 @@
 
 <!-- Chapter 1 answers.
 
-    -->
+     Structure: an <exercises> division, so every level is a dropdown.
+       exercise  -> dropdown (publication knowl/@exercise-divisional="yes")
+       task      -> dropdown (publication knowl/@task="yes")
+       solution  -> dropdown (always born hidden in PreTeXt)
 
-<section xml:id="ch1-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+     Exercise numbering restarts inside each <exercises> division, so the
+     numbers here line up with ch1-exercises.ptx automatically. Keep the
+     order of <exercise> elements identical to that file.
+
+     Graphics convention for backward induction: chosen edges are thick,
+     rejected edges are gray, dashed and crossed, and the predicted payoff
+     is boxed.
+  -->
+
+<exercises xml:id="ch1-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Answers to Ch. 1 Exercises</title>
 
+  <introduction>
     <p>
-      Answers to the first four exercises of this chapter. Click
-      <term>Solution</term> under any part to reveal its answer.
+      Answers to the first eight exercises of this chapter. Click an
+      exercise to open it, click a part to open that part, then click
+      <term>Solution</term> to reveal the answer.
     </p>
     <p>
       These are answers, not worked solutions. Enough is shown that you can
       tell whether your own work landed in the right place, but the
       intermediate steps are yours to supply. Where a question asks for a
       tree or for backward induction shown graphically, the picture is the
-      answer, so the picture is given.
+      answer, so the picture is given. In those pictures a thick edge is a
+      move that gets chosen and a crossed, dashed edge is one that does
+      not.
     </p>
+  </introduction>
 
   <!-- ============================================================ -->
-  <paragraphs xml:id="ans-hw-commissioners">
-    <title>1. The Pay Increase</title>
+  <exercise xml:id="ans-hw-commissioners">
+    <title>The Pay Increase</title>
 
-    <example xml:id="ans-commissioners-payoffs">
-      <title>(a) The four unknown terminal payoffs</title>
+    <task xml:id="ans-commissioners-payoffs">
+      <title>The four unknown terminal payoffs</title>
       <statement>
         <p>
           Determine the payoffs at the four terminal nodes marked
@@ -106,10 +123,10 @@
           </image>
         </figure>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-commissioners-counting">
-      <title>(b) Sizes of the strategy sets</title>
+    <task xml:id="ans-commissioners-counting">
+      <title>Sizes of the strategy sets</title>
       <statement>
         <p>
           How many strategies does each commissioner have?
@@ -121,10 +138,10 @@
           <m>|S_C| = 2^4 = 16</m>.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-commissioners-strategy-words">
-      <title>(c) One of C's strategies, in words</title>
+    <task xml:id="ans-commissioners-strategy-words">
+      <title>One of <m>C</m>'s strategies, in words</title>
       <statement>
         <p>
           Write out one of <m>C</m>'s strategies and describe what it means.
@@ -164,10 +181,10 @@
           </ul>
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-commissioners-bi">
-      <title>(d) Backward induction</title>
+    <task xml:id="ans-commissioners-bi">
+      <title>Backward induction</title>
       <statement>
         <p>
           Analyze the game by backward induction and indicate the path of
@@ -176,28 +193,29 @@
       </statement>
       <solution>
         <p>
-          The diagram of the backward induction is below, with highlighted
-          branches that are chosen at each step of the process. The outcome
-          is the path <m>A: n</m>, <m>B: y</m>, <m>C: y</m>. The payoffs
-          are <m>(v,\,v-c,\,v-c)</m>.
+          The path is <m>A: n</m>, <m>B: y</m>, <m>C: y</m>, with payoffs
+          <m>(v,\,v-c,\,v-c)</m>.
         </p>
 
         <figure xml:id="fig-ans-commissioners-bi">
           <caption>
             Backward induction on the pay increase game. Thick edges are
-            the selected moves; the boxed payoff is the predicted outcome.
+            selected moves, crossed edges are rejected, and the boxed
+            payoff is the predicted outcome.
           </caption>
           <image width="100%">
             <shortdescription>
-              The pay increase game tree with the backward induction moves
-              drawn as thick edges.
+              The pay increase game tree with backward induction moves
+              drawn as thick edges and rejected moves crossed out.
             </shortdescription>
             <latex-image>
               \resizebox{15cm}{!}{%
               \begin{tikzpicture}[
                 font=\scriptsize,
                 nd/.style={circle,fill=black,inner sep=1.3pt},
-                pick/.style={line width=1.6pt}
+                pick/.style={line width=1.7pt},
+                cut/.style={gray!55,dash pattern=on 3pt off 2.5pt},
+                xm/.style={pos=0.5,gray!75,fill=white,inner sep=0.5pt}
               ]
               \useasboundingbox (-11.3,-1.1) rectangle (11.3,5.4);
               \node[nd] (A) at (0,4.5) {};
@@ -231,29 +249,29 @@
               \node[below=3pt of t6] {$(0,\,-c,\,0)$};
               \node[below=3pt of t7] {$(0,\,0,\,-c)$};
               \node[below=3pt of t8] {$(0,\,0,\,0)$};
-              \draw (A) -- node[above left] {$y$} (B1);
+              \draw[cut] (A) -- node[above left] {$y$} node[xm] {$\times$} (B1);
               \draw[pick] (A) -- node[above right] {$n$} (B2);
-              \draw (B1) -- node[above left] {$y$} (C1);
+              \draw[cut] (B1) -- node[above left] {$y$} node[xm] {$\times$} (C1);
               \draw[pick] (B1) -- node[above right] {$n$} (C2);
               \draw[pick] (B2) -- node[above left] {$y$} (C3);
-              \draw (B2) -- node[above right] {$n$} (C4);
-              \draw (C1) -- node[above left] {$y$} (t1);
+              \draw[cut] (B2) -- node[above right] {$n$} node[xm] {$\times$} (C4);
+              \draw[cut] (C1) -- node[above left] {$y$} node[xm] {$\times$} (t1);
               \draw[pick] (C1) -- node[above right] {$n$} (t2);
               \draw[pick] (C2) -- node[above left] {$y$} (t3);
-              \draw (C2) -- node[above right] {$n$} (t4);
+              \draw[cut] (C2) -- node[above right] {$n$} node[xm] {$\times$} (t4);
               \draw[pick] (C3) -- node[above left] {$y$} (t5);
-              \draw (C3) -- node[above right] {$n$} (t6);
-              \draw (C4) -- node[above left] {$y$} (t7);
+              \draw[cut] (C3) -- node[above right] {$n$} node[xm] {$\times$} (t6);
+              \draw[cut] (C4) -- node[above left] {$y$} node[xm] {$\times$} (t7);
               \draw[pick] (C4) -- node[above right] {$n$} (t8);
               \end{tikzpicture}}
             </latex-image>
           </image>
         </figure>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-commissioners-c-strategy">
-      <title>(e) C's rational strategy</title>
+    <task xml:id="ans-commissioners-c-strategy">
+      <title><m>C</m>'s rational strategy</title>
       <statement>
         <p>
           According to your backward induction analysis, what is <m>C</m>'s
@@ -269,15 +287,15 @@
           exactly when his vote is the deciding one.
         </p>
       </solution>
-    </example>
-  </paragraphs>
+    </task>
+  </exercise>
 
   <!-- ============================================================ -->
-  <paragraphs xml:id="ans-hw-four-player-entry">
-    <title>2. Four Players and an Entry Fee</title>
+  <exercise xml:id="ans-hw-four-player-entry">
+    <title>Four Players and an Entry Fee</title>
 
-    <example xml:id="ans-four-player-tree">
-      <title>(a) The extensive form</title>
+    <task xml:id="ans-four-player-tree">
+      <title>The extensive form</title>
       <statement>
         <p>
           Sketch the extensive form, reporting each player's payoff as a
@@ -285,10 +303,6 @@
         </p>
       </statement>
       <solution>
-        <p>
-          The diagram of the tree is given below.
-        </p>
-
         <figure xml:id="fig-ans-four-player-tree">
           <caption>
             The entry fee game in extensive form. Payoffs are net amounts,
@@ -337,10 +351,10 @@
           </image>
         </figure>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-four-player-bi">
-      <title>(b) The backward induction solution</title>
+    <task xml:id="ans-four-player-bi">
+      <title>The backward induction solution</title>
       <statement>
         <p>
           Determine the backward induction solution.
@@ -352,15 +366,15 @@
           and the payoff is <m>(-1,\,-1,\,-1,\,-1)</m>.
         </p>
       </solution>
-    </example>
-  </paragraphs>
+    </task>
+  </exercise>
 
   <!-- ============================================================ -->
-  <paragraphs xml:id="ans-hw-three-player-tree">
-    <title>3. A Three Player Game</title>
+  <exercise xml:id="ans-hw-three-player-tree">
+    <title>A Three Player Game</title>
 
-    <example xml:id="ans-three-player-counting">
-      <title>(a) Sizes of the strategy sets</title>
+    <task xml:id="ans-three-player-counting">
+      <title>Sizes of the strategy sets</title>
       <statement>
         <p>
           For each player <m>i</m>, determine <m>|S_i|</m>.
@@ -376,10 +390,10 @@
           number of moves across a player's own nodes.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-three-player-describe">
-      <title>(b) What the strategy <m>x\,b</m> means</title>
+    <task xml:id="ans-three-player-describe">
+      <title>What the strategy <m>x\,b</m> means</title>
       <statement>
         <p>
           Describe in words what is meant by <m>s_3 = x\,b</m>.
@@ -392,10 +406,10 @@
           player 3 plays <m>b</m>.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-three-player-bi">
-      <title>(c) Backward induction</title>
+    <task xml:id="ans-three-player-bi">
+      <title>Backward induction</title>
       <statement>
         <p>
           Analyze the game by backward induction and indicate the path of
@@ -405,26 +419,28 @@
       <solution>
         <p>
           The path of play is <m>x</m> then <m>y</m>, ending with a payoff
-          <m>(0,\,6,\,2)</m>. The highlighted moves that are chosen at each
-          step in backward induction are shown below.
+          <m>(0,\,6,\,2)</m>.
         </p>
 
         <figure xml:id="fig-ans-three-player-bi">
           <caption>
             Backward induction on the three player game. Thick edges are
-            the selected moves; the boxed payoff is the predicted outcome.
+            selected moves, crossed edges are rejected, and the boxed
+            payoff is the predicted outcome.
           </caption>
           <image width="100%">
             <shortdescription>
-              The three player game tree with the backward induction moves
-              drawn as thick edges.
+              The three player game tree with backward induction moves
+              drawn as thick edges and rejected moves crossed out.
             </shortdescription>
             <latex-image>
               \resizebox{15cm}{!}{%
               \begin{tikzpicture}[
                 font=\scriptsize,
                 nd/.style={circle,fill=black,inner sep=1.3pt},
-                pick/.style={line width=1.6pt}
+                pick/.style={line width=1.7pt},
+                cut/.style={gray!55,dash pattern=on 3pt off 2.5pt},
+                xm/.style={pos=0.5,gray!75,fill=white,inner sep=0.5pt}
               ]
               \useasboundingbox (-11.3,-1.1) rectangle (11.3,6.6);
               \node[nd] (r) at (-2,6) {};
@@ -467,32 +483,32 @@
               \node[below=3pt of e2] {$(5,10,5)$};
               \node[below=3pt of e3] {$(6,12,8)$};
               \draw[pick] (r) -- node[above left] {$x$} (h1);
-              \draw (r) -- node[left] {$y$} (h2);
-              \draw (r) -- node[above right] {$z$} (h4);
-              \draw (h1) -- node[above left] {$x$} (a1);
+              \draw[cut] (r) -- node[left] {$y$} node[xm] {$\times$} (h2);
+              \draw[cut] (r) -- node[above right] {$z$} node[xm] {$\times$} (h4);
+              \draw[cut] (h1) -- node[above left] {$x$} node[xm] {$\times$} (a1);
               \draw[pick] (h1) -- node[above right] {$y$} (a2);
-              \draw (h2) -- node[above left] {$a$} (h3);
-              \draw (h2) -- node[left] {$b$} (b2);
+              \draw[cut] (h2) -- node[above left] {$a$} node[xm] {$\times$} (h3);
+              \draw[cut] (h2) -- node[left] {$b$} node[xm] {$\times$} (b2);
               \draw[pick] (h2) -- node[above right] {$c$} (b3);
-              \draw (h3) -- node[above left] {$x$} (c1);
+              \draw[cut] (h3) -- node[above left] {$x$} node[xm] {$\times$} (c1);
               \draw[pick] (h3) -- node[left] {$y$} (c2);
-              \draw (h3) -- node[above right] {$z$} (c3);
+              \draw[cut] (h3) -- node[above right] {$z$} node[xm] {$\times$} (c3);
               \draw[pick] (h4) -- node[above left] {$a$} (d1);
-              \draw (h4) -- node[left] {$b$} (d2);
-              \draw (h4) -- node[right] {$c$} (h5);
-              \draw (h4) -- node[above right] {$d$} (d4);
+              \draw[cut] (h4) -- node[left] {$b$} node[xm] {$\times$} (d2);
+              \draw[cut] (h4) -- node[right] {$c$} node[xm] {$\times$} (h5);
+              \draw[cut] (h4) -- node[above right] {$d$} node[xm] {$\times$} (d4);
               \draw[pick] (h5) -- node[above left] {$a$} (e1);
-              \draw (h5) -- node[left] {$b$} (e2);
-              \draw (h5) -- node[above right] {$c$} (e3);
+              \draw[cut] (h5) -- node[left] {$b$} node[xm] {$\times$} (e2);
+              \draw[cut] (h5) -- node[above right] {$c$} node[xm] {$\times$} (e3);
               \end{tikzpicture}}
             </latex-image>
           </image>
         </figure>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-three-player-strategies">
-      <title>(d) Each player's strategy</title>
+    <task xml:id="ans-three-player-strategies">
+      <title>Each player's strategy</title>
       <statement>
         <p>
           What strategy will each player use?
@@ -507,10 +523,10 @@
           <m>y</m> for player 2, gives a move rather than a strategy.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-three-player-preferred">
-      <title>(e) An outcome all three prefer</title>
+    <task xml:id="ans-three-player-preferred">
+      <title>An outcome all three prefer</title>
       <statement>
         <p>
           Identify an outcome all three players strictly prefer to the
@@ -542,15 +558,15 @@
           </ol>
         </p>
       </solution>
-    </example>
-  </paragraphs>
+    </task>
+  </exercise>
 
   <!-- ============================================================ -->
-  <paragraphs xml:id="ans-hw-backward-induction-fails">
-    <title>4. When Backward Induction Fails</title>
+  <exercise xml:id="ans-hw-backward-induction-fails">
+    <title>When Backward Induction Fails</title>
 
-    <example xml:id="ans-bi-fails-a">
-      <title>(a) Where Game A breaks down</title>
+    <task xml:id="ans-bi-fails-a">
+      <title>Where Game A breaks down</title>
       <statement>
         <p>
           At which node does the procedure break down in Game A, and why
@@ -569,10 +585,10 @@
           does not know what player 2 will choose at the right node.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-bi-fails-b">
-      <title>(b) The same breakdown in Game B</title>
+    <task xml:id="ans-bi-fails-b">
+      <title>The same breakdown in Game B</title>
       <statement>
         <p>
           Show that backward induction breaks down at player 2's node in
@@ -586,10 +602,10 @@
           what happens at this node.
         </p>
       </solution>
-    </example>
+    </task>
 
-    <example xml:id="ans-bi-fails-b-obvious">
-      <title>(c) Player 1's rational choice in Game B</title>
+    <task xml:id="ans-bi-fails-b-obvious">
+      <title>Player 1's rational choice in Game B</title>
       <statement>
         <p>
           Identify player 1's rational choice and explain why he can make
@@ -605,6 +621,493 @@
           would make, <m>a</m> leaves him better off.
         </p>
       </solution>
-    </example>
-  </paragraphs>
-</section>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-classifying-commitments">
+    <title>Classifying Commitments</title>
+
+    <task xml:id="ans-classifying-commitments-bi">
+      <title>Backward induction</title>
+      <statement>
+        <p>
+          Find the outcome of the game, showing the steps graphically.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 1 plays <m>a</m>, Player 2 plays <m>u</m>, and the payoff
+          is <m>(5,2)</m>.
+        </p>
+
+        <figure xml:id="fig-ans-classifying-commitments-bi">
+          <caption>
+            Backward induction on the commitment game. Thick edges are
+            selected moves, crossed edges are rejected, and the boxed
+            payoff is the predicted outcome.
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The two player commitment game with backward induction moves
+              drawn as thick edges and rejected moves crossed out.
+            </shortdescription>
+            <latex-image>
+              \begin{tikzpicture}[
+                font=\small,
+                nd/.style={circle,fill=black,inner sep=1.4pt},
+                pick/.style={line width=1.7pt},
+                cut/.style={gray!55,dash pattern=on 3pt off 2.5pt},
+                xm/.style={pos=0.5,gray!75,fill=white,inner sep=0.5pt,font=\small}
+              ]
+              \useasboundingbox (-6.4,-0.7) rectangle (5.2,4.4);
+              \node[nd] (r) at (0,3.6) {};
+              \node[above=3pt of r] {Player 1};
+              \node[nd] (n1) at (-4.0,2) {};
+              \node[above left=0pt and 1pt of n1] {Player 2};
+              \node[nd] (n2) at (1.9,2) {};
+              \node[above right=0pt and 1pt of n2] {Player 2};
+              \node[nd] (tc) at (-1.1,1.2) {};
+              \node[below=3pt of tc] {$(4,0)$};
+              \node[nd] (u) at (-5.3,0.4) {};
+              \node[nd] (v) at (-2.9,0.4) {};
+              \node[below=3pt of u,draw,rounded corners,inner sep=3pt] {$(5,2)$};
+              \node[below=3pt of v] {$(1,1)$};
+              \node[nd] (w) at (0.4,0.4) {};
+              \node[nd] (t) at (2.2,0.4) {};
+              \node[nd] (s) at (4.0,0.4) {};
+              \node[below=3pt of w] {$(3,6)$};
+              \node[below=3pt of t] {$(7,4)$};
+              \node[below=3pt of s] {$(0,5)$};
+              \draw[pick] (r) -- node[above left] {$a$} (n1);
+              \draw[cut] (r) -- node[right,pos=0.5] {$c$} node[xm] {$\times$} (tc);
+              \draw[cut] (r) -- node[above right] {$b$} node[xm] {$\times$} (n2);
+              \draw[pick] (n1) -- node[above left] {$u$} (u);
+              \draw[cut] (n1) -- node[above right] {$v$} node[xm] {$\times$} (v);
+              \draw[pick] (n2) -- node[above left] {$w$} (w);
+              \draw[cut] (n2) -- node[right,pos=0.45] {$t$} node[xm] {$\times$} (t);
+              \draw[cut] (n2) -- node[above right] {$s$} node[xm] {$\times$} (s);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </task>
+
+    <task xml:id="ans-classifying-commitments-classify">
+      <title>Classifying the four announcements</title>
+      <statement>
+        <p>
+          Classify each announcement as a threat, a promise, or neither.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          (i) Player 2's left node: rational move <m>u</m>,
+          <m>(\pi_1,\pi_2) = (5,2)</m>; committed move <m>v</m>,
+          <m>(\pi_1',\pi_2') = (1,1)</m>. Both fall, <m>1 \lt 5</m> and
+          <m>1 \lt 2</m>, so it is a threat.
+        </p>
+
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell>Announcement</cell>
+            <cell>Rational move</cell>
+            <cell>Committed move</cell>
+            <cell>Classification</cell>
+          </row>
+          <row>
+            <cell>(i) <m>v</m> at the left node</cell>
+            <cell><m>u</m>: <m>(5,2)</m></cell>
+            <cell><m>v</m>: <m>(1,1)</m></cell>
+            <cell>Threat</cell>
+          </row>
+          <row>
+            <cell>(ii) <m>t</m> at the right node</cell>
+            <cell><m>w</m>: <m>(3,6)</m></cell>
+            <cell><m>t</m>: <m>(7,4)</m></cell>
+            <cell>Promise</cell>
+          </row>
+          <row>
+            <cell>(iii) <m>w</m> at the right node</cell>
+            <cell><m>w</m>: <m>(3,6)</m></cell>
+            <cell><m>w</m>: <m>(3,6)</m></cell>
+            <cell>Neither</cell>
+          </row>
+          <row>
+            <cell>(iv) <m>s</m> at the right node</cell>
+            <cell><m>w</m>: <m>(3,6)</m></cell>
+            <cell><m>s</m>: <m>(0,5)</m></cell>
+            <cell>Threat</cell>
+          </row>
+        </tabular>
+      </solution>
+    </task>
+
+    <task xml:id="ans-classifying-commitments-consequences">
+      <title>Consequences of each announcement</title>
+      <statement>
+        <p>
+          For each announcement, give the resulting outcome and compare it
+          to the backward induction outcome <m>(5,2)</m>.
+        </p>
+      </statement>
+      <solution>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell>Announcement</cell>
+            <cell>Player 1 plays</cell>
+            <cell>Outcome</cell>
+            <cell>Player 1</cell>
+            <cell>Player 2</cell>
+          </row>
+          <row>
+            <cell>(i) <m>v</m></cell>
+            <cell><m>c</m></cell>
+            <cell><m>(4,0)</m></cell>
+            <cell>worse</cell>
+            <cell>worse</cell>
+          </row>
+          <row>
+            <cell>(ii) <m>t</m></cell>
+            <cell><m>b</m></cell>
+            <cell><m>(7,4)</m></cell>
+            <cell>better</cell>
+            <cell>better</cell>
+          </row>
+          <row>
+            <cell>(iii) <m>w</m></cell>
+            <cell><m>a</m></cell>
+            <cell><m>(5,2)</m></cell>
+            <cell>same</cell>
+            <cell>same</cell>
+          </row>
+          <row>
+            <cell>(iv) <m>s</m></cell>
+            <cell><m>a</m></cell>
+            <cell><m>(5,2)</m></cell>
+            <cell>same</cell>
+            <cell>same</cell>
+          </row>
+        </tabular>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-broken-leg">
+    <title>Big Monkey, Little Monkey, and the Broken Leg</title>
+
+    <task xml:id="ans-broken-leg-healthy">
+      <title>A healthy Little Monkey</title>
+      <statement>
+        <p>
+          Run backward induction with <m>\ell = 0</m> and state Little
+          Monkey's payoff.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Big Monkey waits and Little Monkey climbs, with payoffs
+          <m>(9,1)</m>. Little Monkey's payoff is <m>1</m>, which is the
+          outcome of Section 1.5.
+        </p>
+
+        <figure xml:id="fig-ans-broken-leg-healthy">
+          <caption>
+            Backward induction with <m>\ell = 0</m>. Payoffs are listed in
+            the order (Big Monkey, Little Monkey).
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The Big Monkey, Little Monkey tree with backward induction
+              moves thick and rejected moves crossed out.
+            </shortdescription>
+            <latex-image>
+              \begin{tikzpicture}[
+                font=\small,
+                nd/.style={circle,fill=black,inner sep=1.4pt},
+                pick/.style={line width=1.7pt},
+                cut/.style={gray!55,dash pattern=on 3pt off 2.5pt},
+                xm/.style={pos=0.5,gray!75,fill=white,inner sep=0.5pt,font=\small}
+              ]
+              \useasboundingbox (-6.2,-0.9) rectangle (6.2,3.8);
+              \node[nd] (r) at (0,3) {};
+              \node[above=3pt of r] {Big Monkey};
+              \node[nd] (L) at (-3.2,1.5) {};
+              \node[above left=1pt and 2pt of L] {Little Monkey};
+              \node[nd] (R) at (3.2,1.5) {};
+              \node[above right=1pt and 2pt of R] {Little Monkey};
+              \node[nd] (a) at (-4.8,0) {};
+              \node[nd] (b) at (-1.6,0) {};
+              \node[nd] (c) at (1.6,0) {};
+              \node[nd] (d) at (4.8,0) {};
+              \node[below=3pt of a] {$(0,\,0)$};
+              \node[below=3pt of b,draw,rounded corners,inner sep=3pt] {$(9,\,1)$};
+              \node[below=3pt of c] {$(4,\,4)$};
+              \node[below=3pt of d] {$(5,\,3)$};
+              \draw[pick] (r) -- node[above left] {wait} (L);
+              \draw[cut] (r) -- node[above right] {climb} node[xm] {$\times$} (R);
+              \draw[cut] (L) -- node[above left] {wait} node[xm] {$\times$} (a);
+              \draw[pick] (L) -- node[above right] {climb} (b);
+              \draw[pick] (R) -- node[above left] {wait} (c);
+              \draw[cut] (R) -- node[above right] {climb} node[xm] {$\times$} (d);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+      </solution>
+    </task>
+
+    <task xml:id="ans-broken-leg-threshold">
+      <title>The threshold value of <m>\ell</m></title>
+      <statement>
+        <p>
+          Find the value of <m>\ell</m> at which the outcome changes and
+          describe the outcome on either side.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Threshold <m>\ell = 1</m>, at Little Monkey's left node.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>\ell \lt 1</m>: Big Monkey waits, Little Monkey climbs,
+              <m>(9,\,1-\ell)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\ell \gt 1</m>: Big Monkey climbs, Little Monkey waits,
+              <m>(4,4)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\ell = 1</m>: both moves pay Little Monkey <m>0</m>
+              there, so backward induction breaks down.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-broken-leg-reversed">
+      <title>Little Monkey moves first</title>
+      <statement>
+        <p>
+          With <m>\ell = 0</m> and Little Monkey moving first, draw the
+          tree, find the outcome, and compare with the threat version.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Little Monkey waits and Big Monkey climbs, with payoffs
+          <m>(4,4)</m>.
+        </p>
+
+        <figure xml:id="fig-ans-broken-leg-reversed">
+          <caption>
+            The game with Little Monkey moving first. Payoffs are still
+            listed in the order (Big Monkey, Little Monkey).
+          </caption>
+          <image width="100%">
+            <shortdescription>
+              The reversed tree, Little Monkey at the root, with backward
+              induction moves thick and rejected moves crossed out.
+            </shortdescription>
+            <latex-image>
+              \begin{tikzpicture}[
+                font=\small,
+                nd/.style={circle,fill=black,inner sep=1.4pt},
+                pick/.style={line width=1.7pt},
+                cut/.style={gray!55,dash pattern=on 3pt off 2.5pt},
+                xm/.style={pos=0.5,gray!75,fill=white,inner sep=0.5pt,font=\small}
+              ]
+              \useasboundingbox (-6.2,-0.9) rectangle (6.2,3.8);
+              \node[nd] (r) at (0,3) {};
+              \node[above=3pt of r] {Little Monkey};
+              \node[nd] (L) at (-3.2,1.5) {};
+              \node[above left=1pt and 2pt of L] {Big Monkey};
+              \node[nd] (R) at (3.2,1.5) {};
+              \node[above right=1pt and 2pt of R] {Big Monkey};
+              \node[nd] (a) at (-4.8,0) {};
+              \node[nd] (b) at (-1.6,0) {};
+              \node[nd] (c) at (1.6,0) {};
+              \node[nd] (d) at (4.8,0) {};
+              \node[below=3pt of a] {$(0,\,0)$};
+              \node[below=3pt of b,draw,rounded corners,inner sep=3pt] {$(4,\,4)$};
+              \node[below=3pt of c] {$(9,\,1)$};
+              \node[below=3pt of d] {$(5,\,3)$};
+              \draw[pick] (r) -- node[above left] {wait} (L);
+              \draw[cut] (r) -- node[above right] {climb} node[xm] {$\times$} (R);
+              \draw[cut] (L) -- node[above left] {wait} node[xm] {$\times$} (a);
+              \draw[pick] (L) -- node[above right] {climb} (b);
+              \draw[pick] (R) -- node[above left] {wait} (c);
+              \draw[cut] (R) -- node[above right] {climb} node[xm] {$\times$} (d);
+              \end{tikzpicture}
+            </latex-image>
+          </image>
+        </figure>
+
+        <p>
+          Different games, but the same scenario in effect. Whether Little
+          Monkey waits first or announces in advance that he will wait,
+          Big Monkey compares <m>0</m> against <m>4</m> and climbs for the
+          same reason. Moving first only makes the waiting a fact instead
+          of a claim.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-centipede-commitment">
+    <title>Commitment in the Centipede Game</title>
+
+    <task xml:id="ans-centipede-commitment-bi">
+      <title>Backward induction</title>
+      <statement>
+        <p>
+          Find the outcome, giving the payoff comparison at <m>n_6</m> and
+          <m>n_5</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>n_6</m>: Jeff gets <m>6</m> from <m>d</m> against <m>5</m>
+          from <m>c</m>, so <m>d</m>. <m>n_5</m>: Mutt gets <m>6</m> from
+          <m>d</m> against <m>3</m> from <m>c</m>, so <m>d</m>. Then
+          <m>d</m> at <m>n_4</m>, <m>n_3</m>, <m>n_2</m>, <m>n_1</m>.
+          Payoff <m>(4,0)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-centipede-commitment-n2">
+      <title>Jeff commits at <m>n_2</m></title>
+      <statement>
+        <p>
+          Classify the commitment and find the new outcome.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Promise. At <m>n_2</m>: rational move <m>d</m>, <m>(1,4)</m>;
+          committed move <m>c</m>, <m>(5,1)</m>. Better for Mutt, worse
+          for Jeff. Mutt then cooperates at <m>n_1</m> and the game ends
+          at <m>n_3</m> with <m>(5,1)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-centipede-commitment-n2-n4">
+      <title>Jeff commits at <m>n_2</m> and <m>n_4</m></title>
+      <statement>
+        <p>
+          Find the new outcome.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Mutt defects at <m>n_5</m>. Payoff <m>(6,2)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-centipede-commitment-all-three">
+      <title>Jeff commits at <m>n_2</m>, <m>n_4</m>, and <m>n_6</m></title>
+      <statement>
+        <p>
+          Find the new outcome and explain what you find.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Still <m>(6,2)</m>. Mutt defects at <m>n_5</m>, so <m>n_6</m> is
+          never reached and the commitment there does nothing.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-centipede-commitment-mutt">
+      <title>Mutt commits at <m>n_3</m> and <m>n_5</m></title>
+      <statement>
+        <p>
+          Find the outcome when only Mutt commits.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>(4,0)</m>, the same as with no commitments at all.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-centipede-commitment-both">
+      <title>Both players commit</title>
+      <statement>
+        <p>
+          Is there a combination giving Mutt more than <m>4</m> and Jeff
+          more than <m>2</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Yes. Jeff commits to <m>c</m> at <m>n_2</m>, <m>n_4</m>,
+          <m>n_6</m> and Mutt commits to <m>c</m> at <m>n_3</m>,
+          <m>n_5</m>. Outcome <m>(5,5)</m>, the only terminal payoff that
+          qualifies.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-ultimatum-commitment">
+    <title>The Ultimatum Game</title>
+
+    <task xml:id="ans-ultimatum-commitment-which">
+      <title>Which kind of commitment is available</title>
+      <statement>
+        <p>
+          Which of threat and promise is available to Player 2 here, and
+          what rules the other one out?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A threat: <q>I will reject any offer below <m>x</m>.</q>
+          Rejecting takes Player 1 from <m>100-x</m> to <m>0</m> and
+          Player 2 from <m>x</m> to <m>0</m>, so both fall. A promise is
+          impossible, since accepting already pays Player 1 the better of
+          her two moves.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-ultimatum-commitment-believable">
+      <title>When the commitment stops being believable</title>
+      <statement>
+        <p>
+          Is there a point past which the commitment stops being
+          believable?
+        </p>
+      </statement>
+      <solution>
+        <p>
+         This is your opinion!
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <conclusion>
+    <p>
+      Answers to the three continuous games at the end of the exercise set
+      are not posted here.
+    </p>
+  </conclusion>
+</exercises>
