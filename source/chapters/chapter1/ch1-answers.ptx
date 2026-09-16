@@ -26,13 +26,8 @@
       <term>Solution</term> to reveal the answer.
     </p>
     <p>
-      These are answers, not worked solutions. Enough is shown that you can
-      tell whether your own work landed in the right place, but the
-      intermediate steps are yours to supply. Where a question asks for a
-      tree or for backward induction shown graphically, the picture is the
-      answer, so the picture is given. In those pictures a thick edge is a
-      move that gets chosen and a crossed, dashed edge is one that does
-      not.
+      These are the answers to the questions, not fully worked solutions. Enough is shown that you can
+      tell whether your own work got to the correct conclusion.
     </p>
   </introduction>
 
@@ -1104,10 +1099,5 @@
     </task>
   </exercise>
 
-  <conclusion>
-    <p>
-      Answers to the three continuous games at the end of the exercise set
-      are not posted here.
-    </p>
-  </conclusion>
+
 </exercises>
