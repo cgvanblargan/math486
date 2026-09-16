@@ -463,154 +463,91 @@ var ptx_lunr_docs = [
   "id": "ch1-answers",
   "level": "1",
   "url": "ch1-answers.html",
-  "type": "Section",
+  "type": "Exercises",
   "number": "1.9",
   "title": "Answers to Ch. 1 Exercises",
-  "body": " Answers to Ch. 1 Exercises  Answers to the first four exercises of this chapter. Click Solution under any part to reveal its answer.  These are answers, not worked solutions. Enough is shown that you can tell whether your own work landed in the right place, but the intermediate steps are yours to supply. Where a question asks for a tree or for backward induction shown graphically, the picture is the answer, so the picture is given.    1. The Pay Increase   (a) The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.        (b) Sizes of the strategy sets   How many strategies does each commissioner have?     , , .     (c) One of C's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .        (d) Backward induction   Analyze the game by backward induction and indicate the path of play.    The diagram of the backward induction is below, with highlighted branches that are chosen at each step of the process. The outcome is the path , , . The payoffs are .   Backward induction on the pay increase game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The pay increase game tree with the backward induction moves drawn as thick edges.        (e) C's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.       2. Four Players and an Entry Fee   (a) The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.    The diagram of the tree is given below.   The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.        (b) The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .       3. A Three Player Game   (a) Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.     (b) What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .     (c) Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff . The highlighted moves that are chosen at each step in backward induction are shown below.   Backward induction on the three player game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The three player game tree with the backward induction moves drawn as thick edges.        (d) Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.     (e) An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .          4. When Backward Induction Fails   (a) Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.     (b) The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.     (c) Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.     "
+  "body": " Answers to Ch. 1 Exercises   Answers to the first eight exercises of this chapter. Click an exercise to open it, click a part to open that part, then click Solution to reveal the answer.  These are answers, not worked solutions. Enough is shown that you can tell whether your own work landed in the right place, but the intermediate steps are yours to supply. Where a question asks for a tree or for backward induction shown graphically, the picture is the answer, so the picture is given. In those pictures a thick edge is a move that gets chosen and a crossed, dashed edge is one that does not.     The Pay Increase   The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.        Sizes of the strategy sets   How many strategies does each commissioner have?     , , .     One of 's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .        Backward induction   Analyze the game by backward induction and indicate the path of play.    The path is , , , with payoffs .   Backward induction on the pay increase game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The pay increase game tree with backward induction moves drawn as thick edges and rejected moves crossed out.        's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.       Four Players and an Entry Fee   The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.     The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.        The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .       A Three Player Game   Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.     What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .     Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff .   Backward induction on the three player game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The three player game tree with backward induction moves drawn as thick edges and rejected moves crossed out.        Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.     An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .          When Backward Induction Fails   Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.     The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.     Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.       Classifying Commitments   Backward induction   Find the outcome of the game, showing the steps graphically.    Player 1 plays , Player 2 plays , and the payoff is .   Backward induction on the commitment game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The two player commitment game with backward induction moves drawn as thick edges and rejected moves crossed out.        Classifying the four announcements   Classify each announcement as a threat, a promise, or neither.    (i) Player 2's left node: rational move , ; committed move , . Both fall, and , so it is a threat.    Announcement  Rational move  Committed move  Classification    (i) at the left node  :  :  Threat    (ii) at the right node  :  :  Promise    (iii) at the right node  :  :  Neither    (iv) at the right node  :  :  Threat       Consequences of each announcement   For each announcement, give the resulting outcome and compare it to the backward induction outcome .      Announcement  Player 1 plays  Outcome  Player 1  Player 2    (i)    worse  worse    (ii)    better  better    (iii)    same  same    (iv)    same  same         Big Monkey, Little Monkey, and the Broken Leg   A healthy Little Monkey   Run backward induction with and state Little Monkey's payoff.    Big Monkey waits and Little Monkey climbs, with payoffs . Little Monkey's payoff is , which is the outcome of Section 1.5.   Backward induction with . Payoffs are listed in the order (Big Monkey, Little Monkey).   The Big Monkey, Little Monkey tree with backward induction moves thick and rejected moves crossed out.        The threshold value of   Find the value of at which the outcome changes and describe the outcome on either side.    Threshold , at Little Monkey's left node.     : Big Monkey waits, Little Monkey climbs, .     : Big Monkey climbs, Little Monkey waits, .     : both moves pay Little Monkey there, so backward induction breaks down.       Little Monkey moves first   With and Little Monkey moving first, draw the tree, find the outcome, and compare with the threat version.    Little Monkey waits and Big Monkey climbs, with payoffs .   The game with Little Monkey moving first. Payoffs are still listed in the order (Big Monkey, Little Monkey).   The reversed tree, Little Monkey at the root, with backward induction moves thick and rejected moves crossed out.     Different games, but the same scenario in effect. Whether Little Monkey waits first or announces in advance that he will wait, Big Monkey compares against and climbs for the same reason. Moving first only makes the waiting a fact instead of a claim.       Commitment in the Centipede Game   Backward induction   Find the outcome, giving the payoff comparison at and .     : Jeff gets from against from , so . : Mutt gets from against from , so . Then at , , , . Payoff .     Jeff commits at   Classify the commitment and find the new outcome.    Promise. At : rational move , ; committed move , . Better for Mutt, worse for Jeff. Mutt then cooperates at and the game ends at with .     Jeff commits at and   Find the new outcome.    Mutt defects at . Payoff .     Jeff commits at , , and   Find the new outcome and explain what you find.    Still . Mutt defects at , so is never reached and the commitment there does nothing.     Mutt commits at and   Find the outcome when only Mutt commits.     , the same as with no commitments at all.     Both players commit   Is there a combination giving Mutt more than and Jeff more than ?    Yes. Jeff commits to at , , and Mutt commits to at , . Outcome , the only terminal payoff that qualifies.       The Ultimatum Game   Which kind of commitment is available   Which of threat and promise is available to Player 2 here, and what rules the other one out?    A threat: I will reject any offer below . Rejecting takes Player 1 from to and Player 2 from to , so both fall. A promise is impossible, since accepting already pays Player 1 the better of her two moves.     When the commitment stops being believable   Is there a point past which the commitment stops being believable?    This is your opinion!      Answers to the three continuous games at the end of the exercise set are not posted here.   "
 },
 {
-  "id": "ch1-answers-2",
+  "id": "ch1-answers-2-1",
   "level": "2",
-  "url": "ch1-answers.html#ch1-answers-2",
+  "url": "ch1-answers.html#ch1-answers-2-1",
   "type": "Paragraph (with a defined term)",
   "number": "",
   "title": "",
   "body": "Solution "
 },
 {
-  "id": "ans-commissioners-payoffs",
+  "id": "ans-hw-commissioners",
   "level": "2",
-  "url": "ch1-answers.html#ans-commissioners-payoffs",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-commissioners",
+  "type": "Exercise",
   "number": "1.9.1",
-  "title": "(a) The four unknown terminal payoffs.",
-  "body": " (a) The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.      "
+  "title": "The Pay Increase.",
+  "body": " The Pay Increase   The four unknown terminal payoffs   Determine the payoffs at the four terminal nodes marked .    From left to right: , , , and . Only the last of these is a node where the measure fails: voted yes alone, so pays and nobody collects .   The pay increase game with all payoffs filled in. Payoffs are listed in the order .   The pay increase game tree with all eight terminal payoffs filled in.        Sizes of the strategy sets   How many strategies does each commissioner have?     , , .     One of 's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .        Backward induction   Analyze the game by backward induction and indicate the path of play.    The path is , , , with payoffs .   Backward induction on the pay increase game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The pay increase game tree with backward induction moves drawn as thick edges and rejected moves crossed out.        's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.    "
 },
 {
-  "id": "ans-commissioners-counting",
+  "id": "ans-hw-four-player-entry",
   "level": "2",
-  "url": "ch1-answers.html#ans-commissioners-counting",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-four-player-entry",
+  "type": "Exercise",
+  "number": "1.9.2",
+  "title": "Four Players and an Entry Fee.",
+  "body": " Four Players and an Entry Fee   The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.     The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.        The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .    "
+},
+{
+  "id": "ans-hw-three-player-tree",
+  "level": "2",
+  "url": "ch1-answers.html#ans-hw-three-player-tree",
+  "type": "Exercise",
   "number": "1.9.3",
-  "title": "(b) Sizes of the strategy sets.",
-  "body": " (b) Sizes of the strategy sets   How many strategies does each commissioner have?     , , .   "
+  "title": "A Three Player Game.",
+  "body": " A Three Player Game   Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.     What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .     Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff .   Backward induction on the three player game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The three player game tree with backward induction moves drawn as thick edges and rejected moves crossed out.        Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.     An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .       "
 },
 {
-  "id": "ans-commissioners-strategy-words",
+  "id": "ans-hw-backward-induction-fails",
   "level": "2",
-  "url": "ch1-answers.html#ans-commissioners-strategy-words",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-backward-induction-fails",
+  "type": "Exercise",
   "number": "1.9.4",
-  "title": "(c) One of C’s strategies, in words.",
-  "body": " (c) One of C's strategies, in words   Write out one of 's strategies and describe what it means.    Any of the sixteen is acceptable. Listing 's move at each of his four nodes, from left to right, gives a strategy. For example, the strategy corresponds to the following in words:   If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .    If chooses and chooses , then chooses .      "
+  "title": "When Backward Induction Fails.",
+  "body": " When Backward Induction Fails   Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.     The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.     Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.    "
 },
 {
-  "id": "ans-commissioners-bi",
+  "id": "ans-hw-classifying-commitments",
   "level": "2",
-  "url": "ch1-answers.html#ans-commissioners-bi",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-classifying-commitments",
+  "type": "Exercise",
   "number": "1.9.5",
-  "title": "(d) Backward induction.",
-  "body": " (d) Backward induction   Analyze the game by backward induction and indicate the path of play.    The diagram of the backward induction is below, with highlighted branches that are chosen at each step of the process. The outcome is the path , , . The payoffs are .   Backward induction on the pay increase game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The pay increase game tree with the backward induction moves drawn as thick edges.      "
+  "title": "Classifying Commitments.",
+  "body": " Classifying Commitments   Backward induction   Find the outcome of the game, showing the steps graphically.    Player 1 plays , Player 2 plays , and the payoff is .   Backward induction on the commitment game. Thick edges are selected moves, crossed edges are rejected, and the boxed payoff is the predicted outcome.   The two player commitment game with backward induction moves drawn as thick edges and rejected moves crossed out.        Classifying the four announcements   Classify each announcement as a threat, a promise, or neither.    (i) Player 2's left node: rational move , ; committed move , . Both fall, and , so it is a threat.    Announcement  Rational move  Committed move  Classification    (i) at the left node  :  :  Threat    (ii) at the right node  :  :  Promise    (iii) at the right node  :  :  Neither    (iv) at the right node  :  :  Threat       Consequences of each announcement   For each announcement, give the resulting outcome and compare it to the backward induction outcome .      Announcement  Player 1 plays  Outcome  Player 1  Player 2    (i)    worse  worse    (ii)    better  better    (iii)    same  same    (iv)    same  same      "
 },
 {
-  "id": "ans-commissioners-c-strategy",
+  "id": "ans-hw-broken-leg",
   "level": "2",
-  "url": "ch1-answers.html#ans-commissioners-c-strategy",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-broken-leg",
+  "type": "Exercise",
+  "number": "1.9.6",
+  "title": "Big Monkey, Little Monkey, and the Broken Leg.",
+  "body": " Big Monkey, Little Monkey, and the Broken Leg   A healthy Little Monkey   Run backward induction with and state Little Monkey's payoff.    Big Monkey waits and Little Monkey climbs, with payoffs . Little Monkey's payoff is , which is the outcome of Section 1.5.   Backward induction with . Payoffs are listed in the order (Big Monkey, Little Monkey).   The Big Monkey, Little Monkey tree with backward induction moves thick and rejected moves crossed out.        The threshold value of   Find the value of at which the outcome changes and describe the outcome on either side.    Threshold , at Little Monkey's left node.     : Big Monkey waits, Little Monkey climbs, .     : Big Monkey climbs, Little Monkey waits, .     : both moves pay Little Monkey there, so backward induction breaks down.       Little Monkey moves first   With and Little Monkey moving first, draw the tree, find the outcome, and compare with the threat version.    Little Monkey waits and Big Monkey climbs, with payoffs .   The game with Little Monkey moving first. Payoffs are still listed in the order (Big Monkey, Little Monkey).   The reversed tree, Little Monkey at the root, with backward induction moves thick and rejected moves crossed out.     Different games, but the same scenario in effect. Whether Little Monkey waits first or announces in advance that he will wait, Big Monkey compares against and climbs for the same reason. Moving first only makes the waiting a fact instead of a claim.    "
+},
+{
+  "id": "ans-hw-centipede-commitment",
+  "level": "2",
+  "url": "ch1-answers.html#ans-hw-centipede-commitment",
+  "type": "Exercise",
   "number": "1.9.7",
-  "title": "(e) C’s rational strategy.",
-  "body": " (e) C's rational strategy   According to your backward induction analysis, what is 's rational strategy?    The rational strategy is the rational decision would make at each node he is at. We start with the move at the leftmost node, which gives the strategy . In words, votes yes exactly when his vote is the deciding one.   "
+  "title": "Commitment in the Centipede Game.",
+  "body": " Commitment in the Centipede Game   Backward induction   Find the outcome, giving the payoff comparison at and .     : Jeff gets from against from , so . : Mutt gets from against from , so . Then at , , , . Payoff .     Jeff commits at   Classify the commitment and find the new outcome.    Promise. At : rational move , ; committed move , . Better for Mutt, worse for Jeff. Mutt then cooperates at and the game ends at with .     Jeff commits at and   Find the new outcome.    Mutt defects at . Payoff .     Jeff commits at , , and   Find the new outcome and explain what you find.    Still . Mutt defects at , so is never reached and the commitment there does nothing.     Mutt commits at and   Find the outcome when only Mutt commits.     , the same as with no commitments at all.     Both players commit   Is there a combination giving Mutt more than and Jeff more than ?    Yes. Jeff commits to at , , and Mutt commits to at , . Outcome , the only terminal payoff that qualifies.    "
 },
 {
-  "id": "ans-four-player-tree",
+  "id": "ans-hw-ultimatum-commitment",
   "level": "2",
-  "url": "ch1-answers.html#ans-four-player-tree",
-  "type": "Example",
+  "url": "ch1-answers.html#ans-hw-ultimatum-commitment",
+  "type": "Exercise",
   "number": "1.9.8",
-  "title": "(a) The extensive form.",
-  "body": " (a) The extensive form   Sketch the extensive form, reporting each player's payoff as a net amount.    The diagram of the tree is given below.   The entry fee game in extensive form. Payoffs are net amounts, listed in the order .   A chain of four decision nodes, each with an end branch and a continue branch.      "
-},
-{
-  "id": "ans-four-player-bi",
-  "level": "2",
-  "url": "ch1-answers.html#ans-four-player-bi",
-  "type": "Example",
-  "number": "1.9.10",
-  "title": "(b) The backward induction solution.",
-  "body": " (b) The backward induction solution   Determine the backward induction solution.    Every player continues. The predicted path is and the payoff is .   "
-},
-{
-  "id": "ans-three-player-counting",
-  "level": "2",
-  "url": "ch1-answers.html#ans-three-player-counting",
-  "type": "Example",
-  "number": "1.9.11",
-  "title": "(a) Sizes of the strategy sets.",
-  "body": " (a) Sizes of the strategy sets   For each player , determine .     , , . Player 1 moves at the root (three moves) and at the node reached by (three moves); player 2 moves at two nodes, with two and three moves; player 3 moves at two nodes, with three and four moves. Multiply the number of moves across a player's own nodes.   "
-},
-{
-  "id": "ans-three-player-describe",
-  "level": "2",
-  "url": "ch1-answers.html#ans-three-player-describe",
-  "type": "Example",
-  "number": "1.9.12",
-  "title": "(b) What the strategy <span class=\"process-math\">\\(x\\,b\\)<\/span> means.",
-  "body": " (b) What the strategy means   Describe in words what is meant by .    If player 1 plays and player 2 responds with , then player 3 plays . If player 1 plays , then player 3 plays .   "
-},
-{
-  "id": "ans-three-player-bi",
-  "level": "2",
-  "url": "ch1-answers.html#ans-three-player-bi",
-  "type": "Example",
-  "number": "1.9.13",
-  "title": "(c) Backward induction.",
-  "body": " (c) Backward induction   Analyze the game by backward induction and indicate the path of play.    The path of play is then , ending with a payoff . The highlighted moves that are chosen at each step in backward induction are shown below.   Backward induction on the three player game. Thick edges are the selected moves; the boxed payoff is the predicted outcome.   The three player game tree with the backward induction moves drawn as thick edges.      "
-},
-{
-  "id": "ans-three-player-strategies",
-  "level": "2",
-  "url": "ch1-answers.html#ans-three-player-strategies",
-  "type": "Example",
-  "number": "1.9.15",
-  "title": "(d) Each player’s strategy.",
-  "body": " (d) Each player's strategy   What strategy will each player use?    Taking each player's nodes left to right, , , and . Each of these names a move at both of that player's nodes, including the ones off the predicted path. Reporting only for player 1, or only for player 2, gives a move rather than a strategy.   "
-},
-{
-  "id": "ans-three-player-preferred",
-  "level": "2",
-  "url": "ch1-answers.html#ans-three-player-preferred",
-  "type": "Example",
-  "number": "1.9.16",
-  "title": "(e) An outcome all three prefer.",
-  "body": " (e) An outcome all three prefer   Identify an outcome all three players strictly prefer to the backward induction outcome.    The predicted outcome leads to a payoff , so we need an outcome beating , , and in all three coordinates at once. The following three all work:   The terminal node , reached by playing and playing .    The terminal node with a payoff of .    The terminal node with a payoff of .      "
-},
-{
-  "id": "ans-bi-fails-a",
-  "level": "2",
-  "url": "ch1-answers.html#ans-bi-fails-a",
-  "type": "Example",
-  "number": "1.9.17",
-  "title": "(a) Where Game A breaks down.",
-  "body": " (a) Where Game A breaks down   At which node does the procedure break down in Game A, and why does that leave player 1 unable to decide?    It breaks down at player 2's node. Both and pay player 2 the same amount, , so there is no unique best move there and no single payoff pair to fold back up to the root.  Player 1 is then stuck. He does not know whether choosing or will lead to a better payoff, because he does not know what player 2 will choose at the right node.   "
-},
-{
-  "id": "ans-bi-fails-b",
-  "level": "2",
-  "url": "ch1-answers.html#ans-bi-fails-b",
-  "type": "Example",
-  "number": "1.9.18",
-  "title": "(b) The same breakdown in Game B.",
-  "body": " (b) The same breakdown in Game B   Show that backward induction breaks down at player 2's node in Game B for the same reason.    Player 2 gets from and from , so the payoffs are equal and backward induction cannot predict what happens at this node.   "
-},
-{
-  "id": "ans-bi-fails-b-obvious",
-  "level": "2",
-  "url": "ch1-answers.html#ans-bi-fails-b-obvious",
-  "type": "Example",
-  "number": "1.9.19",
-  "title": "(c) Player 1’s rational choice in Game B.",
-  "body": " (c) Player 1's rational choice in Game B   Identify player 1's rational choice and explain why he can make it without knowing what player 2 would do.    Player 1 should play . It pays him , while the only payoffs he can reach after are and , and beats both. He therefore does not need to know, or guess, how player 2 breaks her tie: whichever move she would make, leaves him better off.   "
+  "title": "The Ultimatum Game.",
+  "body": " The Ultimatum Game   Which kind of commitment is available   Which of threat and promise is available to Player 2 here, and what rules the other one out?    A threat: I will reject any offer below . Rejecting takes Player 1 from to and Player 2 from to , so both fall. A promise is impossible, since accepting already pays Player 1 the better of her two moves.     When the commitment stops being believable   Is there a point past which the commitment stops being believable?    This is your opinion!    "
 },
 {
   "id": "ch2-page1-prisoners-dilemma",
