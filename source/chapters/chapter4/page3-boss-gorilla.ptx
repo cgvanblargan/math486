@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page3-boss-gorilla" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Travails of Boss Gorilla</title>
+
+  <p>
+    Here's another game with incomplete information. This time a gorilla
+    shows up to challenge the boss, and the boss can't tell whether he's
+    about to fight someone who will beat him.
+  </p>
+
+  <assemblage xml:id="read-4-5-setup">
+    <title>Section 4.5, The Travails of Boss Gorilla 1</title>
+    <p>
+      <alert>Read Section 4.5 up through the boxed payoff matrix and the
+      paragraph right after it.</alert> Stop when you get to <q>We could
+      have made the analysis a little easier.</q>
+    </p>
+    <p>
+      The method here is the same as Buying a Used Car, so this should feel
+      familiar. Two things to make sure you follow: how the game tree turns
+      into one matrix for a Tough visitor and one for a Weak visitor, and
+      how those two combine into a single matrix as <m>p</m> times the first
+      plus <m>1-p</m> times the second.
+    </p>
+  </assemblage>
+
+  <p>
+    The book spends its last page and a half explaining why <m>cc</m>
+    strictly dominates <m>lc</m>. We can get there faster. Start with
+    something the book points out early: Tough Gorilla should always
+    challenge, since challenging gets him at least 3 and leaving gets him 0.
+  </p>
+
+  <exercise xml:id="check-cc-vs-lc-branches">
+    <statement>
+      <p>
+        Compare Visiting Gorilla's strategies <m>cc</m> and <m>lc</m> on each
+        of Nature's two branches. What happens?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            When the visitor is Tough, <m>cc</m> challenges and <m>lc</m>
+            leaves, so <m>cc</m> does strictly better. When the visitor is
+            Weak, both challenge, so they tie.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The two strategies only disagree on the Tough branch,
+            and that's the branch where challenging is the better move.
+            Against <m>f</m>, a Tough challenger wins the fight for 5 while
+            leaving gets 0. Against <m>a</m>, he becomes co-boss for 3 while
+            leaving still gets 0. On the Weak branch both strategies say
+            <m>c</m>, so whatever happens there happens identically under
+            both.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>cc</m> does strictly better on both branches.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Check the second letters. Both <m>cc</m> and <m>lc</m> tell a
+            Weak visitor to challenge, so they can't come apart there. They
+            give the same payoff on that branch, not a better one.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It depends on whether Boss Gorilla is using <m>f</m> or <m>a</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            It doesn't, and that's what makes this work. On the Tough branch
+            challenging beats leaving against <m>f</m> (5 versus 0) and
+            against <m>a</m> (3 versus 0). Dominance has to hold against
+            everything Boss Gorilla might do, and here it does.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-cc-dominates-lc">
+    <statement>
+      <p>
+        Visiting Gorilla's actual payoff is the weighted average of his
+        payoffs on the two branches, with weights <m>p</m> and <m>1-p</m>.
+        Given what you just found, why does <m>cc</m> strictly dominate
+        <m>lc</m> for every <m>p</m> with <m>0 \lt p \lt 1</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            One branch is strictly better and the other ties, so the weighted
+            average comes out strictly better no matter what the weights are.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Averaging can only hurt you if some branch pulls the
+            other way, and here nothing does. Against <m>f</m>, for instance,
+            <m>cc</m> gives <m>p \cdot 5 + (1-p)(-1)</m> and <m>lc</m> gives
+            <m>p \cdot 0 + (1-p)(-1)</m>. The second terms are identical and
+            the first favors <m>cc</m>, so the whole thing favors <m>cc</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It only dominates when <m>p</m> is large enough, since the Tough
+            branch needs enough weight to matter.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This would be right if the Weak branch pushed back, but it
+            doesn't. There's no size of <m>p</m> that rescues <m>lc</m>,
+            because the best it ever does is tie. Any <m>p</m> above 0 gives
+            the Tough branch some weight, and that's all we need.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It doesn't strictly dominate. It just does better on average,
+            which is a weaker statement.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The average <em>is</em> the payoff here. Once Nature is part of
+            the game, a strategy's payoff against <m>f</m> is a single number,
+            the expected value across Nature's branches, and <m>cc</m>
+            beats <m>lc</m> at that number against both of Boss Gorilla's
+            strategies. That's exactly strict dominance.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-4-5-rest">
+    <title>Section 4.5, The Rest</title>
+    <p>
+      <alert>Read the rest of Section 4.5.</alert> You can move quickly,
+      since it's the argument you just made. It also does the same thing for
+      <m>cl</m> over <m>ll</m>.
+    </p>
+    <p>
+      One warning: the book writes <q>Strong</q> a few times where it means
+      <q>Tough.</q> Same gorilla.
+    </p>
+  </assemblage>
+
+  <p>
+    One last thing worth looking at. The matrix tells us <m>(f, cl)</m> isn't
+    a Nash equilibrium, but it's the profile students usually expect to be
+    one. Boss Gorilla stands ready to fight, and only the Tough visitors
+    bother him.
+  </p>
+
+  <exercise xml:id="check-f-cl-not-equilibrium">
+    <statement>
+      <p>
+        Why isn't <m>(f, cl)</m> a Nash equilibrium?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Under <m>cl</m>, only Tough visitors challenge. So the only time
+            Boss Gorilla ever gets to fight is against a visitor who beats
+            him, and he'd rather acquiesce.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Look at what his strategy costs him. On the Weak branch
+            the visitor leaves and he collects 6 whether his strategy says
+            <m>f</m> or <m>a</m>, so that branch doesn't distinguish them at
+            all. The only branch where his choice does anything is the Tough
+            one, where fighting gets him <m>-1</m> and acquiescing gets him 3.
+            That's why he's better off switching by <m>4p</m>, for every
+            <m>p</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Fighting is what keeps the Weak visitors away. If he switches to
+            <m>a</m> they'll start challenging too, so he should stay with
+            <m>f</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            This is the tempting one, and it's worth seeing why it fails. A
+            strategy isn't a threat he announces ahead of time. It's what he
+            actually does when a challenge arrives, and to check for a Nash
+            equilibrium we hold the visitor's strategy fixed at <m>cl</m> and
+            ask whether Boss Gorilla wants to deviate. Holding <m>cl</m>
+            fixed, the Weak visitors are leaving regardless. You saw this
+            problem back in Chapter 1 with Big Monkey: a threat you'd never
+            want to carry out isn't credible.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It fails when <m>p</m> is small, since a Tough visitor is then too
+            unlikely to be worth preparing for.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            No value of <m>p</m> saves it. Compare the <m>cl</m> column: he
+            gets <m>6-7p</m> from <m>f</m> and <m>6-3p</m> from <m>a</m>, so
+            acquiescing wins by <m>4p</m>, which is positive for every
+            <m>p</m> in <m>(0,1)</m>. You may be thinking of the <m>cc</m>
+            column, which is the one that genuinely depends on <m>p</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The equilibrium that survives is <m>(a, cc)</m>, where everybody
+    challenges and Boss Gorilla gives in. Notice what the Weak visitor is
+    doing there. He challenges knowing he'd lose a fight, because he knows
+    Boss Gorilla won't start one.
+  </p>
+
+  <interactive xml:id="question-form-4-3" iframe="question-form.html?section=4.5" width="100%" aspect="2:1"/>
+</section>

@@ -3,5 +3,7 @@
   <title>Games in Extensive Form with Incomplete Information</title>
 
     <xi:include href="./page1-utility-and-incomplete-info.ptx" />
+     <xi:include href="./page2-buying-a-used-car.ptx" />
+    <xi:include href="./page3-boss-gorilla.ptx" />
 
 </chapter>
