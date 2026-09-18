@@ -1,0 +1,479 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 2 answers.
+
+     Structure: an <exercises> division, so every level is a dropdown.
+       exercise  -> dropdown (publication knowl/@exercise-divisional="yes")
+       task      -> dropdown (publication knowl/@task="yes")
+       solution  -> dropdown (always born hidden in PreTeXt)
+
+     Exercise numbering restarts inside each <exercises> division, so the
+     numbers here line up with ch2-exercises.ptx automatically. Keep the
+     order of <exercise> elements identical to that file.
+
+     Bank location convention: with the banks in blocks a < b, the left
+     bank collects 50(a+b-1) and the right bank collects 9900 - 50(a+b-1).
+     Stated once in ans-bank-location-endpoints, used silently after.
+  -->
+
+<exercises xml:id="ch2-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Answers to Ch. 2 Exercises</title>
+
+  <introduction>
+    <p>
+      Answers to the exercises of this chapter. Click an
+      exercise to open it, click a part to open that part, then click
+      <term>Solution</term> to reveal the answer.
+    </p>
+    <p>
+      These are the answers to the questions, not fully worked solutions. Enough is shown that you can
+      tell whether your own work got to the correct conclusion.
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-hawk-dove">
+    <title>Hawk and Dove</title>
+
+    <task xml:id="ans-hawk-dove-inequalities">
+      <title>The two inequalities in payoff notation</title>
+      <statement>
+        <p>
+          Use payoff notation to state the two inequalities required for
+          <m>d</m> to be strictly dominated by <m>h</m> for player 1.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>\pi_1(h,h) \gt \pi_1(d,h)</m>, which becomes
+              <m>\dfrac{v-w}{2} \gt 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\pi_1(h,d) \gt \pi_1(d,d)</m>, which becomes
+              <m>v \gt \dfrac{v}{2}</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-hawk-dove-strict">
+      <title>When <m>h</m> strictly dominates <m>d</m></title>
+      <statement>
+        <p>
+          Find all <m>v \gt 0</m> for which <m>d</m> is strictly dominated
+          by <m>h</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>v \gt w</m>. The second inequality holds for every
+          <m>v \gt 0</m>, so only the first restricts anything.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-hawk-dove-none">
+      <title>When nothing is dominated</title>
+      <statement>
+        <p>
+          Find all <m>v \gt 0</m> for which the game has no dominated
+          strategy, strictly or weakly.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>0 \lt v \lt w</m>. Against <m>d</m>, <m>h</m> is strictly
+          better for every <m>v \gt 0</m>; against <m>h</m>, <m>d</m> is
+          strictly better when <m>v \lt w</m>. Each wins a column, so
+          neither dominates.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-hawk-dove-weak">
+      <title>When the dominance is weak but not strict</title>
+      <statement>
+        <p>
+          Find all <m>v \gt 0</m> for which some strategy is weakly but not
+          strictly dominated, and say which one.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>v = w</m>, and <m>d</m> is weakly dominated by <m>h</m>. The
+          two tie against <m>h</m>, so strict dominance fails, and
+          <m>h</m> is still strictly better against <m>d</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-three-player-iesds">
+    <title>A Three Player Game in Normal Form</title>
+    <statement>
+      <p>
+        Analyze the game by iterated elimination of strictly dominated
+        strategies, stating the order of elimination and the dominant
+        strategy equilibrium.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Nothing is dominated for players 1 or 2 at the start, so player 3
+        must go first.
+      </p>
+      <ul>
+        <li>
+          <p>
+            Player 3's <m>A</m> strictly dominates <m>B</m>
+            (<m>15 \gt 10</m>, <m>20 \gt 15</m>, <m>10 \gt 5</m>,
+            <m>30 \gt 20</m>). Eliminate <m>B</m>; only the first table
+            survives.
+          </p>
+        </li>
+        <li>
+          <p>
+            In that table player 1's <m>A</m> strictly dominates <m>B</m>
+            (<m>20 \gt 10</m>, <m>5 \gt 0</m>). Eliminate <m>B</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            In the row that remains, player 2's <m>B</m> gives <m>30</m>
+            against <m>10</m>. Eliminate <m>A</m>.
+          </p>
+        </li>
+      </ul>
+      <p>
+        Dominant strategy equilibrium
+        <m>(s_1, s_2, s_3) = (A,\,B,\,A)</m>, with payoffs
+        <m>(5,\,30,\,20)</m>. The equilibrium is the profile, not the
+        payoffs.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-tragedy-commons">
+    <title>The Common Pasture</title>
+
+    <task xml:id="ans-tragedy-commons-payoffs">
+      <title>The two payoff functions</title>
+      <statement>
+        <p>
+          Determine <m>\pi_i(R, m)</m> and <m>\pi_i(I, m)</m>.
+        </p>
+      </statement>
+      <solution>
+        <md>
+          <mrow>\pi_i(R, m) \amp = pk - m\,\frac{c}{N},</mrow>
+          <mrow>\pi_i(I, m) \amp = p(k+1) - (m+1)\frac{c}{N}.</mrow>
+        </md>
+        <p>
+          Playing <m>I</m> adds player <m>i</m>'s own extra cow to the
+          excess, which is why the cost term counts <m>m+1</m> rather than
+          <m>m</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tragedy-commons-dominance">
+      <title><m>I</m> strictly dominates <m>R</m></title>
+      <statement>
+        <p>
+          Use the payoffs to prove that <m>R</m> is strictly dominated by
+          <m>I</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Fix any <m>m</m> and regroup so that <m>\pi_i(R,m)</m> appears
+          inside <m>\pi_i(I,m)</m>:
+        </p>
+        <me>
+          \pi_i(I,m) = p(k+1) - (m+1)\frac{c}{N}
+            = \underbrace{\left[\,pk - m\,\frac{c}{N}\,\right]}_{\pi_i(R,m)}
+            \;+\; \underbrace{\left(p - \frac{c}{N}\right)}_{\gt\; 0 \text{ since } \frac{c}{N} \,\lt\, p}
+        </me>
+        <p>
+          So <m>\pi_i(I,m) \gt \pi_i(R,m)</m> for every <m>m</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tragedy-commons-compare">
+      <title>Everyone irresponsible versus everyone responsible</title>
+      <statement>
+        <p>
+          Compare the payoff when all play <m>I</m> with the payoff when
+          all play <m>R</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          All <m>R</m> gives <m>m = 0</m> and <m>\pi_i(R,0) = pk</m>. All
+          <m>I</m> gives <m>m = N-1</m>, and grouping the same way:
+        </p>
+        <me>
+          \pi_i(I, N-1) = p(k+1) - N\cdot\frac{c}{N}
+            = \underbrace{\vphantom{\Big[}\;pk\;}_{\pi_i(R,\,0)}
+            \;+\; \underbrace{\vphantom{\Big[}\;(p - c)\;}_{\lt\; 0 \text{ since } p \,\lt\, c}
+        </me>
+        <p>
+          Every player is <m>c - p</m> worse off than under all <m>R</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tragedy-commons-pd">
+      <title>Comparison with the prisoner's dilemma</title>
+      <statement>
+        <p>
+          How does this game compare with the prisoner's dilemma?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          It is an <m>N</m>-player prisoner's dilemma, with both defining
+          features: every player has a strictly dominant strategy
+          <m>I</m>, so <m>(I,\ldots,I)</m> is a dominant strategy
+          equilibrium; and that equilibrium is worse for <em>every</em>
+          player, by <m>c-p</m> each, than the profile
+          <m>(R,\ldots,R)</m> built from the dominated strategies. Same
+          asymmetry as the global warming game of Section 2.5: a player
+          collects the whole benefit of the extra cow but pays only
+          <m>\tfrac{1}{N}</m> of the cost it creates.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-bank-location">
+    <title>Locating Two Banks</title>
+
+    <task xml:id="ans-bank-location-not-dominated">
+      <title><m>s_A = 2</m> is not dominated by <m>s_A = 3</m></title>
+      <statement>
+        <p>
+          Exhibit a choice by <m>B</m> under which <m>A</m> does strictly
+          better at block 2 than at block 3.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Take <m>s_B = 1</m>. Then <m>s_A = 2</m> gives <m>A</m> blocks 2
+          through 99, for <m>9800</m>, while <m>s_A = 3</m> gives blocks 3
+          through 99 plus half of block 2, for <m>9750</m>. One such
+          column is all the definition requires, so <m>s_A = 2</m> is not
+          dominated by <m>s_A = 3</m>.
+        </p>
+        <p>
+          Worth noting for part (c): <m>s_B = 1</m> is the only column
+          where block 2 wins.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-endpoints">
+      <title><m>s_A = 1</m> is strictly dominated by <m>s_A = 2</m></title>
+      <statement>
+        <p>
+          Show the domination in the three cases, then give the
+          correspondence that converts the argument into the one for
+          <m>s_i = 99</m> against <m>s_i = 98</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Bookkeeping, used silently below: with the banks in blocks
+          <m>a \lt b</m>, the left bank collects <m>50(a+b-1)</m> and the
+          right bank the remaining <m>9900 - 50(a+b-1)</m>; if
+          <m>a = b</m> they split <m>4950</m> each.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>s_B = 1</m>: block 1 ties for <m>4950</m>, block 2 gives
+              <m>9800</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 2</m>: block 1 gives <m>100</m>, block 2 ties for
+              <m>4950</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = b \geq 3</m>: block 1 gives <m>50b</m>, block 2
+              gives <m>50b + 50</m>. Gain of <m>50</m> for every such
+              <m>b</m>.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Block 2 wins all three, so <m>s_A = 1</m> is strictly dominated.
+        </p>
+        <p>
+          <term>The correspondence.</term> Relabel block <m>i</m> as block
+          <m>100 - i</m>, reflecting the avenue end over end. It sends
+          <m>1 \mapsto 99</m> and <m>2 \mapsto 98</m>, and maps
+          <m>\{1,\ldots,99\}</m> onto itself. Payoffs are unaffected
+          because every block still holds 100 residents and distances are
+          preserved, <m>|(100-i)-(100-j)| = |i-j|</m>. So the three cases
+          above become the three cases for <m>s_i = 99</m> against
+          <m>s_i = 98</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-reduce">
+      <title>After eliminating blocks 1 and 99</title>
+      <statement>
+        <p>
+          Explain why <m>s_i = 2</m> is now strictly dominated by
+          <m>s_i = 3</m>, and why this does not contradict part (a).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          With <m>S_i = \{2,\ldots,98\}</m>, part (b)'s argument runs again
+          with every block number shifted one to the right. The three cases
+          for <m>B</m> become <m>s_B = 2</m>, <m>s_B = 3</m>, and
+          <m>s_B \geq 4</m>, each playing the role its predecessor did:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>s_B = 2</m>: block 2 ties for <m>4950</m>, block 3 gives
+              <m>9700</m>. (Old <m>s_B = 1</m> case: matching <m>B</m>
+              splits the avenue, stepping inward takes nearly all of it.)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 3</m>: block 2 gives <m>200</m>, block 3 ties for
+              <m>4950</m>. (Old <m>s_B = 2</m> case.)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = b \geq 4</m>: block 2 gives <m>50(b+1)</m>, block 3
+              gives <m>50(b+2)</m>. (Old <m>s_B \geq 3</m> case, same gain
+              of <m>50</m>.)
+            </p>
+          </li>
+        </ul>
+        <p>
+          The reflection <m>i \mapsto 100-i</m> from part (b) sends
+          <m>2 \mapsto 98</m> and <m>3 \mapsto 97</m> and maps
+          <m>\{2,\ldots,98\}</m> onto itself, so the same three cases give
+          <m>s_i = 98</m> strictly dominated by <m>s_i = 97</m>. By the
+          symmetry of the players, all of this holds for <m>B</m> too.
+        </p>
+        <p>
+          <term>What changed since part (a).</term> The only column
+          favoring block 2 was <m>s_B = 1</m>, which is no longer one of
+          <m>B</m>'s strategies. Dominance is checked against the
+          strategies still available, so deleting that column turns a
+          non-dominance into a strict dominance.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-center">
+      <title>The reduced game <m>S_i = \{49, 50, 51\}</m></title>
+      <statement>
+        <p>
+          Check that <m>s_i = 49</m> and <m>s_i = 51</m> are strictly
+          dominated by <m>s_i = 50</m>, with explicit computations for
+          <m>s_A = 49</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>s_A = 49</m> against <m>s_A = 50</m>:
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>s_B = 49</m>: block 49 ties for <m>4950</m>; block 50
+              gives <m>9900 - 50(49+50-1) = 5000</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 50</m>: block 49 gives <m>50(49+50-1) = 4900</m>;
+              block 50 ties for <m>4950</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 51</m>: block 49 gives <m>50(49+51-1) = 4950</m>;
+              block 50 gives <m>50(50+51-1) = 5000</m>.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Block 50 wins all three, so <m>s_A = 49</m> is strictly
+          dominated.
+        </p>
+        <p>
+          For <m>s_A = 51</m>, the reflection <m>i \mapsto 100-i</m> fixes
+          50 and swaps 49 with 51, so it maps <m>\{49,50,51\}</m> onto
+          itself and turns the argument just given into the one for
+          <m>s_A = 51</m>, with the same numbers in mirrored positions. By
+          player symmetry the same works for <m>B</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-dse">
+      <title>Is <m>(50,50)</m> a dominant strategy equilibrium?</title>
+      <statement>
+        <p>
+          Based on part (d), decide whether <m>(50,50)</m> is a dominant
+          strategy equilibrium of the original game.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Yes. Iterated elimination leaves each player exactly one
+          strategy, <m>s_i^* = 50</m>, which is the definition. Everything
+          eliminated was <em>strictly</em> dominated, so the order did not
+          matter.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-strictly-dominant">
+      <title>Does <m>s_i = 50</m> dominate everything from the start?</title>
+      <statement>
+        <p>
+          In the original game, does <m>s_i = 50</m> strictly dominate every
+          other strategy?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          No. Against <m>s_B = 1</m>, block 2 gives <m>9800</m> while
+          block 50 gives <m>7400</m>, so <m>s_A = 50</m> does not strictly
+          dominate <m>s_A = 2</m>.
+        </p>
+        <p>
+          This is the caution from Section 2.8: a dominant strategy is
+          whatever survives iterated elimination, which is not the same as
+          beating every rival strategy in the original game.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+</exercises>

@@ -10,6 +10,7 @@
     <xi:include href="./page3-iterated-elim.ptx" />
     <xi:include href="./page4-critique.ptx" />
      <xi:include href="./ch2-exercises.ptx" />
+       <xi:include href="./ch2-answers.ptx" />
 
   
 
