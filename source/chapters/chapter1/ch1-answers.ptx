@@ -21,7 +21,7 @@
 
   <introduction>
     <p>
-      Answers to the first eight exercises of this chapter. Click an
+      Answers to the exercises of this chapter. Click an
       exercise to open it, click a part to open that part, then click
       <term>Solution</term> to reveal the answer.
     </p>
@@ -1099,5 +1099,481 @@
     </task>
   </exercise>
 
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-duopoly-different-costs-1">
+    <title>A Duopoly Where the Firms Have Different Costs</title>
+
+    <task xml:id="ans-duopoly-1-payoffs">
+      <title>The payoff functions</title>
+      <statement>
+        <p>
+          Determine the payoff function for each firm.
+        </p>
+      </statement>
+      <solution>
+        <md>
+          <mrow>\pi_1(q_1,q_2) \amp = \bigl[150 - q_1 - q_2\bigr]q_1 - 9q_1 = (141 - q_2)q_1 - q_1^2,</mrow>
+          <mrow>\pi_2(q_1,q_2) \amp = \bigl[150 - q_1 - q_2\bigr]q_2 - 4q_2 = (146 - q_1)q_2 - q_2^2.</mrow>
+        </md>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-1-br">
+      <title>Firm 2's best response</title>
+      <statement>
+        <p>
+          Find <m>b(q_1)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          With <m>q_1</m> held fixed, <m>\pi_2</m> is a quadratic in
+          <m>q_2</m> with <m>q_2^2</m> coefficient <m>-1 \lt 0</m>, so it is
+          an upside-down parabola and its critical point is the global
+          maximum. There is no boundary to check, since <m>q_2</m> ranges
+          over all real numbers.
+        </p>
+        <me>
+          \frac{\partial \pi_2}{\partial q_2} = 146 - q_1 - 2q_2 = 0
+          \quad\Longrightarrow\quad
+          b(q_1) = 73 - \tfrac{1}{2}q_1.
+        </me>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-1-substitute">
+      <title>Firm 1's payoff after substitution</title>
+      <statement>
+        <p>
+          Simplify <m>\pi_1\bigl(q_1, b(q_1)\bigr)</m> to a function of
+          <m>q_1</m> alone.
+        </p>
+      </statement>
+      <solution>
+        <me>
+          \pi_1\bigl(q_1, b(q_1)\bigr)
+            = \bigl(141 - (73 - \tfrac{1}{2}q_1)\bigr)q_1 - q_1^2
+            = 68q_1 - \tfrac{1}{2}q_1^2.
+        </me>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-1-outcome">
+      <title>The rational outcome</title>
+      <statement>
+        <p>
+          Report <m>q_1^*</m>, <m>q_2^*</m>, the market price, and each
+          firm's profit.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Again an upside-down parabola (the <m>q_1^2</m> coefficient is
+          <m>-\tfrac{1}{2}</m>), so the critical point is the maximum:
+          <m>\dfrac{d}{dq_1}\bigl(68q_1 - \tfrac{1}{2}q_1^2\bigr) = 68 - q_1 = 0</m>,
+          so <m>q_1^* = 68</m>.
+        </p>
+        <ul>
+          <li><p>Quantities: <m>q_1^* = 68</m> and <m>q_2^* = b(68) = 39</m>.</p></li>
+          <li><p>Market price: <m>p^* = 150 - 68 - 39 = 43</m>.</p></li>
+          <li><p>Firm 1's profit: <m>\pi_1(q_1^*,q_2^*) = (43-9)(68) = 2312</m>.</p></li>
+          <li><p>Firm 2's profit: <m>\pi_2(q_1^*,q_2^*) = (43-4)(39) = 1521</m>.</p></li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-1-ratio">
+      <title>Does the 2-to-1 split survive?</title>
+      <statement>
+        <p>
+          Compare <m>q_1^*/q_2^*</m> and <m>\pi_1/\pi_2</m> to <m>2</m>, and
+          say which assumption of Section 1.11 fails.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dfrac{q_1^*}{q_2^*} = \dfrac{68}{39} \approx 1.74</m> and
+          <m>\dfrac{\pi_1}{\pi_2} = \dfrac{2312}{1521} \approx 1.52</m>.
+          Neither is <m>2</m>, and they are not equal to each other.
+        </p>
+        <p>
+          Section 1.11 assumes both firms have the <em>same</em> unit cost
+          <m>c</m>. Here <m>c_1 = 9</m> and <m>c_2 = 4</m>, so that
+          assumption fails. Firm 2's cost advantage partly offsets Firm 1's
+          first-mover advantage, leaving Firm 1 ahead by less than the usual
+          factor of two.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-duopoly-different-costs-2">
+    <title>The Same Duopoly, Without Negative Quantities</title>
+
+    <task xml:id="ans-duopoly-2-payoffs">
+      <title>The piecewise payoff functions</title>
+      <statement>
+        <p>
+          Write each firm's payoff function and say what the second piece
+          represents.
+        </p>
+      </statement>
+      <solution>
+        <me>
+          \pi_1(q_1,q_2) =
+          \begin{cases}
+            \bigl[150 - q_1 - q_2\bigr]q_1 - 9q_1 \amp \text{if } q_1 + q_2 \lt 150, \\[1ex]
+            -9q_1 \amp \text{if } q_1 + q_2 \geq 150,
+          \end{cases}
+        </me>
+        <me>
+          \pi_2(q_1,q_2) =
+          \begin{cases}
+            \bigl[150 - q_1 - q_2\bigr]q_2 - 4q_2 \amp \text{if } q_1 + q_2 \lt 150, \\[1ex]
+            -4q_2 \amp \text{if } q_1 + q_2 \geq 150.
+          \end{cases}
+        </me>
+        <p>
+          On the second piece the price has bottomed out at <m>0</m>, so
+          revenue is <m>0</m> and the firm's profit is a pure loss of its
+          own production cost.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-2-threshold2">
+      <title>Firm 2's threshold</title>
+      <statement>
+        <p>
+          Find the smallest <m>q_1</m> for which Firm 2 cannot earn a
+          positive profit.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>q_1 = 146</m>. On the first piece, leave Firm 2's profit as
+          revenue minus cost:
+        </p>
+        <me>
+          \pi_2 = \underbrace{\bigl(150 - q_1 - q_2\bigr)}_{\text{unit price}} q_2
+            - \underbrace{4}_{\text{unit cost}} q_2 ,
+        </me>
+        <p>
+          so <m>\pi_2 \gt 0</m> exactly when the unit price exceeds the unit
+          cost:
+        </p>
+        <me>150 - q_1 - q_2 \gt 4 .</me>
+        <p>
+          Increasing <m>q_2</m> only pushes the price down further, so if
+          this fails at <m>q_2 = 0</m> it fails for every <m>q_2 \geq 0</m>.
+          For there to be any range of <m>q_2</m> at all where Firm 2
+          profits, the inequality must hold at <m>q_2 = 0</m>, which gives
+          the simpler condition
+        </p>
+        <me>150 - q_1 \gt 4 \quad\Longleftrightarrow\quad q_1 \lt 146 .</me>
+        <p>
+          So the smallest <m>q_1</m> ruling out a positive profit entirely
+          is <m>q_1 = 146</m>. (On the second piece
+          <m>\pi_2 = -4q_2 \leq 0</m> regardless, so it never helps.)
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-2-br">
+      <title>Firm 2's best-response function</title>
+      <statement>
+        <p>
+          Write <m>b(q_1)</m>, including the corner solution.
+        </p>
+      </statement>
+      <solution>
+        <me>
+          b(q_1) =
+          \begin{cases}
+            73 - \tfrac{1}{2}q_1 \amp \text{if } 0 \leq q_1 \lt 146, \\[1ex]
+            0 \amp \text{if } q_1 \geq 146.
+          \end{cases}
+        </me>
+        <p>
+          On the first piece <m>\pi_2</m> is the same upside-down parabola
+          as in <xref ref="ans-duopoly-1-br"/>, so its peak
+          <m>73 - \tfrac{1}{2}q_1</m> is the maximum; note that this value
+          is positive exactly when <m>q_1 \lt 146</m>, so it is an allowed
+          production level.
+        </p>
+        <p>
+          By <xref ref="ans-duopoly-2-threshold2"/>, when <m>q_1 \geq 146</m>
+          every <m>q_2 \gt 0</m> loses money, so <m>q_2 = 0</m> is
+          <em>best</em>, not merely allowed.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-2-threshold1">
+      <title>Firm 1's threshold</title>
+      <statement>
+        <p>
+          Find the smallest <m>q_1</m> at which Firm 1 can no longer earn a
+          positive profit, and say which threshold does the work.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>q_1 = 141</m>. Same argument as
+          <xref ref="ans-duopoly-2-threshold2"/>, now with Firm 1:
+        </p>
+        <me>
+          \pi_1 = \underbrace{\bigl(150 - q_1 - q_2\bigr)}_{\text{unit price}} q_1
+            - \underbrace{9}_{\text{unit cost}} q_1 ,
+        </me>
+        <p>
+          so <m>\pi_1 \gt 0</m> exactly when
+          <m>150 - q_1 - q_2 \gt 9</m>. Taking <m>q_2 = 0</m>, the most
+          favorable case for Firm 1, gives
+        </p>
+        <me>150 - q_1 \gt 9 \quad\Longleftrightarrow\quad q_1 \lt 141 .</me>
+        <p>
+          So the threshold that matters is Firm 1's, <m>141</m>: it cuts the
+          search for <m>q_1^*</m> down to <m>0 \leq q_1 \lt 141</m>. Firm
+          2's threshold of <m>146</m> is larger, so the corner piece of
+          <m>b(q_1)</m> lies entirely outside the range we still care about
+          and never gets used. This is the one difference from Subsection
+          1.10.2, where the two thresholds coincided at <m>s = 8</m> because
+          the firms had equal unit costs.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-2-piece">
+      <title>Which piece of <m>\pi_1</m> is in force</title>
+      <statement>
+        <p>
+          Compute <m>q_1 + b(q_1)</m> on the remaining range and show only
+          the first piece of <m>\pi_1</m> can occur.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For <m>0 \leq q_1 \lt 141</m>,
+        </p>
+        <me>
+          q_1 + b(q_1) = q_1 + 73 - \tfrac{1}{2}q_1 = 73 + \tfrac{1}{2}q_1
+            \lt 73 + \tfrac{1}{2}(141) = 143.5 \lt 150 .
+        </me>
+        <p>
+          Total production never reaches <m>150</m>, so the second piece of
+          <m>\pi_1</m> is unreachable and
+          <m>\pi_1\bigl(q_1,b(q_1)\bigr) = 68q_1 - \tfrac{1}{2}q_1^2</m>,
+          exactly as in <xref ref="ans-duopoly-1-substitute"/>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-duopoly-2-outcome">
+      <title>The rational outcome</title>
+      <statement>
+        <p>
+          Report <m>q_1^*</m>, <m>q_2^*</m>, the price, and the profits, and
+          compare to the previous exercise.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Same computation as <xref ref="ans-duopoly-1-outcome"/>: by the
+          previous part
+          <m>\pi_1\bigl(q_1,b(q_1)\bigr) = 68q_1 - \tfrac{1}{2}q_1^2</m>,
+          the same function as in the unrestricted game, so
+          <m>q_1^* = 68</m>. This lies in <m>0 \leq q_1 \lt 141</m>, so it
+          is legitimate.
+        </p>
+        <ul>
+          <li><p>Quantities: <m>q_1^* = 68</m> and <m>q_2^* = 39</m>.</p></li>
+          <li><p>Market price: <m>p^* = 43</m>.</p></li>
+          <li><p>Firm 1's profit: <m>\pi_1(q_1^*,q_2^*) = 2312</m>.</p></li>
+          <li><p>Firm 2's profit: <m>\pi_2(q_1^*,q_2^*) = 1521</m>.</p></li>
+        </ul>
+        <p>
+          Identical to
+          <xref ref="ans-hw-duopoly-different-costs-1"/>. The restrictions produced
+          two extra cases, and neither one contained the answer.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-manufacturer-retailer">
+    <title>Manufacturer and Retailer</title>
+
+    <task xml:id="ans-mr-payoffs">
+      <title>The payoff functions</title>
+      <statement>
+        <p>
+          Write the payoff function for each player.
+        </p>
+      </statement>
+      <solution>
+        <md>
+          <mrow>\pi_M(w,q) \amp = wq - 100q = (w - 100)q,</mrow>
+          <mrow>\pi_R(w,q) \amp = \bigl[500 - 0.1q\bigr]q - wq = (500 - w)q - 0.1q^2.</mrow>
+        </md>
+        <p>
+          The wholesale price <m>w</m> is revenue to the manufacturer and a
+          cost to the retailer. The manufacturer never sees the market price
+          <m>p</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-mr-br">
+      <title>The retailer's best response</title>
+      <statement>
+        <p>
+          Find <m>b(w)</m>, including the corner case.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          First ask when the retailer can profit at all. As in
+          <xref ref="ans-duopoly-2-threshold2"/>, write its profit as
+          revenue minus cost:
+        </p>
+        <me>
+          \pi_R = \underbrace{\bigl(500 - 0.1q\bigr)}_{\text{unit price}} q
+            - \underbrace{w}_{\text{unit cost}} q ,
+        </me>
+        <p>
+          so <m>\pi_R \gt 0</m> exactly when <m>500 - 0.1q \gt w</m>. Buying
+          more only pushes the price down further, so if this fails at
+          <m>q = 0</m> it fails for every <m>q \geq 0</m>, and the condition
+          for any profitable <m>q</m> to exist is <m>500 \gt w</m>.
+        </p>
+        <p>
+          When <m>w \geq 500</m>, then, every <m>q \gt 0</m> loses money, so
+          <m>q = 0</m> is <em>best</em>, not merely allowed: the wholesale
+          price has risen past the point where the retailer can resell at a
+          profit at any volume.
+        </p>
+        <p>
+          On <m>100 \leq w \lt 500</m>, <m>\pi_R</m> is an upside-down
+          parabola in <m>q</m> (the <m>q^2</m> coefficient is <m>-0.1</m>),
+          so its critical point is the maximum:
+          <m>\dfrac{\partial \pi_R}{\partial q} = 500 - w - 0.2q = 0</m>
+          gives <m>q = 2500 - 5w</m>, which is positive on this range.
+          Putting the two cases together,
+        </p>
+        <me>
+          b(w) =
+          \begin{cases}
+            2500 - 5w \amp \text{if } 100 \leq w \lt 500, \\[1ex]
+            0 \amp \text{if } w \geq 500.
+          \end{cases}
+        </me>
+      </solution>
+    </task>
+
+    <task xml:id="ans-mr-outcome">
+      <title>The rational outcome</title>
+      <statement>
+        <p>
+          Report the wholesale price, quantity, consumer price, and profits.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          On <m>100 \leq w \lt 500</m>,
+        </p>
+        <me>
+          \pi_M\bigl(w, b(w)\bigr) = (w-100)(2500 - 5w) = -5w^2 + 3000w - 250000 ,
+        </me>
+        <p>
+          The <m>w^2</m> coefficient is <m>-5</m>, so the critical point is
+          the maximum: <m>-10w + 3000 = 0</m> gives <m>w^* = 300</m>, which
+          is in range. (On <m>w \geq 500</m> the manufacturer sells nothing and
+          earns <m>0</m>, so that piece is not competitive.)
+        </p>
+        <ul>
+          <li><p>Wholesale price: <m>w^* = \$300</m>.</p></li>
+          <li><p>Quantity: <m>q^* = b(300) = 2500 - 5(300) = 1000</m>.</p></li>
+          <li><p>Consumer price: <m>p = 500 - 0.1(1000) = \$400</m>.</p></li>
+          <li><p>Manufacturer's profit: <m>\pi_M(w^*,q^*) = (300-100)(1000) = \$200{,}000</m>.</p></li>
+          <li><p>Retailer's profit: <m>\pi_R(w^*,q^*) = (400-300)(1000) = \$100{,}000</m>.</p></li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-mr-direct">
+      <title>Selling directly to consumers</title>
+      <statement>
+        <p>
+          Find the manufacturer's optimal <m>q</m>, the price, and the
+          profit when there is no retailer.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi = (500 - 0.1q)q - 100q = 400q - 0.1q^2</m>, so
+          <m>400 - 0.2q = 0</m> and <m>q^* = 2000</m>.
+        </p>
+        <ul>
+          <li><p>Quantity: <m>q^* = 2000</m>.</p></li>
+          <li><p>Consumer price: <m>p = 500 - 0.1(2000) = \$300</m>.</p></li>
+          <li><p>Manufacturer's profit: <m>\pi(q^*) = (300-100)(2000) = \$400{,}000</m>.</p></li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-mr-compare">
+      <title>Comparing the two scenarios</title>
+      <statement>
+        <p>
+          Compare the two scenarios and explain why two rational firms end
+          up with less between them than one firm alone.
+        </p>
+      </statement>
+      <solution>
+        <tabular>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Quantity</cell>
+            <cell>Consumer price</cell>
+            <cell><line>Manufacturer</line><line>profit</line></cell>
+            <cell><line>Retailer</line><line>profit</line></cell>
+            <cell><line>Combined</line><line>profit</line></cell>
+          </row>
+          <row>
+            <cell>Manufacturer and retailer</cell>
+            <cell><m>1000</m></cell>
+            <cell><m>\$400</m></cell>
+            <cell><m>\$200{,}000</m></cell>
+            <cell><m>\$100{,}000</m></cell>
+            <cell><m>\$300{,}000</m></cell>
+          </row>
+          <row>
+            <cell>Manufacturer alone</cell>
+            <cell><m>2000</m></cell>
+            <cell><m>\$300</m></cell>
+            <cell><m>\$400{,}000</m></cell>
+            <cell>n/a</cell>
+            <cell><m>\$400{,}000</m></cell>
+          </row>
+        </tabular>
+        <p>
+          The retailer buys as though each tablet costs <m>\$300</m>, since
+          that is what it pays, but a tablet really costs <m>\$100</m> to
+          make. It therefore stops buying while the last tablet is still
+          worth more to the chain than it costs to produce: <m>1000</m>
+          units instead of <m>2000</m>.
+        </p>
+        <p>
+          Both firms optimize correctly; the retailer just faces the wrong
+          cost. The markup is taken twice, which is also why consumers pay
+          <m>\$400</m> instead of <m>\$300</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
 
 </exercises>
