@@ -10,10 +10,6 @@
      Exercise numbering restarts inside each <exercises> division, so the
      numbers here line up with ch2-exercises.ptx automatically. Keep the
      order of <exercise> elements identical to that file.
-
-     Bank location convention: with the banks in blocks a < b, the left
-     bank collects 50(a+b-1) and the right bank collects 9900 - 50(a+b-1).
-     Stated once in ans-bank-location-endpoints, used silently after.
   -->
 
 <exercises xml:id="ch2-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
@@ -47,14 +43,16 @@
         <ul>
           <li>
             <p>
-              <m>\pi_1(h,h) \gt \pi_1(d,h)</m>, which becomes
-              <m>\dfrac{v-w}{2} \gt 0</m>.
+              <m>\pi_1(h,h) \gt \pi_1(d,h)</m>, which is
+              <m>\dfrac{v-w}{2} \gt 0</m>, which simplifies to
+              <m>v \gt w</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>\pi_1(h,d) \gt \pi_1(d,d)</m>, which becomes
-              <m>v \gt \dfrac{v}{2}</m>.
+              <m>\pi_1(h,d) \gt \pi_1(d,d)</m>, which is
+              <m>v \gt \dfrac{v}{2}</m>, which simplifies to
+              <m>v \gt 0</m>.
             </p>
           </li>
         </ul>
@@ -71,8 +69,7 @@
       </statement>
       <solution>
         <p>
-          <m>v \gt w</m>. The second inequality holds for every
-          <m>v \gt 0</m>, so only the first restricts anything.
+          <m>v \gt w</m>.
         </p>
       </solution>
     </task>
@@ -87,10 +84,7 @@
       </statement>
       <solution>
         <p>
-          <m>0 \lt v \lt w</m>. Against <m>d</m>, <m>h</m> is strictly
-          better for every <m>v \gt 0</m>; against <m>h</m>, <m>d</m> is
-          strictly better when <m>v \lt w</m>. Each wins a column, so
-          neither dominates.
+          <m>0 \lt v \lt w</m>.
         </p>
       </solution>
     </task>
@@ -105,9 +99,7 @@
       </statement>
       <solution>
         <p>
-          <m>v = w</m>, and <m>d</m> is weakly dominated by <m>h</m>. The
-          two tie against <m>h</m>, so strict dominance fails, and
-          <m>h</m> is still strictly better against <m>d</m>.
+          <m>v = w</m>; <m>d</m> is weakly dominated by <m>h</m>.
         </p>
       </solution>
     </task>
@@ -125,36 +117,17 @@
     </statement>
     <solution>
       <p>
-        Nothing is dominated for players 1 or 2 at the start, so player 3
-        must go first.
+        Order of elimination:
       </p>
-      <ul>
-        <li>
-          <p>
-            Player 3's <m>A</m> strictly dominates <m>B</m>
-            (<m>15 \gt 10</m>, <m>20 \gt 15</m>, <m>10 \gt 5</m>,
-            <m>30 \gt 20</m>). Eliminate <m>B</m>; only the first table
-            survives.
-          </p>
-        </li>
-        <li>
-          <p>
-            In that table player 1's <m>A</m> strictly dominates <m>B</m>
-            (<m>20 \gt 10</m>, <m>5 \gt 0</m>). Eliminate <m>B</m>.
-          </p>
-        </li>
-        <li>
-          <p>
-            In the row that remains, player 2's <m>B</m> gives <m>30</m>
-            against <m>10</m>. Eliminate <m>A</m>.
-          </p>
-        </li>
-      </ul>
+      <ol>
+        <li><p>Player 3's <m>B</m> (dominated by <m>A</m>).</p></li>
+        <li><p>Player 1's <m>B</m> (dominated by <m>A</m>).</p></li>
+        <li><p>Player 2's <m>A</m> (dominated by <m>B</m>).</p></li>
+      </ol>
       <p>
         Dominant strategy equilibrium
         <m>(s_1, s_2, s_3) = (A,\,B,\,A)</m>, with payoffs
-        <m>(5,\,30,\,20)</m>. The equilibrium is the profile, not the
-        payoffs.
+        <m>(5,\,30,\,20)</m>.
       </p>
     </solution>
   </exercise>
@@ -291,35 +264,28 @@
         </p>
       </statement>
       <solution>
-        <p>
-          Bookkeeping, used silently below: with the banks in blocks
-          <m>a \lt b</m>, the left bank collects <m>50(a+b-1)</m> and the
-          right bank the remaining <m>9900 - 50(a+b-1)</m>; if
-          <m>a = b</m> they split <m>4950</m> each.
-        </p>
         <ul>
           <li>
             <p>
-              <m>s_B = 1</m>: block 1 ties for <m>4950</m>, block 2 gives
-              <m>9800</m>.
+              <m>s_B = 1</m>: <m>s_A = 1</m> gives <m>4950</m>;
+              <m>s_A = 2</m> gives <m>9800</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>s_B = 2</m>: block 1 gives <m>100</m>, block 2 ties for
-              <m>4950</m>.
+              <m>s_B = 2</m>: <m>s_A = 1</m> gives <m>100</m>;
+              <m>s_A = 2</m> gives <m>4950</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>s_B = b \geq 3</m>: block 1 gives <m>50b</m>, block 2
-              gives <m>50b + 50</m>. Gain of <m>50</m> for every such
-              <m>b</m>.
+              <m>s_B \geq 3</m>: switching from <m>s_A = 1</m> to
+              <m>s_A = 2</m> gives an improvement of <m>50</m>.
             </p>
           </li>
         </ul>
         <p>
-          Block 2 wins all three, so <m>s_A = 1</m> is strictly dominated.
+          <m>s_A = 2</m> wins all three, so <m>s_A = 1</m> is strictly dominated by <m>s_A = 2</m>.
         </p>
         <p>
           <term>The correspondence.</term> Relabel block <m>i</m> as block
@@ -344,46 +310,19 @@
       </statement>
       <solution>
         <p>
-          With <m>S_i = \{2,\ldots,98\}</m>, part (b)'s argument runs again
-          with every block number shifted one to the right. The three cases
-          for <m>B</m> become <m>s_B = 2</m>, <m>s_B = 3</m>, and
-          <m>s_B \geq 4</m>, each playing the role its predecessor did:
-        </p>
-        <ul>
-          <li>
-            <p>
-              <m>s_B = 2</m>: block 2 ties for <m>4950</m>, block 3 gives
-              <m>9700</m>. (Old <m>s_B = 1</m> case: matching <m>B</m>
-              splits the avenue, stepping inward takes nearly all of it.)
-            </p>
-          </li>
-          <li>
-            <p>
-              <m>s_B = 3</m>: block 2 gives <m>200</m>, block 3 ties for
-              <m>4950</m>. (Old <m>s_B = 2</m> case.)
-            </p>
-          </li>
-          <li>
-            <p>
-              <m>s_B = b \geq 4</m>: block 2 gives <m>50(b+1)</m>, block 3
-              gives <m>50(b+2)</m>. (Old <m>s_B \geq 3</m> case, same gain
-              of <m>50</m>.)
-            </p>
-          </li>
-        </ul>
-        <p>
-          The reflection <m>i \mapsto 100-i</m> from part (b) sends
-          <m>2 \mapsto 98</m> and <m>3 \mapsto 97</m> and maps
-          <m>\{2,\ldots,98\}</m> onto itself, so the same three cases give
-          <m>s_i = 98</m> strictly dominated by <m>s_i = 97</m>. By the
-          symmetry of the players, all of this holds for <m>B</m> too.
+          With <m>S_i = \{2,\ldots,98\}</m>, shift the whole argument of
+          part (b) one block to the right: the three cases for <m>B</m>
+          become <m>s_B = 2</m>, <m>s_B = 3</m>, and <m>s_B \geq 4</m>
+          (instead of <m>1</m>, <m>2</m>, and <m>\geq 3</m>), and in each
+          case block 3 beats block 2 in the same way block 2 beat block 1.
+          The reflection <m>i \mapsto 100-i</m> gives <m>s_i = 98</m>
+          strictly dominated by <m>s_i = 97</m>, and by symmetry all of
+          this holds for <m>B</m> too.
         </p>
         <p>
           <term>What changed since part (a).</term> The only column
           favoring block 2 was <m>s_B = 1</m>, which is no longer one of
-          <m>B</m>'s strategies. Dominance is checked against the
-          strategies still available, so deleting that column turns a
-          non-dominance into a strict dominance.
+          <m>B</m>'s strategies.
         </p>
       </solution>
     </task>
@@ -404,33 +343,50 @@
         <ul>
           <li>
             <p>
-              <m>s_B = 49</m>: block 49 ties for <m>4950</m>; block 50
-              gives <m>9900 - 50(49+50-1) = 5000</m>.
+              <m>s_B = 49</m>: <m>s_A = 49</m> gives <m>4950</m>;
+              <m>s_A = 50</m> gives <m>5000</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>s_B = 50</m>: block 49 gives <m>50(49+50-1) = 4900</m>;
-              block 50 ties for <m>4950</m>.
+              <m>s_B = 50</m>: <m>s_A = 49</m> gives <m>4900</m>;
+              <m>s_A = 50</m> gives <m>4950</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>s_B = 51</m>: block 49 gives <m>50(49+51-1) = 4950</m>;
-              block 50 gives <m>50(50+51-1) = 5000</m>.
+              <m>s_B = 51</m>: <m>s_A = 49</m> gives <m>4950</m>;
+              <m>s_A = 50</m> gives <m>5000</m>.
             </p>
           </li>
         </ul>
         <p>
-          Block 50 wins all three, so <m>s_A = 49</m> is strictly
-          dominated.
+          <m>s_A = 51</m> against <m>s_A = 50</m>:
         </p>
+        <ul>
+          <li>
+            <p>
+              <m>s_B = 49</m>: <m>s_A = 51</m> gives <m>4950</m>;
+              <m>s_A = 50</m> gives <m>5000</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 50</m>: <m>s_A = 51</m> gives <m>4900</m>;
+              <m>s_A = 50</m> gives <m>4950</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_B = 51</m>: <m>s_A = 51</m> gives <m>4950</m>;
+              <m>s_A = 50</m> gives <m>5000</m>.
+            </p>
+          </li>
+        </ul>
         <p>
-          For <m>s_A = 51</m>, the reflection <m>i \mapsto 100-i</m> fixes
-          50 and swaps 49 with 51, so it maps <m>\{49,50,51\}</m> onto
-          itself and turns the argument just given into the one for
-          <m>s_A = 51</m>, with the same numbers in mirrored positions. By
-          player symmetry the same works for <m>B</m>.
+          <m>s_A = 50</m> wins every column in both comparisons, so
+          <m>s_A = 49</m> and <m>s_A = 51</m> are strictly dominated by <m>s_A = 50</m>. By
+          player symmetry the same holds for <m>B</m>.
         </p>
       </solution>
     </task>
@@ -446,9 +402,7 @@
       <solution>
         <p>
           Yes. Iterated elimination leaves each player exactly one
-          strategy, <m>s_i^* = 50</m>, which is the definition. Everything
-          eliminated was <em>strictly</em> dominated, so the order did not
-          matter.
+          strategy, <m>s_i^* = 50</m>, which is the definition.
         </p>
       </solution>
     </task>
