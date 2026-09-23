@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 3 exercises.
+
+     One flat list, numbered 1-4 in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch3-exercises">
+  <title>Exercises</title>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-nash-definition">
+    <title>The Nash Equilibrium Definition</title>
+
+    <introduction>
+      <p>
+        Suppose we have a game with <m>N</m> players (<m>N \geq 3</m>), and
+        let <m>s^* = (s_1^*, s_2^*, \ldots, s_N^*)</m> be a strategy profile.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-nash-definition-math">
+      <statement>
+        <p>
+          State, mathematically, what it means for <m>s^*</m> to be a Nash
+          equilibrium. Your statement must be written in terms of the
+          payoff functions <m>\pi_i</m>, using notation for an
+          <m>N</m>-player game.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-nash-definition-not">
+      <statement>
+        <p>
+          State, mathematically, what it means for <m>s^*</m> to
+          <em>not</em> be a Nash equilibrium, again in terms of the payoff
+          functions <m>\pi_i</m>. Then explain in words what your
+          statement says.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-nash-definition-matrix">
+      <statement>
+        <p>
+          Consider the two player game below. Player 1 chooses a row from
+          <m>S_1 = \{a, b, c\}</m> and player 2 chooses a column from
+          <m>S_2 = \{x, y, z\}</m>, with payoffs listed in the order
+          (player 1, player 2).
+        </p>
+
+        <table xml:id="table-hw-three-profiles">
+          <title>A <m>3 \times 3</m> game</title>
+          <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+            <col halign="left" right="minor" />
+            <col right="minor" />
+            <col right="minor" />
+            <col />
+            <row header="yes" bottom="minor">
+              <cell></cell>
+              <cell>Player 2: <m>x</m></cell>
+              <cell>Player 2: <m>y</m></cell>
+              <cell>Player 2: <m>z</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>a</m></cell>
+              <cell>(4, 3)</cell>
+              <cell>(0, 1)</cell>
+              <cell>(1, 2)</cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>b</m></cell>
+              <cell>(2, 0)</cell>
+              <cell>(5, 5)</cell>
+              <cell>(0, 6)</cell>
+            </row>
+            <row>
+              <cell>Player 1: <m>c</m></cell>
+              <cell>(1, 3)</cell>
+              <cell>(6, 0)</cell>
+              <cell>(3, 3)</cell>
+            </row>
+          </tabular>
+        </table>
+
+        <p>
+          For each of the following strategy profiles, determine whether it
+          is a Nash equilibrium, justifying your answer with payoff
+          comparisons. If it is a Nash equilibrium, say whether it is
+          strict.
+        </p>
+        <ul>
+          <li><p><m>(a, x)</m></p></li>
+          <li><p><m>(b, y)</m></p></li>
+          <li><p><m>(c, z)</m></p></li>
+        </ul>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-water-pollution-five">
+    <title>Water Pollution with Five Firms</title>
+
+    <introduction>
+      <p>
+        This is a larger version of the Water Pollution game from
+        <xref ref="read-3-3" text="title" />. Five firms share a lake.
+        Each firm chooses to <term>purify</term> its wastewater, at a cost
+        of 1, or to <term>pollute</term>, at no cost. If 3 or more firms
+        pollute, the lake is fouled and <em>every</em> firm pays an
+        additional cleanup cost of 3. A firm's payoff is the negative of
+        its total cost. For example:
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            If only firm 1 pollutes, the lake stays clean. Firm 1 gets
+            <m>0</m>, and firms 2 through 5 each get <m>-1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If firms 1 through 4 pollute, the lake is fouled. Firms 1
+            through 4 each get <m>-3</m>, and firm 5 gets
+            <m>-1 - 3 = -4</m>.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        There are <m>2^5 = 32</m> strategy profiles, but you should not
+        check them one at a time. Since all firms are treated the same, the
+        analysis of a profile depends only on how many firms pollute.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-water-pollution-five-k">
+      <statement>
+        <p>
+          Let <m>k</m> be the number of polluting firms. For each
+          <m>k = 0, 1, 2, 3, 4, 5</m>, determine whether the profiles with
+          exactly <m>k</m> polluters are Nash equilibria. Justify each
+          answer.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-water-pollution-five-all">
+      <statement>
+        <p>
+          Describe all Nash equilibria of the game, and determine how many
+          there are.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-bank-location-nash">
+    <title>Locating Two Banks, Revisited</title>
+
+    <introduction>
+      <p>
+        Return to the two competing banks of
+        <xref ref="hw-bank-location" />: each bank chooses a block
+        <m>s_i \in \{1, 2, \ldots, 99\}</m> along a 99-block avenue, each
+        block has 100 residents, residents use the closer bank, and a block
+        equidistant from both banks splits its residents evenly. The payoff
+        to each bank is its total number of customers. In that exercise we
+        used iterated elimination to show that <m>(50, 50)</m> is a
+        dominant strategy equilibrium.
+      </p>
+
+      <p>
+        As before, please do not write out a <m>99 \times 99</m> matrix.
+        Fix one bank's location and think about how the other bank's
+        payoff changes as it moves.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-bank-location-nash-center">
+      <statement>
+        <p>
+          Show directly, without using iterated elimination, that
+          <m>(50, 50)</m> is a Nash equilibrium.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-bank-location-nash-apart">
+      <statement>
+        <p>
+          Show that any strategy profile <m>(p, q)</m> where
+          <m>p \lt q</m> is not a Nash equilibrium.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Split into two cases: the banks are not adjacent
+          (<m>q \geq p + 2</m>), and the banks are adjacent
+          (<m>q = p + 1</m>).
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-bank-location-nash-same">
+      <statement>
+        <p>
+          Show that any strategy profile <m>(p, q)</m> where
+          <m>p = q \neq 50</m> is not a Nash equilibrium.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-resource-game">
+    <title>Bidding the Resource</title>
+
+    <introduction>
+      <p>
+        Each of two players has 1 (divisible) unit of a resource. Player 1
+        chooses some amount <m>s_1 \in [0, 1]</m>, and player 2
+        simultaneously chooses some amount <m>s_2 \in [0, 1]</m>.
+      </p>
+
+      <p>
+        The player that chooses the higher amount wins the total of what
+        remains, <m>(1 - s_1) + (1 - s_2)</m>. The player that chooses the
+        lower amount gets a payoff of zero, forfeiting the remaining amount
+        to the other player. In the case of a tie, they split what remains.
+        The payoffs are:
+      </p>
+
+      <me>
+        \pi_1(s_1, s_2) =
+        \begin{cases}
+          (1 - s_1) + (1 - s_2), \amp s_1 \gt s_2 \\
+          1 - s_1, \amp s_1 = s_2 \\
+          0, \amp s_1 \lt s_2
+        \end{cases}
+      </me>
+      <me>
+        \pi_2(s_1, s_2) =
+        \begin{cases}
+          (1 - s_1) + (1 - s_2), \amp s_2 \gt s_1 \\
+          1 - s_2, \amp s_1 = s_2 \\
+          0, \amp s_2 \lt s_1
+        \end{cases}
+      </me>
+    </introduction>
+
+    <task xml:id="hw-resource-game-one-one">
+      <statement>
+        <p>
+          Show that <m>s_1 = s_2 = 1</m> is a Nash equilibrium. Is it a
+          strict Nash equilibrium? Explain.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-resource-game-below-one">
+      <statement>
+        <p>
+          Show that there are no Nash equilibria where
+          <m>s_2 \lt s_1 \lt 1</m>, by showing that player 2 can improve.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-resource-game-at-one">
+      <statement>
+        <p>
+          Now suppose <m>s_2 \lt s_1 = 1</m>. Explain why player 2's
+          deviation from part (b) no longer works, and show that the
+          profile is still not a Nash equilibrium.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-resource-game-tie">
+      <statement>
+        <p>
+          Show that there are no Nash equilibria where
+          <m>s_1 = s_2 \lt 1</m>.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        <alert>Remark.</alert> There are infinitely many strategy profiles
+        in this game, and parts (a) through (d) break them into exactly
+        four cases. The cases we did not explicitly consider are handled
+        through symmetry. For example, part (b) also shows there are no
+        Nash equilibria where <m>s_1 \lt s_2 \lt 1</m>. So <m>(1, 1)</m>
+        is the only Nash equilibrium of this game.
+      </p>
+    </conclusion>
+  </exercise>
+
+<interactive xml:id="question-form-3-ex" iframe="question-form.html?section=chapter 3 exercises" width="100%" aspect="2:1"/>
+</exercises>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 3 answers.
+
+     Structure: an <exercises> division, so every level is a dropdown.
+       exercise  -> dropdown (publication knowl/@exercise-divisional="yes")
+       task      -> dropdown (publication knowl/@task="yes")
+       solution  -> dropdown (always born hidden in PreTeXt)
+
+     Exercise numbering restarts inside each <exercises> division, so the
+     numbers here line up with ch3-exercises.ptx automatically. Keep the
+     order of <exercise> elements identical to that file.
+  -->
+
+<exercises xml:id="ch3-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Answers to Ch. 3 Exercises</title>
+
+  <introduction>
+    <p>
+      Answers to the exercises of this chapter. Click an
+      exercise to open it, click a part to open that part, then click
+      <term>Solution</term> to reveal the answer.
+    </p>
+    <p>
+      These are the answers to the questions, not fully worked solutions. Enough is shown that you can
+      tell whether your own work got to the correct conclusion.
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-nash-definition">
+    <title>The Nash Equilibrium Definition</title>
+
+    <task xml:id="ans-nash-definition-math">
+      <title>Nash equilibrium, in notation</title>
+      <statement>
+        <p>
+          State mathematically what it means for <m>s^*</m> to be a Nash
+          equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          For each <m>i = 1, \ldots, N</m> and every <m>s_i \in S_i</m>,
+          <me>\pi_i(s^*) \geq \pi_i(s_i, s^*_{-i}).</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-nash-definition-not">
+      <title>Not a Nash equilibrium</title>
+      <statement>
+        <p>
+          State mathematically what it means for <m>s^*</m> to not be a
+          Nash equilibrium, and explain it in words.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          There is some player <m>i</m> and some <m>s_i \in S_i</m> with
+          <me>\pi_i(s_i, s^*_{-i}) \gt \pi_i(s^*).</me>
+          In words: at least one player can strictly improve by changing
+          strategy alone. One such player and one such strategy are enough.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-nash-definition-matrix">
+      <title>Three profiles in a <m>3 \times 3</m> game</title>
+      <statement>
+        <p>
+          Determine whether <m>(a, x)</m>, <m>(b, y)</m>, and
+          <m>(c, z)</m> are Nash equilibria, and whether each equilibrium
+          is strict.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>(a, x)</m>: <em>strict Nash equilibrium.</em> Player 1:
+              <m>4 \gt 2</m> and <m>4 \gt 1</m>. Player 2:
+              <m>3 \gt 1</m> and <m>3 \gt 2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(b, y)</m>: <em>not</em> a Nash equilibrium.
+              <m>\pi_1(c, y) = 6 \gt 5 = \pi_1(b, y)</m>. (Player 2 can
+              also improve, <m>\pi_2(b, z) = 6 \gt 5</m>, but one player is
+              enough.)
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(c, z)</m>: <em>Nash equilibrium, not strict.</em> Player
+              1: <m>3 \geq 1</m> and <m>3 \geq 0</m>. Player 2:
+              <m>3 \geq 0</m>, but <m>\pi_2(c, x) = 3 = \pi_2(c, z)</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-water-pollution-five">
+    <title>Water Pollution with Five Firms</title>
+
+    <task xml:id="ans-water-pollution-five-k">
+      <title>Each number of polluters</title>
+      <statement>
+        <p>
+          For each <m>k = 0, \ldots, 5</m>, determine whether profiles with
+          exactly <m>k</m> polluters are Nash equilibria.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>k = 0, 1</m>: not Nash. A purifier switches to polluting,
+              the lake stays clean, <m>-1 \to 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k = 2</m>: Nash. A polluter who switches goes
+              <m>0 \to -1</m>; a purifier who switches fouls the lake and
+              goes <m>-1 \to -3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k = 3</m>: not Nash. A polluter switches to purifying,
+              cleaning the lake, <m>-3 \to -1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k = 4</m>: not Nash. A purifier switches to polluting;
+              the lake stays fouled, <m>-4 \to -3</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k = 5</m>: Nash. A switcher leaves 4 polluters, so the
+              lake stays fouled, <m>-3 \to -4</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-water-pollution-five-all">
+      <title>All Nash equilibria</title>
+      <statement>
+        <p>
+          Describe all Nash equilibria and count them.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Every profile in which exactly 2 firms pollute, plus the profile
+          in which all 5 pollute. That is
+          <m>\binom{5}{2} + 1 = 11</m> Nash equilibria.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-bank-location-nash">
+    <title>Locating Two Banks, Revisited</title>
+
+    <task xml:id="ans-bank-location-nash-center">
+      <title><m>(50, 50)</m> is a Nash equilibrium</title>
+      <statement>
+        <p>
+          Show directly that <m>(50, 50)</m> is a Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          At <m>(50, 50)</m> each bank has <m>4950</m>. If <m>A</m> moves
+          to any <m>p \neq 50</m>, <m>A</m> gets at most <m>4900</m>
+          (achieved at <m>p = 49</m> or <m>p = 51</m>). So
+          <m>\pi_A(p, 50) \leq 4900 \lt 4950</m>, and by symmetry the same
+          holds for <m>B</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-nash-apart">
+      <title>Profiles with <m>p \lt q</m></title>
+      <statement>
+        <p>
+          Show that no profile <m>(p, q)</m> with <m>p \lt q</m> is a Nash
+          equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>q \geq p + 2</m>: <m>A</m> moves to <m>p + 1</m>, which is
+              still left of <m>B</m>, and gains <m>50</m> customers.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>q = p + 1</m>: <m>A</m> has <m>100p</m> and <m>B</m> has
+              <m>100(99 - p)</m>. If <m>p \leq 49</m>, <m>A</m> has at most
+              <m>4900</m> and moves onto block <m>q</m> for <m>4950</m>. If
+              <m>p \geq 50</m>, <m>B</m> has at most <m>4900</m> and moves
+              onto block <m>p</m> for <m>4950</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-bank-location-nash-same">
+      <title>Profiles with <m>p = q \neq 50</m></title>
+      <statement>
+        <p>
+          Show that no profile <m>(p, p)</m> with <m>p \neq 50</m> is a
+          Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Each bank has <m>4950</m>. If <m>p \lt 50</m>, <m>A</m> moves to
+          <m>p + 1</m> and gets blocks <m>p+1</m> through <m>99</m>, for
+          <m>100(99 - p) \geq 5000</m>. If <m>p \gt 50</m>, <m>A</m> moves
+          to <m>p - 1</m> and gets <m>100(p - 1) \geq 5000</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-resource-game">
+    <title>Bidding the Resource</title>
+
+    <task xml:id="ans-resource-game-one-one">
+      <title><m>(1, 1)</m></title>
+      <statement>
+        <p>
+          Show that <m>(1, 1)</m> is a Nash equilibrium, and decide whether
+          it is strict.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_1(1, 1) = 0</m>. Any <m>s_1 \lt 1</m> gives
+          <m>s_1 \lt s_2</m>, so <m>\pi_1(s_1, 1) = 0 \leq 0</m>. The same
+          holds for player 2 by symmetry, so <m>(1, 1)</m> is a Nash
+          equilibrium.
+        </p>
+        <p>
+          It is <em>not</em> strict: deviations give exactly <m>0</m>, not
+          strictly less.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-resource-game-below-one">
+      <title><m>s_2 \lt s_1 \lt 1</m></title>
+      <statement>
+        <p>
+          Show that player 2 can improve.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 2 currently gets <m>0</m>. Switching to any <m>s_2'</m>
+          with <m>s_1 \lt s_2' \leq 1</m> makes player 2 the winner, with
+          payoff <m>(1 - s_1) + (1 - s_2') \geq 1 - s_1 \gt 0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-resource-game-at-one">
+      <title><m>s_2 \lt s_1 = 1</m></title>
+      <statement>
+        <p>
+          Explain why player 2's deviation no longer works, and show the
+          profile is still not a Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 2 cannot choose more than 1, and tying at <m>s_2' = 1</m>
+          pays <m>1 - 1 = 0</m>, no improvement.
+        </p>
+        <p>
+          Player 1 improves instead: currently <m>\pi_1 = 1 - s_2</m>.
+          Switching to any <m>s_1'</m> with <m>s_2 \lt s_1' \lt 1</m> keeps
+          player 1 the winner, with payoff
+          <m>(1 - s_1') + (1 - s_2) \gt 1 - s_2</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-resource-game-tie">
+      <title><m>s_1 = s_2 \lt 1</m></title>
+      <statement>
+        <p>
+          Show there are no Nash equilibria with <m>s_1 = s_2 \lt 1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Write <m>s_1 = s_2 = s</m>, so player 1 gets <m>1 - s</m>.
+          Switching to any <m>s_1'</m> with <m>s \lt s_1' \lt 1</m> gives
+          player 1 <m>(1 - s_1') + (1 - s) \gt 1 - s</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+</exercises>

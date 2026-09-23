@@ -6,8 +6,9 @@
 
 
     <xi:include href="./page1-nash-definition.ptx" />
-     <xi:include href="./page2-inspection-examples.ptx" />
-       <xi:include href="./page3-elimination-and-threats.ptx" />
-     <xi:include href="./page4-best-response.ptx" />
-
+    <xi:include href="./page2-inspection-examples.ptx" />
+    <xi:include href="./page3-elimination-and-threats.ptx" />
+    <xi:include href="./page4-best-response.ptx" />
+    <xi:include href="./ch3-exercises.ptx" />
+    <xi:include href="./ch3-answers.ptx" />
 </chapter>
