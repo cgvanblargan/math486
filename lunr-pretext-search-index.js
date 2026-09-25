@@ -1162,6 +1162,51 @@ var ptx_lunr_docs = [
   "body": "  Once all the best response boxes are drawn in a matrix, how can you tell which cells are Nash equilibria?      A cell is a Nash equilibrium when at least one payoff in it is boxed.    Not enough. An unboxed payoff means that player is not best responding, so they would rather switch. For example, in Big Monkey's is boxed, but Little Monkey's is not, and she would rather switch to or .      A cell is a Nash equilibrium exactly when every payoff in it is boxed.    Correct. A boxed payoff means that player is best responding to what the others are doing in that cell, so a fully boxed cell is one where every player is best responding at once.      A cell is a Nash equilibrium when its boxed payoffs are the largest ones in the matrix.    The size of the payoffs is not what matters. For example, and both have payoffs , but only is a Nash equilibrium: in the column, Big Monkey's loses to the above it, so it is not boxed. The payoffs alone cannot tell you; the boxes can.     "
 },
 {
+  "id": "ch3-exercises",
+  "level": "1",
+  "url": "ch3-exercises.html",
+  "type": "Exercises",
+  "number": "3.5",
+  "title": "Exercises",
+  "body": " Exercises    The Nash Equilibrium Definition   Suppose we have a game with players ( ), and let be a strategy profile.     State, mathematically, what it means for to be a Nash equilibrium. Your statement must be written in terms of the payoff functions , using notation for an -player game.      State, mathematically, what it means for to not be a Nash equilibrium, again in terms of the payoff functions . Then explain in words what your statement says.      Consider the two player game below. Player 1 chooses a row from and player 2 chooses a column from , with payoffs listed in the order (player 1, player 2).   A game         Player 2:  Player 2:  Player 2:    Player 1:  (4, 3)  (0, 1)  (1, 2)    Player 1:  (2, 0)  (5, 5)  (0, 6)    Player 1:  (1, 3)  (6, 0)  (3, 3)     For each of the following strategy profiles, determine whether it is a Nash equilibrium, justifying your answer with payoff comparisons. If it is a Nash equilibrium, say whether it is strict.            Water Pollution with Five Firms   This is a larger version of the Water Pollution game from . Five firms share a lake. Each firm chooses to purify its wastewater, at a cost of 1, or to pollute , at no cost. If 3 or more firms pollute, the lake is fouled and every firm pays an additional cleanup cost of 3. A firm's payoff is the negative of its total cost. For example:    If only firm 1 pollutes, the lake stays clean. Firm 1 gets , and firms 2 through 5 each get .    If firms 1 through 4 pollute, the lake is fouled. Firms 1 through 4 each get , and firm 5 gets .    There are strategy profiles, but you should not check them one at a time. Since all firms are treated the same, the analysis of a profile depends only on how many firms pollute.     Let be the number of polluting firms. For each , determine whether the profiles with exactly polluters are Nash equilibria. Justify each answer.      Describe all Nash equilibria of the game, and determine how many there are.       Locating Two Banks, Revisited   Return to the two competing banks of : each bank chooses a block along a 99-block avenue, each block has 100 residents, residents use the closer bank, and a block equidistant from both banks splits its residents evenly. The payoff to each bank is its total number of customers. In that exercise we used iterated elimination to show that is a dominant strategy equilibrium.  As before, please do not write out a matrix. Fix one bank's location and think about how the other bank's payoff changes as it moves.     Show directly, without using iterated elimination, that is a Nash equilibrium.      Show that any strategy profile where is not a Nash equilibrium.    Split into two cases: the banks are not adjacent ( ), and the banks are adjacent ( ).      Show that any strategy profile where is not a Nash equilibrium.       Bidding the Resource   Each of two players has 1 (divisible) unit of a resource. Player 1 chooses some amount , and player 2 simultaneously chooses some amount .  The player that chooses the higher amount wins the total of what remains, . The player that chooses the lower amount gets a payoff of zero, forfeiting the remaining amount to the other player. In the case of a tie, they split what remains. The payoffs are:       Show that is a Nash equilibrium. Is it a strict Nash equilibrium? Explain.      Show that there are no Nash equilibria where , by showing that player 2 can improve.      Now suppose . Explain why player 2's deviation from part (b) no longer works, and show that the profile is still not a Nash equilibrium.      Show that there are no Nash equilibria where .      Remark. There are infinitely many strategy profiles in this game, and parts (a) through (d) break them into exactly four cases. The cases we did not explicitly consider are handled through symmetry. For example, part (b) also shows there are no Nash equilibria where . So is the only Nash equilibrium of this game.     "
+},
+{
+  "id": "hw-nash-definition",
+  "level": "2",
+  "url": "ch3-exercises.html#hw-nash-definition",
+  "type": "Exercise",
+  "number": "3.5.1",
+  "title": "The Nash Equilibrium Definition.",
+  "body": " The Nash Equilibrium Definition   Suppose we have a game with players ( ), and let be a strategy profile.     State, mathematically, what it means for to be a Nash equilibrium. Your statement must be written in terms of the payoff functions , using notation for an -player game.      State, mathematically, what it means for to not be a Nash equilibrium, again in terms of the payoff functions . Then explain in words what your statement says.      Consider the two player game below. Player 1 chooses a row from and player 2 chooses a column from , with payoffs listed in the order (player 1, player 2).   A game         Player 2:  Player 2:  Player 2:    Player 1:  (4, 3)  (0, 1)  (1, 2)    Player 1:  (2, 0)  (5, 5)  (0, 6)    Player 1:  (1, 3)  (6, 0)  (3, 3)     For each of the following strategy profiles, determine whether it is a Nash equilibrium, justifying your answer with payoff comparisons. If it is a Nash equilibrium, say whether it is strict.         "
+},
+{
+  "id": "hw-water-pollution-five",
+  "level": "2",
+  "url": "ch3-exercises.html#hw-water-pollution-five",
+  "type": "Exercise",
+  "number": "3.5.2",
+  "title": "Water Pollution with Five Firms.",
+  "body": " Water Pollution with Five Firms   This is a larger version of the Water Pollution game from . Five firms share a lake. Each firm chooses to purify its wastewater, at a cost of 1, or to pollute , at no cost. If 3 or more firms pollute, the lake is fouled and every firm pays an additional cleanup cost of 3. A firm's payoff is the negative of its total cost. For example:    If only firm 1 pollutes, the lake stays clean. Firm 1 gets , and firms 2 through 5 each get .    If firms 1 through 4 pollute, the lake is fouled. Firms 1 through 4 each get , and firm 5 gets .    There are strategy profiles, but you should not check them one at a time. Since all firms are treated the same, the analysis of a profile depends only on how many firms pollute.     Let be the number of polluting firms. For each , determine whether the profiles with exactly polluters are Nash equilibria. Justify each answer.      Describe all Nash equilibria of the game, and determine how many there are.    "
+},
+{
+  "id": "hw-bank-location-nash",
+  "level": "2",
+  "url": "ch3-exercises.html#hw-bank-location-nash",
+  "type": "Exercise",
+  "number": "3.5.3",
+  "title": "Locating Two Banks, Revisited.",
+  "body": " Locating Two Banks, Revisited   Return to the two competing banks of : each bank chooses a block along a 99-block avenue, each block has 100 residents, residents use the closer bank, and a block equidistant from both banks splits its residents evenly. The payoff to each bank is its total number of customers. In that exercise we used iterated elimination to show that is a dominant strategy equilibrium.  As before, please do not write out a matrix. Fix one bank's location and think about how the other bank's payoff changes as it moves.     Show directly, without using iterated elimination, that is a Nash equilibrium.      Show that any strategy profile where is not a Nash equilibrium.    Split into two cases: the banks are not adjacent ( ), and the banks are adjacent ( ).      Show that any strategy profile where is not a Nash equilibrium.    "
+},
+{
+  "id": "hw-resource-game",
+  "level": "2",
+  "url": "ch3-exercises.html#hw-resource-game",
+  "type": "Exercise",
+  "number": "3.5.4",
+  "title": "Bidding the Resource.",
+  "body": " Bidding the Resource   Each of two players has 1 (divisible) unit of a resource. Player 1 chooses some amount , and player 2 simultaneously chooses some amount .  The player that chooses the higher amount wins the total of what remains, . The player that chooses the lower amount gets a payoff of zero, forfeiting the remaining amount to the other player. In the case of a tie, they split what remains. The payoffs are:       Show that is a Nash equilibrium. Is it a strict Nash equilibrium? Explain.      Show that there are no Nash equilibria where , by showing that player 2 can improve.      Now suppose . Explain why player 2's deviation from part (b) no longer works, and show that the profile is still not a Nash equilibrium.      Show that there are no Nash equilibria where .      Remark. There are infinitely many strategy profiles in this game, and parts (a) through (d) break them into exactly four cases. The cases we did not explicitly consider are handled through symmetry. For example, part (b) also shows there are no Nash equilibria where . So is the only Nash equilibrium of this game.   "
+},
+{
   "id": "back-colophon",
   "level": "1",
   "url": "back-colophon.html",
