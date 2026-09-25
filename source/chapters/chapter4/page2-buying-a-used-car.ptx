@@ -4,52 +4,30 @@
   <title>Buying a Used Car</title>
 
   <p>
-    Here's our first real example of a game with incomplete information. A
-    customer wants to know whether a used car is worth the price. The salesman
-    knows whether it is, and she doesn't. He'd like to sell the car, and he'd
-    also like a reputation for telling the truth, so it isn't obvious what he
-    should say or whether she should believe him.
+    Here's our first real example of a game with incomplete information.
+  </p>
+
+  <p>
+    A customer wants to know whether a used car is worth the price. The salesman knows whether it is,
+    and she doesn't. He'd like to sell the car, and he'd also like a reputation for telling the truth,
+    so it isn't obvious what he should say or whether she should believe him.
   </p>
 
   <assemblage xml:id="read-4-4-setup">
     <title>Section 4.4, Setting Up the Game</title>
     <p>
-      <alert>Read Section 4.4 from the beginning through the two lists of
-      strategies.</alert> Stop when you reach the paragraph beginning
-      <q>Consider the salesman to be Player 1.</q>
+      <alert>Read Section 4.4 from the beginning through the two bulleted lists of strategies</alert>
+      (<m>gg</m>, <m>gb</m>, <m>bg</m>, <m>bb</m> for the salesman, then the same four for the customer).
+      Stop when you reach the paragraph beginning <q>Consider the salesman to be Player 1.</q>
     </p>
     <p>
-      <ul>
-        <li>
-          <p>
-            Nature moves first and decides whether the car is good (with
-            probability <m>p</m>) or bad (with probability <m>1-p</m>). The
-            salesman sees Nature's move. The customer does not.
-          </p>
-        </li>
-        <li>
-          <p>
-            Pay attention to why backward induction won't work here, and
-            notice that it's the second case from Section 4.3: the customer's
-            information sets have a node in front of them where the
-            <em>salesman</em> made a choice.
-          </p>
-        </li>
-        <li>
-          <p>
-            Each player gets four strategies, each named by two letters. Read
-            both lists carefully. The letters do not mean the same thing for
-            the two players, which is the subject of the next couple of
-            questions.
-          </p>
-        </li>
-      </ul>
+      Read both lists carefully. The two players use the same four pairs of letters, but the letters
+      don't mean the same thing for each of them.
     </p>
   </assemblage>
 
   <p>
-    Here's the game tree, so you have it nearby while you work through the
-    questions below.
+    Here's the game tree, so you have it nearby while you work through the questions below.
   </p>
 
   <figure xml:id="fig-used-car-tree">
@@ -162,116 +140,60 @@
   </figure>
 
   <p>
-    Both players label their strategies with the same four pairs of letters,
-    <m>gg</m>, <m>gb</m>, <m>bg</m>, and <m>bb</m>, but the letters answer
-    different questions. Let's make sure that's clear before we go any
-    further.
+    Right before the strategy lists, the book explains why backward induction doesn't work on this
+    game. Let's make sure that landed.
   </p>
 
-  <exercise xml:id="check-salesman-gg">
+  <exercise xml:id="check-why-not-backward-induction">
     <statement>
       <p>
-        What does the salesman's strategy <m>gg</m> tell him to do?
+        Why can't we solve this game with backward induction?
       </p>
     </statement>
     <choices randomize="no">
       <choice correct="yes">
         <statement>
           <p>
-            Say the car is good, whether Nature made it good or bad.
+            When the salesman says <q>good,</q> the customer's best move depends on whether the car
+            is really good. How likely that is depends on the salesman's strategy, and we haven't
+            figured that out yet.
           </p>
         </statement>
         <feedback>
           <p>
-            Correct. His first letter is what he says when the car is good,
-            and his second letter is what he says when the car is bad. Both
-            are <m>g</m> here, so he says the car is good either way.
+            Correct. Backward induction solves the bottom of the tree first, but the customer's best
+            move at the bottom depends on what the salesman does higher up. If he always tells the
+            truth, <q>good</q> means good. If he always lies, <q>good</q> means bad. She can't pick a
+            move until she knows which kind of salesman she's dealing with.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
           <p>
-            Say the car is good when it is good, and say it is bad when it is
-            bad.
+            Because Nature moves first, and backward induction doesn't work once chance is involved.
           </p>
         </statement>
         <feedback>
           <p>
-            That's <m>gb</m>, the always-tell-the-truth strategy. Check the
-            second letter: in <m>gg</m> it's a <m>g</m>, so he says
-            <q>good</q> even on a bad car.
+            Chance by itself isn't the problem. If only Nature's moves came before the customer's
+            information set, she'd know the chances of being at each node were <m>p</m> and
+            <m>1-p</m>, and she could use expected value to pick her move. The trouble is that the
+            salesman also makes a choice before she moves.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
           <p>
-            Nature has made the car good on both of its branches.
+            Because the customer doesn't know <m>p</m>.
           </p>
         </statement>
         <feedback>
           <p>
-            The letters in a strategy describe what the player does, not what
-            Nature did. Nature still picks a good car with probability
-            <m>p</m> and a bad one with probability <m>1-p</m>, no matter
-            which strategy the salesman uses.
-          </p>
-        </feedback>
-      </choice>
-    </choices>
-  </exercise>
-
-  <exercise xml:id="check-customer-gb">
-    <statement>
-      <p>
-        Now the other player. What does the customer's strategy <m>gb</m> tell
-        her to do?
-      </p>
-    </statement>
-    <choices randomize="no">
-      <choice correct="yes">
-        <statement>
-          <p>
-            If the salesman says the car is good, conclude it's good; if he
-            says it's bad, conclude it's bad. In other words, always believe
-            him.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Her letters are answers to <q>what do I do if he says
-            good</q> and <q>what do I do if he says bad,</q> in that order.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            Conclude the car is good when it really is good, and bad when it
-            really is bad. In other words, get it right every time.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            This is the one to watch out for. The customer can't see the car,
-            so she has no strategy that keys off whether it's actually good.
-            All she observes is what the salesman said, so that's what her two
-            letters respond to. Compare this with the salesman, whose letters
-            <em>do</em> key off Nature's move, since he can see it.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            Conclude the car is good, no matter what the salesman says.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            That's her <m>gg</m> strategy. In <m>gb</m> the second letter is a
-            <m>b</m>, so if he says the car is bad, she goes along with it.
+            Even if she knows <m>p</m> exactly, it isn't enough. The number <m>p</m> tells her how
+            likely a car like this is to be good. What she needs is how likely it is to be good
+            <em>given that the salesman said so</em>, and that depends on how honest he is.
           </p>
         </feedback>
       </choice>
@@ -279,10 +201,31 @@
   </exercise>
 
   <p>
-    Let's put the two together and follow a strategy profile through the tree.
+    Since we can't use backward induction, the book converts the game to normal form using the
+    strategy lists you just read.
+  </p>
+
+  <p>
+    First, a quick reminder of what the two letters in a strategy mean:
+    <me>
+    \text{Salesman: }\;
+    \underbrace{\;\square\;}_{\substack{\text{what he says}\\ \text{if the car is good}}}
+    \quad
+    \underbrace{\;\square\;}_{\substack{\text{what he says}\\ \text{if the car is bad}}}
+    </me>
+    <me>
+    \text{Customer: }\;
+    \underbrace{\;\square\;}_{\substack{\text{what she concludes}\\ \text{if he says good}}}
+    \quad
+    \underbrace{\;\square\;}_{\substack{\text{what she concludes}\\ \text{if he says bad}}}
+    </me>
+  </p>
+
+  <p>
+    Now let's put both players together and follow a strategy profile through the tree.
     Take <m>(gg, gb)</m>, where the salesman always says the car is good and
-    the customer always believes him. Remember the salesman is Player 1, so
-    his strategy is listed first.
+    the customer always believes him. The salesman is Player 1, so his
+    strategy is listed first.
   </p>
 
   <exercise xml:id="check-bad-car-payoffs">
@@ -395,43 +338,43 @@
   </figure>
 
   <p>
-    You just built the payoff for one strategy profile out of two paths and
-    their probabilities. There are sixteen profiles in this game, and every
-    one of them works the same way. The rest of Section 4.4 does exactly that
-    and collects the results into a payoff matrix.
+    You just built the salesman's payoff for one strategy profile out of two
+    paths and their probabilities. In other words, his payoff is the
+    <em>expected value</em> of his payoffs on the two paths:
+    <md>
+      <mrow>\text{his expected payoff} \amp = p \cdot (\text{payoff if the car is good}) + (1-p) \cdot (\text{payoff if the car is bad})</mrow>
+      <mrow>\amp = p(3) + (1-p)(2) = 2 + p.</mrow>
+    </md>
+    The same reasoning works for the customer: <m>p(1) + (1-p)(0) = p</m>.
+    So the profile <m>(gg, gb)</m> has payoffs <m>(2+p,\, p)</m>.
+  </p>
+
+  <p>
+    There are sixteen profiles in this game, and every one of them works the
+    same way. The rest of Section 4.4 does exactly that and collects the
+    results into a payoff matrix. Look for <m>(2+p,\, p)</m> in it!
   </p>
 
   <assemblage xml:id="read-4-4-matrix">
     <title>Section 4.4, Building the Payoff Matrix</title>
     <p>
-      <alert>Pick up where you stopped and read through the paragraph
-      beginning <q>Let us assume <m>p \gt \frac{1}{2}</m>.</q></alert> Right
-      after that paragraph you'll see the payoff matrix a second time with
-      boxes already drawn on it. Stop before that one, because you're about to
-      draw those boxes yourself.
+      <alert>Pick up where you stopped and read through the next three payoff matrices.</alert>
+      The third matrix is the first one with <m>p</m>'s in it. Stop right after it, just before the
+      paragraph beginning <q>Let us assume <m>p \gt \frac{1}{2}</m>.</q> We'll find the Nash equilibria
+      together before you finish the reading.
     </p>
     <p>
       <ul>
         <li>
           <p>
-            The book traces the profile <m>(gg, bg)</m> through its two paths,
-            <m>ggb</m> and <m>bgb</m>, the same way we just did for
-            <m>(gg, gb)</m>.
+            The book writes down the payoff matrix for a good car and the payoff
+            matrix for a bad car separately.
           </p>
         </li>
         <li>
           <p>
-            Then comes the shortcut worth remembering: write down the payoff
-            matrix for a good car and the payoff matrix for a bad car
-            separately, then combine them as <m>p</m> times the first plus
+            The third matrix combines them: <m>p</m> times the first plus
             <m>1-p</m> times the second.
-          </p>
-        </li>
-        <li>
-          <p>
-            The last paragraph you'll read explains why we assume
-            <m>p \gt \frac{1}{2}</m> and reminds you how best response boxing
-            works. We covered boxing back in Section 3.9.
           </p>
         </li>
       </ul>
@@ -439,10 +382,10 @@
   </assemblage>
 
   <p>
-    Now let's find the Nash equilibria. In the widget below you'll box the
-    customer's best responses one row at a time. Keep in mind that we're
-    assuming <m>p \gt \frac{1}{2}</m>, and that some rows may have more than
-    one best response in them.
+    Now let's find the Nash equilibria. We'll assume <m>p \gt \frac{1}{2}</m>, which just means
+    the car is usually good. As in Section 3.9, a cell is a Nash equilibrium when both payoffs in it
+    are boxed. In the widget below you'll box the customer's best responses one row at a time.
+    Some rows may have more than one best response.
   </p>
 
   <figure xml:id="fig-used-car-best-response">
@@ -504,37 +447,18 @@
   </figure>
 
   <p>
-    Notice that <m>(gg, gb)</m> is one of the two equilibria, which is the
-    same profile we traced through the tree earlier.
+    Notice that <m>(gg, gb)</m> is one of the two equilibria. It's the same
+    profile we traced through the tree earlier.
   </p>
 
   <assemblage xml:id="read-4-4-conclusion">
-    <title>Section 4.4, Wrapping Up</title>
+    <title>Section 4.4, Finishing Up</title>
     <p>
-      <alert>Read the last two paragraphs of Section 4.4.</alert> We just did
-      this work, so you can move through it quickly, but there are two things
-      in there worth collecting.
-    </p>
-    <p>
-      <ul>
-        <li>
-          <p>
-            The two equilibria pay the customer the same amount, but the
-            salesman prefers the first one.
-          </p>
-        </li>
-        <li>
-          <p>
-            Neither player needs to know the exact value of <m>p</m>. Knowing
-            that <m>p \gt \frac{1}{2}</m> is enough to find the equilibria.
-            That answers the question the section raised at the very
-            beginning, when it said we'd come back to whether anyone needs to
-            know these probabilities.
-          </p>
-        </li>
-      </ul>
+      <alert>Read the rest of Section 4.4.</alert> We just worked out the Nash
+      equilibria, so you can move quickly through the boxed matrix. The last two
+      paragraphs reflect on the results.
     </p>
   </assemblage>
 
-  <interactive xml:id="question-form-4-2" iframe="question-form.html?section=4.4" width="100%" aspect="2:1"/>
+  <interactive xml:id="question-form-4-2" iframe="question-form.html?section=4.2" width="100%" aspect="2:1"/>
 </section>

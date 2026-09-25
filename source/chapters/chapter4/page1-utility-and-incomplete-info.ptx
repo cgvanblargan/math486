@@ -4,17 +4,18 @@
   <title>Utility, Lotteries, and Incomplete Information</title>
 
   <p>
-    This chapter is where we let chance into our games. The first two
-    sections set up the tools we'll need, so read them and keep moving. The
-    real work starts in Section 4.3.
+    The games in this chapter have <em>incomplete information</em>: players won't know everything relevant
+    when they make a decision. This is a lot like real-life situations that involve chance.
+    The readings on this page mostly set up the tools we'll need. We'll start analyzing games on the next page!
   </p>
 
   <assemblage xml:id="read-4-1">
     <title>Section 4.1, Utility Functions and Lotteries</title>
     <p>
-      <alert>Read Section 4.1.</alert> Two ideas:
+      <alert>Read Section 4.1.</alert>
     </p>
     <p>
+      It presents two ideas:
       <ul>
         <li>
           <p>
@@ -31,52 +32,59 @@
             <term>expected value</term> is
             <me>E[x] = p_1 x_1 + \cdots + p_n x_n,</me>
             and its expected utility is
-            <m>E[u(x)] = p_1 u(x_1) + \cdots + p_n u(x_n)</m>. The
-            <term>expected utility principle</term> says you prefer the
-            lottery with the higher expected utility.
+            <m>E[u(x)] = p_1 u(x_1) + \cdots + p_n u(x_n)</m>.
           </p>
         </li>
       </ul>
     </p>
   </assemblage>
 
+  <p>
+    Take note of the formula for expected value! It's really just a weighted average (the same way your
+    grades are computed in the gradebook). It will come up again when we compute payoffs later in the chapter.
+  </p>
+
   <assemblage xml:id="read-4-2">
     <title>Section 4.2, Buying Fire Insurance</title>
     <p>
-      <alert>Read Section 4.2.</alert> A decision problem, not a game. To
+      <alert>Read Section 4.2.</alert>
+    </p>
+    <p>
+      This is technically a decision problem, not a game. To
       decide whether to insure, attach a probability and a payoff to each
-      outcome<mdash/>fire or no fire, premium paid or not<mdash/>and compare
+      outcome, and compare
       the two options.
     </p>
   </assemblage>
 
   <p>
-    We don't have anything to break down yet, because everything so far has
-    been setting the scene for games in extensive form with <term>incomplete
-    information</term>.
+    We don't have anything to break down yet, because everything so far is getting us ready
+    to analyze games in extensive form with <term>incomplete information</term>.
   </p>
 
   <p>
     Back in Chapter 1 we studied games in extensive form with <term>complete
     information</term>: whenever it was your turn, you knew every move made
     before yours, so you always knew where you were in the game tree. Now we
-    allow chance into the tree. Once part of what has already happened was
-    decided at random, or is hidden from you, you may not know which node
-    you're standing at.
+    allow chance into the game. Some of what has already happened may have been
+    decided at random or hidden from you, so you may not know which node
+    you're at.
   </p>
 
   <p>
-    Poker is the standard example. After the deal you know your own hand but
+    Poker is a popular example. After the deal you know your own hand but
     not anyone else's. What you <em>can</em> do is assign probabilities to the
-    hands your opponents might be holding. Section 4.3 makes that precise.
+    hands your opponents might be holding. Section 4.3 makes this more precise, so read it next!
   </p>
 
   <assemblage xml:id="read-4-3">
     <title>Section 4.3, Games in Extensive Form with Incomplete Information</title>
     <p>
-      <alert>Read Section 4.3.</alert> Terminology to watch for:
+      <alert>Read Section 4.3.</alert>
     </p>
     <p>
+      This will make more sense once we see an example on the next page.
+      For now, just get the gist and keep track of the new terminology:
       <ul>
         <li>
           <p>
@@ -88,13 +96,8 @@
           <p>
             <term>Information set</term>: a group of a player's nodes that the
             player cannot tell apart. The available moves are identical at
-            every node of the set.
-          </p>
-        </li>
-        <li>
-          <p>
-            A strategy must assign the same move to every node of an
-            information set.
+            every node of the set, and a strategy must assign the same move to
+            every node of an information set.
           </p>
         </li>
         <li>
@@ -111,13 +114,7 @@
         </li>
       </ul>
     </p>
-    <p>
-      The last paragraph splits into two cases. If only Nature's nodes come
-      before an information set, backward induction still works using expected
-      value. If a player moved first, it doesn't, and we convert to normal
-      form instead.
-    </p>
   </assemblage>
 
-  <interactive xml:id="question-form-4-1" iframe="question-form.html?section=4.1-4.3" width="100%" aspect="2:1"/>
+  <interactive xml:id="question-form-4-1" iframe="question-form.html?section=4.1" width="100%" aspect="2:1"/>
 </section>
