@@ -10,5 +10,5 @@
     <xi:include href="./page3-elimination-and-threats.ptx" />
     <xi:include href="./page4-best-response.ptx" />
     <xi:include href="./ch3-exercises.ptx" />
-    <xi:include href="./ch3-answers.ptx" />
+  <!--  <xi:include href="./ch3-answers.ptx" /> -->
 </chapter>
