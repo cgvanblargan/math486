@@ -57,15 +57,15 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.2.13';
+eBookConfig.runestone_version = '8.3.2';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.a45d14e8fc8c534a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.538acb8e671a3b5d.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
-<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.1bda041f5a098305.css">
+<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
@@ -123,6 +123,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
@@ -132,6 +133,7 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter contains-active">
@@ -149,53 +151,114 @@ eBookConfig.enable_chatcodes =  false;
 <h2 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Travails of Boss Gorilla</span>
 </h2>
-<div class="para" id="page3-boss-gorilla-2">Here’s another game with incomplete information. This time a gorilla shows up to challenge the boss, and the boss can’t tell whether he’s about to fight someone who will beat him.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-boss-gorilla-2">Here’s another game with incomplete information. It’s fun and there are gorillas.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="assemblage assemblage-like" id="read-4-5-setup"><h3 class="heading"><span class="title">Section 4.5, The Travails of Boss Gorilla 1.</span></h3>
 <div class="para" id="read-4-5-setup-2">
-<em class="alert">Read Section 4.5 up through the boxed payoff matrix and the paragraph right after it.</em> Stop when you get to “We could have made the analysis a little easier.”<div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-setup-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read Section 4.5 up through the boxed payoff matrix and the paragraph right after it.</em> That’s all four payoff tables in the section plus one more paragraph, which finds the Nash equilibrium <span class="process-math">\((a, cc)\text{.}\)</span> Don’t read past that yet!<div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-setup-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-4-5-setup-3">The method here is the same as Buying a Used Car, so this should feel familiar. Two things to make sure you follow: how the game tree turns into one matrix for a Tough visitor and one for a Weak visitor, and how those two combine into a single matrix as <span class="process-math">\(p\)</span> times the first plus <span class="process-math">\(1-p\)</span> times the second.<div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-setup-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-4-5-setup-3">The method is the same as in Buying a Used Car, so this should feel familiar. Focus on the matrices: make sure you can follow how the game tree splits into two matrices, one for each type of visitor, and how they combine into a single matrix of expected payoffs in terms of <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-setup-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 4.5, The Travails of Boss Gorilla 1"><a href="#read-4-5-setup" title="Copy heading and permalink for Reading: Section 4.5, The Travails of Boss Gorilla 1" aria-label="Copy heading and permalink for Reading: Section 4.5, The Travails of Boss Gorilla 1">🔗</a></div>
 </article>
-<div class="para" id="page3-boss-gorilla-4">The book spends its last page and a half explaining why <span class="process-math">\(cc\)</span> strictly dominates <span class="process-math">\(lc\text{.}\)</span> We can get there faster. Start with something the book points out early: Tough Gorilla should always challenge, since challenging gets him at least 3 and leaving gets him 0.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para logical" id="page3-boss-gorilla-4">
+<div class="para">Now let’s spend some time understanding these results more intuitively. First, a quick reminder of what the strategies mean:</div>
+<div class="displaymath process-math" id="page3-boss-gorilla-4-1">
+\begin{equation*}
+\text{Visiting Gorilla: }\;
+\underbrace{\;\square\;}_{\substack{\text{what he does}\\ \text{if he's Tough}}}
+\quad
+\underbrace{\;\square\;}_{\substack{\text{what he does}\\ \text{if he's Weak}}}
+\qquad
+c = \text{challenge},\; l = \text{leave}
+\end{equation*}
 </div>
-<article class="exercise exercise-like" id="check-cc-vs-lc-branches"><h3 class="heading">
+<div class="displaymath process-math" id="page3-boss-gorilla-4-2">
+\begin{equation*}
+\text{Boss Gorilla: }\;
+\underbrace{\;\square\;}_{\substack{\text{what he does}\\ \text{if challenged}}}
+\qquad
+f = \text{fight},\; a = \text{acquiesce}
+\end{equation*}
+</div>
+<div class="para">Boss Gorilla only gets one letter. He only has a decision to make if he’s challenged, and he can’t tell which type of visitor challenged him, so one choice has to cover both cases.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-boss-gorilla-5">Let’s start with the equilibrium the reading just found.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-a-cc-high-p"><h3 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-cc-vs-lc-branches-1-1">Compare Visiting Gorilla’s strategies <span class="process-math">\(cc\)</span> and <span class="process-math">\(lc\)</span> on each of Nature’s two branches. What happens?<div class="autopermalink" data-description="Paragraph"><a href="#check-cc-vs-lc-branches-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-a-cc-high-p-1-1">The reading found that <span class="process-math">\((a, cc)\)</span> is a Nash equilibrium when <span class="process-math">\(p \gt \frac{1}{3}\text{:}\)</span> every visitor challenges, and Boss Gorilla acquiesces. Why does this need <span class="process-math">\(p\)</span> to be large enough?<div class="autopermalink" data-description="Paragraph"><a href="#check-a-cc-high-p-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-a-cc-high-p" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-a-cc-high-p_opt_a" data-correct="">
+<div class="para" id="check-a-cc-high-p-2-1-1-1">Since every visitor challenges, a challenger could be either type. If Tough visitors are common enough, fighting is too risky, so Boss Gorilla acquiesces. And once he acquiesces, even Weak visitors are happy to challenge.</div>
+</li>
+<li data-component="feedback" id="rs-check-a-cc-high-p_opt_a">
+<div class="para" id="check-a-cc-high-p-2-1-2-1">Correct. When everyone challenges, a challenge tells Boss Gorilla nothing about the visitor’s type, so all he has to go on is <span class="process-math">\(p\text{.}\)</span> Fighting gets him 5 against a Weak visitor but <span class="process-math">\(-1\)</span> against a Tough one, while acquiescing is a sure 3. Once <span class="process-math">\(p \gt \frac{1}{3}\text{,}\)</span> the risk of losing isn’t worth it. The Weak gorillas are essentially bluffing: the Tough gorillas make fighting too risky, and the Weak ones take advantage.</div>
+</li>
+<li data-component="answer" id="rs-check-a-cc-high-p_opt_b">
+<div class="para" id="check-a-cc-high-p-2-2-1-1">When <span class="process-math">\(p\)</span> is large, most visitors are Tough, and Tough visitors should always challenge.</div>
+</li>
+<li data-component="feedback" id="rs-check-a-cc-high-p_opt_b">
+<div class="para" id="check-a-cc-high-p-2-2-2-1">True, but that only explains the first letter of <span class="process-math">\(cc\text{,}\)</span> and Tough visitors challenge no matter what <span class="process-math">\(p\)</span> is. The real question is why Boss Gorilla lets <em class="emphasis">everyone</em> in, including the Weak visitors. That’s about his best response.</div>
+</li>
+<li data-component="answer" id="rs-check-a-cc-high-p_opt_c">
+<div class="para" id="check-a-cc-high-p-2-3-1-1">When <span class="process-math">\(p\)</span> is large, Weak visitors are more likely to win a fight.</div>
+</li>
+<li data-component="feedback" id="rs-check-a-cc-high-p_opt_c">
+<div class="para" id="check-a-cc-high-p-2-3-2-1">
+<span class="process-math">\(p\)</span> doesn’t change who wins. A Weak visitor always loses a fight. What <span class="process-math">\(p\)</span> changes is how likely it is, from Boss Gorilla’s point of view, that a challenger is Tough.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 4.3.1"><a href="#check-a-cc-high-p" title="Copy heading and permalink for Checkpoint 4.3.1" aria-label="Copy heading and permalink for Checkpoint 4.3.1">🔗</a></div>
+</article>
+<div class="para" id="page3-boss-gorilla-7">What if <span class="process-math">\(p \lt \frac{1}{3}\text{?}\)</span> Then fighting is worth the risk against <span class="process-math">\(cc\text{,}\)</span> and it turns out none of the eight profiles in the table is a Nash equilibrium. The book comes back to that case in a Chapter 5 problem (Problem 5.12.2), once we have mixed strategies.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page3-boss-gorilla-8">The book spends its last page and a half explaining why <span class="process-math">\(cc\)</span> strictly dominates <span class="process-math">\(lc\text{,}\)</span> beyond just checking the table. There’s a quicker way to see it, and it’s worth trying on your own before you read theirs. Start with the fact that Tough Gorilla should always challenge: challenging gets him at least 3, and leaving gets him 0.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-cc-vs-lc-branches"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-cc-vs-lc-branches-1-1">Compare Visiting Gorilla’s payoffs from <span class="process-math">\(cc\)</span> and <span class="process-math">\(lc\text{,}\)</span> one branch of Nature at a time. Which is true?<div class="autopermalink" data-description="Paragraph"><a href="#check-cc-vs-lc-branches-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-cc-vs-lc-branches" data-multipleanswers="false">
 <li data-component="answer" id="rs-check-cc-vs-lc-branches_opt_a" data-correct="">
-<div class="para" id="check-cc-vs-lc-branches-2-1-1-1">When the visitor is Tough, <span class="process-math">\(cc\)</span> challenges and <span class="process-math">\(lc\)</span> leaves, so <span class="process-math">\(cc\)</span> does strictly better. When the visitor is Weak, both challenge, so they tie.</div>
+<div class="para" id="check-cc-vs-lc-branches-2-1-1-1">If he’s Tough, <span class="process-math">\(cc\)</span> is strictly better. If he’s Weak, they tie.</div>
 </li>
 <li data-component="feedback" id="rs-check-cc-vs-lc-branches_opt_a">
-<div class="para" id="check-cc-vs-lc-branches-2-1-2-1">Correct. The two strategies only disagree on the Tough branch, and that’s the branch where challenging is the better move. Against <span class="process-math">\(f\text{,}\)</span> a Tough challenger wins the fight for 5 while leaving gets 0. Against <span class="process-math">\(a\text{,}\)</span> he becomes co-boss for 3 while leaving still gets 0. On the Weak branch both strategies say <span class="process-math">\(c\text{,}\)</span> so whatever happens there happens identically under both.</div>
+<div class="para" id="check-cc-vs-lc-branches-2-1-2-1">Correct. If he’s Tough, <span class="process-math">\(cc\)</span> says challenge and <span class="process-math">\(lc\)</span> says leave, and challenging is better. Against <span class="process-math">\(f\)</span> he wins the fight for 5 instead of 0, and against <span class="process-math">\(a\)</span> he becomes co-boss for 3 instead of 0. If he’s Weak, both strategies say challenge, so whatever happens there happens identically under both.</div>
 </li>
 <li data-component="answer" id="rs-check-cc-vs-lc-branches_opt_b">
 <div class="para" id="check-cc-vs-lc-branches-2-2-1-1">
-<span class="process-math">\(cc\)</span> does strictly better on both branches.</div>
+<span class="process-math">\(cc\)</span> is strictly better whether he’s Tough or Weak.</div>
 </li>
 <li data-component="feedback" id="rs-check-cc-vs-lc-branches_opt_b">
 <div class="para" id="check-cc-vs-lc-branches-2-2-2-1">Check the second letters. Both <span class="process-math">\(cc\)</span> and <span class="process-math">\(lc\)</span> tell a Weak visitor to challenge, so they can’t come apart there. They give the same payoff on that branch, not a better one.</div>
 </li>
 <li data-component="answer" id="rs-check-cc-vs-lc-branches_opt_c">
-<div class="para" id="check-cc-vs-lc-branches-2-3-1-1">It depends on whether Boss Gorilla is using <span class="process-math">\(f\)</span> or <span class="process-math">\(a\text{.}\)</span>
+<div class="para" id="check-cc-vs-lc-branches-2-3-1-1">It depends on whether Boss Gorilla uses <span class="process-math">\(f\)</span> or <span class="process-math">\(a\text{.}\)</span>
 </div>
 </li>
 <li data-component="feedback" id="rs-check-cc-vs-lc-branches_opt_c">
-<div class="para" id="check-cc-vs-lc-branches-2-3-2-1">It doesn’t, and that’s what makes this work. On the Tough branch challenging beats leaving against <span class="process-math">\(f\)</span> (5 versus 0) and against <span class="process-math">\(a\)</span> (3 versus 0). Dominance has to hold against everything Boss Gorilla might do, and here it does.</div>
+<div class="para" id="check-cc-vs-lc-branches-2-3-2-1">It doesn’t, and that’s what makes this work. On the Tough branch, challenging beats leaving against <span class="process-math">\(f\)</span> (5 versus 0) and against <span class="process-math">\(a\)</span> (3 versus 0). Dominance has to hold against everything Boss Gorilla might do, and here it does.</div>
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 4.3.1"><a href="#check-cc-vs-lc-branches" title="Copy heading and permalink for Checkpoint 4.3.1" aria-label="Copy heading and permalink for Checkpoint 4.3.1">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 4.3.2"><a href="#check-cc-vs-lc-branches" title="Copy heading and permalink for Checkpoint 4.3.2" aria-label="Copy heading and permalink for Checkpoint 4.3.2">🔗</a></div>
 </article>
+<div class="para" id="page3-boss-gorilla-10">So on one branch <span class="process-math">\(cc\)</span> is strictly better than <span class="process-math">\(lc\text{,}\)</span> and on the other they tie. Now let’s put the branches together.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="exercise exercise-like" id="check-cc-dominates-lc"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
@@ -224,24 +287,36 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 4.3.2"><a href="#check-cc-dominates-lc" title="Copy heading and permalink for Checkpoint 4.3.2" aria-label="Copy heading and permalink for Checkpoint 4.3.2">🔗</a></div>
+<div class="autopermalink" data-description="Checkpoint 4.3.3"><a href="#check-cc-dominates-lc" title="Copy heading and permalink for Checkpoint 4.3.3" aria-label="Copy heading and permalink for Checkpoint 4.3.3">🔗</a></div>
 </article>
+<div class="para logical" id="page3-boss-gorilla-12">
+<div class="para">There we have it! Against either of Boss Gorilla’s strategies, Visiting Gorilla’s payoff breaks into two pieces:</div>
+<div class="displaymath process-math" id="page3-boss-gorilla-12-1">
+\begin{equation*}
+\underbrace{p \cdot (\text{payoff if Tough})}_{\text{bigger for } cc}
+\;+\;
+\underbrace{(1-p) \cdot (\text{payoff if Weak})}_{\text{same for both}}
+\end{equation*}
+</div>
+<div class="para">The second piece is a tie, and the first piece is bigger for <span class="process-math">\(cc\text{,}\)</span> so the total is bigger for <span class="process-math">\(cc\text{.}\)</span> In plain words: <span class="process-math">\(lc\)</span> makes a Tough gorilla do the wrong thing and gets nothing in return, since it plays exactly like <span class="process-math">\(cc\)</span> when he’s Weak.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
 <article class="assemblage assemblage-like" id="read-4-5-rest"><h3 class="heading"><span class="title">Section 4.5, The Rest.</span></h3>
 <div class="para" id="read-4-5-rest-2">
-<em class="alert">Read the rest of Section 4.5.</em> You can move quickly, since it’s the argument you just made. It also does the same thing for <span class="process-math">\(cl\)</span> over <span class="process-math">\(ll\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-rest-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read the rest of Section 4.5.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-rest-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-4-5-rest-3">One warning: the book writes “Strong” a few times where it means “Tough.” Same gorilla.<div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-rest-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-4-5-rest-3">You can read this quickly, since it’s the argument we just worked out. Notice how much longer the book takes! Its version is also easier to follow now that you’ve reasoned it out yourself. (Heads up: the book says “Strong” in a few places where it means Tough.) The reading also mentions that a similar argument shows <span class="process-math">\(cl\)</span> strictly dominates <span class="process-math">\(ll\text{.}\)</span> See if you can quickly reason that one out!<div class="autopermalink" data-description="Paragraph"><a href="#read-4-5-rest-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="autopermalink" data-description="Reading: Section 4.5, The Rest"><a href="#read-4-5-rest" title="Copy heading and permalink for Reading: Section 4.5, The Rest" aria-label="Copy heading and permalink for Reading: Section 4.5, The Rest">🔗</a></div>
 </article>
-<div class="para" id="page3-boss-gorilla-8">One last thing worth looking at. The matrix tells us <span class="process-math">\((f, cl)\)</span> isn’t a Nash equilibrium, but it’s the profile students usually expect to be one. Boss Gorilla stands ready to fight, and only the Tough visitors bother him.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-boss-gorilla-14">One last thing! The boxed table shows that <span class="process-math">\((f, cl)\)</span> is not a Nash equilibrium. Let’s see why intuitively.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <article class="exercise exercise-like" id="check-f-cl-not-equilibrium"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">4.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
 </h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-f-cl-not-equilibrium-1-1">Why isn’t <span class="process-math">\((f, cl)\)</span> a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-f-cl-not-equilibrium-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-f-cl-not-equilibrium-1-1">In the profile <span class="process-math">\((f, cl)\text{,}\)</span> Boss Gorilla fights whenever he’s challenged, Tough visitors challenge, and Weak visitors leave. Why isn’t this a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-f-cl-not-equilibrium-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-f-cl-not-equilibrium" data-multipleanswers="false">
@@ -268,11 +343,8 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 4.3.3"><a href="#check-f-cl-not-equilibrium" title="Copy heading and permalink for Checkpoint 4.3.3" aria-label="Copy heading and permalink for Checkpoint 4.3.3">🔗</a></div>
-</article>
-<div class="para" id="page3-boss-gorilla-10">The equilibrium that survives is <span class="process-math">\((a, cc)\text{,}\)</span> where everybody challenges and Boss Gorilla gives in. Notice what the Weak visitor is doing there. He challenges knowing he’d lose a fight, because he knows Boss Gorilla won’t start one.<div class="autopermalink" data-description="Paragraph"><a href="#page3-boss-gorilla-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=4.5" id="question-form-4-3" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="autopermalink" data-description="Checkpoint 4.3.4"><a href="#check-f-cl-not-equilibrium" title="Copy heading and permalink for Checkpoint 4.3.4" aria-label="Copy heading and permalink for Checkpoint 4.3.4">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=4.5" id="question-form-4-3" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-4-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
 <div class="autopermalink" data-description="Section 4.3: The Travails of Boss Gorilla"><a href="#page3-boss-gorilla" title="Copy heading and permalink for Section 4.3: The Travails of Boss Gorilla" aria-label="Copy heading and permalink for Section 4.3: The Travails of Boss Gorilla">🔗</a></div>
 </section>
