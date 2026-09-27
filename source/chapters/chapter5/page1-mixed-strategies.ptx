@@ -1,0 +1,565 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page1-mixed-strategies" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Mixed Strategies and the Fundamental Theorem</title>
+
+  <p>
+    Some games don't have any Nash equilibria of the kind we've seen so far.
+    In this chapter we let players randomize, and it turns out that fixes the
+    problem.
+  </p>
+
+  <assemblage xml:id="read-5-1-setup">
+    <title>Section 5.1, Mixed Strategies and the Definition</title>
+    <p>
+      <alert>Read Section 5.1 from the beginning up to Theorem 5.1 (Nash's
+      Existence Theorem).</alert> Stop right before it.
+    </p>
+    <p>
+      Take a minute to check the book's claim that Tennis has no Nash
+      equilibrium using best response. After that, most of the reading is
+      notation. It looks like a lot, but we'll unpack it below using Tennis.
+    </p>
+  </assemblage>
+
+  <p>
+    Here's the Tennis payoff matrix with each player's probabilities written
+    in the margins. This is how the book draws it in Section 5.2.
+  </p>
+
+  <table xml:id="table-tennis-pq">
+    <title>Tennis, with mixed strategies</title>
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell></cell>
+        <cell><m>q</m></cell>
+        <cell><m>1-q</m></cell>
+      </row>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell>Receiver: <m>b</m></cell>
+        <cell>Receiver: <m>f</m></cell>
+      </row>
+      <row>
+        <cell><m>p</m></cell>
+        <cell>Server: <m>b</m></cell>
+        <cell>(.4, .6)</cell>
+        <cell>(.8, .2)</cell>
+      </row>
+      <row>
+        <cell><m>1-p</m></cell>
+        <cell>Server: <m>f</m></cell>
+        <cell>(.7, .3)</cell>
+        <cell>(.1, .9)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    So the server's mixed strategy is <m>\sigma_1 = pb + (1-p)f</m> and the
+    receiver's is <m>\sigma_2 = qb + (1-q)f</m>. The book's convention is that
+    <m>p</m>'s always belong to Player 1 and <m>q</m>'s to Player 2, and we'll
+    stick with that all chapter. (Heads up: when you get to Section 5.2, the
+    sentence right before this table has <m>p</m> and <m>q</m> swapped. The
+    table and the equations after it are correct.)
+  </p>
+
+  <p>
+    A few things about the notation:
+    <ul>
+      <li>
+        <p>
+          <m>.6b + .4f</m> isn't arithmetic. You can't add strategies! It's a
+          recipe: serve to the backhand 60% of the time and the forehand 40%
+          of the time.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>p_{s_i}</m> is the probability Player <m>i</m> puts on her
+          strategy <m>s_i</m>. The book writes it this way to avoid double
+          subscripts.
+        </p>
+      </li>
+      <li>
+        <p>
+          A strategy is <term>active</term> if its probability is more than
+          <m>0</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          A pure strategy is just a mixed strategy with probability <m>1</m> on
+          one strategy. So everything from Chapter 3 is still here.
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\sigma_{-i}</m> and <m>(\tau_i, \sigma_{-i})</m> mean the same
+          thing as in Chapter 3, just with mixed strategies.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <p>
+    Now let's break down equation (5.2). In Tennis, the server's expected
+    payoff adds up all four cells, each weighted by how likely we are to land
+    in it:
+    <me>
+      \pi_1(\sigma_1, \sigma_2) =
+      \underbrace{pq}_{\substack{\text{prob. server goes } b\\ \text{and receiver expects } b}}
+      \cdot
+      \underbrace{(.4)}_{\substack{\text{server's payoff}\\ \text{in that cell}}}
+      + p(1-q)(.8) + (1-p)q(.7) + (1-p)(1-q)(.1)
+    </me>
+    The general version says the same thing:
+    <me>
+      \pi_i(\sigma_1, \ldots, \sigma_n) = \sum_{\text{all } (s_1, \ldots, s_n)}
+      \underbrace{p_{s_1} p_{s_2} \cdots p_{s_n}}_{\substack{\text{prob. that } s_1, \ldots, s_n\\ \text{all happen at once}}}
+      \;
+      \underbrace{\pi_i(s_1, \ldots, s_n)}_{\substack{\text{Player } i\text{'s payoff}\\ \text{when they do}}}
+    </me>
+    We get to multiply the probabilities because the players choose
+    independently.
+  </p>
+
+  <p>
+    Equation (5.6) is the same sum, just grouped by Player <m>i</m>'s
+    strategies. In Tennis, group the four cells by the server's row:
+    <me>
+      \pi_1(\sigma_1, \sigma_2) = p \cdot \pi_1(b, \sigma_2) + (1-p) \cdot \pi_1(f, \sigma_2)
+    </me>
+    Here <m>\pi_1(b, \sigma_2)</m> is what the server gets if she always serves
+    to the backhand while the receiver keeps mixing. The general version:
+    <me>
+      \pi_i(\sigma) = \sum_{\text{all } s_i \in S_i}
+      \underbrace{p_{s_i}}_{\substack{\text{how often}\\ i \text{ plays } s_i}}
+      \;
+      \underbrace{\pi_i(s_i, \sigma_{-i})}_{\substack{\text{what } s_i \text{ earns her against}\\ \text{everyone else's mixing}}}
+    </me>
+    So a player's payoff from a mixed strategy is a weighted average of what
+    her pure strategies earn. Keep this in mind, it's the key to everything
+    on this page!
+  </p>
+
+  <p>
+    Finally, the definition. It's the Chapter 3 definition with <m>\sigma</m>
+    in place of <m>s</m>. A mixed strategy profile <m>\sigma^*</m> is a Nash
+    equilibrium if for each player <m>i</m>,
+    <me>
+      \underbrace{\pi_i(\sigma^*)}_{\substack{i\text{'s payoff when}\\ \text{everyone plays their part}}}
+      \;\geq\;
+      \underbrace{\pi_i(\sigma_i, \sigma^*_{-i})}_{\substack{i\text{'s payoff if she alone}\\ \text{switches to another mix}}}
+      \quad \text{for every mixed strategy } \sigma_i.
+    </me>
+    One catch: there are now infinitely many <m>\sigma_i</m> to check, since
+    every possible mix counts. We'll see how to get around that.
+  </p>
+
+  <p>
+    Let's test a specific profile in Tennis: <m>\sigma_1 = .6b + .4f</m> and
+    <m>\sigma_2 = .7b + .3f</m>. Section 5.2 will show where these numbers come
+    from. For now, just take them as given.
+  </p>
+
+  <exercise xml:id="check-tennis-pi1-b">
+    <statement>
+      <p>
+        The receiver uses <m>\sigma_2 = .7b + .3f</m>. Compute
+        <m>\pi_1(b, \sigma_2)</m>, the server's expected payoff if she always
+        serves to the backhand.
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>.52</m></p></statement>
+        <feedback>
+          <p>
+            Correct. Read across the server's <m>b</m> row using her payoffs,
+            weighted by the receiver's probabilities:
+            <m>.4(.7) + .8(.3) = .52</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.56</m></p></statement>
+        <feedback>
+          <p>
+            You weighted by <m>.6</m> and <m>.4</m>, which are the server's own
+            probabilities. If she always serves to the backhand, what's left to
+            average over is what the receiver does, so use <m>.7</m> and
+            <m>.3</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.49</m></p></statement>
+        <feedback>
+          <p>
+            You read down the <m>b</m> column. The server's strategies are the
+            rows, so <m>\pi_1(b, \sigma_2)</m> lives in the <m>b</m> row.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.48</m></p></statement>
+        <feedback>
+          <p>
+            You used the second number in each cell, which is the receiver's
+            payoff. <m>\pi_1</m> is the server's payoff, so use the first
+            numbers.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The same computation on the <m>f</m> row gives
+    <m>\pi_1(f, \sigma_2) = .7(.7) + .1(.3) = .52</m>. The same number!
+  </p>
+
+  <exercise xml:id="check-tennis-any-p">
+    <statement>
+      <p>
+        We know <m>\pi_1(b, \sigma_2) = .52</m> and
+        <m>\pi_1(f, \sigma_2) = .52</m>. For any <m>p</m>, what is
+        <m>\pi_1(pb + (1-p)f, \sigma_2)</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>.52</m></p></statement>
+        <feedback>
+          <p>
+            Correct. By (5.6) it's <m>p(.52) + (1-p)(.52) = .52</m>. Averaging
+            two equal numbers gives that number back, no matter the weights.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.52p</m></p></statement>
+        <feedback>
+          <p>
+            That only counts the serves to the backhand. The other
+            <m>1-p</m> of the time she serves to the forehand, which also
+            earns <m>.52</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>1.04</m></p></statement>
+        <feedback>
+          <p>
+            She can't collect both. Each serve goes one way or the other, so
+            her payoff is a weighted average, not a sum.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>.52</m> when <m>p = .6</m>, and less for other values of <m>p</m>.</p>
+        </statement>
+        <feedback>
+          <p>
+            Tempting, but try <m>p = 0</m> or <m>p = 1</m>. She still gets
+            <m>.52</m>. Against <m>q = .7</m>, her choice of <m>p</m> doesn't
+            change her payoff at all.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    So no mix does better for the server. The receiver's side works the same
+    way. Against <m>p = .6</m>, both of her pure strategies earn her
+    <m>.48</m> (check <m>\pi_2(\sigma_1, b) = .6(.6) + .3(.4)</m> if you want),
+    so no mix does better for her either. That means
+    <m>(.6b + .4f,\ .7b + .3f)</m> is a mixed strategy Nash equilibrium!
+  </p>
+
+  <p>
+    Notice what <m>p = .6</m> actually does. It doesn't matter to the server,
+    since every <m>p</m> gives her <m>.52</m>. What it does is make the
+    <em>receiver's</em> two numbers equal. Likewise <m>q = .7</m> makes the
+    server's two numbers equal. Each player's mix keeps the other one
+    indifferent, and Section 5.2 uses exactly this to find <m>p</m> and
+    <m>q</m>.
+  </p>
+
+  <assemblage xml:id="read-5-1-theorems">
+    <title>Section 5.1, Nash's Theorem and the Fundamental Theorem</title>
+    <p>
+      <alert>Read from Theorem 5.1 through the paragraph right after Theorem
+      5.2, the one beginning <q>This theorem just says.</q></alert> Skip the
+      proof, and stop at the paragraph beginning <q>In the remainder of this
+      section.</q>
+    </p>
+    <p>
+      The paragraph after Theorem 5.1 connects back to Section 4.1: mixed
+      equilibria assume players care about expected payoff. The paragraph
+      after Theorem 5.2 is the whole theorem in plain words, so read it
+      carefully.
+    </p>
+  </assemblage>
+
+  <p>
+    Condition (1) of Theorem 5.2 is exactly what we just found in Tennis: the
+    server's active strategies both earn <m>.52</m>, and the receiver's both
+    earn <m>.48</m>. Condition (2) is about inactive strategies, and there
+    aren't any in the Tennis equilibrium since both players use both
+    strategies. So there's nothing to check. To see condition (2) at work, we
+    need a profile where someone leaves a strategy unused.
+  </p>
+
+  <exercise xml:id="check-condition-2">
+    <statement>
+      <p>
+        Suppose the server always serves to the forehand (<m>p = 0</m>) and
+        the receiver uses <m>q = .5</m>. Then <m>\pi_1(b, \sigma_2) = .6</m>
+        and <m>\pi_1(f, \sigma_2) = .4</m>. Is this a Nash equilibrium?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            No. Her only active strategy is <m>f</m>, but her inactive
+            strategy <m>b</m> earns more. Condition (2) fails.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. She'd do better by switching to <m>b</m>. Condition (2)
+            is the Chapter 3 check: can someone gain by switching to a
+            strategy she isn't using?
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes. She only uses one strategy, so there's nothing to compare.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Condition (2) compares her active strategies to the ones she
+            <em>isn't</em> using. Here <m>b</m> is unused and earns more, so
+            she wants to switch.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            No. Condition (1) fails, because <m>.6 \neq .4</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right answer, wrong reason. Condition (1) only compares active
+            strategies with each other, and <m>b</m> isn't active. The
+            comparison between an active and an inactive strategy is
+            condition (2).
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now let's reason out the next three theorems before reading them.
+  </p>
+
+  <example xml:id="eg-tennis-equilibrium-payoff">
+    <title>The server's payoff at the Tennis equilibrium</title>
+    <statement>
+      <p>
+        At the equilibrium <m>(.6b + .4f,\ .7b + .3f)</m>, what is the
+        server's expected payoff?
+      </p>
+    </statement>
+    <solution>
+      <p>
+        <alert>The long way.</alert> Use (5.2) on all four cells:
+        <me>
+          .42(.4) + .18(.8) + .28(.7) + .12(.1) = .168 + .144 + .196 + .012 = .52
+        </me>
+      </p>
+      <p>
+        <alert>The short way.</alert> Her strategy <m>b</m> is active and
+        earns <m>.52</m>, and so does <m>f</m>. Her payoff is a weighted
+        average of the two, so it's <m>.52</m>.
+      </p>
+    </solution>
+  </example>
+
+  <p>
+    That's <alert>Theorem 5.3</alert>. At a mixed strategy Nash equilibrium,
+    all of a player's active strategies earn the same amount <m>K</m>. Her
+    equilibrium payoff is <m>K</m>, and so is any mix of her active
+    strategies. You already saw the second part in the <m>.52</m> checkpoint!
+  </p>
+
+  <p>
+    Next, pure strategies are special mixed strategies, so the new definition
+    should agree with the Chapter 3 one on pure profiles. One direction is
+    quick. Suppose a pure profile <m>s^*</m> is a mixed strategy Nash
+    equilibrium. Then no player can gain by switching to <em>any</em> mixed
+    strategy. That includes the pure ones, so no player can gain by switching
+    to a pure strategy either. That's the Chapter 3 definition. What about the
+    other direction?
+  </p>
+
+  <exercise xml:id="check-pure-vs-mixed-deviation">
+    <statement>
+      <p>
+        Suppose <m>(s_1^*, s_2^*)</m> is a Nash equilibrium in the Chapter 3
+        sense, so Player 1 can't gain by switching to any pure strategy. Could
+        she gain by switching to some mixed strategy <m>\tau_1</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            No. By (5.6), <m>\tau_1</m>'s payoff is a weighted average of her
+            pure strategies' payoffs, and none of those beat her equilibrium
+            payoff.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. If every number you're averaging is at most
+            <m>\pi_1(s^*)</m>, the average is too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes. A mix can combine the strengths of several pure strategies.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Against a fixed opponent, a mix is just a weighted average of its
+            pure strategies' payoffs. An average can never beat the largest
+            thing you're averaging.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            You'd have to check every possible mix to know.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That's exactly the work (5.6) saves you. Every mix is a weighted
+            average of pure strategy payoffs, so checking the pure strategies
+            is enough.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    That's <alert>Theorem 5.4</alert>. For pure strategy profiles, the new
+    definition agrees with the old one. Every pure Nash equilibrium from
+    Chapter 3 is still an equilibrium, and allowing mixed strategies can only
+    add new ones.
+  </p>
+
+  <exercise xml:id="check-tennis-not-strict">
+    <statement>
+      <p>
+        Recall that a Nash equilibrium is <term>strict</term> if every player
+        does strictly worse by switching. Is the Tennis equilibrium strict?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            No. The server can switch to always serving to the backhand and
+            still get <m>.52</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. By Theorem 5.3, any mix of her active strategies earns
+            the same, so she has plenty of switches that tie.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes. No player can do better by switching.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That's just the definition of a Nash equilibrium. Strict means
+            every switch makes you <em>worse</em>, and here some switches
+            leave the server exactly where she was.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes, since it's the only Nash equilibrium of the game.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Being the only equilibrium and being strict are different things.
+            Strictness is about whether switching can ever tie.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    That's <alert>Theorem 5.5</alert>. Only pure equilibria can be strict.
+    Whenever a player mixes, Theorem 5.3 hands her other strategies that tie,
+    so some switch always does just as well.
+  </p>
+
+  <assemblage xml:id="read-5-1-rest">
+    <title>Section 5.1, The Rest</title>
+    <p>
+      <alert>Read the rest of Section 5.1.</alert>
+    </p>
+    <p>
+      We just reasoned through Theorems 5.3, 5.4, and 5.5, so this should go
+      quickly. The last two paragraphs are new:
+      <ul>
+        <li>
+          <p>
+            In most two-player games, both players use the same number of
+            active strategies. Section 5.2 uses this to organize its search.
+          </p>
+        </li>
+        <li>
+          <p>
+            Eliminating dominated strategies still works with mixed strategies.
+            We'll use this in Poker.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-5-1" iframe="question-form.html?section=5.1" width="100%" aspect="2:1"/>
+</section>

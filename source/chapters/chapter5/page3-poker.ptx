@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page3-poker" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>One-Card Two-Round Poker</title>
+
+  <p>
+    Time for a bigger game. Poker is a <m>3 \times 3</m> game once we clean it
+    up, but the method is the same one we used for Tennis.
+  </p>
+
+  <assemblage xml:id="read-5-4-setup">
+    <title>Section 5.4, The Setup</title>
+    <p>
+      <alert>Read Section 5.4 up through <q>If Player 1 is dealt the low
+      card, he has the same three options.</q></alert> Stop there.
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-poker-nine-strategies">
+    <statement>
+      <p>
+        How many pure strategies does Player 1 have?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>9</m></p></statement>
+        <feedback>
+          <p>
+            Correct. A strategy picks one of <m>3</m> options for the high card
+            and one of <m>3</m> for the low card, so <m>3 \times 3 = 9</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>6</m></p></statement>
+        <feedback>
+          <p>
+            A strategy is a <em>pair</em> of choices, one for each card, so we
+            multiply. Think of outfits: <m>3</m> shirts and <m>3</m> pants
+            make <m>9</m> outfits, not <m>6</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>3</m></p></statement>
+        <feedback>
+          <p>
+            bb, bf, and f are options for <em>one</em> card. A strategy has to
+            say what Player 1 does with both cards.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    When you read on, the book throws out every strategy that doesn't bet at
+    every opportunity with the high card. That leaves three strategies, and
+    the book names each one by its low card option only:
+    <ul>
+      <li>
+        <p>
+          <alert>bb</alert>: bb if high, bb if low. Always bet, whatever the
+          card.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>bf</alert>: bb if high, bf if low. Always bet at first. With
+          the low card, fold if Player 2 bets back.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>f</alert>: bb if high, f if low. Fold right away with the low
+          card.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <assemblage xml:id="read-5-4-solving">
+    <title>Section 5.4, Finding the Equilibrium</title>
+    <p>
+      <alert>Keep reading through <m>(q_1, q_2, q_3) = \left(\frac{8}{15},
+      \frac{2}{15}, \frac{1}{3}\right)</m>.</alert>
+    </p>
+    <p>
+      A few things to watch for:
+      <ul>
+        <li>
+          <p>
+            In the high card table, all three rows are the same. That makes
+            sense now: all three strategies play bb with the high card.
+          </p>
+        </li>
+        <li>
+          <p>
+            The payoff matrix shows up twice. The second copy is the same
+            matrix with the probabilities in the margins, just like Tennis.
+          </p>
+        </li>
+        <li>
+          <p>
+            The book skips the cases with two active strategies and says it
+            will come back to them in Section 5.5. We're skipping 5.5, so just
+            know those cases don't give any more equilibria.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-poker-why-equal">
+    <statement>
+      <p>
+        Why does the book set
+        <m>\pi_2(\sigma_1, bb) = \pi_2(\sigma_1, bf) = \pi_2(\sigma_1, f)</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Condition (1) of Theorem 5.2. All of Player 2's strategies are
+            active, so they have to earn him the same payoff against
+            <m>\sigma_1</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Same idea as Tennis, just with three strategies instead
+            of two.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Condition (2) of Theorem 5.2.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Condition (2) compares active strategies to inactive ones, and
+            it's an inequality. Here every strategy is active, and we want
+            equalities.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Player 1 is mixing, so Player 1 must be indifferent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Wrong player. These are Player 2's payoffs, so this is about
+            Player 2 being indifferent among <em>his</em> strategies.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-poker-sum-one">
+    <statement>
+      <p>
+        Where does the equation <m>p_1 + p_2 + p_3 = 1</m> come from?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            The <m>p_i</m> are the probabilities of Player 1's three
+            strategies, and he has to play one of them.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Probabilities always add up to <m>1</m>. The two
+            indifference equations aren't enough to pin down three unknowns,
+            so we need this one too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It's a third equation from Player 2 being indifferent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Setting three things equal only gives two independent equations.
+            This third one has nothing to do with payoffs. It's just a fact
+            about probabilities.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It comes from the game being zero-sum.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Zero-sum is about the players' <em>payoffs</em> adding to
+            <m>0</m>. This equation is about Player 1's probabilities.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    So we found <m>(p_1, p_2, p_3) = \left(\frac{1}{5}, \frac{2}{5},
+    \frac{2}{5}\right)</m>. Before reading on, let's think about what this
+    actually means.
+  </p>
+
+  <exercise xml:id="check-poker-interpret-p2">
+    <statement>
+      <p>
+        What does <m>p_2 = \frac{2}{5}</m> mean?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\frac{2}{5}</m> of the time, Player 1 uses bf: bb if high, bf
+            if low.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Remember bf is a full strategy. With the high card he
+            still bets at every opportunity.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            With the high card, Player 1 bets and then folds
+            <m>\frac{2}{5}</m> of the time.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            He never folds with the high card! The name bf only describes
+            what he does with the low card.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Player 2 bets back and then folds <m>\frac{2}{5}</m> of the time.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The <m>p</m>'s belong to Player 1. Player 2's probabilities are
+            the <m>q</m>'s.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-poker-expected-payoff">
+    <statement>
+      <p>
+        How would you compute Player 1's expected payoff
+        <m>\pi_1(\sigma_1, \sigma_2)</m>? (Don't actually compute it.)
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Add up all nine cells, each one's Player 1 payoff weighted by
+            <m>p_i q_j</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. That's equation (5.2), same as Tennis but with nine cells
+            instead of four. Since this is an equilibrium, Theorem 5.3 also
+            gives a shortcut. You'll see both in the reading.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Add up the three diagonal cells, where both players use the
+            strategy with the same name.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Every cell can happen, since each player picks his strategy
+            independently. Plus the names mean different things for the two
+            players, so the diagonal isn't special.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Average the nine payoffs.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That treats every cell as equally likely. Each cell happens with
+            probability <m>p_i q_j</m>, so weight by that instead.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-5-4-rest">
+    <title>Section 5.4, The Rest</title>
+    <p>
+      <alert>Finish reading Section 5.4.</alert>
+    </p>
+    <p>
+      The rest is interpreting the results, including the two things you just
+      reasoned out: what the probabilities mean as plans, and how to compute
+      the expected payoff. Hint for the plans: with the low card, Player 1
+      bets at first under both bb and bf, so he bets with probability
+      <m>p_1 + p_2 = \frac{3}{5}</m>.
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-5-4" iframe="question-form.html?section=5.4" width="100%" aspect="2:1"/>
+</section>

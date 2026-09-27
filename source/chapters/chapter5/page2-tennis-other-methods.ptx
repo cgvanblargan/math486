@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page2-tennis-other-methods" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Tennis, and Other Ways to Find Mixed Equilibria</title>
+
+  <p>
+    On the last page we verified that <m>(.6b + .4f,\ .7b + .3f)</m> is a
+    mixed strategy Nash equilibrium. But we want to find <em>all</em> of them.
+    We already checked there are no pure ones, so let's look for equilibria
+    where both players use both strategies.
+  </p>
+
+  <table xml:id="table-tennis-pq-2">
+    <title>Tennis, with mixed strategies</title>
+    <tabular halign="center">
+      <row header="yes">
+        <cell></cell>
+        <cell></cell>
+        <cell><m>q</m></cell>
+        <cell><m>1-q</m></cell>
+      </row>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell></cell>
+        <cell>Receiver: <m>b</m></cell>
+        <cell>Receiver: <m>f</m></cell>
+      </row>
+      <row>
+        <cell><m>p</m></cell>
+        <cell>Server: <m>b</m></cell>
+        <cell>(.4, .6)</cell>
+        <cell>(.8, .2)</cell>
+      </row>
+      <row>
+        <cell><m>1-p</m></cell>
+        <cell>Server: <m>f</m></cell>
+        <cell>(.7, .3)</cell>
+        <cell>(.1, .9)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Here's the Fundamental Theorem of Nash Equilibria (Theorem 5.2) again. A
+    mixed strategy profile <m>\sigma</m> is a Nash equilibrium exactly when,
+    for every player <m>i</m>:
+    <ol>
+      <li>
+        <p>
+          If <m>s_i</m> and <m>s_i'</m> are both active, then
+          <m>\pi_i(s_i, \sigma_{-i}) = \pi_i(s_i', \sigma_{-i})</m>.
+        </p>
+      </li>
+      <li>
+        <p>
+          If <m>s_i</m> is active and <m>s_i'</m> is not, then
+          <m>\pi_i(s_i, \sigma_{-i}) \geq \pi_i(s_i', \sigma_{-i})</m>.
+        </p>
+      </li>
+    </ol>
+    In words: every active strategy earns the same, and nothing unused earns
+    more.
+  </p>
+
+  <p>
+    Since both players use both strategies, there's nothing unused, so only
+    condition (1) matters. Let's start with the receiver.
+  </p>
+
+  <exercise xml:id="check-receiver-in-words">
+    <statement>
+      <p>
+        Suppose both of the receiver's strategies are active. In words, what
+        does condition (1) of Theorem 5.2 say about her?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Against the server's mix, anticipating the backhand and
+            anticipating the forehand earn her the same expected payoff.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. If one earned more, she'd drop the other one. She's only
+            willing to mix if she's indifferent.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Her two strategies earn the server the same expected payoff.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Wrong player. Condition (1) is about each player's own payoffs.
+            The receiver cares about what her strategies earn <em>her</em>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            She anticipates each side half the time.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Equal payoffs doesn't mean equal probabilities. Condition (1) is
+            about what her strategies earn, not how often she uses them.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    In symbols, that's <m>\pi_2(\sigma_1, b) = \pi_2(\sigma_1, f)</m>, where
+    <m>\sigma_1 = pb + (1-p)f</m>. To compute each side, read down the
+    receiver's column using the second numbers, weighted by the server's
+    probabilities:
+    <md>
+      <mrow>.6p + .3(1-p) \amp = .2p + .9(1-p)</mrow>
+      <mrow>.3 + .3p \amp = .9 - .7p</mrow>
+      <mrow>p \amp = .6</mrow>
+    </md>
+    Notice that we found the <em>server's</em> <m>p</m> using the
+    <em>receiver's</em> payoffs. That's what we saw on the last page: the
+    server's mix is what keeps the receiver indifferent.
+  </p>
+
+  <p>
+    Now it's your turn with the server.
+  </p>
+
+  <example xml:id="eg-solve-for-q">
+    <title>Solving for <m>q</m></title>
+    <task xml:id="eg-solve-for-q-equation">
+      <statement>
+        <p>
+          Both of the server's strategies are active. Use condition (1) of
+          Theorem 5.2 to write an equation in <m>q</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          On the last page you computed <m>\pi_1(b, \sigma_2)</m> with
+          <m>q = .7</m>. Do the same thing, but leave <m>q</m> as a letter.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          We need <m>\pi_1(b, \sigma_2) = \pi_1(f, \sigma_2)</m>. Read across
+          each of the server's rows using the first numbers, weighted by the
+          receiver's probabilities:
+          <me>.4q + .8(1-q) = .7q + .1(1-q)</me>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="eg-solve-for-q-solve">
+      <statement>
+        <p>
+          Solve your equation for <m>q</m>.
+        </p>
+      </statement>
+      <solution>
+        <md>
+          <mrow>.8 - .4q \amp = .1 + .6q</mrow>
+          <mrow>q \amp = .7</mrow>
+        </md>
+        <p>
+          Same as the last page!
+        </p>
+      </solution>
+    </task>
+  </example>
+
+  <p>
+    So <m>(.6b + .4f,\ .7b + .3f)</m> is the only mixed strategy Nash
+    equilibrium where both players use both strategies.
+  </p>
+
+  <assemblage xml:id="read-5-2">
+    <title>Section 5.2, Tennis</title>
+    <p>
+      <alert>Read Section 5.2.</alert> We just worked out most of this, so you
+      can move quickly through the math.
+    </p>
+    <p>
+      Slow down at the end, starting with <q>Note that in the course of
+      finding this Nash equilibrium, we actually did more.</q> This is how we
+      know we've found all the equilibria.
+    </p>
+  </assemblage>
+
+  <!-- ORIGINAL (longer) version of the reading block, kept for comparison.
+
+  <assemblage xml:id="read-5-2">
+    <title>Section 5.2, Tennis</title>
+    <p>
+      <alert>Read Section 5.2.</alert>
+    </p>
+    <p>
+      Above, we used the Fundamental Theorem to find all the mixed Nash
+      equilibria where both players use two active strategies. That's most of
+      this section, so you can move quickly through the math if you've already
+      worked it out.
+    </p>
+    <p>
+      Slow down for the last page, which starts with <q>Note that in the course
+      of finding this Nash equilibrium, we actually did more.</q> When we solved
+      for <m>p</m>, we only used the fact that the receiver mixes. So if she
+      mixes, the server has to mix too. This rules out equilibria where one
+      player mixes and the other doesn't, which is how we know we've found
+      them all.
+    </p>
+  </assemblage>
+  -->
+
+  <p>
+    Section 5.3 finds the same equilibrium two other ways. The first uses
+    calculus. Since <m>p</m> and <m>q</m> determine everything, we can think
+    of the payoffs as functions <m>\pi_1(p, q)</m> and <m>\pi_2(p, q)</m>.
+  </p>
+
+  <p>
+    Before reading, let's figure out what the derivatives should do at a Nash
+    equilibrium where both players mix. Recall Theorem 5.3: at a Nash
+    equilibrium, any mix of a player's active strategies earns her the same
+    payoff. We saw this on the last page. With the receiver at
+    <m>q = .7</m>, the server gets <m>.52</m> for <em>every</em> <m>p</m>.
+  </p>
+
+  <exercise xml:id="check-partials-zero">
+    <statement>
+      <p>
+        Suppose <m>(p, q)</m> is a Nash equilibrium with <m>0 \lt p \lt 1</m>
+        and <m>0 \lt q \lt 1</m>. Which is true?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\dfrac{\partial \pi_1}{\partial p} = 0</m> and
+            <m>\dfrac{\partial \pi_2}{\partial q} = 0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Each player's payoff is flat in her own variable, so its
+            derivative is <m>0</m>. Heads up: unlike Chapter 1, a zero
+            derivative doesn't mean a peak here. <m>\pi_1</m> is a line in
+            <m>p</m>, so a zero derivative means the line is flat.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\dfrac{\partial \pi_1}{\partial q} = 0</m> and
+            <m>\dfrac{\partial \pi_2}{\partial p} = 0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Tempting, since each player's mix keeps the <em>other</em> player
+            indifferent. But the indifference is in each player's own choice:
+            the server doesn't care what <m>p</m> she picks. That's a
+            statement about <m>\pi_1</m> as <m>p</m> changes.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\dfrac{\partial \pi_1}{\partial p} = 0</m> and
+            <m>\dfrac{\partial \pi_1}{\partial q} = 0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The server only controls <m>p</m>. If the receiver changes
+            <m>q</m>, the server's payoff can certainly change. What Theorem
+            5.3 tells us is that the server's own choice of <m>p</m> doesn't
+            matter.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <assemblage xml:id="read-5-3">
+    <title>Section 5.3, Other Ways to Find Mixed Strategy Nash Equilibria</title>
+    <p>
+      <alert>Read Section 5.3.</alert>
+    </p>
+    <p>
+      In 5.3.1, notice that <m>\dfrac{\partial \pi_1}{\partial p} = .7 - q</m>
+      is just <m>\pi_1(b, \sigma_2) - \pi_1(f, \sigma_2)</m>. So setting it to
+      <m>0</m> gives the same equation you solved above. In 5.3.2, spend some
+      time with Figure 5.1. Note that <m>p</m> is on the vertical axis.
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-receiver-best-response">
+    <statement>
+      <p>
+        The book spells out the server's best response. Now think about the
+        receiver. Suppose the server uses some <m>p \lt .6</m>. What is the
+        receiver's best response, and why?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>q = 0</m>. Since <m>\dfrac{\partial \pi_2}{\partial q} \lt 0</m>,
+            her payoff goes down as <m>q</m> goes up, so she should always
+            anticipate the forehand.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Similarly, if <m>p \gt .6</m> her best response is
+            <m>q = 1</m>, and if <m>p = .6</m> any <m>q</m> works.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It depends. If <m>p \gt .5</m> the server mostly serves to the
+            backhand, so <m>q = 1</m>. If <m>p \lt .5</m>, then <m>q = 0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The cutoff is <m>.6</m>, not <m>.5</m>. She returns an anticipated
+            forehand much more often than an anticipated backhand (<m>.9</m>
+            versus <m>.6</m>), so she keeps anticipating the forehand until
+            backhand serves get frequent enough.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Any <m>q</m>, since she's indifferent.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            She's only indifferent at exactly <m>p = .6</m>. For any other
+            <m>p</m>, one of her pure strategies is strictly better.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-best-response-intersection">
+    <statement>
+      <p>
+        How do the graphs of <m>B_1</m> and <m>B_2</m> in Figure 5.1 relate to
+        the Nash equilibria?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            The Nash equilibria are the points where the two graphs intersect.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. At an intersection, each player's strategy is a best
+            response to the other's. That's the definition of a Nash
+            equilibrium!
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Every point on the vertical segment of <m>B_1</m> is a Nash
+            equilibrium, since the server is indifferent there.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The server is best responding, but the receiver might not be. At
+            <m>(p, q) = (1, .7)</m>, for example, the receiver's best response
+            to <m>p = 1</m> is <m>q = 1</m>, not <m>.7</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Any point on either graph is a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            A point on <m>B_1</m> only means the server is best responding. For
+            a Nash equilibrium, both players have to be best responding at the
+            same time.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <interactive xml:id="question-form-5-2" iframe="question-form.html?section=5.2" width="100%" aspect="2:1"/>
+</section>
