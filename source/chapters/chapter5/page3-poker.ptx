@@ -4,17 +4,62 @@
   <title>One-Card Two-Round Poker</title>
 
   <p>
-    Time for a bigger game. Poker is a <m>3 \times 3</m> game once we clean it
-    up, but the method is the same one we used for Tennis.
+    We're gonna start analyzing a version of poker with game theory, so maybe
+    by the end of the course you'll want to hit up the casinos! We will study
+    a much simpler version than standard poker (<q>one-card two-round
+    poker</q>).
   </p>
 
   <assemblage xml:id="read-5-4-setup">
     <title>Section 5.4, The Setup</title>
     <p>
-      <alert>Read Section 5.4 up through <q>If Player 1 is dealt the low
-      card, he has the same three options.</q></alert> Stop there.
+      <alert>Read Section 5.4 up through both sets of bullet points.</alert>
+    </p>
+    <p>
+      So you are stopping after the three options for Player 1 when he has
+      the high card:
+      <ul>
+        <li>
+          <p>
+            <alert>bb</alert>: bet. If Player 2 bets back, bet again.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>bf</alert>: bet. If Player 2 bets back, fold.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>f</alert>: fold.
+          </p>
+        </li>
+      </ul>
+      The line you stop at is <q>If Player 1 is dealt the low card...</q> At
+      this point you will have a sense of the setup and strategies. We will
+      clarify a few points before moving on.
     </p>
   </assemblage>
+
+  <p>
+    Note that the last three bullet points are Player 1's options when he has
+    the high card. He has those same three options when he has the low card.
+  </p>
+
+  <p>
+    One technicality we should keep in mind: the option f is really two options lumped together.
+    Strictly, a strategy says what Player 1 does at every decision point, so
+    we'd have <q>fold, then bet the second time</q> and <q>fold, then fold
+    the second time.</q> But once he folds the game is over, so the book just
+    calls both f. (It does the same with Player 2's f.)
+  </p>
+
+  <p>
+    Think about what this means for the total number of (pure) strategies,
+    counting f as one option: three options with the high card and three
+    with the low card. Remember the multiplication rule we saw earlier in
+    the course!
+  </p>
 
   <exercise xml:id="check-poker-nine-strategies">
     <statement>
@@ -29,6 +74,10 @@
           <p>
             Correct. A strategy picks one of <m>3</m> options for the high card
             and one of <m>3</m> for the low card, so <m>3 \times 3 = 9</m>.
+            If we didn't lump the two fold options together as f, each card
+            would have <m>4</m> options and we'd get <m>4 \times 4 = 16</m>.
+            The extra strategies only differ in choices that never come up,
+            so the book doesn't count them separately.
           </p>
         </feedback>
       </choice>
@@ -55,9 +104,10 @@
   </exercise>
 
   <p>
-    When you read on, the book throws out every strategy that doesn't bet at
-    every opportunity with the high card. That leaves three strategies, and
-    the book names each one by its low card option only:
+    When you read on, you're going to see only three strategies for Player 1
+    in the tables. This is because the book throws out every strategy that
+    doesn't bet at every opportunity with the high card. That leaves three
+    strategies, and the book names each one by its low card option only:
     <ul>
       <li>
         <p>
@@ -80,13 +130,26 @@
     </ul>
   </p>
 
+  <p>
+    This is why, when you get to the next table (for when the card dealt is
+    high), all of the rows are the same! In all three of these strategies,
+    Player 1 always bets if he has the high card. The names bb, bf, and f only
+    say what he does when the card is low.
+  </p>
+
   <assemblage xml:id="read-5-4-solving">
     <title>Section 5.4, Finding the Equilibrium</title>
     <p>
-      <alert>Keep reading through <m>(q_1, q_2, q_3) = \left(\frac{8}{15},
-      \frac{2}{15}, \frac{1}{3}\right)</m>.</alert>
+      <alert>Keep reading through the derivation of the Nash equilibrium
+      <m>(q_1, q_2, q_3) = \left(\frac{8}{15}, \frac{2}{15},
+      \frac{1}{3}\right)</m>.</alert>
     </p>
     <p>
+      So at this point you will have seen the expected payoff tables, the
+      system of equations for finding the Nash equilibrium, and the solutions
+      <m>(p_1, p_2, p_3) = \left(\frac{1}{5}, \frac{2}{5},
+      \frac{2}{5}\right)</m> for Player 1 and <m>(q_1, q_2, q_3) =
+      \left(\frac{8}{15}, \frac{2}{15}, \frac{1}{3}\right)</m> for Player 2.
       A few things to watch for:
       <ul>
         <li>
@@ -97,20 +160,25 @@
         </li>
         <li>
           <p>
-            The payoff matrix shows up twice. The second copy is the same
-            matrix with the probabilities in the margins, just like Tennis.
+            The expected payoff matrix shows up twice. The second copy is the
+            same matrix with the probabilities (the <m>p</m>'s and
+            <m>q</m>'s) in the margins.
           </p>
         </li>
         <li>
           <p>
             The book skips the cases with two active strategies and says it
-            will come back to them in Section 5.5. We're skipping 5.5, so just
-            know those cases don't give any more equilibria.
+            will come back to them in Section 5.5.
           </p>
         </li>
       </ul>
     </p>
   </assemblage>
+
+  <p>
+    Now let's make sure you understand a few important ideas from this
+    reading!
+  </p>
 
   <exercise xml:id="check-poker-why-equal">
     <statement>
@@ -123,7 +191,7 @@
       <choice correct="yes">
         <statement>
           <p>
-            Condition (1) of Theorem 5.2. All of Player 2's strategies are
+            Condition (1) of Theorem 5.2. All of Player 2's pure strategies are
             active, so they have to earn him the same payoff against
             <m>\sigma_1</m>.
           </p>
@@ -176,7 +244,9 @@
         <statement>
           <p>
             The <m>p_i</m> are the probabilities of Player 1's three
-            strategies, and he has to play one of them.
+            strategies, and he has to play one of them. This means they sum
+            to <m>1</m> (a 100 percent chance of playing one of these
+            strategies).
           </p>
         </statement>
         <feedback>
@@ -218,9 +288,11 @@
   </exercise>
 
   <p>
-    So we found <m>(p_1, p_2, p_3) = \left(\frac{1}{5}, \frac{2}{5},
+    So from the three equations (two from Theorem 5.2, and one from the
+    probabilities summing to <m>1</m>), the book finds
+    <m>(p_1, p_2, p_3) = \left(\frac{1}{5}, \frac{2}{5},
     \frac{2}{5}\right)</m>. Before reading on, let's think about what this
-    actually means.
+    actually means!!
   </p>
 
   <exercise xml:id="check-poker-interpret-p2">
@@ -239,7 +311,8 @@
         </statement>
         <feedback>
           <p>
-            Correct. Remember bf is a full strategy. With the high card he
+            Correct. Remember bf is a full strategy (the name refers to what
+            Player 1 does when dealt the low card). With the high card he
             still bets at every opportunity.
           </p>
         </feedback>
@@ -285,15 +358,22 @@
       <choice correct="yes">
         <statement>
           <p>
-            Add up all nine cells, each one's Player 1 payoff weighted by
-            <m>p_i q_j</m>.
+            Take a weighted sum over all nine cells: each cell's Player 1
+            payoff times <m>p_i q_j</m>, the probability of landing in that
+            cell.
           </p>
         </statement>
         <feedback>
           <p>
             Correct. That's equation (5.2), same as Tennis but with nine cells
-            instead of four. Since this is an equilibrium, Theorem 5.3 also
-            gives a shortcut. You'll see both in the reading.
+            instead of four. Reading across the rows of the payoff matrix:
+            <md>
+              <mrow>\pi_1(\sigma_1, \sigma_2) = \amp\ p_1 q_1 \cdot 0 + p_1 q_2 \cdot 4 + p_1 q_3 \cdot 2</mrow>
+              <mrow>\amp + p_2 q_1 \cdot 1 + p_2 q_2 \cdot 0 + p_2 q_3 \cdot 2</mrow>
+              <mrow>\amp + p_3 q_1 \cdot 2 + p_3 q_2 \cdot 1 + p_3 q_3 \cdot 0</mrow>
+            </md>
+            Since this is an equilibrium, Theorem 5.3 also gives a shortcut.
+            You'll see both in the reading.
           </p>
         </feedback>
       </choice>
@@ -335,10 +415,8 @@
     </p>
     <p>
       The rest is interpreting the results, including the two things you just
-      reasoned out: what the probabilities mean as plans, and how to compute
-      the expected payoff. Hint for the plans: with the low card, Player 1
-      bets at first under both bb and bf, so he bets with probability
-      <m>p_1 + p_2 = \frac{3}{5}</m>.
+      reasoned out: what the probabilities mean as plans and how to compute
+      the expected payoff.
     </p>
   </assemblage>
 
