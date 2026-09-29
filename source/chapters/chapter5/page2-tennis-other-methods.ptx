@@ -50,21 +50,29 @@
           If <m>s_i</m> and <m>s_i'</m> are both active, then
           <m>\pi_i(s_i, \sigma_{-i}) = \pi_i(s_i', \sigma_{-i})</m>.
         </p>
+        <p>
+          That is, every active strategy earns player <m>i</m> the same
+          payoff when the other players' strategies are fixed as in
+          <m>\sigma</m>.
+        </p>
       </li>
       <li>
         <p>
           If <m>s_i</m> is active and <m>s_i'</m> is not, then
           <m>\pi_i(s_i, \sigma_{-i}) \geq \pi_i(s_i', \sigma_{-i})</m>.
         </p>
+        <p>
+          That is, player <m>i</m> is never better off switching to an
+          inactive strategy.
+        </p>
       </li>
     </ol>
-    In words: every active strategy earns the same, and nothing unused earns
-    more.
   </p>
 
   <p>
-    Since both players use both strategies, there's nothing unused, so only
-    condition (1) matters. Let's start with the receiver.
+    Since in this example we are looking for all Nash equilibria where both
+    players use both strategies, only condition (1) matters. Let's start with
+    the receiver.
   </p>
 
   <exercise xml:id="check-receiver-in-words">
@@ -119,12 +127,30 @@
   </exercise>
 
   <p>
-    In symbols, that's <m>\pi_2(\sigma_1, b) = \pi_2(\sigma_1, f)</m>, where
-    <m>\sigma_1 = pb + (1-p)f</m>. To compute each side, read down the
-    receiver's column using the second numbers, weighted by the server's
-    probabilities:
+    More formally, this means <m>\pi_2(\sigma_1, b) = \pi_2(\sigma_1, f)</m>,
+    where <m>\sigma_1 = pb + (1-p)f</m> (notice <m>p</m> is unspecified
+    because we are solving for the <m>p</m> that makes this mixed strategy
+    part of a Nash equilibrium!). Let's compute each side separately, reading
+    down the receiver's columns in <xref ref="table-tennis-pq-2"/> using the
+    second numbers, weighted by the server's probabilities. If she anticipates
+    <m>b</m>:
+    <me>
+      \pi_2(pb + (1-p)f,\ b) =
+      \underbrace{p}_{\substack{\text{prob. server}\\ \text{goes } b}}
+      \cdot
+      \underbrace{(.6)}_{\substack{\text{payoff}\\ \text{at } (b, b)}}
+      +
+      \underbrace{(1-p)}_{\substack{\text{prob. server}\\ \text{goes } f}}
+      \cdot
+      \underbrace{(.3)}_{\substack{\text{payoff}\\ \text{at } (f, b)}}
+    </me>
+    If she anticipates <m>f</m>, it's the same pattern using the other column:
+    <me>
+      \pi_2(pb + (1-p)f,\ f) = p(.2) + (1-p)(.9)
+    </me>
+    Setting these equal and solving for <m>p</m>:
     <md>
-      <mrow>.6p + .3(1-p) \amp = .2p + .9(1-p)</mrow>
+      <mrow>p(.6) + (1-p)(.3) \amp = p(.2) + (1-p)(.9)</mrow>
       <mrow>.3 + .3p \amp = .9 - .7p</mrow>
       <mrow>p \amp = .6</mrow>
     </md>
@@ -137,46 +163,104 @@
     Now it's your turn with the server.
   </p>
 
+  <exercise xml:id="check-server-condition">
+    <statement>
+      <p>
+        Both of the server's strategies are active. What equation does
+        condition (1) of Theorem 5.2 give us?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>\pi_1(b, \sigma_2) = \pi_1(f, \sigma_2)</m></p></statement>
+        <feedback>
+          <p>
+            Correct. The server's own payoffs, comparing his two strategies,
+            against the receiver's mix <m>\sigma_2 = qb + (1-q)f</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\pi_2(\sigma_1, b) = \pi_2(\sigma_1, f)</m></p></statement>
+        <feedback>
+          <p>
+            That's the receiver's condition, the one we just used to find
+            <m>p</m>. Now we want the server to be indifferent, so we need
+            <em>his</em> payoffs.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\pi_1(\sigma_1, b) = \pi_1(\sigma_1, f)</m></p></statement>
+        <feedback>
+          <p>
+            Right payoffs, wrong slot. This compares the receiver's two
+            strategies. The server is indifferent between <em>his</em>
+            strategies, which go in the first slot.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-server-equation">
+    <statement>
+      <p>
+        Which equation do you get when you compute both sides of
+        <m>\pi_1(b, \sigma_2) = \pi_1(f, \sigma_2)</m>? (On the last page
+        you computed <m>\pi_1(b, \sigma_2)</m> with <m>q = .7</m>. Do the
+        same thing, but leave <m>q</m> as a letter.)
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>.4q + .8(1-q) = .7q + .1(1-q)</m></p></statement>
+        <feedback>
+          <p>
+            Correct. Each side reads across one of the server's rows, using
+            the first numbers, weighted by the receiver's probabilities.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.6q + .2(1-q) = .3q + .9(1-q)</m></p></statement>
+        <feedback>
+          <p>
+            These are the receiver's payoffs (the second numbers). The
+            server cares about his own payoffs, the first numbers.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>.4q + .7(1-q) = .8q + .1(1-q)</m></p></statement>
+        <feedback>
+          <p>
+            This reads down the columns, like we did for the receiver. But
+            each side here is one of the <em>server's</em> strategies, which
+            is a row. Read across the row, weighting its two cells by
+            <m>q</m> and <m>1-q</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
   <example xml:id="eg-solve-for-q">
     <title>Solving for <m>q</m></title>
-    <task xml:id="eg-solve-for-q-equation">
-      <statement>
-        <p>
-          Both of the server's strategies are active. Use condition (1) of
-          Theorem 5.2 to write an equation in <m>q</m>.
-        </p>
-      </statement>
-      <hint>
-        <p>
-          On the last page you computed <m>\pi_1(b, \sigma_2)</m> with
-          <m>q = .7</m>. Do the same thing, but leave <m>q</m> as a letter.
-        </p>
-      </hint>
-      <solution>
-        <p>
-          We need <m>\pi_1(b, \sigma_2) = \pi_1(f, \sigma_2)</m>. Read across
-          each of the server's rows using the first numbers, weighted by the
-          receiver's probabilities:
-          <me>.4q + .8(1-q) = .7q + .1(1-q)</me>
-        </p>
-      </solution>
-    </task>
-    <task xml:id="eg-solve-for-q-solve">
-      <statement>
-        <p>
-          Solve your equation for <m>q</m>.
-        </p>
-      </statement>
-      <solution>
-        <md>
-          <mrow>.8 - .4q \amp = .1 + .6q</mrow>
-          <mrow>q \amp = .7</mrow>
-        </md>
-        <p>
-          Same as the last page!
-        </p>
-      </solution>
-    </task>
+    <statement>
+      <p>
+        Solve <m>.4q + .8(1-q) = .7q + .1(1-q)</m> for <m>q</m>.
+      </p>
+    </statement>
+    <solution>
+      <md>
+        <mrow>.8 - .4q \amp = .1 + .6q</mrow>
+        <mrow>q \amp = .7</mrow>
+      </md>
+      <p>
+        Same as the last page!
+      </p>
+    </solution>
   </example>
 
   <p>
@@ -191,9 +275,9 @@
       can move quickly through the math.
     </p>
     <p>
-      Slow down at the end, starting with <q>Note that in the course of
-      finding this Nash equilibrium, we actually did more.</q> This is how we
-      know we've found all the equilibria.
+      Make sure to read the last couple of paragraphs, starting with
+      <q>Note that in the course of finding this Nash equilibrium, we actually
+      did more.</q> This is how we know we've found all the Nash equilibria.
     </p>
   </assemblage>
 
@@ -223,16 +307,18 @@
 
   <p>
     Section 5.3 finds the same equilibrium two other ways. The first uses
-    calculus. Since <m>p</m> and <m>q</m> determine everything, we can think
-    of the payoffs as functions <m>\pi_1(p, q)</m> and <m>\pi_2(p, q)</m>.
+    calculus. Since the values of <m>p</m> and <m>q</m> determine the mixed
+    strategy profile, we can think of the payoffs as functions <m>\pi_1(p, q)</m> and <m>\pi_2(p, q)</m>.
   </p>
 
   <p>
     Before reading, let's figure out what the derivatives should do at a Nash
     equilibrium where both players mix. Recall Theorem 5.3: at a Nash
     equilibrium, any mix of a player's active strategies earns her the same
-    payoff. We saw this on the last page. With the receiver at
-    <m>q = .7</m>, the server gets <m>.52</m> for <em>every</em> <m>p</m>.
+    payoff. We saw this on the last page. For example, when the receiver
+    plays <m>q = .7</m> (her Nash equilibrium strategy), the server gets a
+    payoff of <m>.52</m> for <em>every</em> <m>p</m>. How does this relate to
+    the derivative with respect to <m>p</m>?
   </p>
 
   <exercise xml:id="check-partials-zero">
@@ -270,7 +356,7 @@
           <p>
             Tempting, since each player's mix keeps the <em>other</em> player
             indifferent. But the indifference is in each player's own choice:
-            the server doesn't care what <m>p</m> she picks. That's a
+            the server doesn't care what <m>p</m> he picks. That's a
             statement about <m>\pi_1</m> as <m>p</m> changes.
           </p>
         </feedback>
@@ -300,17 +386,17 @@
       <alert>Read Section 5.3.</alert>
     </p>
     <p>
-      In 5.3.1, notice that <m>\dfrac{\partial \pi_1}{\partial p} = .7 - q</m>
-      is just <m>\pi_1(b, \sigma_2) - \pi_1(f, \sigma_2)</m>. So setting it to
-      <m>0</m> gives the same equation you solved above. In 5.3.2, spend some
-      time with Figure 5.1. Note that <m>p</m> is on the vertical axis.
+      In 5.3.1, you'll see that setting the partial derivatives to
+      <m>0</m> (as in the last concept check) can help us find Nash
+      equilibria. In 5.3.2, the book does a sign analysis on the partial
+      derivatives to determine the best response functions.
     </p>
   </assemblage>
 
   <exercise xml:id="check-receiver-best-response">
     <statement>
       <p>
-        The book spells out the server's best response. Now think about the
+        The book explains the server's best response. Now think about the
         receiver. Suppose the server uses some <m>p \lt .6</m>. What is the
         receiver's best response, and why?
       </p>
@@ -320,8 +406,8 @@
         <statement>
           <p>
             <m>q = 0</m>. Since <m>\dfrac{\partial \pi_2}{\partial q} \lt 0</m>,
-            her payoff goes down as <m>q</m> goes up, so she should always
-            anticipate the forehand.
+            her payoff goes down as <m>q</m> goes up, so she should use the
+            smallest possible value for <m>q</m> (which is <m>0</m>).
           </p>
         </statement>
         <feedback>
