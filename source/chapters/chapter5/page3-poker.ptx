@@ -47,7 +47,7 @@
   </p>
 
   <p>
-    One technicality we should keep in mind: the option f is really two options lumped together.
+    One technicality: the option f is really two options lumped together.
     Strictly, a strategy says what Player 1 does at every decision point, so
     we'd have <q>fold, then bet the second time</q> and <q>fold, then fold
     the second time.</q> But once he folds the game is over, so the book just
@@ -68,6 +68,15 @@
       </p>
     </statement>
     <choices randomize="no">
+      <choice>
+        <statement><p><m>3</m></p></statement>
+        <feedback>
+          <p>
+            bb, bf, and f are options for <em>one</em> card. A strategy has to
+            say what Player 1 does with both cards.
+          </p>
+        </feedback>
+      </choice>
       <choice correct="yes">
         <statement><p><m>9</m></p></statement>
         <feedback>
@@ -88,15 +97,6 @@
             A strategy is a <em>pair</em> of choices, one for each card, so we
             multiply. Think of outfits: <m>3</m> shirts and <m>3</m> pants
             make <m>9</m> outfits, not <m>6</m>.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement><p><m>3</m></p></statement>
-        <feedback>
-          <p>
-            bb, bf, and f are options for <em>one</em> card. A strategy has to
-            say what Player 1 does with both cards.
           </p>
         </feedback>
       </choice>
@@ -188,21 +188,6 @@
       </p>
     </statement>
     <choices randomize="no">
-      <choice correct="yes">
-        <statement>
-          <p>
-            Condition (1) of Theorem 5.2. All of Player 2's pure strategies are
-            active, so they have to earn him the same payoff against
-            <m>\sigma_1</m>.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Same idea as Tennis, just with three strategies instead
-            of two.
-          </p>
-        </feedback>
-      </choice>
       <choice>
         <statement>
           <p>
@@ -227,6 +212,21 @@
           <p>
             Wrong player. These are Player 2's payoffs, so this is about
             Player 2 being indifferent among <em>his</em> strategies.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Condition (1) of Theorem 5.2. All of Player 2's pure strategies are
+            active, so they have to earn him the same payoff against
+            <m>\sigma_1</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Same idea as Tennis, just with three strategies instead
+            of two.
           </p>
         </feedback>
       </choice>
@@ -302,6 +302,19 @@
       </p>
     </statement>
     <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            Player 2 bets back and then folds <m>\frac{2}{5}</m> of the time.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The <m>p</m>'s belong to Player 1. Player 2's probabilities are
+            the <m>q</m>'s.
+          </p>
+        </feedback>
+      </choice>
       <choice correct="yes">
         <statement>
           <p>
@@ -331,19 +344,6 @@
           </p>
         </feedback>
       </choice>
-      <choice>
-        <statement>
-          <p>
-            Player 2 bets back and then folds <m>\frac{2}{5}</m> of the time.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            The <m>p</m>'s belong to Player 1. Player 2's probabilities are
-            the <m>q</m>'s.
-          </p>
-        </feedback>
-      </choice>
     </choices>
   </exercise>
 
@@ -355,28 +355,6 @@
       </p>
     </statement>
     <choices randomize="no">
-      <choice correct="yes">
-        <statement>
-          <p>
-            Take a weighted sum over all nine cells: each cell's Player 1
-            payoff times <m>p_i q_j</m>, the probability of landing in that
-            cell.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. That's equation (5.2), same as Tennis but with nine cells
-            instead of four. Reading across the rows of the payoff matrix:
-            <md>
-              <mrow>\pi_1(\sigma_1, \sigma_2) = \amp\ p_1 q_1 \cdot 0 + p_1 q_2 \cdot 4 + p_1 q_3 \cdot 2</mrow>
-              <mrow>\amp + p_2 q_1 \cdot 1 + p_2 q_2 \cdot 0 + p_2 q_3 \cdot 2</mrow>
-              <mrow>\amp + p_3 q_1 \cdot 2 + p_3 q_2 \cdot 1 + p_3 q_3 \cdot 0</mrow>
-            </md>
-            Since this is an equilibrium, Theorem 5.3 also gives a shortcut.
-            You'll see both in the reading.
-          </p>
-        </feedback>
-      </choice>
       <choice>
         <statement>
           <p>
@@ -402,6 +380,28 @@
           <p>
             That treats every cell as equally likely. Each cell happens with
             probability <m>p_i q_j</m>, so weight by that instead.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Take a weighted sum over all nine cells: each cell's Player 1
+            payoff times <m>p_i q_j</m>, the probability of landing in that
+            cell.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. That's equation (5.2), same as Tennis but with nine cells
+            instead of four. Reading across the rows of the payoff matrix:
+            <md>
+              <mrow>\pi_1(\sigma_1, \sigma_2) = \amp\ p_1 q_1 \cdot 0 + p_1 q_2 \cdot 4 + p_1 q_3 \cdot 2</mrow>
+              <mrow>\amp + p_2 q_1 \cdot 1 + p_2 q_2 \cdot 0 + p_2 q_3 \cdot 2</mrow>
+              <mrow>\amp + p_3 q_1 \cdot 2 + p_3 q_2 \cdot 1 + p_3 q_3 \cdot 0</mrow>
+            </md>
+            Since this is an equilibrium, Theorem 5.3 also gives a shortcut.
+            You'll see both in the reading.
           </p>
         </feedback>
       </choice>
