@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tennis: Matching Cells to Terms of the Expected Payoff</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --muted: #5a6a6d;
+    --panel-bg: #f7f7f5;
+    --accent: #1a5276;
+    --hl: #dce9f5;
+    --line: #d5d8dc;
+  }
+  html, body { overflow: hidden; }
+  body {
+    margin: 0; padding: 0;
+    font-family: serif;
+    background: transparent;
+    color: var(--ink);
+  }
+  /* Fixed design canvas: laid out at 700x300, then scaled to the iframe. */
+  #fit {
+    width: 700px; height: 300px;
+    padding: 10px 14px 10px;
+    box-sizing: border-box;
+    transform-origin: top left;
+  }
+  .hint { text-align: center; font-size: 18px; color: var(--ink); margin: 0 0 10px; }
+
+  table.pm { border-collapse: collapse; margin: 0 auto; font-size: 17px; }
+  table.pm td, table.pm th { padding: 4px 10px; text-align: center; }
+  table.pm th { font-weight: normal; }
+  .who { font-weight: bold; color: var(--accent); }
+  .prob { font-style: italic; color: var(--muted); }
+  .sep-left { border-left: 2px solid var(--ink); }
+  .sep-top  { border-top: 2px solid var(--ink); }
+
+  button.cell {
+    font-family: serif; font-size: 18px;
+    width: 110px; padding: 8px 0;
+    border: 1.5px solid var(--line); border-radius: 8px;
+    background: #ffffff; color: var(--ink); cursor: pointer;
+  }
+  button.cell .p2 { color: #9a9a9a; }
+  button.cell:hover { background: #eef3f8; }
+  button.cell.on { background: var(--hl); border-color: var(--accent); border-width: 3px; }
+  button.cell.on .p1 { font-weight: bold; color: var(--accent); }
+  button:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+
+  .eq {
+    text-align: center; font-size: 19px; margin: 14px 0 4px;
+    line-height: 1.9;
+  }
+  .eq i { font-family: serif; }
+  button.term {
+    font-family: serif; font-size: 19px;
+    padding: 2px 6px; margin: 0 1px;
+    border: 1.5px solid transparent; border-radius: 6px;
+    background: transparent; color: var(--ink); cursor: pointer;
+  }
+  button.term:hover { background: #eef3f8; }
+  button.term.on { background: var(--hl); border-color: var(--accent); }
+
+</style>
+</head>
+<body>
+<div id="fit">
+  <p class="hint">Click a cell in the table or a term in the equation to see how they match up.</p>
+
+  <table class="pm" aria-label="Tennis payoff matrix">
+    <tr>
+      <td></td><td></td><td></td>
+      <th colspan="2" class="sep-left who">Receiver anticipates</th>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td>
+      <th class="sep-left prob">q</th><th class="prob">1 &minus; q</th>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td>
+      <th class="sep-left">backhand (<i>b</i>)</th><th>forehand (<i>f</i>)</th>
+    </tr>
+    <tr>
+      <th class="sep-top who">Server serves to</th>
+      <th class="sep-top prob">p</th>
+      <th class="sep-top">backhand (<i>b</i>)</th>
+      <td class="sep-top sep-left"><button class="cell" data-k="bb" type="button">(<span class="p1">.4</span>, <span class="p2">.6</span>)</button></td>
+      <td class="sep-top"><button class="cell" data-k="bf" type="button">(<span class="p1">.8</span>, <span class="p2">.2</span>)</button></td>
+    </tr>
+    <tr>
+      <th></th>
+      <th class="prob">1 &minus; p</th>
+      <th>forehand (<i>f</i>)</th>
+      <td class="sep-left"><button class="cell" data-k="fb" type="button">(<span class="p1">.7</span>, <span class="p2">.3</span>)</button></td>
+      <td><button class="cell" data-k="ff" type="button">(<span class="p1">.1</span>, <span class="p2">.9</span>)</button></td>
+    </tr>
+  </table>
+
+  <div class="eq">
+    <i>&pi;</i><sub>1</sub>(<i>&sigma;</i><sub>1</sub>, <i>&sigma;</i><sub>2</sub>) =
+    <button class="term" data-k="bb" type="button"><i>pq</i>(.4)</button> +
+    <button class="term" data-k="bf" type="button"><i>p</i>(1 &minus; <i>q</i>)(.8)</button> +
+    <button class="term" data-k="fb" type="button">(1 &minus; <i>p</i>)<i>q</i>(.7)</button> +
+    <button class="term" data-k="ff" type="button">(1 &minus; <i>p</i>)(1 &minus; <i>q</i>)(.1)</button>
+  </div>
+
+
+</div>
+
+<script>
+  var sel = "bb";
+
+  function render() {
+    document.querySelectorAll("[data-k]").forEach(function (el) {
+      var on = el.getAttribute("data-k") === sel;
+      el.classList.toggle("on", on);
+      el.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+  }
+
+  document.querySelectorAll("[data-k]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      var k = el.getAttribute("data-k");
+      sel = (sel === k) ? null : k;
+      render();
+    });
+  });
+
+  function fitToBox() {
+    var vw = document.documentElement.clientWidth;
+    var vh = document.documentElement.clientHeight;
+    var k = Math.min(vw / 700, vh / 300);
+    var tx = Math.max(0, (vw - 700 * k) / 2);
+    document.getElementById("fit").style.transform =
+      "translateX(" + tx + "px) scale(" + k + ")";
+  }
+  window.addEventListener("resize", fitToBox);
+  fitToBox();
+  render();
+</script>
+</body>
+</html>

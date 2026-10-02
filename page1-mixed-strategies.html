@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mixed Strategies and the Fundamental Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.3';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.dd07797f77620576.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.11d27cdc38930c2c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page2-tennis-other-methods.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page1-mixed-strategies">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Mixed Strategies and the Fundamental Theorem</span>
+</h2>
+<div class="para" id="page1-mixed-strategies-2">Chapter 5 begins our study of mixed strategy Nash equilibria. And the mathematics starts to get a bit more interesting!<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-5-1-setup"><h3 class="heading"><span class="title">Section 5.1, Mixed Strategies and the Definition.</span></h3>
+<div class="para" id="read-5-1-setup-2">
+<em class="alert">Read Section 5.1 from the beginning up to Theorem 5.1 (Nash’s Existence Theorem).</em> Stop right before it.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-setup-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-5-1-setup-3">Take a minute to check the book’s claim that Tennis has no (pure strategy) Nash equilibrium, using best responses. After that, most of the reading is new notation for mixed strategies. We’ll go through it below and relate it to the game of Tennis.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-setup-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 5.1, Mixed Strategies and the Definition"><a href="#read-5-1-setup" title="Copy heading and permalink for Reading: Section 5.1, Mixed Strategies and the Definition" aria-label="Copy heading and permalink for Reading: Section 5.1, Mixed Strategies and the Definition">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-4">Here’s the Tennis payoff matrix with each player’s probabilities written in the margins. This is how the book draws it in Section 5.2.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-tennis-pq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Tennis, with mixed strategies<div class="autopermalink" data-description="Table 5.1.1: Tennis, with mixed strategies"><a href="#table-tennis-pq" title="Copy heading and permalink for Table 5.1.1: Tennis, with mixed strategies" aria-label="Copy heading and permalink for Table 5.1.1: Tennis, with mixed strategies">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines" colspan="2">Receiver</th>
+</tr>
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(q\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-q}\)</span></th>
+</tr>
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">backhand (<span class="process-math">\(b\)</span>)</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">forehand (<span class="process-math">\(f\)</span>)</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Server</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(p\)</span></td>
+<td class="c m b0 r1 l0 t0 lines">backhand (<span class="process-math">\(b\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(.4, .6)</td>
+<td class="c m b0 r0 l0 t0 lines">(.8, .2)</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-p}\)</span></td>
+<td class="c m b0 r1 l0 t0 lines">forehand (<span class="process-math">\(f\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(.7, .3)</td>
+<td class="c m b0 r0 l0 t0 lines">(.1, .9)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para logical" id="page1-mixed-strategies-6">
+<div class="para">So a mixed strategy for the server looks like</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-6-1">
+\begin{equation*}
+\sigma_1 = pb + (1-p)f
+\end{equation*}
+</div>
+<div class="para">and a mixed strategy for the receiver looks like</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-6-2">
+\begin{equation*}
+\sigma_2 = qb + (1-q)f,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> can be any numbers from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span> Each choice of <span class="process-math">\(p\)</span> gives a different mixed strategy for the server, and each choice of <span class="process-math">\(q\)</span> gives a different one for the receiver.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-mixed-strategies-7">Also, <span class="process-math">\(.6b + .4f\)</span> isn’t arithmetic; you can’t add strategies!! It’s just a compact way to denote the mixed strategy of serving to the backhand 60% of the time and the forehand 40% of the time.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-mixed-strategies-8">The checkpoint below will check your understanding of the terms “pure” and “active” strategy.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-active-pure"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-active-pure-1-1">Consider two mixed strategies for the server, <span class="process-math">\(\sigma_1 = .6b + .4f\)</span> and <span class="process-math">\(\tau_1 = 1b + 0f\)</span> (we can shorten this to <span class="process-math">\(\tau_1 = b\)</span>). Which is true?<div class="autopermalink" data-description="Paragraph"><a href="#check-active-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-active-pure" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-active-pure_opt_a">
+<div class="para" id="check-active-pure-2-1-1-1">Both <span class="process-math">\(b\)</span> and <span class="process-math">\(f\)</span> are active in <span class="process-math">\(\tau_1\text{,}\)</span> since both show up in <span class="process-math">\(1b + 0f\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-active-pure_opt_a">
+<div class="para" id="check-active-pure-2-1-2-1">Showing up isn’t enough. <span class="process-math">\(f\)</span> has probability <span class="process-math">\(0\)</span> in <span class="process-math">\(\tau_1\text{,}\)</span> so it’s never used and isn’t active.</div>
+</li>
+<li data-component="answer" id="rs-check-active-pure_opt_b">
+<div class="para" id="check-active-pure-2-2-1-1">
+<span class="process-math">\(\tau_1\)</span> is a mixed strategy, so it can’t be a pure strategy.</div>
+</li>
+<li data-component="feedback" id="rs-check-active-pure_opt_b">
+<div class="para" id="check-active-pure-2-2-2-1">Pure strategies are special mixed strategies, the ones with only one active strategy. <span class="process-math">\(\tau_1\)</span> is both mixed and pure.</div>
+</li>
+<li data-component="answer" id="rs-check-active-pure_opt_c" data-correct="">
+<div class="para" id="check-active-pure-2-3-1-1">Both <span class="process-math">\(b\)</span> and <span class="process-math">\(f\)</span> are active in <span class="process-math">\(\sigma_1\text{.}\)</span> Only <span class="process-math">\(b\)</span> is active in <span class="process-math">\(\tau_1\text{,}\)</span> so <span class="process-math">\(\tau_1\)</span> is the pure strategy <span class="process-math">\(b\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-active-pure_opt_c">
+<div class="para" id="check-active-pure-2-3-2-1">Correct. A strategy is active if its probability is more than <span class="process-math">\(0\text{,}\)</span> and a mixed strategy is pure when only one strategy is active. So everything from Chapter 3 is still here: pure strategies are just special mixed strategies.</div>
+</li>
+<li data-component="answer" id="rs-check-active-pure_opt_d">
+<div class="para" id="check-active-pure-2-4-1-1">Only <span class="process-math">\(b\)</span> is active in <span class="process-math">\(\sigma_1\text{,}\)</span> since she uses it more than half the time.</div>
+</li>
+<li data-component="feedback" id="rs-check-active-pure_opt_d">
+<div class="para" id="check-active-pure-2-4-2-1">Active just means the probability is more than <span class="process-math">\(0\text{.}\)</span> The server uses <span class="process-math">\(f\)</span> 40% of the time, so <span class="process-math">\(f\)</span> is active too.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.2"><a href="#check-active-pure" title="Copy heading and permalink for Checkpoint 5.1.2" aria-label="Copy heading and permalink for Checkpoint 5.1.2">🔗</a></div>
+</article>
+<div class="para logical" id="page1-mixed-strategies-10">
+<div class="para">Now let’s break down equation (5.2). In Tennis, the server’s expected payoff adds up all four cells of <a href="page1-mixed-strategies.html#table-tennis-pq" class="xref" data-knowl="./knowl/xref/table-tennis-pq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.1.1: Tennis, with mixed strategies">Table 5.1.1</a>, each weighted by how likely we are to land in it:</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/xref/table-tennis-pq.html" id="page1-mixed-strategies-10-2">
+\begin{equation*}
+\pi_1(\sigma_1, \sigma_2) =
+\underbrace{pq}_{\substack{\text{prob. server goes } b\\ \text{and receiver expects } b}}
+\cdot
+\underbrace{(.4)}_{\substack{\text{server's payoff}\\ \text{in that cell}}}
++ p(1-q)(.8) + (1-p)q(.7) + (1-p)(1-q)(.1)
+\end{equation*}
+</div>
+<div class="para">Try it out below. Click any cell to see which term of the sum it matches.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-tennis-expected-payoff"><div class="interactive-iframe-container"><iframe src="external/ch5-graph/tennis-expected-payoff.html" id="interactive-tennis-expected-payoff" style="width:600px; height:257px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-tennis-expected-payoff.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Each cell of the Tennis matrix gives one term of the server’s expected payoff.<div class="autopermalink" data-description="Figure 5.1.3"><a href="#fig-tennis-expected-payoff" title="Copy heading and permalink for Figure 5.1.3" aria-label="Copy heading and permalink for Figure 5.1.3">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="page1-mixed-strategies-12">
+<div class="para">The general version says the same thing:</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-12-1">
+\begin{equation*}
+\pi_i(\sigma_1, \ldots, \sigma_n) = \sum_{\text{all } (s_1, \ldots, s_n)}
+\underbrace{p_{s_1} p_{s_2} \cdots p_{s_n}}_{\substack{\text{prob. that } s_1, \ldots, s_n\\ \text{all happen at once}}}
+\;
+\underbrace{\pi_i(s_1, \ldots, s_n)}_{\substack{\text{Player } i\text{'s payoff}\\ \text{when they do}}}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="page1-mixed-strategies-13">
+<div class="para">Equation (5.6) is the same sum, just grouped by Player <span class="process-math">\(i\)</span>’s strategies. In Tennis, group the four cells by the server’s row:</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-13-2">
+\begin{equation*}
+\pi_1(\sigma_1, \sigma_2) = p \cdot \pi_1(b, \sigma_2) + (1-p) \cdot \pi_1(f, \sigma_2)
+\end{equation*}
+</div>
+<div class="para">Here <span class="process-math">\(\pi_1(b, \sigma_2)\)</span> is what the server gets if she always serves to the backhand while the receiver keeps mixing. The general version:</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-13-4">
+\begin{equation*}
+\pi_i(\sigma) = \sum_{\text{all } s_i \in S_i}
+\underbrace{p_{s_i}}_{\substack{\text{how often}\\ i \text{ plays } s_i}}
+\;
+\underbrace{\pi_i(s_i, \sigma_{-i})}_{\substack{\text{what } s_i \text{ earns her against}\\ \text{everyone else's mixing}}}
+\end{equation*}
+</div>
+<div class="para">So a player’s payoff from a mixed strategy is a weighted average of what her pure strategies earn. This gives the expected payoff of a mixed strategy!!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="page1-mixed-strategies-14">
+<div class="para">Finally, notice the definition of a Nash equilibrium is the same as the Chapter 3 definition; we just allow mixed strategies now. A mixed strategy profile <span class="process-math">\(\sigma^*\)</span> is a Nash equilibrium if for each player <span class="process-math">\(i\text{,}\)</span>
+</div>
+<div class="displaymath process-math" id="page1-mixed-strategies-14-3">
+\begin{equation*}
+\underbrace{\pi_i(\sigma^*)}_{\substack{i\text{'s payoff when everyone}\\ \text{plays their equilibrium strategy}}}
+\;\geq\;
+\underbrace{\pi_i(\sigma_i, \sigma^*_{-i})}_{\substack{i\text{'s payoff if she alone}\\ \text{switches to another mixed strategy}}}
+\quad \text{for every mixed strategy } \sigma_i.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-mixed-strategies-15">Let’s test a specific profile in Tennis: <span class="process-math">\(\sigma_1 = .6b + .4f\)</span> and <span class="process-math">\(\sigma_2 = .7b + .3f\text{.}\)</span> Section 5.2 will show where these numbers come from.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-tennis-pi1-b"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-tennis-pi1-b-1-1">The receiver uses <span class="process-math">\(\sigma_2 = .7b + .3f\text{.}\)</span> Using <a href="page1-mixed-strategies.html#table-tennis-pq" class="xref" data-knowl="./knowl/xref/table-tennis-pq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.1.1: Tennis, with mixed strategies">Table 5.1.1</a>, which computation gives <span class="process-math">\(\pi_1(b, \sigma_2)\text{,}\)</span> the server’s expected payoff if she always serves to the backhand?<div class="autopermalink" data-description="Paragraph"><a href="#check-tennis-pi1-b-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-tennis-pi1-b" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-tennis-pi1-b_opt_a">
+<div class="para" id="check-tennis-pi1-b-2-1-1-1"><span class="process-math">\(.7(.6) + .3(.2) = .48\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-pi1-b_opt_a">
+<div class="para" id="check-tennis-pi1-b-2-1-2-1">You used the second number in each cell, which is the receiver’s payoff. <span class="process-math">\(\pi_1\)</span> is the server’s payoff, so use the first numbers.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-pi1-b_opt_b" data-correct="">
+<div class="para" id="check-tennis-pi1-b-2-2-1-1"><span class="process-math">\(.7(.4) + .3(.8) = .52\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-pi1-b_opt_b">
+<div class="para" id="check-tennis-pi1-b-2-2-2-1">Correct. Read across the server’s <span class="process-math">\(b\)</span> row using her payoffs (the first numbers), weighted by the receiver’s probabilities.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-pi1-b_opt_c">
+<div class="para" id="check-tennis-pi1-b-2-3-1-1"><span class="process-math">\(.6(.4) + .4(.8) = .56\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-pi1-b_opt_c">
+<div class="para" id="check-tennis-pi1-b-2-3-2-1">You weighted by <span class="process-math">\(.6\)</span> and <span class="process-math">\(.4\text{,}\)</span> which are the server’s own probabilities. If she always serves to the backhand, what’s left to average over is what the receiver does, so use <span class="process-math">\(.7\)</span> and <span class="process-math">\(.3\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-pi1-b_opt_d">
+<div class="para" id="check-tennis-pi1-b-2-4-1-1"><span class="process-math">\(.7(.4) + .3(.7) = .49\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-pi1-b_opt_d">
+<div class="para" id="check-tennis-pi1-b-2-4-2-1">You read down the <span class="process-math">\(b\)</span> column. The server’s strategies are the rows, so <span class="process-math">\(\pi_1(b, \sigma_2)\)</span> lives in the <span class="process-math">\(b\)</span> row.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.4"><a href="#check-tennis-pi1-b" title="Copy heading and permalink for Checkpoint 5.1.4" aria-label="Copy heading and permalink for Checkpoint 5.1.4">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-17">The same computation on the <span class="process-math">\(f\)</span> row gives <span class="process-math">\(\pi_1(f, \sigma_2) = .7(.7) + .3(.1) = .52\text{,}\)</span> which is the same number!<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-tennis-any-p"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-tennis-any-p-1-1">We know <span class="process-math">\(\pi_1(b, \sigma_2) = .52\)</span> and <span class="process-math">\(\pi_1(f, \sigma_2) = .52\text{.}\)</span> For any <span class="process-math">\(p\text{,}\)</span> what is <span class="process-math">\(\pi_1(pb + (1-p)f, \sigma_2)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-tennis-any-p-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-tennis-any-p" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-tennis-any-p_opt_a">
+<div class="para" id="check-tennis-any-p-2-1-1-1"><span class="process-math">\(.52p\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-any-p_opt_a">
+<div class="para" id="check-tennis-any-p-2-1-2-1">That only counts the serves to the backhand. The other <span class="process-math">\(1-p\)</span> of the time she serves to the forehand, which also earns <span class="process-math">\(.52\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-any-p_opt_b">
+<div class="para" id="check-tennis-any-p-2-2-1-1"><span class="process-math">\(1.04\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-any-p_opt_b">
+<div class="para" id="check-tennis-any-p-2-2-2-1">She can’t collect both. Each serve goes one way or the other, so her payoff is a weighted average, not a sum.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-any-p_opt_c">
+<div class="para" id="check-tennis-any-p-2-3-1-1">
+<span class="process-math">\(.52\)</span> when <span class="process-math">\(p = .6\text{,}\)</span> and less for other values of <span class="process-math">\(p\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-any-p_opt_c">
+<div class="para" id="check-tennis-any-p-2-3-2-1">Tempting, but try <span class="process-math">\(p = 0\)</span> or <span class="process-math">\(p = 1\text{.}\)</span> She still gets <span class="process-math">\(.52\text{.}\)</span> Against <span class="process-math">\(q = .7\text{,}\)</span> her choice of <span class="process-math">\(p\)</span> doesn’t change her payoff at all.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-any-p_opt_d" data-correct="">
+<div class="para" id="check-tennis-any-p-2-4-1-1"><span class="process-math">\(.52\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-any-p_opt_d">
+<div class="para" id="check-tennis-any-p-2-4-2-1">Correct. By (5.6) in the book, it’s <span class="process-math">\(p(.52) + (1-p)(.52) = .52\text{.}\)</span> Averaging two equal numbers gives that number back, no matter the weights.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.5"><a href="#check-tennis-any-p" title="Copy heading and permalink for Checkpoint 5.1.5" aria-label="Copy heading and permalink for Checkpoint 5.1.5">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-19">So there is no way for the server to improve her payoff when the receiver plays <span class="process-math">\(\sigma_2\text{.}\)</span> The receiver’s side works the same way. Against <span class="process-math">\(p = .6\text{,}\)</span> both of her pure strategies earn her <span class="process-math">\(.48\text{,}\)</span> so no mix does better for her either. That means <span class="process-math">\((.6b + .4f,\ .7b + .3f)\)</span> is a mixed strategy Nash equilibrium!<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-5-1-theorems"><h3 class="heading"><span class="title">Section 5.1, Nash’s Theorem and the Fundamental Theorem.</span></h3>
+<div class="para" id="read-5-1-theorems-2">
+<em class="alert">Read from Theorem 5.1 through the paragraph right after Theorem 5.2, the one beginning “This theorem just says.”</em><div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-theorems-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-5-1-theorems-3">You can skip the proof of Theorem 5.2 (but read it if you’re interested!). Before moving on, we’ll apply Theorem 5.2 to the Tennis game. Then we’ll use Tennis to reason out the next few theorems before reading them.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-theorems-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 5.1, Nash’s Theorem and the Fundamental Theorem"><a href="#read-5-1-theorems" title="Copy heading and permalink for Reading: Section 5.1, Nash’s Theorem and the Fundamental Theorem" aria-label="Copy heading and permalink for Reading: Section 5.1, Nash’s Theorem and the Fundamental Theorem">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-21">Notice that condition (1) of Theorem 5.2 is exactly what we just found in Tennis 🤯. The server’s active strategies both earn <span class="process-math">\(.52\)</span> (with the receiver fixed at her equilibrium strategy), and similarly the receiver’s both earn <span class="process-math">\(.48\text{.}\)</span> What about condition (2)?<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-condition-2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-condition-2-1-1">Do we need to check condition (2) of Theorem 5.2 for the Tennis equilibrium <span class="process-math">\((.6b + .4f,\ .7b + .3f)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-condition-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-condition-2" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-condition-2_opt_a" data-correct="">
+<div class="para" id="check-condition-2-2-1-1-1">No. Condition (2) is about inactive strategies, and both players use both strategies, so there aren’t any.</div>
+</li>
+<li data-component="feedback" id="rs-check-condition-2_opt_a">
+<div class="para" id="check-condition-2-2-1-2-1">Correct. Condition (2) only matters when someone leaves a strategy unused. In Tennis, condition (1) is all there is to check.</div>
+</li>
+<li data-component="answer" id="rs-check-condition-2_opt_b">
+<div class="para" id="check-condition-2-2-2-1-1">No, because condition (1) already holds.</div>
+</li>
+<li data-component="feedback" id="rs-check-condition-2_opt_b">
+<div class="para" id="check-condition-2-2-2-2-1">Right answer, wrong reason. Condition (1) says nothing about inactive strategies. The real reason is that there aren’t any here. If the server never served to the backhand, we’d have to check condition (2) too.</div>
+</li>
+<li data-component="answer" id="rs-check-condition-2_opt_c">
+<div class="para" id="check-condition-2-2-3-1-1">Yes. Every Nash equilibrium has to satisfy both conditions.</div>
+</li>
+<li data-component="feedback" id="rs-check-condition-2_opt_c">
+<div class="para" id="check-condition-2-2-3-2-1">Both conditions do have to hold, but condition (2) only says something when a player has an inactive strategy. Here both players use both strategies, so there’s nothing to check.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.6"><a href="#check-condition-2" title="Copy heading and permalink for Checkpoint 5.1.6" aria-label="Copy heading and permalink for Checkpoint 5.1.6">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-23">Now let’s reason out the next three theorems before reading them.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="example example-like" id="eg-tennis-equilibrium-payoff"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The server’s payoff at the Tennis equilibrium.</span>
+</h3>
+<div class="para logical" id="eg-tennis-equilibrium-payoff-2-1">
+<div class="para">Earlier we found that against the receiver’s equilibrium strategy <span class="process-math">\(\sigma_2 = .7b + .3f\text{,}\)</span> both of the server’s pure strategies earn the same amount:</div>
+<div class="displaymath process-math" id="eg-tennis-equilibrium-payoff-2-1-2">
+\begin{equation*}
+\pi_1(b, \sigma_2) = .52 \quad\text{and}\quad \pi_1(f, \sigma_2) = .52
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="eg-tennis-equilibrium-payoff-2-2">
+<li id="eg-tennis-equilibrium-payoff-2-2-1">
+<div class="para" id="eg-tennis-equilibrium-payoff-2-2-1-1">What is the server’s payoff at the equilibrium, where she plays <span class="process-math">\(.6b + .4f\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg-tennis-equilibrium-payoff-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg-tennis-equilibrium-payoff-2-2-2">
+<div class="para" id="eg-tennis-equilibrium-payoff-2-2-2-1">What is her payoff if she switches to any other mix <span class="process-math">\(pb + (1-p)f\text{,}\)</span> with the receiver still at <span class="process-math">\(\sigma_2\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg-tennis-equilibrium-payoff-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="eg-tennis-equilibrium-payoff-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="eg-tennis-equilibrium-payoff-3-1">Both come straight from (5.6), which says her payoff is a weighted average of what <span class="process-math">\(b\)</span> and <span class="process-math">\(f\)</span> earn:<div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal" id="eg-tennis-equilibrium-payoff-3-2">
+<li id="eg-tennis-equilibrium-payoff-3-2-1">
+<div class="para" id="eg-tennis-equilibrium-payoff-3-2-1-1">
+<span class="process-math">\(\pi_1(.6b + .4f,\ \sigma_2) = .6(.52) + .4(.52) = .52\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#eg-tennis-equilibrium-payoff-3-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="eg-tennis-equilibrium-payoff-3-2-2">
+<div class="para" id="eg-tennis-equilibrium-payoff-3-2-2-1">
+<span class="process-math">\(\pi_1(pb + (1-p)f,\ \sigma_2) = p(.52) + (1-p)(.52) = .52\text{,}\)</span> no matter what <span class="process-math">\(p\)</span> is. (This is the same thing you found in the <span class="process-math">\(.52\)</span> checkpoint!)<div class="autopermalink" data-description="Paragraph"><a href="#eg-tennis-equilibrium-payoff-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#eg-tennis-equilibrium-payoff-3-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 5.1.7.1"><a href="#eg-tennis-equilibrium-payoff-3" title="Copy heading and permalink for Solution 5.1.7.1" aria-label="Copy heading and permalink for Solution 5.1.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Example 5.1.7: The server’s payoff at the Tennis equilibrium"><a href="#eg-tennis-equilibrium-payoff" title="Copy heading and permalink for Example 5.1.7: The server’s payoff at the Tennis equilibrium" aria-label="Copy heading and permalink for Example 5.1.7: The server’s payoff at the Tennis equilibrium">🔗</a></div>
+</article>
+<div class="para logical" id="page1-mixed-strategies-25">
+<div class="para">That’s <em class="alert">Theorem 5.3</em>. At a mixed strategy Nash equilibrium, all of a player’s active strategies earn the same amount, call it <span class="process-math">\(K\)</span> (for the server in Tennis, <span class="process-math">\(K = .52\)</span>). Then:</div>
+<ol class="decimal" id="page1-mixed-strategies-25-4">
+<li id="page1-mixed-strategies-25-4-1">
+<div class="para" id="page1-mixed-strategies-25-4-1-1">Her equilibrium payoff is <span class="process-math">\(K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-25-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#page1-mixed-strategies-25-4-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="page1-mixed-strategies-25-4-2">
+<div class="para" id="page1-mixed-strategies-25-4-2-1">Any mix of her active strategies also earns <span class="process-math">\(K\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-25-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#page1-mixed-strategies-25-4-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page1-mixed-strategies-26">Next, pure strategies are special mixed strategies. So, we can consider whether a strategy profile is a Nash equilibrium both in the sense of Chapter 3 and in the sense of this chapter, where we also have mixed strategies. Let’s connect them with the checkpoint below!<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-pure-vs-mixed-deviation"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-pure-vs-mixed-deviation-1-1">Suppose <span class="process-math">\((s_1^*, s_2^*)\)</span> is a Nash equilibrium in the Chapter 3 sense, so Player 1 can’t improve her payoff by switching to any pure strategy. Could she improve by switching to some mixed strategy <span class="process-math">\(\tau_1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-pure-vs-mixed-deviation-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-pure-vs-mixed-deviation" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-pure-vs-mixed-deviation_opt_a">
+<div class="para" id="check-pure-vs-mixed-deviation-2-1-1-1">Yes. A mix can combine the strengths of several pure strategies.</div>
+</li>
+<li data-component="feedback" id="rs-check-pure-vs-mixed-deviation_opt_a">
+<div class="para" id="check-pure-vs-mixed-deviation-2-1-2-1">Against a fixed opponent, a mix is just a weighted average of its pure strategies’ payoffs. An average can never beat the largest thing you’re averaging.</div>
+</li>
+<li data-component="answer" id="rs-check-pure-vs-mixed-deviation_opt_b">
+<div class="para" id="check-pure-vs-mixed-deviation-2-2-1-1">You’d have to check every possible mix to know.</div>
+</li>
+<li data-component="feedback" id="rs-check-pure-vs-mixed-deviation_opt_b">
+<div class="para" id="check-pure-vs-mixed-deviation-2-2-2-1">That’s exactly the work (5.6) saves you. Every mix is a weighted average of pure strategy payoffs, so checking the pure strategies is enough.</div>
+</li>
+<li data-component="answer" id="rs-check-pure-vs-mixed-deviation_opt_c" data-correct="">
+<div class="para" id="check-pure-vs-mixed-deviation-2-3-1-1">No. By (5.6), <span class="process-math">\(\tau_1\)</span>’s payoff is a weighted average of her pure strategies’ payoffs, and none of those beat her payoff at the equilibrium.</div>
+</li>
+<li data-component="feedback" id="rs-check-pure-vs-mixed-deviation_opt_c">
+<div class="para" id="check-pure-vs-mixed-deviation-2-3-2-1">Correct. If every number you’re averaging is at most <span class="process-math">\(\pi_1(s^*)\text{,}\)</span> the average is too.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.8"><a href="#check-pure-vs-mixed-deviation" title="Copy heading and permalink for Checkpoint 5.1.8" aria-label="Copy heading and permalink for Checkpoint 5.1.8">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-28">So a Nash equilibrium in the Chapter 3 sense is also a mixed strategy Nash equilibrium. The converse is even more clear: if no player can improve by switching to any mixed strategy, then in particular no player can improve by switching to a pure one. Together, these give <em class="alert">Theorem 5.4</em>: for pure strategy profiles, the new definition of Nash equilibrium agrees with the old one.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-tennis-not-strict"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-tennis-not-strict-1-1">Recall that a Nash equilibrium is <dfn class="terminology">strict</dfn> if every player does strictly worse by switching. Is the Tennis equilibrium strict?<div class="autopermalink" data-description="Paragraph"><a href="#check-tennis-not-strict-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-tennis-not-strict" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-tennis-not-strict_opt_a">
+<div class="para" id="check-tennis-not-strict-2-1-1-1">Yes, since it’s the only Nash equilibrium of the game.</div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-not-strict_opt_a">
+<div class="para" id="check-tennis-not-strict-2-1-2-1">Being the only equilibrium and being strict are different things. Strictness is about whether switching can ever tie.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-not-strict_opt_b" data-correct="">
+<div class="para" id="check-tennis-not-strict-2-2-1-1">No. The server can switch to always serving to the backhand and still get <span class="process-math">\(.52\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-not-strict_opt_b">
+<div class="para" id="check-tennis-not-strict-2-2-2-1">Correct. By Theorem 5.3, any mix of her active strategies earns the same, so she has plenty of switches that tie.</div>
+</li>
+<li data-component="answer" id="rs-check-tennis-not-strict_opt_c">
+<div class="para" id="check-tennis-not-strict-2-3-1-1">Yes. No player can do better by switching.</div>
+</li>
+<li data-component="feedback" id="rs-check-tennis-not-strict_opt_c">
+<div class="para" id="check-tennis-not-strict-2-3-2-1">That’s just the definition of a Nash equilibrium. Strict means every switch makes you <em class="emphasis">worse</em>, and here some switches leave the server exactly where she was.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.1.9"><a href="#check-tennis-not-strict" title="Copy heading and permalink for Checkpoint 5.1.9" aria-label="Copy heading and permalink for Checkpoint 5.1.9">🔗</a></div>
+</article>
+<div class="para" id="page1-mixed-strategies-30">That’s <em class="alert">Theorem 5.5</em>. Only pure equilibria can be strict. Whenever a player mixes (uses more than one active strategy) at a Nash equilibrium, Theorem 5.3 says she can switch to another active strategy and tie, so the equilibrium can’t be strict.<div class="autopermalink" data-description="Paragraph"><a href="#page1-mixed-strategies-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-5-1-rest"><h3 class="heading"><span class="title">Section 5.1, The Rest.</span></h3>
+<div class="para" id="read-5-1-rest-2">
+<em class="alert">Read the rest of Section 5.1.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-rest-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-5-1-rest-3">We just reasoned through Theorems 5.3, 5.4, and 5.5, so this should go quickly. The last two paragraphs add some discussion beyond these theorems.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-1-rest-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 5.1, The Rest"><a href="#read-5-1-rest" title="Copy heading and permalink for Reading: Section 5.1, The Rest" aria-label="Copy heading and permalink for Reading: Section 5.1, The Rest">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=5.1" id="question-form-5-1" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-5-1.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 5.1: Mixed Strategies and the Fundamental Theorem"><a href="#page1-mixed-strategies" title="Copy heading and permalink for Section 5.1: Mixed Strategies and the Fundamental Theorem" aria-label="Copy heading and permalink for Section 5.1: Mixed Strategies and the Fundamental Theorem">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="page2-tennis-other-methods.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

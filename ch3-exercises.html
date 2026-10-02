@@ -57,14 +57,14 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.3.2';
+eBookConfig.runestone_version = '8.3.3';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.6ad113829064d43a.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.02090e9f6a81e70e.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<script src="_static/prefix-runtime.dd07797f77620576.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.11d27cdc38930c2c.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
 <link rel="stylesheet" type="text/css" href="_static/prefix-runestone.347e2ecdeacfed99.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
@@ -142,6 +142,14 @@ eBookConfig.enable_chatcodes =  false;
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
@@ -353,6 +361,232 @@ eBookConfig.enable_chatcodes =  false;
 </div>
 </div>
 <div class="autopermalink" data-description="Exercise 3.5.4: Bidding the Resource"><a href="#hw-resource-game" title="Copy heading and permalink for Exercise 3.5.4: Bidding the Resource" aria-label="Copy heading and permalink for Exercise 3.5.4: Bidding the Resource">🔗</a></div>
+</article></details>
+<details id="hw-hawk-dove-nash" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hawk and Dove, Revisited.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-hawk-dove-nash-2">
+<div class="para" id="hw-hawk-dove-nash-2-1">Return to the Hawk-Dove game of <a href="ch2-exercises.html#hw-hawk-dove" class="xref" data-knowl="./knowl/xref/hw-hawk-dove.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.1: Hawk and Dove">Exercise 2.5.1</a>. Each player chooses <dfn class="terminology">hawk</dfn> (<span class="process-math">\(h\)</span>) or <dfn class="terminology">dove</dfn> (<span class="process-math">\(d\)</span>), where <span class="process-math">\(v\)</span> is the value of the territory and <span class="process-math">\(w\)</span> is the cost of getting injured.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-hawk-dove-nash"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hawk-Dove payoff matrix<div class="autopermalink" data-description="Table 3.5.2: Hawk-Dove payoff matrix"><a href="#table-hw-hawk-dove-nash" title="Copy heading and permalink for Table 3.5.2: Hawk-Dove payoff matrix" aria-label="Copy heading and permalink for Table 3.5.2: Hawk-Dove payoff matrix">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(h\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(d\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(h\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v-w}{2},\; \frac{v-w}{2}\right)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((v,\; 0)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(d\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0,\; v)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v}{2},\; \frac{v}{2}\right)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-hawk-dove-nash-2-3">In <a href="ch2-exercises.html#hw-hawk-dove" class="xref" data-knowl="./knowl/xref/hw-hawk-dove.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.1: Hawk and Dove">Exercise 2.5.1</a> we let <span class="process-math">\(v\)</span> vary. In this exercise we assume <span class="process-math">\(0 \lt v \lt w\text{,}\)</span> which is the standard assumption for the Hawk-Dove game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-hawk-dove-nash-dominated"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-hawk-dove-nash-dominated-1-1">Under the assumption <span class="process-math">\(0 \lt v \lt w\text{,}\)</span> identify any weakly or strictly dominated strategies, or briefly explain why none exist.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-dominated-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-hawk-dove-nash-dominated-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-hawk-dove-nash-dominated-2-1">Your work on <a href="ch2-exercises.html#hw-hawk-dove" class="xref" data-knowl="./knowl/xref/hw-hawk-dove.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.1: Hawk and Dove">Exercise 2.5.1</a> is a good place to start.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-dominated-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.5.5.a.1"><a href="#hw-hawk-dove-nash-dominated-2" title="Copy heading and permalink for Hint 3.5.5.a.1" aria-label="Copy heading and permalink for Hint 3.5.5.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.5.5.a"><a href="#hw-hawk-dove-nash-dominated" title="Copy heading and permalink for Task 3.5.5.a" aria-label="Copy heading and permalink for Task 3.5.5.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-hawk-dove-nash-find"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-hawk-dove-nash-find-1-1">Under the assumption <span class="process-math">\(0 \lt v \lt w\text{,}\)</span> find all Nash equilibria of the game. State each Nash equilibrium as a strategy profile, not just the payoffs it produces.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-find-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.5.b"><a href="#hw-hawk-dove-nash-find" title="Copy heading and permalink for Task 3.5.5.b" aria-label="Copy heading and permalink for Task 3.5.5.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-hawk-dove-nash-words"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-hawk-dove-nash-words-1-1">For each Nash equilibrium you found in part (b), explain informally, in words, why neither animal wants to switch. Write one sentence for each animal, in the context of the fight over territory: what happens to that animal now, and what would happen if it switched on its own while the other animal stayed put.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-nash-words-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.5.c"><a href="#hw-hawk-dove-nash-words" title="Copy heading and permalink for Task 3.5.5.c" aria-label="Copy heading and permalink for Task 3.5.5.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 3.5.5: Hawk and Dove, Revisited"><a href="#hw-hawk-dove-nash" title="Copy heading and permalink for Exercise 3.5.5: Hawk and Dove, Revisited" aria-label="Copy heading and permalink for Exercise 3.5.5: Hawk and Dove, Revisited">🔗</a></div>
+</article></details>
+<details id="hw-three-player-best-response" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Three Player Game, Using Best Response.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="para" id="hw-three-player-best-response-2-1">Consider a three player game in normal form where each player has two strategies, so <span class="process-math">\(S_i = \{A, B\}\)</span> for each player <span class="process-math">\(i\text{.}\)</span> This has the same setup as <a href="ch2-exercises.html#hw-three-player-iesds" class="xref" data-knowl="./knowl/xref/hw-three-player-iesds.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 2.5.2: A Three Player Game in Normal Form">Exercise 2.5.2</a>, but the payoffs are different. Payoffs are listed in the order (player 1, player 2, player 3).<div class="autopermalink" data-description="Paragraph"><a href="#hw-three-player-best-response-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="table-hw-three-player-br-a"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Player 3 plays <span class="process-math">\(A\)</span><div class="autopermalink" data-description="Table 3.5.3: Player 3 plays A"><a href="#table-hw-three-player-br-a" title="Copy heading and permalink for Table 3.5.3: Player 3 plays A" aria-label="Copy heading and permalink for Table 3.5.3: Player 3 plays A">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(A\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(B\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(A\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(10, 20, 15)</td>
+<td class="c m b1 r1 l0 t0 lines">(5, 20, 10)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(B\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(20, 15, 10)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 10, 10)</td>
+</tr>
+</table></div>
+</figure> 
+<figure class="table table-like" id="table-hw-three-player-br-b"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.5.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Player 3 plays <span class="process-math">\(B\)</span><div class="autopermalink" data-description="Table 3.5.4: Player 3 plays B"><a href="#table-hw-three-player-br-b" title="Copy heading and permalink for Table 3.5.4: Player 3 plays B" aria-label="Copy heading and permalink for Table 3.5.4: Player 3 plays B">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(A\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(B\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(A\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(20, 20, 20)</td>
+<td class="c m b1 r1 l0 t0 lines">(25, 20, 15)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(B\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(15, 20, 5)</td>
+<td class="c m b1 r1 l0 t0 lines">(30, 25, 30)</td>
+</tr>
+</table></div>
+</figure> 
+<div class="para" id="hw-three-player-best-response-2-4">Use best responses to identify all Nash equilibria. For each Nash equilibrium, clearly state the strategy profile and the payoffs for that profile.<div class="autopermalink" data-description="Paragraph"><a href="#hw-three-player-best-response-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="hw-three-player-best-response-2-5">Present your solution by copying the two tables and boxing the best response payoffs. Please do not write out each step in words; the boxed tables are the clear and concise way to show your work.<div class="autopermalink" data-description="Paragraph"><a href="#hw-three-player-best-response-2-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Exercise 3.5.6: A Three Player Game, Using Best Response"><a href="#hw-three-player-best-response" title="Copy heading and permalink for Exercise 3.5.6: A Three Player Game, Using Best Response" aria-label="Copy heading and permalink for Exercise 3.5.6: A Three Player Game, Using Best Response">🔗</a></div>
+</article></details>
+<details id="hw-pick-a-number" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pick a Number.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-pick-a-number-2">
+<div class="para" id="hw-pick-a-number-2-1">A large group of players simultaneously choose an integer from <span class="process-math">\(\{1, 2, \ldots, 100\}\text{.}\)</span> Let <span class="process-math">\(\bar{s}\)</span> be the average of all the choices.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-pick-a-number-2-2">
+<li id="hw-pick-a-number-2-2-1">
+<div class="para" id="hw-pick-a-number-2-2-1-1">The player whose choice is nearest to <span class="process-math">\(\frac{3}{4}\bar{s}\)</span> gets a payoff of 4. All other players get 0.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-pick-a-number-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-pick-a-number-2-2-2">
+<div class="para" id="hw-pick-a-number-2-2-2-1">If there is a tie, every player who is nearest to <span class="process-math">\(\frac{3}{4}\bar{s}\)</span> gets a payoff of 4.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-pick-a-number-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="hw-pick-a-number-2-3">We make one simplifying assumption: there are so many players that a single player’s choice has a negligible effect on the average. So if one player <span class="process-math">\(i\)</span> switches from <span class="process-math">\(s_i\)</span> to <span class="process-math">\(s_i'\)</span> while all other players stay put, the average <span class="process-math">\(\bar{s}\)</span> does not change.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="hw-pick-a-number-2-4">
+<em class="alert">Remark.</em> This assumption cannot be exactly true for a finite number of players, but in practice the effect of one player is negligible once there are more than about 50 players. With at least 150 players, one player’s switch cannot move the average enough to change who wins (other than possibly moving that one player into or out of the winning group).<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-pick-a-number-nash"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-pick-a-number-nash-1-1">Show that for any <span class="process-math">\(k \in \{1, \ldots, 100\}\text{,}\)</span> every player choosing <span class="process-math">\(k\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-nash-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="hw-pick-a-number-nash-1-2">Notation: write <span class="process-math">\(\pi_i(s_i, \bar{k})\)</span> for player <span class="process-math">\(i\)</span>’s payoff when player <span class="process-math">\(i\)</span> chooses <span class="process-math">\(s_i\)</span> and every other player chooses <span class="process-math">\(k\text{.}\)</span> By our assumption, the average is <span class="process-math">\(\bar{s} = k\)</span> no matter what <span class="process-math">\(s_i\)</span> is.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-nash-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.7.a"><a href="#hw-pick-a-number-nash" title="Copy heading and permalink for Task 3.5.7.a" aria-label="Copy heading and permalink for Task 3.5.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-pick-a-number-strict"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-pick-a-number-strict-1-1">For which values of <span class="process-math">\(k\)</span> is the Nash equilibrium from part (a) a strict Nash equilibrium? For each such <span class="process-math">\(k\text{,}\)</span> clearly show that the equilibrium is strict.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-strict-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-pick-a-number-strict-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-pick-a-number-strict-2-1">Look for a value of <span class="process-math">\(k\)</span> in <span class="process-math">\(\{1, 2, \ldots, 100\}\)</span> for which every other choice puts a player farther from <span class="process-math">\(\frac{3}{4}\)</span> of the average.<div class="autopermalink" data-description="Paragraph"><a href="#hw-pick-a-number-strict-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 3.5.7.b.1"><a href="#hw-pick-a-number-strict-2" title="Copy heading and permalink for Hint 3.5.7.b.1" aria-label="Copy heading and permalink for Hint 3.5.7.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 3.5.7.b"><a href="#hw-pick-a-number-strict" title="Copy heading and permalink for Task 3.5.7.b" aria-label="Copy heading and permalink for Task 3.5.7.b">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 3.5.7: Pick a Number"><a href="#hw-pick-a-number" title="Copy heading and permalink for Exercise 3.5.7: Pick a Number" aria-label="Copy heading and permalink for Exercise 3.5.7: Pick a Number">🔗</a></div>
+</article></details>
+<details id="hw-first-price-auction" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A First-Price Auction.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-first-price-auction-2">
+<div class="para" id="hw-first-price-auction-2-1">In Section 2.7 (<a href="ch2-page2-dominated-strategies.html#read-2-7-part1" class="xref" data-knowl="./knowl/xref/read-2-7-part1.html" data-reveal-label="Reveal" data-close-label="Close" title="Reading: Section 2.7, Second-Price Auctions (Part 1)">Reading </a>) we showed that in a second-price auction, bidding your value weakly dominates every other strategy. Here we look at a <dfn class="terminology">first-price</dfn> auction, where the winner pays their <em class="emphasis">own</em> bid. The setup:<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-first-price-auction-2-2">
+<li id="hw-first-price-auction-2-2-1">
+<div class="para logical" id="hw-first-price-auction-2-2-1-1">
+<div class="para">There are <span class="process-math">\(N \geq 3\)</span> players. Player <span class="process-math">\(i\)</span> values the object at <span class="process-math">\(v_i \gt 0\text{,}\)</span> and the values are ranked</div>
+<div class="displaymath process-math" id="hw-first-price-auction-2-2-1-1-4">
+\begin{equation*}
+v_1 \geq v_2 \geq v_3 \geq \cdots \geq v_N \gt 0.
+\end{equation*}
+</div>
+<div class="para">All players know this ranking.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-first-price-auction-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-first-price-auction-2-2-2">
+<div class="para" id="hw-first-price-auction-2-2-2-1">Each player submits one sealed bid <span class="process-math">\(b_i \geq 0\text{,}\)</span> without seeing anyone else’s bid. So <span class="process-math">\(S_i = [0, \infty)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-first-price-auction-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-first-price-auction-2-2-3">
+<div class="para" id="hw-first-price-auction-2-2-3-1">The highest bid wins. The winner pays their bid and gets payoff <span class="process-math">\(v_i - b_i\text{.}\)</span> Everyone else pays nothing and gets <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-first-price-auction-2-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-first-price-auction-2-2-4">
+<div class="para" id="hw-first-price-auction-2-2-4-1">Ties go to the player with the lowest index. For example, if players 2 and 4 tie for the highest bid, player 2 wins and player 4 gets 0.<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-first-price-auction-2-2-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para logical" id="hw-first-price-auction-2-3">
+<div class="para">Let <span class="process-math">\(h_i = \max_{j \neq i} b_j\)</span> be the highest bid among the <em class="emphasis">other</em> players. Then player <span class="process-math">\(i\)</span>’s payoff is</div>
+<div class="displaymath process-math" id="hw-first-price-auction-2-3-4">
+\begin{equation*}
+\pi_i(b_i, b_{-i}) =
+\begin{cases}
+v_i - b_i, \amp b_i \gt h_i \\
+v_i - b_i, \amp b_i = h_i \text{ and } i \text{ is the lowest index with bid } h_i \\
+0, \amp \text{otherwise.}
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-first-price-auction-nash"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-first-price-auction-nash-1-1">Show that the strategy profile with <span class="process-math">\(b_1 = v_2\)</span> and <span class="process-math">\(b_i = v_i\)</span> for all <span class="process-math">\(i \geq 2\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-nash-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.8.a"><a href="#hw-first-price-auction-nash" title="Copy heading and permalink for Task 3.5.8.a" aria-label="Copy heading and permalink for Task 3.5.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-first-price-auction-above"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-first-price-auction-above-1-1">Show that any bid <span class="process-math">\(b_i \gt v_i\)</span> is weakly dominated by the bid <span class="process-math">\(b_i' = v_i\text{.}\)</span> Make sure you show that <em class="emphasis">both</em> conditions in the definition of a weakly dominated strategy hold.<div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-above-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.8.b"><a href="#hw-first-price-auction-above" title="Copy heading and permalink for Task 3.5.8.b" aria-label="Copy heading and permalink for Task 3.5.8.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-first-price-auction-at"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-first-price-auction-at-1-1">Show that the bid <span class="process-math">\(b_i = v_i\)</span> is weakly dominated by any bid <span class="process-math">\(b_i'\)</span> with <span class="process-math">\(0 \lt b_i' \lt v_i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-first-price-auction-at-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 3.5.8.c"><a href="#hw-first-price-auction-at" title="Copy heading and permalink for Task 3.5.8.c" aria-label="Copy heading and permalink for Task 3.5.8.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 3.5.8: A First-Price Auction"><a href="#hw-first-price-auction" title="Copy heading and permalink for Exercise 3.5.8: A First-Price Auction" aria-label="Copy heading and permalink for Exercise 3.5.8: A First-Price Auction">🔗</a></div>
 </article></details><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=chapter%203%20exercises" id="question-form-3-ex" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-3-ex.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
 <div class="autopermalink" data-description="Exercises 3.5: Exercises"><a href="#ch3-exercises" title="Copy heading and permalink for Exercises 3.5: Exercises" aria-label="Copy heading and permalink for Exercises 3.5: Exercises">🔗</a></div>
