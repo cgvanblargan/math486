@@ -2,7 +2,7 @@
 
 <!-- Chapter 3 exercises.
 
-     One flat list, numbered 1-4 in order. Which exercises get assigned
+     One flat list, numbered 1-8 in order. Which exercises get assigned
      together lives in the course schedule, not here.
 
      Add more by appending another <exercise> below; numbering of the
@@ -303,6 +303,322 @@
         is the only Nash equilibrium of this game.
       </p>
     </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-hawk-dove-nash">
+    <title>Hawk and Dove, Revisited</title>
+
+    <introduction>
+      <p>
+        Return to the Hawk-Dove game of <xref ref="hw-hawk-dove" />. Each
+        player chooses <term>hawk</term> (<m>h</m>) or
+        <term>dove</term> (<m>d</m>), where <m>v</m> is the value of the
+        territory and <m>w</m> is the cost of getting injured.
+      </p>
+
+      <table xml:id="table-hw-hawk-dove-nash">
+        <title>Hawk-Dove payoff matrix</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>h</m></cell>
+            <cell>Player 2: <m>d</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>h</m></cell>
+            <cell><m>\left(\frac{v-w}{2},\; \frac{v-w}{2}\right)</m></cell>
+            <cell><m>(v,\; 0)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>d</m></cell>
+            <cell><m>(0,\; v)</m></cell>
+            <cell><m>\left(\frac{v}{2},\; \frac{v}{2}\right)</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        In <xref ref="hw-hawk-dove" /> we let <m>v</m> vary. In this
+        exercise we assume <m>0 \lt v \lt w</m>, which is the standard
+        assumption for the Hawk-Dove game.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-hawk-dove-nash-dominated">
+      <statement>
+        <p>
+          Under the assumption <m>0 \lt v \lt w</m>, identify any weakly or
+          strictly dominated strategies, or briefly explain why none exist.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Your work on <xref ref="hw-hawk-dove" /> is a good place to start.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-hawk-dove-nash-find">
+      <statement>
+        <p>
+          Under the assumption <m>0 \lt v \lt w</m>, find all Nash
+          equilibria of the game. State each Nash equilibrium as a strategy
+          profile, not just the payoffs it produces.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-nash-words">
+      <statement>
+        <p>
+          For each Nash equilibrium you found in part (b), explain
+          informally, in words, why neither animal wants to switch. Write
+          one sentence for each animal, in the context of the fight over
+          territory: what happens to that animal now, and what would happen
+          if it switched on its own while the other animal stayed put.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-three-player-best-response">
+    <title>A Three Player Game, Using Best Response</title>
+
+    <statement>
+      <p>
+        Consider a three player game in normal form where each player has
+        two strategies, so <m>S_i = \{A, B\}</m> for each player <m>i</m>.
+        This has the same setup as <xref ref="hw-three-player-iesds" />,
+        but the payoffs are different. Payoffs are listed in the order
+        (player 1, player 2, player 3).
+      </p>
+
+      <table xml:id="table-hw-three-player-br-a">
+        <title>Player 3 plays <m>A</m></title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>A</m></cell>
+            <cell>Player 2: <m>B</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>A</m></cell>
+            <cell>(10, 20, 15)</cell>
+            <cell>(5, 20, 10)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>B</m></cell>
+            <cell>(20, 15, 10)</cell>
+            <cell>(0, 10, 10)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <table xml:id="table-hw-three-player-br-b">
+        <title>Player 3 plays <m>B</m></title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>A</m></cell>
+            <cell>Player 2: <m>B</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>A</m></cell>
+            <cell>(20, 20, 20)</cell>
+            <cell>(25, 20, 15)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>B</m></cell>
+            <cell>(15, 20, 5)</cell>
+            <cell>(30, 25, 30)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        Use best responses to identify all Nash equilibria. For each Nash
+        equilibrium, clearly state the strategy profile and the payoffs for
+        that profile.
+      </p>
+
+      <p>
+        Present your solution by copying the two tables and boxing the best
+        response payoffs. Please do not write out each step in words; the boxed
+        tables are the clear and concise way to show your work.
+      </p>
+    </statement>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-pick-a-number">
+    <title>Pick a Number</title>
+
+    <introduction>
+      <p>
+        A large group of players simultaneously choose an integer from
+        <m>\{1, 2, \ldots, 100\}</m>. Let <m>\bar{s}</m> be the average of
+        all the choices.
+      </p>
+      <ul>
+        <li>
+          <p>
+            The player whose choice is nearest to <m>\frac{3}{4}\bar{s}</m>
+            gets a payoff of 4. All other players get 0.
+          </p>
+        </li>
+        <li>
+          <p>
+            If there is a tie, every player who is nearest to
+            <m>\frac{3}{4}\bar{s}</m> gets a payoff of 4.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        We make one simplifying assumption: there are so many players that
+        a single player's choice has a negligible effect on the average. So
+        if one player <m>i</m> switches from <m>s_i</m> to <m>s_i'</m>
+        while all other players stay put, the average <m>\bar{s}</m> does
+        not change.
+      </p>
+
+      <p>
+        <alert>Remark.</alert> This assumption cannot be exactly true for a
+        finite number of players, but in practice the effect of one player
+        is negligible once there are more than about 50 players. With at
+        least 150 players, one player's switch cannot move the average
+        enough to change who wins (other than possibly moving that one
+        player into or out of the winning group).
+      </p>
+    </introduction>
+
+    <task xml:id="hw-pick-a-number-nash">
+      <statement>
+        <p>
+          Show that for any <m>k \in \{1, \ldots, 100\}</m>, every player
+          choosing <m>k</m> is a Nash equilibrium.
+        </p>
+        <p>
+          Notation: write <m>\pi_i(s_i, \bar{k})</m> for player <m>i</m>'s
+          payoff when player <m>i</m> chooses <m>s_i</m> and every other
+          player chooses <m>k</m>. By our assumption, the average is
+          <m>\bar{s} = k</m> no matter what <m>s_i</m> is.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-pick-a-number-strict">
+      <statement>
+        <p>
+          For which values of <m>k</m> is the Nash equilibrium from part (a)
+          a strict Nash equilibrium? For each such <m>k</m>, clearly show
+          that the equilibrium is strict.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Look for a value of <m>k</m> in <m>\{1, 2, \ldots, 100\}</m> for
+          which every other choice puts a player farther from
+          <m>\frac{3}{4}</m> of the average.
+        </p>
+      </hint>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-first-price-auction">
+    <title>A First-Price Auction</title>
+
+    <introduction>
+      <p>
+        In Section 2.7 (<xref ref="read-2-7-part1" />) we showed that in a
+        second-price auction, bidding your value weakly dominates every
+        other strategy. Here we look at a <term>first-price</term> auction,
+        where the winner pays their <em>own</em> bid. The setup:
+      </p>
+      <ul>
+        <li>
+          <p>
+            There are <m>N \geq 3</m> players. Player <m>i</m> values the
+            object at <m>v_i \gt 0</m>, and the values are ranked
+            <me>v_1 \geq v_2 \geq v_3 \geq \cdots \geq v_N \gt 0.</me>
+            All players know this ranking.
+          </p>
+        </li>
+        <li>
+          <p>
+            Each player submits one sealed bid <m>b_i \geq 0</m>, without
+            seeing anyone else's bid. So <m>S_i = [0, \infty)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            The highest bid wins. The winner pays their bid and gets
+            payoff <m>v_i - b_i</m>. Everyone else pays nothing and gets
+            <m>0</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Ties go to the player with the lowest index. For example, if
+            players 2 and 4 tie for the highest bid, player 2 wins and
+            player 4 gets 0.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        Let <m>h_i = \max_{j \neq i} b_j</m> be the highest bid among the
+        <em>other</em> players. Then player <m>i</m>'s payoff is
+        <me>
+          \pi_i(b_i, b_{-i}) =
+          \begin{cases}
+            v_i - b_i, \amp b_i \gt h_i \\
+            v_i - b_i, \amp b_i = h_i \text{ and } i \text{ is the lowest index with bid } h_i \\
+            0, \amp \text{otherwise.}
+          \end{cases}
+        </me>
+      </p>
+    </introduction>
+
+    <task xml:id="hw-first-price-auction-nash">
+      <statement>
+        <p>
+          Show that the strategy profile with <m>b_1 = v_2</m> and
+          <m>b_i = v_i</m> for all <m>i \geq 2</m> is a Nash equilibrium.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-first-price-auction-above">
+      <statement>
+        <p>
+          Show that any bid <m>b_i \gt v_i</m> is weakly dominated by the
+          bid <m>b_i' = v_i</m>. Make sure you show that <em>both</em>
+          conditions in the definition of a weakly dominated strategy hold.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-first-price-auction-at">
+      <statement>
+        <p>
+          Show that the bid <m>b_i = v_i</m> is weakly dominated by any bid
+          <m>b_i'</m> with <m>0 \lt b_i' \lt v_i</m>.
+        </p>
+      </statement>
+    </task>
   </exercise>
 
 <interactive xml:id="question-form-3-ex" iframe="question-form.html?section=chapter 3 exercises" width="100%" aspect="2:1"/>

@@ -78,24 +78,17 @@
         <ul>
           <li>
             <p>
-              <m>(a, x)</m>: <em>strict Nash equilibrium.</em> Player 1:
-              <m>4 \gt 2</m> and <m>4 \gt 1</m>. Player 2:
-              <m>3 \gt 1</m> and <m>3 \gt 2</m>.
+              <m>(a, x)</m> is a strict Nash equilibrium. If player 1 switches, their payoff drops from 4 to 2 or 1. If player 2 switches, their payoff drops from 3 to 1 or 2.
             </p>
           </li>
           <li>
             <p>
-              <m>(b, y)</m>: <em>not</em> a Nash equilibrium.
-              <m>\pi_1(c, y) = 6 \gt 5 = \pi_1(b, y)</m>. (Player 2 can
-              also improve, <m>\pi_2(b, z) = 6 \gt 5</m>, but one player is
-              enough.)
+              <m>(b, y)</m> is not a Nash equilibrium. Player 1 can switch to <m>c</m> and get 6 instead of 5. (Player 2 can also improve, by switching to <m>z</m> for 6, but one player is enough.)
             </p>
           </li>
           <li>
             <p>
-              <m>(c, z)</m>: <em>Nash equilibrium, not strict.</em> Player
-              1: <m>3 \geq 1</m> and <m>3 \geq 0</m>. Player 2:
-              <m>3 \geq 0</m>, but <m>\pi_2(c, x) = 3 = \pi_2(c, z)</m>.
+              <m>(c, z)</m> is a Nash equilibrium, but not strict. Neither player can do better by switching, but player 2 gets 3 at either <m>x</m> or <m>z</m>, so switching to <m>x</m> does not make them strictly worse off.
             </p>
           </li>
         </ul>
@@ -119,33 +112,27 @@
         <ul>
           <li>
             <p>
-              <m>k = 0, 1</m>: not Nash. A purifier switches to polluting,
-              the lake stays clean, <m>-1 \to 0</m>.
+              <m>k = 0</m> or <m>1</m>: Not a Nash equilibrium. A purifier can switch to polluting, and the lake stays clean, so their payoff rises from <m>-1</m> to <m>0</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>k = 2</m>: Nash. A polluter who switches goes
-              <m>0 \to -1</m>; a purifier who switches fouls the lake and
-              goes <m>-1 \to -3</m>.
+              <m>k = 2</m>: A Nash equilibrium. A polluter who switches to purifying drops from <m>0</m> to <m>-1</m>. A purifier who switches to polluting fouls the lake and drops from <m>-1</m> to <m>-3</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>k = 3</m>: not Nash. A polluter switches to purifying,
-              cleaning the lake, <m>-3 \to -1</m>.
+              <m>k = 3</m>: Not a Nash equilibrium. A polluter can switch to purifying, which cleans the lake, so their payoff rises from <m>-3</m> to <m>-1</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>k = 4</m>: not Nash. A purifier switches to polluting;
-              the lake stays fouled, <m>-4 \to -3</m>.
+              <m>k = 4</m>: Not a Nash equilibrium. The purifier can switch to polluting. The lake stays fouled either way, so their payoff rises from <m>-4</m> to <m>-3</m>.
             </p>
           </li>
           <li>
             <p>
-              <m>k = 5</m>: Nash. A switcher leaves 4 polluters, so the
-              lake stays fouled, <m>-3 \to -4</m>.
+              <m>k = 5</m>: A Nash equilibrium. A firm that switches to purifying leaves 4 polluters, so the lake stays fouled and its payoff drops from <m>-3</m> to <m>-4</m>.
             </p>
           </li>
         </ul>
@@ -203,18 +190,32 @@
         <ul>
           <li>
             <p>
-              <m>q \geq p + 2</m>: <m>A</m> moves to <m>p + 1</m>, which is
-              still left of <m>B</m>, and gains <m>50</m> customers.
+              <m>q \geq p + 2</m>: Bank <m>A</m> can move to <m>p + 1</m>.
+              It is still to the left of bank <m>B</m>, and it gains 50
+              customers.
             </p>
           </li>
           <li>
             <p>
-              <m>q = p + 1</m>: <m>A</m> has <m>100p</m> and <m>B</m> has
-              <m>100(99 - p)</m>. If <m>p \leq 49</m>, <m>A</m> has at most
-              <m>4900</m> and moves onto block <m>q</m> for <m>4950</m>. If
-              <m>p \geq 50</m>, <m>B</m> has at most <m>4900</m> and moves
-              onto block <m>p</m> for <m>4950</m>.
+              <m>q = p + 1</m>: Bank <m>A</m> has <m>100p</m> customers and
+              bank <m>B</m> has <m>100(99 - p)</m>.
             </p>
+            <ul>
+              <li>
+                <p>
+                  If <m>p \leq 49</m>, bank <m>A</m> has at most
+                  <m>4900</m>. It can move onto block <m>q</m> and get
+                  <m>4950</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If <m>p \geq 50</m>, bank <m>B</m> has at most
+                  <m>4900</m>. It can move onto block <m>p</m> and get
+                  <m>4950</m>.
+                </p>
+              </li>
+            </ul>
           </li>
         </ul>
       </solution>
@@ -291,8 +292,8 @@
       </statement>
       <solution>
         <p>
-          Player 2 cannot choose more than 1, and tying at <m>s_2' = 1</m>
-          pays <m>1 - 1 = 0</m>, no improvement.
+          Player 2 cannot bid more than 1, and tying at <m>1</m> gives
+          player 2 a payoff of <m>1 - 1 = 0</m>, which is no improvement.
         </p>
         <p>
           Player 1 improves instead: currently <m>\pi_1 = 1 - s_2</m>.
@@ -316,6 +317,306 @@
           Switching to any <m>s_1'</m> with <m>s \lt s_1' \lt 1</m> gives
           player 1 <m>(1 - s_1') + (1 - s) \gt 1 - s</m>.
         </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-hawk-dove-nash">
+    <title>Hawk and Dove, Revisited</title>
+
+    <task xml:id="ans-hawk-dove-nash-dominated">
+      <title>Dominated strategies</title>
+      <statement>
+        <p>
+          Identify any dominated strategies when <m>0 \lt v \lt w</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Neither strategy is dominated. If the other player plays
+          <m>h</m>, then <m>d</m> is better, since
+          <m>0 \gt \frac{v-w}{2}</m>. If the other player plays <m>d</m>,
+          then <m>h</m> is better, since <m>v \gt \frac{v}{2}</m>. Each
+          strategy does better against something, so neither one dominates
+          the other, weakly or strictly.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-hawk-dove-nash-find">
+      <title>All Nash equilibria</title>
+      <statement>
+        <p>
+          Find all Nash equilibria when <m>0 \lt v \lt w</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The only Nash equilibria are <m>(h, d)</m> and <m>(d, h)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-hawk-dove-nash-words">
+      <title>Explaining in words</title>
+      <statement>
+        <p>
+          Explain informally why neither animal wants to switch.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          At <m>(h, d)</m>:
+        </p>
+        <ul>
+          <li>
+            <p>
+              The hawk gets the whole territory without a fight. Switching
+              to dove would mean only getting to share it.
+            </p>
+          </li>
+          <li>
+            <p>
+              The dove retreats and avoids injury. Switching to hawk would
+              start a fight, and the risk of injury costs more than the
+              territory is worth.
+            </p>
+          </li>
+        </ul>
+        <p>
+          <m>(d, h)</m> is the same argument with the players swapped.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-three-player-best-response">
+    <title>A Three Player Game, Using Best Response</title>
+    <statement>
+      <p>
+        Use best responses to find all Nash equilibria.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        There are three Nash equilibria, listed as
+        (player 1, player 2, player 3):
+      </p>
+      <ul>
+        <li><p><m>(A, A, B)</m> with payoffs <m>(20, 20, 20)</m></p></li>
+        <li><p><m>(B, A, A)</m> with payoffs <m>(20, 15, 10)</m></p></li>
+        <li><p><m>(B, B, B)</m> with payoffs <m>(30, 25, 30)</m></p></li>
+      </ul>
+      <p>
+        These are the only cells with all three payoffs boxed.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-pick-a-number">
+    <title>Pick a Number</title>
+
+    <task xml:id="ans-pick-a-number-nash">
+      <title>Everyone choosing <m>k</m></title>
+      <statement>
+        <p>
+          Show that every player choosing <m>k</m> is a Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The average is <m>k</m>, so the target is <m>\frac{3k}{4}</m>.
+          Every player is the same distance from it, so all tie and
+          <m>\pi_i(k, \bar{k}) = 4</m>. Since 4 is the largest possible
+          payoff, <m>\pi_i(s_i, \bar{k}) \leq 4 = \pi_i(k, \bar{k})</m>
+          for every <m>s_i</m>, so this is a Nash equilibrium.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-pick-a-number-strict">
+      <title>When it is strict</title>
+      <statement>
+        <p>
+          For which <m>k</m> is the equilibrium strict?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The equilibrium is strict only when <m>k = 1</m>.
+        </p>
+        <ul>
+          <li>
+            <p>
+              <m>k = 1</m>: The target is <m>\frac{3}{4}</m>. Every other
+              choice is larger, so it is farther from the target, and the
+              player's payoff drops from 4 to 0. So the equilibrium is
+              strict.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k = 2</m>: The target is <m>\frac{3}{2}</m>. Choosing 1 is
+              just as close to the target as 2, so the player still ties and
+              gets 4. So the equilibrium is not strict.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k \geq 3</m>: The integer closest to the target
+              <m>\frac{3k}{4}</m> is not <m>k</m>. A player who switches to
+              it wins outright and still gets 4. So the equilibrium is not
+              strict.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-first-price-auction">
+    <title>A First-Price Auction</title>
+
+    <task xml:id="ans-first-price-auction-nash">
+      <title>The Nash equilibrium</title>
+      <statement>
+        <p>
+          Show that <m>b_1 = v_2</m> and <m>b_i = v_i</m> for
+          <m>i \geq 2</m> is a Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We need to check that no player can improve their payoff by
+          switching their bid on their own.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Player 1: Since <m>h_1 = v_2</m>, player 1 ties player 2's bid
+              and wins because of the lower index. Player 1's payoff is
+              <m>v_1 - v_2 \geq 0</m>.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Bidding higher: Player 1 still wins, but pays more, so the
+                  payoff goes down.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bidding lower: Player 1 loses the auction, and the payoff
+                  becomes <m>0</m>, which is no better than
+                  <m>v_1 - v_2</m>.
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              Player <m>i \geq 2</m>: Player <m>i</m> loses the auction, so
+              their payoff is <m>0</m>.
+            </p>
+            <ul>
+              <li>
+                <p>
+                  Bidding lower: Player <m>i</m> still loses, and the payoff
+                  stays <m>0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Bidding higher: Player 1 bids <m>v_2</m> and wins ties, so
+                  to win, player <m>i</m> must bid <m>b_i \gt v_2</m>. Then
+                  the payoff is <m>v_i - b_i \lt v_i - v_2 \leq 0</m>, which
+                  is worse than <m>0</m>. A higher bid that does not win
+                  still pays <m>0</m>.
+                </p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <p>
+          No player can improve, so this is a Nash equilibrium.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-first-price-auction-above">
+      <title>Bidding above your value</title>
+      <statement>
+        <p>
+          Show <m>b_i \gt v_i</m> is weakly dominated by
+          <m>b_i' = v_i</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We need to check both conditions in the definition of a weakly
+          dominated strategy.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Never worse: If player <m>i</m> bids <m>v_i</m>, the payoff is
+              always <m>0</m>, because winning pays <m>v_i - v_i = 0</m> and
+              losing pays <m>0</m>. If player <m>i</m> bids
+              <m>b_i \gt v_i</m>, the payoff is either <m>v_i - b_i \lt 0</m>
+              (a win) or <m>0</m> (a loss). So
+              <m>\pi_i(v_i, b_{-i}) \geq \pi_i(b_i, b_{-i})</m> for every
+              <m>b_{-i}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sometimes strictly better: Suppose every other player bids
+              <m>0</m>. Then the bid <m>b_i</m> wins, and player <m>i</m>
+              gets <m>v_i - b_i \lt 0</m>, while bidding <m>v_i</m> gives
+              <m>0</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-first-price-auction-at">
+      <title>Bidding exactly your value</title>
+      <statement>
+        <p>
+          Show <m>b_i = v_i</m> is weakly dominated by any
+          <m>0 \lt b_i' \lt v_i</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          We need to check both conditions in the definition of a weakly
+          dominated strategy.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Never worse: If player <m>i</m> bids <m>v_i</m>, the payoff is
+              always <m>0</m>. If player <m>i</m> bids <m>b_i'</m> with
+              <m>0 \lt b_i' \lt v_i</m>, the payoff is either
+              <m>v_i - b_i' \gt 0</m> (a win) or <m>0</m> (a loss). So
+              <m>\pi_i(b_i', b_{-i}) \geq \pi_i(v_i, b_{-i})</m> for every
+              <m>b_{-i}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sometimes strictly better: Suppose every other player bids
+              <m>0</m>. Then the bid <m>b_i'</m> wins, and player <m>i</m>
+              gets <m>v_i - b_i' \gt 0</m>, while bidding <m>v_i</m> gives
+              <m>0</m>.
+            </p>
+          </li>
+        </ul>
       </solution>
     </task>
   </exercise>
