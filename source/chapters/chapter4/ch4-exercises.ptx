@@ -1,0 +1,679 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 4 exercises.
+
+     One flat list, numbered 1-4 in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch4-exercises">
+  <title>Exercises</title>
+
+  <introduction>
+    <p>
+      Before you start, two terms that the book doesn't use but that you
+      will see in these exercises (and in a lot of other game theory
+      writing).
+    </p>
+
+    <p>
+      In this chapter, whenever Nature moves first and some player can't
+      see that move, we turned the game into a normal form whose entries
+      are <em>expected</em> payoffs: one payoff matrix for each of
+      Nature's branches, weighted by that branch's probability and added
+      up. This normal form is called the
+      <term>Bayesian normal form</term> of the game. You have already
+      built two of them: the used car matrix in
+      <xref ref="read-4-4-matrix" text="title" /> and the Boss Gorilla
+      matrix in <xref ref="read-4-5-setup" text="title" />.
+    </p>
+
+    <p>
+      A <term>Bayesian Nash equilibrium</term> is a Nash equilibrium of
+      the Bayesian normal form. Nothing new is involved: you find them
+      with best response, exactly as in Chapter 3. For example, when
+      <m>p \gt \frac{1}{2}</m>, the Bayesian Nash equilibria of Buying a
+      Used Car are <m>(gg, gb)</m> and <m>(bb, bg)</m>.
+    </p>
+
+    <p>
+      Throughout, Player 1 is the row player and Player 2 is the column
+      player, and payoffs are listed in the order (Player 1, Player 2).
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-types-a-b">
+    <title>Two Types of Interaction</title>
+
+    <introduction>
+      <p>
+        Two players, Player 1 and Player 2, are about to interact. The
+        interaction can be one of two types, type <m>A</m> or type
+        <m>B</m>.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Nature chooses the type: type <m>A</m> with probability
+            <m>\frac{3}{4}</m> and type <m>B</m> with probability
+            <m>\frac{1}{4}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Player 1 observes the type and then moves up (<m>U</m>) or
+            down (<m>D</m>).
+          </p>
+        </li>
+        <li>
+          <p>
+            Player 2 observes Player 1's move, but <em>not</em> the type,
+            and then moves left (<m>L</m>) or right (<m>R</m>).
+          </p>
+        </li>
+      </ul>
+
+      <figure xml:id="fig-hw-types-a-b">
+        <caption>
+          The game tree, with Player 1's payoff listed first. The two
+          dashed curves are Player 2's information sets: the upper one
+          joins the two nodes where Player 1 has moved <m>U</m>, and the
+          lower one joins the two nodes where Player 1 has moved
+          <m>D</m>.
+        </caption>
+        <image width="100%">
+          <shortdescription>
+            Game tree with Nature moving first, then Player 1, then
+            Player 2, and eight terminal payoffs.
+          </shortdescription>
+          <description>
+            <p>
+              A node labeled N for Nature has two branches: a left branch
+              for type A with probability three quarters, and a right
+              branch for type B with probability one quarter. Each leads
+              to a node for Player 1, with branches U and D. Each of those
+              four branches leads to a node for Player 2, with branches L
+              and R.
+            </p>
+            <p>
+              Reading the eight terminal payoffs from left to right, with
+              Player 1's payoff first: under type A, U then L gives 4 and
+              4; U then R gives 0 and 5; D then L gives 5 and 0; D then R
+              gives 1 and 1. Under type B, U then L gives 6 and 4; U then
+              R gives 0 and 0; D then L gives 0 and 0; D then R gives 4
+              and 6.
+            </p>
+            <p>
+              One dashed curve joins Player 2's two nodes reached after
+              U, and another joins Player 2's two nodes reached after D.
+            </p>
+          </description>
+          <latex-image>
+            \resizebox{15cm}{!}{%
+            \begin{tikzpicture}[
+              font=\scriptsize,
+              nd/.style={circle,fill=black,inner sep=1.3pt}
+            ]
+            \useasboundingbox (-10.2,0.0) rectangle (10.2,6.7);
+
+            % Nature
+            \node[nd] (N) at (0,6) {};
+            \node[above=3pt of N] {$N$};
+
+            % Player 1 nodes
+            \node[nd] (S1) at (-5,4.3) {};
+            \node[above left=1pt and 2pt of S1] {$1$};
+            \node[nd] (S2) at (5,4.3) {};
+            \node[above right=1pt and 2pt of S2] {$1$};
+
+            \draw (N) -- node[above left=0pt and 1pt] {type $A$} (S1);
+            \draw (N) -- node[above right=0pt and 1pt] {type $B$} (S2);
+            \node at (-3.3,5.75) {probability $= \tfrac{3}{4}$};
+            \node at (3.3,5.75) {probability $= \tfrac{1}{4}$};
+
+            % Player 2 nodes
+            \node[nd] (C1) at (-7.5,2.6) {};
+            \node[above left=1pt and 2pt of C1] {$2$};
+            \node[nd] (C2) at (-2.5,2.6) {};
+            \node[above right=1pt and 2pt of C2] {$2$};
+            \node[nd] (C3) at (2.5,2.6) {};
+            \node[above left=1pt and 2pt of C3] {$2$};
+            \node[nd] (C4) at (7.5,2.6) {};
+            \node[above right=1pt and 2pt of C4] {$2$};
+
+            \draw (S1) -- node[above left=0pt and 1pt] {$U$} (C1);
+            \draw (S1) -- node[above right=0pt and 1pt] {$D$} (C2);
+            \draw (S2) -- node[above left=0pt and 1pt] {$U$} (C3);
+            \draw (S2) -- node[above right=0pt and 1pt] {$D$} (C4);
+
+            % Terminal payoffs
+            \node (T1) at (-8.8,0.8) {$(4,4)$};
+            \node (T2) at (-6.2,0.8) {$(0,5)$};
+            \node (T3) at (-3.8,0.8) {$(5,0)$};
+            \node (T4) at (-1.2,0.8) {$(1,1)$};
+            \node (T5) at (1.2,0.8) {$(6,4)$};
+            \node (T6) at (3.8,0.8) {$(0,0)$};
+            \node (T7) at (6.2,0.8) {$(0,0)$};
+            \node (T8) at (8.8,0.8) {$(4,6)$};
+
+            \draw (C1) -- node[above left=0pt and 0pt] {$L$} (T1);
+            \draw (C1) -- node[above right=0pt and 0pt] {$R$} (T2);
+            \draw (C2) -- node[above left=0pt and 0pt] {$L$} (T3);
+            \draw (C2) -- node[above right=0pt and 0pt] {$R$} (T4);
+            \draw (C3) -- node[above left=0pt and 0pt] {$L$} (T5);
+            \draw (C3) -- node[above right=0pt and 0pt] {$R$} (T6);
+            \draw (C4) -- node[above left=0pt and 0pt] {$L$} (T7);
+            \draw (C4) -- node[above right=0pt and 0pt] {$R$} (T8);
+
+            % Information sets
+            \draw[dashed] (C1) .. controls (-5.5,3.35) and (0.5,3.35) .. (C3);
+            \draw[dashed] (C2) .. controls (0.5,1.85) and (5.5,1.85) .. (C4);
+            \end{tikzpicture}
+            }
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        Each player has four strategies,
+        <me>
+          S_1 = \{UU, UD, DU, DD\}, \qquad S_2 = \{LL, LR, RL, RR\},
+        </me>
+        and the two letters mean the following, just as in Buying a Used
+        Car:
+        <me>
+        \text{Player 1: }\;
+        \underbrace{\;\square\;}_{\substack{\text{his move}\\ \text{if the type is } A}}
+        \quad
+        \underbrace{\;\square\;}_{\substack{\text{his move}\\ \text{if the type is } B}}
+        \qquad\qquad
+        \text{Player 2: }\;
+        \underbrace{\;\square\;}_{\substack{\text{her move}\\ \text{if Player 1 moved } U}}
+        \quad
+        \underbrace{\;\square\;}_{\substack{\text{her move}\\ \text{if Player 1 moved } D}}
+        </me>
+      </p>
+    </introduction>
+
+    <task xml:id="hw-types-a-b-p1-words">
+      <statement>
+        <p>
+          Describe Player 1's strategy <m>DU</m> in words.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-types-a-b-p2-words">
+      <statement>
+        <p>
+          Describe Player 2's strategy <m>LR</m> in words.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-types-a-b-profile">
+      <statement>
+        <p>
+          What are the payoffs for the strategy profile <m>(DU, LR)</m>
+          when the interaction is of type <m>A</m>? When it is of type
+          <m>B</m>? What is the expected payoff to each player?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-types-a-b-normal-form">
+      <statement>
+        <p>
+          Construct the Bayesian normal form of this game by filling in
+          the <m>4 \times 4</m> payoff matrix below. One way to organize
+          the work: first find the payoff matrix when the type is
+          <m>A</m> and the payoff matrix when the type is <m>B</m>, then
+          multiply the first by <m>\frac{3}{4}</m>, the second by
+          <m>\frac{1}{4}</m>, and add.
+        </p>
+
+        <table xml:id="table-hw-types-a-b">
+          <title>The Bayesian normal form, to be completed</title>
+          <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+            <col halign="left" right="minor" />
+            <col right="minor" width="15%" />
+            <col right="minor" width="15%" />
+            <col right="minor" width="15%" />
+            <col width="15%" />
+            <row header="yes" bottom="minor">
+              <cell></cell>
+              <cell>Player 2: <m>LL</m></cell>
+              <cell>Player 2: <m>LR</m></cell>
+              <cell>Player 2: <m>RL</m></cell>
+              <cell>Player 2: <m>RR</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>UU</m></cell>
+              <cell></cell><cell></cell><cell></cell><cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>UD</m></cell>
+              <cell></cell><cell></cell><cell></cell><cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>DU</m></cell>
+              <cell></cell><cell></cell><cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell>Player 1: <m>DD</m></cell>
+              <cell></cell><cell></cell><cell></cell><cell></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </task>
+
+    <task xml:id="hw-types-a-b-equilibria">
+      <statement>
+        <p>
+          Use best response to find all Bayesian Nash equilibria of the
+          game.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-beliefs-expected-payoff">
+    <title>Beliefs and Expected Payoffs</title>
+
+    <introduction>
+      <p>
+        Consider the following game in normal form.
+      </p>
+
+      <table xml:id="table-hw-beliefs">
+        <title>A <m>2 \times 3</m> game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>a</m></cell>
+            <cell>Player 2: <m>b</m></cell>
+            <cell>Player 2: <m>c</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>x</m></cell>
+            <cell>(2, 4)</cell>
+            <cell>(2, -1)</cell>
+            <cell>(6, 4)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>y</m></cell>
+            <cell>(1, 2)</cell>
+            <cell>(3, 5)</cell>
+            <cell>(5, 2)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        A player usually doesn't know for sure what the other player will
+        do, but they can have <term>beliefs</term>: a probability for each
+        of the other player's strategies. We write <m>\theta_i</m> for a
+        belief about <em>player <m>i</m>'s</em> strategies, so it is held
+        by the other player. Here:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <m>\theta_1 = \left(\frac{2}{3}, \frac{1}{3}\right)</m> is
+            Player 2's belief about Player 1: Player 2 thinks Player 1
+            will play <m>x</m> with probability <m>\frac{2}{3}</m> and
+            <m>y</m> with probability <m>\frac{1}{3}</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\theta_2 = \left(\frac{1}{7}, \frac{2}{7}, \frac{4}{7}\right)</m>
+            is Player 1's belief about Player 2: Player 1 thinks Player 2
+            will play <m>a</m>, <m>b</m>, <m>c</m> with probabilities
+            <m>\frac{1}{7}</m>, <m>\frac{2}{7}</m>, <m>\frac{4}{7}</m>.
+          </p>
+        </li>
+      </ul>
+      <p>
+        Given a belief, a player's <term>expected payoff</term> from one of
+        their strategies is the expected value from
+        <xref ref="read-4-1" text="title" />: weight each payoff by the
+        probability the player believes it will happen, and add. For
+        example, <m>\pi_1(x, \theta_2)</m> is Player 1's expected payoff
+        from playing <m>x</m> if Player 2 behaves according to
+        <m>\theta_2</m>. A strategy that gives a player the highest
+        expected payoff, given their belief, is a
+        <term>best response</term> to that belief.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-beliefs-player1">
+      <statement>
+        <p>
+          Compute <m>\pi_1(x, \theta_2)</m> and <m>\pi_1(y, \theta_2)</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-beliefs-player2">
+      <statement>
+        <p>
+          Compute <m>\pi_2(\theta_1, a)</m>, <m>\pi_2(\theta_1, b)</m>, and
+          <m>\pi_2(\theta_1, c)</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-beliefs-best-response">
+      <statement>
+        <p>
+          Use your answers to the previous two parts to find Player 1's
+          best response(s) to the belief <m>\theta_2</m> and Player 2's
+          best response(s) to the belief <m>\theta_1</m>.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-simple-poker">
+    <title>A Simple Poker Game</title>
+
+    <introduction>
+      <p>
+        Two players play a simple poker game with a deck of only two
+        cards, a high card (<m>H</m>) and a low card (<m>L</m>). The deck
+        is shuffled and one card is dealt to Player 1, so Player 1 is
+        equally likely to get either card. Player 2 does not receive a
+        card.
+      </p>
+
+      <ul>
+        <li>
+          <p>
+            Player 1 looks at his card and then either bids (<m>B</m>) or
+            folds (<m>F</m>). If he folds, the game ends: Player 1 gets
+            <m>-2</m> and Player 2 gets <m>2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If Player 1 bids, Player 2 either bids or folds. She knows
+            Player 1 has bid, but she does not know his card. If she
+            folds, Player 1 gets <m>2</m> and Player 2 gets <m>-2</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            If both players bid, Player 1 shows his card. With the high
+            card, Player 1 gets <m>4</m> and Player 2 gets <m>-4</m>. With
+            the low card, Player 1 gets <m>-4</m> and Player 2 gets
+            <m>4</m>.
+          </p>
+        </li>
+      </ul>
+
+      <p>
+        Player 1's strategies are <m>BB</m>, <m>BF</m>, <m>FB</m>, and
+        <m>FF</m>, where the first letter is what he does with the high
+        card and the second is what he does with the low card. Player 2
+        only makes one decision, so her strategies are just <m>B</m> and
+        <m>F</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-simple-poker-tree">
+      <statement>
+        <p>
+          Draw the game in extensive form. Start with a node for Nature
+          that determines which card Player 1 gets, and show Player 2's
+          information set.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-simple-poker-normal-form">
+      <statement>
+        <p>
+          Construct the Bayesian normal form of this game by filling in
+          the payoff matrix below.
+        </p>
+
+        <table xml:id="table-hw-simple-poker">
+          <title>The Bayesian normal form, to be completed</title>
+          <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+            <col halign="left" right="minor" />
+            <col right="minor" width="20%" />
+            <col width="20%" />
+            <row header="yes" bottom="minor">
+              <cell></cell>
+              <cell>Player 2: <m>B</m></cell>
+              <cell>Player 2: <m>F</m></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>BB</m></cell>
+              <cell></cell><cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>BF</m></cell>
+              <cell></cell><cell></cell>
+            </row>
+            <row bottom="minor">
+              <cell>Player 1: <m>FB</m></cell>
+              <cell></cell><cell></cell>
+            </row>
+            <row>
+              <cell>Player 1: <m>FF</m></cell>
+              <cell></cell><cell></cell>
+            </row>
+          </tabular>
+        </table>
+      </statement>
+    </task>
+
+    <task xml:id="hw-simple-poker-eliminate">
+      <statement>
+        <p>
+          Show that <m>FB</m> and <m>FF</m> are both strictly dominated,
+          and say which of Player 1's strategies dominates each one.
+          Then explain in words why this makes sense: what do these two
+          strategies have in common?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-simple-poker-no-equilibrium">
+      <statement>
+        <p>
+          Eliminate <m>FB</m> and <m>FF</m>, and use best response on the
+          <m>2 \times 2</m> game that is left to explain why this game has
+          no Bayesian Nash equilibria. Why is it enough to look at the
+          smaller game?
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        In Chapter 5 we will extend the definition of a Nash equilibrium
+        to include mixed strategies. We will then see that this game does
+        have a Nash equilibrium after all, and the book's One-Card
+        Two-Round Poker (Section 5.4) is a longer version of this same
+        game.
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-boss-gorilla-2">
+    <title>The Travails of Boss Gorilla 2</title>
+
+    <introduction>
+      <p>
+        This is Problem 4.7.3 in the book, a variant of
+        <xref ref="read-4-5-setup" text="title" />. It is well known that a
+        fraction <m>p</m> of gorillas can beat Boss Gorilla in a fight,
+        and the remaining fraction <m>1-p</m> will lose to him. But this
+        time, when a Visiting Gorilla appears, <em>neither</em> gorilla
+        knows which kind of visitor he is. They only know the probability
+        <m>p</m>.
+      </p>
+
+      <p>
+        Boss Gorilla is Player 1 and Visiting Gorilla is Player 2. The
+        payoffs come from Section 4.5, with Boss Gorilla's listed first.
+      </p>
+
+      <figure xml:id="fig-hw-boss-gorilla-2">
+        <caption>
+          Boss Gorilla 2. <m>N</m> is Nature, <m>V</m> is Visiting
+          Gorilla, and <m>B</m> is Boss Gorilla. The visitor challenges
+          (<m>c</m>) or leaves (<m>l</m>), and if challenged, Boss Gorilla
+          fights (<m>f</m>) or acquiesces (<m>a</m>). The dashed lines show
+          the two information sets: neither gorilla can tell which branch
+          Nature took.
+        </caption>
+        <image width="85%">
+          <shortdescription>
+            Game tree with Nature moving first, then Visiting Gorilla,
+            then Boss Gorilla, with two information sets.
+          </shortdescription>
+          <description>
+            <p>
+              A node labeled N for Nature has two branches. The left
+              branch, with probability p, is labeled visitor would win.
+              The right branch, with probability 1 minus p, is labeled
+              visitor would lose. Each leads to a node for Visiting
+              Gorilla. A dashed line joins these two nodes, since the
+              visitor does not know which branch Nature took.
+            </p>
+            <p>
+              On the left, Visiting Gorilla can leave, ending the game
+              with payoffs 6 and 0, or challenge, leading to a node for
+              Boss Gorilla, where fighting gives payoffs negative 1 and
+              5, and acquiescing gives 3 and 3. On the right, Visiting
+              Gorilla can challenge, leading to a node for Boss Gorilla,
+              where fighting gives 5 and negative 1 and acquiescing gives
+              3 and 3, or leave, giving 6 and 0. A dashed line joins Boss
+              Gorilla's two nodes. Boss Gorilla's payoff is listed first.
+            </p>
+          </description>
+          <latex-image>
+            \resizebox{13cm}{!}{%
+            \begin{tikzpicture}[
+              font=\scriptsize,
+              nd/.style={circle,fill=black,inner sep=1.3pt}
+            ]
+            \useasboundingbox (-7.6,0.0) rectangle (7.6,6.4);
+
+            % Nature
+            \node[nd] (N) at (0,5.6) {};
+            \node[above=3pt of N] {$N$};
+
+            % Visiting Gorilla nodes
+            \node[nd] (V1) at (-4,4) {};
+            \node[above left=1pt and 2pt of V1] {$V$};
+            \node[nd] (V2) at (4,4) {};
+            \node[above right=1pt and 2pt of V2] {$V$};
+
+            \draw (N) -- (V1);
+            \draw (N) -- (V2);
+            \node at (-3.6,5.55) {visitor would win};
+            \node at (-3.6,5.15) {probability $= p$};
+            \node at (3.6,5.55) {visitor would lose};
+            \node at (3.6,5.15) {probability $= 1-p$};
+
+            % Boss Gorilla nodes
+            \node[nd] (B1) at (-2,2.4) {};
+            \node[above right=1pt and 2pt of B1] {$B$};
+            \node[nd] (B2) at (2,2.4) {};
+            \node[above left=1pt and 2pt of B2] {$B$};
+
+            % Terminal payoffs
+            \node (L1) at (-6.2,0.8) {$(6,0)$};
+            \node (T1) at (-3.2,0.8) {$(-1,5)$};
+            \node (T2) at (-0.8,0.8) {$(3,3)$};
+            \node (T3) at (0.8,0.8) {$(5,-1)$};
+            \node (T4) at (3.2,0.8) {$(3,3)$};
+            \node (L2) at (6.2,0.8) {$(6,0)$};
+
+            \draw (V1) -- node[above left=0pt and 1pt] {$l$} (L1);
+            \draw (V1) -- node[above right=0pt and 1pt] {$c$} (B1);
+            \draw (V2) -- node[above left=0pt and 1pt] {$c$} (B2);
+            \draw (V2) -- node[above right=0pt and 1pt] {$l$} (L2);
+
+            \draw (B1) -- node[above left=0pt and 0pt] {$f$} (T1);
+            \draw (B1) -- node[above right=0pt and 0pt] {$a$} (T2);
+            \draw (B2) -- node[above left=0pt and 0pt] {$f$} (T3);
+            \draw (B2) -- node[above right=0pt and 0pt] {$a$} (T4);
+
+            % Information sets
+            \draw[dashed] (V1) -- (V2);
+            \draw[dashed] (B1) -- (B2);
+            \end{tikzpicture}
+            }
+          </latex-image>
+        </image>
+      </figure>
+
+      <p>
+        Because of the information sets, each gorilla has only two
+        strategies. Visiting Gorilla can challenge (<m>c</m>) or leave
+        (<m>l</m>), and Boss Gorilla can fight if challenged (<m>f</m>)
+        or acquiesce if challenged (<m>a</m>).
+      </p>
+    </introduction>
+
+    <task xml:id="hw-boss-gorilla-2-matrix">
+      <statement>
+        <p>
+          Find the Bayesian normal form of the game, a <m>2 \times 2</m>
+          payoff matrix with entries in terms of <m>p</m>. One way to do
+          this is to find the payoff matrix when Visiting Gorilla would
+          win and the payoff matrix when he would lose, then multiply the
+          first by <m>p</m>, multiply the second by <m>1-p</m>, and add.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-boss-gorilla-2-cases">
+      <statement>
+        <p>
+          Use best response to find the Bayesian Nash equilibria in each
+          of three cases:
+          <m>0 \lt p \lt \frac{1}{6}</m>,
+          <m>\frac{1}{6} \lt p \lt \frac{1}{3}</m>, and
+          <m>\frac{1}{3} \lt p \lt 1</m>.
+          For each equilibrium, describe in a sentence what the gorillas
+          do.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-boss-gorilla-2-compare">
+      <statement>
+        <p>
+          In Section 4.5, where the visitor knows whether he would win,
+          the game has no Bayesian Nash equilibrium (in pure strategies)
+          when <m>p \lt \frac{1}{3}</m>. In this version, where nobody
+          knows, you found an equilibrium for every <m>p</m>. Explain in
+          words what difference the visitor's knowledge makes. Hint: in
+          Section 4.5, what can Boss Gorilla learn from the fact that he
+          has been challenged, and what can he learn from it here?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+<interactive xml:id="question-form-4-ex" iframe="question-form.html?section=chapter 4 exercises" width="100%" aspect="2:1"/>
+</exercises>
