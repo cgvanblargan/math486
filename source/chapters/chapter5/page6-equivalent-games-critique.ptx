@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page6-equivalent-games-critique" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Equivalent Games, Software, and a Critique</title>
+
+  <p>
+    We'll wrap up Chapter 5 with three short sections. There are no
+    checkpoints on this page, so just read and think about the ideas.
+  </p>
+
+  <assemblage xml:id="read-5-9-to-5-11">
+    <title>Sections 5.9 through 5.11</title>
+    <p>
+      <alert>Read Sections 5.9, 5.10, and 5.11.</alert>
+    </p>
+    <p>
+      Here's what's in each one:
+      <ul>
+        <li>
+          <p>
+            <alert>5.9, Equivalent Games:</alert> how much the actual payoff
+            numbers matter. Some changes to the payoffs don't change the
+            analysis at all, and which changes are allowed depends on
+            whether you're working with pure strategies or mixed strategies.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>5.10, Software:</alert> a summary of the procedure for
+            finding mixed strategy Nash equilibria, and a pointer to software
+            that does it for you.
+          </p>
+        </li>
+        <li>
+          <p>
+            <alert>5.11, Critique:</alert> some reasons to question whether
+            people really play mixed strategy Nash equilibria. Think about
+            whether you find these arguments convincing!
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-5-9" iframe="question-form.html?section=5.9" width="100%" aspect="2:1"/>
+</section>

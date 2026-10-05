@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="page5-ultimatum-water-pollution" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Ultimatum Minigame and Water Pollution</title>
+
+  <p>
+    This page has two more examples of finding mixed strategy Nash
+    equilibria with the Fundamental Theorem (Theorem 5.2). In the first one,
+    the two players end up using different numbers of active strategies. The
+    second one has three players!
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Section 5.6: Ultimatum Minigame                              -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-5-6">
+    <title>Section 5.6, The Ultimatum Minigame</title>
+    <p>
+      <alert>Read all of Section 5.6.</alert>
+    </p>
+    <p>
+      It's a short section. Pay attention to how the book uses the
+      Fundamental Theorem: first on the pure strategy equilibrium
+      <m>(f, r)</m>, and then on the mixed profiles
+      <m>(f,\ qa + (1-q)r)</m>.
+    </p>
+  </assemblage>
+
+  <p>
+    Let's make sure the way the book applied the theorem is clear. The book
+    looks at strategy profiles of the form <m>(f,\ qa + (1-q)r)</m> with
+    <m>0 \lt q \lt 1</m>. Theorem 5.2 gives a list of conditions to check,
+    and which conditions show up depends on which strategies are active.
+  </p>
+
+  <exercise xml:id="check-ultimatum-conditions">
+    <statement>
+      <p>
+        To show that <m>(f,\ qa + (1-q)r)</m> with <m>0 \lt q \lt 1</m> is a
+        Nash equilibrium, which conditions from Theorem 5.2 do we need to
+        check? Here <m>\sigma_2 = qa + (1-q)r</m> is Bob's mixed strategy.
+      </p>
+      <p>
+        Drag every condition we need into the answer area. The order doesn't
+        matter, and not every condition belongs!
+      </p>
+    </statement>
+    <blocks>
+      <block name="bob-eq" depends=""><m>\pi_2(f, a) = \pi_2(f, r)</m></block>
+      <block name="alice-ineq" depends=""><m>\pi_1(f, \sigma_2) \geq \pi_1(u, \sigma_2)</m></block>
+      <block correct="no"><m>\pi_1(f, \sigma_2) = \pi_1(u, \sigma_2)</m></block>
+      <block correct="no"><m>\pi_1(u, \sigma_2) \geq \pi_1(f, \sigma_2)</m></block>
+      <block correct="no"><m>\pi_2(f, \sigma_2) \geq \pi_2(f, r)</m></block>
+    </blocks>
+    <hint>
+      <p>
+        Alice has only one active strategy, <m>f</m>. Both of Bob's pure
+        strategies, <m>a</m> and <m>r</m>, are active.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>\pi_2(f, a) = \pi_2(f, r)</m> and
+        <m>\pi_1(f, \sigma_2) \geq \pi_1(u, \sigma_2)</m>. Bob's two
+        active strategies must earn him the same payoff (condition (1)), and
+        Alice's inactive <m>u</m> can't beat her active <m>f</m> (condition
+        (2)). Alice has only one active strategy, so there's no equality for
+        her, and Bob has no inactive strategies, so there's no inequality for
+        him.
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    So the equality <m>\pi_2(f, a) = \pi_2(f, r)</m> holds automatically
+    (both are <m>2</m>), and all the work is in Alice's inequality, which
+    comes out to <m>q \leq \frac{2}{3}</m>. Before moving on, let's make sure
+    that answer makes sense.
+  </p>
+
+  <exercise xml:id="check-ultimatum-why-upper-bound">
+    <statement>
+      <p>
+        The condition turned out to be <m>q \leq \frac{2}{3}</m>. Why does it
+        make sense that this is an upper limit on <m>q</m>, rather than a
+        lower limit?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            Bob wants to accept unfair offers, so <m>q</m> has to stay in a
+            range that keeps Bob happy.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Bob is actually indifferent here: against <m>f</m>, accepting and
+            rejecting both give him <m>2</m>. The condition on <m>q</m> comes
+            from <em>Alice's</em> inequality, not Bob's.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>q</m> is how often Bob rejects an unfair offer, so he has to
+            reject often enough.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The idea is right, but <m>q</m> is how often Bob
+            <em>accepts</em>. The book's last sentence switches to talking
+            about rejecting, <m>1 - q \geq \frac{1}{3}</m>, which says the
+            same thing as <m>q \leq \frac{2}{3}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>q</m> is how often Bob accepts an unfair offer. The more he
+            accepts, the more tempting the unfair offer is for Alice, so
+            <m>q</m> can't be too big or she'd switch to <m>u</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. The fair offer always pays Alice <m>2</m>. The unfair
+            offer pays her <m>3</m> when Bob accepts and <m>0</m> when he
+            rejects, so it's worth <m>3q</m> on average. Alice sticks with the
+            fair offer as long as <m>2 \geq 3q</m>. In other words, Bob
+            doesn't have to reject unfair offers for sure. Rejecting them at
+            least <m>\frac{1}{3}</m> of the time is enough.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It's just how the algebra works out, and the direction doesn't
+            have a meaning.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The direction does mean something! Think about what happens to
+            Alice's incentive to make an unfair offer as Bob becomes more
+            willing to accept it.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Here the inequality gave us a <em>condition</em> on <m>q</m>. In other
+    problems, it can go differently: a candidate profile can satisfy all the
+    equalities and still fail the inequality, and then it isn't a Nash
+    equilibrium. That's why the inequalities always need to be checked.
+  </p>
+
+  <p>
+    We're going to skip Section 5.7 (Colonel Blotto). Next up is Section
+    5.8.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Section 5.8: Water Pollution 3                               -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-5-8">
+    <title>Section 5.8, Water Pollution 3</title>
+    <p>
+      <alert>Read all of Section 5.8.</alert>
+    </p>
+    <p>
+      This is the Water Pollution game from Section 3.3, now looking for
+      mixed strategy equilibria. Watch for two things:
+      <ul>
+        <li>
+          <p>
+            The book writes the payoffs as functions of <m>(x, y, z)</m>, the
+            probabilities that each firm purifies. Plugging in <m>1</m> or
+            <m>0</m> for one of them means that firm plays a pure strategy.
+          </p>
+        </li>
+        <li>
+          <p>
+            The book only writes out the first of the three indifference
+            equations in full. We'll do the second one together below.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <p>
+    Here's Table 5.2 again for reference. In each triple, the payoffs are
+    listed in the order (Firm 1, Firm 2, Firm 3).
+  </p>
+
+  <table xml:id="table-water-pollution-firm3-g">
+    <title>Water Pollution, Firm 3 purifies (probability <m>z</m>)</title>
+    <tabular halign="center">
+      <col/>
+      <col/>
+      <col right="minor"/>
+      <col/>
+      <col/>
+      <row header="yes">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell colspan="2">Firm 2</cell>
+      </row>
+      <row header="yes">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell><m>y</m></cell>
+        <cell><m>{1-y}</m></cell>
+      </row>
+      <row header="yes" bottom="minor">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell><m>g</m></cell>
+        <cell><m>b</m></cell>
+      </row>
+      <row>
+        <cell>Firm 1</cell>
+        <cell><m>x</m></cell>
+        <cell><m>g</m></cell>
+        <cell>(<m>-1</m>, <m>-1</m>, <m>-1</m>)</cell>
+        <cell>(<m>-1</m>, <m>0</m>, <m>-1</m>)</cell>
+      </row>
+      <row>
+        <cell/>
+        <cell><m>{1-x}</m></cell>
+        <cell><m>b</m></cell>
+        <cell>(<m>0</m>, <m>-1</m>, <m>-1</m>)</cell>
+        <cell>(<m>-3</m>, <m>-3</m>, <m>-4</m>)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <table xml:id="table-water-pollution-firm3-b">
+    <title>Water Pollution, Firm 3 pollutes (probability <m>1-z</m>)</title>
+    <tabular halign="center">
+      <col/>
+      <col/>
+      <col right="minor"/>
+      <col/>
+      <col/>
+      <row header="yes">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell colspan="2">Firm 2</cell>
+      </row>
+      <row header="yes">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell><m>y</m></cell>
+        <cell><m>{1-y}</m></cell>
+      </row>
+      <row header="yes" bottom="minor">
+        <cell/>
+        <cell/>
+        <cell/>
+        <cell><m>g</m></cell>
+        <cell><m>b</m></cell>
+      </row>
+      <row>
+        <cell>Firm 1</cell>
+        <cell><m>x</m></cell>
+        <cell><m>g</m></cell>
+        <cell>(<m>-1</m>, <m>-1</m>, <m>0</m>)</cell>
+        <cell>(<m>-4</m>, <m>-3</m>, <m>-3</m>)</cell>
+      </row>
+      <row>
+        <cell/>
+        <cell><m>{1-x}</m></cell>
+        <cell><m>b</m></cell>
+        <cell>(<m>-3</m>, <m>-4</m>, <m>-3</m>)</cell>
+        <cell>(<m>-3</m>, <m>-3</m>, <m>-3</m>)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <exercise xml:id="check-water-pollution-notation">
+    <statement>
+      <p>
+        The book explains what <m>\pi_1(1, y, z)</m> means. Now try one it
+        doesn't explain: what does <m>\pi_3(x, y, 0)</m> represent?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            Firm 3's payoff when Firm 3 purifies for sure, and Firms 1 and 2
+            use their mixed strategies.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Close, but check what the <m>0</m> means. <m>z</m> is the
+            probability that Firm 3 <em>purifies</em>, so <m>z = 0</m> means
+            Firm 3 never purifies.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Firm 3's payoff when Firm 3 pollutes for sure, and Firms 1 and 2
+            use their mixed strategies <m>xg + (1-x)b</m> and
+            <m>yg + (1-y)b</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Since <m>z</m> is the probability that Firm 3 purifies,
+            <m>z = 0</m> means it plays <m>b</m> for sure. Only Firm 3's
+            strategy is fixed; the other two are still mixing. This is the
+            same idea as <m>\pi_1(p, 0)</m> in the Battle of the Sexes on the
+            last page, where plugging in <m>q = 0</m> meant Bob went to the
+            wrestling match for sure.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Firm 3's payoff when all three firms pollute.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Only the third coordinate is fixed at <m>0</m>. Firms 1 and 2 are
+            still mixing with probabilities <m>x</m> and <m>y</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Firm 3's payoff when Firm 1 pollutes for sure.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            The position tells you which firm is fixed. The <m>0</m> is in
+            the third coordinate, so it's Firm 3's strategy that's fixed.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The book writes out the first indifference equation,
+    <m>\pi_1(1, y, z) = \pi_1(0, y, z)</m>, in full. Let's do the second one,
+    <m>\pi_2(x, 1, z) = \pi_2(x, 0, z)</m>, which says Firm 2 gets the same
+    payoff from <m>g</m> and <m>b</m>.
+  </p>
+
+  <exercise xml:id="check-water-pollution-firm2-long-form">
+    <statement>
+      <p>
+        Fill in the coefficients to write out Firm 2's payoffs. Use the
+        tables above, and remember that Firm 2's payoff is the
+        <em>second</em> entry in each triple.
+      </p>
+      <p>
+        If Firm 2 purifies:
+      </p>
+      <p>
+        <m>\pi_2(x, 1, z) =</m>
+        <fillin name="g1" answer="-1" width="3"/>
+        <m>\cdot xz \;+</m>
+        <fillin name="g2" answer="-1" width="3"/>
+        <m>\cdot (1-x)z \;+</m>
+        <fillin name="g3" answer="-1" width="3"/>
+        <m>\cdot x(1-z) \;+</m>
+        <fillin name="g4" answer="-4" width="3"/>
+        <m>\cdot (1-x)(1-z)</m>
+      </p>
+      <p>
+        If Firm 2 pollutes:
+      </p>
+      <p>
+        <m>\pi_2(x, 0, z) =</m>
+        <fillin name="b1" answer="0" width="3"/>
+        <m>\cdot xz \;+</m>
+        <fillin name="b2" answer="-3" width="3"/>
+        <m>\cdot (1-x)z \;+</m>
+        <fillin name="b3" answer="-3" width="3"/>
+        <m>\cdot x(1-z) \;+</m>
+        <fillin name="b4" answer="-3" width="3"/>
+        <m>\cdot (1-x)(1-z)</m>
+      </p>
+    </statement>
+    <evaluation>
+      <evaluate name="g1">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <feedback>
+          <p>
+            The <m>xz</m> term is the cell where Firms 1 and 3 both purify.
+            Look in the <q>Firm 3 purifies</q> table, row <m>g</m>, column
+            <m>g</m>.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="g2">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="0"/>
+          <feedback>
+            <p>
+              That's the first entry, Firm 1's payoff. Firm 2's payoff is
+              the second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            The <m>(1-x)z</m> term is the cell where Firm 1 pollutes and
+            Firm 3 purifies.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="g3">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="0"/>
+          <feedback>
+            <p>
+              That's the third entry, Firm 3's payoff. Firm 2's payoff is
+              the second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            The <m>x(1-z)</m> term is the cell where Firm 1 purifies and
+            Firm 3 pollutes. Look in the <q>Firm 3 pollutes</q> table.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="g4">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="-3"/>
+          <feedback>
+            <p>
+              That's Firm 1's or Firm 3's payoff. Firm 2's payoff is the
+              second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            The <m>(1-x)(1-z)</m> term is the cell where Firms 1 and 3 both
+            pollute, while Firm 2 purifies.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="b1">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="-1"/>
+          <feedback>
+            <p>
+              That's Firm 1's or Firm 3's payoff. Firm 2's payoff is the
+              second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            Now Firm 2 pollutes, so use column <m>b</m>. The <m>xz</m> term
+            is the cell where Firms 1 and 3 both purify.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="b2">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="-4"/>
+          <feedback>
+            <p>
+              That's the third entry, Firm 3's payoff. Firm 2's payoff is
+              the second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            Use column <m>b</m> of the <q>Firm 3 purifies</q> table, row
+            <m>b</m>.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="b3">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="-4"/>
+          <feedback>
+            <p>
+              That's the first entry, Firm 1's payoff. Firm 2's payoff is
+              the second entry.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            Use column <m>b</m> of the <q>Firm 3 pollutes</q> table, row
+            <m>g</m>.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="b4">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <feedback>
+          <p>
+            Use column <m>b</m> of the <q>Firm 3 pollutes</q> table, row
+            <m>b</m>.
+          </p>
+        </feedback>
+      </evaluate>
+    </evaluation>
+    <solution>
+      <p>
+        Setting the two payoffs equal gives
+        <me>
+          -xz - (1-x)z - x(1-z) - 4(1-x)(1-z)
+          = 0xz - 3(1-x)z - 3x(1-z) - 3(1-x)(1-z).
+        </me>
+        Compare this with the book's version of Firm 1's equation. It has
+        exactly the same shape, with <m>y</m> replaced by <m>x</m>. That's
+        the symmetry of the game at work: from Firm 2's point of view, the
+        situation is the same as Firm 1's. That's why this equation
+        simplifies to <m>1 - 3x - 3z + 6xz = 0</m>, the first equation in
+        (5.13).
+      </p>
+    </solution>
+  </exercise>
+
+  <interactive xml:id="question-form-5-6" iframe="question-form.html?section=5.6" width="100%" aspect="2:1"/>
+</section>

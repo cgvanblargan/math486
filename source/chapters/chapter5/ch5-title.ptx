@@ -8,7 +8,8 @@
      <xi:include href="./page1-mixed-strategies.ptx" />
      <xi:include href="./page2-tennis-other-methods.ptx" />
      <xi:include href="./page3-poker.ptx" />
-
- 
+     <xi:include href="./page4-zero-sum.ptx" />
+     <xi:include href="./page5-ultimatum-water-pollution.ptx" />
+     <xi:include href="./page6-equivalent-games-critique.ptx" /> 
 
 </chapter>
