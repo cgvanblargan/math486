@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="page4-zero-sum" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>Two-Player Zero-Sum Games</title>
+  <title>Maximins and Two-Player Zero-Sum Games</title>
 
   <p>
-    So far, every time we've looked for an equilibrium, we've asked about best
-    responses: what's my best move, given what you're doing? In this section
-    we'll look at a different way to think about strategy, which is to play
-    it safe. Then we'll see that in a certain kind of game, playing it safe
-    and playing a Nash equilibrium turn out to be exactly the same thing!
+    Later on this page, we'll introduce <em>zero-sum games</em>. But first,
+    we'll work out what a <q>maximin</q> is. It turns out to have an
+    important connection to zero-sum games and their Nash equilibria.
   </p>
 
   <p>
-    We'll build up the new ideas first, and then you'll read the book's
-    version.
+    We'll go through maximins here in the notes first. The same material is
+    also in the book, and you'll skim through it in the first reading block later on
+    this page.
   </p>
 
   <!-- ============================================================ -->
@@ -22,24 +21,24 @@
 
   <p>
     Suppose Player 1 commits to a strategy <m>\sigma_1</m>. What's the worst
-    that could happen to her? Player 2 could play anything, so we look at
+    that could happen to them? Player 2 could play anything, so we look at
     the smallest payoff Player 1 could get as we range over all of Player 2's
     possible strategies <m>\sigma_2</m>:
     <me>
       m_1(\sigma_1) = \min_{\sigma_2} \pi_1(\sigma_1, \sigma_2)
     </me>
     So if Player 1 plays <m>\sigma_1</m>, then <m>m_1(\sigma_1)</m> is the
-    smallest possible payoff she can get. It's her worst case.
+    smallest possible payoff they can get.
   </p>
 
   <p>
-    Let's try it on a small example. Here are Player 1's payoffs when she
-    plays a strategy called Top, against each of Player 2's three pure
+    Let's try it on a small example. Here are Player 1's payoffs for two of
+    their strategies, Top and Bottom, against each of Player 2's three pure
     strategies. (Only Player 1's payoffs are shown.)
   </p>
 
-  <table xml:id="table-maximin-top-row">
-    <title>Player 1's payoffs when she plays Top</title>
+  <table xml:id="table-maximin-example">
+    <title>Player 1's payoffs for Top and Bottom</title>
     <tabular halign="center">
       <row header="yes" bottom="minor">
         <cell/>
@@ -53,14 +52,27 @@
         <cell><m>-1</m></cell>
         <cell><m>2</m></cell>
       </row>
+      <row>
+        <cell>Player 1 plays Bottom</cell>
+        <cell><m>1</m></cell>
+        <cell><m>0</m></cell>
+        <cell><m>2</m></cell>
+      </row>
     </tabular>
   </table>
 
-  <exercise xml:id="check-maximin-top-worst-case">
+  <exercise xml:id="check-maximin-worst-cases">
     <statement>
       <p>
-        What is <m>m_1(\text{Top})</m>?
+        Find Player 1's worst case for each of their two strategies.
+      </p>
+      <p>
+        <m>m_1(\text{Top}) =</m>
         <fillin name="mtop" answer="-1" width="3"/>
+      </p>
+      <p>
+        <m>m_1(\text{Bottom}) =</m>
+        <fillin name="mbot" answer="0" width="3"/>
       </p>
     </statement>
     <evaluation>
@@ -69,8 +81,8 @@
           <numcmp use-answer="yes"/>
           <feedback>
             <p>
-              Correct. The worst thing Player 2 can do to her is play M. What
-              about mixed strategies for Player 2, since <m>\sigma_2</m>
+              Correct. The worst thing Player 2 can do to them is play M.
+              What about mixed strategies for Player 2, since <m>\sigma_2</m>
               ranges over all of them? A mixed strategy gives Player 1 a
               weighted average of <m>3</m>, <m>-1</m>, and <m>2</m>, and an
               average can't be lower than the smallest number being averaged.
@@ -84,7 +96,7 @@
           <feedback>
             <p>
               That's the <em>best</em> case for Top. We want the worst case,
-              the smallest payoff Player 2 could leave her with.
+              the smallest payoff Player 2 could leave them with.
             </p>
           </feedback>
         </test>
@@ -92,9 +104,9 @@
           <numcmp value="1.3333" tolerance="0.01"/>
           <feedback>
             <p>
-              That's the average of the three payoffs, which is what Player 1
-              would get if Player 2 picked each column equally often. But
-              <m>m_1</m> asks about the worst Player 2 could do to her, not a
+              That's the average of Top's three payoffs, which is what Player
+              1 would get if Player 2 picked each column equally often. But
+              <m>m_1</m> asks about the worst Player 2 could do to them, not a
               typical outcome.
             </p>
           </feedback>
@@ -103,7 +115,7 @@
           <numcmp min="-1000" max="-1.001"/>
           <feedback>
             <p>
-              Can Player 2 push her below <m>-1</m>? Even with a mixed
+              Can Player 2 push them below <m>-1</m>? Even with a mixed
               strategy, Player 1 gets a weighted average of <m>3</m>,
               <m>-1</m>, and <m>2</m>, and an average can't be lower than the
               smallest number being averaged.
@@ -112,8 +124,47 @@
         </test>
         <feedback>
           <p>
-            Look for the smallest payoff in the row. That's the worst thing
-            Player 2 can do to her.
+            Look for the smallest payoff in the Top row. That's the worst
+            thing Player 2 can do to them.
+          </p>
+        </feedback>
+      </evaluate>
+      <evaluate name="mbot">
+        <test correct="yes">
+          <numcmp use-answer="yes"/>
+        </test>
+        <test>
+          <numcmp value="-1"/>
+          <feedback>
+            <p>
+              <m>-1</m> is the smallest number in the whole table, but it's
+              in the Top row. <m>m_1(\text{Bottom})</m> only looks at what
+              happens when Player 1 plays Bottom.
+            </p>
+          </feedback>
+        </test>
+        <test>
+          <numcmp value="2"/>
+          <feedback>
+            <p>
+              That's the <em>best</em> case for Bottom. We want the worst
+              case.
+            </p>
+          </feedback>
+        </test>
+        <test>
+          <numcmp value="1"/>
+          <feedback>
+            <p>
+              That's the average of Bottom's three payoffs. But <m>m_1</m>
+              asks about the worst Player 2 could do to them, not a typical
+              outcome.
+            </p>
+          </feedback>
+        </test>
+        <feedback>
+          <p>
+            Look for the smallest payoff in the Bottom row.
           </p>
         </feedback>
       </evaluate>
@@ -121,27 +172,82 @@
   </exercise>
 
   <p>
-    Now, Player 1 gets to choose <m>\sigma_1</m>. If she's playing it safe,
-    she wants the strategy whose worst case is as good as possible. That's
-    called a <term>maximin strategy</term> for Player 1, and the book writes
-    it as <m>\sigma_1^\dagger</m>. Her worst case when she plays it is called
-    her <term>maximin payoff</term>, written <m>m_1^\dagger</m>:
+    Now suppose Player 1 is risk-averse, so they want to choose a strategy
+    <m>\sigma_1</m> that makes the worst-case scenario as good as possible.
+    More precisely, they want the <m>\sigma_1</m> with the largest
+    <m>m_1(\sigma_1)</m>. That's called a <term>maximin strategy</term> for
+    Player 1, which we denote <m>\sigma_1^\dagger</m>. The corresponding
+    <term>maximin payoff</term> is written <m>m_1^\dagger</m>:
     <me>
       m_1^\dagger = m_1(\sigma_1^\dagger) = \max_{\sigma_1} m_1(\sigma_1)
       = \max_{\sigma_1} \min_{\sigma_2} \pi_1(\sigma_1, \sigma_2)
     </me>
-    By playing <m>\sigma_1^\dagger</m>, Player 1 guarantees herself at least
-    <m>m_1^\dagger</m> no matter what Player 2 does, and no other strategy
-    guarantees her more.
+    By playing <m>\sigma_1^\dagger</m>, Player 1 guarantees themselves at
+    least <m>m_1^\dagger</m> no matter what Player 2 does, and no other
+    strategy guarantees them more.
   </p>
 
-  <p>
-    Careful with the name: it's <em>maximin</em>, the max of the mins.
-    <q>Minimax</q> sounds very similar, and it rolls off the tongue a bit
-    easier, but it's a different word. The order matters: first take the
-    min (the worst case for each strategy), then the max (the best of those
-    worst cases).
-  </p>
+  <exercise xml:id="check-maximin-example-strategy">
+    <statement>
+      <p>
+        Go back to the payoffs in <xref ref="table-maximin-example"/>. You
+        found <m>m_1(\text{Top}) = -1</m> and <m>m_1(\text{Bottom}) = 0</m>.
+        If Player 1 is choosing between Top and Bottom, what is their maximin
+        strategy, and what is their maximin payoff?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>Top, with maximin payoff <m>3</m></p>
+        </statement>
+        <feedback>
+          <p>
+            <m>3</m> is Top's <em>best</em> case. A maximin strategy compares
+            worst cases: <m>m_1(\text{Top}) = -1</m> and
+            <m>m_1(\text{Bottom}) = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Top, with maximin payoff <m>-1</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Top's worst case is <m>-1</m>, but Bottom's worst case is
+            better. The maximin strategy is the one with the
+            <em>largest</em> worst case.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Bottom, with maximin payoff <m>0</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Bottom's worst case (<m>0</m>) beats Top's
+            (<m>-1</m>), so by playing Bottom, Player 1 guarantees at least
+            <m>0</m>. Could a mix of Top and Bottom do even better? Not here:
+            against M, any mix earns at most <m>0</m>, since Top gets
+            <m>-1</m> and Bottom gets <m>0</m> there.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Bottom, with maximin payoff <m>2</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Bottom is the right strategy, but <m>2</m> is its best case. The
+            maximin payoff is the worst case of the maximin strategy.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
 
   <p>
     We can define the same things for Player 2: her worst case
@@ -156,17 +262,19 @@
       <p>
         Build the formula for Player 2's maximin payoff
         <m>m_2^\dagger</m> by putting the blocks in order. Not every block
-        belongs!
+        belongs! (The blocks can't show typeset math, so
+        <c>max_σ₂</c> stands for <m>\displaystyle\max_{\sigma_2}</m>, and
+        so on.)
       </p>
     </statement>
     <blocks layout="horizontal">
-      <block><m>m_2^\dagger =</m></block>
-      <block><m>\max_{\sigma_2}</m></block>
-      <block><m>\min_{\sigma_1}</m></block>
-      <block><m>\pi_2(\sigma_1, \sigma_2)</m></block>
-      <block correct="no"><m>\max_{\sigma_1}</m></block>
-      <block correct="no"><m>\min_{\sigma_2}</m></block>
-      <block correct="no"><m>\pi_1(\sigma_1, \sigma_2)</m></block>
+      <block>m₂† =</block>
+      <block>max_σ₂</block>
+      <block>min_σ₁</block>
+      <block>π₂(σ₁, σ₂)</block>
+      <block correct="no">max_σ₁</block>
+      <block correct="no">min_σ₂</block>
+      <block correct="no">π₁(σ₁, σ₂)</block>
     </blocks>
     <hint>
       <p>
@@ -192,7 +300,7 @@
     Finally, a strategy profile <m>(\sigma_1^\dagger, \sigma_2^\dagger)</m>
     in which <em>both</em> players use maximin strategies is called a
     <term>maximin equilibrium</term>. In a maximin equilibrium, each player
-    gets at least her maximin payoff <m>m_i^\dagger</m>.
+    gets at least their maximin payoff <m>m_i^\dagger</m>.
   </p>
 
   <!-- ============================================================ -->
@@ -259,15 +367,24 @@
     Like the book, we'll write a strategy profile as <m>(p, q)</m> instead of
     <m>(\sigma_1, \sigma_2)</m>. Alice's expected payoff is
     <me>
-      \pi_1(p, q) = 2pq + 1 \cdot (1-p)(1-q)
+      \pi_1(p, q) = 2 \cdot pq + 0 \cdot p(1-q) + 0 \cdot (1-p)q
+      + 1 \cdot (1-p)(1-q),
     </me>
-    which we can rearrange as
+    which simplifies to
     <me>
       \pi_1(p, q) = (1 - p) + (3p - 1)q.
     </me>
-    Written this way, you can see that if we fix <m>p</m>, then
-    <m>\pi_1</m> is a <em>line</em> in <m>q</m> with slope <m>3p - 1</m>. That
-    slope is exactly the partial derivative the book computes:
+  </p>
+
+  <p>
+    Each fixed value of <m>p</m> corresponds to one of Alice's strategies,
+    <m>\sigma_1 = p \cdot \text{concert} + (1-p) \cdot \text{wrestling}</m>.
+    So for each <m>p</m>, we can find Alice's worst case:
+    <me>
+      m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q).
+    </me>
+    To find it, we hold <m>p</m> fixed and look for the <m>q</m> that
+    minimizes <m>\pi_1(p, q)</m>. Differentiating with respect to <m>q</m>:
     <me>
       \frac{\partial \pi_1}{\partial q} = 3p - 1, \quad\text{which is }
       \begin{cases}
@@ -276,52 +393,17 @@
         \text{positive} \amp \text{if } \frac{1}{3} \lt p \leq 1.
       \end{cases}
     </me>
+    For a fixed <m>p</m>, the graph of <m>\pi_1(p, q)</m> is a line in
+    <m>q</m> with slope <m>3p - 1</m>, and the sign of that slope tells us
+    where the line is lowest as <m>q</m> runs from <m>0</m> to <m>1</m>.
+    Here are the graphs for one sample value of <m>p</m> from each of the
+    three cases.
   </p>
 
-  <p>
-    In this notation, Alice's worst case when she plays <m>p</m> is
-    <me>
-      m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q).
-    </me>
-    To find it, we need to know where the line <m>\pi_1(p, q)</m> is lowest
-    as <m>q</m> runs from <m>0</m> to <m>1</m>. Here are the graphs for three
-    sample values of <m>p</m>.
-  </p>
+  <!-- The three graphs are static files: assets/ch5-graph/bos-pi1-family-graphs.svg
+       (web) and .pdf (print). They were made from the TikZ code below. To change
+       the graphs, edit this code, compile it, and replace both files.
 
-  <figure xml:id="fig-bos-pi1-three-p">
-    <caption>
-      Alice's payoff <m>\pi_1(p, q)</m> as a function of Bob's <m>q</m>, for
-      <m>p = 0.2</m>, <m>p = \frac{1}{3}</m>, and <m>p = 0.75</m>. The dot
-      marks the lowest point on each graph.
-    </caption>
-    <image width="100%">
-      <shortdescription>
-        Three graphs of Alice's payoff against Bob's probability q: decreasing
-        for p equals 0.2, flat for p equals one third, and increasing for p
-        equals 0.75.
-      </shortdescription>
-      <description>
-        <p>
-          Three side-by-side graphs. Each has Bob's probability q of going to
-          the concert on the horizontal axis, from 0 to 1, and Alice's
-          expected payoff on the vertical axis, from 0 to 1.6.
-        </p>
-        <p>
-          Left graph, p equals 0.2: a straight line decreasing from 0.8 at q
-          equals 0 down to 0.4 at q equals 1. The lowest point, 0.4 at q
-          equals 1, is marked with a dot.
-        </p>
-        <p>
-          Middle graph, p equals one third: a horizontal line at height two
-          thirds. Every value of q gives the same payoff, two thirds.
-        </p>
-        <p>
-          Right graph, p equals 0.75: a straight line increasing from 0.25 at
-          q equals 0 up to 1.5 at q equals 1. The lowest point, 0.25 at q
-          equals 0, is marked with a dot.
-        </p>
-      </description>
-      <latex-image>
         \begin{tikzpicture}[font=\footnotesize]
         \begin{axis}[
           name=panelA,
@@ -330,13 +412,11 @@
           xmin=0, xmax=1.05, ymin=0, ymax=1.65,
           xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
           xlabel={$q$}, ylabel={$\pi_1(p,q)$},
-          title={$p = 0.2$},
+          title style={align=center},
+          title={$p = 0.2$\\{\scriptsize like every $p$ with $0 \le p &lt; \frac{1}{3}$}},
           clip=false
         ]
           \addplot[domain=0:1, very thick] {0.8 - 0.4*x};
-          \addplot[only marks, mark=*, mark size=2.2pt] coordinates {(1,0.4)};
-          \node[anchor=south east, align=center, font=\scriptsize]
-            at (axis cs:1,0.62) {lowest: $0.4$\\at $q = 1$};
         \end{axis}
         \begin{axis}[
           name=panelB,
@@ -346,7 +426,8 @@
           xmin=0, xmax=1.05, ymin=0, ymax=1.65,
           xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
           xlabel={$q$},
-          title={$p = \frac{1}{3}$},
+          title style={align=center},
+          title={$p = \frac{1}{3}$\\{\scriptsize the only $p$ in its case}},
           clip=false
         ]
           \addplot[domain=0:1, very thick] {2/3};
@@ -361,13 +442,95 @@
           xmin=0, xmax=1.05, ymin=0, ymax=1.65,
           xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
           xlabel={$q$},
-          title={$p = 0.75$},
+          title style={align=center},
+          title={$p = 0.75$\\{\scriptsize like every $p$ with $\frac{1}{3} &lt; p \le 1$}},
           clip=false
         ]
           \addplot[domain=0:1, very thick] {0.25 + 1.25*x};
-          \addplot[only marks, mark=*, mark size=2.2pt] coordinates {(0,0.25)};
-          \node[anchor=west, align=center, font=\scriptsize]
-            at (axis cs:0.3,0.25) {lowest: $0.25$\\at $q = 0$};
+        \end{axis}
+        \end{tikzpicture}
+        -->
+    <figure xml:id="fig-bos-pi1-three-p">
+    <caption>
+      Alice's payoff <m>\pi_1(p, q)</m> as a function of Bob's <m>q</m>, for
+      one sample value of <m>p</m> from each case: <m>p = 0.2</m>,
+      <m>p = \frac{1}{3}</m>, and <m>p = 0.75</m>. Each graph looks like
+      every other graph in its case. For example, every <m>p</m> with
+      <m>0 \leq p \lt \frac{1}{3}</m> gives a line shaped like the one for
+      <m>p = 0.2</m>.
+    </caption>
+    <image xml:id="img-bos-pi1-family-graphs" width="100%">
+      <shortdescription>
+        Three graphs of Alice's payoff against Bob's probability q: decreasing
+        for p equals 0.2, flat for p equals one third, and increasing for p
+        equals 0.75.
+      </shortdescription>
+      <description>
+        <p>
+          Three side-by-side graphs. Each has Bob's probability q of going to
+          the concert on the horizontal axis, from 0 to 1, and Alice's
+          expected payoff on the vertical axis, from 0 to 1.6.
+        </p>
+        <p>
+          Left graph, p equals 0.2, labeled as looking like every p that is
+          at least 0 and less than one third: a straight line decreasing from
+          0.8 at q equals 0 down to 0.4 at q equals 1.
+        </p>
+        <p>
+          Middle graph, p equals one third, labeled as the only p in its
+          case: a horizontal line at height two thirds. Every value of q
+          gives the same payoff, two thirds.
+        </p>
+        <p>
+          Right graph, p equals 0.75, labeled as looking like every p that is
+          greater than one third and at most 1: a straight line increasing
+          from 0.25 at q equals 0 up to 1.5 at q equals 1.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}[font=\footnotesize]
+        \begin{axis}[
+          name=panelA,
+          width=5.4cm, height=4.6cm,
+          axis lines=left,
+          xmin=0, xmax=1.05, ymin=0, ymax=1.65,
+          xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
+          xlabel={$q$}, ylabel={$\pi_1(p,q)$},
+          title style={align=center},
+          title={$p = 0.2$\\{\scriptsize like every $p$ with $0 \le p &lt; \frac{1}{3}$}},
+          clip=false
+        ]
+          \addplot[domain=0:1, samples=2, very thick] {0.8 - 0.4*x};
+        \end{axis}
+        \begin{axis}[
+          name=panelB,
+          at={(panelA.south east)}, anchor=south west, xshift=1.1cm,
+          width=5.4cm, height=4.6cm,
+          axis lines=left,
+          xmin=0, xmax=1.05, ymin=0, ymax=1.65,
+          xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
+          xlabel={$q$},
+          title style={align=center},
+          title={$p = \frac{1}{3}$\\{\scriptsize the only $p$ in its case}},
+          clip=false
+        ]
+          \addplot[domain=0:1, samples=2, very thick] {2/3};
+          \node[anchor=north, align=center, font=\scriptsize]
+            at (axis cs:0.5,0.55) {every $q$ gives $\frac{2}{3}$};
+        \end{axis}
+        \begin{axis}[
+          name=panelC,
+          at={(panelB.south east)}, anchor=south west, xshift=1.1cm,
+          width=5.4cm, height=4.6cm,
+          axis lines=left,
+          xmin=0, xmax=1.05, ymin=0, ymax=1.65,
+          xtick={0,0.5,1}, ytick={0,0.5,1,1.5},
+          xlabel={$q$},
+          title style={align=center},
+          title={$p = 0.75$\\{\scriptsize like every $p$ with $\frac{1}{3} &lt; p \le 1$}},
+          clip=false
+        ]
+          \addplot[domain=0:1, samples=2, very thick] {0.25 + 1.25*x};
         \end{axis}
         \end{tikzpicture}
       </latex-image>
@@ -377,21 +540,21 @@
   <exercise xml:id="check-bos-worst-case-fillin">
     <statement>
       <p>
-        Use the graphs to find Alice's worst case for two of the sample
-        values of <m>p</m>. Enter the value of <m>q</m> that gives her the
-        lowest payoff, and the value of <m>m_1(p)</m>.
+        Use the graphs to find the value of <m>q</m> that gives Alice her
+        lowest payoff (her worst case) for each sample value of <m>p</m>.
       </p>
       <p>
-        For <m>p = 0.2</m>: worst case at <m>q =</m>
-        <fillin name="q02" answer="1" width="3"/>,
-        so <m>m_1(0.2) =</m>
-        <fillin name="m02" answer="0.4" width="3"/>.
+        For <m>p = 0.2</m>: <m>q =</m>
+        <fillin name="q02" answer="1" width="3"/>
       </p>
       <p>
-        For <m>p = 0.75</m>: worst case at <m>q =</m>
-        <fillin name="q075" answer="0" width="3"/>,
-        so <m>m_1(0.75) =</m>
-        <fillin name="m075" answer="0.25" width="3"/>.
+        For <m>p = \frac{1}{3}</m>: the line is flat, so every <m>q</m> gives
+        Alice the same payoff, <m>\frac{2}{3}</m>. Any <m>q</m> is a worst
+        case, and <m>m_1(\frac{1}{3}) = \frac{2}{3}</m>.
+      </p>
+      <p>
+        For <m>p = 0.75</m>: <m>q =</m>
+        <fillin name="q075" answer="0" width="3"/>
       </p>
     </statement>
     <evaluation>
@@ -415,26 +578,6 @@
           </p>
         </feedback>
       </evaluate>
-      <evaluate name="m02">
-        <test correct="yes">
-          <numcmp use-answer="yes" tolerance="0.001"/>
-        </test>
-        <test>
-          <numcmp value="0.8" tolerance="0.001"/>
-          <feedback>
-            <p>
-              That's the highest point on the graph, Alice's best case. We
-              want the lowest.
-            </p>
-          </feedback>
-        </test>
-        <feedback>
-          <p>
-            Read the height of the dot on the <m>p = 0.2</m> graph, or plug
-            your <m>q</m> into <m>\pi_1(0.2, q) = 0.8 - 0.4q</m>.
-          </p>
-        </feedback>
-      </evaluate>
       <evaluate name="q075">
         <test correct="yes">
           <numcmp use-answer="yes"/>
@@ -455,48 +598,21 @@
           </p>
         </feedback>
       </evaluate>
-      <evaluate name="m075">
-        <test correct="yes">
-          <numcmp use-answer="yes" tolerance="0.001"/>
-        </test>
-        <test>
-          <numcmp value="1.5" tolerance="0.001"/>
-          <feedback>
-            <p>
-              That's the highest point on the graph, Alice's best case. We
-              want the lowest.
-            </p>
-          </feedback>
-        </test>
-        <feedback>
-          <p>
-            Read the height of the dot on the <m>p = 0.75</m> graph, or plug
-            your <m>q</m> into <m>\pi_1(0.75, q) = 0.25 + 1.25q</m>.
-          </p>
-        </feedback>
-      </evaluate>
     </evaluation>
     <solution>
       <p>
         For <m>p = 0.2</m>, the line is decreasing, so it's lowest at
-        <m>q = 1</m>, and <m>m_1(0.2) = 0.4</m>. Alice's worst case is Bob
-        always going to the concert: she's usually at the wrestling match, so
-        the worst thing for her is Bob being somewhere else.
+        <m>q = 1</m>. Alice's worst case is Bob always going to the concert:
+        she's usually at the wrestling match, so the worst thing for her is
+        Bob being somewhere else.
       </p>
       <p>
         For <m>p = 0.75</m>, the line is increasing, so it's lowest at
-        <m>q = 0</m>, and <m>m_1(0.75) = 0.25</m>. Now she's usually at the
-        concert, so her worst case is Bob always going to the wrestling
-        match.
+        <m>q = 0</m>. Now she's usually at the concert, so her worst case is
+        Bob always going to the wrestling match.
       </p>
     </solution>
   </exercise>
-
-  <p>
-    And for <m>p = \frac{1}{3}</m>, the line is flat: every <m>q</m> gives
-    Alice the same payoff, so any <m>q</m> realizes her worst case, and
-    <m>m_1(\frac{1}{3}) = \frac{2}{3}</m>.
-  </p>
 
   <p>
     The same reasoning works for <em>every</em> <m>p</m>, not just these
@@ -526,10 +642,7 @@
   </p>
 
   <p>
-    Here's the graph of <m>m_1(p)</m>. Notice it's always the <em>lower</em>
-    of the two lines <m>2p</m> and <m>1 - p</m>, which makes sense: Bob's
-    worst-case choice for Alice is always <m>q = 1</m> or <m>q = 0</m>, just
-    like in the Top example earlier.
+    Here's the graph of the piecewise function <m>m_1(p)</m>:
   </p>
 
   <figure xml:id="fig-bos-m1-graph">
@@ -667,74 +780,192 @@
     equilibrium.
   </p>
 
-  <exercise xml:id="reflect-maximin-in-words">
-    <statement>
-      <p>
-        Now that you've worked through all the details, describe in your own
-        words what a maximin strategy is. Use Alice as an example: what is
-        <m>p^\dagger = \frac{1}{3}</m> doing for her? Something to think
-        about: Alice prefers the concert, but her maximin strategy has her go
-        to the concert only <m>\frac{1}{3}</m> of the time. Why?
-      </p>
-      <p>
-        Write down your answer (or at least think it through) before you
-        reveal ours.
-      </p>
-    </statement>
-    <solution>
-      <p>
-        A maximin strategy is the safest choice: the strategy whose worst
-        case is as good as possible. It guarantees you at least your maximin
-        payoff, no matter what the other player does.
-      </p>
-      <p>
-        For Alice, <m>p^\dagger = \frac{1}{3}</m> guarantees her an
-        expected payoff of at least <m>\frac{2}{3}</m>. Her two possible
-        worst cases are Bob always at the concert (she gets <m>2p</m>) and
-        Bob always at the wrestling match (she gets <m>1 - p</m>). Playing it
-        safe means making the worse of those two as good as possible, which
-        happens when they're equal: <m>2p = 1 - p</m>, so
-        <m>p = \frac{1}{3}</m>.
-      </p>
-      <p>
-        Why so little concert? Meeting at the concert is worth <m>2</m> to
-        her, but meeting at the wrestling match is only worth <m>1</m>. So
-        she doesn't need to be at the concert very often to protect herself
-        in the <q>Bob at the concert</q> case, but she needs to be at the
-        wrestling match a lot to protect herself in the <q>Bob at wrestling</q>
-        case. Playing it safe has nothing to do with what she prefers. It's
-        all about protecting against the worst outcome.
-      </p>
-    </solution>
-  </exercise>
-
   <p>
-    Here's the punchline: the maximin equilibrium
-    <m>(\frac{1}{3}, \frac{2}{3})</m> is <em>not</em> a Nash equilibrium.
-    For example, if Bob plays <m>q = \frac{2}{3}</m>, then
-    <m>\pi_1(p, \frac{2}{3}) = \frac{1}{3} + p</m>, which is increasing in
-    <m>p</m>. So Alice's best response is <m>p = 1</m> (always the concert),
-    not <m>p = \frac{1}{3}</m>. The Nash equilibria of the Battle of the
-    Sexes are <m>(1, 1)</m> (both at the concert), <m>(0, 0)</m> (both at the
-    wrestling match), and the mixed one <m>(\frac{2}{3}, \frac{1}{3})</m>.
-    So in general, playing it safe and playing a Nash equilibrium are two
-    different things.
+    Now, this maximin equilibrium <m>(\frac{1}{3}, \frac{2}{3})</m> is
+    <em>not</em> a Nash equilibrium. (If you want, try to figure out why!)
+    But there is a kind of game where maximin equilibria and Nash equilibria
+    line up exactly, and that's where we're headed next.
   </p>
 
   <p>
-    But there's a kind of game where they line up exactly. A two-player game
-    is <term>zero-sum</term> if the two players' payoffs add up to <m>0</m>
-    in every cell of the payoff matrix: whatever one player wins, the other
-    loses. One-Card Two-Round Poker from the last section is an example.
-    The Battle of the Sexes is not (look at the cell <m>(2, 1)</m>).
+    A two-player game is <term>zero-sum</term> if the two players' payoffs
+    add up to <m>0</m> in every cell of the payoff matrix: whatever one
+    player wins, the other loses. One-Card Two-Round Poker from the last
+    section is an example. Here's its payoff matrix again (the reduced game
+    from Section 5.4):
+  </p>
+
+  <table xml:id="table-poker-zero-sum">
+    <title>One-Card Two-Round Poker, reduced game</title>
+    <tabular halign="center">
+      <col/>
+      <col right="minor"/>
+      <col/>
+      <col/>
+      <col/>
+      <row header="yes">
+        <cell/>
+        <cell/>
+        <cell colspan="3">Player 2</cell>
+      </row>
+      <row header="yes" bottom="minor">
+        <cell/>
+        <cell/>
+        <cell><m>bb</m></cell>
+        <cell><m>bf</m></cell>
+        <cell><m>f</m></cell>
+      </row>
+      <row>
+        <cell>Player 1</cell>
+        <cell><m>bb</m></cell>
+        <cell>(<m>0</m>, <m>0</m>)</cell>
+        <cell>(<m>4</m>, <m>-4</m>)</cell>
+        <cell>(<m>2</m>, <m>-2</m>)</cell>
+      </row>
+      <row>
+        <cell/>
+        <cell><m>bf</m></cell>
+        <cell>(<m>1</m>, <m>-1</m>)</cell>
+        <cell>(<m>0</m>, <m>0</m>)</cell>
+        <cell>(<m>2</m>, <m>-2</m>)</cell>
+      </row>
+      <row>
+        <cell/>
+        <cell><m>f</m></cell>
+        <cell>(<m>2</m>, <m>-2</m>)</cell>
+        <cell>(<m>1</m>, <m>-1</m>)</cell>
+        <cell>(<m>0</m>, <m>0</m>)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    In every cell, Player 2's payoff is exactly the negative of Player 1's.
+    For example, when Player 1 plays <m>bb</m> and Player 2 plays <m>bf</m>,
+    Player 1 wins <m>4</m> and Player 2 loses <m>4</m>. That's what makes
+    poker zero-sum: every dollar one player wins comes out of the other
+    player's pocket. The Battle of the Sexes is not zero-sum. For example,
+    in the cell <m>(2, 1)</m>, the payoffs add up to <m>2 + 1 = 3</m>.
   </p>
 
   <p>
     The definition only talks about the cells, which come from pure
-    strategies. But if the payoffs add to <m>0</m> in every cell, then they
-    also add to <m>0</m> for any pair of <em>mixed</em> strategies. Think
-    about why!
+    strategies. What about mixed strategies?
   </p>
+
+  <exercise xml:id="check-zero-sum-mixed">
+    <statement>
+      <p>
+        Suppose the payoffs add up to <m>0</m> in every cell of a game. Why
+        do they also add up to <m>0</m> for any pair of <em>mixed</em>
+        strategies?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Each player's expected payoff is a weighted average of the cells,
+            and both players use the <em>same</em> weights. So the two
+            expected payoffs add up to a weighted average of the cell sums,
+            which are all <m>0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. If a cell has probability <m>w</m>, it contributes
+            <m>w \cdot (\text{Player 1's payoff})</m> to <m>\pi_1</m> and
+            <m>w \cdot (\text{Player 2's payoff})</m> to <m>\pi_2</m>.
+            Adding them, that cell contributes
+            <m>w \cdot (\text{cell sum}) = w \cdot 0 = 0</m> to
+            <m>\pi_1 + \pi_2</m>. So <m>\pi_1 + \pi_2 = 0</m>, and
+            <m>\pi_2 = -\pi_1</m> for mixed strategies too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Because each player's expected payoff is <m>0</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Individual payoffs don't have to be <m>0</m>. In poker, Player 1
+            can win <m>4</m> in a single cell. It's the <em>sum</em> of the
+            two players' payoffs that's always <m>0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It isn't always true. It depends on which mixed strategies the
+            players use.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            It is always true! Think about how an expected payoff is built
+            from the cells, and what the two players' expected payoffs have
+            in common.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Here's one more consequence of the definition, which will turn out to be
+    the key idea behind this section's main theorem.
+  </p>
+
+  <exercise xml:id="check-zero-sum-flip">
+    <statement>
+      <p>
+        In a zero-sum game, suppose Player 1 keeps playing the same strategy
+        <m>\sigma_1</m>, and Player 2 switches from <m>\sigma_2</m> to some
+        other strategy <m>\tau_2</m>. Suppose that
+        <me>
+          \pi_1(\sigma_1, \sigma_2) \gt \pi_1(\sigma_1, \tau_2).
+        </me>
+        In words: Player 1 does worse when Player 2 switches to
+        <m>\tau_2</m>. Since the game is zero-sum, what else must be true?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            <m>\pi_2(\sigma_1, \sigma_2) \gt \pi_2(\sigma_1, \tau_2)</m>.
+            Player 2 also does worse by switching to <m>\tau_2</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Zero-sum means <m>\pi_2 = -\pi_1</m> (for mixed strategies too,
+            as we just saw). What happens to an inequality when you multiply
+            both sides by <m>-1</m>?
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\pi_2(\sigma_1, \sigma_2) \lt \pi_2(\sigma_1, \tau_2)</m>.
+            Player 2 does better by switching to <m>\tau_2</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Since <m>\pi_2 = -\pi_1</m>, multiplying both sides by
+            <m>-1</m> flips the inequality. Whatever Player 1 loses, Player 2
+            gains. Keep this in mind for the proof later on this page.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
 
   <p>
     In a zero-sum game, it turns out that maximin equilibria and Nash
@@ -763,178 +994,251 @@
   <!-- ============================================================ -->
 
   <p>
-    Let's see why the theorem is true, at least the main part of it. Suppose
-    <m>(\sigma_1^*, \sigma_2^*)</m> is a Nash equilibrium of a two-player
-    zero-sum game. We'll show that Player 1's payoff there is her maximin
-    payoff:
-    <me>
-      \pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger.
-    </me>
-    We'll do this by showing <m>\geq</m> and then <m>\leq</m>.
+    Let's see why the theorem is true, at least the main part of it. We'll
+    work through it in the activity below.
   </p>
 
-  <paragraphs>
-    <title>Step 1: <m>\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger</m></title>
-    <p>
-      Take any strategy <m>\sigma_1</m> for Player 1. Then
-      <me>
-        \pi_1(\sigma_1^*, \sigma_2^*) \geq \pi_1(\sigma_1, \sigma_2^*)
-        \geq m_1(\sigma_1).
-      </me>
-      The first inequality is because <m>(\sigma_1^*, \sigma_2^*)</m> is a
-      Nash equilibrium, so Player 1 can't do better by switching to
-      <m>\sigma_1</m>. The second is because <m>m_1(\sigma_1)</m> is the
-      <em>smallest</em> payoff Player 1 can get from <m>\sigma_1</m>, so it's
-      no bigger than her payoff against <m>\sigma_2^*</m> in particular.
-    </p>
-    <p>
-      Since <m>\sigma_1</m> was arbitrary, <m>\pi_1(\sigma_1^*, \sigma_2^*)</m>
-      is at least as big as every <m>m_1(\sigma_1)</m>. So it's at least as
-      big as the largest one:
-      <me>
-        \pi_1(\sigma_1^*, \sigma_2^*) \geq \max_{\sigma_1} m_1(\sigma_1)
-        = m_1^\dagger.
-      </me>
-      Notice we haven't used the fact that the game is zero-sum yet!
-    </p>
-  </paragraphs>
-
-  <paragraphs>
-    <title>Step 2: <m>\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger</m></title>
-    <p>
-      This is the step where zero-sum matters. First, we'll compare
-      <m>\pi_1(\sigma_1^*, \sigma_2^*)</m> to what Player 1 gets when she
-      keeps playing <m>\sigma_1^*</m> but Player 2 switches to some other
-      strategy <m>\sigma_2</m>.
-    </p>
-  </paragraphs>
-
-  <exercise xml:id="check-proof-zero-sum-flip">
-    <statement>
+  <activity xml:id="activity-why-theorem-5-6">
+    <title>Why Theorem 5.6 Is True</title>
+    <introduction>
       <p>
-        Suppose that for some strategy <m>\sigma_2</m>,
+        Suppose <m>(\sigma_1^*, \sigma_2^*)</m> is a Nash equilibrium of a
+        two-player zero-sum game. We'll show that Player 1's payoff there is
+        their maximin payoff:
         <me>
-          \pi_1(\sigma_1^*, \sigma_2^*) \gt \pi_1(\sigma_1^*, \sigma_2).
+          \pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger.
         </me>
-        Since the game is zero-sum, what else must be true?
+        We'll do this in two steps: first we'll show
+        <m>\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger</m>, and then
+        we'll show <m>\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger</m>.
       </p>
-    </statement>
-    <choices randomize="no">
-      <choice>
-        <statement>
-          <p><m>\pi_2(\sigma_1^*, \sigma_2^*) \gt \pi_2(\sigma_1^*, \sigma_2)</m></p>
-        </statement>
-        <feedback>
-          <p>
-            Zero-sum means <m>\pi_2 = -\pi_1</m>. What happens to an
-            inequality when you multiply both sides by <m>-1</m>?
-          </p>
-        </feedback>
-      </choice>
-      <choice correct="yes">
-        <statement>
-          <p><m>\pi_2(\sigma_1^*, \sigma_2^*) \lt \pi_2(\sigma_1^*, \sigma_2)</m></p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Since <m>\pi_2 = -\pi_1</m>, multiplying both sides by
-            <m>-1</m> flips the inequality. In words: if Player 1 does
-            <em>worse</em> when Player 2 switches to <m>\sigma_2</m>, then
-            Player 2 does <em>better</em>.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p><m>\pi_1(\sigma_1^*, \sigma_2) \lt 0</m></p>
-        </statement>
-        <feedback>
-          <p>
-            Zero-sum doesn't say anything about whether a single payoff is
-            positive or negative. It says the two players' payoffs add to
-            <m>0</m>, so <m>\pi_2 = -\pi_1</m>. Use that to compare Player
-            2's payoffs.
-          </p>
-        </feedback>
-      </choice>
-    </choices>
-  </exercise>
+    </introduction>
 
-  <p>
-    But <m>\pi_2(\sigma_1^*, \sigma_2^*) \lt \pi_2(\sigma_1^*, \sigma_2)</m>
-    says Player 2 could do better by switching to <m>\sigma_2</m>. That's a
-    direct contradiction of <m>(\sigma_1^*, \sigma_2^*)</m> being a Nash
-    equilibrium! So there's no such <m>\sigma_2</m>, which means
+    <task xml:id="task-proof-step-1">
+      <title>Step 1: Show <m>\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger</m></title>
+      <introduction>
+        <p>
+          Take any strategy <m>\sigma_1</m> for Player 1, and compare these three
+      payoffs:
+      <ul>
+        <li>
+          <p>
+            <m>\pi_1(\sigma_1^*, \sigma_2^*)</m>: Player 1's payoff at the
+            Nash equilibrium.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\pi_1(\sigma_1, \sigma_2^*)</m>: what Player 1 would get by
+            switching to <m>\sigma_1</m> while Player 2 sticks with
+            <m>\sigma_2^*</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>m_1(\sigma_1)</m>: Player 1's worst case when they play
+            <m>\sigma_1</m>.
+          </p>
+        </li>
+      </ul>
+        </p>
+      </introduction>
+
+      <task xml:id="check-proof-step1-order">
+        <statement>
+          <p>
+            Which chain of inequalities is correct?
+          </p>
+        </statement>
+        <choices randomize="no">
+          <choice correct="yes">
+            <statement>
+              <p><m>\pi_1(\sigma_1^*, \sigma_2^*) \geq \pi_1(\sigma_1, \sigma_2^*) \geq m_1(\sigma_1)</m></p>
+            </statement>
+            <feedback>
+              <p>
+                Correct. The first inequality is because
+                <m>(\sigma_1^*, \sigma_2^*)</m> is a Nash equilibrium, so
+                Player 1 can't do better by switching to <m>\sigma_1</m>. The
+                second is because <m>m_1(\sigma_1)</m> is the
+                <em>smallest</em> payoff Player 1 can get from
+                <m>\sigma_1</m>, so it's no bigger than their payoff against
+                <m>\sigma_2^*</m> in particular.
+              </p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\pi_1(\sigma_1, \sigma_2^*) \geq \pi_1(\sigma_1^*, \sigma_2^*) \geq m_1(\sigma_1)</m></p>
+            </statement>
+            <feedback>
+              <p>
+                The first inequality would mean Player 1 does better by
+                switching to <m>\sigma_1</m>. What does the definition of a
+                Nash equilibrium say about that?
+              </p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1(\sigma_1) \geq \pi_1(\sigma_1, \sigma_2^*)</m></p>
+            </statement>
+            <feedback>
+              <p>
+                <m>m_1(\sigma_1)</m> is the <em>smallest</em> payoff Player 1
+                can get from <m>\sigma_1</m>, so it can't be bigger than
+                <m>\pi_1(\sigma_1, \sigma_2^*)</m>.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </task>
+
+      <conclusion>
+        <p>
+          So <m>\pi_1(\sigma_1^*, \sigma_2^*) \geq \pi_1(\sigma_1, \sigma_2^*)
+          \geq m_1(\sigma_1)</m>.
+          Since <m>\sigma_1</m> was arbitrary, <m>\pi_1(\sigma_1^*, \sigma_2^*)</m>
+    is at least as big as every <m>m_1(\sigma_1)</m>. So it's at least as
+    big as the largest one:
     <me>
-      \pi_1(\sigma_1^*, \sigma_2^*) \leq \pi_1(\sigma_1^*, \sigma_2)
-      \quad\text{for every } \sigma_2.
+      \pi_1(\sigma_1^*, \sigma_2^*) \geq \max_{\sigma_1} m_1(\sigma_1)
+      = m_1^\dagger.
     </me>
-    This is really the heart of the theorem. In a zero-sum game, Player 2's
-    best response is the same as the move that hurts Player 1 the most,
-    because every bit Player 2 gains comes out of Player 1's payoff.
-  </p>
+    Notice we haven't used the fact that the game is zero-sum yet!
+        </p>
+      </conclusion>
+    </task>
 
-  <exercise xml:id="check-proof-conclude-m1">
-    <statement>
-      <p>
-        We now know <m>\pi_1(\sigma_1^*, \sigma_2^*) \leq
-        \pi_1(\sigma_1^*, \sigma_2)</m> for every <m>\sigma_2</m>. What can we
-        conclude?
-      </p>
-    </statement>
-    <choices randomize="no">
-      <choice>
-        <statement>
-          <p><m>\pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger</m></p>
-        </statement>
-        <feedback>
-          <p>
-            That's where we're headed, but we're not there yet. This
-            inequality only compares payoffs where Player 1 plays
-            <m>\sigma_1^*</m>. So it tells us about the worst case for
-            <m>\sigma_1^*</m> specifically, <m>m_1(\sigma_1^*)</m>, not the
-            best worst case over all strategies, <m>m_1^\dagger</m>.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p><m>\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1(\sigma_1^*)</m>, but not necessarily equal.</p>
-        </statement>
-        <feedback>
-          <p>
-            This is true, but we can say more. Is
-            <m>\pi_1(\sigma_1^*, \sigma_2^*)</m> itself one of the payoffs
-            Player 1 can get when she plays <m>\sigma_1^*</m>?
-          </p>
-        </feedback>
-      </choice>
-      <choice correct="yes">
-        <statement>
-          <p><m>\pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*)</m></p>
-        </statement>
-        <feedback>
-          <p>
-            Correct. Among all the payoffs Player 1 can get by playing
-            <m>\sigma_1^*</m>, <m>\pi_1(\sigma_1^*, \sigma_2^*)</m> is less
-            than or equal to every one of them, <em>and</em> it's one of them
-            (the one where Player 2 plays <m>\sigma_2^*</m>). So it's the
-            smallest one, which is exactly <m>m_1(\sigma_1^*)</m>. In other
-            words, <m>\sigma_2^*</m> is Player 1's worst case.
-          </p>
-        </feedback>
-      </choice>
-    </choices>
-  </exercise>
+    <task xml:id="task-proof-step-2">
+      <title>Step 2: Show <m>\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger</m></title>
+      <introduction>
+        <p>
+          This is the step where zero-sum matters. Suppose Player 1 keeps
+          playing <m>\sigma_1^*</m>, but Player 2 switches to some other
+          strategy <m>\sigma_2</m>, and Player 1 does worse:
+          <me>
+            \pi_1(\sigma_1^*, \sigma_2^*) \gt \pi_1(\sigma_1^*, \sigma_2).
+          </me>
+        </p>
+      </introduction>
 
-  <p>
+      <task xml:id="check-proof-zero-sum-flip">
+        <statement>
+          <p>
+            This is exactly the situation from
+            <xref ref="check-zero-sum-flip"/>, before the reading: Player 1
+            keeps the same strategy (<m>\sigma_1^*</m>), and Player 2
+            switches from <m>\sigma_2^*</m> to <m>\sigma_2</m>. Using what
+            you found there, what must be true?
+          </p>
+        </statement>
+        <choices randomize="no">
+          <choice>
+            <statement>
+              <p>
+                <m>\pi_2(\sigma_1^*, \sigma_2^*) \gt \pi_2(\sigma_1^*, \sigma_2)</m>.
+                Player 2 also does worse by switching to <m>\sigma_2</m>.
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Look back at <xref ref="check-zero-sum-flip"/>. In a zero-sum
+                game, when Player 1 does worse, what happens to Player 2?
+              </p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p>
+                <m>\pi_2(\sigma_1^*, \sigma_2^*) \lt \pi_2(\sigma_1^*, \sigma_2)</m>.
+                Player 2 does better by switching to <m>\sigma_2</m>.
+              </p>
+            </statement>
+            <feedback>
+              <p>
+                Correct. Whatever Player 1 loses, Player 2 gains. But
+                <m>(\sigma_1^*, \sigma_2^*)</m> is a Nash equilibrium, so
+                Player 2 <em>can't</em> do better by switching. That's a
+                contradiction, so this situation can never happen.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </task>
+
+      <task xml:id="check-proof-conclude-m1">
+        <statement>
+          <p>
+            Part (i) leads to a contradiction: Player 2 would do better by
+            switching, but at a Nash equilibrium they can't. So Player 1 can
+            never do worse when Player 2 switches. In other words,
+            <me>
+              \pi_1(\sigma_1^*, \sigma_2^*) \leq \pi_1(\sigma_1^*, \sigma_2)
+              \quad\text{for every } \sigma_2.
+            </me>
+            This is really the heart of the theorem: in a zero-sum game,
+            Player 2's best response is the move that hurts Player 1 the
+            most. What can we conclude from this inequality?
+          </p>
+        </statement>
+        <choices randomize="no">
+          <choice>
+            <statement>
+              <p><m>\pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger</m></p>
+            </statement>
+            <feedback>
+              <p>
+                That's where we're headed, but we're not there yet. This
+                inequality only compares payoffs where Player 1 plays
+                <m>\sigma_1^*</m>. So it tells us about the worst case for
+                <m>\sigma_1^*</m> specifically, <m>m_1(\sigma_1^*)</m>, not the
+                best worst case over all strategies, <m>m_1^\dagger</m>.
+              </p>
+            </feedback>
+          </choice>
+          <choice>
+            <statement>
+              <p><m>\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1(\sigma_1^*)</m>, but not necessarily equal.</p>
+            </statement>
+            <feedback>
+              <p>
+                This is true, but we can say more. Is
+                <m>\pi_1(\sigma_1^*, \sigma_2^*)</m> itself one of the payoffs
+                Player 1 can get when they play <m>\sigma_1^*</m>?
+              </p>
+            </feedback>
+          </choice>
+          <choice correct="yes">
+            <statement>
+              <p><m>\pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*)</m></p>
+            </statement>
+            <feedback>
+              <p>
+                Correct. Among all the payoffs Player 1 can get by playing
+                <m>\sigma_1^*</m>, <m>\pi_1(\sigma_1^*, \sigma_2^*)</m> is less
+                than or equal to every one of them, <em>and</em> it's one of them
+                (the one where Player 2 plays <m>\sigma_2^*</m>). So it's the
+                smallest one, which is exactly <m>m_1(\sigma_1^*)</m>. In other
+                words, <m>\sigma_2^*</m> is Player 1's worst case.
+              </p>
+            </feedback>
+          </choice>
+        </choices>
+      </task>
+
+      <conclusion>
+        <p>
     To finish Step 2: <m>m_1^\dagger</m> is the largest of all the
     <m>m_1(\sigma_1)</m>, so in particular
     <m>m_1(\sigma_1^*) \leq m_1^\dagger</m>. Therefore
     <me>
       \pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*) \leq m_1^\dagger.
     </me>
-  </p>
+        </p>
+      </conclusion>
+    </task>
+  </activity>
 
   <paragraphs>
     <title>Putting it together</title>
@@ -949,16 +1253,13 @@
       <ul>
         <li>
           <p>
-            Since <m>m_1(\sigma_1^*) = m_1^\dagger</m>, the strategy
-            <m>\sigma_1^*</m> achieves the best possible worst case, so it's a
-            maximin strategy. Same for <m>\sigma_2^*</m>. So every Nash
-            equilibrium is a maximin equilibrium. That's half of part (1) of
+            Every Nash equilibrium is a maximin equilibrium. That's half of part (1) of
             the theorem.
           </p>
         </li>
         <li>
           <p>
-            At the Nash equilibrium, each player gets her maximin payoff.
+            At the Nash equilibrium, each player gets their maximin payoff.
             That's part (2).
           </p>
         </li>
@@ -967,7 +1268,7 @@
             Both maximin payoffs come from the same strategy profile
             <m>(\sigma_1^*, \sigma_2^*)</m>, and the payoffs there add to
             <m>0</m> because the game is zero-sum. So
-            <m>m_1^\dagger + m_2^\dagger = 0</m>. That's part (3). (This
+            <m>m_1^\dagger + m_2^\dagger = 0</m>. That's part (3). (This also
             uses the fact that a Nash equilibrium exists in the first place,
             which Nash's Existence Theorem, Theorem 5.1, guarantees.)
           </p>
@@ -979,165 +1280,9 @@
     </p>
   </paragraphs>
 
-  <assemblage xml:id="read-5-5-rest">
-    <title>Section 5.5, The Rest</title>
-    <p>
-      <alert>Finish reading Section 5.5.</alert> You can skip or skim the
-      book's proof, since we just did the main part of it.
-    </p>
-    <p>
-      The part to read carefully starts at the paragraph beginning
-      <q>Theorem 5.6 implies that all Nash equilibria...</q> It has a really
-      useful consequence of the theorem, and then uses it to finish off
-      One-Card Two-Round Poker. We'll go through the poker argument together
-      afterward, since the book's version is a bit hard to follow.
-    </p>
-  </assemblage>
-
-  <!-- ============================================================ -->
-  <!-- Part 4: interchangeability and poker                         -->
-  <!-- ============================================================ -->
-
   <p>
-    The first paragraph you just read is the key idea, so let's make sure it
-    sticks.
-  </p>
-
-  <exercise xml:id="check-interchangeability">
-    <statement>
-      <p>
-        Suppose <m>(\sigma_1, \sigma_2)</m> and <m>(\tau_1, \tau_2)</m> are
-        both Nash equilibria of a two-player zero-sum game. Is
-        <m>(\sigma_1, \tau_2)</m> also a Nash equilibrium?
-      </p>
-    </statement>
-    <choices randomize="no">
-      <choice correct="yes">
-        <statement>
-          <p>
-            Yes. By Theorem 5.6, <m>\sigma_1</m> and <m>\tau_2</m> are both
-            maximin strategies, so <m>(\sigma_1, \tau_2)</m> is a maximin
-            equilibrium, and therefore a Nash equilibrium.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Correct! You can mix and match halves of Nash equilibria in a
-            zero-sum game. By part (2), all of them give the same payoffs,
-            too.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            Yes. In any game, you can swap halves of two Nash equilibria and
-            get another one.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Not in every game! In the Battle of the Sexes, (concert, concert)
-            and (wrestling, wrestling) are both Nash equilibria, but if you
-            swap halves you get (concert, wrestling). Alice and Bob miss each
-            other and both get <m>0</m>, so it's not a Nash equilibrium. This
-            only works because the game is zero-sum.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            Only if <m>\sigma_1 = \tau_1</m>.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            That's too strict. Theorem 5.6 says <em>any</em> maximin strategy
-            for Player 1 can be paired with <em>any</em> maximin strategy for
-            Player 2.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            There's no way to tell without seeing the payoffs.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            Theorem 5.6 answers this for every two-player zero-sum game, no
-            matter what the payoffs are. Which part of the theorem connects
-            Nash equilibria and maximin strategies?
-          </p>
-        </feedback>
-      </choice>
-    </choices>
-  </exercise>
-
-  <p>
-    Now let's see what this buys us for poker. In Section 5.4 we found a
-    Nash equilibrium where both players use all three of their strategies:
-    <me>
-      \left(\tfrac{1}{5}\,bb + \tfrac{2}{5}\,bf + \tfrac{2}{5}\,f, \quad
-      \tfrac{8}{15}\,bb + \tfrac{2}{15}\,bf + \tfrac{1}{3}\,f\right).
-    </me>
-    The end of Section 5.4 also points out something the calculation
-    showed along the way. When we solved Player 2's indifference equations
-    for <m>p_1, p_2, p_3</m>, we only used two things: Player 2's three
-    strategies earn him the same payoff, and the <m>p_i</m> add up to
-    <m>1</m>. We never assumed anything about which of Player 1's strategies
-    were active. And those equations have only one solution. So:
-  </p>
-
-  <blockquote>
-    <p>
-      <alert>Fact from 5.4:</alert> In <em>any</em> Nash equilibrium where
-      Player 2 uses all three of his strategies, Player 1 must play
-      <m>\frac{1}{5}\,bb + \frac{2}{5}\,bf + \frac{2}{5}\,f</m>. (And the same
-      the other way around: if Player 1 uses all three, Player 2 must play
-      <m>\frac{8}{15}\,bb + \frac{2}{15}\,bf + \frac{1}{3}\,f</m>.)
-    </p>
-  </blockquote>
-
-  <p>
-    Now take <em>any</em> Nash equilibrium <m>(\tau_1, \tau_2)</m> of the
-    poker game.
-    <ol>
-      <li>
-        <p>
-          By interchangeability, we can swap in Player 2's strategy from the
-          equilibrium we found. So
-          <m>\left(\tau_1,\ \frac{8}{15}\,bb + \frac{2}{15}\,bf +
-          \frac{1}{3}\,f\right)</m> is also a Nash equilibrium.
-        </p>
-      </li>
-      <li>
-        <p>
-          In that Nash equilibrium, Player 2 uses all three of his
-          strategies.
-        </p>
-      </li>
-      <li>
-        <p>
-          So by the fact from 5.4,
-          <m>\tau_1 = \frac{1}{5}\,bb + \frac{2}{5}\,bf + \frac{2}{5}\,f</m>.
-        </p>
-      </li>
-    </ol>
-    The same argument with the players switched shows
-    <m>\tau_2 = \frac{8}{15}\,bb + \frac{2}{15}\,bf + \frac{1}{3}\,f</m>. So
-    <m>(\tau_1, \tau_2)</m> is the equilibrium we already found. It's the
-    only Nash equilibrium of the game!
-  </p>
-
-  <p>
-    The book phrases this as a proof by contradiction (suppose there were an
-    equilibrium where each player used only one or two strategies, then
-    swap halves...), but it's the same idea. This also settles the cases
-    with two active strategies that the book skipped back in Section 5.4:
-    there are no Nash equilibria of those types.
+    We'll finish Section 5.5 on the next page, where we'll see what Theorem
+    5.6 tells us about One-Card Two-Round Poker.
   </p>
 
   <interactive xml:id="question-form-5-5" iframe="question-form.html?section=5.5" width="100%" aspect="2:1"/>

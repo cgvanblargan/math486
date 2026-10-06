@@ -1,13 +1,186 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <section xml:id="page5-ultimatum-water-pollution" xmlns:xi="http://www.w3.org/2001/XInclude">
-  <title>The Ultimatum Minigame and Water Pollution</title>
+  <title>Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</title>
 
   <p>
-    This page has two more examples of finding mixed strategy Nash
-    equilibria with the Fundamental Theorem (Theorem 5.2). In the first one,
-    the two players end up using different numbers of active strategies. The
-    second one has three players!
+    This page covers three sections. First we'll finish Section 5.5 by
+    seeing what Theorem 5.6 tells us about One-Card Two-Round Poker. Then
+    come two more examples of finding mixed strategy Nash equilibria with
+    the Fundamental Theorem (Theorem 5.2). In the first one, the two players
+    end up using different numbers of active strategies. The second one has
+    three players!
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Section 5.5, continued: interchangeability and poker         -->
+  <!-- ============================================================ -->
+
+  <p>
+    A quick recap from the last page. In a two-player <term>zero-sum</term>
+    game, the players' payoffs add up to <m>0</m> in every cell. Theorem 5.6
+    says that in these games, Nash equilibria and maximin equilibria are
+    exactly the same thing, and at every Nash equilibrium, each player gets
+    their maximin payoff.
+  </p>
+
+  <assemblage xml:id="read-5-5-rest">
+    <title>Section 5.5, The Rest</title>
+    <p>
+      <alert>Finish reading Section 5.5.</alert> Pick up right after the
+      statement of Theorem 5.6. You can skip or skim the book's proof, since
+      we did the main part of it on the last page.
+    </p>
+    <p>
+      The part to read carefully starts at the paragraph beginning
+      <q>Theorem 5.6 implies that all Nash equilibria...</q> It has a really
+      useful consequence of the theorem, and then uses it to finish off
+      One-Card Two-Round Poker. We'll go through the poker argument together
+      afterward, since the book's version is a bit hard to follow.
+    </p>
+  </assemblage>
+
+
+  <p>
+    The first paragraph you just read is the key idea, so let's make sure it
+    sticks.
+  </p>
+
+  <exercise xml:id="check-interchangeability">
+    <statement>
+      <p>
+        Suppose <m>(\sigma_1, \sigma_2)</m> and <m>(\tau_1, \tau_2)</m> are
+        both Nash equilibria of a two-player zero-sum game. Is
+        <m>(\sigma_1, \tau_2)</m> also a Nash equilibrium?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Yes. By Theorem 5.6, <m>\sigma_1</m> and <m>\tau_2</m> are both
+            maximin strategies, so <m>(\sigma_1, \tau_2)</m> is a maximin
+            equilibrium, and therefore a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct! You can mix and match halves of Nash equilibria in a
+            zero-sum game. By part (2), all of them give the same payoffs,
+            too.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Yes. In any game, you can swap halves of two Nash equilibria and
+            get another one.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not in every game! In the Battle of the Sexes, (concert, concert)
+            and (wrestling, wrestling) are both Nash equilibria, but if you
+            swap halves you get (concert, wrestling). Alice and Bob miss each
+            other and both get <m>0</m>, so it's not a Nash equilibrium. This
+            only works because the game is zero-sum.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Only if <m>\sigma_1 = \tau_1</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            That's too strict. Theorem 5.6 says <em>any</em> maximin strategy
+            for Player 1 can be paired with <em>any</em> maximin strategy for
+            Player 2.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            There's no way to tell without seeing the payoffs.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Theorem 5.6 answers this for every two-player zero-sum game, no
+            matter what the payoffs are. Which part of the theorem connects
+            Nash equilibria and maximin strategies?
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now let's see what this buys us for poker. In Section 5.4 we found a
+    Nash equilibrium where both players use all three of their strategies:
+    <me>
+      \left(\tfrac{1}{5}\,bb + \tfrac{2}{5}\,bf + \tfrac{2}{5}\,f, \quad
+      \tfrac{8}{15}\,bb + \tfrac{2}{15}\,bf + \tfrac{1}{3}\,f\right).
+    </me>
+    The end of Section 5.4 also points out something the calculation
+    showed along the way. When we solved Player 2's indifference equations
+    for <m>p_1, p_2, p_3</m>, we only used two things: Player 2's three
+    strategies earn him the same payoff, and the <m>p_i</m> add up to
+    <m>1</m>. We never assumed anything about which of Player 1's strategies
+    were active. And those equations have only one solution. So:
+  </p>
+
+  <blockquote>
+    <p>
+      <alert>Fact from 5.4:</alert> In <em>any</em> Nash equilibrium where
+      Player 2 uses all three of his strategies, Player 1 must play
+      <m>\frac{1}{5}\,bb + \frac{2}{5}\,bf + \frac{2}{5}\,f</m>. (And the same
+      the other way around: if Player 1 uses all three, Player 2 must play
+      <m>\frac{8}{15}\,bb + \frac{2}{15}\,bf + \frac{1}{3}\,f</m>.)
+    </p>
+  </blockquote>
+
+  <p>
+    Now take <em>any</em> Nash equilibrium <m>(\tau_1, \tau_2)</m> of the
+    poker game.
+    <ol>
+      <li>
+        <p>
+          By interchangeability, we can swap in Player 2's strategy from the
+          equilibrium we found. So
+          <m>\left(\tau_1,\ \frac{8}{15}\,bb + \frac{2}{15}\,bf +
+          \frac{1}{3}\,f\right)</m> is also a Nash equilibrium.
+        </p>
+      </li>
+      <li>
+        <p>
+          In that Nash equilibrium, Player 2 uses all three of his
+          strategies.
+        </p>
+      </li>
+      <li>
+        <p>
+          So by the fact from 5.4,
+          <m>\tau_1 = \frac{1}{5}\,bb + \frac{2}{5}\,bf + \frac{2}{5}\,f</m>.
+        </p>
+      </li>
+    </ol>
+    The same argument with the players switched shows
+    <m>\tau_2 = \frac{8}{15}\,bb + \frac{2}{15}\,bf + \frac{1}{3}\,f</m>. So
+    <m>(\tau_1, \tau_2)</m> is the equilibrium we already found. It's the
+    only Nash equilibrium of the game!
+  </p>
+
+  <p>
+    The book phrases this as a proof by contradiction (suppose there were an
+    equilibrium where each player used only one or two strategies, then
+    swap halves...), but it's the same idea. This also settles the cases
+    with two active strategies that the book skipped back in Section 5.4:
+    there are no Nash equilibria of those types.
   </p>
 
   <!-- ============================================================ -->
