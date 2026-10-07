@@ -4,8 +4,8 @@
   <title>Equivalent Games, Software, and a Critique</title>
 
   <p>
-    We'll wrap up Chapter 5 with three short sections. There are no
-    checkpoints on this page, so just read and think about the ideas.
+    We'll wrap up Chapter 5 with three short sections. We aren't going to go
+    in depth with these sections, so just read and think about the ideas 🙂
   </p>
 
   <assemblage xml:id="read-5-9-to-5-11">
@@ -27,8 +27,7 @@
         <li>
           <p>
             <alert>5.10, Software:</alert> a summary of the procedure for
-            finding mixed strategy Nash equilibria, and a pointer to software
-            that does it for you.
+            finding mixed strategy Nash equilibria.
           </p>
         </li>
         <li>
