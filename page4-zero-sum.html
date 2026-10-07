@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Maximins and Two-Player Zero-Sum Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.7e4cb14f24eb489b.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.54371ed119fe41be.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.40d828091d93b733.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page3-poker.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page5-ultimatum-water-pollution.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="page4-zero-sum">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Maximins and Two-Player Zero-Sum Games</span>
+</h2>
+<div class="para" id="page4-zero-sum-2">Later on this page, we’ll introduce <em class="emphasis">zero-sum games</em>. But first, we’ll work out what a “maximin” is. It turns out to have an important connection to zero-sum games and their Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-3">We’ll go through maximins here in the notes first. The same material is also in the book, and you’ll skim through it in the first reading block later on this page.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="page4-zero-sum-4">
+<div class="para">Suppose Player 1 commits to a strategy <span class="process-math">\(\sigma_1\text{.}\)</span> What’s the worst that could happen to them? Player 2 could play anything, so we look at the smallest payoff Player 1 could get as we range over all of Player 2’s possible strategies <span class="process-math">\(\sigma_2\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="page4-zero-sum-4-3">
+\begin{equation*}
+m_1(\sigma_1) = \min_{\sigma_2} \pi_1(\sigma_1, \sigma_2)
+\end{equation*}
+</div>
+<div class="para">So if Player 1 plays <span class="process-math">\(\sigma_1\text{,}\)</span> then <span class="process-math">\(m_1(\sigma_1)\)</span> is the smallest possible payoff they can get.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-5">Let’s try it on a small example. Here are Player 1’s payoffs for two of their strategies, Top and Bottom, against each of Player 2’s three pure strategies. (Only Player 1’s payoffs are shown.)<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-maximin-example"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Player 1’s payoffs for Top and Bottom<div class="autopermalink" data-description="Table 5.4.1: Player 1’s payoffs for Top and Bottom"><a href="#table-maximin-example" title="Copy heading and permalink for Table 5.4.1: Player 1’s payoffs for Top and Bottom" aria-label="Copy heading and permalink for Table 5.4.1: Player 1’s payoffs for Top and Bottom">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Player 2 plays L</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Player 2 plays M</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">Player 2 plays R</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Player 1 plays Top</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(-1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Player 1 plays Bottom</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+</tr>
+</table></div>
+</figure>
+<article class="exercise exercise-like" id="check-maximin-worst-cases"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="rs-check-maximin-worst-cases"><script type="application/json">{
+"problemHtml": "\n<div class=\"para\" id=\"check-maximin-worst-cases-1-1\">Find Player 1’s worst case for each of their two strategies.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-maximin-worst-cases-1-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-maximin-worst-cases-1-2\"><span class=\"process-math\">\\(m_1(\\text{Top}) =\\)<\/span> <input type=\"text\" id=\"check-maximin-worst-cases-mtop\" name=\"mtop\" size=\"3\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-maximin-worst-cases-1-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-maximin-worst-cases-1-3\"><span class=\"process-math\">\\(m_1(\\text{Bottom}) =\\)<\/span> <input type=\"text\" id=\"check-maximin-worst-cases-mbot\" name=\"mbot\" size=\"3\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-maximin-worst-cases-1-3\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"solutionHtml": "",
+"blankNames": {"mtop": 0, "mbot": 1},
+"feedbackArray": [[{"number": [-1,-1], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-1-1-2-1\">Correct. The worst thing Player 2 can do to them is play M. What about mixed strategies for Player 2, since <span class=\"process-math\">\\(\\sigma_2\\)<\/span> ranges over all of them? A mixed strategy gives Player 1 a weighted average of <span class=\"process-math\">\\(3\\text{,}\\)<\/span> <span class=\"process-math\">\\(-1\\text{,}\\)<\/span> and <span class=\"process-math\">\\(2\\text{,}\\)<\/span> and an average can’t be lower than the smallest number being averaged. So the worst case is always at one of Player 2’s pure strategies. Keep this in mind, because it comes up again soon.<\/div>"}, {"number": [3,3], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-1-2-2-1\">That’s the <em class=\"emphasis\">best<\/em> case for Top. We want the worst case, the smallest payoff Player 2 could leave them with.<\/div>"}, {"number": [1.3233,1.3433], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-1-3-2-1\">That’s the average of Top’s three payoffs, which is what Player 1 would get if Player 2 picked each column equally often. But <span class=\"process-math\">\\(m_1\\)<\/span> asks about the worst Player 2 could do to them, not a typical outcome.<\/div>"}, {"number": [-1000,-1.001], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-1-4-2-1\">Can Player 2 push them below <span class=\"process-math\">\\(-1\\text{?}\\)<\/span> Even with a mixed strategy, Player 1 gets a weighted average of <span class=\"process-math\">\\(3\\text{,}\\)<\/span> <span class=\"process-math\">\\(-1\\text{,}\\)<\/span> and <span class=\"process-math\">\\(2\\text{,}\\)<\/span> and an average can’t be lower than the smallest number being averaged.<\/div>"}, {"feedback": "Incorrect."}], [{"number": [0,0], "feedback": "Correct!"}, {"number": [-1,-1], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-2-2-2-1\"><span class=\"process-math\">\\(-1\\)<\/span> is the smallest number in the whole table, but it’s in the Top row. <span class=\"process-math\">\\(m_1(\\text{Bottom})\\)<\/span> only looks at what happens when Player 1 plays Bottom.<\/div>"}, {"number": [2,2], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-2-3-2-1\">That’s the <em class=\"emphasis\">best<\/em> case for Bottom. We want the worst case.<\/div>"}, {"number": [1,1], "feedback": "\n<div class=\"para\" id=\"check-maximin-worst-cases-2-2-4-2-1\">That’s the average of Bottom’s three payoffs. But <span class=\"process-math\">\\(m_1\\)<\/span> asks about the worst Player 2 could do to them, not a typical outcome.<\/div>"}, {"feedback": "Incorrect."}]]
+}</script></div>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.2"><a href="#check-maximin-worst-cases" title="Copy heading and permalink for Checkpoint 5.4.2" aria-label="Copy heading and permalink for Checkpoint 5.4.2">🔗</a></div>
+</article>
+<div class="para logical" id="page4-zero-sum-8">
+<div class="para">Now suppose Player 1 is risk-averse, so they want to choose a strategy <span class="process-math">\(\sigma_1\)</span> that makes the worst-case scenario as good as possible. More precisely, they want the <span class="process-math">\(\sigma_1\)</span> with the largest <span class="process-math">\(m_1(\sigma_1)\text{.}\)</span> That’s called a <dfn class="terminology">maximin strategy</dfn> for Player 1, which we denote <span class="process-math">\(\sigma_1^\dagger\text{.}\)</span> The corresponding <dfn class="terminology">maximin payoff</dfn> is written <span class="process-math">\(m_1^\dagger\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="page4-zero-sum-8-8">
+\begin{equation*}
+m_1^\dagger = m_1(\sigma_1^\dagger) = \max_{\sigma_1} m_1(\sigma_1)
+= \max_{\sigma_1} \min_{\sigma_2} \pi_1(\sigma_1, \sigma_2)
+\end{equation*}
+</div>
+<div class="para">By playing <span class="process-math">\(\sigma_1^\dagger\text{,}\)</span> Player 1 guarantees themselves at least <span class="process-math">\(m_1^\dagger\)</span> no matter what Player 2 does, and no other strategy guarantees them more.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-maximin-example-strategy"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-maximin-example-strategy-1-1">Go back to the payoffs in <a href="page4-zero-sum.html#table-maximin-example" class="xref" data-knowl="./knowl/xref/table-maximin-example.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.1: Player 1’s payoffs for Top and Bottom">Table 5.4.1</a>. You found <span class="process-math">\(m_1(\text{Top}) = -1\)</span> and <span class="process-math">\(m_1(\text{Bottom}) = 0\text{.}\)</span> If Player 1 is choosing between Top and Bottom, what is their maximin strategy, and what is their maximin payoff?<div class="autopermalink" data-description="Paragraph"><a href="#check-maximin-example-strategy-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-maximin-example-strategy" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-maximin-example-strategy_opt_a">
+<div class="para" id="check-maximin-example-strategy-2-1-1-1">Top, with maximin payoff <span class="process-math">\(3\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-maximin-example-strategy_opt_a">
+<div class="para" id="check-maximin-example-strategy-2-1-2-1">
+<span class="process-math">\(3\)</span> is Top’s <em class="emphasis">best</em> case. A maximin strategy compares worst cases: <span class="process-math">\(m_1(\text{Top}) = -1\)</span> and <span class="process-math">\(m_1(\text{Bottom}) = 0\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-maximin-example-strategy_opt_b">
+<div class="para" id="check-maximin-example-strategy-2-2-1-1">Top, with maximin payoff <span class="process-math">\(-1\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-maximin-example-strategy_opt_b">
+<div class="para" id="check-maximin-example-strategy-2-2-2-1">Top’s worst case is <span class="process-math">\(-1\text{,}\)</span> but Bottom’s worst case is better. The maximin strategy is the one with the <em class="emphasis">largest</em> worst case.</div>
+</li>
+<li data-component="answer" id="rs-check-maximin-example-strategy_opt_c" data-correct="">
+<div class="para" id="check-maximin-example-strategy-2-3-1-1">Bottom, with maximin payoff <span class="process-math">\(0\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-maximin-example-strategy_opt_c">
+<div class="para" id="check-maximin-example-strategy-2-3-2-1">Correct. Bottom’s worst case (<span class="process-math">\(0\)</span>) beats Top’s (<span class="process-math">\(-1\)</span>), so by playing Bottom, Player 1 guarantees at least <span class="process-math">\(0\text{.}\)</span> Could a mix of Top and Bottom do even better? Not here: against M, any mix earns at most <span class="process-math">\(0\text{,}\)</span> since Top gets <span class="process-math">\(-1\)</span> and Bottom gets <span class="process-math">\(0\)</span> there.</div>
+</li>
+<li data-component="answer" id="rs-check-maximin-example-strategy_opt_d">
+<div class="para" id="check-maximin-example-strategy-2-4-1-1">Bottom, with maximin payoff <span class="process-math">\(2\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-maximin-example-strategy_opt_d">
+<div class="para" id="check-maximin-example-strategy-2-4-2-1">Bottom is the right strategy, but <span class="process-math">\(2\)</span> is its best case. The maximin payoff is the worst case of the maximin strategy.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.3"><a href="#check-maximin-example-strategy" title="Copy heading and permalink for Checkpoint 5.4.3" aria-label="Copy heading and permalink for Checkpoint 5.4.3">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-10">We can define the same things for Player 2: her worst case <span class="process-math">\(m_2(\sigma_2)\)</span> for each strategy <span class="process-math">\(\sigma_2\text{,}\)</span> her maximin strategy <span class="process-math">\(\sigma_2^\dagger\text{,}\)</span> and her maximin payoff <span class="process-math">\(m_2^\dagger\text{.}\)</span> Before you look at the book’s version, see if you can figure out what the formula should be.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-maximin-player2-formula"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone hparsons_section"><div data-component="hparsons" class="hparsons_section" id="rs-check-maximin-player2-formula">
+<div class="hp_question">
+<div class="para" id="check-maximin-player2-formula-1-1">Build the formula for Player 2’s maximin payoff <span class="process-math">\(m_2^\dagger\)</span> by putting the blocks in order. Not every block belongs! (The blocks can’t show typeset math, so <code class="code-inline tex2jax_ignore">max_σ₂</code> stands for <span class="process-math">\(\displaystyle\max_{\sigma_2}\text{,}\)</span> and so on.)<div class="autopermalink" data-description="Paragraph"><a href="#check-maximin-player2-formula-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="hparsons"></div>
+<textarea style="visibility: hidden" data-randomize="true" data-reuse="false" data-blockanswer="0 1 2 3">
+--blocks--
+m₂† =
+max_σ₂
+min_σ₁
+π₂(σ₁, σ₂)
+max_σ₁
+min_σ₂
+π₁(σ₁, σ₂)
+</textarea>
+</div></div></div>
+<div class="solutions">
+<details id="check-maximin-player2-formula-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-maximin-player2-formula-3-1">Three questions: Whose payoff does Player 2 care about? Which strategy does Player 2 get to choose (that’s the max)? And whose choices make up her worst case (that’s the min)?<div class="autopermalink" data-description="Paragraph"><a href="#check-maximin-player2-formula-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.4.4.1"><a href="#check-maximin-player2-formula-3" title="Copy heading and permalink for Hint 5.4.4.1" aria-label="Copy heading and permalink for Hint 5.4.4.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 5.4.4"><a href="#check-maximin-player2-formula" title="Copy heading and permalink for Checkpoint 5.4.4" aria-label="Copy heading and permalink for Checkpoint 5.4.4">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-12">Finally, a strategy profile <span class="process-math">\((\sigma_1^\dagger, \sigma_2^\dagger)\)</span> in which <em class="emphasis">both</em> players use maximin strategies is called a <dfn class="terminology">maximin equilibrium</dfn>. In a maximin equilibrium, each player gets at least their maximin payoff <span class="process-math">\(m_i^\dagger\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-13">Let’s find the maximin equilibrium for a game we already know, the Battle of the Sexes from Section 3.2.4. Alice and Bob each choose between a concert and a wrestling match. Here’s the payoff matrix with their probabilities in the margins.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-bos-pq"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Battle of the Sexes, with mixed strategies<div class="autopermalink" data-description="Table 5.4.5: Battle of the Sexes, with mixed strategies"><a href="#table-bos-pq" title="Copy heading and permalink for Table 5.4.5: Battle of the Sexes, with mixed strategies" aria-label="Copy heading and permalink for Table 5.4.5: Battle of the Sexes, with mixed strategies">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines" colspan="2">Bob</th>
+</tr>
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(q\)</span></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-q}\)</span></th>
+</tr>
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">concert</th>
+<th scope="col" class="c m b1 r0 l0 t0 lines">wrestling</th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Alice</td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(p\)</span></td>
+<td class="c m b0 r1 l0 t0 lines">concert</td>
+<td class="c m b0 r0 l0 t0 lines">(2, 1)</td>
+<td class="c m b0 r0 l0 t0 lines">(0, 0)</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-p}\)</span></td>
+<td class="c m b0 r1 l0 t0 lines">wrestling</td>
+<td class="c m b0 r0 l0 t0 lines">(0, 0)</td>
+<td class="c m b0 r0 l0 t0 lines">(1, 2)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para logical" id="page4-zero-sum-15">
+<div class="para">So Alice’s mixed strategy is <span class="process-math">\(\sigma_1 = p \cdot \text{concert} + (1-p) \cdot \text{wrestling}\text{,}\)</span> and Bob’s is <span class="process-math">\(\sigma_2 = q \cdot \text{concert} + (1-q) \cdot \text{wrestling}\text{.}\)</span> Like the book, we’ll write a strategy profile as <span class="process-math">\((p, q)\)</span> instead of <span class="process-math">\((\sigma_1, \sigma_2)\text{.}\)</span> Alice’s expected payoff is</div>
+<div class="displaymath process-math" id="page4-zero-sum-15-5">
+\begin{equation*}
+\pi_1(p, q) = 2 \cdot pq + 0 \cdot p(1-q) + 0 \cdot (1-p)q
++ 1 \cdot (1-p)(1-q),
+\end{equation*}
+</div>
+<div class="para">which simplifies to</div>
+<div class="displaymath process-math" id="page4-zero-sum-15-6">
+\begin{equation*}
+\pi_1(p, q) = (1 - p) + (3p - 1)q.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="page4-zero-sum-16">
+<div class="para">Each fixed value of <span class="process-math">\(p\)</span> corresponds to one of Alice’s strategies, <span class="process-math">\(\sigma_1 = p \cdot \text{concert} + (1-p) \cdot \text{wrestling}\text{.}\)</span> So for each <span class="process-math">\(p\text{,}\)</span> we can find Alice’s worst case:</div>
+<div class="displaymath process-math" id="page4-zero-sum-16-4">
+\begin{equation*}
+m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q).
+\end{equation*}
+</div>
+<div class="para">To find it, we hold <span class="process-math">\(p\)</span> fixed and look for the <span class="process-math">\(q\)</span> that minimizes <span class="process-math">\(\pi_1(p, q)\text{.}\)</span> Differentiating with respect to <span class="process-math">\(q\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="page4-zero-sum-16-9">
+\begin{equation*}
+\frac{\partial \pi_1}{\partial q} = 3p - 1, \quad\text{which is }
+\begin{cases}
+\text{negative} \amp \text{if } 0 \leq p \lt \frac{1}{3}, \\
+0 \amp \text{if } p = \frac{1}{3}, \\
+\text{positive} \amp \text{if } \frac{1}{3} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">For a fixed <span class="process-math">\(p\text{,}\)</span> the graph of <span class="process-math">\(\pi_1(p, q)\)</span> is a line in <span class="process-math">\(q\)</span> with slope <span class="process-math">\(3p - 1\text{,}\)</span> and the sign of that slope tells us where the line is lowest as <span class="process-math">\(q\)</span> runs from <span class="process-math">\(0\)</span> to <span class="process-math">\(1\text{.}\)</span> Here are the graphs for one sample value of <span class="process-math">\(p\)</span> from each of the three cases.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bos-pi1-three-p"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<img src="generated/latex-image/img-bos-pi1-family-graphs.svg" role="img" class="contained" alt="Three graphs of Alice’s payoff against Bob’s probability q: decreasing for p equals 0.2, flat for p equals one third, and increasing for p equals 0.75."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="img-bos-pi1-family-graphs-description">
+<div class="para" id="img-bos-pi1-family-graphs-2-1">Three side-by-side graphs. Each has Bob’s probability q of going to the concert on the horizontal axis, from 0 to 1, and Alice’s expected payoff on the vertical axis, from 0 to 1.6.<div class="autopermalink" data-description="Paragraph"><a href="#img-bos-pi1-family-graphs-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="img-bos-pi1-family-graphs-2-2">Left graph, p equals 0.2, labeled as looking like every p that is at least 0 and less than one third: a straight line decreasing from 0.8 at q equals 0 down to 0.4 at q equals 1.<div class="autopermalink" data-description="Paragraph"><a href="#img-bos-pi1-family-graphs-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="img-bos-pi1-family-graphs-2-3">Middle graph, p equals one third, labeled as the only p in its case: a horizontal line at height two thirds. Every value of q gives the same payoff, two thirds.<div class="autopermalink" data-description="Paragraph"><a href="#img-bos-pi1-family-graphs-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="img-bos-pi1-family-graphs-2-4">Right graph, p equals 0.75, labeled as looking like every p that is greater than one third and at most 1: a straight line increasing from 0.25 at q equals 0 up to 1.5 at q equals 1.<div class="autopermalink" data-description="Paragraph"><a href="#img-bos-pi1-family-graphs-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alice’s payoff <span class="process-math">\(\pi_1(p, q)\)</span> as a function of Bob’s <span class="process-math">\(q\text{,}\)</span> for one sample value of <span class="process-math">\(p\)</span> from each case: <span class="process-math">\(p = 0.2\text{,}\)</span> <span class="process-math">\(p = \frac{1}{3}\text{,}\)</span> and <span class="process-math">\(p = 0.75\text{.}\)</span> Each graph looks like every other graph in its case. For example, every <span class="process-math">\(p\)</span> with <span class="process-math">\(0 \leq p \lt \frac{1}{3}\)</span> gives a line shaped like the one for <span class="process-math">\(p = 0.2\text{.}\)</span><div class="autopermalink" data-description="Figure 5.4.6"><a href="#fig-bos-pi1-three-p" title="Copy heading and permalink for Figure 5.4.6" aria-label="Copy heading and permalink for Figure 5.4.6">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-bos-worst-case-fillin"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone">
+<div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="rs-check-bos-worst-case-fillin"><script type="application/json">{
+"problemHtml": "\n<div class=\"para\" id=\"check-bos-worst-case-fillin-1-1\">Use the graphs to find the value of <span class=\"process-math\">\\(q\\)<\/span> that gives Alice her lowest payoff (her worst case) for each sample value of <span class=\"process-math\">\\(p\\text{.}\\)<\/span><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-1-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-bos-worst-case-fillin-1-2\">For <span class=\"process-math\">\\(p = 0.2\\text{:}\\)<\/span> <span class=\"process-math\">\\(q =\\)<\/span> <input type=\"text\" id=\"check-bos-worst-case-fillin-q02\" name=\"q02\" size=\"3\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-1-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-bos-worst-case-fillin-1-3\">For <span class=\"process-math\">\\(p = \\frac{1}{3}\\text{:}\\)<\/span> the line is flat, so every <span class=\"process-math\">\\(q\\)<\/span> gives Alice the same payoff, <span class=\"process-math\">\\(\\frac{2}{3}\\text{.}\\)<\/span> Any <span class=\"process-math\">\\(q\\)<\/span> is a worst case, and <span class=\"process-math\">\\(m_1(\\frac{1}{3}) = \\frac{2}{3}\\text{.}\\)<\/span><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-1-3\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-bos-worst-case-fillin-1-4\">For <span class=\"process-math\">\\(p = 0.75\\text{:}\\)<\/span> <span class=\"process-math\">\\(q =\\)<\/span> <input type=\"text\" id=\"check-bos-worst-case-fillin-q075\" name=\"q075\" size=\"3\"\/><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-1-4\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"solutionHtml": "\n<div class=\"para\" id=\"check-bos-worst-case-fillin-3-1\">For <span class=\"process-math\">\\(p = 0.2\\text{,}\\)<\/span> the line is decreasing, so it’s lowest at <span class=\"process-math\">\\(q = 1\\text{.}\\)<\/span> Alice’s worst case is Bob always going to the concert: she’s usually at the wrestling match, so the worst thing for her is Bob being somewhere else.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-3-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-bos-worst-case-fillin-3-2\">For <span class=\"process-math\">\\(p = 0.75\\text{,}\\)<\/span> the line is increasing, so it’s lowest at <span class=\"process-math\">\\(q = 0\\text{.}\\)<\/span> Now she’s usually at the concert, so her worst case is Bob always going to the wrestling match.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-bos-worst-case-fillin-3-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"blankNames": {"q02": 0, "q075": 1},
+"feedbackArray": [[{"number": [1,1], "feedback": "Correct!"}, {"number": [0,0], "feedback": "\n<div class=\"para\" id=\"check-bos-worst-case-fillin-2-1-2-2-1\">At <span class=\"process-math\">\\(q = 0\\)<\/span> the line is at its <em class=\"emphasis\">highest<\/em>, Alice’s best case. The line is decreasing, so where is it lowest?<\/div>"}, {"feedback": "Incorrect."}], [{"number": [0,0], "feedback": "Correct!"}, {"number": [1,1], "feedback": "\n<div class=\"para\" id=\"check-bos-worst-case-fillin-2-2-2-2-1\">At <span class=\"process-math\">\\(q = 1\\)<\/span> the line is at its <em class=\"emphasis\">highest<\/em>. This time the line is increasing, so where is it lowest?<\/div>"}, {"feedback": "Incorrect."}]]
+}</script></div>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.7"><a href="#check-bos-worst-case-fillin" title="Copy heading and permalink for Checkpoint 5.4.7" aria-label="Copy heading and permalink for Checkpoint 5.4.7">🔗</a></div>
+</article>
+<div class="para logical" id="page4-zero-sum-19">
+<div class="para">The same reasoning works for <em class="emphasis">every</em> <span class="process-math">\(p\text{,}\)</span> not just these three. If <span class="process-math">\(0 \leq p \lt \frac{1}{3}\text{,}\)</span> the slope <span class="process-math">\(3p - 1\)</span> is negative, so the line is lowest at <span class="process-math">\(q = 1\text{.}\)</span> If <span class="process-math">\(\frac{1}{3} \lt p \leq 1\text{,}\)</span> the slope is positive, so the line is lowest at <span class="process-math">\(q = 0\text{.}\)</span> Putting the three cases together:</div>
+<div class="displaymath process-math" id="page4-zero-sum-19-8">
+\begin{equation*}
+m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q) =
+\begin{cases}
+\pi_1(p, 1) \amp \text{if } 0 \leq p \lt \frac{1}{3}, \\
+\text{any } \pi_1(p, q) \amp \text{if } p = \frac{1}{3}, \\
+\pi_1(p, 0) \amp \text{if } \frac{1}{3} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Now plug in. Using <span class="process-math">\(\pi_1(p, q) = (1 - p) + (3p - 1)q\text{,}\)</span> we get <span class="process-math">\(\pi_1(p, 1) = 2p\)</span> and <span class="process-math">\(\pi_1(p, 0) = 1 - p\text{,}\)</span> and every <span class="process-math">\(\pi_1(\frac{1}{3}, q)\)</span> equals <span class="process-math">\(\frac{2}{3}\text{.}\)</span> So</div>
+<div class="displaymath process-math" id="page4-zero-sum-19-14">
+\begin{equation*}
+m_1(p) =
+\begin{cases}
+2p \amp \text{if } 0 \leq p \lt \frac{1}{3}, \\
+\frac{2}{3} \amp \text{if } p = \frac{1}{3}, \\
+1 - p \amp \text{if } \frac{1}{3} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-20">Here’s the graph of the piecewise function <span class="process-math">\(m_1(p)\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bos-m1-graph"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;">
+<img src="generated/latex-image/fig-bos-m1-graph-2.svg" role="img" class="contained" alt="Graph of Alice’s worst case m1 of p: rising along 2p up to a peak of two thirds at p equals one third, then falling along 1 minus p."><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-bos-m1-graph-2-description">
+<div class="para" id="fig-bos-m1-graph-2-2-1">A graph with Alice’s probability p of going to the concert on the horizontal axis, from 0 to 1, and her worst-case payoff on the vertical axis, from 0 to 1.2. The horizontal axis is marked at 0, one third, and 1.<div class="autopermalink" data-description="Paragraph"><a href="#fig-bos-m1-graph-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="fig-bos-m1-graph-2-2-2">The solid graph of m1 of p is shaped like an upside-down V. From p equals 0 to p equals one third, it follows the line 2p, rising from 0 to two thirds. From p equals one third to p equals 1, it follows the line 1 minus p, falling from two thirds to 0. The peak, at the point one third, two thirds, is marked with a dot.<div class="autopermalink" data-description="Paragraph"><a href="#fig-bos-m1-graph-2-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="fig-bos-m1-graph-2-2-3">Dashed segments show the line 2p continuing upward past the peak and the line 1 minus p continuing upward to the left of the peak. In both cases the dashed part is above the solid graph, showing that m1 of p is always the lower of the two lines.<div class="autopermalink" data-description="Paragraph"><a href="#fig-bos-m1-graph-2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Alice’s worst case <span class="process-math">\(m_1(p)\)</span> (solid), the lower of the lines <span class="process-math">\(2p\)</span> and <span class="process-math">\(1 - p\text{.}\)</span> The dashed segments show where each line continues above the other.<div class="autopermalink" data-description="Figure 5.4.8"><a href="#fig-bos-m1-graph" title="Copy heading and permalink for Figure 5.4.8" aria-label="Copy heading and permalink for Figure 5.4.8">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="page4-zero-sum-22">Remember, a maximin strategy is the one whose worst case is as good as possible. In other words, Alice’s maximin strategy <span class="process-math">\(p^\dagger\)</span> is the value of <span class="process-math">\(p\)</span> that makes <span class="process-math">\(m_1(p)\)</span> as large as possible.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-bos-maximin-p"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-bos-maximin-p-1-1">Using the graph, what is Alice’s maximin strategy <span class="process-math">\(p^\dagger\text{,}\)</span> and what is her maximin payoff <span class="process-math">\(m_1^\dagger\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-bos-maximin-p-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-bos-maximin-p" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-bos-maximin-p_opt_a">
+<div class="para" id="check-bos-maximin-p-2-1-1-1">
+<span class="process-math">\(p^\dagger = 1\)</span> and <span class="process-math">\(m_1^\dagger = 2\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-bos-maximin-p_opt_a">
+<div class="para" id="check-bos-maximin-p-2-1-2-1">The concert is Alice’s favorite, and <span class="process-math">\(2\)</span> is her best possible payoff. But if she always goes to the concert, Bob could go to the wrestling match, and she’d get <span class="process-math">\(0\text{.}\)</span> In fact <span class="process-math">\(m_1(1) = 0\text{,}\)</span> the lowest point on the graph!</div>
+</li>
+<li data-component="answer" id="rs-check-bos-maximin-p_opt_b" data-correct="">
+<div class="para" id="check-bos-maximin-p-2-2-1-1">
+<span class="process-math">\(p^\dagger = \frac{1}{3}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{2}{3}\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-bos-maximin-p_opt_b">
+<div class="para" id="check-bos-maximin-p-2-2-2-1">Correct. The highest point of <span class="process-math">\(m_1(p)\)</span> is the peak at <span class="process-math">\((\frac{1}{3}, \frac{2}{3})\text{.}\)</span> By going to the concert with probability <span class="process-math">\(\frac{1}{3}\text{,}\)</span> Alice guarantees herself an expected payoff of at least <span class="process-math">\(\frac{2}{3}\text{,}\)</span> whatever Bob does.</div>
+</li>
+<li data-component="answer" id="rs-check-bos-maximin-p_opt_c">
+<div class="para" id="check-bos-maximin-p-2-3-1-1">
+<span class="process-math">\(p^\dagger = \frac{2}{3}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{1}{3}\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-bos-maximin-p_opt_c">
+<div class="para" id="check-bos-maximin-p-2-3-2-1">Read the peak off the graph again: the first coordinate is <span class="process-math">\(p^\dagger\)</span> and the second is <span class="process-math">\(m_1^\dagger\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-bos-maximin-p_opt_d">
+<div class="para" id="check-bos-maximin-p-2-4-1-1">
+<span class="process-math">\(p^\dagger = 0\)</span> and <span class="process-math">\(m_1^\dagger = 1\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-bos-maximin-p_opt_d">
+<div class="para" id="check-bos-maximin-p-2-4-2-1">If Alice always goes to the wrestling match, Bob could go to the concert, and she’d get <span class="process-math">\(0\text{.}\)</span> So <span class="process-math">\(m_1(0) = 0\text{,}\)</span> not <span class="process-math">\(1\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.9"><a href="#check-bos-maximin-p" title="Copy heading and permalink for Checkpoint 5.4.9" aria-label="Copy heading and permalink for Checkpoint 5.4.9">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-24">A similar calculation for Bob shows that his maximin strategy is <span class="process-math">\(q^\dagger = \frac{2}{3}\text{,}\)</span> and his maximin payoff is <span class="process-math">\(m_2^\dagger = \frac{2}{3}\text{.}\)</span> So <span class="process-math">\((p^\dagger, q^\dagger) = (\frac{1}{3}, \frac{2}{3})\)</span> is a maximin equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-25">Now, this maximin equilibrium <span class="process-math">\((\frac{1}{3}, \frac{2}{3})\)</span> is <em class="emphasis">not</em> a Nash equilibrium. (If you want, try to figure out why!) But there is a kind of game where maximin equilibria and Nash equilibria line up exactly, and that’s where we’re headed next.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-26">A two-player game is <dfn class="terminology">zero-sum</dfn> if the two players’ payoffs add up to <span class="process-math">\(0\)</span> in every cell of the payoff matrix: whatever one player wins, the other loses. One-Card Two-Round Poker from the last section is an example. Here’s its payoff matrix again (the reduced game from Section 5.4):<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-poker-zero-sum"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.10<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>One-Card Two-Round Poker, reduced game<div class="autopermalink" data-description="Table 5.4.10: One-Card Two-Round Poker, reduced game"><a href="#table-poker-zero-sum" title="Copy heading and permalink for Table 5.4.10: One-Card Two-Round Poker, reduced game" aria-label="Copy heading and permalink for Table 5.4.10: One-Card Two-Round Poker, reduced game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b0 r0 l0 t0 lines" colspan="3">Player 2</th>
+</tr>
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t0 lines"></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(bb\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(bf\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines">Player 1</td>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(bb\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(4\text{,}\)</span> <span class="process-math">\(-4\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(-2\)</span>)</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(bf\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(-1\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(-2\)</span>)</td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"><span class="process-math">\(f\)</span></td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(2\text{,}\)</span> <span class="process-math">\(-2\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(-1\)</span>)</td>
+<td class="c m b0 r0 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="page4-zero-sum-28">In every cell, Player 2’s payoff is exactly the negative of Player 1’s. For example, when Player 1 plays <span class="process-math">\(bb\)</span> and Player 2 plays <span class="process-math">\(bf\text{,}\)</span> Player 1 wins <span class="process-math">\(4\)</span> and Player 2 loses <span class="process-math">\(4\text{.}\)</span> That’s what makes poker zero-sum: every dollar one player wins comes out of the other player’s pocket. The Battle of the Sexes is not zero-sum. For example, in the cell <span class="process-math">\((2, 1)\text{,}\)</span> the payoffs add up to <span class="process-math">\(2 + 1 = 3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-28" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page4-zero-sum-29">The definition only talks about the cells, which come from pure strategies. What about mixed strategies?<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-zero-sum-mixed"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.11</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-zero-sum-mixed-1-1">Suppose the payoffs add up to <span class="process-math">\(0\)</span> in every cell of a game. Why do they also add up to <span class="process-math">\(0\)</span> for any pair of <em class="emphasis">mixed</em> strategies?<div class="autopermalink" data-description="Paragraph"><a href="#check-zero-sum-mixed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-zero-sum-mixed" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-zero-sum-mixed_opt_a" data-correct="">
+<div class="para" id="check-zero-sum-mixed-2-1-1-1">Each player’s expected payoff is a weighted average of the cells, and both players use the <em class="emphasis">same</em> weights. So the two expected payoffs add up to a weighted average of the cell sums, which are all <span class="process-math">\(0\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-zero-sum-mixed_opt_a">
+<div class="para" id="check-zero-sum-mixed-2-1-2-1">Correct. If a cell has probability <span class="process-math">\(w\text{,}\)</span> it contributes <span class="process-math">\(w \cdot (\text{Player 1's payoff})\)</span> to <span class="process-math">\(\pi_1\)</span> and <span class="process-math">\(w \cdot (\text{Player 2's payoff})\)</span> to <span class="process-math">\(\pi_2\text{.}\)</span> Adding them, that cell contributes <span class="process-math">\(w \cdot (\text{cell sum}) = w \cdot 0 = 0\)</span> to <span class="process-math">\(\pi_1 + \pi_2\text{.}\)</span> So <span class="process-math">\(\pi_1 + \pi_2 = 0\text{,}\)</span> and <span class="process-math">\(\pi_2 = -\pi_1\)</span> for mixed strategies too.</div>
+</li>
+<li data-component="answer" id="rs-check-zero-sum-mixed_opt_b">
+<div class="para" id="check-zero-sum-mixed-2-2-1-1">Because each player’s expected payoff is <span class="process-math">\(0\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-zero-sum-mixed_opt_b">
+<div class="para" id="check-zero-sum-mixed-2-2-2-1">Individual payoffs don’t have to be <span class="process-math">\(0\text{.}\)</span> In poker, Player 1 can win <span class="process-math">\(4\)</span> in a single cell. It’s the <em class="emphasis">sum</em> of the two players’ payoffs that’s always <span class="process-math">\(0\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-zero-sum-mixed_opt_c">
+<div class="para" id="check-zero-sum-mixed-2-3-1-1">It isn’t always true. It depends on which mixed strategies the players use.</div>
+</li>
+<li data-component="feedback" id="rs-check-zero-sum-mixed_opt_c">
+<div class="para" id="check-zero-sum-mixed-2-3-2-1">It is always true! Think about how an expected payoff is built from the cells, and what the two players’ expected payoffs have in common.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.11"><a href="#check-zero-sum-mixed" title="Copy heading and permalink for Checkpoint 5.4.11" aria-label="Copy heading and permalink for Checkpoint 5.4.11">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-31">Here’s one more consequence of the definition, which will turn out to be the key idea behind this section’s main theorem.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-31" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-zero-sum-flip"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.12</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para logical" id="check-zero-sum-flip-1-1">
+<div class="para">In a zero-sum game, suppose Player 1 keeps playing the same strategy <span class="process-math">\(\sigma_1\text{,}\)</span> and Player 2 switches from <span class="process-math">\(\sigma_2\)</span> to some other strategy <span class="process-math">\(\tau_2\text{.}\)</span> Suppose that</div>
+<div class="displaymath process-math" id="check-zero-sum-flip-1-1-4">
+\begin{equation*}
+\pi_1(\sigma_1, \sigma_2) \gt \pi_1(\sigma_1, \tau_2).
+\end{equation*}
+</div>
+<div class="para">In words: Player 1 does worse when Player 2 switches to <span class="process-math">\(\tau_2\text{.}\)</span> Since the game is zero-sum, what else must be true?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#check-zero-sum-flip-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-zero-sum-flip" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-zero-sum-flip_opt_a">
+<div class="para" id="check-zero-sum-flip-2-1-1-1">
+<span class="process-math">\(\pi_2(\sigma_1, \sigma_2) \gt \pi_2(\sigma_1, \tau_2)\text{.}\)</span> Player 2 also does worse by switching to <span class="process-math">\(\tau_2\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-zero-sum-flip_opt_a">
+<div class="para" id="check-zero-sum-flip-2-1-2-1">Zero-sum means <span class="process-math">\(\pi_2 = -\pi_1\)</span> (for mixed strategies too, as we just saw). What happens to an inequality when you multiply both sides by <span class="process-math">\(-1\text{?}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-zero-sum-flip_opt_b" data-correct="">
+<div class="para" id="check-zero-sum-flip-2-2-1-1">
+<span class="process-math">\(\pi_2(\sigma_1, \sigma_2) \lt \pi_2(\sigma_1, \tau_2)\text{.}\)</span> Player 2 does better by switching to <span class="process-math">\(\tau_2\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-zero-sum-flip_opt_b">
+<div class="para" id="check-zero-sum-flip-2-2-2-1">Correct. Since <span class="process-math">\(\pi_2 = -\pi_1\text{,}\)</span> multiplying both sides by <span class="process-math">\(-1\)</span> flips the inequality. Whatever Player 1 loses, Player 2 gains. Keep this in mind for the proof later on this page.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 5.4.12"><a href="#check-zero-sum-flip" title="Copy heading and permalink for Checkpoint 5.4.12" aria-label="Copy heading and permalink for Checkpoint 5.4.12">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-33">In a zero-sum game, it turns out that maximin equilibria and Nash equilibria are exactly the same thing. That’s the main theorem of this section.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-5-5-through-theorem"><h3 class="heading"><span class="title">Section 5.5, Through Theorem 5.6.</span></h3>
+<div class="para" id="read-5-5-through-theorem-2">
+<em class="alert">Read Section 5.5 from the beginning through the statement of Theorem 5.6.</em> Stop right before the proof.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-5-through-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-5-5-through-theorem-3">Everything before the theorem is what we just worked through, so you can read that part quickly. You’ll see the book’s notation for everything we did: <span class="process-math">\(\sigma_1^\dagger\text{,}\)</span> <span class="process-math">\(m_1^\dagger\text{,}\)</span> and the Battle of the Sexes written in terms of <span class="process-math">\((p, q)\text{.}\)</span> Read the statement of Theorem 5.6 carefully, and then we’ll break down why it’s true.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-5-through-theorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 5.5, Through Theorem 5.6"><a href="#read-5-5-through-theorem" title="Copy heading and permalink for Reading: Section 5.5, Through Theorem 5.6" aria-label="Copy heading and permalink for Reading: Section 5.5, Through Theorem 5.6">🔗</a></div>
+</article>
+<div class="para" id="page4-zero-sum-35">Let’s see why the theorem is true, at least the main part of it. We’ll work through it in the activity below.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-35" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="activity project-like" id="activity-why-theorem-5-6"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.4.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why Theorem 5.6 Is True.</span>
+</h3>
+<div class="introduction" id="activity-why-theorem-5-6-2">
+<div class="para logical" id="activity-why-theorem-5-6-2-1">
+<div class="para">Suppose <span class="process-math">\((\sigma_1^*, \sigma_2^*)\)</span> is a Nash equilibrium of a two-player zero-sum game. We’ll show that Player 1’s payoff there is their maximin payoff:</div>
+<div class="displaymath process-math" id="activity-why-theorem-5-6-2-1-2">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger.
+\end{equation*}
+</div>
+<div class="para">We’ll do this in two steps: first we’ll show <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger\text{,}\)</span> and then we’ll show <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#activity-why-theorem-5-6-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="task-proof-step-1"><h4 class="heading">
+<span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 1: Show <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger\)</span>.</span>
+</h4>
+<div class="introduction" id="task-proof-step-1-2">
+<div class="para logical" id="task-proof-step-1-2-1">
+<div class="para">Take any strategy <span class="process-math">\(\sigma_1\)</span> for Player 1, and compare these three payoffs:</div>
+<ul class="disc" id="task-proof-step-1-2-1-2">
+<li id="task-proof-step-1-2-1-2-1">
+<div class="para" id="task-proof-step-1-2-1-2-1-1">
+<span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*)\text{:}\)</span> Player 1’s payoff at the Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-1-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-proof-step-1-2-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-proof-step-1-2-1-2-2">
+<div class="para" id="task-proof-step-1-2-1-2-2-1">
+<span class="process-math">\(\pi_1(\sigma_1, \sigma_2^*)\text{:}\)</span> what Player 1 would get by switching to <span class="process-math">\(\sigma_1\)</span> while Player 2 sticks with <span class="process-math">\(\sigma_2^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-1-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-proof-step-1-2-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="task-proof-step-1-2-1-2-3">
+<div class="para" id="task-proof-step-1-2-1-2-3-1">
+<span class="process-math">\(m_1(\sigma_1)\text{:}\)</span> Player 1’s worst case when they play <span class="process-math">\(\sigma_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-1-2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#task-proof-step-1-2-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="check-proof-step1-order"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-proof-step1-order-1-1">Which chain of inequalities is correct?<div class="autopermalink" data-description="Paragraph"><a href="#check-proof-step1-order-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-proof-step1-order" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-proof-step1-order_opt_a" data-correct="">
+<div class="para" id="check-proof-step1-order-2-1-1-1"><span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \geq \pi_1(\sigma_1, \sigma_2^*) \geq m_1(\sigma_1)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-proof-step1-order_opt_a">
+<div class="para" id="check-proof-step1-order-2-1-2-1">Correct. The first inequality is because <span class="process-math">\((\sigma_1^*, \sigma_2^*)\)</span> is a Nash equilibrium, so Player 1 can’t do better by switching to <span class="process-math">\(\sigma_1\text{.}\)</span> The second is because <span class="process-math">\(m_1(\sigma_1)\)</span> is the <em class="emphasis">smallest</em> payoff Player 1 can get from <span class="process-math">\(\sigma_1\text{,}\)</span> so it’s no bigger than their payoff against <span class="process-math">\(\sigma_2^*\)</span> in particular.</div>
+</li>
+<li data-component="answer" id="rs-check-proof-step1-order_opt_b">
+<div class="para" id="check-proof-step1-order-2-2-1-1"><span class="process-math">\(\pi_1(\sigma_1, \sigma_2^*) \geq \pi_1(\sigma_1^*, \sigma_2^*) \geq m_1(\sigma_1)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-proof-step1-order_opt_b">
+<div class="para" id="check-proof-step1-order-2-2-2-1">The first inequality would mean Player 1 does better by switching to <span class="process-math">\(\sigma_1\text{.}\)</span> What does the definition of a Nash equilibrium say about that?</div>
+</li>
+<li data-component="answer" id="rs-check-proof-step1-order_opt_c">
+<div class="para" id="check-proof-step1-order-2-3-1-1"><span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \geq m_1(\sigma_1) \geq \pi_1(\sigma_1, \sigma_2^*)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-proof-step1-order_opt_c">
+<div class="para" id="check-proof-step1-order-2-3-2-1">
+<span class="process-math">\(m_1(\sigma_1)\)</span> is the <em class="emphasis">smallest</em> payoff Player 1 can get from <span class="process-math">\(\sigma_1\text{,}\)</span> so it can’t be bigger than <span class="process-math">\(\pi_1(\sigma_1, \sigma_2^*)\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 5.4.1.a.i"><a href="#check-proof-step1-order" title="Copy heading and permalink for Task 5.4.1.a.i" aria-label="Copy heading and permalink for Task 5.4.1.a.i">🔗</a></div>
+</article>
+<div class="conclusion" id="task-proof-step-1-4">
+<div class="para logical" id="task-proof-step-1-4-1">
+<div class="para">So <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \geq \pi_1(\sigma_1, \sigma_2^*)
+\geq m_1(\sigma_1)\text{.}\)</span> Since <span class="process-math">\(\sigma_1\)</span> was arbitrary, <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*)\)</span> is at least as big as every <span class="process-math">\(m_1(\sigma_1)\text{.}\)</span> So it’s at least as big as the largest one:</div>
+<div class="displaymath process-math" id="task-proof-step-1-4-1-5">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) \geq \max_{\sigma_1} m_1(\sigma_1)
+= m_1^\dagger.
+\end{equation*}
+</div>
+<div class="para">Notice we haven’t used the fact that the game is zero-sum yet!</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Task 5.4.1.a: Step 1: Show \pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger"><a href="#task-proof-step-1" title="Copy heading and permalink for Task 5.4.1.a: Step 1: Show \pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger" aria-label="Copy heading and permalink for Task 5.4.1.a: Step 1: Show \pi_1(\sigma_1^*, \sigma_2^*) \geq m_1^\dagger">🔗</a></div>
+</article>
+<article class="task exercise-like" id="task-proof-step-2"><h4 class="heading">
+<span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Step 2: Show <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger\)</span>.</span>
+</h4>
+<div class="introduction" id="task-proof-step-2-2">
+<div class="para logical" id="task-proof-step-2-2-1">
+<div class="para">This is the step where zero-sum matters. Suppose Player 1 keeps playing <span class="process-math">\(\sigma_1^*\text{,}\)</span> but Player 2 switches to some other strategy <span class="process-math">\(\sigma_2\text{,}\)</span> and Player 1 does worse:</div>
+<div class="displaymath process-math" id="task-proof-step-2-2-1-3">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) \gt \pi_1(\sigma_1^*, \sigma_2).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="check-proof-zero-sum-flip"><h5 class="heading"><span class="codenumber">(i)</span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-proof-zero-sum-flip-1-1">This is exactly the situation from <a href="page4-zero-sum.html#check-zero-sum-flip" class="xref" data-knowl="./knowl/xref/check-zero-sum-flip.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.4.12">Checkpoint 5.4.12</a>, before the reading: Player 1 keeps the same strategy (<span class="process-math">\(\sigma_1^*\)</span>), and Player 2 switches from <span class="process-math">\(\sigma_2^*\)</span> to <span class="process-math">\(\sigma_2\text{.}\)</span> Using what you found there, what must be true?<div class="autopermalink" data-description="Paragraph"><a href="#check-proof-zero-sum-flip-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-proof-zero-sum-flip" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-proof-zero-sum-flip_opt_a">
+<div class="para" id="check-proof-zero-sum-flip-2-1-1-1">
+<span class="process-math">\(\pi_2(\sigma_1^*, \sigma_2^*) \gt \pi_2(\sigma_1^*, \sigma_2)\text{.}\)</span> Player 2 also does worse by switching to <span class="process-math">\(\sigma_2\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-proof-zero-sum-flip_opt_a">
+<div class="para" id="check-proof-zero-sum-flip-2-1-2-1">Look back at <a href="page4-zero-sum.html#check-zero-sum-flip" class="xref" data-knowl="./knowl/xref/check-zero-sum-flip.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.4.12">Checkpoint 5.4.12</a>. In a zero-sum game, when Player 1 does worse, what happens to Player 2?</div>
+</li>
+<li data-component="answer" id="rs-check-proof-zero-sum-flip_opt_b" data-correct="">
+<div class="para" id="check-proof-zero-sum-flip-2-2-1-1">
+<span class="process-math">\(\pi_2(\sigma_1^*, \sigma_2^*) \lt \pi_2(\sigma_1^*, \sigma_2)\text{.}\)</span> Player 2 does better by switching to <span class="process-math">\(\sigma_2\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-proof-zero-sum-flip_opt_b">
+<div class="para" id="check-proof-zero-sum-flip-2-2-2-1">Correct. Whatever Player 1 loses, Player 2 gains. But <span class="process-math">\((\sigma_1^*, \sigma_2^*)\)</span> is a Nash equilibrium, so Player 2 <em class="emphasis">can’t</em> do better by switching. That’s a contradiction, so this situation can never happen.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 5.4.1.b.i"><a href="#check-proof-zero-sum-flip" title="Copy heading and permalink for Task 5.4.1.b.i" aria-label="Copy heading and permalink for Task 5.4.1.b.i">🔗</a></div>
+</article>
+<article class="task exercise-like" id="check-proof-conclude-m1"><h5 class="heading"><span class="codenumber">(ii)</span></h5>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para logical" id="check-proof-conclude-m1-1-1">
+<div class="para">Part (i) leads to a contradiction: Player 2 would do better by switching, but at a Nash equilibrium they can’t. So Player 1 can never do worse when Player 2 switches. In other words,</div>
+<div class="displaymath process-math" id="check-proof-conclude-m1-1-1-1">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) \leq \pi_1(\sigma_1^*, \sigma_2)
+\quad\text{for every } \sigma_2.
+\end{equation*}
+</div>
+<div class="para">This is really the heart of the theorem: in a zero-sum game, Player 2’s best response is the move that hurts Player 1 the most. What can we conclude from this inequality?</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#check-proof-conclude-m1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-proof-conclude-m1" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-proof-conclude-m1_opt_a">
+<div class="para" id="check-proof-conclude-m1-2-1-1-1"><span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) = m_1^\dagger\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-proof-conclude-m1_opt_a">
+<div class="para" id="check-proof-conclude-m1-2-1-2-1">That’s where we’re headed, but we’re not there yet. This inequality only compares payoffs where Player 1 plays <span class="process-math">\(\sigma_1^*\text{.}\)</span> So it tells us about the worst case for <span class="process-math">\(\sigma_1^*\)</span> specifically, <span class="process-math">\(m_1(\sigma_1^*)\text{,}\)</span> not the best worst case over all strategies, <span class="process-math">\(m_1^\dagger\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-proof-conclude-m1_opt_b">
+<div class="para" id="check-proof-conclude-m1-2-2-1-1">
+<span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) \leq m_1(\sigma_1^*)\text{,}\)</span> but not necessarily equal.</div>
+</li>
+<li data-component="feedback" id="rs-check-proof-conclude-m1_opt_b">
+<div class="para" id="check-proof-conclude-m1-2-2-2-1">This is true, but we can say more. Is <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*)\)</span> itself one of the payoffs Player 1 can get when they play <span class="process-math">\(\sigma_1^*\text{?}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-proof-conclude-m1_opt_c" data-correct="">
+<div class="para" id="check-proof-conclude-m1-2-3-1-1"><span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-proof-conclude-m1_opt_c">
+<div class="para" id="check-proof-conclude-m1-2-3-2-1">Correct. Among all the payoffs Player 1 can get by playing <span class="process-math">\(\sigma_1^*\text{,}\)</span> <span class="process-math">\(\pi_1(\sigma_1^*, \sigma_2^*)\)</span> is less than or equal to every one of them, <em class="emphasis">and</em> it’s one of them (the one where Player 2 plays <span class="process-math">\(\sigma_2^*\)</span>). So it’s the smallest one, which is exactly <span class="process-math">\(m_1(\sigma_1^*)\text{.}\)</span> In other words, <span class="process-math">\(\sigma_2^*\)</span> is Player 1’s worst case.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Task 5.4.1.b.ii"><a href="#check-proof-conclude-m1" title="Copy heading and permalink for Task 5.4.1.b.ii" aria-label="Copy heading and permalink for Task 5.4.1.b.ii">🔗</a></div>
+</article>
+<div class="conclusion" id="task-proof-step-2-5">
+<div class="para logical" id="task-proof-step-2-5-1">
+<div class="para">To finish Step 2: <span class="process-math">\(m_1^\dagger\)</span> is the largest of all the <span class="process-math">\(m_1(\sigma_1)\text{,}\)</span> so in particular <span class="process-math">\(m_1(\sigma_1^*) \leq m_1^\dagger\text{.}\)</span> Therefore</div>
+<div class="displaymath process-math" id="task-proof-step-2-5-1-4">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*) \leq m_1^\dagger.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#task-proof-step-2-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Task 5.4.1.b: Step 2: Show \pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger"><a href="#task-proof-step-2" title="Copy heading and permalink for Task 5.4.1.b: Step 2: Show \pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger" aria-label="Copy heading and permalink for Task 5.4.1.b: Step 2: Show \pi_1(\sigma_1^*, \sigma_2^*) \leq m_1^\dagger">🔗</a></div>
+</article><div class="autopermalink" data-description="Activity 5.4.1: Why Theorem 5.6 Is True"><a href="#activity-why-theorem-5-6" title="Copy heading and permalink for Activity 5.4.1: Why Theorem 5.6 Is True" aria-label="Copy heading and permalink for Activity 5.4.1: Why Theorem 5.6 Is True">🔗</a></div>
+</article>
+<section class="paragraphs" id="page4-zero-sum-37"><h3 class="heading"><span class="title">Putting it together.</span></h3>
+<div class="para logical" id="page4-zero-sum-37-2">
+<div class="para">Steps 1 and 2 together give</div>
+<div class="displaymath process-math" id="page4-zero-sum-37-2-1">
+\begin{equation*}
+\pi_1(\sigma_1^*, \sigma_2^*) = m_1(\sigma_1^*) = m_1^\dagger.
+\end{equation*}
+</div>
+<div class="para">The same argument works for Player 2, so <span class="process-math">\(\pi_2(\sigma_1^*, \sigma_2^*) = m_2(\sigma_2^*) = m_2^\dagger\text{.}\)</span> Here’s what that tells us:</div>
+<ul class="disc" id="page4-zero-sum-37-2-3">
+<li id="page4-zero-sum-37-2-3-1">
+<div class="para" id="page4-zero-sum-37-2-3-1-1">Every Nash equilibrium is a maximin equilibrium. That’s half of part (1) of the theorem.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-37-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page4-zero-sum-37-2-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page4-zero-sum-37-2-3-2">
+<div class="para" id="page4-zero-sum-37-2-3-2-1">At the Nash equilibrium, each player gets their maximin payoff. That’s part (2).<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-37-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page4-zero-sum-37-2-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="page4-zero-sum-37-2-3-3">
+<div class="para" id="page4-zero-sum-37-2-3-3-1">Both maximin payoffs come from the same strategy profile <span class="process-math">\((\sigma_1^*, \sigma_2^*)\text{,}\)</span> and the payoffs there add to <span class="process-math">\(0\)</span> because the game is zero-sum. So <span class="process-math">\(m_1^\dagger + m_2^\dagger = 0\text{.}\)</span> That’s part (3). (This also uses the fact that a Nash equilibrium exists in the first place, which Nash’s Existence Theorem, Theorem 5.1, guarantees.)<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-37-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#page4-zero-sum-37-2-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">The other direction of part (1), that every maximin equilibrium is a Nash equilibrium, is also true. The book proves it using part (3), if you’re curious.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-37-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Putting it together"><a href="#page4-zero-sum-37" title="Copy heading and permalink for Paragraphs: Putting it together" aria-label="Copy heading and permalink for Paragraphs: Putting it together">🔗</a></div>
+</section>
+<div class="para" id="page4-zero-sum-38">We’ll finish Section 5.5 on the next page, where we’ll see what Theorem 5.6 tells us about One-Card Two-Round Poker.<div class="autopermalink" data-description="Paragraph"><a href="#page4-zero-sum-38" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=5.4" id="question-form-5-4" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-5-4.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 5.4: Maximins and Two-Player Zero-Sum Games"><a href="#page4-zero-sum" title="Copy heading and permalink for Section 5.4: Maximins and Two-Player Zero-Sum Games" aria-label="Copy heading and permalink for Section 5.4: Maximins and Two-Player Zero-Sum Games">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page3-poker.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="page5-ultimatum-water-pollution.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
