@@ -13,9 +13,10 @@
 
   <introduction>
     <p>
-      Before you start, two terms that the book doesn't use but that you
+      Before you start, we will be using two terms that the book doesn't use but that you
       will see in these exercises (and in a lot of other game theory
-      writing).
+      writing). This isn't actually anything new, we are just using different terminology for things
+      we have been looking at in this chapter.
     </p>
 
     <p>
@@ -179,7 +180,9 @@
       </figure>
 
       <p>
-        Each player has four strategies,
+        Here <m>U</m> and <m>D</m> stand for up and down, and <m>L</m>
+        and <m>R</m> stand for left and right. Each player has four
+        strategies,
         <me>
           S_1 = \{UU, UD, DU, DD\}, \qquad S_2 = \{LL, LR, RL, RR\},
         </me>
@@ -229,11 +232,9 @@
       <statement>
         <p>
           Construct the Bayesian normal form of this game by filling in
-          the <m>4 \times 4</m> payoff matrix below. One way to organize
-          the work: first find the payoff matrix when the type is
-          <m>A</m> and the payoff matrix when the type is <m>B</m>, then
-          multiply the first by <m>\frac{3}{4}</m>, the second by
-          <m>\frac{1}{4}</m>, and add.
+          the <m>4 \times 4</m> payoff matrix below. In your work: first find the payoff matrix when the type is
+          <m>A</m> and the payoff matrix when the type is <m>B</m>.
+          Then use this to construct the Bayesian normal form of this game (as done in the book).
         </p>
 
         <table xml:id="table-hw-types-a-b">
@@ -345,15 +346,10 @@
         </li>
       </ul>
       <p>
-        Given a belief, a player's <term>expected payoff</term> from one of
-        their strategies is the expected value from
-        <xref ref="read-4-1" text="title" />: weight each payoff by the
-        probability the player believes it will happen, and add. For
-        example, <m>\pi_1(x, \theta_2)</m> is Player 1's expected payoff
-        from playing <m>x</m> if Player 2 behaves according to
-        <m>\theta_2</m>. A strategy that gives a player the highest
+        Given a player's belief, we can compute the expected payoff from one of
+        their strategies. A strategy that gives a player the highest
         expected payoff, given their belief, is a
-        <term>best response</term> to that belief.
+        best response to that belief.
       </p>
     </introduction>
 
@@ -436,8 +432,8 @@
       <statement>
         <p>
           Draw the game in extensive form. Start with a node for Nature
-          that determines which card Player 1 gets, and show Player 2's
-          information set.
+          that determines which card Player 1 gets (high or low), and show Player 2's
+          information set (connect nodes together with a dotted line if they are in the same information set).
         </p>
       </statement>
     </task>
@@ -638,10 +634,7 @@
       <statement>
         <p>
           Find the Bayesian normal form of the game, a <m>2 \times 2</m>
-          payoff matrix with entries in terms of <m>p</m>. One way to do
-          this is to find the payoff matrix when Visiting Gorilla would
-          win and the payoff matrix when he would lose, then multiply the
-          first by <m>p</m>, multiply the second by <m>1-p</m>, and add.
+          payoff matrix with entries in terms of <m>p</m>. 
         </p>
       </statement>
     </task>
@@ -663,14 +656,15 @@
     <task xml:id="hw-boss-gorilla-2-compare">
       <statement>
         <p>
-          In Section 4.5, where the visitor knows whether he would win,
-          the game has no Bayesian Nash equilibrium (in pure strategies)
-          when <m>p \lt \frac{1}{3}</m>. In this version, where nobody
-          knows, you found an equilibrium for every <m>p</m>. Explain in
-          words what difference the visitor's knowledge makes. Hint: in
-          Section 4.5, what can Boss Gorilla learn from the fact that he
-          has been challenged, and what can he learn from it here?
+          <em>Speculate.</em> In Section 4.5, where the visitor knows
+          whether he would win, the game has no Bayesian Nash equilibrium
+          (in pure strategies) when <m>p \lt \frac{1}{3}</m>. In this
+          version, where nobody knows, you found an equilibrium for every
+          <m>p</m>. Why do you think the visitor's knowledge makes this
+          difference? There is no single right answer here: a reasonable
+          idea explained in a few sentences is fine.
         </p>
+     
       </statement>
     </task>
   </exercise>

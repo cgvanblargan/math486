@@ -156,7 +156,8 @@
     </task>
   </exercise>
 
-  <!-- ============================================================ -->
+
+  ==============================================================
   <exercise xml:id="ans-hw-bank-location-nash">
     <title>Locating Two Banks, Revisited</title>
 
@@ -240,7 +241,7 @@
     </task>
   </exercise>
 
-  <!-- ============================================================ -->
+  ==============================================================
   <exercise xml:id="ans-hw-resource-game">
     <title>Bidding the Resource</title>
 
@@ -320,8 +321,8 @@
       </solution>
     </task>
   </exercise>
-
-  <!-- ============================================================ -->
+<!--
+  ==============================================================
   <exercise xml:id="ans-hw-hawk-dove-nash">
     <title>Hawk and Dove, Revisited</title>
 
@@ -391,7 +392,7 @@
     </task>
   </exercise>
 
-  <!-- ============================================================ -->
+  ==============================================================
   <exercise xml:id="ans-hw-three-player-best-response">
     <title>A Three Player Game, Using Best Response</title>
     <statement>
@@ -415,7 +416,7 @@
     </solution>
   </exercise>
 
-  <!-- ============================================================ -->
+  ==============================================================
   <exercise xml:id="ans-hw-pick-a-number">
     <title>Pick a Number</title>
 
@@ -477,7 +478,7 @@
     </task>
   </exercise>
 
-  <!-- ============================================================ -->
+  ==============================================================
   <exercise xml:id="ans-hw-first-price-auction">
     <title>A First-Price Auction</title>
 
@@ -620,5 +621,7 @@
       </solution>
     </task>
   </exercise>
+
+-->
 
 </exercises>
