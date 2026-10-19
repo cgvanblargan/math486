@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 5 answers.
+
+     Structure: an <exercises> division, so every level is a dropdown.
+       exercise  -> dropdown (publication knowl/@exercise-divisional="yes")
+       task      -> dropdown (publication knowl/@task="yes")
+       solution  -> dropdown (always born hidden in PreTeXt)
+
+     Exercise numbering restarts inside each <exercises> division, so the
+     numbers here line up with ch5-exercises.ptx automatically. Keep the
+     order of <exercise> elements identical to that file.
+  -->
+
+<exercises xml:id="ch5-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Answers to Ch. 5 Exercises</title>
+
+  <introduction>
+    <p>
+      Answers to the exercises of this chapter. Click an
+      exercise to open it, click a part to open that part, then click
+      <term>Solution</term> to reveal the answer.
+    </p>
+    <p>
+      These are the answers to the questions, not fully worked solutions. Enough is shown that you can
+      tell whether your own work got to the correct conclusion.
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-compute-msne">
+    <title>Computing a Mixed Equilibrium</title>
+
+    <task xml:id="ans-compute-msne-find">
+      <title>The mixed strategy Nash equilibrium</title>
+      <statement>
+        <p>
+          Find a mixed strategy Nash equilibrium in which both players use
+          both of their strategies.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\left(\frac{1}{5}a + \frac{4}{5}b,\ \frac{3}{4}x + \frac{1}{4}y\right)</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-compute-msne-payoff">
+      <title>Expected payoffs</title>
+      <statement>
+        <p>
+          What is each player's expected payoff at this equilibrium?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 1 gets <m>\frac{3}{2}</m> and Player 2 gets
+          <m>\frac{28}{5}</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-symmetric-3x3">
+    <title>A Symmetric <m>3 \times 3</m> Game</title>
+
+    <task xml:id="ans-symmetric-3x3-system">
+      <title>The system of equations</title>
+      <statement>
+        <p>
+          Set up a system of linear equations whose solution gives a
+          symmetric Nash equilibrium <m>(\sigma, \sigma)</m> with all three
+          strategies active.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Writing <m>\sigma = xa + yb + zc</m>, Player 1's three strategies
+          must earn the same payoff against <m>\sigma</m>, and the
+          probabilities must add to <m>1</m>:
+          <md>
+            <mrow>\pi_1(a, \sigma) \amp = 2x + 6y + 5z</mrow>
+            <mrow>\pi_1(b, \sigma) \amp = 3x + 3y + 9z</mrow>
+            <mrow>\pi_1(c, \sigma) \amp = 4x + 4y + 7z</mrow>
+          </md>
+          So the system is
+          <md>
+            <mrow>2x + 6y + 5z = 3x + 3y + 9z \amp = 4x + 4y + 7z</mrow>
+            <mrow>x + y + z \amp = 1</mrow>
+          </md>
+          (Using <m>z = 1 - x - y</m> instead gives two equations in
+          <m>x</m> and <m>y</m>.)
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-symmetric-3x3-solve">
+      <title>The symmetric Nash equilibrium</title>
+      <statement>
+        <p>
+          Solve the system and state the Nash equilibrium
+          <m>(\sigma, \sigma)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>(\sigma, \sigma)</m> with
+          <m>\sigma = \frac{1}{6}a + \frac{1}{2}b + \frac{1}{3}c</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-active-inactive">
+    <title>Active and Inactive Strategies</title>
+
+    <task xml:id="ans-active-inactive-three">
+      <title>All three strategies active</title>
+      <statement>
+        <p>
+          Show that there is no mixed strategy Nash equilibrium in which
+          all three of Player 1's strategies are active.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2)</m> requires
+          <m>q = \frac{1}{2}</m>, but
+          <m>\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2)</m> requires
+          <m>q = \frac{2}{3}</m>. Both can't hold, so there is no such
+          equilibrium.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-active-inactive-ab">
+      <title><m>a</m> and <m>b</m> active</title>
+      <statement>
+        <p>
+          Find a mixed strategy Nash equilibrium with <m>a</m> and
+          <m>b</m> active in <m>\sigma_1</m>, <m>c</m> inactive, and both
+          <m>x</m> and <m>y</m> active in <m>\sigma_2</m>.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>\left(\frac{3}{4}a + \frac{1}{4}b,\ \frac{1}{2}x + \frac{1}{2}y\right)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Inequality condition: <m>\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2) = 4</m>
+              and <m>\pi_1(c, \sigma_2) = \frac{7}{2} \leq 4</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-active-inactive-ac">
+      <title><m>a</m> and <m>c</m> active</title>
+      <statement>
+        <p>
+          Show that there is no mixed strategy Nash equilibrium with
+          <m>a</m> and <m>c</m> active in <m>\sigma_1</m> and <m>b</m>
+          inactive.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The equality condition gives <m>q = \frac{2}{3}</m>. Then
+          <m>\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2) = \frac{10}{3}</m>,
+          but <m>\pi_1(b, \sigma_2) = \frac{13}{3} \gt \frac{10}{3}</m>, so
+          the inequality condition fails.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-two-stage-pd">
+    <title>A Two-Stage Prisoner's Dilemma</title>
+
+    <task xml:id="ans-two-stage-pd-fill">
+      <title>The missing payoffs</title>
+      <statement>
+        <p>
+          Find the payoffs for <m>(D, T)</m> and <m>(T, D)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>(D, T)</m> gives <m>(5, -1)</m> and <m>(T, D)</m> gives
+          <m>(-1, 5)</m>. In stage 1 the defector gets <m>5</m> and the
+          tit for tat player gets <m>-1</m>; in stage 2 both play
+          <m>d</m> and get <m>0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-two-stage-pd-pure">
+      <title>Pure strategy Nash equilibria</title>
+      <statement>
+        <p>
+          Find all pure strategy Nash equilibria.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>(D, D)</m> and <m>(T, T)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-two-stage-pd-equality">
+      <title>The equality condition</title>
+      <statement>
+        <p>
+          Show that the equality condition holds for every <m>p</m> and
+          <m>q</m> in <m>(0, 1)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_1(C, \sigma_2) = \pi_1(T, \sigma_2) = 6</m> and
+          <m>\pi_2(\sigma_1, C) = \pi_2(\sigma_1, T) = 6</m>, no matter
+          what <m>p</m> and <m>q</m> are.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-two-stage-pd-inequality">
+      <title>The inequality condition</title>
+      <statement>
+        <p>
+          Find exactly which values of <m>p</m> and <m>q</m> make
+          <m>(\sigma_1, \sigma_2)</m> a Nash equilibrium, and interpret.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              <m>\pi_1(D, \sigma_2) = 5 + 5q \leq 6</m> gives
+              <m>q \leq \frac{1}{5}</m>, and likewise
+              <m>\pi_2(\sigma_1, D) = 5 + 5p \leq 6</m> gives
+              <m>p \leq \frac{1}{5}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              So the Nash equilibria are exactly the profiles with
+              <m>0 \lt p \leq \frac{1}{5}</m> and
+              <m>0 \lt q \leq \frac{1}{5}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In words: a player can use always cooperate at most
+              <m>\frac{1}{5}</m> of the time. Any more, and the other
+              player does better by switching to always defect.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-simple-poker-mixed">
+    <title>A Simple Poker Game, Revisited</title>
+
+    <task xml:id="ans-simple-poker-mixed-functions">
+      <title>The payoff functions</title>
+      <statement>
+        <p>
+          Find <m>\pi_1(p, q)</m> and <m>\pi_2(p, q)</m>.
+        </p>
+      </statement>
+      <solution>
+        <md>
+          <mrow>\pi_1(p, q) \amp = 2p(1-q) + q(1-p)</mrow>
+          <mrow>\pi_2(p, q) \amp = -2p(1-q) - q(1-p)</mrow>
+        </md>
+      </solution>
+    </task>
+
+    <task xml:id="ans-simple-poker-mixed-derivatives">
+      <title>The partial derivative method</title>
+      <statement>
+        <p>
+          Use the partial derivative method to find a mixed strategy Nash
+          equilibrium. Which partial derivatives do you set to <m>0</m>?
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              Set <m>\frac{\partial \pi_1}{\partial p} = 2 - 3q = 0</m> and
+              <m>\frac{\partial \pi_2}{\partial q} = 3p - 1 = 0</m>, since
+              each player only controls their own variable.
+            </p>
+          </li>
+          <li>
+            <p>
+              The equilibrium is
+              <m>\left(\frac{1}{3}BB + \frac{2}{3}BF,\ \frac{2}{3}B + \frac{1}{3}F\right)</m>.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+
+    <task xml:id="ans-simple-poker-mixed-payoff">
+      <title>Expected payoffs</title>
+      <statement>
+        <p>
+          Find each player's expected payoff at the Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 1 gets <m>\frac{2}{3}</m> and Player 2 gets
+          <m>-\frac{2}{3}</m>. The payoffs in every cell add to <m>0</m>,
+          so <m>\pi_2 = -\pi_1</m> for every strategy profile.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-simple-poker-mixed-interpret">
+      <title>Interpreting the equilibrium</title>
+      <statement>
+        <p>
+          Interpret the equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <ul>
+          <li>
+            <p>
+              With the high card, Player 1 always bids.
+            </p>
+          </li>
+          <li>
+            <p>
+              With the low card, Player 1 bluffs <m>\frac{1}{3}</m> of the
+              time.
+            </p>
+          </li>
+          <li>
+            <p>
+              Player 2 bids back <m>\frac{2}{3}</m> of the time.
+            </p>
+          </li>
+        </ul>
+      </solution>
+    </task>
+  </exercise>
+
+</exercises>

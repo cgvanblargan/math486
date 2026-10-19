@@ -353,26 +353,10 @@
         </statement>
         <feedback>
           <p>
-            Tempting, since each player's mix keeps the <em>other</em> player
+            This might look right at first, since each player's mix keeps the <em>other</em> player
             indifferent. But the indifference is in each player's own choice:
             the server doesn't care what <m>p</m> she picks. That's a
             statement about <m>\pi_1</m> as <m>p</m> changes.
-          </p>
-        </feedback>
-      </choice>
-      <choice>
-        <statement>
-          <p>
-            <m>\dfrac{\partial \pi_1}{\partial p} = 0</m> and
-            <m>\dfrac{\partial \pi_1}{\partial q} = 0</m>.
-          </p>
-        </statement>
-        <feedback>
-          <p>
-            The server only controls <m>p</m>. If the receiver changes
-            <m>q</m>, the server's payoff can certainly change. What Theorem
-            5.3 tells us is that the server's own choice of <m>p</m> doesn't
-            matter.
           </p>
         </feedback>
       </choice>
@@ -385,10 +369,8 @@
         </statement>
         <feedback>
           <p>
-            Correct. Each player's payoff is flat in her own variable, so its
-            derivative is <m>0</m>. Heads up: unlike Chapter 1, a zero
-            derivative doesn't mean a peak here. <m>\pi_1</m> is a line in
-            <m>p</m>, so a zero derivative means the line is flat.
+            Correct. Each player's payoff is flat in her own variable at a Nash equilibrium, so its
+            derivative is <m>0</m>. 
           </p>
         </feedback>
       </choice>
