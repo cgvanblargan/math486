@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exercises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page6-equivalent-games-critique.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises active"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="exercises" id="ch5-exercises">
+<h2 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h2>
+<section class="introduction" id="ch5-exercises-2">
+<div class="para" id="ch5-exercises-2-1">Many of these exercises use the Fundamental Theorem of Nash Equilibria (Theorem 5.2). As a reminder, a mixed strategy profile <span class="process-math">\(\sigma\)</span> is a Nash equilibrium exactly when, for every player <span class="process-math">\(i\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch5-exercises-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="ch5-exercises-2-2">
+<li id="ch5-exercises-2-2-1">
+<div class="para" id="ch5-exercises-2-2-1-1">(the <dfn class="terminology">equality condition</dfn>) If <span class="process-math">\(s_i\)</span> and <span class="process-math">\(s_i'\)</span> are both active, then <span class="process-math">\(\pi_i(s_i, \sigma_{-i}) = \pi_i(s_i', \sigma_{-i})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch5-exercises-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item a"><a href="#ch5-exercises-2-2-1" title="Copy heading and permalink for Item a" aria-label="Copy heading and permalink for Item a">🔗</a></div>
+</li>
+<li id="ch5-exercises-2-2-2">
+<div class="para" id="ch5-exercises-2-2-2-1">(the <dfn class="terminology">inequality condition</dfn>) If <span class="process-math">\(s_i\)</span> is active and <span class="process-math">\(s_i'\)</span> is not, then <span class="process-math">\(\pi_i(s_i, \sigma_{-i}) \geq \pi_i(s_i', \sigma_{-i})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch5-exercises-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item b"><a href="#ch5-exercises-2-2-2" title="Copy heading and permalink for Item b" aria-label="Copy heading and permalink for Item b">🔗</a></div>
+</li>
+</ol>
+<div class="para" id="ch5-exercises-2-3">A few parts have a <dfn class="terminology">Solution</dfn> dropdown with the final answer. Use it to check your answer before moving on, since the later parts build on it. But make sure to try the part on your own first!<div class="autopermalink" data-description="Paragraph"><a href="#ch5-exercises-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch5-exercises-2-4">Throughout, Player 1 is the row player and Player 2 is the column player, and payoffs are listed in the order (Player 1, Player 2).<div class="autopermalink" data-description="Paragraph"><a href="#ch5-exercises-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></section>
+<details id="hw-compute-msne" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Mixed Equilibrium.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-compute-msne-2">
+<div class="para" id="hw-compute-msne-2-1">Consider the following game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-compute-msne"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A <span class="process-math">\(2 \times 2\)</span> game<div class="autopermalink" data-description="Table 5.7.1: A 2 \times 2 game"><a href="#table-hw-compute-msne" title="Copy heading and permalink for Table 5.7.1: A 2 \times 2 game" aria-label="Copy heading and permalink for Table 5.7.1: A 2 \times 2 game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(x\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(y\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(2, 4)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(1, 6)</td>
+<td class="c m b1 r1 l0 t0 lines">(3, 7)</td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-compute-msne-find"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-compute-msne-find-1-1">Use the Fundamental Theorem of Nash Equilibria to find a mixed strategy Nash equilibrium in which both players use both of their strategies. Write Player 1’s mixed strategy as <span class="process-math">\(\sigma_1 = pa + (1-p)b\)</span> and Player 2’s as <span class="process-math">\(\sigma_2 = qx + (1-q)y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-find-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-compute-msne-find-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="hw-compute-msne-find-2-1">
+<span class="process-math">\(\left(\frac{1}{5}a + \frac{4}{5}b,\ \frac{3}{4}x + \frac{1}{4}y\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-find-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.1.a.1"><a href="#hw-compute-msne-find-2" title="Copy heading and permalink for Solution 5.7.1.a.1" aria-label="Copy heading and permalink for Solution 5.7.1.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.1.a"><a href="#hw-compute-msne-find" title="Copy heading and permalink for Task 5.7.1.a" aria-label="Copy heading and permalink for Task 5.7.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-compute-msne-payoff"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-compute-msne-payoff-1-1">What is each player’s expected payoff at the mixed strategy Nash equilibrium you found in part (a)?<div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-payoff-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-compute-msne-payoff-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-compute-msne-payoff-2-1">By Theorem 5.3, a player’s equilibrium payoff equals what <em class="emphasis">any one</em> of their active strategies earns against the other player’s mixed strategy. So you can compute, for example, <span class="process-math">\(\pi_1(a, \sigma_2)\)</span> instead of adding up all four cells.<div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.1.b.1"><a href="#hw-compute-msne-payoff-2" title="Copy heading and permalink for Hint 5.7.1.b.1" aria-label="Copy heading and permalink for Hint 5.7.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.1.b"><a href="#hw-compute-msne-payoff" title="Copy heading and permalink for Task 5.7.1.b" aria-label="Copy heading and permalink for Task 5.7.1.b">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-compute-msne-5">
+<div class="para" id="hw-compute-msne-5-1">
+<em class="alert">Remark.</em> This game also has two pure strategy Nash equilibria: <span class="process-math">\((a, x)\text{,}\)</span> with payoffs <span class="process-math">\((2, 4)\text{,}\)</span> and <span class="process-math">\((b, y)\text{,}\)</span> with payoffs <span class="process-math">\((3, 7)\text{.}\)</span> (You can check these with best response.) Comparing these with your answer to part (b), we see that both players prefer <span class="process-math">\((b, y)\)</span> to the mixed strategy equilibrium. So a game can have pure and mixed strategy Nash equilibria at the same time, and the mixed one isn’t necessarily better for anyone.<div class="autopermalink" data-description="Paragraph"><a href="#hw-compute-msne-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.1: Computing a Mixed Equilibrium"><a href="#hw-compute-msne" title="Copy heading and permalink for Exercise 5.7.1: Computing a Mixed Equilibrium" aria-label="Copy heading and permalink for Exercise 5.7.1: Computing a Mixed Equilibrium">🔗</a></div>
+</article></details>
+<details id="hw-symmetric-3x3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Symmetric <span class="process-math">\(3 \times 3\)</span> Game.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-symmetric-3x3-2">
+<div class="para" id="hw-symmetric-3x3-2-1">Consider the following two-player game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-symmetric-3x3"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A symmetric <span class="process-math">\(3 \times 3\)</span> game<div class="autopermalink" data-description="Table 5.7.2: A symmetric 3 \times 3 game"><a href="#table-hw-symmetric-3x3" title="Copy heading and permalink for Table 5.7.2: A symmetric 3 \times 3 game" aria-label="Copy heading and permalink for Table 5.7.2: A symmetric 3 \times 3 game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(a\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(b\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(2, 2)</td>
+<td class="c m b1 r1 l0 t0 lines">(6, 3)</td>
+<td class="c m b1 r1 l0 t0 lines">(5, 4)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(3, 6)</td>
+<td class="c m b1 r1 l0 t0 lines">(3, 3)</td>
+<td class="c m b1 r1 l0 t0 lines">(9, 4)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(4, 5)</td>
+<td class="c m b1 r1 l0 t0 lines">(4, 9)</td>
+<td class="c m b1 r1 l0 t0 lines">(7, 7)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-symmetric-3x3-2-3">This game is <dfn class="terminology">symmetric</dfn>: if the players swap strategies, they also swap payoffs. So you only need to do the computation for one player, and you get a <dfn class="terminology">symmetric Nash equilibrium</dfn> <span class="process-math">\((\sigma, \sigma)\text{,}\)</span> where both players use the same mixed strategy <span class="process-math">\(\sigma = xa + yb + zc\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-symmetric-3x3-system"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-symmetric-3x3-system-1-1">Use the Fundamental Theorem of Nash Equilibria to set up a system of linear equations whose solution gives a symmetric Nash equilibrium <span class="process-math">\((\sigma, \sigma)\)</span> in which all three strategies are active. Explain where each equation comes from.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-system-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-symmetric-3x3-system-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="displaymath process-math" id="hw-symmetric-3x3-system-2-1">
+\begin{align*}
+2x + 6y + 5z = 3x + 3y + 9z \amp = 4x + 4y + 7z\\
+x + y + z \amp = 1
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Solution 5.7.2.a.1"><a href="#hw-symmetric-3x3-system-2" title="Copy heading and permalink for Solution 5.7.2.a.1" aria-label="Copy heading and permalink for Solution 5.7.2.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.2.a"><a href="#hw-symmetric-3x3-system" title="Copy heading and permalink for Task 5.7.2.a" aria-label="Copy heading and permalink for Task 5.7.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-symmetric-3x3-solve"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-symmetric-3x3-solve-1-1">Solve your system and state the Nash equilibrium <span class="process-math">\((\sigma, \sigma)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-solve-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.2.b"><a href="#hw-symmetric-3x3-solve" title="Copy heading and permalink for Task 5.7.2.b" aria-label="Copy heading and permalink for Task 5.7.2.b">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-symmetric-3x3-5">
+<div class="para" id="hw-symmetric-3x3-5-1">A symmetric game can also have Nash equilibria that are <em class="emphasis">not</em> symmetric. You have already seen this: Hawk-Dove (<a href="ch3-exercises.html#hw-hawk-dove-nash" class="xref" data-knowl="./knowl/xref/hw-hawk-dove-nash.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.5.5: Hawk and Dove, Revisited">Exercise 3.5.5</a>) is symmetric, and its Nash equilibria <span class="process-math">\((h, d)\)</span> and <span class="process-math">\((d, h)\)</span> are not symmetric.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.2: A Symmetric 3 \times 3 Game"><a href="#hw-symmetric-3x3" title="Copy heading and permalink for Exercise 5.7.2: A Symmetric 3 \times 3 Game" aria-label="Copy heading and permalink for Exercise 5.7.2: A Symmetric 3 \times 3 Game">🔗</a></div>
+</article></details>
+<details id="hw-active-inactive" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Active and Inactive Strategies.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-active-inactive-2">
+<div class="para" id="hw-active-inactive-2-1">Consider the game below, where Player 1 has three strategies and Player 2 has two.<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-active-inactive"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A <span class="process-math">\(3 \times 2\)</span> game<div class="autopermalink" data-description="Table 5.7.3: A 3 \times 2 game"><a href="#table-hw-active-inactive" title="Copy heading and permalink for Table 5.7.3: A 3 \times 2 game" aria-label="Copy heading and permalink for Table 5.7.3: A 3 \times 2 game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(x\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(y\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(2, 5)</td>
+<td class="c m b1 r1 l0 t0 lines">(6, 4)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(5, 5)</td>
+<td class="c m b1 r1 l0 t0 lines">(3, 8)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(3, 7)</td>
+<td class="c m b1 r1 l0 t0 lines">(4, 9)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-active-inactive-2-3">Throughout, write Player 2’s mixed strategy as <span class="process-math">\(\sigma_2 = qx + (1-q)y\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-active-inactive-three"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-active-inactive-three-1-1">Use the equality condition of the Fundamental Theorem to show that there is no mixed strategy Nash equilibrium in which all three of Player 1’s strategies are active.<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-three-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.3.a"><a href="#hw-active-inactive-three" title="Copy heading and permalink for Task 5.7.3.a" aria-label="Copy heading and permalink for Task 5.7.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-active-inactive-ab"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-active-inactive-ab-1-1">Find a mixed strategy Nash equilibrium <span class="process-math">\((\sigma_1, \sigma_2)\)</span> in which <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are active in <span class="process-math">\(\sigma_1\text{,}\)</span> <span class="process-math">\(c\)</span> is not active in <span class="process-math">\(\sigma_1\text{,}\)</span> and <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are both active in <span class="process-math">\(\sigma_2\text{.}\)</span> Write <span class="process-math">\(\sigma_1 = pa + (1-p)b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ab-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-active-inactive-ab-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-active-inactive-ab-2-1">You must check whether both conditions of Theorem 5.2 can be satisfied:<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ab-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="lower-alpha lower-alpha-level-1" id="hw-active-inactive-ab-2-2">
+<li id="hw-active-inactive-ab-2-2-1">
+<div class="para" id="hw-active-inactive-ab-2-2-1-1">The equality condition on <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> determines the value of <span class="process-math">\(q\text{.}\)</span> The equality condition on <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> determines the value of <span class="process-math">\(p\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ab-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.3.a"><a href="#hw-active-inactive-ab-2-2-1" title="Copy heading and permalink for Item 5.7.3.a" aria-label="Copy heading and permalink for Item 5.7.3.a">🔗</a></div>
+</li>
+<li id="hw-active-inactive-ab-2-2-2">
+<div class="para" id="hw-active-inactive-ab-2-2-2-1">Check the inequality condition for every inactive strategy. Notice that <span class="process-math">\(c\)</span> (for Player 1) is the only inactive strategy.<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ab-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.3.b"><a href="#hw-active-inactive-ab-2-2-2" title="Copy heading and permalink for Item 5.7.3.b" aria-label="Copy heading and permalink for Item 5.7.3.b">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Hint 5.7.3.b.1"><a href="#hw-active-inactive-ab-2" title="Copy heading and permalink for Hint 5.7.3.b.1" aria-label="Copy heading and permalink for Hint 5.7.3.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.3.b"><a href="#hw-active-inactive-ab" title="Copy heading and permalink for Task 5.7.3.b" aria-label="Copy heading and permalink for Task 5.7.3.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-active-inactive-ac"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-active-inactive-ac-1-1">Show that there is no mixed strategy Nash equilibrium in which <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> are active in <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(b\)</span> is inactive.<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ac-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-active-inactive-ac-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-active-inactive-ac-2-1">This is similar to part (b), with <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> active instead of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{.}\)</span> Use the equality condition for Player 1 to find the only possible <span class="process-math">\(\sigma_2\text{.}\)</span> This time, the inequality condition should fail for <span class="process-math">\(b\text{.}\)</span> (You don’t need to find <span class="process-math">\(\sigma_1\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-ac-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.3.c.1"><a href="#hw-active-inactive-ac-2" title="Copy heading and permalink for Hint 5.7.3.c.1" aria-label="Copy heading and permalink for Hint 5.7.3.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.3.c"><a href="#hw-active-inactive-ac" title="Copy heading and permalink for Task 5.7.3.c" aria-label="Copy heading and permalink for Task 5.7.3.c">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-active-inactive-6">
+<div class="para" id="hw-active-inactive-6-1">
+<em class="alert">Remark.</em> In fact, the Nash equilibrium you found in part (b) is the <em class="emphasis">only</em> Nash equilibrium of this game. The remaining cases (<span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> active, pure strategy profiles, or one player mixing while the other uses a pure strategy) can all be ruled out in the same way.<div class="autopermalink" data-description="Paragraph"><a href="#hw-active-inactive-6-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.3: Active and Inactive Strategies"><a href="#hw-active-inactive" title="Copy heading and permalink for Exercise 5.7.3: Active and Inactive Strategies" aria-label="Copy heading and permalink for Exercise 5.7.3: Active and Inactive Strategies">🔗</a></div>
+</article></details>
+<details id="hw-two-stage-pd" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Two-Stage Prisoner’s Dilemma.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-two-stage-pd-2">
+<div class="para" id="hw-two-stage-pd-2-1">Consider the following Prisoner’s Dilemma, where each player can cooperate (<span class="process-math">\(c\)</span>) or defect (<span class="process-math">\(d\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-two-stage-pd-stage"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>One stage of the game<div class="autopermalink" data-description="Table 5.7.4: One stage of the game"><a href="#table-hw-two-stage-pd-stage" title="Copy heading and permalink for Table 5.7.4: One stage of the game" aria-label="Copy heading and permalink for Table 5.7.4: One stage of the game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(d\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(3, 3)</td>
+<td class="c m b1 r1 l0 t0 lines">(-1, 5)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(d\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(5, -1)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-two-stage-pd-2-3">Now the players play this Prisoner’s Dilemma <em class="emphasis">twice</em>, and each player’s total payoff is the sum of their payoffs from the two stages. Both players see what happened in the first stage before the second stage starts.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="hw-two-stage-pd-2-4">Because the game has two stages, <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> are now <em class="emphasis">moves</em> that a player makes in each stage. A <em class="emphasis">strategy</em> for the two-stage game has to say what move to make in each stage, and the move in the second stage can depend on what happened in the first. We will only consider three strategies (there are more). To keep them separate from the moves, we write strategies with capital letters:<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-two-stage-pd-2-5">
+<li id="hw-two-stage-pd-2-5-1">
+<div class="para" id="hw-two-stage-pd-2-5-1-1">
+<span class="process-math">\(C\text{,}\)</span> always cooperate: play <span class="process-math">\(c\)</span> in both stages.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-two-stage-pd-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-two-stage-pd-2-5-2">
+<div class="para" id="hw-two-stage-pd-2-5-2-1">
+<span class="process-math">\(D\text{,}\)</span> always defect: play <span class="process-math">\(d\)</span> in both stages.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-two-stage-pd-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-two-stage-pd-2-5-3">
+<div class="para" id="hw-two-stage-pd-2-5-3-1">
+<span class="process-math">\(T\text{,}\)</span> tit for tat: play <span class="process-math">\(c\)</span> in stage 1. In stage 2, copy the move the other player made in stage 1.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-two-stage-pd-2-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="hw-two-stage-pd-2-6">Restricting the players to these three strategies gives the following game in normal form, with two entries left blank.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-two-stage-pd"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The two-stage game, to be completed<div class="autopermalink" data-description="Table 5.7.5: The two-stage game, to be completed"><a href="#table-hw-two-stage-pd" title="Copy heading and permalink for Table 5.7.5: The two-stage game, to be completed" aria-label="Copy heading and permalink for Table 5.7.5: The two-stage game, to be completed">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(C\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(D\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(T\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(C\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(6, 6)</td>
+<td class="c m b1 r1 l0 t0 lines">(-2, 10)</td>
+<td class="c m b1 r1 l0 t0 lines">(6, 6)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(D\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(10, -2)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(T\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(6, 6)</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines">(6, 6)</td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-two-stage-pd-fill"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-two-stage-pd-fill-1-1">Find the payoffs for the strategy profiles <span class="process-math">\((D, T)\)</span> and <span class="process-math">\((T, D)\text{,}\)</span> and fill them in to complete the payoff matrix. Briefly explain what happens in each stage.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-fill-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-two-stage-pd-fill-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="hw-two-stage-pd-fill-2-1">
+<span class="process-math">\((D, T)\)</span> gives <span class="process-math">\((5, -1)\)</span> and <span class="process-math">\((T, D)\)</span> gives <span class="process-math">\((-1, 5)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-fill-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.4.a.1"><a href="#hw-two-stage-pd-fill-2" title="Copy heading and permalink for Solution 5.7.4.a.1" aria-label="Copy heading and permalink for Solution 5.7.4.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.4.a"><a href="#hw-two-stage-pd-fill" title="Copy heading and permalink for Task 5.7.4.a" aria-label="Copy heading and permalink for Task 5.7.4.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-two-stage-pd-pure"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-two-stage-pd-pure-1-1">Use best response to find all pure strategy Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.4.b"><a href="#hw-two-stage-pd-pure" title="Copy heading and permalink for Task 5.7.4.b" aria-label="Copy heading and permalink for Task 5.7.4.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-two-stage-pd-equality"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para logical" id="hw-two-stage-pd-equality-1-1">
+<div class="para">Now look for a mixed strategy Nash equilibrium <span class="process-math">\((\sigma_1, \sigma_2)\)</span> in which, for each player, <span class="process-math">\(C\)</span> and <span class="process-math">\(T\)</span> are active and <span class="process-math">\(D\)</span> is inactive:</div>
+<div class="displaymath process-math" id="hw-two-stage-pd-equality-1-1-5">
+\begin{equation*}
+\sigma_1 = pC + (1-p)T, \qquad \sigma_2 = qC + (1-q)T,
+\qquad 0 \lt p \lt 1,\ 0 \lt q \lt 1.
+\end{equation*}
+</div>
+<div class="para">Show that the equality condition of the Fundamental Theorem holds for <em class="emphasis">every</em> <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> in <span class="process-math">\((0, 1)\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-equality-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.4.c"><a href="#hw-two-stage-pd-equality" title="Copy heading and permalink for Task 5.7.4.c" aria-label="Copy heading and permalink for Task 5.7.4.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-two-stage-pd-inequality"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="hw-two-stage-pd-inequality-1-1">Use the inequality condition to find exactly which values of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> make <span class="process-math">\((\sigma_1, \sigma_2)\)</span> a mixed strategy Nash equilibrium. Then explain in words what your answer says: how often can a player use always cooperate (<span class="process-math">\(C\)</span>) before the other player would rather switch to always defect (<span class="process-math">\(D\)</span>)?<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-inequality-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.4.d"><a href="#hw-two-stage-pd-inequality" title="Copy heading and permalink for Task 5.7.4.d" aria-label="Copy heading and permalink for Task 5.7.4.d">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-two-stage-pd-7">
+<div class="para" id="hw-two-stage-pd-7-1">
+<em class="alert">Remark.</em> Like <a href="ch5-exercises.html#hw-symmetric-3x3" class="xref" data-knowl="./knowl/xref/hw-symmetric-3x3.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.2: A Symmetric 3 \times 3 Game">Exercise 5.7.2</a>, this is a symmetric game. But here there are infinitely many mixed strategy Nash equilibria, and most of them are not symmetric: if <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> both satisfy your answer to part (d) but <span class="process-math">\(p \neq q\text{,}\)</span> the players are using different mixed strategies.<div class="autopermalink" data-description="Paragraph"><a href="#hw-two-stage-pd-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.4: A Two-Stage Prisoner’s Dilemma"><a href="#hw-two-stage-pd" title="Copy heading and permalink for Exercise 5.7.4: A Two-Stage Prisoner’s Dilemma" aria-label="Copy heading and permalink for Exercise 5.7.4: A Two-Stage Prisoner’s Dilemma">🔗</a></div>
+</article></details>
+<details id="hw-simple-poker-mixed" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Simple Poker Game, Revisited.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-simple-poker-mixed-2">
+<div class="para" id="hw-simple-poker-mixed-2-1">In <a href="ch4-exercises.html#hw-simple-poker" class="xref" data-knowl="./knowl/xref/hw-simple-poker.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 4.4.3: A Simple Poker Game">Exercise 4.4.3</a> we found that A Simple Poker Game has no Bayesian Nash equilibrium in pure strategies, and we promised that it would have one once we allowed mixed strategies. Let’s find it, this time using the partial derivative method of Section 5.3.1 (<a href="page2-tennis-other-methods.html#read-5-3" class="xref" data-knowl="./knowl/xref/read-5-3.html" data-reveal-label="Reveal" data-close-label="Close" title="Reading: Section 5.3, Other Ways to Find Mixed Strategy Nash Equilibria">Section 5.3, Other Ways to Find Mixed Strategy Nash Equilibria</a>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="hw-simple-poker-mixed-2-2">Recall that Player 1’s strategies say what he does with the high card and then with the low card. Since <span class="process-math">\(FB\)</span> and <span class="process-math">\(FF\)</span> are strictly dominated, we drop them, which leaves the following game:<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-simple-poker-mixed"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A Simple Poker Game, with <span class="process-math">\(FB\)</span> and <span class="process-math">\(FF\)</span> removed<div class="autopermalink" data-description="Table 5.7.6: A Simple Poker Game, with FB and FF removed"><a href="#table-hw-simple-poker-mixed" title="Copy heading and permalink for Table 5.7.6: A Simple Poker Game, with FB and FF removed" aria-label="Copy heading and permalink for Table 5.7.6: A Simple Poker Game, with FB and FF removed">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(B\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(F\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(BB\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+<td class="c m b1 r1 l0 t0 lines">(2, -2)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(BF\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(1, -1)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-simple-poker-mixed-2-4">Write Player 1’s mixed strategy as <span class="process-math">\(\sigma_1 = p\,BB + (1-p)\,BF\)</span> and Player 2’s as <span class="process-math">\(\sigma_2 = qB + (1-q)F\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-simple-poker-mixed-functions"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-simple-poker-mixed-functions-1-1">Write each player’s expected payoff as a function of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{:}\)</span> find <span class="process-math">\(\pi_1(p, q)\)</span> and <span class="process-math">\(\pi_2(p, q)\text{,}\)</span> as the book does for Tennis in Section 5.3.1.<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-functions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.5.a"><a href="#hw-simple-poker-mixed-functions" title="Copy heading and permalink for Task 5.7.5.a" aria-label="Copy heading and permalink for Task 5.7.5.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-simple-poker-mixed-derivatives"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-simple-poker-mixed-derivatives-1-1">Use the partial derivative method of Section 5.3.1 to find a mixed strategy Nash equilibrium with <span class="process-math">\(0 \lt p \lt 1\)</span> and <span class="process-math">\(0 \lt q \lt 1\text{.}\)</span> Which partial derivatives do you set equal to <span class="process-math">\(0\text{,}\)</span> and why those ones?<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-derivatives-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.5.b"><a href="#hw-simple-poker-mixed-derivatives" title="Copy heading and permalink for Task 5.7.5.b" aria-label="Copy heading and permalink for Task 5.7.5.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-simple-poker-mixed-payoff"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-simple-poker-mixed-payoff-1-1">Find Player 1’s expected payoff at the Nash equilibrium. Then, without doing a second computation, find Player 2’s expected payoff, and explain why you only needed to compute one of them.<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-payoff-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-simple-poker-mixed-payoff-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-simple-poker-mixed-payoff-2-1">In every cell of the table, the two payoffs add to <span class="process-math">\(0\text{.}\)</span> So for every strategy profile, including mixed ones, Player 2’s payoff is the negative of Player 1’s: <span class="process-math">\(\pi_2 = -\pi_1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.5.c.1"><a href="#hw-simple-poker-mixed-payoff-2" title="Copy heading and permalink for Hint 5.7.5.c.1" aria-label="Copy heading and permalink for Hint 5.7.5.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.5.c"><a href="#hw-simple-poker-mixed-payoff" title="Copy heading and permalink for Task 5.7.5.c" aria-label="Copy heading and permalink for Task 5.7.5.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-simple-poker-mixed-interpret"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="hw-simple-poker-mixed-interpret-1-1">Interpret the equilibrium:<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-interpret-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ul class="disc" id="hw-simple-poker-mixed-interpret-1-2">
+<li id="hw-simple-poker-mixed-interpret-1-2-1">
+<div class="para" id="hw-simple-poker-mixed-interpret-1-2-1-1">What does Player 1 do when he has the high card?<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-interpret-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-simple-poker-mixed-interpret-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-simple-poker-mixed-interpret-1-2-2">
+<div class="para" id="hw-simple-poker-mixed-interpret-1-2-2-1">When he has the low card, how often does he bid anyway (that is, bluff)?<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-interpret-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-simple-poker-mixed-interpret-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-simple-poker-mixed-interpret-1-2-3">
+<div class="para" id="hw-simple-poker-mixed-interpret-1-2-3-1">How often does Player 2 bid back?<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-interpret-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-simple-poker-mixed-interpret-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Task 5.7.5.d"><a href="#hw-simple-poker-mixed-interpret" title="Copy heading and permalink for Task 5.7.5.d" aria-label="Copy heading and permalink for Task 5.7.5.d">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-simple-poker-mixed-7">
+<div class="para" id="hw-simple-poker-mixed-7-1">
+<em class="alert">Remark.</em> Player 2 can never come out ahead in this game: none of Player 2’s payoffs in the table are positive. The best Player 2 can do is keep the losses small, and the equilibrium mix does exactly that.<div class="autopermalink" data-description="Paragraph"><a href="#hw-simple-poker-mixed-7-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.5: A Simple Poker Game, Revisited"><a href="#hw-simple-poker-mixed" title="Copy heading and permalink for Exercise 5.7.5: A Simple Poker Game, Revisited" aria-label="Copy heading and permalink for Exercise 5.7.5: A Simple Poker Game, Revisited">🔗</a></div>
+</article></details><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=chapter%205%20exercises" id="question-form-5-ex" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-5-ex.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Exercises 5.7: Exercises"><a href="#ch5-exercises" title="Copy heading and permalink for Exercises 5.7: Exercises" aria-label="Copy heading and permalink for Exercises 5.7: Exercises">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="page6-equivalent-games-critique.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

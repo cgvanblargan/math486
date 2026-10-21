@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h2 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Symmetric <span class="process-math">\(3 \times 3\)</span> Game.</span>
+</h2>
+<div class="introduction">
+<div class="para">Consider the following two-player game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A symmetric <span class="process-math">\(3 \times 3\)</span> game<div class="autopermalink" data-description="Table 5.7.2: A symmetric 3 \times 3 game"><a href="#table-hw-symmetric-3x3" title="Copy heading and permalink for Table 5.7.2: A symmetric 3 \times 3 game" aria-label="Copy heading and permalink for Table 5.7.2: A symmetric 3 \times 3 game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(a\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(b\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(2, 2)</td>
+<td class="c m b1 r1 l0 t0 lines">(6, 3)</td>
+<td class="c m b1 r1 l0 t0 lines">(5, 4)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(3, 6)</td>
+<td class="c m b1 r1 l0 t0 lines">(3, 3)</td>
+<td class="c m b1 r1 l0 t0 lines">(9, 4)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(4, 5)</td>
+<td class="c m b1 r1 l0 t0 lines">(4, 9)</td>
+<td class="c m b1 r1 l0 t0 lines">(7, 7)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para">This game is <dfn class="terminology">symmetric</dfn>: if the players swap strategies, they also swap payoffs. So you only need to do the computation for one player, and you get a <dfn class="terminology">symmetric Nash equilibrium</dfn> <span class="process-math">\((\sigma, \sigma)\text{,}\)</span> where both players use the same mixed strategy <span class="process-math">\(\sigma = xa + yb + zc\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">Use the Fundamental Theorem of Nash Equilibria to set up a system of linear equations whose solution gives a symmetric Nash equilibrium <span class="process-math">\((\sigma, \sigma)\)</span> in which all three strategies are active. Explain where each equation comes from.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-system-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="displaymath process-math">
+\begin{align*}
+2x + 6y + 5z = 3x + 3y + 9z \amp = 4x + 4y + 7z\\
+x + y + z \amp = 1
+\end{align*}
+</div>
+<div class="autopermalink" data-description="Solution 5.7.2.a.1"><a href="#hw-symmetric-3x3-system-2" title="Copy heading and permalink for Solution 5.7.2.a.1" aria-label="Copy heading and permalink for Solution 5.7.2.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.2.a"><a href="#hw-symmetric-3x3-system" title="Copy heading and permalink for Task 5.7.2.a" aria-label="Copy heading and permalink for Task 5.7.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">Solve your system and state the Nash equilibrium <span class="process-math">\((\sigma, \sigma)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-solve-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.2.b"><a href="#hw-symmetric-3x3-solve" title="Copy heading and permalink for Task 5.7.2.b" aria-label="Copy heading and permalink for Task 5.7.2.b">🔗</a></div>
+</article>
+<div class="conclusion">
+<div class="para">A symmetric game can also have Nash equilibria that are <em class="emphasis">not</em> symmetric. You have already seen this: Hawk-Dove (<a href="ch3-exercises.html#hw-hawk-dove-nash" class="xref" data-knowl="./knowl/xref/hw-hawk-dove-nash.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 3.5.5: Hawk and Dove, Revisited">Exercise 3.5.5</a>) is symmetric, and its Nash equilibria <span class="process-math">\((h, d)\)</span> and <span class="process-math">\((d, h)\)</span> are not symmetric.<div class="autopermalink" data-description="Paragraph"><a href="#hw-symmetric-3x3-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.2: A Symmetric 3 \times 3 Game"><a href="#hw-symmetric-3x3" title="Copy heading and permalink for Exercise 5.7.2: A Symmetric 3 \times 3 Game" aria-label="Copy heading and permalink for Exercise 5.7.2: A Symmetric 3 \times 3 Game">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch5-exercises.html#hw-symmetric-3x3">In Context</a></span>
+</body>
+</html>
