@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wine Merchant: cooperate or defect</title>
+<style>
+  :root {
+    --text-primary: #1a1a1a; --text-secondary: #4a5558; --text-muted: #7a8588;
+    --surface-1: #f4f4f1; --surface-2: #ffffff;
+    --border: #d5d8dc; --border-strong: #9aa3a8;
+    --bg-accent: #e6f1fb; --text-accent: #0c447c; --border-accent: #378add;
+    --bg-success: #eaf3de; --text-success: #1e8449; --border-success: #639922;
+    --bg-danger: #fcebeb; --text-danger: #a32d2d; --border-danger: #e24b4a;
+    --bg-warning: #faeeda;
+    --radius: 8px; --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--text-primary); font-size: 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  button, select { font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--text-primary); background: white; color: var(--text-primary); cursor: pointer; }
+  button:hover { background: var(--surface-1); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  input[type=range] { accent-color: #185fa5; }
+  button.on, .pill.on { background: var(--text-primary); color: white; }
+</style>
+</head>
+<body>
+<style>.wrap{max-width:620px;margin:0 auto}</style>
+<div class="wrap">
+<h2 class="sr-only">Bernard's payoff from cooperating forever versus defecting once against the trigger strategy, as the discount factor changes.</h2>
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 1.25rem">
+<label for="d" style="font-size:16px;color:var(--text-secondary)">&delta;</label>
+<input type="range" id="d" min="0.5" max="0.95" step="0.01" value="0.6" style="flex:1"><span id="dO" style="font-size:16px;font-weight:bold;min-width:40px"></span></div>
+<div style="display:grid;grid-template-columns:110px minmax(0,1fr) 70px;gap:10px 12px;align-items:center;font-size:16px">
+<div style="color:var(--text-secondary)">Cooperate</div><div style="font-family:var(--font-mono);font-size:14px">1 + &delta;&middot;1 + &delta;&sup2;&middot;1 + &delta;&sup3;&middot;1 + &hellip;</div><div id="a" style="font-weight:bold;text-align:right"></div>
+<div style="color:var(--text-secondary)">Defect</div><div style="font-family:var(--font-mono);font-size:14px">4 + &delta;&middot;0 + &delta;&sup2;&middot;0 + &delta;&sup3;&middot;0 + &hellip;</div><div style="font-weight:bold;text-align:right">4.00</div>
+</div>
+<p id="v" style="font-size:16px;margin:1.25rem 0 0" aria-live="polite"></p>
+</div>
+<script>
+const d=document.getElementById("d"),dO=document.getElementById("dO"),a=document.getElementById("a"),v=document.getElementById("v");
+function up(){const x=+d.value;dO.textContent=x.toFixed(2);a.textContent=(1/(1-x)).toFixed(2);
+v.innerHTML=1/(1-x)>=4-1e-9?'<span style="color:var(--text-success)">Defecting doesn\'t pay</span> (&delta; &ge; 3/4).':'<span style="color:var(--text-danger)">Defecting pays</span> (&delta; &lt; 3/4).'}
+d.oninput=up;up();
+</script>
+
+</body>
+</html>

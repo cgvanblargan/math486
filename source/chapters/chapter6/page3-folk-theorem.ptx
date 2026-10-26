@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch6-page3-folk-theorem" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Folk Theorem</title>
+
+  <p>
+    On the last page, we found that cooperating forever is a Nash
+    equilibrium of the repeated Wine Merchant game when
+    <m>\delta \geq \frac{3}{4}</m>. Are there other Nash equilibria? The
+    Folk Theorem says there are a <em>lot</em> of them. (A <q>folk
+    theorem</q> is a result that everyone seems to know, but nobody knows
+    who proved it first.)
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- 6.8.1 Payoff vectors                                         -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-8-1">
+    <title>Section 6.8.1, Payoff Vectors</title>
+    <p>
+      <alert>Read Section 6.8 up through Subsection 6.8.1.</alert>
+    </p>
+    <p>
+      This subsection describes all the payoff pairs that the two players
+      can get in a single round of the game, if they use mixed strategies.
+      The four-step construction is easier to see than to read, so use the
+      interactive below alongside it.
+    </p>
+  </assemblage>
+
+  <p>
+    In the interactive, the Wine Merchant game uses the book's labels:
+    <m>(a, b) = (1, 1)</m>, <m>(c, d) = (-4, 4)</m>,
+    <m>(e, f) = (4, -4)</m>, and <m>(g, h) = (0, 0)</m>. Here <m>p</m> is
+    the probability that the Merchant sells good wine, and <m>q</m> is the
+    probability that Bernard pays. The slider <m>q</m> places
+    <m>r(q)</m> on one edge and <m>s(q)</m> on another (steps 1 and 2 in
+    the book), and <m>p</m> slides the point along the dashed segment
+    between them (step 3). The shaded triangle is the set of all possible
+    payoff vectors. The darker part is where both payoffs are positive,
+    just like Figure 6.8.
+  </p>
+
+  <figure xml:id="fig-payoff-region">
+    <caption>Possible payoff vectors for the Wine Merchant and the Connoisseur.</caption>
+    <interactive xml:id="interactive-payoff-region"
+      iframe="ch6-graph/payoff-region.html" width="100%" aspect="1:1">
+      <static>
+        <p>
+          The triangle with corners <m>(-4, 4)</m>, <m>(1, 1)</m>, and
+          <m>(4, -4)</m>, with sliders for <m>p</m> and <m>q</m> showing the
+          points <m>r(q)</m>, <m>s(q)</m>, and
+          <m>p \cdot r(q) + (1-p) \cdot s(q)</m>.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <exercise xml:id="check-payoff-half-half">
+    <statement>
+      <p>
+        Both players flip a fair coin each round to decide whether to
+        cooperate, so <m>p = q = \frac{1}{2}</m>. What is the payoff vector?
+        Check your answer with the interactive.
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>\left(\frac{1}{4}, \frac{1}{4}\right)</m></p></statement>
+        <feedback>
+          <p>
+            Correct. Each of the four outcomes happens with probability
+            <m>\frac{1}{4}</m>, so the payoff vector is
+            <m>\frac{1}{4}\big((1,1) + (-4,4) + (4,-4) + (0,0)\big) = \left(\frac{1}{4}, \frac{1}{4}\right)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\left(\frac{1}{2}, \frac{1}{2}\right)</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. That's halfway between <m>(1,1)</m> and
+            <m>(0,0)</m>, but all four outcomes are possible here, each with
+            probability <m>\frac{1}{4}</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>(0, 0)</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. The <m>-4</m> and <m>4</m> cancel out, but the
+            <m>(1,1)</m> outcome is still there.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- 6.8.2 Minimax payoffs                                        -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-8-2">
+    <title>Section 6.8.2, Minimax Payoffs</title>
+    <p>
+      <alert>Read Section 6.8.2.</alert>
+    </p>
+    <p>
+      This is short, but read it slowly. There's a trap here, explained
+      below.
+    </p>
+  </assemblage>
+
+  <p>
+    <alert>Warning: minimax is not maximin!</alert> In Section 5.5 we met
+    the <em>maximin</em> payoff. The <em>minimax</em> payoff in this section
+    sounds almost the same, but it's a different idea.
+  </p>
+  <ul>
+    <li>
+      <p>
+        <alert>Maximin</alert> (Section 5.5): <em>you</em> choose first,
+        expecting the worst. For each of your strategies, find its worst
+        case, then pick the best of those. This is the most you can
+        guarantee yourself.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Minimax</alert> (Section 6.8.2): your <em>opponent</em>
+        chooses first, trying to hurt you, and you best-respond. For each of
+        the opponent's strategies, find your best response, then take the
+        worst of those. This is the harshest punishment the opponent can
+        force on you.
+      </p>
+    </li>
+  </ul>
+  <p>
+    The two can be different. In Matching Pennies, if we only allow pure
+    strategies, your maximin payoff is <m>-1</m> (any coin you choose can be
+    beaten), but your minimax payoff is <m>+1</m> (once you see your
+    opponent's coin, you can always match it).
+  </p>
+
+  <exercise xml:id="check-minimax-formula">
+    <statement>
+      <p>
+        Build the formula for Player 1's minimax payoff <m>m_1</m> by putting
+        the blocks in order. Here <m>s_i</m> are Player 1's pure strategies
+        and <m>t_j</m> are Player 2's. Not every block belongs!
+      </p>
+    </statement>
+    <blocks layout="horizontal">
+      <block><m>m_1 =</m></block>
+      <block><m>\min_{t_j}</m></block>
+      <block><m>\max_{s_i}</m></block>
+      <block><m>\pi_1(s_i, t_j)</m></block>
+      <block correct="no"><m>\max_{t_j}</m></block>
+      <block correct="no"><m>\min_{s_i}</m></block>
+      <block correct="no"><m>\pi_2(s_i, t_j)</m></block>
+    </blocks>
+    <hint>
+      <p>
+        The operation on the inside happens first. Player 1's best response
+        comes first, and then Player 2 picks the strategy that makes that
+        best response as bad as possible.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>\displaystyle m_1 = \min_{t_j} \max_{s_i} \pi_1(s_i, t_j)</m>.
+        Compare this to the maximin payoff from Section 5.5, where the max
+        is on the outside and the min is on the inside.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="check-minimax-chicken">
+    <statement>
+      <p>
+        Recall Chicken from Section 3.2.3:
+      </p>
+      <table xml:id="table-chicken-minimax">
+      <title>Chicken</title>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <col halign="left" right="minor"/>
+        <col right="minor"/>
+        <col/>
+        <row header="yes" bottom="minor">
+          <cell></cell>
+          <cell>Teenager 2: straight</cell>
+          <cell>Teenager 2: swerve</cell>
+        </row>
+        <row bottom="minor">
+          <cell>Teenager 1: straight</cell>
+          <cell>(<m>-2</m>, <m>-2</m>)</cell>
+          <cell>(1, <m>-1</m>)</cell>
+        </row>
+        <row>
+          <cell>Teenager 1: swerve</cell>
+          <cell>(<m>-1</m>, 1)</cell>
+          <cell>(0, 0)</cell>
+        </row>
+      </tabular>
+      </table>
+      <p>What is Teenager 1's minimax payoff <m>m_1</m>?</p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement><p><m>-1</m></p></statement>
+        <feedback>
+          <p>
+            Correct. If Teenager 2 goes straight, Teenager 1's best response
+            is to swerve, for <m>-1</m>. If Teenager 2 swerves, Teenager 1's
+            best response is to go straight, for 1. The worst of these is
+            <m>-1</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>-2</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. <m>-2</m> is the worst payoff in Teenager 1's column,
+            but minimax assumes Teenager 1 best-responds. If Teenager 2 goes
+            straight, Teenager 1 would swerve rather than crash.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>1</p></statement>
+        <feedback>
+          <p>
+            Not quite. 1 is Teenager 1's best response payoff when Teenager
+            2 swerves. But Teenager 2 gets to pick the strategy that hurts
+            Teenager 1 the most, so take the <em>minimum</em> over Teenager
+            2's choices.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- 6.8.3-6.8.4 The Folk Theorem                                 -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-8-3">
+    <title>Sections 6.8.3 and 6.8.4, The Folk Theorem</title>
+    <p>
+      <alert>Read Sections 6.8.3 and 6.8.4.</alert> Read the statement of
+      Theorem 6.2 and the proof of part (1) carefully.
+    </p>
+    <p>
+      <alert>You can skip the proof of part (2)</alert>, which starts with
+      <q>We will not show (2) in general.</q> The idea is all you need: the
+      players take turns among the four outcomes in just the right
+      proportions, so the <em>average</em> payoff is <m>(v_1, v_2)</m>. If
+      anyone ever deviates, the other player punishes them forever, holding
+      them down to their minimax payoff.
+    </p>
+  </assemblage>
+
+  <p>
+    In plain words, the Folk Theorem says: any payoff vector where both
+    players get more than their minimax payoffs can be the average payoff of
+    a Nash equilibrium, as long as the players care enough about the
+    future. For the Wine Merchant, that's the whole dark region of the
+    triangle.
+  </p>
+
+  <exercise xml:id="reflect-folk-part-1">
+    <statement>
+      <p>
+        Read the statement of part (1) again, and then the proof. Does the
+        proof actually show what the statement says? Look closely at the
+        words <q>in every round.</q>
+      </p>
+    </statement>
+    <solution>
+      <p>
+        No! The proof shows that Player 1 has a strategy that guarantees
+        her at least <m>m_1</m> in every round: just best-respond to
+        whatever Player 2's strategy says to do next. So in total, she can
+        guarantee herself at least <m>\frac{m_1}{1-\delta}</m>, and a Nash
+        equilibrium has to give her at least that much. But that's a
+        statement about her <em>total</em> payoff, not her payoff in each
+        round.
+      </p>
+      <p>
+        In fact, the statement is false as written. In the Wine Merchant
+        game, both minimax payoffs are 0. Consider these strategies: in
+        round 0, the Merchant sells good wine and Bernard steals it. After
+        that, both cooperate forever. If anyone ever deviates from this
+        plan, both defect forever. You can check that this is a Nash
+        equilibrium when <m>\delta \geq \frac{4}{5}</m>, but the Merchant
+        gets <m>-4 \lt 0</m> in round 0.
+      </p>
+      <p>
+        The correct statement is that at a Nash equilibrium, Player 1's
+        <em>total</em> payoff is at least <m>\frac{m_1}{1-\delta}</m>, or
+        equivalently, her <em>average</em> payoff is at least <m>m_1</m>.
+        Section 6.8.4 makes the same slip: the Nash equilibria it describes
+        give payoffs of <m>(v_1, v_2)</m> on average, not in every round.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Example: the cheating merchant                               -->
+  <!-- ============================================================ -->
+
+  <example xml:id="example-cheating-merchant">
+    <title>The Cheating Merchant</title>
+    <p>
+      Here's an equilibrium that the Folk Theorem promises, and that might
+      surprise you. Suppose the players use the following strategies:
+    </p>
+    <ul>
+      <li>
+        <p>
+          The Merchant sells good wine five times, then sells bad wine once,
+          and repeats this forever.
+        </p>
+      </li>
+      <li>
+        <p>Bernard pays every single time, even when he gets bad wine.</p>
+      </li>
+      <li>
+        <p>If either player ever deviates from this plan, both defect forever.</p>
+      </li>
+    </ul>
+    <p>
+      Over each cycle of six rounds, the Merchant gets
+      <m>1+1+1+1+1+4 = 9</m> and Bernard gets <m>1+1+1+1+1-4 = 1</m>. So
+      the average payoffs are <m>\left(\frac{3}{2}, \frac{1}{6}\right)</m>.
+      Both are above the minimax payoff 0, so by the Folk Theorem this can
+      be a Nash equilibrium for large enough <m>\delta</m>. Checking every
+      possible deviation, it is a Nash equilibrium when <m>\delta</m> is at
+      least about <m>0.97</m>.
+    </p>
+    <p>
+      Bernard knowingly accepts being cheated once every six rounds. Why?
+      Because if he ever steals, the relationship ends, and he gets 0
+      forever after. Getting cheated occasionally still beats that, on
+      average.
+    </p>
+  </example>
+
+  <exercise xml:id="check-cheating-merchant-delta">
+    <statement>
+      <p>
+        Plain cooperation needs <m>\delta \geq \frac{3}{4}</m>, but the
+        cheating merchant equilibrium needs <m>\delta</m> close to
+        <m>0.97</m>. In which round is Bernard most tempted to steal?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>The round when he gets bad wine.</p></statement>
+        <feedback>
+          <p>
+            Close, but not quite. Stealing bad wine gets him 0 instead of
+            <m>-4</m>, but the round before is worse.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>The round just before he gets bad wine.</p></statement>
+        <feedback>
+          <p>
+            Correct. Stealing then gets him 4 right away, and the very next
+            thing cooperation has to offer him is the <m>-4</m> round. So
+            the future has to matter a lot to keep him honest.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p>The round just after he gets bad wine.</p></statement>
+        <feedback>
+          <p>
+            Not quite. Right after being cheated, Bernard has five
+            cooperative rounds ahead of him before the next <m>-4</m>, so
+            cooperating looks relatively good.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Try to find the cheating merchant's payoff vector,
+    <m>\left(\frac{3}{2}, \frac{1}{6}\right)</m>, on the triangle in the
+    interactive above. It's on the edge between <m>(1,1)</m> and
+    <m>(4,-4)</m>, which makes sense, since the only outcomes that happen
+    are <m>(c, c)</m> and <m>(d, c)</m>.
+  </p>
+
+  <exercise xml:id="reflect-folk-theorem-news">
+    <statement>
+      <p>
+        The Folk Theorem says that almost any outcome can be a Nash
+        equilibrium of a repeated game, including outcomes where one player
+        keeps getting cheated. Is this good news or bad news for game
+        theory? Think about what it means for using game theory to
+        <em>predict</em> what people will do.
+      </p>
+    </statement>
+  </exercise>
+
+  <interactive xml:id="question-form-6-3" iframe="question-form.html?section=6.3" width="100%" aspect="2:1"/>
+</section>

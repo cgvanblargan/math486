@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Possible payoff vectors: Wine Merchant and Connoisseur</title>
+<style>
+  :root {
+    --text-primary: #1a1a1a; --text-secondary: #4a5558; --text-muted: #5c6669;
+    --surface-1: #f4f4f1; --surface-2: #ffffff;
+    --border: #d5d8dc; --border-strong: #9aa3a8;
+    --bg-accent: #e6f1fb; --text-accent: #0c447c; --border-accent: #378add;
+    --bg-success: #eaf3de; --text-success: #17693a; --border-success: #639922;
+    --bg-danger: #fcebeb; --text-danger: #a32d2d; --border-danger: #e24b4a;
+    --bg-warning: #faeeda;
+    --radius: 8px; --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--text-primary); font-size: 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  button, select { font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--text-primary); background: white; color: var(--text-primary); cursor: pointer; }
+  button:hover { background: var(--surface-1); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  input[type=range] { accent-color: #185fa5; }
+  button.on, .pill.on { background: var(--text-primary); color: white; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<style>.wrap{max-width:680px;margin:0 auto}svg{display:block;width:100%;height:auto}</style>
+<div class="wrap">
+<h1 class="sr-only">Region of possible payoff vectors for Wine Merchant and Connoisseur, with the book's r(q) and s(q) construction showing where a mixed strategy profile lands.</h1>
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+<label for="q" style="font-size:16px;color:var(--text-secondary);min-width:24px"><i>q</i></label>
+<input type="range" id="q" min="0" max="1" step="0.01" value="0.6" style="flex:1"><span id="qO" style="font-size:16px;font-weight:bold;min-width:40px"></span></div>
+<div style="display:flex;align-items:center;gap:12px;margin:0 0 8px">
+<label for="p" style="font-size:16px;color:var(--text-secondary);min-width:24px"><i>p</i></label>
+<input type="range" id="p" min="0" max="1" step="0.01" value="0.5" style="flex:1"><span id="pO" style="font-size:16px;font-weight:bold;min-width:40px"></span></div>
+<svg id="pl" viewBox="0 0 680 360" role="img" aria-label="The set of possible payoff vectors is the triangle with corners (minus 4, 4), (4, minus 4), and (1, 1). The part where both payoffs are positive is shaded darker. The point for the current p and q is described below the graph."></svg>
+<div id="eq" style="font-family:var(--font-mono);font-size:14px;line-height:1.9;margin-top:6px" aria-live="polite"></div>
+</div>
+<script>
+const X=v=>340+v*40,Y=v=>175-v*40;
+const A=[1,1],C=[-4,4],E=[4,-4],G=[0,0];
+const mix=(t,u,w)=>[t*u[0]+(1-t)*w[0],t*u[1]+(1-t)*w[1]];
+const f=n=>(Math.abs(n)<0.005?0:n).toFixed(2);
+const pt=v=>`(${f(v[0])}, ${f(v[1])})`;
+const pEl=document.getElementById("p"),qEl=document.getElementById("q");
+function draw(){const p=+pEl.value,q=+qEl.value;document.getElementById("pO").textContent=p.toFixed(2);document.getElementById("qO").textContent=q.toFixed(2);
+ const r=mix(q,A,C),s=mix(q,E,G),z=mix(p,r,s);let h="";
+ h+=`<polygon points="${X(-4)},${Y(4)} ${X(1)},${Y(1)} ${X(4)},${Y(-4)}" style="fill:#ececea;stroke:var(--border-strong)"/>`;
+ h+=`<polygon points="${X(0)},${Y(0)} ${X(0)},${Y(1.6)} ${X(1)},${Y(1)} ${X(1.6)},${Y(0)}" style="fill:#c4c6c2"/>`;
+ h+=`<line x1="${X(-5)}" y1="${Y(0)}" x2="${X(5)}" y2="${Y(0)}" style="stroke:var(--border-strong)"/><line x1="${X(0)}" y1="${Y(-4.3)}" x2="${X(0)}" y2="${Y(4.3)}" style="stroke:var(--border-strong)"/>`;
+ h+=`<text x="${X(5)}" y="${Y(0)-6}" text-anchor="end" style="font-size:14px;fill:var(--text-secondary)">π₁</text><text x="${X(0)+6}" y="${Y(4.2)}" style="font-size:14px;fill:var(--text-secondary)">π₂</text>`;
+ h+=`<line x1="${X(A[0])}" y1="${Y(A[1])}" x2="${X(C[0])}" y2="${Y(C[1])}" stroke="#7F77DD" stroke-width="3"/>`;
+ h+=`<line x1="${X(E[0])}" y1="${Y(E[1])}" x2="${X(G[0])}" y2="${Y(G[1])}" stroke="#1D9E75" stroke-width="3"/>`;
+ h+=`<line x1="${X(r[0])}" y1="${Y(r[1])}" x2="${X(s[0])}" y2="${Y(s[1])}" style="stroke:var(--text-secondary)" stroke-width="1.5" stroke-dasharray="5 4"/>`;
+ for(const [v,l,dx,dy] of [[A,"(a, b) = (1, 1)",10,-6],[C,"(c, d) = (−4, 4)",10,-4],[E,"(e, f) = (4, −4)",-10,16],[G,"(g, h) = (0, 0)",-10,18]])
+  h+=`<circle cx="${X(v[0])}" cy="${Y(v[1])}" r="3.5" style="fill:var(--text-primary)"/><text x="${X(v[0])+dx}" y="${Y(v[1])+dy}" text-anchor="${dx<0?"end":"start"}" style="font-size:13px;fill:var(--text-primary)">${l}</text>`;
+ h+=`<circle cx="${X(r[0])}" cy="${Y(r[1])}" r="5" fill="#7F77DD"/><text x="${X(r[0])-8}" y="${Y(r[1])-8}" text-anchor="end" style="font-size:13px;fill:var(--text-primary)">r(q)</text>`;
+ h+=`<circle cx="${X(s[0])}" cy="${Y(s[1])}" r="5" fill="#1D9E75"/><text x="${X(s[0])+8}" y="${Y(s[1])+14}" style="font-size:13px;fill:var(--text-primary)">s(q)</text>`;
+ h+=`<circle cx="${X(z[0])}" cy="${Y(z[1])}" r="6.5" fill="#D85A30" style="stroke:white;stroke-width:2"/>`;
+ document.getElementById("pl").innerHTML=h;
+ document.getElementById("eq").innerHTML=`<span style="color:#534AB7">r(q)</span> = q(a, b) + (1 − q)(c, d) = ${pt(r)}<br><span style="color:#0F6E56">s(q)</span> = q(e, f) + (1 − q)(g, h) = ${pt(s)}<br><span style="color:#993C1D">p·r(q) + (1 − p)·s(q)</span> = ${pt(z)}`}
+pEl.oninput=draw;qEl.oninput=draw;draw();
+</script>
+
+</main>
+</body>
+</html>

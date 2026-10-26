@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 100" width="260" height="100" role="img" aria-labelledby="t d" font-family="serif">
+<title id="t">The subgame at n1, with the outcome of (c, ww) boxed</title>
+<desc id="d">A one-row table. Little Monkey's strategy w gives the outcome (0, 0), which is boxed as the outcome of (c, ww) restricted to this subgame. Little Monkey's strategy c gives (9, 1).</desc>
+<rect width="260" height="100" fill="white"/>
+<text x="75" y="28" text-anchor="middle" font-size="16" fill="#3d3d3a">LM: w</text>
+<text x="185" y="28" text-anchor="middle" font-size="16" fill="#3d3d3a">LM: c</text>
+<line x1="20" y1="42" x2="240" y2="42" stroke="#6b6b66" stroke-width="1"/>
+<rect x="30" y="52" width="90" height="38" rx="6" fill="white" stroke="#1a1a1a" stroke-width="2.5"/>
+<text x="75" y="77" text-anchor="middle" font-size="17" fill="#1a1a1a">(0, 0)</text>
+<text x="185" y="77" text-anchor="middle" font-size="17" fill="#1a1a1a">(9, 1)</text>
+</svg>

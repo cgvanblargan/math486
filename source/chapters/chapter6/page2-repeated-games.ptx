@@ -1,0 +1,720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch6-page2-repeated-games" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Repeated Games and the Wine Merchant</title>
+
+  <p>
+    Many games are not played in isolation. Back in Chapter 2, you played
+    the Prisoner's Dilemma over and over against a robot that used the
+    <q>tit for tat</q> strategy. Repeated games allow many new kinds of
+    strategies, and many new Nash equilibria! For example, there is more
+    incentive to cooperate in a repeated Prisoner's Dilemma: if you use a
+    strategy that keeps cooperating as long as your opponent cooperates,
+    then your opponent may be better off cooperating too.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- 6.6 Discount factor and repeated games                       -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-6">
+    <title>Section 6.6, Discount Factor and Repeated Games</title>
+    <p>
+      <alert>Read Section 6.6.</alert>
+    </p>
+    <p>
+      The first sentence mentions Rubinstein's bargaining model from Section
+      6.5, which we skipped (you don't need it). Then for the subsections:
+      <ul>
+        <li>
+          <p>
+            6.6.1: You can skim the salary argument. The important part is what the discount factor <m>\delta</m> means.
+          </p>
+        </li>
+        <li>
+          <p>
+            6.6.2: This is the definition of a repeated game. We take a game
+            in normal form <m>G</m>, called the <term>stage game</term>, and
+            play it over and over at times <m>k = 0, 1, 2, \ldots</m> with
+            discount factor <m>\delta</m>. This forms the repeated game
+            <m>R</m>.
+          </p>
+        </li>
+      </ul> 
+    </p>
+  </assemblage>
+
+  <p>
+    The discount factor <m>\delta</m> is a number between 0 and 1. A payoff
+    received <m>k</m> rounds from now counts as <m>\delta^k</m> times as
+    much as the same payoff today. For example, if
+    <m>\delta = \frac{1}{2}</m>, then in the first stage (<m>k = 0</m>) a
+    player receives the full payoff of the outcome. In the next stage
+    (<m>k = 1</m>), the payoff counts <m>\frac{1}{2}</m> as much; in stage
+    <m>k = 2</m>, it counts <m>\frac{1}{2^2} = \frac{1}{4}</m> as much; and
+    so on!
+  </p>
+  <p>
+    To follow the computations in this section, you'll need the formula
+    from calculus for the sum of a geometric series:
+    <me>
+     \sum_{k=0}^{\infty} r\delta^k = r + r\delta + r\delta^2 + \cdots = \frac{r}{1-\delta}.
+    </me>
+  </p>
+
+  <exercise xml:id="check-geometric-from-k">
+    <statement>
+      <p>
+        In the computations in this section, we'll often need the total of a payoff of 1 per round,
+        starting at round <m>k</m> instead of round 0. What is
+        <m>\delta^k + \delta^{k+1} + \delta^{k+2} + \cdots</m>?
+      </p>
+      <p>
+        Hint: factor out <m>\delta^k</m>, so
+        <m>\delta^k + \delta^{k+1} + \delta^{k+2} + \cdots = \delta^k(\text{fill this part in!})</m>.
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement><p><m>\dfrac{\delta^k}{1-\delta}</m></p></statement>
+        <feedback>
+          <p>
+            Correct. Factor out <m>\delta^k</m> to get
+            <m>\delta^k(1 + \delta + \delta^2 + \cdots)</m>, and use the
+            geometric series formula on what's left.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{1}{1-\delta^k}</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. Try factoring <m>\delta^k</m> out of every term
+            first.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement><p><m>\dfrac{1}{1-\delta} - \delta^k</m></p></statement>
+        <feedback>
+          <p>
+            Not quite. The full sum from round 0 is
+            <m>\frac{1}{1-\delta}</m>, but starting at round <m>k</m> drops
+            <m>k</m> terms, not just one. Try factoring out
+            <m>\delta^k</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- 6.7 Wine Merchant, part 1: setup and the trigger strategy    -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-7-part1">
+    <title>Section 6.7, The Wine Merchant and the Connoisseur (Part 1)</title>
+    <p>
+      <alert>Read Section 6.7 up to Theorem 6.1.</alert> Stop right before
+      the statement of Theorem 6.1.
+    </p>
+    <p>
+      This part sets up the game, shows that it is a Prisoner's Dilemma, and
+      defines the <term>trigger strategy</term> <m>\sigma</m>.
+    </p>
+  </assemblage>
+  <p>
+    Here is the stage game for reference, with <m>c</m> for cooperate and
+    <m>d</m> for defect.
+  </p>
+
+  <table xml:id="table-wine-merchant-stage-game">
+    <title>The Wine Merchant and the Connoisseur, payoffs (Merchant, Bernard)</title>
+    <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Bernard: <m>c</m> (pay)</cell>
+        <cell>Bernard: <m>d</m> (steal)</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Merchant: <m>c</m> (good wine)</cell>
+        <cell><m>(1, 1)</m></cell>
+        <cell><m>(-4, 4)</m></cell>
+      </row>
+      <row>
+        <cell>Merchant: <m>d</m> (bad wine)</cell>
+        <cell><m>(4, -4)</m></cell>
+        <cell><m>(0, 0)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Before getting to the theorem, let's make sure the trigger strategy is
+    clear. A player using the trigger strategy starts out willing to
+    cooperate, but holds a grudge forever! They cooperate as long as the
+    other player cooperates, but after a single defection from the other
+    player, they never cooperate again.
+  </p>
+
+  <exercise xml:id="check-trigger-meaning">
+    <statement>
+      <p>
+        Suppose Bernard uses the trigger strategy. The Merchant cooperates
+        (sells good wine) in rounds 0, 1, and 2, defects (sells bad wine) in
+        round 3, and then cooperates again in every round after that. What
+        does Bernard do in each round?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            Bernard cooperates in rounds 0 through 3, defects in round 4,
+            and then cooperates again from round 5 on, since the Merchant
+            went back to cooperating.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The trigger strategy never forgives. Once the
+            Merchant defects, Bernard defects in every round after that,
+            even though the Merchant goes back to selling good wine.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Bernard cooperates in rounds 0 through 3, and defects in every
+            round from round 4 on.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Correct. Bernard cooperates in round 3, since he can't know yet
+            that the Merchant is about to defect. He reacts starting in round
+            4, and the grudge lasts forever, no matter what the Merchant
+            does afterwards.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-trigger-vs-always-defect">
+    <statement>
+      <p>
+        Suppose the Merchant uses the trigger strategy, and Bernard always
+        defects. What are the outcomes, written (Merchant, Bernard)?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p><m>(d, d)</m> in every round, starting in round 0.</p></statement>
+        <feedback>
+          <p>
+            Not quite. The trigger strategy starts by cooperating, and it
+            only switches to <m>d</m> the round <em>after</em> it sees a
+            defection.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p><m>(c, d)</m> in round 0, then <m>(d, d)</m> in every round after that.</p></statement>
+        <feedback>
+          <p>
+            Correct. In round 0, the Merchant cooperates, since nobody has
+            defected yet, and Bernard steals good wine, for a payoff of 4.
+            From round 1 on, the Merchant sells bad wine and Bernard steals
+            it, so Bernard gets 0. His total is
+            <m>4 + 0 \cdot \delta + 0 \cdot \delta^2 + \cdots = 4</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Now let's think about when <em>both</em> players use the trigger
+    strategy. Since neither one ever defects first, they both cooperate in
+    every round, so each gets a payoff of 1 every round. Factoring in the
+    discount factor <m>\delta</m>, each player's total payoff is
+    <me>1 + \delta + \delta^2 + \cdots = \frac{1}{1-\delta}</me>.
+  </p>
+  <p>
+    Compare that with the previous checkpoint, where the Merchant uses the
+    trigger strategy and Bernard always defects. In round 0, the Merchant
+    hasn't seen a defection yet, so he still cooperates, and Bernard gets 4
+    for stealing good wine. From round 1 on, both defect, and Bernard gets 0
+    every round. So Bernard's total payoff is
+    <me>4 + 0 \cdot \delta + 0 \cdot \delta^2 + \cdots = 4</me>,
+    no matter what <m>\delta</m> is.
+  </p>
+  <p>
+    So if the Merchant uses the trigger strategy, should Bernard use the
+    trigger strategy too, or always defect? Move the <m>\delta</m> slider in
+    the widget below to compare the two payoffs.
+  </p>
+
+  <figure xml:id="fig-trigger-cooperate-or-defect">
+    <caption>The Merchant uses the trigger strategy. Should Bernard use the trigger strategy too, or always defect?</caption>
+    <interactive xml:id="interactive-trigger-cooperate-or-defect"
+      iframe="ch6-graph/trigger-cooperate-or-defect.html" width="100%" aspect="2:1">
+      <static>
+        <p>
+          A slider for <m>\delta</m> and two tables of Bernard's discounted
+          payoff in each round. If both use the trigger strategy, the outcome
+          is <m>(c, c)</m> every round and Bernard gets <m>\delta^k</m> in
+          round <m>k</m>, for a total of <m>\frac{1}{1-\delta}</m>. If
+          Bernard always defects, the outcome is <m>(c, d)</m> in round 0
+          and <m>(d, d)</m> after, so he gets 4 in round 0 and nothing
+          after, for a total of 4.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <exercise xml:id="check-why-large-delta">
+    <statement>
+      <p>
+        In the interactive, using the trigger strategy (and so cooperating
+        every round) is better for Bernard when <m>\delta</m> is large, and
+        always defecting is better when <m>\delta</m> is small. Why does this
+        make sense?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            When <m>\delta</m> is small, later rounds count for very little,
+            so the 4 that Bernard gets in round 0 by defecting matters more
+            than all the 1s he would get later by cooperating.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Defecting gives Bernard a big payoff now, and cooperating
+            gives him a small payoff every round forever. The smaller
+            <m>\delta</m> is, the less the future is worth to him, and the
+            more the payoff now matters.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            When <m>\delta</m> is large, the Merchant is more forgiving, so
+            Bernard is more likely to get away with defecting.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The trigger strategy never forgives, no matter what
+            <m>\delta</m> is. The discount factor doesn't change how the
+            Merchant plays, only how much Bernard cares about future rounds.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    It doesn't take much more work to see why the cutoff is at
+    <m>\delta = \frac{3}{4}</m>. Suppose the Merchant uses the trigger
+    strategy. We showed above that if Bernard also uses the trigger
+    strategy, his payoff is <m>\frac{1}{1-\delta}</m>, and if he always
+    defects, his payoff is 4. So the trigger strategy gives Bernard at least
+    as good a payoff as always defecting exactly when
+    <me>
+      \frac{1}{1-\delta} \geq 4, \quad \text{that is,} \quad \delta \geq \frac{3}{4}.
+    </me>
+  </p>
+  <p>
+    However, Bernard has infinitely many other strategies besides the
+    trigger strategy and always defecting. For example, he could cooperate
+    for the first 10 rounds and then always defect. It turns out that when
+    <m>\delta \geq \frac{3}{4}</m>, the trigger strategy isn't just better
+    than always defecting, it is actually a best response to the Merchant's trigger
+    strategy, so there is no strategy Bernard would rather use. Because the
+    game is symmetric, the same argument shows that the trigger strategy is
+    the Merchant's best response to Bernard's trigger strategy. That's
+    exactly what it means for <m>(\sigma, \sigma)</m> to be a Nash
+    equilibrium! The proof of Theorem 6.1 handles all of Bernard's
+    strategies at once.
+  </p>
+
+  <assemblage xml:id="read-6-7-theorem">
+    <title>Section 6.7, Theorem 6.1</title>
+    <p>
+      <alert>Read Theorem 6.1 and its proof.</alert>
+    </p>
+    <p>
+      The proof splits into two cases, depending on whether Bernard ever
+      defects. The math gets more interesting in Case 2!
+    </p>
+  </assemblage>
+
+  <p>
+    Before reading the rest of Section 6.7, recall the last paragraph of
+    Section 6.6.2, which defines a <term>subgame</term> of a repeated game. A subgame starts at some round <m>k</m>, and it
+    <em>remembers</em> everything that happened before. So <q>the game
+    starting at round 5, where both players always cooperated</q> and
+    <q>the game starting at round 5, where Player 1 defected in round
+    2</q> are different subgames. This is the same idea as on the previous
+    page: a subgame is a <q>what if we got here?</q>, and <q>here</q>
+    includes the history.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- 6.7 Wine Merchant, part 2: subgame perfection                -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-7-part2">
+    <title>Section 6.7, The Wine Merchant and the Connoisseur (Part 2)</title>
+    <p>
+      <alert>Read the rest of Section 6.7.</alert>
+    </p>
+    <p>
+      There are two ideas here. First, <m>\delta</m> can also be read as
+      the probability that the game continues for another round. Second,
+      the book asks whether <m>(\sigma, \sigma)</m> is subgame perfect, and
+      to answer it, the book has to redefine the trigger strategy more
+      carefully.
+    </p>
+  </assemblage>
+
+  <p>
+    Why bother redefining <m>\sigma</m>? Here's what goes wrong with the
+    original definition, <q>use <m>d</m> forever if your
+    <em>opponent</em> ever uses <m>d</m>.</q> Suppose that in round 0 the
+    Merchant sells bad wine and Bernard pays for it. Look at the subgame
+    starting in round 1.
+  </p>
+  <ul>
+    <li>
+      <p>
+        Bernard has never stolen, so the original <m>\sigma</m> tells the
+        Merchant to keep selling good wine.
+      </p>
+    </li>
+    <li>
+      <p>
+        The Merchant cheated, so the original <m>\sigma</m> tells Bernard to
+        steal forever.
+      </p>
+    </li>
+  </ul>
+  <p>
+    The Merchant gets <m>-4</m> every round, when switching to bad wine
+    would give him 0. So the original <m>\sigma</m> is not a best response
+    in that subgame. The redefined <m>\sigma</m> defects if <em>anyone</em>
+    has defected, which fixes the problem.
+  </p>
+
+  <exercise xml:id="check-redefined-trigger">
+    <statement>
+      <p>
+        Under the redefined trigger strategy, what does a player do in round
+        <m>j</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            Use <m>c</m> if both players used <m>c</m> in every earlier
+            round. Otherwise use <m>d</m>.
+          </p>
+        </statement>
+        <feedback><p>Correct.</p></feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Use <m>c</m> if the opponent used <m>c</m> in every earlier
+            round. Otherwise use <m>d</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite, that's the original definition. The example above
+            shows why it fails in the subgame after the Merchant cheats.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Use whatever the opponent used in round <m>j-1</m>.</p>
+        </statement>
+        <feedback>
+          <p>Not quite, that's tit for tat.</p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The book leaves the proof of subgame perfection to you (<q>you should
+    be able to convince yourself...</q>). Let's do it. The key observation:
+    there are only two kinds of subgames, depending on whether anyone has
+    defected yet.
+  </p>
+
+  <exercise xml:id="check-trigger-spne-proof">
+    <statement>
+      <p>
+        Put the blocks in order to prove that <m>(\sigma, \sigma)</m> is a
+        subgame perfect Nash equilibrium when
+        <m>\delta \geq \frac{3}{4}</m>, using the redefined trigger strategy.
+        Not every block belongs! Start with the case where nobody has
+        defected.
+      </p>
+    </statement>
+    <blocks>
+      <block>
+        <p>
+          Let <m>H</m> be the subgame starting at round <m>k</m>, with some
+          history of play in rounds <m>0, \ldots, k-1</m>. We must show that
+          both players using <m>\sigma</m> is a Nash equilibrium of <m>H</m>.
+        </p>
+      </block>
+      <block>
+        <p>
+          <alert>Case 1:</alert> in the history, both players used <m>c</m>
+          in every round.
+        </p>
+      </block>
+      <block>
+        <p>
+          Then <m>H</m> looks exactly like the original repeated game, with
+          every payoff multiplied by <m>\delta^k</m>, and <m>\sigma</m> tells
+          both players to play as if starting from scratch.
+        </p>
+      </block>
+      <block>
+        <p>
+          Multiplying every payoff by <m>\delta^k</m> doesn't change which
+          strategies are best, so by Theorem 6.1, neither player can improve
+          when <m>\delta \geq \frac{3}{4}</m>.
+        </p>
+      </block>
+      <block>
+        <p>
+          <alert>Case 2:</alert> in the history, at least one player used
+          <m>d</m> at least once.
+        </p>
+      </block>
+      <block>
+        <p>
+          Then <m>\sigma</m> tells both players to use <m>d</m> in every
+          round of <m>H</m>, no matter what happens in <m>H</m>.
+        </p>
+      </block>
+      <block>
+        <p>
+          Suppose Player 2 uses <m>\sigma</m>. Then Player 2 uses <m>d</m>
+          every round, whatever Player 1 does.
+        </p>
+      </block>
+      <block>
+        <p>
+          Against <m>d</m>, Player 1 gets 0 from <m>d</m> and <m>-4</m> from
+          <m>c</m>, and Player 1's choices can't change Player 2's future
+          moves.
+        </p>
+      </block>
+      <block>
+        <p>
+          So Player 1 can do no better than <m>d</m> every round, which is
+          what <m>\sigma</m> says. By symmetry, the same holds for Player 2.
+        </p>
+      </block>
+      <block>
+        <p>
+          Every subgame falls into Case 1 or Case 2, so
+          <m>(\sigma, \sigma)</m> is a subgame perfect Nash equilibrium when
+          <m>\delta \geq \frac{3}{4}</m>.
+        </p>
+      </block>
+      <block correct="no">
+        <p>
+          <alert>Case 2:</alert> in the history, the opponent used <m>d</m>
+          at least once.
+        </p>
+      </block>
+      <block correct="no">
+        <p>
+          In Case 2, Player 1 should go back to <m>c</m>, since
+          <m>(c, c)</m> pays 1, which is more than 0.
+        </p>
+      </block>
+      <block correct="no">
+        <p>
+          By Theorem 6.1, <m>(\sigma, \sigma)</m> is a Nash equilibrium of
+          every subgame, so we are done.
+        </p>
+      </block>
+    </blocks>
+    <hint>
+      <p>
+        In Case 2, who controls what Player 2 does from now on? Can anything
+        Player 1 does make Player 2 cooperate again?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        The correct order is: set up the subgame <m>H</m>; Case 1 (everyone
+        cooperated so far), which is the original game scaled by
+        <m>\delta^k</m>, so Theorem 6.1 applies; Case 2 (someone defected),
+        where the opponent defects forever no matter what, so defecting
+        every round is a best response; and the conclusion.
+      </p>
+      <p>
+        The distractors: Case 2 has to be about <em>either</em> player
+        defecting, not just the opponent, or the cases don't cover the
+        subgame where you were the one who defected. Going back to
+        <m>c</m> in Case 2 doesn't work, because Player 2 keeps playing
+        <m>d</m>, so <m>c</m> pays <m>-4</m>, not 1. And Theorem 6.1 only
+        covers subgames where nobody has defected yet, which is why we need
+        the two cases at all.
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    Compare this to <term>tit for tat</term>: start with <m>c</m>, and
+    after that, do whatever the other player did last round. On this week's
+    homework, you'll show that two players using tit for tat is a Nash
+    equilibrium for large enough <m>\delta</m>, but <em>not</em> a subgame
+    perfect one. The difference is what happens after a defection: the
+    trigger strategy's punishment is a best response, but with tit for tat,
+    a single defection leads to an endless <m>c, d, c, d, \ldots</m> cycle
+    of revenge.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Strategies for the homework, and optional robot              -->
+  <!-- ============================================================ -->
+
+  <p>
+    The trigger strategy <m>\sigma</m> is just one strategy for the
+    repeated game. Here are some others you'll meet on the homework. Each
+    one is a rule that looks at what happened in earlier rounds and decides
+    what to do now.
+  </p>
+  <ul>
+    <li>
+      <p>
+        <alert>Trigger, <m>\sigma</m>:</alert> start with <m>c</m>. If the
+        other player ever defects, use <m>d</m> forever.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Tit for tat, <m>\tau</m>:</alert> start with <m>c</m>. After
+        that, do whatever the other player did last round.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Suspicious tit for tat, <m>\nu</m>:</alert> start with
+        <m>d</m>. After that, do whatever the other player did last round.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Generous tit for tat, <m>\zeta</m>:</alert> play <m>c</m> in
+        rounds 0 and 1. After that, do whatever the other player did last
+        round.
+      </p>
+    </li>
+    <li>
+      <p>
+        <alert>Always defect, <m>\beta</m>:</alert> use <m>d</m> every
+        round.
+      </p>
+    </li>
+  </ul>
+  <p>
+    <alert>Optional:</alert> if you'd like to get a feel for the strategies
+    above, you can play the repeated game against a robot below. This isn't
+    required, but it might help with the homework problem on these
+    strategies, so feel free to come back to it then.
+  </p>
+
+  <p>
+    Pick a robot and try to find your best response to it. The payoffs
+    are the Wine Merchant's, with you as the Merchant, and
+    <m>\delta = 0.8</m>. The <q>Mystery robot</q> picks one of the five
+    strategies at random. Play a few rounds, and then guess which one it
+    is.
+  </p>
+
+  <figure xml:id="fig-pd-robot-strategies">
+    <caption>The repeated Prisoner's Dilemma, against a robot with a strategy you choose.</caption>
+    <interactive xml:id="interactive-pd-robot-strategies"
+      iframe="ch6-graph/pd-robot-strategies.html" width="100%" aspect="4:3">
+      <static>
+        <p>
+          Buttons to cooperate or defect each round against a robot using
+          the trigger strategy, tit for tat, suspicious tit for tat,
+          generous tit for tat, always defect, or a randomly chosen mystery
+          strategy, with a running discounted total.
+        </p>
+      </static>
+    </interactive>
+  </figure>
+
+  <exercise xml:id="reflect-robot-strategies">
+    <statement>
+      <p>Some things to try with the robot:</p>
+      <ul>
+        <li>
+          <p>
+            Against each robot, what's your best response? Is it ever
+            better to defect?
+          </p>
+        </li>
+        <li>
+          <p>
+            If you cooperate every round, which robots look exactly the
+            same? What moves could you make to tell them apart in mystery
+            mode?
+          </p>
+        </li>
+        <li>
+          <p>
+            Against tit for tat, defect once and then just copy the robot's
+            last move. What happens?
+          </p>
+        </li>
+      </ul>
+    </statement>
+    <solution>
+      <p>
+        Against always defect, your best response is to always defect too.
+        Against the trigger strategy and tit for tat, cooperating every
+        round is best when <m>\delta = 0.8</m>, since <m>0.8 \geq \frac{3}{4}</m>.
+      </p>
+      <p>
+        If you always cooperate, the trigger strategy, tit for tat, and
+        generous tit for tat all cooperate every round too, so you can't
+        tell them apart. Defecting once and then cooperating separates them:
+        the trigger strategy never forgives you, but tit for tat does.
+      </p>
+      <p>
+        If you defect once against tit for tat and then copy it, you get
+        stuck alternating: you play <m>d, c, d, c, \ldots</m> and the robot
+        plays <m>c, d, c, d, \ldots</m>. One defection turns into an endless
+        cycle of revenge. That's the reason generous tit for tat exists.
+      </p>
+    </solution>
+  </exercise>
+
+  <interactive xml:id="question-form-6-2" iframe="question-form.html?section=6.2" width="100%" aspect="2:1"/>
+</section>

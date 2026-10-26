@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch6-page1-subgame-perfection" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Subgame Perfect Nash Equilibria</title>
+
+  <p>
+    Back in Section 3.7, we found three Nash equilibria of Big Monkey and
+    Little Monkey: <m>(w, cw)</m>, <m>(c, ww)</m>, and <m>(w, cc)</m>. In
+    this chapter, we'll see that some Nash equilibria make more sense than
+    others, and we'll define a stronger kind of equilibrium that tells them
+    apart.
+  </p>
+
+  <assemblage xml:id="read-6-1">
+    <title>Section 6.1, Subgame Perfect Nash Equilibria</title>
+    <p>
+      <alert>Read Section 6.1.</alert>
+    </p>
+    <p>
+      This section is short but dense, since it's mostly definitions. We'll
+      work through them with an example right after.
+    </p>
+  </assemblage>
+
+  <p>
+    Part of the definition of a subgame deals with information sets, which
+    only matter in games with incomplete information. We'll focus on games
+    with complete information, where things are simpler: every node that
+    isn't a terminal node is the start of a subgame. So let's explore these
+    ideas further in the Big Monkey and Little Monkey game.
+  </p>
+
+  <p>
+    A strategy profile is a <term>subgame perfect Nash equilibrium</term> if,
+    for every subgame, the <term>restriction</term> of the strategy profile
+    to that subgame is a Nash equilibrium of that subgame. Notice that when
+    we look at a subgame, moves at nodes outside the subgame are disregarded
+    in the restricted strategies.
+  </p>
+
+  <p>
+    Here is the game tree for Big Monkey and Little Monkey, with Big Monkey
+    moving first. We've labeled Little Monkey's two nodes <m>n_1</m> (after
+    Big Monkey waits) and <m>n_2</m> (after Big Monkey climbs).
+  </p>
+
+  <figure xml:id="fig-bmlm-tree-labeled">
+    <caption>Big Monkey and Little Monkey. Payoffs are listed as (Big Monkey, Little Monkey).</caption>
+    <image source="ch6-graph/bmlm-tree.svg" width="85%">
+      <shortdescription>Game tree for Big Monkey and Little Monkey</shortdescription>
+      <description>
+        <p>
+          At the root, Big Monkey chooses wait or climb. If Big Monkey waits,
+          Little Monkey chooses at node <m>n_1</m>: wait gives payoffs
+          <m>(0, 0)</m>, and climb gives <m>(9, 1)</m>. If Big Monkey climbs,
+          Little Monkey chooses at node <m>n_2</m>: wait gives
+          <m>(4, 4)</m>, and climb gives <m>(5, 3)</m>.
+        </p>
+      </description>
+    </image>
+  </figure>
+
+  <exercise xml:id="check-bmlm-number-of-subgames">
+    <statement>
+      <p>How many subgames does this game have?</p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>2</p></statement>
+        <feedback>
+          <p>
+            Close! You probably counted the subgames starting at <m>n_1</m>
+            and <m>n_2</m>. The whole game, which starts at the root, also
+            counts as a subgame.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>3</p></statement>
+        <feedback>
+          <p>
+            Correct. There is one subgame starting at the root (the whole
+            game), one starting at <m>n_1</m> (after Big Monkey waits), and
+            one starting at <m>n_2</m> (after Big Monkey climbs).
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- (w, cw): worked example                                      -->
+  <!-- ============================================================ -->
+
+  <p>
+    Now we'll use the widget below to explain why <m>(w, cw)</m> is a
+    subgame perfect Nash equilibrium. The moves of <m>(w, cw)</m> are drawn
+    thick. Click each of the three nodes to see the subgame that starts
+    there, what <m>(w, cw)</m> restricts to in that subgame, and whether
+    the restriction is a Nash equilibrium.
+  </p>
+
+  <figure xml:id="fig-bmlm-subgame-explorer">
+    <caption>The subgames of Big Monkey and Little Monkey, and the strategy profile <m>(w, cw)</m>.</caption>
+    <interactive xml:id="interactive-bmlm-subgame-explorer"
+      iframe="ch6-graph/bmlm-subgame-explorer.html" width="100%" aspect="1:1">
+      <static>
+        <p>
+          The Big Monkey and Little Monkey tree with clickable nodes. For
+          each subgame, the widget lists each player's strategies in the
+          subgame, shows the original normal form with impossible outcomes
+          crossed out, and shows the smaller game the subgame really is.
+        </p>
+        <ul>
+          <li>
+            <p>
+              Root: the whole game. The profile is <m>(w, cw)</m>, a Nash
+              equilibrium, since Big Monkey gets 9 from <m>w</m> versus 4
+              from <m>c</m>, and <m>cw</m> gives Little Monkey her best
+              payoff, 1, in row <m>w</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n_1</m>: Big Monkey has no strategies, and Little Monkey
+              chooses <m>w</m> for <m>(0, 0)</m> or <m>c</m> for
+              <m>(9, 1)</m>. <m>cw</m> restricts to <m>c</m>, a Nash
+              equilibrium, since <m>1 \geq 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>n_2</m>: Big Monkey has no strategies, and Little Monkey
+              chooses <m>w</m> for <m>(4, 4)</m> or <m>c</m> for
+              <m>(5, 3)</m>. <m>cw</m> restricts to <m>w</m>, a Nash
+              equilibrium, since <m>4 \geq 3</m>.
+            </p>
+          </li>
+        </ul>
+      </static>
+    </interactive>
+  </figure>
+
+  <p>
+    We showed that in each of the three subgames, the restriction of
+    <m>(w, cw)</m> to the subgame is a Nash equilibrium of that subgame. So
+    <m>(w, cw)</m> is a subgame perfect Nash equilibrium.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- (c, ww): students do it                                      -->
+  <!-- ============================================================ -->
+
+  <p>
+    Now it's your turn, with the strategy profile <m>(c, ww)</m>. Here are
+    its moves, drawn thick.
+  </p>
+
+  <figure xml:id="fig-bmlm-tree-c-ww">
+    <caption>The strategy profile <m>(c, ww)</m>.</caption>
+    <image source="ch6-graph/bmlm-tree-c-ww.svg" width="85%">
+      <shortdescription>Game tree for Big Monkey and Little Monkey with the profile (c, ww)</shortdescription>
+      <description>
+        <p>
+          The Big Monkey and Little Monkey tree, with the moves of
+          <m>(c, ww)</m> drawn thick: Big Monkey climbs at the root, Little
+          Monkey waits at <m>n_1</m>, and Little Monkey waits at
+          <m>n_2</m>.
+        </p>
+      </description>
+    </image>
+  </figure>
+
+  <exercise xml:id="check-build-subgame-n1">
+    <statement>
+      <p>
+        Consider the subgame starting at <m>n_1</m>, after Big Monkey waits.
+        Click every outcome in the original normal form below that is still
+        possible in this subgame.
+      </p>
+    </statement>
+    <areas>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <col halign="left" right="minor"/>
+        <col right="minor"/>
+        <col right="minor"/>
+        <col right="minor"/>
+        <col/>
+        <row header="yes" bottom="minor">
+          <cell></cell>
+          <cell>LM: ww</cell>
+          <cell>LM: wc</cell>
+          <cell>LM: cw</cell>
+          <cell>LM: cc</cell>
+        </row>
+        <row bottom="minor">
+          <cell>BM: w</cell>
+          <cell><area correct="yes">(0, 0)</area></cell>
+          <cell><area correct="yes">(0, 0)</area></cell>
+          <cell><area correct="yes">(9, 1)</area></cell>
+          <cell><area correct="yes">(9, 1)</area></cell>
+        </row>
+        <row>
+          <cell>BM: c</cell>
+          <cell><area correct="no">(4, 4)</area></cell>
+          <cell><area correct="no">(5, 3)</area></cell>
+          <cell><area correct="no">(4, 4)</area></cell>
+          <cell><area correct="no">(5, 3)</area></cell>
+        </row>
+      </tabular>
+    </areas>
+    <hint>
+      <p>
+        In this subgame, Big Monkey has already made his move. Which row
+        does that leave?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        The whole <m>w</m> row. Big Monkey has already waited, so the
+        outcomes in the <m>c</m> row can't happen. In the <m>w</m> row,
+        only the first letter of Little Monkey's strategy matters, so
+        <m>ww</m> and <m>wc</m> both act like <m>w</m>, and <m>cw</m> and
+        <m>cc</m> both act like <m>c</m>. That makes the subgame at
+        <m>n_1</m> really this game, where Big Monkey has no strategies:
+      </p>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <col right="minor"/>
+        <col/>
+        <row header="yes" bottom="minor">
+          <cell>LM: w</cell>
+          <cell>LM: c</cell>
+        </row>
+        <row>
+          <cell><m>(0, 0)</m></cell>
+          <cell><m>(9, 1)</m></cell>
+        </row>
+      </tabular>
+    </solution>
+  </exercise>
+
+  <p>
+    So the subgame at <m>n_1</m> is really the smaller game below. Big
+    Monkey has no strategies in this subgame, and Little Monkey just chooses
+    <m>w</m> or <m>c</m>.
+  </p>
+
+  <exercise xml:id="check-outcome-c-ww-n1">
+    <statement>
+      <p>
+        In the subgame at <m>n_1</m>, click the outcome that the restriction
+        of <m>(c, ww)</m> leads to.
+      </p>
+    </statement>
+    <areas>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <col right="minor"/>
+        <col/>
+        <row header="yes" bottom="minor">
+          <cell>LM: w</cell>
+          <cell>LM: c</cell>
+        </row>
+        <row>
+          <cell><area correct="yes">(0, 0)</area></cell>
+          <cell><area correct="no">(9, 1)</area></cell>
+        </row>
+      </tabular>
+    </areas>
+    <hint>
+      <p>
+        Which letter of <m>ww</m> tells Little Monkey what to do at
+        <m>n_1</m>?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>(0, 0)</m>. Only the first letter of <m>ww</m> matters at
+        <m>n_1</m>, so <m>ww</m> restricts to <m>w</m>: Little Monkey waits.
+      </p>
+    </solution>
+  </exercise>
+
+  <exercise xml:id="check-outcome-c-ww-n2">
+    <statement>
+      <p>
+        The subgame at <m>n_2</m>, after Big Monkey climbs, is really the
+        smaller game below. Again, Big Monkey has no strategies in this
+        subgame. Click the outcome that the restriction of <m>(c, ww)</m>
+        leads to.
+      </p>
+    </statement>
+    <areas>
+      <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+        <col right="minor"/>
+        <col/>
+        <row header="yes" bottom="minor">
+          <cell>LM: w</cell>
+          <cell>LM: c</cell>
+        </row>
+        <row>
+          <cell><area correct="yes">(4, 4)</area></cell>
+          <cell><area correct="no">(5, 3)</area></cell>
+        </row>
+      </tabular>
+    </areas>
+    <hint>
+      <p>
+        This time, which letter of <m>ww</m> tells Little Monkey what to do?
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>(4, 4)</m>. Only the second letter of <m>ww</m> matters at
+        <m>n_2</m>, so <m>ww</m> restricts to <m>w</m> again: Little Monkey
+        waits.
+      </p>
+    </solution>
+  </exercise>
+
+  <p>
+    Notice what happened in the subgame at <m>n_1</m>. Here is its table
+    again, with the outcome of the restricted strategy profile boxed:
+  </p>
+
+  <figure xml:id="fig-c-ww-n1-outcome">
+    <caption>The subgame at <m>n_1</m>, with the outcome of <m>(c, ww)</m> restricted to it boxed.</caption>
+    <image source="ch6-graph/subgame-n1-c-ww.svg" width="35%">
+      <shortdescription>The subgame at n1 with the outcome (0, 0) boxed</shortdescription>
+      <description>
+        <p>
+          A one-row table for the subgame at <m>n_1</m>. Little Monkey's
+          strategy <m>w</m> gives the outcome <m>(0, 0)</m>, which is boxed,
+          since it is the outcome of <m>(c, ww)</m> restricted to this
+          subgame. Little Monkey's strategy <m>c</m> gives <m>(9, 1)</m>.
+        </p>
+      </description>
+    </image>
+  </figure>
+
+  <p>
+    Little Monkey waits and gets 0, but climbing would give her 1. So the
+    restriction of <m>(c, ww)</m> to this subgame is <em>not</em> a Nash
+    equilibrium. (It is a Nash equilibrium in the other two subgames.) That
+    means <m>(c, ww)</m> is <em>not</em> a subgame perfect Nash equilibrium.
+  </p>
+
+  <p>
+    Little Monkey's plan to wait if Big Monkey waits is what Section 1.6
+    called a <term>threat</term>: it would hurt Big Monkey, but it would
+    also hurt Little Monkey. <m>(c, ww)</m> is still a Nash equilibrium of
+    the whole game, because Big Monkey climbs, so <m>n_1</m> is never
+    reached and Little Monkey never has to carry out the threat. Subgame
+    perfection catches it, because it checks every subgame, including the
+    ones that are never reached.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- 6.2 and (w, cc)                                              -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-2">
+    <title>Section 6.2, Big Monkey and Little Monkey 6</title>
+    <p>
+      <alert>Read Section 6.2.</alert>
+    </p>
+    <p>
+      You've already seen most of this section! It covers the same three
+      Nash equilibria, and it also explains the third one,
+      <m>(w, cc)</m>.
+    </p>
+  </assemblage>
+
+  <exercise xml:id="check-w-cc-subgame">
+    <statement>
+      <p>
+        <m>(w, cc)</m> is a Nash equilibrium of the whole game, but it is
+        not subgame perfect. In which subgame is its restriction not a Nash
+        equilibrium?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement><p>The subgame at <m>n_1</m>, after Big Monkey waits.</p></statement>
+        <feedback>
+          <p>
+            Not quite. At <m>n_1</m>, <m>cc</m> restricts to <m>c</m>, and
+            climbing gives Little Monkey 1, which is better than the 0 she'd
+            get from waiting. So that restriction is a Nash equilibrium.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement><p>The subgame at <m>n_2</m>, after Big Monkey climbs.</p></statement>
+        <feedback>
+          <p>
+            Correct. At <m>n_2</m>, <m>cc</m> restricts to <m>c</m>, and
+            climbing gives Little Monkey 3, but waiting would give her 4.
+            Her plan to climb if Big Monkey climbs is a
+            <term>promise</term>: it would help Big Monkey, at a cost to
+            Little Monkey.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- 6.3                                                          -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-6-3">
+    <title>Section 6.3, Subgame Perfect Equilibria and Backward Induction</title>
+    <p>
+      <alert>Read Section 6.3.</alert>
+    </p>
+    <p>
+      The main point is in the first paragraph: backward induction finds
+      subgame perfect Nash equilibria, because it chooses the best move at
+      every node, whether or not that node is reached. Notice that
+      <m>(w, cw)</m>, the subgame perfect equilibrium we found above, is
+      exactly the backward induction answer from Chapter 1. You can skim
+      the paragraph about chess.
+    </p>
+  </assemblage>
+
+  <p>
+    The last paragraph of Section 6.3 explains why we care. In games that go
+    on forever, there's no last move to start backward induction from, but
+    we can still start the game at any point and ask whether the players'
+    plans make sense from there. That's how we'll use subgame perfection
+    for repeated games on the next page.
+  </p>
+
+  <p>
+    <alert>Skip Sections 6.4 and 6.5.</alert> We'll pick up again at Section 6.6.
+  </p>
+
+  <interactive xml:id="question-form-6-1" iframe="question-form.html?section=6.1" width="100%" aspect="2:1"/>
+</section>

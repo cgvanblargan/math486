@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 245" width="680" height="245" role="img" aria-labelledby="t d" font-family="serif">
+<title id="t">Big Monkey and Little Monkey, Big Monkey moves first</title>
+<desc id="d">At the root, Big Monkey chooses wait or climb. If Big Monkey waits, Little Monkey chooses at node n1: wait gives payoffs (0, 0) and climb gives (9, 1). If Big Monkey climbs, Little Monkey chooses at node n2: wait gives (4, 4) and climb gives (5, 3). Payoffs are listed as (Big Monkey, Little Monkey).</desc>
+<rect width="680" height="245" fill="white"/>
+<line x1="340" y1="30" x2="170" y2="120" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="245.0" y="75.0" text-anchor="end" font-size="15" fill="#3d3d3a">wait</text>
+<line x1="340" y1="30" x2="510" y2="120" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="435.0" y="75.0" text-anchor="start" font-size="15" fill="#3d3d3a">climb</text>
+<line x1="170" y1="120" x2="90" y2="210" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="120.0" y="165.0" text-anchor="end" font-size="15" fill="#3d3d3a">wait</text>
+<line x1="170" y1="120" x2="250" y2="210" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="220.0" y="165.0" text-anchor="start" font-size="15" fill="#3d3d3a">climb</text>
+<line x1="510" y1="120" x2="430" y2="210" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="460.0" y="165.0" text-anchor="end" font-size="15" fill="#3d3d3a">wait</text>
+<line x1="510" y1="120" x2="590" y2="210" stroke="#6b6b66" stroke-width="1.5"/>
+<text x="560.0" y="165.0" text-anchor="start" font-size="15" fill="#3d3d3a">climb</text>
+<circle cx="340" cy="30" r="18" fill="white" stroke="#1a1a1a"/><text x="340" y="35" text-anchor="middle" font-size="14" fill="#1a1a1a">BM</text>
+<circle cx="170" cy="120" r="18" fill="white" stroke="#1a1a1a"/><text x="170" y="125" text-anchor="middle" font-size="14" fill="#1a1a1a">LM</text>
+<circle cx="510" cy="120" r="18" fill="white" stroke="#1a1a1a"/><text x="510" y="125" text-anchor="middle" font-size="14" fill="#1a1a1a">LM</text>
+<text x="196" y="112" font-size="15" fill="#3d3d3a">n₁</text><text x="536" y="112" font-size="15" fill="#3d3d3a">n₂</text>
+<text x="90" y="232" text-anchor="middle" font-size="16" fill="#1a1a1a">(0, 0)</text>
+<text x="250" y="232" text-anchor="middle" font-size="16" fill="#1a1a1a">(9, 1)</text>
+<text x="430" y="232" text-anchor="middle" font-size="16" fill="#1a1a1a">(4, 4)</text>
+<text x="590" y="232" text-anchor="middle" font-size="16" fill="#1a1a1a">(5, 3)</text>
+</svg>
