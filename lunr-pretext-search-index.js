@@ -2089,6 +2089,69 @@ var ptx_lunr_docs = [
   "body": " A Simple Poker Game, Revisited   In we found that A Simple Poker Game has no Bayesian Nash equilibrium in pure strategies, and we promised that it would have one once we allowed mixed strategies. Let's find it, this time using the partial derivative method of Section 5.3.1 ( ).  Recall that Player 1's strategies say what he does with the high card and then with the low card. Since and are strictly dominated, we drop them, which leaves the following game:   A Simple Poker Game, with and removed        Player 2:  Player 2:    Player 1:  (0, 0)  (2, -2)    Player 1:  (1, -1)  (0, 0)     Write Player 1's mixed strategy as and Player 2's as .     Write each player's expected payoff as a function of and : find and , as the book does for Tennis in Section 5.3.1.      Use the partial derivative method of Section 5.3.1 to find a mixed strategy Nash equilibrium with and . Which partial derivatives do you set equal to , and why those ones?      Find Player 1's expected payoff at the Nash equilibrium. Then, without doing a second computation, find Player 2's expected payoff, and explain why you only needed to compute one of them.    In every cell of the table, the two payoffs add to . So for every strategy profile, including mixed ones, Player 2's payoff is the negative of Player 1's: .      Interpret the equilibrium:    What does Player 1 do when he has the high card?    When he has the low card, how often does he bid anyway (that is, bluff)?    How often does Player 2 bid back?        Remark. Player 2 can never come out ahead in this game: none of Player 2's payoffs in the table are positive. The best Player 2 can do is keep the losses small, and the equilibrium mix does exactly that.   "
 },
 {
+  "id": "ch5-answers",
+  "level": "1",
+  "url": "ch5-answers.html",
+  "type": "Exercises",
+  "number": "5.8",
+  "title": "Answers to Ch. 5 Exercises",
+  "body": " Answers to Ch. 5 Exercises   Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click Solution to reveal the answer.  These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.     Computing a Mixed Equilibrium   The mixed strategy Nash equilibrium   Find a mixed strategy Nash equilibrium in which both players use both of their strategies.          Expected payoffs   What is each player's expected payoff at this equilibrium?    Player 1 gets and Player 2 gets .       A Symmetric Game   The system of equations   Set up a system of linear equations whose solution gives a symmetric Nash equilibrium with all three strategies active.    Writing , Player 1's three strategies must earn the same payoff against , and the probabilities must add to : So the system is (Using instead gives two equations in and .)     The symmetric Nash equilibrium   Solve the system and state the Nash equilibrium .     with .       Active and Inactive Strategies   All three strategies active   Show that there is no mixed strategy Nash equilibrium in which all three of Player 1's strategies are active.     requires , but requires . Both can't hold, so there is no such equilibrium.     and active   Find a mixed strategy Nash equilibrium with and active in , inactive, and both and active in .       .    Inequality condition: and .       and active   Show that there is no mixed strategy Nash equilibrium with and active in and inactive.    The equality condition gives . Then , but , so the inequality condition fails.       A Two-Stage Prisoner's Dilemma   The missing payoffs   Find the payoffs for and .     gives and gives . In stage 1 the defector gets and the tit for tat player gets ; in stage 2 both play and get .     Pure strategy Nash equilibria   Find all pure strategy Nash equilibria.     and .     The equality condition   Show that the equality condition holds for every and in .     and , no matter what and are.     The inequality condition   Find exactly which values of and make a Nash equilibrium, and interpret.       gives , and likewise gives .    So the Nash equilibria are exactly the profiles with and .    In words: a player can use always cooperate at most of the time. Any more, and the other player does better by switching to always defect.         A Simple Poker Game, Revisited   The payoff functions   Find and .        The partial derivative method   Use the partial derivative method to find a mixed strategy Nash equilibrium. Which partial derivatives do you set to ?      Set and , since each player only controls their own variable.    The equilibrium is .       Expected payoffs   Find each player's expected payoff at the Nash equilibrium.    Player 1 gets and Player 2 gets . The payoffs in every cell add to , so for every strategy profile.     Interpreting the equilibrium   Interpret the equilibrium.      With the high card, Player 1 always bids.    With the low card, Player 1 bluffs of the time.    Player 2 bids back of the time.       "
+},
+{
+  "id": "ch5-answers-2-1",
+  "level": "2",
+  "url": "ch5-answers.html#ch5-answers-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Solution "
+},
+{
+  "id": "ans-hw-compute-msne",
+  "level": "2",
+  "url": "ch5-answers.html#ans-hw-compute-msne",
+  "type": "Exercise",
+  "number": "5.8.1",
+  "title": "Computing a Mixed Equilibrium.",
+  "body": " Computing a Mixed Equilibrium   The mixed strategy Nash equilibrium   Find a mixed strategy Nash equilibrium in which both players use both of their strategies.          Expected payoffs   What is each player's expected payoff at this equilibrium?    Player 1 gets and Player 2 gets .    "
+},
+{
+  "id": "ans-hw-symmetric-3x3",
+  "level": "2",
+  "url": "ch5-answers.html#ans-hw-symmetric-3x3",
+  "type": "Exercise",
+  "number": "5.8.2",
+  "title": "A Symmetric <span class=\"process-math\">\\(3 \\times 3\\)<\/span> Game.",
+  "body": " A Symmetric Game   The system of equations   Set up a system of linear equations whose solution gives a symmetric Nash equilibrium with all three strategies active.    Writing , Player 1's three strategies must earn the same payoff against , and the probabilities must add to : So the system is (Using instead gives two equations in and .)     The symmetric Nash equilibrium   Solve the system and state the Nash equilibrium .     with .    "
+},
+{
+  "id": "ans-hw-active-inactive",
+  "level": "2",
+  "url": "ch5-answers.html#ans-hw-active-inactive",
+  "type": "Exercise",
+  "number": "5.8.3",
+  "title": "Active and Inactive Strategies.",
+  "body": " Active and Inactive Strategies   All three strategies active   Show that there is no mixed strategy Nash equilibrium in which all three of Player 1's strategies are active.     requires , but requires . Both can't hold, so there is no such equilibrium.     and active   Find a mixed strategy Nash equilibrium with and active in , inactive, and both and active in .       .    Inequality condition: and .       and active   Show that there is no mixed strategy Nash equilibrium with and active in and inactive.    The equality condition gives . Then , but , so the inequality condition fails.    "
+},
+{
+  "id": "ans-hw-two-stage-pd",
+  "level": "2",
+  "url": "ch5-answers.html#ans-hw-two-stage-pd",
+  "type": "Exercise",
+  "number": "5.8.4",
+  "title": "A Two-Stage Prisoner’s Dilemma.",
+  "body": " A Two-Stage Prisoner's Dilemma   The missing payoffs   Find the payoffs for and .     gives and gives . In stage 1 the defector gets and the tit for tat player gets ; in stage 2 both play and get .     Pure strategy Nash equilibria   Find all pure strategy Nash equilibria.     and .     The equality condition   Show that the equality condition holds for every and in .     and , no matter what and are.     The inequality condition   Find exactly which values of and make a Nash equilibrium, and interpret.       gives , and likewise gives .    So the Nash equilibria are exactly the profiles with and .    In words: a player can use always cooperate at most of the time. Any more, and the other player does better by switching to always defect.      "
+},
+{
+  "id": "ans-hw-simple-poker-mixed",
+  "level": "2",
+  "url": "ch5-answers.html#ans-hw-simple-poker-mixed",
+  "type": "Exercise",
+  "number": "5.8.5",
+  "title": "A Simple Poker Game, Revisited.",
+  "body": " A Simple Poker Game, Revisited   The payoff functions   Find and .        The partial derivative method   Use the partial derivative method to find a mixed strategy Nash equilibrium. Which partial derivatives do you set to ?      Set and , since each player only controls their own variable.    The equilibrium is .       Expected payoffs   Find each player's expected payoff at the Nash equilibrium.    Player 1 gets and Player 2 gets . The payoffs in every cell add to , so for every strategy profile.     Interpreting the equilibrium   Interpret the equilibrium.      With the high card, Player 1 always bids.    With the low card, Player 1 bluffs of the time.    Player 2 bids back of the time.      "
+},
+{
   "id": "back-colophon",
   "level": "1",
   "url": "back-colophon.html",

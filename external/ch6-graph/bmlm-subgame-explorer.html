@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subgames of Big Monkey and Little Monkey: the profile (w, cw)</title>
+<style>
+  :root {
+    --text-primary: #1a1a1a; --text-secondary: #4a5558; --text-muted: #5c6669;
+    --surface-1: #f4f4f1; --surface-2: #ffffff;
+    --border: #d5d8dc; --border-strong: #9aa3a8;
+    --bg-accent: #e6f1fb; --text-accent: #0c447c; --border-accent: #378add;
+    --bg-success: #eaf3de; --text-success: #17693a; --border-success: #639922;
+    --bg-danger: #fcebeb; --text-danger: #a32d2d; --border-danger: #e24b4a;
+    --bg-warning: #faeeda;
+    --radius: 8px; --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--text-primary); font-size: 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  button, select { font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--text-primary); background: white; color: var(--text-primary); cursor: pointer; }
+  button:hover { background: var(--surface-1); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  input[type=range] { accent-color: #185fa5; }
+  button.on, .pill.on { background: var(--text-primary); color: white; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<style>
+.wrap{max-width:720px;margin:0 auto}
+svg{display:block;width:100%;height:auto}
+.nd{cursor:pointer}.nd:focus{outline:none}.nd:focus-visible .ring{stroke:#185FA5;stroke-width:3.5}
+.tb{border-collapse:separate;border-spacing:4px;font-size:15px;margin:4px 0 0}
+.tb th,.tb td{padding:6px 9px;text-align:center;font-weight:normal;border-radius:var(--radius)}
+.tb td{background:var(--surface-1)}.tb th{color:var(--text-secondary)}
+.tb td.pick{outline:2px solid var(--text-primary);background:var(--surface-2)}
+.tb .x{text-decoration:line-through;color:var(--text-muted);background:none}
+.tb caption{font-size:14px;color:var(--text-secondary);text-align:left;padding-bottom:2px;white-space:nowrap}
+.arr{color:var(--text-accent)}
+#panel ul{margin:0;padding-left:1.3em}
+</style>
+<div class="wrap">
+<h1 class="sr-only">Big Monkey and Little Monkey with the strategy profile (w, cw). Select a node to see the subgame that starts there and what the strategy profile restricts to.</h1>
+<p style="font-size:14px;color:var(--text-secondary);margin:0">Click a node with a dashed ring.</p>
+<svg id="sv" viewBox="0 0 680 245" role="group" aria-label="Game tree. The moves of the strategy profile (w, cw) are drawn thick: Big Monkey waits, Little Monkey climbs at n1 and waits at n2."></svg>
+<div id="panel" aria-live="polite" style="font-size:16px;line-height:1.6"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const N={r:[340,32,"BM","root"],n1:[170,122,"LM","n₁"],n2:[510,122,"LM","n₂"]};
+const T={ww:[90,212,"(0, 0)"],wc:[250,212,"(9, 1)"],cw:[430,212,"(4, 4)"],cc:[590,212,"(5, 3)"]};
+const E=[["r","n1","wait","r","w"],["r","n2","climb","r","c"],["n1","ww","wait","n1","w"],["n1","wc","climb","n1","c"],["n2","cw","wait","n2","w"],["n2","cc","climb","n2","c"]];
+const MOVE={r:"w",n1:"c",n2:"w"};let sel=null;
+const P=k=>N[k]||T[k];
+function draw(){const inS=k=>!sel||sel==="r"||k===sel||(sel==="n1"?["ww","wc"]:["cw","cc"]).includes(k);let h="";
+ if(sel&&sel!=="r"){const x=sel==="n1"?40:380;h+=`<rect x="${x}" y="94" width="260" height="140" rx="12" fill="#E6F1FB" stroke="#85B7EB"/>`}
+ for(const [a,b,l,at,m] of E){const pk=MOVE[at]===m,o=inS(a)&&inS(b)?1:0.25;const[x1,y1]=P(a),[x2,y2]=P(b);
+  h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${pk?"#1a1a1a":"#9a9a94"}" stroke-width="${pk?3.5:1.5}" opacity="${o}"/><text x="${(x1+x2)/2+(x2<x1?-10:10)}" y="${(y1+y2)/2}" text-anchor="${x2<x1?"end":"start"}" style="font-size:14px;fill:var(--text-secondary)" opacity="${o}">${l}</text>`}
+ for(const k in N){const[x,y,pl,nm]=N[k];const o=inS(k)?1:0.25,me=sel===k;
+  h+=`<g class="nd" tabindex="0" role="button" aria-pressed="${me}" aria-label="Subgame starting at ${nm==="root"?"the root":nm}" data-k="${k}" opacity="${o}"><circle class="ring" cx="${x}" cy="${y}" r="25" fill="none" stroke="${me?"#185FA5":"#6b6b66"}" stroke-width="${me?2.5:1.5}" stroke-dasharray="4 4"/><circle cx="${x}" cy="${y}" r="17" fill="white" stroke="#1a1a1a"/><text x="${x}" y="${y+5}" text-anchor="middle" style="font-size:14px;fill:var(--text-primary)">${pl}</text></g>`;
+  if(k!=="r")h+=`<text x="${x+30}" y="${y-12}" style="font-size:14px;fill:var(--text-secondary)" opacity="${o}">${nm}</text>`}
+ for(const k in T){const[x,y,p]=T[k];h+=`<text x="${x}" y="${y+22}" text-anchor="middle" style="font-size:16px;fill:var(--text-primary)" opacity="${inS(k)?1:0.25}">${p}</text>`}
+ $("sv").innerHTML=h;
+ $("sv").querySelectorAll(".nd").forEach(g=>{g.onclick=()=>{sel=g.dataset.k;draw();$("sv").querySelector(`[data-k="${sel}"]`).focus()};g.onkeydown=e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();g.onclick()}}});
+ $("panel").innerHTML=info()}
+const M={w:["(0, 0)","(0, 0)","(9, 1)","(9, 1)"],c:["(4, 4)","(5, 3)","(4, 4)","(5, 3)"]},C=["ww","wc","cw","cc"];
+function big(row,letter){let h=`<table class="tb"><caption>Original normal form${row?", impossible outcomes crossed out":""}</caption><thead><tr><td style="background:none"></td>`;
+ h+=C.map(c=>`<th scope="col">${c}${letter!=null?` <span class="arr">&rarr; ${c[letter]}</span>`:""}</th>`).join("")+`</tr></thead><tbody>`;
+ for(const r of ["w","c"]){const x=row&&r!==row;h+=`<tr><th scope="row"${x?' class="x"':''}>BM: ${r}</th>`;
+  C.forEach((c,i)=>{const pk=!x&&c==="cw"&&(row?r===row:r==="w");h+=`<td class="${x?"x":pk?"pick":""}"${x?' aria-label="'+M[r][i]+', not possible in this subgame"':pk?' aria-label="'+M[r][i]+', outcome of (w, cw)"':''}>${M[r][i]}</td>`});h+=`</tr>`}
+ return h+`</tbody></table>`}
+function small(row,pick){const p=row==="w"?["(0, 0)","(9, 1)"]:["(4, 4)","(5, 3)"];
+ return `<table class="tb"><caption>Which is really this game</caption><thead><tr><th scope="col">LM: w</th><th scope="col">LM: c</th></tr></thead><tbody><tr>${["w","c"].map((m,i)=>`<td class="${m===pick?"pick":""}"${m===pick?' aria-label="'+p[i]+', outcome of the restricted profile"':''}>${p[i]}</td>`).join("")}</tr></tbody></table><p style="font-size:14px;color:var(--text-secondary);margin:2px 0 0">(Big Monkey has no strategies in this subgame.)</p>`}
+function info(){
+ if(!sel)return "";
+ if(sel==="r")return `<p style="margin:8px 0 2px"><b>Subgame at the root (the whole game).</b></p><ul><li>Big Monkey's strategies: w, c. Little Monkey's strategies: ww, wc, cw, cc.</li><li>The strategy profile is just (w, cw).</li></ul>`+big(null,null)+`<p style="margin:8px 0 0"><b>Nash equilibrium?</b> Yes (Section 3.7): Big Monkey gets 9 from w versus 4 from c, and cw gives Little Monkey 1, her best payoff in row w.</p>`;
+ const n1=sel==="n1",row=n1?"w":"c",pick=n1?"c":"w";
+ return `<p style="margin:8px 0 2px"><b>Subgame at ${n1?"n₁ (Big Monkey waited)":"n₂ (Big Monkey climbed)"}.</b></p><ul><li>Big Monkey has no moves. Little Monkey's strategies: w, c.</li><li>Only the ${n1?"first":"second"} letter of Little Monkey's strategy matters, so cw restricts to <b>${pick}</b>. The restricted strategy profile is just Little Monkey's ${pick}.</li></ul><div style="display:flex;gap:20px;flex-wrap:wrap;align-items:flex-start">${big(row,n1?0:1)}<div>${small(row,pick)}</div></div><p style="margin:8px 0 0"><b>Nash equilibrium?</b> Yes: ${n1?"climbing gives Little Monkey 1, and waiting would give her 0":"waiting gives Little Monkey 4, and climbing would give her 3"}.</p>`}
+draw();
+</script>
+
+</main>
+</body>
+</html>

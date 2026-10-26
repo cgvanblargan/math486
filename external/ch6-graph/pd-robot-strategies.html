@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repeated Prisoner's Dilemma against a robot</title>
+<style>
+  :root {
+    --text-primary: #1a1a1a; --text-secondary: #4a5558; --text-muted: #5c6669;
+    --surface-1: #f4f4f1; --surface-2: #ffffff;
+    --border: #d5d8dc; --border-strong: #9aa3a8;
+    --bg-accent: #e6f1fb; --text-accent: #0c447c; --border-accent: #378add;
+    --bg-success: #eaf3de; --text-success: #17693a; --border-success: #639922;
+    --bg-danger: #fcebeb; --text-danger: #a32d2d; --border-danger: #e24b4a;
+    --bg-warning: #faeeda;
+    --radius: 8px; --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--text-primary); font-size: 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  button, select { font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--text-primary); background: white; color: var(--text-primary); cursor: pointer; }
+  button:hover { background: var(--surface-1); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  input[type=range] { accent-color: #185fa5; }
+  button.on, .pill.on { background: var(--text-primary); color: white; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<main>
+<style>
+.wrap{max-width:680px;margin:0 auto}
+.dot{width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:bold}
+.dc{background:var(--bg-success);color:var(--text-success)}.dd{background:var(--bg-danger);color:var(--text-danger)}
+.big{font-size:15px;padding:9px 18px}
+@keyframes pop{0%{transform:scale(.6);opacity:0}100%{transform:scale(1);opacity:1}}
+.new{animation:pop .25s ease-out}
+</style>
+<div class="wrap">
+<h1 class="sr-only">Play a repeated prisoner's dilemma against a robot with a chosen or mystery strategy.</h1>
+<div id="pills" style="display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px"></div>
+<div style="display:flex;gap:16px;align-items:center;background:var(--surface-1);border-radius:12px;padding:14px 16px;margin:0 0 14px">
+<div id="face" style="width:60px;height:60px;border-radius:50%;background:var(--surface-2);border:2px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:30px;flex-shrink:0" aria-hidden="true">&#129302;</div>
+<div style="flex:1;min-width:0"><div id="say" style="font-size:16px;font-weight:bold;margin-bottom:2px" aria-live="polite"></div><div id="desc" style="font-size:14px;color:var(--text-secondary)"></div></div>
+<div style="text-align:right;flex-shrink:0"><div style="font-size:13px;color:var(--text-secondary)">Your total, &delta; = 0.8</div><div id="tot" style="font-size:26px;font-weight:bold">0.00</div></div>
+</div>
+<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin:0 0 14px">
+<button id="bc" class="big">Cooperate (c)</button>
+<button id="bd" class="big">Defect (d)</button>
+<button id="br">Reset</button>
+<span style="font-size:13px;color:var(--text-muted);margin-left:auto">(c,c) 1,1 &middot; (c,d) &minus;4,4 &middot; (d,c) 4,&minus;4 &middot; (d,d) 0,0</span>
+</div>
+<div style="display:grid;grid-template-columns:50px minmax(0,1fr);gap:6px 8px;align-items:center;font-size:14px;color:var(--text-secondary)">
+<div id="lblY">You</div><div id="ry" role="group" aria-labelledby="lblY" style="display:flex;gap:4px;flex-wrap:wrap"></div>
+<div id="lblR">Robot</div><div id="rr" role="group" aria-labelledby="lblR" style="display:flex;gap:4px;flex-wrap:wrap"></div>
+</div>
+<div id="guessBox" style="margin-top:14px;display:flex;gap:8px;align-items:center;flex-wrap:wrap"></div>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const S={
+ trig:{n:"Trigger σ",d:"Starts with c. One defection from you and it plays d forever.",f:h=>h.some(x=>x[0]==="d")?"d":"c"},
+ tft:{n:"Tit for tat τ",d:"Starts with c, then copies your last move.",f:h=>h.length?h[h.length-1][0]:"c"},
+ sus:{n:"Suspicious tit for tat ν",d:"Starts with d, then copies your last move.",f:h=>h.length?h[h.length-1][0]:"d"},
+ gen:{n:"Generous tit for tat ζ",d:"Plays c in rounds 0 and 1, then copies your last move.",f:h=>h.length<2?"c":h[h.length-1][0]},
+ alld:{n:"Always defect β",d:"Plays d every round. Nothing you do matters.",f:h=>"d"},
+ myst:{n:"Mystery robot",d:"One of the others, picked at random. Play a few rounds, then guess.",f:null}};
+const P={cc:1,cd:-4,dc:4,dd:0},keys=["trig","tft","sus","gen","alld"];
+const lines={cc:["Nice doing business.","Friends!","Cooperation pays."],cd:["Sorry, not sorry.","Ha, gotcha.","Should've seen that coming."],dc:["Hey! Rude.","I'll remember that.","Ouch."],dd:["Well, this is bleak.","Nobody wins.","Zero for both of us."]};
+let sel="tft",secret,h=[],guessed=false;
+for(const k in S){const b=document.createElement("button");b.className="pill";b.textContent=S[k].n;b.dataset.k=k;b.onclick=()=>{sel=k;reset()};$("pills").appendChild(b)}
+const st=()=>sel==="myst"?secret:sel;
+function play(m){const r=S[st()].f(h);h.push([m,r]);render(true)}
+function reset(){h=[];guessed=false;secret=keys[Math.floor(Math.random()*keys.length)];render(false)}
+function render(anim){
+ $("pills").querySelectorAll("button").forEach(b=>{b.classList.toggle("on",b.dataset.k===sel);b.setAttribute("aria-pressed",b.dataset.k===sel)});
+ $("desc").textContent=S[sel].d;
+ let t=0;h.forEach((x,i)=>t+=Math.pow(.8,i)*P[x[0]+x[1]]);$("tot").textContent=t.toFixed(2);
+ const dots=j=>h.map((x,i)=>`<div class="dot d${x[j]}${anim&&i===h.length-1?" new":""}">${x[j]}</div>`).join("");
+ $("ry").innerHTML=dots(0)||'<span style="color:var(--text-muted)">Your move.</span>';$("rr").innerHTML=dots(1);
+ const last=h[h.length-1],face=$("face");
+ if(!last){$("say").textContent=sel==="myst"?"Guess who I am.":"Ready when you are.";face.style.borderColor="var(--border)"}
+ else{const k=last[0]+last[1];const L=lines[k];$("say").textContent=`${L[h.length%L.length]}  (you ${P[k]>0?"+":""}${P[k]})`;
+  face.style.borderColor=last[1]==="d"?"var(--border-danger)":"var(--border-success)"}
+ if(anim&&face.animate&&!matchMedia("(prefers-reduced-motion: reduce)").matches)face.animate([{transform:"rotate(-8deg)"},{transform:"rotate(8deg)"},{transform:"rotate(0)"}],{duration:250});
+ const g=$("guessBox");if(sel!=="myst"){g.innerHTML="";return}if(guessed)return;
+ g.innerHTML=`<select id="gs" aria-label="Your guess"><option value="">Which robot is it?</option>${keys.map(k=>`<option value="${k}">${S[k].n}</option>`).join("")}</select><button id="gb">Check</button><span id="gr" style="font-size:15px"></span>`;
+ $("gb").onclick=()=>{const v=$("gs").value,gr=$("gr");if(!v){gr.innerHTML='<span style="font-size:14px;color:var(--text-danger)">Pick one first</span>';return}
+  guessed=true;$("gs").disabled=true;gr.innerHTML=v===secret?`<span style="color:var(--text-success)">Yes, ${S[secret].n}.</span>`:`<span style="color:var(--text-danger)">Nope, it was ${S[secret].n}.</span>`};
+ $("gs").onchange=()=>{$("gr").textContent=""};
+}
+$("bc").onclick=()=>play("c");$("bd").onclick=()=>play("d");$("br").onclick=reset;reset();
+</script>
+
+</main>
+</body>
+</html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Repeated Games and the Wine Merchant</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch6-page1-subgame-perfection.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-more-extensive-form.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch6-page3-folk-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-folk-theorem.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Folk Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch6-page2-repeated-games">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Repeated Games and the Wine Merchant</span>
+</h2>
+<div class="para" id="ch6-page2-repeated-games-2">Many games are not played in isolation. Back in Chapter 2, you played the Prisoner’s Dilemma over and over against a robot that used the “tit for tat” strategy. Repeated games allow many new kinds of strategies, and many new Nash equilibria! For example, there is more incentive to cooperate in a repeated Prisoner’s Dilemma: if you use a strategy that keeps cooperating as long as your opponent cooperates, then your opponent may be better off cooperating too.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-6"><h3 class="heading"><span class="title">Section 6.6, Discount Factor and Repeated Games.</span></h3>
+<div class="para" id="read-6-6-2">
+<em class="alert">Read Section 6.6.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="read-6-6-3">
+<div class="para">The first sentence mentions Rubinstein’s bargaining model from Section 6.5, which we skipped (you don’t need it). Then for the subsections:</div>
+<ul class="disc" id="read-6-6-3-1">
+<li id="read-6-6-3-1-1">
+<div class="para" id="read-6-6-3-1-1-1">6.6.1: You can skim the salary argument. The important part is what the discount factor <span class="process-math">\(\delta\)</span> means.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-6-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#read-6-6-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="read-6-6-3-1-2">
+<div class="para" id="read-6-6-3-1-2-1">6.6.2: This is the definition of a repeated game. We take a game in normal form <span class="process-math">\(G\text{,}\)</span> called the <dfn class="terminology">stage game</dfn>, and play it over and over at times <span class="process-math">\(k = 0, 1, 2, \ldots\)</span> with discount factor <span class="process-math">\(\delta\text{.}\)</span> This forms the repeated game <span class="process-math">\(R\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-6-6-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#read-6-6-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Paragraph"><a href="#read-6-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.6, Discount Factor and Repeated Games"><a href="#read-6-6" title="Copy heading and permalink for Reading: Section 6.6, Discount Factor and Repeated Games" aria-label="Copy heading and permalink for Reading: Section 6.6, Discount Factor and Repeated Games">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-4">The discount factor <span class="process-math">\(\delta\)</span> is a number between 0 and 1. A payoff received <span class="process-math">\(k\)</span> rounds from now counts as <span class="process-math">\(\delta^k\)</span> times as much as the same payoff today. For example, if <span class="process-math">\(\delta = \frac{1}{2}\text{,}\)</span> then in the first stage (<span class="process-math">\(k = 0\)</span>) a player receives the full payoff of the outcome. In the next stage (<span class="process-math">\(k = 1\)</span>), the payoff counts <span class="process-math">\(\frac{1}{2}\)</span> as much; in stage <span class="process-math">\(k = 2\text{,}\)</span> it counts <span class="process-math">\(\frac{1}{2^2} = \frac{1}{4}\)</span> as much; and so on!<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ch6-page2-repeated-games-5">
+<div class="para">To follow the computations in this section, you’ll need the formula from calculus for the sum of a geometric series:</div>
+<div class="displaymath process-math" id="ch6-page2-repeated-games-5-1">
+\begin{equation*}
+\sum_{k=0}^{\infty} r\delta^k = r + r\delta + r\delta^2 + \cdots = \frac{r}{1-\delta}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-geometric-from-k"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-geometric-from-k-1-1">In the computations in this section, we’ll often need the total of a payoff of 1 per round, starting at round <span class="process-math">\(k\)</span> instead of round 0. What is <span class="process-math">\(\delta^k + \delta^{k+1} + \delta^{k+2} + \cdots\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-geometric-from-k-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="check-geometric-from-k-1-2">Hint: factor out <span class="process-math">\(\delta^k\text{,}\)</span> so <span class="process-math">\(\delta^k + \delta^{k+1} + \delta^{k+2} + \cdots = \delta^k(\text{fill this part in!})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-geometric-from-k-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-geometric-from-k" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-geometric-from-k_opt_a" data-correct="">
+<div class="para" id="check-geometric-from-k-2-1-1-1"><span class="process-math">\(\dfrac{\delta^k}{1-\delta}\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-geometric-from-k_opt_a">
+<div class="para" id="check-geometric-from-k-2-1-2-1">Correct. Factor out <span class="process-math">\(\delta^k\)</span> to get <span class="process-math">\(\delta^k(1 + \delta + \delta^2 + \cdots)\text{,}\)</span> and use the geometric series formula on what’s left.</div>
+</li>
+<li data-component="answer" id="rs-check-geometric-from-k_opt_b">
+<div class="para" id="check-geometric-from-k-2-2-1-1"><span class="process-math">\(\dfrac{1}{1-\delta^k}\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-geometric-from-k_opt_b">
+<div class="para" id="check-geometric-from-k-2-2-2-1">Not quite. Try factoring <span class="process-math">\(\delta^k\)</span> out of every term first.</div>
+</li>
+<li data-component="answer" id="rs-check-geometric-from-k_opt_c">
+<div class="para" id="check-geometric-from-k-2-3-1-1"><span class="process-math">\(\dfrac{1}{1-\delta} - \delta^k\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-geometric-from-k_opt_c">
+<div class="para" id="check-geometric-from-k-2-3-2-1">Not quite. The full sum from round 0 is <span class="process-math">\(\frac{1}{1-\delta}\text{,}\)</span> but starting at round <span class="process-math">\(k\)</span> drops <span class="process-math">\(k\)</span> terms, not just one. Try factoring out <span class="process-math">\(\delta^k\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.2.1"><a href="#check-geometric-from-k" title="Copy heading and permalink for Checkpoint 6.2.1" aria-label="Copy heading and permalink for Checkpoint 6.2.1">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="read-6-7-part1"><h3 class="heading"><span class="title">Section 6.7, The Wine Merchant and the Connoisseur (Part 1).</span></h3>
+<div class="para" id="read-6-7-part1-2">
+<em class="alert">Read Section 6.7 up to Theorem 6.1.</em> Stop right before the statement of Theorem 6.1.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-part1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-7-part1-3">This part sets up the game, shows that it is a Prisoner’s Dilemma, and defines the <dfn class="terminology">trigger strategy</dfn> <span class="process-math">\(\sigma\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-part1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 1)"><a href="#read-6-7-part1" title="Copy heading and permalink for Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 1)" aria-label="Copy heading and permalink for Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 1)">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-8">Here is the stage game for reference, with <span class="process-math">\(c\)</span> for cooperate and <span class="process-math">\(d\)</span> for defect.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-wine-merchant-stage-game"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Wine Merchant and the Connoisseur, payoffs (Merchant, Bernard)<div class="autopermalink" data-description="Table 6.2.2: The Wine Merchant and the Connoisseur, payoffs (Merchant, Bernard)"><a href="#table-wine-merchant-stage-game" title="Copy heading and permalink for Table 6.2.2: The Wine Merchant and the Connoisseur, payoffs (Merchant, Bernard)" aria-label="Copy heading and permalink for Table 6.2.2: The Wine Merchant and the Connoisseur, payoffs (Merchant, Bernard)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Bernard: <span class="process-math">\(c\)</span> (pay)</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Bernard: <span class="process-math">\(d\)</span> (steal)</th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Merchant: <span class="process-math">\(c\)</span> (good wine)</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((1, 1)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-4, 4)\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Merchant: <span class="process-math">\(d\)</span> (bad wine)</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((4, -4)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 0)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch6-page2-repeated-games-10">Before getting to the theorem, let’s make sure the trigger strategy is clear. A player using the trigger strategy starts out willing to cooperate, but holds a grudge forever! They cooperate as long as the other player cooperates, but after a single defection from the other player, they never cooperate again.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-trigger-meaning"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-trigger-meaning-1-1">Suppose Bernard uses the trigger strategy. The Merchant cooperates (sells good wine) in rounds 0, 1, and 2, defects (sells bad wine) in round 3, and then cooperates again in every round after that. What does Bernard do in each round?<div class="autopermalink" data-description="Paragraph"><a href="#check-trigger-meaning-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-trigger-meaning" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-trigger-meaning_opt_a">
+<div class="para" id="check-trigger-meaning-2-1-1-1">Bernard cooperates in rounds 0 through 3, defects in round 4, and then cooperates again from round 5 on, since the Merchant went back to cooperating.</div>
+</li>
+<li data-component="feedback" id="rs-check-trigger-meaning_opt_a">
+<div class="para" id="check-trigger-meaning-2-1-2-1">Not quite. The trigger strategy never forgives. Once the Merchant defects, Bernard defects in every round after that, even though the Merchant goes back to selling good wine.</div>
+</li>
+<li data-component="answer" id="rs-check-trigger-meaning_opt_b" data-correct="">
+<div class="para" id="check-trigger-meaning-2-2-1-1">Bernard cooperates in rounds 0 through 3, and defects in every round from round 4 on.</div>
+</li>
+<li data-component="feedback" id="rs-check-trigger-meaning_opt_b">
+<div class="para" id="check-trigger-meaning-2-2-2-1">Correct. Bernard cooperates in round 3, since he can’t know yet that the Merchant is about to defect. He reacts starting in round 4, and the grudge lasts forever, no matter what the Merchant does afterwards.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.2.3"><a href="#check-trigger-meaning" title="Copy heading and permalink for Checkpoint 6.2.3" aria-label="Copy heading and permalink for Checkpoint 6.2.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-trigger-vs-always-defect"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-trigger-vs-always-defect-1-1">Suppose the Merchant uses the trigger strategy, and Bernard always defects. What are the outcomes, written (Merchant, Bernard)?<div class="autopermalink" data-description="Paragraph"><a href="#check-trigger-vs-always-defect-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-trigger-vs-always-defect" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-trigger-vs-always-defect_opt_a">
+<div class="para" id="check-trigger-vs-always-defect-2-1-1-1">
+<span class="process-math">\((d, d)\)</span> in every round, starting in round 0.</div>
+</li>
+<li data-component="feedback" id="rs-check-trigger-vs-always-defect_opt_a">
+<div class="para" id="check-trigger-vs-always-defect-2-1-2-1">Not quite. The trigger strategy starts by cooperating, and it only switches to <span class="process-math">\(d\)</span> the round <em class="emphasis">after</em> it sees a defection.</div>
+</li>
+<li data-component="answer" id="rs-check-trigger-vs-always-defect_opt_b" data-correct="">
+<div class="para" id="check-trigger-vs-always-defect-2-2-1-1">
+<span class="process-math">\((c, d)\)</span> in round 0, then <span class="process-math">\((d, d)\)</span> in every round after that.</div>
+</li>
+<li data-component="feedback" id="rs-check-trigger-vs-always-defect_opt_b">
+<div class="para" id="check-trigger-vs-always-defect-2-2-2-1">Correct. In round 0, the Merchant cooperates, since nobody has defected yet, and Bernard steals good wine, for a payoff of 4. From round 1 on, the Merchant sells bad wine and Bernard steals it, so Bernard gets 0. His total is <span class="process-math">\(4 + 0 \cdot \delta + 0 \cdot \delta^2 + \cdots = 4\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.2.4"><a href="#check-trigger-vs-always-defect" title="Copy heading and permalink for Checkpoint 6.2.4" aria-label="Copy heading and permalink for Checkpoint 6.2.4">🔗</a></div>
+</article>
+<div class="para logical" id="ch6-page2-repeated-games-13">
+<div class="para">Now let’s think about when <em class="emphasis">both</em> players use the trigger strategy. Since neither one ever defects first, they both cooperate in every round, so each gets a payoff of 1 every round. Factoring in the discount factor <span class="process-math">\(\delta\text{,}\)</span> each player’s total payoff is</div>
+<div class="displaymath process-math" id="ch6-page2-repeated-games-13-3">
+\begin{equation*}
+1 + \delta + \delta^2 + \cdots = \frac{1}{1-\delta}\text{.}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="ch6-page2-repeated-games-14">
+<div class="para">Compare that with the previous checkpoint, where the Merchant uses the trigger strategy and Bernard always defects. In round 0, the Merchant hasn’t seen a defection yet, so he still cooperates, and Bernard gets 4 for stealing good wine. From round 1 on, both defect, and Bernard gets 0 every round. So Bernard’s total payoff is</div>
+<div class="displaymath process-math" id="ch6-page2-repeated-games-14-1">
+\begin{equation*}
+4 + 0 \cdot \delta + 0 \cdot \delta^2 + \cdots = 4\text{,}
+\end{equation*}
+</div>
+<div class="para">no matter what <span class="process-math">\(\delta\)</span> is.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page2-repeated-games-15">So if the Merchant uses the trigger strategy, should Bernard use the trigger strategy too, or always defect? Move the <span class="process-math">\(\delta\)</span> slider in the widget below to compare the two payoffs.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-trigger-cooperate-or-defect"><div class="interactive-iframe-container"><iframe src="external/ch6-graph/trigger-cooperate-or-defect.html" id="interactive-trigger-cooperate-or-defect" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-trigger-cooperate-or-defect.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The Merchant uses the trigger strategy. Should Bernard use the trigger strategy too, or always defect?<div class="autopermalink" data-description="Figure 6.2.5"><a href="#fig-trigger-cooperate-or-defect" title="Copy heading and permalink for Figure 6.2.5" aria-label="Copy heading and permalink for Figure 6.2.5">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-why-large-delta"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-why-large-delta-1-1">In the interactive, using the trigger strategy (and so cooperating every round) is better for Bernard when <span class="process-math">\(\delta\)</span> is large, and always defecting is better when <span class="process-math">\(\delta\)</span> is small. Why does this make sense?<div class="autopermalink" data-description="Paragraph"><a href="#check-why-large-delta-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-why-large-delta" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-why-large-delta_opt_a" data-correct="">
+<div class="para" id="check-why-large-delta-2-1-1-1">When <span class="process-math">\(\delta\)</span> is small, later rounds count for very little, so the 4 that Bernard gets in round 0 by defecting matters more than all the 1s he would get later by cooperating.</div>
+</li>
+<li data-component="feedback" id="rs-check-why-large-delta_opt_a">
+<div class="para" id="check-why-large-delta-2-1-2-1">Right. Defecting gives Bernard a big payoff now, and cooperating gives him a small payoff every round forever. The smaller <span class="process-math">\(\delta\)</span> is, the less the future is worth to him, and the more the payoff now matters.</div>
+</li>
+<li data-component="answer" id="rs-check-why-large-delta_opt_b">
+<div class="para" id="check-why-large-delta-2-2-1-1">When <span class="process-math">\(\delta\)</span> is large, the Merchant is more forgiving, so Bernard is more likely to get away with defecting.</div>
+</li>
+<li data-component="feedback" id="rs-check-why-large-delta_opt_b">
+<div class="para" id="check-why-large-delta-2-2-2-1">Not quite. The trigger strategy never forgives, no matter what <span class="process-math">\(\delta\)</span> is. The discount factor doesn’t change how the Merchant plays, only how much Bernard cares about future rounds.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.2.6"><a href="#check-why-large-delta" title="Copy heading and permalink for Checkpoint 6.2.6" aria-label="Copy heading and permalink for Checkpoint 6.2.6">🔗</a></div>
+</article>
+<div class="para logical" id="ch6-page2-repeated-games-18">
+<div class="para">It doesn’t take much more work to see why the cutoff is at <span class="process-math">\(\delta = \frac{3}{4}\text{.}\)</span> Suppose the Merchant uses the trigger strategy. We showed above that if Bernard also uses the trigger strategy, his payoff is <span class="process-math">\(\frac{1}{1-\delta}\text{,}\)</span> and if he always defects, his payoff is 4. So the trigger strategy gives Bernard at least as good a payoff as always defecting exactly when</div>
+<div class="displaymath process-math" id="ch6-page2-repeated-games-18-3">
+\begin{equation*}
+\frac{1}{1-\delta} \geq 4, \quad \text{that is,} \quad \delta \geq \frac{3}{4}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page2-repeated-games-19">However, Bernard has infinitely many other strategies besides the trigger strategy and always defecting. For example, he could cooperate for the first 10 rounds and then always defect. It turns out that when <span class="process-math">\(\delta \geq \frac{3}{4}\text{,}\)</span> the trigger strategy isn’t just better than always defecting, it is actually a best response to the Merchant’s trigger strategy, so there is no strategy Bernard would rather use. Because the game is symmetric, the same argument shows that the trigger strategy is the Merchant’s best response to Bernard’s trigger strategy. That’s exactly what it means for <span class="process-math">\((\sigma, \sigma)\)</span> to be a Nash equilibrium! The proof of Theorem 6.1 handles all of Bernard’s strategies at once.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-19" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-7-theorem"><h3 class="heading"><span class="title">Section 6.7, Theorem 6.1.</span></h3>
+<div class="para" id="read-6-7-theorem-2">
+<em class="alert">Read Theorem 6.1 and its proof.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-7-theorem-3">The proof splits into two cases, depending on whether Bernard ever defects. The math gets more interesting in Case 2!<div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-theorem-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.7, Theorem 6.1"><a href="#read-6-7-theorem" title="Copy heading and permalink for Reading: Section 6.7, Theorem 6.1" aria-label="Copy heading and permalink for Reading: Section 6.7, Theorem 6.1">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-21">Before reading the rest of Section 6.7, recall the last paragraph of Section 6.6.2, which defines a <dfn class="terminology">subgame</dfn> of a repeated game. A subgame starts at some round <span class="process-math">\(k\text{,}\)</span> and it <em class="emphasis">remembers</em> everything that happened before. So “the game starting at round 5, where both players always cooperated” and “the game starting at round 5, where Player 1 defected in round 2” are different subgames. This is the same idea as on the previous page: a subgame is a “what if we got here?”, and “here” includes the history.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-7-part2"><h3 class="heading"><span class="title">Section 6.7, The Wine Merchant and the Connoisseur (Part 2).</span></h3>
+<div class="para" id="read-6-7-part2-2">
+<em class="alert">Read the rest of Section 6.7.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-part2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-7-part2-3">There are two ideas here. First, <span class="process-math">\(\delta\)</span> can also be read as the probability that the game continues for another round. Second, the book asks whether <span class="process-math">\((\sigma, \sigma)\)</span> is subgame perfect, and to answer it, the book has to redefine the trigger strategy more carefully.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-7-part2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 2)"><a href="#read-6-7-part2" title="Copy heading and permalink for Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 2)" aria-label="Copy heading and permalink for Reading: Section 6.7, The Wine Merchant and the Connoisseur (Part 2)">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-23">Why bother redefining <span class="process-math">\(\sigma\text{?}\)</span> Here’s what goes wrong with the original definition, “use <span class="process-math">\(d\)</span> forever if your <em class="emphasis">opponent</em> ever uses <span class="process-math">\(d\text{.}\)</span>” Suppose that in round 0 the Merchant sells bad wine and Bernard pays for it. Look at the subgame starting in round 1.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ch6-page2-repeated-games-24">
+<li id="ch6-page2-repeated-games-24-1">
+<div class="para" id="ch6-page2-repeated-games-24-1-1">Bernard has never stolen, so the original <span class="process-math">\(\sigma\)</span> tells the Merchant to keep selling good wine.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-24-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-24-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page2-repeated-games-24-2">
+<div class="para" id="ch6-page2-repeated-games-24-2-1">The Merchant cheated, so the original <span class="process-math">\(\sigma\)</span> tells Bernard to steal forever.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-24-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-24-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ch6-page2-repeated-games-25">The Merchant gets <span class="process-math">\(-4\)</span> every round, when switching to bad wine would give him 0. So the original <span class="process-math">\(\sigma\)</span> is not a best response in that subgame. The redefined <span class="process-math">\(\sigma\)</span> defects if <em class="emphasis">anyone</em> has defected, which fixes the problem.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-redefined-trigger"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-redefined-trigger-1-1">Under the redefined trigger strategy, what does a player do in round <span class="process-math">\(j\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-redefined-trigger-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-redefined-trigger" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-redefined-trigger_opt_a" data-correct="">
+<div class="para" id="check-redefined-trigger-2-1-1-1">Use <span class="process-math">\(c\)</span> if both players used <span class="process-math">\(c\)</span> in every earlier round. Otherwise use <span class="process-math">\(d\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-redefined-trigger_opt_a">
+<div class="para" id="check-redefined-trigger-2-1-2-1">Correct.</div>
+</li>
+<li data-component="answer" id="rs-check-redefined-trigger_opt_b">
+<div class="para" id="check-redefined-trigger-2-2-1-1">Use <span class="process-math">\(c\)</span> if the opponent used <span class="process-math">\(c\)</span> in every earlier round. Otherwise use <span class="process-math">\(d\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-redefined-trigger_opt_b">
+<div class="para" id="check-redefined-trigger-2-2-2-1">Not quite, that’s the original definition. The example above shows why it fails in the subgame after the Merchant cheats.</div>
+</li>
+<li data-component="answer" id="rs-check-redefined-trigger_opt_c">
+<div class="para" id="check-redefined-trigger-2-3-1-1">Use whatever the opponent used in round <span class="process-math">\(j-1\text{.}\)</span>
+</div>
+</li>
+<li data-component="feedback" id="rs-check-redefined-trigger_opt_c">
+<div class="para" id="check-redefined-trigger-2-3-2-1">Not quite, that’s tit for tat.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.2.7"><a href="#check-redefined-trigger" title="Copy heading and permalink for Checkpoint 6.2.7" aria-label="Copy heading and permalink for Checkpoint 6.2.7">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-27">The book leaves the proof of subgame perfection to you (“you should be able to convince yourself...”). Let’s do it. The key observation: there are only two kinds of subgames, depending on whether anyone has defected yet.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-27" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-trigger-spne-proof"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone parsons_section" style="max-width: none;"><div data-component="parsons" class="parsons" id="rs-check-trigger-spne-proof">
+<div class="parsons_question parsons-text">
+<div class="para" id="check-trigger-spne-proof-1-1">Put the blocks in order to prove that <span class="process-math">\((\sigma, \sigma)\)</span> is a subgame perfect Nash equilibrium when <span class="process-math">\(\delta \geq \frac{3}{4}\text{,}\)</span> using the redefined trigger strategy. Not every block belongs! Start with the case where nobody has defected.<div class="autopermalink" data-description="Paragraph"><a href="#check-trigger-spne-proof-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-noindent="true">
+<div class="para" id="check-trigger-spne-proof-2-1-1">Let <span class="process-math">\(H\)</span> be the subgame starting at round <span class="process-math">\(k\text{,}\)</span> with some history of play in rounds <span class="process-math">\(0, \ldots, k-1\text{.}\)</span> We must show that both players using <span class="process-math">\(\sigma\)</span> is a Nash equilibrium of <span class="process-math">\(H\text{.}\)</span>
+</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-2-1">
+<em class="alert">Case 1:</em> in the history, both players used <span class="process-math">\(c\)</span> in every round.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-3-1">Then <span class="process-math">\(H\)</span> looks exactly like the original repeated game, with every payoff multiplied by <span class="process-math">\(\delta^k\text{,}\)</span> and <span class="process-math">\(\sigma\)</span> tells both players to play as if starting from scratch.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-4-1">Multiplying every payoff by <span class="process-math">\(\delta^k\)</span> doesn’t change which strategies are best, so by Theorem 6.1, neither player can improve when <span class="process-math">\(\delta \geq \frac{3}{4}\text{.}\)</span>
+</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-5-1">
+<em class="alert">Case 2:</em> in the history, at least one player used <span class="process-math">\(d\)</span> at least once.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-6-1">Then <span class="process-math">\(\sigma\)</span> tells both players to use <span class="process-math">\(d\)</span> in every round of <span class="process-math">\(H\text{,}\)</span> no matter what happens in <span class="process-math">\(H\text{.}\)</span>
+</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-7-1">Suppose Player 2 uses <span class="process-math">\(\sigma\text{.}\)</span> Then Player 2 uses <span class="process-math">\(d\)</span> every round, whatever Player 1 does.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-8-1">Against <span class="process-math">\(d\text{,}\)</span> Player 1 gets 0 from <span class="process-math">\(d\)</span> and <span class="process-math">\(-4\)</span> from <span class="process-math">\(c\text{,}\)</span> and Player 1’s choices can’t change Player 2’s future moves.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-9-1">So Player 1 can do no better than <span class="process-math">\(d\)</span> every round, which is what <span class="process-math">\(\sigma\)</span> says. By symmetry, the same holds for Player 2.</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-10-1">Every subgame falls into Case 1 or Case 2, so <span class="process-math">\((\sigma, \sigma)\)</span> is a subgame perfect Nash equilibrium when <span class="process-math">\(\delta \geq \frac{3}{4}\text{.}\)</span>
+</div>
+---
+
+<div class="para" id="check-trigger-spne-proof-2-11-1">
+<em class="alert">Case 2:</em> in the history, the opponent used <span class="process-math">\(d\)</span> at least once.</div> #distractor
+---
+
+<div class="para" id="check-trigger-spne-proof-2-12-1">In Case 2, Player 1 should go back to <span class="process-math">\(c\text{,}\)</span> since <span class="process-math">\((c, c)\)</span> pays 1, which is more than 0.</div> #distractor
+---
+
+<div class="para" id="check-trigger-spne-proof-2-13-1">By Theorem 6.1, <span class="process-math">\((\sigma, \sigma)\)</span> is a Nash equilibrium of every subgame, so we are done.</div> #distractor</pre>
+</div></div></div>
+<div class="solutions">
+<details id="check-trigger-spne-proof-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-trigger-spne-proof-3-1">In Case 2, who controls what Player 2 does from now on? Can anything Player 1 does make Player 2 cooperate again?<div class="autopermalink" data-description="Paragraph"><a href="#check-trigger-spne-proof-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.2.8.1"><a href="#check-trigger-spne-proof-3" title="Copy heading and permalink for Hint 6.2.8.1" aria-label="Copy heading and permalink for Hint 6.2.8.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.2.8"><a href="#check-trigger-spne-proof" title="Copy heading and permalink for Checkpoint 6.2.8" aria-label="Copy heading and permalink for Checkpoint 6.2.8">🔗</a></div>
+</article>
+<div class="para" id="ch6-page2-repeated-games-29">Compare this to <dfn class="terminology">tit for tat</dfn>: start with <span class="process-math">\(c\text{,}\)</span> and after that, do whatever the other player did last round. On this week’s homework, you’ll show that two players using tit for tat is a Nash equilibrium for large enough <span class="process-math">\(\delta\text{,}\)</span> but <em class="emphasis">not</em> a subgame perfect one. The difference is what happens after a defection: the trigger strategy’s punishment is a best response, but with tit for tat, a single defection leads to an endless <span class="process-math">\(c, d, c, d, \ldots\)</span> cycle of revenge.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-29" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page2-repeated-games-30">The trigger strategy <span class="process-math">\(\sigma\)</span> is just one strategy for the repeated game. Here are some others you’ll meet on the homework. Each one is a rule that looks at what happened in earlier rounds and decides what to do now.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-30" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ch6-page2-repeated-games-31">
+<li id="ch6-page2-repeated-games-31-1">
+<div class="para" id="ch6-page2-repeated-games-31-1-1">
+<em class="alert">Trigger, <span class="process-math">\(\sigma\text{:}\)</span></em> start with <span class="process-math">\(c\text{.}\)</span> If the other player ever defects, use <span class="process-math">\(d\)</span> forever.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-31-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-31-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page2-repeated-games-31-2">
+<div class="para" id="ch6-page2-repeated-games-31-2-1">
+<em class="alert">Tit for tat, <span class="process-math">\(\tau\text{:}\)</span></em> start with <span class="process-math">\(c\text{.}\)</span> After that, do whatever the other player did last round.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-31-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-31-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page2-repeated-games-31-3">
+<div class="para" id="ch6-page2-repeated-games-31-3-1">
+<em class="alert">Suspicious tit for tat, <span class="process-math">\(\nu\text{:}\)</span></em> start with <span class="process-math">\(d\text{.}\)</span> After that, do whatever the other player did last round.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-31-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-31-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page2-repeated-games-31-4">
+<div class="para" id="ch6-page2-repeated-games-31-4-1">
+<em class="alert">Generous tit for tat, <span class="process-math">\(\zeta\text{:}\)</span></em> play <span class="process-math">\(c\)</span> in rounds 0 and 1. After that, do whatever the other player did last round.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-31-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-31-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page2-repeated-games-31-5">
+<div class="para" id="ch6-page2-repeated-games-31-5-1">
+<em class="alert">Always defect, <span class="process-math">\(\beta\text{:}\)</span></em> use <span class="process-math">\(d\)</span> every round.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-31-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page2-repeated-games-31-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ch6-page2-repeated-games-32">
+<em class="alert">Optional:</em> if you’d like to get a feel for the strategies above, you can play the repeated game against a robot below. This isn’t required, but it might help with the homework problem on these strategies, so feel free to come back to it then.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-32" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page2-repeated-games-33">Pick a robot and try to find your best response to it. The payoffs are the Wine Merchant’s, with you as the Merchant, and <span class="process-math">\(\delta = 0.8\text{.}\)</span> The “Mystery robot” picks one of the five strategies at random. Play a few rounds, and then guess which one it is.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page2-repeated-games-33" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-pd-robot-strategies"><div class="interactive-iframe-container"><iframe src="external/ch6-graph/pd-robot-strategies.html" id="interactive-pd-robot-strategies" style="width:600px; height:450px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-pd-robot-strategies.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The repeated Prisoner’s Dilemma, against a robot with a strategy you choose.<div class="autopermalink" data-description="Figure 6.2.9"><a href="#fig-pd-robot-strategies" title="Copy heading and permalink for Figure 6.2.9" aria-label="Copy heading and permalink for Figure 6.2.9">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="reflect-robot-strategies"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.2.10</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="reflect-robot-strategies-1-1">Some things to try with the robot:<div class="autopermalink" data-description="Paragraph"><a href="#reflect-robot-strategies-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ul class="disc" id="reflect-robot-strategies-1-2">
+<li id="reflect-robot-strategies-1-2-1">
+<div class="para" id="reflect-robot-strategies-1-2-1-1">Against each robot, what’s your best response? Is it ever better to defect?<div class="autopermalink" data-description="Paragraph"><a href="#reflect-robot-strategies-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#reflect-robot-strategies-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="reflect-robot-strategies-1-2-2">
+<div class="para" id="reflect-robot-strategies-1-2-2-1">If you cooperate every round, which robots look exactly the same? What moves could you make to tell them apart in mystery mode?<div class="autopermalink" data-description="Paragraph"><a href="#reflect-robot-strategies-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#reflect-robot-strategies-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="reflect-robot-strategies-1-2-3">
+<div class="para" id="reflect-robot-strategies-1-2-3-1">Against tit for tat, defect once and then just copy the robot’s last move. What happens?<div class="autopermalink" data-description="Paragraph"><a href="#reflect-robot-strategies-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#reflect-robot-strategies-1-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Checkpoint 6.2.10"><a href="#reflect-robot-strategies" title="Copy heading and permalink for Checkpoint 6.2.10" aria-label="Copy heading and permalink for Checkpoint 6.2.10">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=6.2" id="question-form-6-2" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-6-2.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 6.2: Repeated Games and the Wine Merchant"><a href="#ch6-page2-repeated-games" title="Copy heading and permalink for Section 6.2: Repeated Games and the Wine Merchant" aria-label="Copy heading and permalink for Section 6.2: Repeated Games and the Wine Merchant">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch6-page1-subgame-perfection.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch6-page3-folk-theorem.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

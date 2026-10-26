@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subgames and subgame perfection: Big Monkey and Little Monkey</title>
+<style>
+  :root {
+    --text-primary: #1a1a1a; --text-secondary: #4a5558; --text-muted: #7a8588;
+    --surface-1: #f4f4f1; --surface-2: #ffffff;
+    --border: #d5d8dc; --border-strong: #9aa3a8;
+    --bg-accent: #e6f1fb; --text-accent: #0c447c; --border-accent: #378add;
+    --bg-success: #eaf3de; --text-success: #1e8449; --border-success: #639922;
+    --bg-danger: #fcebeb; --text-danger: #a32d2d; --border-danger: #e24b4a;
+    --bg-warning: #faeeda;
+    --radius: 8px; --font-mono: ui-monospace, Menlo, Consolas, monospace;
+  }
+  body { margin: 0; padding: 10px 12px 16px; font-family: serif; background: transparent; color: var(--text-primary); font-size: 16px; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+  button, select { font-family: serif; font-size: 14px; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--text-primary); background: white; color: var(--text-primary); cursor: pointer; }
+  button:hover { background: var(--surface-1); }
+  button:focus-visible, select:focus-visible, input:focus-visible { outline: 3px solid #2563eb; outline-offset: 2px; }
+  input[type=range] { accent-color: #185fa5; }
+  button.on, .pill.on { background: var(--text-primary); color: white; }
+</style>
+</head>
+<body>
+<style>
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;margin:0 0 10px}
+.bar span{font-size:14px;color:var(--text-secondary);min-width:130px;text-align:right}
+.mx{display:grid;grid-template-columns:110px repeat(4,minmax(0,1fr));gap:4px;font-size:15px;margin:8px auto 0;max-width:640px}
+.mx div{padding:8px 4px;text-align:center;border-radius:var(--radius)}
+.mx .cell{background:var(--surface-1)}
+.mx .hi{background:var(--bg-accent);color:var(--text-accent)}
+.mx .sel{outline:3px solid var(--border-success)}
+.mx .bad{outline:3px solid var(--border-danger)}
+#msg{max-width:640px;margin:12px auto 0;padding:10px 14px;background:var(--surface-1);border:1px solid var(--border);border-radius:10px;font-size:15px;line-height:1.45;min-height:44px}
+svg{display:block;margin:0 auto;max-width:680px;width:100%;height:auto}
+</style>
+<h2 class="sr-only">Big Monkey and Little Monkey game tree and normal form, with subgames and Nash equilibria highlighted.</h2>
+<div class="bar"><span>Highlight a subgame:</span><button data-sg="all">Whole game</button><button data-sg="w">After BM waits</button><button data-sg="c">After BM climbs</button></div>
+<div class="bar"><span>Show an equilibrium:</span><button data-ne="w,cw">(w, cw)</button><button data-ne="c,ww">(c, ww)</button><button data-ne="w,cc">(w, cc)</button></div>
+<svg id="tree" viewBox="0 0 680 250" role="img" aria-label="Game tree"></svg>
+<div class="mx" id="mx"></div>
+<div id="msg" aria-live="polite"></div>
+<script>
+const N={root:[340,30],W:[170,120],C:[510,120],ww:[90,215],wc:[250,215],cw:[430,215],cc:[590,215]};
+const pay={ww:"(0, 0)",wc:"(9, 1)",cw:"(4, 4)",cc:"(5, 3)"};
+const E=[["root","W","wait","bm","w"],["root","C","climb","bm","c"],["W","ww","wait","lmW","w"],["W","wc","climb","lmW","c"],["C","cw","wait","lmC","w"],["C","cc","climb","lmC","c"]];
+let sg=null,ne=null;
+const cols=["ww","wc","cw","cc"],M={w:["(0, 0)","(0, 0)","(9, 1)","(9, 1)"],c:["(4, 4)","(5, 3)","(4, 4)","(5, 3)"]};
+function draw(){
+ const s=document.getElementById("tree");let h="";
+ const box={all:[20,8,640,236],w:[40,95,260,145],c:[380,95,260,145]};
+ if(sg){const b=box[sg];h+=`<rect x="${b[0]}" y="${b[1]}" width="${b[2]}" height="${b[3]}" rx="12" style="fill:var(--bg-accent);stroke:var(--border-accent);stroke-width:1"/>`}
+ let bm,lm,lw,lc;if(ne){[bm,lm]=ne.split(",");lw=lm[0];lc=lm[1]}
+ const bad=ne?(lw==="w"?"W":(lc==="c"?"C":null)):null;
+ for(const [a,b,lab,who,mv] of E){
+  const on=ne&&((who==="bm"&&bm===mv)||(who==="lmW"&&lw===mv)||(who==="lmC"&&lc===mv));
+  const [x1,y1]=N[a],[x2,y2]=N[b];
+  h+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" style="stroke:${on?"var(--text-success)":"var(--border-strong)"};stroke-width:${on?4:1.5}"/>`;
+  h+=`<text x="${(x1+x2)/2+(x2<x1?-10:10)}" y="${(y1+y2)/2}" text-anchor="${x2<x1?"end":"start"}" style="font-size:14px;fill:var(--text-secondary)">${lab}</text>`;
+ }
+ const node=(k,l)=>{const[x,y]=N[k];const red=bad===k;return `<circle cx="${x}" cy="${y}" r="17" style="fill:var(--surface-2);stroke:${red?"var(--text-danger)":"var(--text-secondary)"};stroke-width:${red?3:1}"/><text x="${x}" y="${y+5}" text-anchor="middle" style="font-size:13px;font-weight:bold;fill:var(--text-primary)">${l}</text>`};
+ h+=node("root","BM")+node("W","LM")+node("C","LM");
+ for(const k of cols){const[x,y]=N[k];h+=`<text x="${x}" y="${y+5}" text-anchor="middle" style="font-size:15px;font-weight:bold;fill:#922b21">${pay[k]}</text>`}
+ s.innerHTML=h;
+ let m=`<div></div>`+cols.map(c=>{const g=sg==="w"?` &rarr; ${c[0]}`:sg==="c"?` &rarr; ${c[1]}`:"";return `<div style="color:var(--text-secondary)">LM: ${c}<span style="color:var(--text-accent)">${g}</span></div>`}).join("");
+ for(const r of ["w","c"]){m+=`<div style="color:var(--text-secondary)">BM: ${r}</div>`;
+  cols.forEach((c,i)=>{let cl="cell";if(sg==="all"||sg===r)cl="hi";if(ne&&ne.split(",")[0]===r&&ne.split(",")[1]===c)cl+=(bad?" bad":" sel");m+=`<div class="${cl}">${M[r][i]}</div>`})}
+ document.getElementById("mx").innerHTML=m;
+ let t="";
+ if(sg==="w")t="After Big Monkey waits, only the first letter of Little Monkey's strategy matters: ww and wc both restrict to w, and cw and cc both restrict to c. The outcomes of this subgame are row w. ";
+ if(sg==="c")t="After Big Monkey climbs, only the second letter of Little Monkey's strategy matters: ww and cw both restrict to w, and wc and cc both restrict to c. The outcomes of this subgame are row c. ";
+ if(sg==="all")t="The whole game counts as a subgame of itself. ";
+ if(ne){
+  if(!bad)t+="(w, cw) is subgame perfect: Little Monkey makes her best move at both of her nodes, including the one that is never reached.";
+  else if(bad==="W")t+="(c, ww) is a Nash equilibrium, but not subgame perfect. If Big Monkey waits, the plan says Little Monkey waits (payoff 0), but climbing pays her 1. This is the threat.";
+  else t+="(w, cc) is a Nash equilibrium, but not subgame perfect. If Big Monkey climbs, the plan says Little Monkey climbs (payoff 3), but waiting pays her 4. This is the promise.";}
+ document.getElementById("msg").textContent=t||"Pick a subgame or an equilibrium above.";
+ document.querySelectorAll("[data-sg]").forEach(b=>b.classList.toggle("on",b.dataset.sg===sg));
+ document.querySelectorAll("[data-ne]").forEach(b=>b.classList.toggle("on",b.dataset.ne===ne));
+}
+document.querySelectorAll("[data-sg]").forEach(b=>b.onclick=()=>{sg=sg===b.dataset.sg?null:b.dataset.sg;draw()});
+document.querySelectorAll("[data-ne]").forEach(b=>b.onclick=()=>{ne=ne===b.dataset.ne?null:b.dataset.ne;draw()});
+draw();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Folk Theorem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch6-page2-repeated-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-more-extensive-form.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch6-page3-folk-theorem.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Folk Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch6-page3-folk-theorem">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Folk Theorem</span>
+</h2>
+<div class="para" id="ch6-page3-folk-theorem-2">On the last page, we found that cooperating forever is a Nash equilibrium of the repeated Wine Merchant game when <span class="process-math">\(\delta \geq \frac{3}{4}\text{.}\)</span> Are there other Nash equilibria? The Folk Theorem says there are a <em class="emphasis">lot</em> of them. (A “folk theorem” is a result that everyone seems to know, but nobody knows who proved it first.)<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-8-1"><h3 class="heading"><span class="title">Section 6.8.1, Payoff Vectors.</span></h3>
+<div class="para" id="read-6-8-1-2">
+<em class="alert">Read Section 6.8 up through Subsection 6.8.1.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-8-1-3">This subsection describes all the payoff pairs that the two players can get in a single round of the game, if they use mixed strategies. The four-step construction is easier to see than to read, so use the interactive below alongside it.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.8.1, Payoff Vectors"><a href="#read-6-8-1" title="Copy heading and permalink for Reading: Section 6.8.1, Payoff Vectors" aria-label="Copy heading and permalink for Reading: Section 6.8.1, Payoff Vectors">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-folk-theorem-4">In the interactive, the Wine Merchant game uses the book’s labels: <span class="process-math">\((a, b) = (1, 1)\text{,}\)</span> <span class="process-math">\((c, d) = (-4, 4)\text{,}\)</span> <span class="process-math">\((e, f) = (4, -4)\text{,}\)</span> and <span class="process-math">\((g, h) = (0, 0)\text{.}\)</span> Here <span class="process-math">\(p\)</span> is the probability that the Merchant sells good wine, and <span class="process-math">\(q\)</span> is the probability that Bernard pays. The slider <span class="process-math">\(q\)</span> places <span class="process-math">\(r(q)\)</span> on one edge and <span class="process-math">\(s(q)\)</span> on another (steps 1 and 2 in the book), and <span class="process-math">\(p\)</span> slides the point along the dashed segment between them (step 3). The shaded triangle is the set of all possible payoff vectors. The darker part is where both payoffs are positive, just like Figure 6.8.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-payoff-region"><div class="interactive-iframe-container"><iframe src="external/ch6-graph/payoff-region.html" id="interactive-payoff-region" style="width:600px; height:600px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-payoff-region.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Possible payoff vectors for the Wine Merchant and the Connoisseur.<div class="autopermalink" data-description="Figure 6.3.1"><a href="#fig-payoff-region" title="Copy heading and permalink for Figure 6.3.1" aria-label="Copy heading and permalink for Figure 6.3.1">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-payoff-half-half"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-payoff-half-half-1-1">Both players flip a fair coin each round to decide whether to cooperate, so <span class="process-math">\(p = q = \frac{1}{2}\text{.}\)</span> What is the payoff vector? Check your answer with the interactive.<div class="autopermalink" data-description="Paragraph"><a href="#check-payoff-half-half-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-payoff-half-half" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-payoff-half-half_opt_a" data-correct="">
+<div class="para" id="check-payoff-half-half-2-1-1-1"><span class="process-math">\(\left(\frac{1}{4}, \frac{1}{4}\right)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-payoff-half-half_opt_a">
+<div class="para" id="check-payoff-half-half-2-1-2-1">Correct. Each of the four outcomes happens with probability <span class="process-math">\(\frac{1}{4}\text{,}\)</span> so the payoff vector is <span class="process-math">\(\frac{1}{4}\big((1,1) + (-4,4) + (4,-4) + (0,0)\big) = \left(\frac{1}{4}, \frac{1}{4}\right)\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-payoff-half-half_opt_b">
+<div class="para" id="check-payoff-half-half-2-2-1-1"><span class="process-math">\(\left(\frac{1}{2}, \frac{1}{2}\right)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-payoff-half-half_opt_b">
+<div class="para" id="check-payoff-half-half-2-2-2-1">Not quite. That’s halfway between <span class="process-math">\((1,1)\)</span> and <span class="process-math">\((0,0)\text{,}\)</span> but all four outcomes are possible here, each with probability <span class="process-math">\(\frac{1}{4}\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-payoff-half-half_opt_c">
+<div class="para" id="check-payoff-half-half-2-3-1-1"><span class="process-math">\((0, 0)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-payoff-half-half_opt_c">
+<div class="para" id="check-payoff-half-half-2-3-2-1">Not quite. The <span class="process-math">\(-4\)</span> and <span class="process-math">\(4\)</span> cancel out, but the <span class="process-math">\((1,1)\)</span> outcome is still there.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.3.2"><a href="#check-payoff-half-half" title="Copy heading and permalink for Checkpoint 6.3.2" aria-label="Copy heading and permalink for Checkpoint 6.3.2">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="read-6-8-2"><h3 class="heading"><span class="title">Section 6.8.2, Minimax Payoffs.</span></h3>
+<div class="para" id="read-6-8-2-2">
+<em class="alert">Read Section 6.8.2.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-8-2-3">This is short, but read it slowly. There’s a trap here, explained below.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.8.2, Minimax Payoffs"><a href="#read-6-8-2" title="Copy heading and permalink for Reading: Section 6.8.2, Minimax Payoffs" aria-label="Copy heading and permalink for Reading: Section 6.8.2, Minimax Payoffs">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-folk-theorem-8">
+<em class="alert">Warning: minimax is not maximin!</em> In Section 5.5 we met the <em class="emphasis">maximin</em> payoff. The <em class="emphasis">minimax</em> payoff in this section sounds almost the same, but it’s a different idea.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="ch6-page3-folk-theorem-9">
+<li id="ch6-page3-folk-theorem-9-1">
+<div class="para" id="ch6-page3-folk-theorem-9-1-1">
+<em class="alert">Maximin</em> (Section 5.5): <em class="emphasis">you</em> choose first, expecting the worst. For each of your strategies, find its worst case, then pick the best of those. This is the most you can guarantee yourself.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-9-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page3-folk-theorem-9-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch6-page3-folk-theorem-9-2">
+<div class="para" id="ch6-page3-folk-theorem-9-2-1">
+<em class="alert">Minimax</em> (Section 6.8.2): your <em class="emphasis">opponent</em> chooses first, trying to hurt you, and you best-respond. For each of the opponent’s strategies, find your best response, then take the worst of those. This is the harshest punishment the opponent can force on you.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-9-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#ch6-page3-folk-theorem-9-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="ch6-page3-folk-theorem-10">The two can be different. In Matching Pennies, if we only allow pure strategies, your maximin payoff is <span class="process-math">\(-1\)</span> (any coin you choose can be beaten), but your minimax payoff is <span class="process-math">\(+1\)</span> (once you see your opponent’s coin, you can always match it).<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-minimax-formula"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone hparsons_section"><div data-component="hparsons" class="hparsons_section" id="rs-check-minimax-formula">
+<div class="hp_question">
+<div class="para" id="check-minimax-formula-1-1">Build the formula for Player 1’s minimax payoff <span class="process-math">\(m_1\)</span> by putting the blocks in order. Here <span class="process-math">\(s_i\)</span> are Player 1’s pure strategies and <span class="process-math">\(t_j\)</span> are Player 2’s. Not every block belongs!<div class="autopermalink" data-description="Paragraph"><a href="#check-minimax-formula-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="hparsons"></div>
+<textarea style="visibility: hidden" data-randomize="true" data-reuse="false" data-blockanswer="0 1 2 3">
+--blocks--
+<span class="process-math">\(m_1 =\)</span>
+<span class="process-math">\(\min_{t_j}\)</span>
+<span class="process-math">\(\max_{s_i}\)</span>
+<span class="process-math">\(\pi_1(s_i, t_j)\)</span>
+<span class="process-math">\(\max_{t_j}\)</span>
+<span class="process-math">\(\min_{s_i}\)</span>
+<span class="process-math">\(\pi_2(s_i, t_j)\)</span>
+</textarea>
+</div></div></div>
+<div class="solutions">
+<details id="check-minimax-formula-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-minimax-formula-3-1">The operation on the inside happens first. Player 1’s best response comes first, and then Player 2 picks the strategy that makes that best response as bad as possible.<div class="autopermalink" data-description="Paragraph"><a href="#check-minimax-formula-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.3.1"><a href="#check-minimax-formula-3" title="Copy heading and permalink for Hint 6.3.3.1" aria-label="Copy heading and permalink for Hint 6.3.3.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.3.3"><a href="#check-minimax-formula" title="Copy heading and permalink for Checkpoint 6.3.3" aria-label="Copy heading and permalink for Checkpoint 6.3.3">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-minimax-chicken"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-minimax-chicken-1-1">Recall Chicken from Section 3.2.3:<div class="autopermalink" data-description="Paragraph"><a href="#check-minimax-chicken-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<figure class="table table-like" id="table-chicken-minimax"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Chicken<div class="autopermalink" data-description="Table 6.3.5: Chicken"><a href="#table-chicken-minimax" title="Copy heading and permalink for Table 6.3.5: Chicken" aria-label="Copy heading and permalink for Table 6.3.5: Chicken">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: straight</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: swerve</th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1: straight</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-2\text{,}\)</span> <span class="process-math">\(-2\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(1, <span class="process-math">\(-1\)</span>)</td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1: swerve</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-1\text{,}\)</span> 1)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 0)</td>
+</tr>
+</table></div>
+</figure> 
+<div class="para" id="check-minimax-chicken-1-3">What is Teenager 1’s minimax payoff <span class="process-math">\(m_1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-minimax-chicken-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-minimax-chicken" data-multipleanswers="false" data-random="">
+<li data-component="answer" id="rs-check-minimax-chicken_opt_a" data-correct="">
+<div class="para" id="check-minimax-chicken-2-1-1-1"><span class="process-math">\(-1\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-minimax-chicken_opt_a">
+<div class="para" id="check-minimax-chicken-2-1-2-1">Correct. If Teenager 2 goes straight, Teenager 1’s best response is to swerve, for <span class="process-math">\(-1\text{.}\)</span> If Teenager 2 swerves, Teenager 1’s best response is to go straight, for 1. The worst of these is <span class="process-math">\(-1\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-minimax-chicken_opt_b">
+<div class="para" id="check-minimax-chicken-2-2-1-1"><span class="process-math">\(-2\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-minimax-chicken_opt_b">
+<div class="para" id="check-minimax-chicken-2-2-2-1">Not quite. <span class="process-math">\(-2\)</span> is the worst payoff in Teenager 1’s column, but minimax assumes Teenager 1 best-responds. If Teenager 2 goes straight, Teenager 1 would swerve rather than crash.</div>
+</li>
+<li data-component="answer" id="rs-check-minimax-chicken_opt_c">
+<div class="para" id="check-minimax-chicken-2-3-1-1">1</div>
+</li>
+<li data-component="feedback" id="rs-check-minimax-chicken_opt_c">
+<div class="para" id="check-minimax-chicken-2-3-2-1">Not quite. 1 is Teenager 1’s best response payoff when Teenager 2 swerves. But Teenager 2 gets to pick the strategy that hurts Teenager 1 the most, so take the <em class="emphasis">minimum</em> over Teenager 2’s choices.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.3.4"><a href="#check-minimax-chicken" title="Copy heading and permalink for Checkpoint 6.3.4" aria-label="Copy heading and permalink for Checkpoint 6.3.4">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="read-6-8-3"><h3 class="heading"><span class="title">Sections 6.8.3 and 6.8.4, The Folk Theorem.</span></h3>
+<div class="para" id="read-6-8-3-2">
+<em class="alert">Read Sections 6.8.3 and 6.8.4.</em> Read the statement of Theorem 6.2 and the proof of part (1) carefully.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-8-3-3">
+<em class="alert">You can skip the proof of part (2)</em>, which starts with “We will not show (2) in general.” The idea is all you need: the players take turns among the four outcomes in just the right proportions, so the <em class="emphasis">average</em> payoff is <span class="process-math">\((v_1, v_2)\text{.}\)</span> If anyone ever deviates, the other player punishes them forever, holding them down to their minimax payoff.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-8-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Sections 6.8.3 and 6.8.4, The Folk Theorem"><a href="#read-6-8-3" title="Copy heading and permalink for Reading: Sections 6.8.3 and 6.8.4, The Folk Theorem" aria-label="Copy heading and permalink for Reading: Sections 6.8.3 and 6.8.4, The Folk Theorem">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-folk-theorem-14">In plain words, the Folk Theorem says: any payoff vector where both players get more than their minimax payoffs can be the average payoff of a Nash equilibrium, as long as the players care enough about the future. For the Wine Merchant, that’s the whole dark region of the triangle.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="reflect-folk-part-1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="reflect-folk-part-1-1-1">Read the statement of part (1) again, and then the proof. Does the proof actually show what the statement says? Look closely at the words “in every round.”<div class="autopermalink" data-description="Paragraph"><a href="#reflect-folk-part-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.3.6"><a href="#reflect-folk-part-1" title="Copy heading and permalink for Checkpoint 6.3.6" aria-label="Copy heading and permalink for Checkpoint 6.3.6">🔗</a></div>
+</article>
+<article class="example example-like" id="example-cheating-merchant"><h3 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Cheating Merchant.</span>
+</h3>
+<div class="para" id="example-cheating-merchant-2">Here’s an equilibrium that the Folk Theorem promises, and that might surprise you. Suppose the players use the following strategies:<div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="example-cheating-merchant-3">
+<li id="example-cheating-merchant-3-1">
+<div class="para" id="example-cheating-merchant-3-1-1">The Merchant sells good wine five times, then sells bad wine once, and repeats this forever.<div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-cheating-merchant-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="example-cheating-merchant-3-2">
+<div class="para" id="example-cheating-merchant-3-2-1">Bernard pays every single time, even when he gets bad wine.<div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-cheating-merchant-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="example-cheating-merchant-3-3">
+<div class="para" id="example-cheating-merchant-3-3-1">If either player ever deviates from this plan, both defect forever.<div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#example-cheating-merchant-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="example-cheating-merchant-4">Over each cycle of six rounds, the Merchant gets <span class="process-math">\(1+1+1+1+1+4 = 9\)</span> and Bernard gets <span class="process-math">\(1+1+1+1+1-4 = 1\text{.}\)</span> So the average payoffs are <span class="process-math">\(\left(\frac{3}{2}, \frac{1}{6}\right)\text{.}\)</span> Both are above the minimax payoff 0, so by the Folk Theorem this can be a Nash equilibrium for large enough <span class="process-math">\(\delta\text{.}\)</span> Checking every possible deviation, it is a Nash equilibrium when <span class="process-math">\(\delta\)</span> is at least about <span class="process-math">\(0.97\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="example-cheating-merchant-5">Bernard knowingly accepts being cheated once every six rounds. Why? Because if he ever steals, the relationship ends, and he gets 0 forever after. Getting cheated occasionally still beats that, on average.<div class="autopermalink" data-description="Paragraph"><a href="#example-cheating-merchant-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Example 6.3.7: The Cheating Merchant"><a href="#example-cheating-merchant" title="Copy heading and permalink for Example 6.3.7: The Cheating Merchant" aria-label="Copy heading and permalink for Example 6.3.7: The Cheating Merchant">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-cheating-merchant-delta"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-cheating-merchant-delta-1-1">Plain cooperation needs <span class="process-math">\(\delta \geq \frac{3}{4}\text{,}\)</span> but the cheating merchant equilibrium needs <span class="process-math">\(\delta\)</span> close to <span class="process-math">\(0.97\text{.}\)</span> In which round is Bernard most tempted to steal?<div class="autopermalink" data-description="Paragraph"><a href="#check-cheating-merchant-delta-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-cheating-merchant-delta" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-cheating-merchant-delta_opt_a">
+<div class="para" id="check-cheating-merchant-delta-2-1-1-1">The round when he gets bad wine.</div>
+</li>
+<li data-component="feedback" id="rs-check-cheating-merchant-delta_opt_a">
+<div class="para" id="check-cheating-merchant-delta-2-1-2-1">Close, but not quite. Stealing bad wine gets him 0 instead of <span class="process-math">\(-4\text{,}\)</span> but the round before is worse.</div>
+</li>
+<li data-component="answer" id="rs-check-cheating-merchant-delta_opt_b" data-correct="">
+<div class="para" id="check-cheating-merchant-delta-2-2-1-1">The round just before he gets bad wine.</div>
+</li>
+<li data-component="feedback" id="rs-check-cheating-merchant-delta_opt_b">
+<div class="para" id="check-cheating-merchant-delta-2-2-2-1">Correct. Stealing then gets him 4 right away, and the very next thing cooperation has to offer him is the <span class="process-math">\(-4\)</span> round. So the future has to matter a lot to keep him honest.</div>
+</li>
+<li data-component="answer" id="rs-check-cheating-merchant-delta_opt_c">
+<div class="para" id="check-cheating-merchant-delta-2-3-1-1">The round just after he gets bad wine.</div>
+</li>
+<li data-component="feedback" id="rs-check-cheating-merchant-delta_opt_c">
+<div class="para" id="check-cheating-merchant-delta-2-3-2-1">Not quite. Right after being cheated, Bernard has five cooperative rounds ahead of him before the next <span class="process-math">\(-4\text{,}\)</span> so cooperating looks relatively good.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.3.8"><a href="#check-cheating-merchant-delta" title="Copy heading and permalink for Checkpoint 6.3.8" aria-label="Copy heading and permalink for Checkpoint 6.3.8">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-folk-theorem-18">Try to find the cheating merchant’s payoff vector, <span class="process-math">\(\left(\frac{3}{2}, \frac{1}{6}\right)\text{,}\)</span> on the triangle in the interactive above. It’s on the edge between <span class="process-math">\((1,1)\)</span> and <span class="process-math">\((4,-4)\text{,}\)</span> which makes sense, since the only outcomes that happen are <span class="process-math">\((c, c)\)</span> and <span class="process-math">\((d, c)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-folk-theorem-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="reflect-folk-theorem-news"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="para" id="reflect-folk-theorem-news-1-1">The Folk Theorem says that almost any outcome can be a Nash equilibrium of a repeated game, including outcomes where one player keeps getting cheated. Is this good news or bad news for game theory? Think about what it means for using game theory to <em class="emphasis">predict</em> what people will do.<div class="autopermalink" data-description="Paragraph"><a href="#reflect-folk-theorem-news-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.3.9"><a href="#reflect-folk-theorem-news" title="Copy heading and permalink for Checkpoint 6.3.9" aria-label="Copy heading and permalink for Checkpoint 6.3.9">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=6.3" id="question-form-6-3" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-6-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 6.3: The Folk Theorem"><a href="#ch6-page3-folk-theorem" title="Copy heading and permalink for Section 6.3: The Folk Theorem" aria-label="Copy heading and permalink for Section 6.3: The Folk Theorem">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch6-page2-repeated-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="backmatter.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

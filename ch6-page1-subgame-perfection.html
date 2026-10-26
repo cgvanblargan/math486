@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Subgame Perfect Nash Equilibria</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-more-extensive-form.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-more-extensive-form.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch6-page2-repeated-games.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-folk-theorem.html" class="internal"><span class="codenumber">6.3</span> <span class="title">The Folk Theorem</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch6-page1-subgame-perfection">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Subgame Perfect Nash Equilibria</span>
+</h2>
+<div class="para" id="ch6-page1-subgame-perfection-2">Back in Section 3.7, we found three Nash equilibria of Big Monkey and Little Monkey: <span class="process-math">\((w, cw)\text{,}\)</span> <span class="process-math">\((c, ww)\text{,}\)</span> and <span class="process-math">\((w, cc)\text{.}\)</span> In this chapter, we’ll see that some Nash equilibria make more sense than others, and we’ll define a stronger kind of equilibrium that tells them apart.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-1"><h3 class="heading"><span class="title">Section 6.1, Subgame Perfect Nash Equilibria.</span></h3>
+<div class="para" id="read-6-1-2">
+<em class="alert">Read Section 6.1.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-1-3">This section is short but dense, since it’s mostly definitions. We’ll work through them with an example right after.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.1, Subgame Perfect Nash Equilibria"><a href="#read-6-1" title="Copy heading and permalink for Reading: Section 6.1, Subgame Perfect Nash Equilibria" aria-label="Copy heading and permalink for Reading: Section 6.1, Subgame Perfect Nash Equilibria">🔗</a></div>
+</article>
+<div class="para" id="ch6-page1-subgame-perfection-4">Part of the definition of a subgame deals with information sets, which only matter in games with incomplete information. We’ll focus on games with complete information, where things are simpler: every node that isn’t a terminal node is the start of a subgame. So let’s explore these ideas further in the Big Monkey and Little Monkey game.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page1-subgame-perfection-5">A strategy profile is a <dfn class="terminology">subgame perfect Nash equilibrium</dfn> if, for every subgame, the <dfn class="terminology">restriction</dfn> of the strategy profile to that subgame is a Nash equilibrium of that subgame. Notice that when we look at a subgame, moves at nodes outside the subgame are disregarded in the restricted strategies.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page1-subgame-perfection-6">Here is the game tree for Big Monkey and Little Monkey, with Big Monkey moving first. We’ve labeled Little Monkey’s two nodes <span class="process-math">\(n_1\)</span> (after Big Monkey waits) and <span class="process-math">\(n_2\)</span> (after Big Monkey climbs).<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bmlm-tree-labeled"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;">
+<img src="external/ch6-graph/bmlm-tree.svg" class="contained" alt="Game tree for Big Monkey and Little Monkey"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-bmlm-tree-labeled-2-description">
+<div class="para" id="fig-bmlm-tree-labeled-2-2-1">At the root, Big Monkey chooses wait or climb. If Big Monkey waits, Little Monkey chooses at node <span class="process-math">\(n_1\text{:}\)</span> wait gives payoffs <span class="process-math">\((0, 0)\text{,}\)</span> and climb gives <span class="process-math">\((9, 1)\text{.}\)</span> If Big Monkey climbs, Little Monkey chooses at node <span class="process-math">\(n_2\text{:}\)</span> wait gives <span class="process-math">\((4, 4)\text{,}\)</span> and climb gives <span class="process-math">\((5, 3)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#fig-bmlm-tree-labeled-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big Monkey and Little Monkey. Payoffs are listed as (Big Monkey, Little Monkey).<div class="autopermalink" data-description="Figure 6.1.1"><a href="#fig-bmlm-tree-labeled" title="Copy heading and permalink for Figure 6.1.1" aria-label="Copy heading and permalink for Figure 6.1.1">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-bmlm-number-of-subgames"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-bmlm-number-of-subgames-1-1">How many subgames does this game have?<div class="autopermalink" data-description="Paragraph"><a href="#check-bmlm-number-of-subgames-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-bmlm-number-of-subgames" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-bmlm-number-of-subgames_opt_a">
+<div class="para" id="check-bmlm-number-of-subgames-2-1-1-1">2</div>
+</li>
+<li data-component="feedback" id="rs-check-bmlm-number-of-subgames_opt_a">
+<div class="para" id="check-bmlm-number-of-subgames-2-1-2-1">Close! You probably counted the subgames starting at <span class="process-math">\(n_1\)</span> and <span class="process-math">\(n_2\text{.}\)</span> The whole game, which starts at the root, also counts as a subgame.</div>
+</li>
+<li data-component="answer" id="rs-check-bmlm-number-of-subgames_opt_b" data-correct="">
+<div class="para" id="check-bmlm-number-of-subgames-2-2-1-1">3</div>
+</li>
+<li data-component="feedback" id="rs-check-bmlm-number-of-subgames_opt_b">
+<div class="para" id="check-bmlm-number-of-subgames-2-2-2-1">Correct. There is one subgame starting at the root (the whole game), one starting at <span class="process-math">\(n_1\)</span> (after Big Monkey waits), and one starting at <span class="process-math">\(n_2\)</span> (after Big Monkey climbs).</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.1.2"><a href="#check-bmlm-number-of-subgames" title="Copy heading and permalink for Checkpoint 6.1.2" aria-label="Copy heading and permalink for Checkpoint 6.1.2">🔗</a></div>
+</article>
+<div class="para" id="ch6-page1-subgame-perfection-9">Now we’ll use the widget below to explain why <span class="process-math">\((w, cw)\)</span> is a subgame perfect Nash equilibrium. The moves of <span class="process-math">\((w, cw)\)</span> are drawn thick. Click each of the three nodes to see the subgame that starts there, what <span class="process-math">\((w, cw)\)</span> restricts to in that subgame, and whether the restriction is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-9" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bmlm-subgame-explorer"><div class="interactive-iframe-container"><iframe src="external/ch6-graph/bmlm-subgame-explorer.html" id="interactive-bmlm-subgame-explorer" style="width:600px; height:600px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="interactive-bmlm-subgame-explorer.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The subgames of Big Monkey and Little Monkey, and the strategy profile <span class="process-math">\((w, cw)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.1.3"><a href="#fig-bmlm-subgame-explorer" title="Copy heading and permalink for Figure 6.1.3" aria-label="Copy heading and permalink for Figure 6.1.3">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ch6-page1-subgame-perfection-11">We showed that in each of the three subgames, the restriction of <span class="process-math">\((w, cw)\)</span> to the subgame is a Nash equilibrium of that subgame. So <span class="process-math">\((w, cw)\)</span> is a subgame perfect Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page1-subgame-perfection-12">Now it’s your turn, with the strategy profile <span class="process-math">\((c, ww)\text{.}\)</span> Here are its moves, drawn thick.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-bmlm-tree-c-ww"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;">
+<img src="external/ch6-graph/bmlm-tree-c-ww.svg" class="contained" alt="Game tree for Big Monkey and Little Monkey with the profile (c, ww)"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-bmlm-tree-c-ww-2-description">
+<div class="para" id="fig-bmlm-tree-c-ww-2-2-1">The Big Monkey and Little Monkey tree, with the moves of <span class="process-math">\((c, ww)\)</span> drawn thick: Big Monkey climbs at the root, Little Monkey waits at <span class="process-math">\(n_1\text{,}\)</span> and Little Monkey waits at <span class="process-math">\(n_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#fig-bmlm-tree-c-ww-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The strategy profile <span class="process-math">\((c, ww)\text{.}\)</span><div class="autopermalink" data-description="Figure 6.1.4"><a href="#fig-bmlm-tree-c-ww" title="Copy heading and permalink for Figure 6.1.4" aria-label="Copy heading and permalink for Figure 6.1.4">🔗</a></div></figcaption>
+</figure>
+<article class="exercise exercise-like" id="check-build-subgame-n1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone clickablearea_section"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="rs-check-build-subgame-n1">
+<span data-question="">
+<div class="para" id="check-build-subgame-n1-1-1">Consider the subgame starting at <span class="process-math">\(n_1\text{,}\)</span> after Big Monkey waits. Click every outcome in the original normal form below that is still possible in this subgame.<div class="autopermalink" data-description="Paragraph"><a href="#check-build-subgame-n1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-feedback=""></span><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: ww</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: wc</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: cw</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: cc</th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">BM: w</td>
+<td class="c m b1 r1 l0 t0 lines"><span data-correct="">(0, 0)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-correct="">(0, 0)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-correct="">(9, 1)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-correct="">(9, 1)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">BM: c</td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(4, 4)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(5, 3)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(4, 4)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(5, 3)</span></td>
+</tr>
+</table></div>
+</div></div></div>
+<div class="solutions">
+<details id="check-build-subgame-n1-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-build-subgame-n1-3-1">In this subgame, Big Monkey has already made his move. Which row does that leave?<div class="autopermalink" data-description="Paragraph"><a href="#check-build-subgame-n1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.1.5.1"><a href="#check-build-subgame-n1-3" title="Copy heading and permalink for Hint 6.1.5.1" aria-label="Copy heading and permalink for Hint 6.1.5.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.1.5"><a href="#check-build-subgame-n1" title="Copy heading and permalink for Checkpoint 6.1.5" aria-label="Copy heading and permalink for Checkpoint 6.1.5">🔗</a></div>
+</article>
+<div class="para" id="ch6-page1-subgame-perfection-15">So the subgame at <span class="process-math">\(n_1\)</span> is really the smaller game below. Big Monkey has no strategies in this subgame, and Little Monkey just chooses <span class="process-math">\(w\)</span> or <span class="process-math">\(c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-outcome-c-ww-n1"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone clickablearea_section"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="rs-check-outcome-c-ww-n1">
+<span data-question="">
+<div class="para" id="check-outcome-c-ww-n1-1-1">In the subgame at <span class="process-math">\(n_1\text{,}\)</span> click the outcome that the restriction of <span class="process-math">\((c, ww)\)</span> leads to.<div class="autopermalink" data-description="Paragraph"><a href="#check-outcome-c-ww-n1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-feedback=""></span><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l1 t1 lines">LM: w</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: c</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span data-correct="">(0, 0)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(9, 1)</span></td>
+</tr>
+</table></div>
+</div></div></div>
+<div class="solutions">
+<details id="check-outcome-c-ww-n1-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-outcome-c-ww-n1-3-1">Which letter of <span class="process-math">\(ww\)</span> tells Little Monkey what to do at <span class="process-math">\(n_1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-outcome-c-ww-n1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.1.6.1"><a href="#check-outcome-c-ww-n1-3" title="Copy heading and permalink for Hint 6.1.6.1" aria-label="Copy heading and permalink for Hint 6.1.6.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.1.6"><a href="#check-outcome-c-ww-n1" title="Copy heading and permalink for Checkpoint 6.1.6" aria-label="Copy heading and permalink for Checkpoint 6.1.6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-outcome-c-ww-n2"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone clickablearea_section"><div data-component="clickablearea" data-question_label="" style="visibility: hidden;" id="rs-check-outcome-c-ww-n2">
+<span data-question="">
+<div class="para" id="check-outcome-c-ww-n2-1-1">The subgame at <span class="process-math">\(n_2\text{,}\)</span> after Big Monkey climbs, is really the smaller game below. Again, Big Monkey has no strategies in this subgame. Click the outcome that the restriction of <span class="process-math">\((c, ww)\)</span> leads to.<div class="autopermalink" data-description="Paragraph"><a href="#check-outcome-c-ww-n2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div></span><span data-feedback=""></span><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r1 l1 t1 lines">LM: w</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">LM: c</th>
+</tr>
+<tr>
+<td class="c m b1 r1 l1 t0 lines"><span data-correct="">(4, 4)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span data-incorrect="">(5, 3)</span></td>
+</tr>
+</table></div>
+</div></div></div>
+<div class="solutions">
+<details id="check-outcome-c-ww-n2-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="check-outcome-c-ww-n2-3-1">This time, which letter of <span class="process-math">\(ww\)</span> tells Little Monkey what to do?<div class="autopermalink" data-description="Paragraph"><a href="#check-outcome-c-ww-n2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.1.7.1"><a href="#check-outcome-c-ww-n2-3" title="Copy heading and permalink for Hint 6.1.7.1" aria-label="Copy heading and permalink for Hint 6.1.7.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Checkpoint 6.1.7"><a href="#check-outcome-c-ww-n2" title="Copy heading and permalink for Checkpoint 6.1.7" aria-label="Copy heading and permalink for Checkpoint 6.1.7">🔗</a></div>
+</article>
+<div class="para" id="ch6-page1-subgame-perfection-18">Notice what happened in the subgame at <span class="process-math">\(n_1\text{.}\)</span> Here is its table again, with the outcome of the restricted strategy profile boxed:<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="figure figure-like" id="fig-c-ww-n1-outcome"><div class="image-box" style="width: 35%; margin-left: 32.5%; margin-right: 32.5%;">
+<img src="external/ch6-graph/subgame-n1-c-ww.svg" class="contained" alt="The subgame at n1 with the outcome (0, 0) boxed"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-c-ww-n1-outcome-2-description">
+<div class="para" id="fig-c-ww-n1-outcome-2-2-1">A one-row table for the subgame at <span class="process-math">\(n_1\text{.}\)</span> Little Monkey’s strategy <span class="process-math">\(w\)</span> gives the outcome <span class="process-math">\((0, 0)\text{,}\)</span> which is boxed, since it is the outcome of <span class="process-math">\((c, ww)\)</span> restricted to this subgame. Little Monkey’s strategy <span class="process-math">\(c\)</span> gives <span class="process-math">\((9, 1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#fig-c-ww-n1-outcome-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The subgame at <span class="process-math">\(n_1\text{,}\)</span> with the outcome of <span class="process-math">\((c, ww)\)</span> restricted to it boxed.<div class="autopermalink" data-description="Figure 6.1.8"><a href="#fig-c-ww-n1-outcome" title="Copy heading and permalink for Figure 6.1.8" aria-label="Copy heading and permalink for Figure 6.1.8">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ch6-page1-subgame-perfection-20">Little Monkey waits and gets 0, but climbing would give her 1. So the restriction of <span class="process-math">\((c, ww)\)</span> to this subgame is <em class="emphasis">not</em> a Nash equilibrium. (It is a Nash equilibrium in the other two subgames.) That means <span class="process-math">\((c, ww)\)</span> is <em class="emphasis">not</em> a subgame perfect Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page1-subgame-perfection-21">Little Monkey’s plan to wait if Big Monkey waits is what Section 1.6 called a <dfn class="terminology">threat</dfn>: it would hurt Big Monkey, but it would also hurt Little Monkey. <span class="process-math">\((c, ww)\)</span> is still a Nash equilibrium of the whole game, because Big Monkey climbs, so <span class="process-math">\(n_1\)</span> is never reached and Little Monkey never has to carry out the threat. Subgame perfection catches it, because it checks every subgame, including the ones that are never reached.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-6-2"><h3 class="heading"><span class="title">Section 6.2, Big Monkey and Little Monkey 6.</span></h3>
+<div class="para" id="read-6-2-2">
+<em class="alert">Read Section 6.2.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-2-3">You’ve already seen most of this section! It covers the same three Nash equilibria, and it also explains the third one, <span class="process-math">\((w, cc)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-6-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.2, Big Monkey and Little Monkey 6"><a href="#read-6-2" title="Copy heading and permalink for Reading: Section 6.2, Big Monkey and Little Monkey 6" aria-label="Copy heading and permalink for Reading: Section 6.2, Big Monkey and Little Monkey 6">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-w-cc-subgame"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.1.9</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-w-cc-subgame-1-1">
+<span class="process-math">\((w, cc)\)</span> is a Nash equilibrium of the whole game, but it is not subgame perfect. In which subgame is its restriction not a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-w-cc-subgame-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-w-cc-subgame" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-w-cc-subgame_opt_a">
+<div class="para" id="check-w-cc-subgame-2-1-1-1">The subgame at <span class="process-math">\(n_1\text{,}\)</span> after Big Monkey waits.</div>
+</li>
+<li data-component="feedback" id="rs-check-w-cc-subgame_opt_a">
+<div class="para" id="check-w-cc-subgame-2-1-2-1">Not quite. At <span class="process-math">\(n_1\text{,}\)</span> <span class="process-math">\(cc\)</span> restricts to <span class="process-math">\(c\text{,}\)</span> and climbing gives Little Monkey 1, which is better than the 0 she’d get from waiting. So that restriction is a Nash equilibrium.</div>
+</li>
+<li data-component="answer" id="rs-check-w-cc-subgame_opt_b" data-correct="">
+<div class="para" id="check-w-cc-subgame-2-2-1-1">The subgame at <span class="process-math">\(n_2\text{,}\)</span> after Big Monkey climbs.</div>
+</li>
+<li data-component="feedback" id="rs-check-w-cc-subgame_opt_b">
+<div class="para" id="check-w-cc-subgame-2-2-2-1">Correct. At <span class="process-math">\(n_2\text{,}\)</span> <span class="process-math">\(cc\)</span> restricts to <span class="process-math">\(c\text{,}\)</span> and climbing gives Little Monkey 3, but waiting would give her 4. Her plan to climb if Big Monkey climbs is a <dfn class="terminology">promise</dfn>: it would help Big Monkey, at a cost to Little Monkey.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 6.1.9"><a href="#check-w-cc-subgame" title="Copy heading and permalink for Checkpoint 6.1.9" aria-label="Copy heading and permalink for Checkpoint 6.1.9">🔗</a></div>
+</article>
+<article class="assemblage assemblage-like" id="read-6-3"><h3 class="heading"><span class="title">Section 6.3, Subgame Perfect Equilibria and Backward Induction.</span></h3>
+<div class="para" id="read-6-3-2">
+<em class="alert">Read Section 6.3.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-6-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="read-6-3-3">The main point is in the first paragraph: backward induction finds subgame perfect Nash equilibria, because it chooses the best move at every node, whether or not that node is reached. Notice that <span class="process-math">\((w, cw)\text{,}\)</span> the subgame perfect equilibrium we found above, is exactly the backward induction answer from Chapter 1. You can skim the paragraph about chess.<div class="autopermalink" data-description="Paragraph"><a href="#read-6-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 6.3, Subgame Perfect Equilibria and Backward Induction"><a href="#read-6-3" title="Copy heading and permalink for Reading: Section 6.3, Subgame Perfect Equilibria and Backward Induction" aria-label="Copy heading and permalink for Reading: Section 6.3, Subgame Perfect Equilibria and Backward Induction">🔗</a></div>
+</article>
+<div class="para" id="ch6-page1-subgame-perfection-25">The last paragraph of Section 6.3 explains why we care. In games that go on forever, there’s no last move to start backward induction from, but we can still start the game at any point and ask whether the players’ plans make sense from there. That’s how we’ll use subgame perfection for repeated games on the next page.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-25" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page1-subgame-perfection-26">
+<em class="alert">Skip Sections 6.4 and 6.5.</em> We’ll pick up again at Section 6.6.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page1-subgame-perfection-26" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=6.1" id="question-form-6-1" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-6-1.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 6.1: Subgame Perfect Nash Equilibria"><a href="#ch6-page1-subgame-perfection" title="Copy heading and permalink for Section 6.1: Subgame Perfect Nash Equilibria" aria-label="Copy heading and permalink for Section 6.1: Subgame Perfect Nash Equilibria">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-more-extensive-form.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch6-page2-repeated-games.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
