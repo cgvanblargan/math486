@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 6 exercises.
+
+     One flat list, numbered in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Exercise 1 is new (subgame perfection, following page 1 of the
+     notes). Exercises 2-5 are adapted from the previous instructor's
+     Lesson 10 written homework, in the notation of the Chapter 6 notes:
+     Exercise 2 = old Exercise 1, Exercise 3 = old Problem 1,
+     Exercise 4 = old Exercise 2, Exercise 5 = old Problem 2.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch6-exercises">
+  <title>Exercises</title>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-spne-threat">
+    <title>Subgame Perfect Equilibria Practice</title>
+
+    <introduction>
+      <p>
+        This exercise does not involve a repeated game. Consider the game
+        in extensive form below, with payoffs listed as (Player 1, Player
+        2). Player 1 chooses <m>U</m> or <m>D</m>, and then Player 2
+        chooses <m>x</m> or <m>y</m>. Player 2's two nodes are labeled
+        <m>n_1</m> (after <m>U</m>) and <m>n_2</m> (after <m>D</m>).
+      </p>
+
+      <figure xml:id="fig-hw-threat-tree">
+        <caption>The game tree. Payoffs are listed as (Player 1, Player 2).</caption>
+        <image source="ch6-graph/hw-threat-tree.svg" width="85%">
+          <shortdescription>Game tree for the exercise</shortdescription>
+          <description>
+            <p>
+              At the root, Player 1 chooses <m>U</m> or <m>D</m>. If Player
+              1 chooses <m>U</m>, Player 2 chooses at node <m>n_1</m>:
+              <m>x</m> gives payoffs <m>(2, 3)</m>, and <m>y</m> gives
+              <m>(0, 1)</m>. If Player 1 chooses <m>D</m>, Player 2 chooses
+              at node <m>n_2</m>: <m>x</m> gives <m>(1, 0)</m>, and
+              <m>y</m> gives <m>(3, 2)</m>.
+            </p>
+          </description>
+        </image>
+      </figure>
+
+      <p>
+        Write Player 2's strategies as two letters: the first letter is her
+        move at <m>n_1</m>, and the second is her move at <m>n_2</m>. For
+        example, <m>xy</m> means <q>play <m>x</m> at <m>n_1</m> and
+        <m>y</m> at <m>n_2</m>.</q>
+      </p>
+    </introduction>
+
+    <task xml:id="hw-spne-threat-normal-form">
+      <statement>
+        <p>
+          Write this game in normal form. Player 1 has two strategies, and
+          Player 2 has four.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-spne-threat-nash">
+      <statement>
+        <p>
+          Show that <m>(U, xx)</m> is a Nash equilibrium.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-spne-threat-subgames">
+      <statement>
+        <p>
+          Decide whether <m>(U, xx)</m> is a subgame perfect Nash
+          equilibrium. For each subgame of this game:
+        </p>
+        <ul>
+          <li>
+            <p>
+              write the normal form of the subgame (for the subgames at
+              <m>n_1</m> and <m>n_2</m>, this is a smaller table than the
+              one in part (a)),
+            </p>
+          </li>
+          <li>
+            <p>
+              box the outcome of <m>(U, xx)</m> restricted to the subgame,
+              and
+            </p>
+          </li>
+          <li>
+            <p>
+              say whether the restriction is a Nash equilibrium of the
+              subgame, and why.
+            </p>
+          </li>
+        </ul>
+      </statement>
+    </task>
+
+    <task xml:id="hw-spne-threat-words">
+      <statement>
+        <p>
+         Use backward induction to find the subgame perfect Nash equilibrium of this game. Compare its outcome with the outcome of
+          (U, xx). Explain in words why Player 2’s
+          plan at n₂ in (U, xx) is a threat, and who benefits from it. 
+          Why does the threat only work if Player 1 believes it?e. Does the
+          threat here change what Player 1 does? Who benefits?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-trigger-and-tit-for-tat">
+    <title>Trigger and Tit for Tat</title>
+
+    <introduction>
+      <p>
+        Players 1 and 2 play the infinitely repeated game whose stage game
+        is the Prisoner's Dilemma below, with payoffs listed as (Player 1,
+        Player 2).
+      </p>
+
+      <table xml:id="table-hw-pd-5-8">
+        <title>The stage game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>c</m></cell>
+            <cell>Player 2: <m>d</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>c</m></cell>
+            <cell><m>(5, 5)</m></cell>
+            <cell><m>(-8, 8)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>d</m></cell>
+            <cell><m>(8, -8)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        The players play this stage game in rounds <m>k = 0, 1, 2, \ldots</m>,
+        with discount factor <m>\delta</m>, where <m>0 \lt \delta \lt 1</m>.
+        If <m>p_k</m> denotes a player's payoff in round <m>k</m>, then that
+        player's payoff for the repeated game is
+        <me>
+          \sum_{k=0}^{\infty} \delta^k p_k = p_0 + \delta p_1 + \delta^2 p_2 + \cdots.
+        </me>
+      </p>
+
+      <p>
+        We will use the following strategies for the repeated game:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <m>\sigma</m>, the <term>trigger</term> strategy: begin by
+            playing <m>c</m>. Keep playing <m>c</m> as long as the other
+            player plays <m>c</m>. If the other player ever plays <m>d</m>,
+            play <m>d</m> in every round after that.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\tau</m>, <term>tit for tat</term>: begin by playing <m>c</m>.
+            After that, play whatever the other player played in the
+            previous round.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>\nu</m>, <term>suspicious tit for tat</term>: begin by
+            playing <m>d</m>. After that, play whatever the other player
+            played in the previous round.
+          </p>
+        </li>
+      </ul>
+    </introduction>
+
+    <task xml:id="hw-trigger-and-tit-for-tat-words">
+      <statement>
+        <p>
+          Suppose Player 1 uses <m>\sigma</m> in the repeated game. Explain
+          in words what this means.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-trigger-and-tit-for-tat-sigma-tau">
+      <statement>
+        <p>
+          Find the payoffs <m>\pi_1(\sigma, \tau)</m> and
+          <m>\pi_2(\sigma, \tau)</m> when Player 1 uses <m>\sigma</m> and
+          Player 2 uses <m>\tau</m>. Make it clear in your work which move
+          each player makes in each round. You can explain this in words,
+          or show the pattern as part of your calculation.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-trigger-and-tit-for-tat-tau-nu">
+      <statement>
+        <p>
+          Find the payoffs <m>\pi_1(\tau, \nu)</m> and
+          <m>\pi_2(\tau, \nu)</m> when Player 1 uses <m>\tau</m> and Player
+          2 uses <m>\nu</m>. Make it clear in your work which move each
+          player makes in each round.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-trigger-and-tit-for-tat-threshold">
+      <statement>
+        <p>
+          Find <m>\delta_0</m> such that the strategy profile
+          <m>(\sigma, \sigma)</m> is a Nash equilibrium of the repeated game
+          whenever <m>\delta \geq \delta_0</m>.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-tit-for-tat-equilibrium">
+    <title>Tit for Tat as an Equilibrium</title>
+
+    <introduction>
+      <p>
+        Consider again the repeated Prisoner's Dilemma from
+        <xref ref="hw-trigger-and-tit-for-tat"/>, with the same stage game,
+        the same discount factor <m>\delta</m>, and the same strategies
+        <m>\sigma</m> (trigger), <m>\tau</m> (tit for tat), and
+        <m>\nu</m> (suspicious tit for tat).
+      </p>
+    </introduction>
+
+    <task xml:id="hw-tit-for-tat-equilibrium-compare">
+      <statement>
+        <p>
+          Explain how the payoffs for the strategy profile
+          <m>(\sigma, \sigma)</m> compare with the payoffs for the strategy
+          profile <m>(\tau, \tau)</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-equilibrium-nu">
+      <statement>
+        <p>
+          Find <m>\delta_0</m> such that
+          <m>\pi_1(\nu, \tau) \leq \pi_1(\tau, \tau)</m> whenever
+          <m>\delta \geq \delta_0</m>. That is, show that for a large enough
+          discount factor, Player 1 cannot improve their payoff by switching
+          from <m>\tau</m> to <m>\nu</m> when Player 2 plays <m>\tau</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-equilibrium-beta">
+      <statement>
+        <p>
+          Let <m>\beta</m> denote the strategy <q>always play
+          <m>d</m>.</q> Find <m>\delta_0</m> such that
+          <m>\pi_1(\beta, \tau) \leq \pi_1(\tau, \tau)</m> whenever
+          <m>\delta \geq \delta_0</m>. That is, show that for a large enough
+          discount factor, Player 1 cannot improve their payoff by switching
+          from <m>\tau</m> to <m>\beta</m> when Player 2 plays <m>\tau</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-equilibrium-what-to-show">
+      <statement>
+        <p>
+          In the previous two parts, we showed two possible strategy changes
+          for Player 1, and neither one improves Player 1's payoff over
+          playing <m>\tau</m>. It turns out that for large enough
+          <m>\delta</m>, the strategy profile <m>(\tau, \tau)</m> is a Nash
+          equilibrium of the repeated game. Describe briefly what we would
+          need to show to prove this.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-equilibrium-generous">
+      <statement>
+        <p>
+          Let <m>\zeta</m> denote generous tit for tat: play <m>c</m> in
+          round 0, and also play <m>c</m> in round 1. After that, play
+          whatever the other player played in the previous round. This
+          strategy is called generous (or forgiving) because it does not give
+          up on cooperation if the other player begins with <m>d</m>.
+        </p>
+        <p>
+          Find <m>\delta_0</m> such that
+          <m>\pi_1(\zeta, \nu) \gt \pi_1(\tau, \nu)</m> whenever
+          <m>\delta \gt \delta_0</m>. This result can be used to show that,
+          while <m>(\tau, \tau)</m> is a Nash equilibrium of the repeated
+          game, it is not subgame perfect.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-asymmetric-pd">
+    <title>A Game That Isn't Symmetric</title>
+
+    <introduction>
+      <p>
+        Players 1 and 2 play the infinitely repeated game whose stage game
+        is shown below, with payoffs listed as (Player 1, Player 2).
+      </p>
+
+      <table xml:id="table-hw-asymmetric-pd">
+        <title>The stage game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>c</m></cell>
+            <cell>Player 2: <m>d</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>c</m></cell>
+            <cell><m>(4, 6)</m></cell>
+            <cell><m>(-2, 10)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>d</m></cell>
+            <cell><m>(6, -1)</m></cell>
+            <cell><m>(1, 2)</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        The players play this stage game in rounds <m>k = 0, 1, 2, \ldots</m>,
+        with discount factor <m>\delta</m>, where <m>0 \lt \delta \lt 1</m>.
+        If <m>p_k</m> denotes a player's payoff in round <m>k</m>, then that
+        player's payoff for the repeated game is
+        <me>
+          \sum_{k=0}^{\infty} \delta^k p_k = p_0 + \delta p_1 + \delta^2 p_2 + \cdots.
+        </me>
+      </p>
+
+      <p>
+        Let <m>\sigma</m> denote the trigger strategy.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-asymmetric-pd-is-pd">
+      <statement>
+        <p>
+          Is the stage game a Prisoner's Dilemma type game? Explain why or
+          why not. (This game is not symmetric, but that is not essential to
+          a Prisoner's Dilemma type game.)
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-asymmetric-pd-player1">
+      <statement>
+        <p>
+          We want to find the values of <m>\delta</m> for which
+          <m>(\sigma, \sigma)</m> is a Nash equilibrium. Since the game is
+          not symmetric, we have to check Player 1 and Player 2 separately.
+        </p>
+        <p>
+          Start with Player 1. Write an inequality that must hold so that
+          Player 1 cannot improve their payoff by switching away from
+          <m>\sigma</m> while Player 2 plays <m>\sigma</m>. For which values
+          of <m>\delta</m> is it satisfied?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-asymmetric-pd-player2">
+      <statement>
+        <p>
+          Do the same for Player 2: write the inequality that must hold so
+          that Player 2 cannot improve their payoff by switching away from
+          <m>\sigma</m> while Player 1 plays <m>\sigma</m>. For which values
+          of <m>\delta</m> is it satisfied?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-asymmetric-pd-combine">
+      <statement>
+        <p>
+          Combine your answers to the previous two parts. Find
+          <m>\delta_0</m> such that <m>(\sigma, \sigma)</m> is a Nash
+          equilibrium of the repeated game whenever
+          <m>\delta \geq \delta_0</m>.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-common-fund">
+    <title>Contributing to a Common Fund</title>
+
+    <introduction>
+      <p>
+        Suppose 4 students from the class play the following game:
+      </p>
+      <ul>
+        <li>
+          <p>
+            Each student is given one (infinitely divisible) dollar. Each
+            student chooses, simultaneously, how much of their dollar to put
+            into a common fund.
+          </p>
+        </li>
+        <li>
+          <p>
+            The amount in the common fund is multiplied by 3, and the total
+            is split equally among the 4 students.
+          </p>
+        </li>
+        <li>
+          <p>
+            Let <m>x_i</m> denote Player <m>i</m>'s strategy, the amount they
+            put into the fund, so <m>0 \leq x_i \leq 1</m>.
+          </p>
+        </li>
+      </ul>
+    </introduction>
+
+    <task xml:id="hw-common-fund-payoff">
+      <statement>
+        <p>
+          Find the payoff function <m>\pi_i(x_i, x_{-i})</m> for Player
+          <m>i</m>. Remember that each player receives $1 before choosing how
+          much to put into the common fund.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_i(x_i, x_{-i}) = 1 - x_i + \frac{3}{4}(x_1 + x_2 + x_3 + x_4)</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-common-fund-dominated">
+      <statement>
+        <p>
+          Show that for each player <m>i</m>, choosing <m>x_i \gt 0</m> is
+          strictly dominated by choosing <m>x_i = 0</m>. In other words,
+          explain why your expression from the previous part is largest when
+          <m>x_i = 0</m>, no matter what the other players contribute.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-common-fund-three-payoffs">
+      <statement>
+        <p>
+          Let <m>0 \lt y \leq 1</m>. Using your payoff function, find
+          Player <m>i</m>'s payoff in each of these situations:
+        </p>
+        <ol marker="i.">
+          <li>
+            <p>Every player, including Player <m>i</m>, contributes <m>y</m>.</p>
+          </li>
+          <li>
+            <p>
+              Player <m>i</m> contributes 0, and every other player
+              contributes <m>y</m>.
+            </p>
+          </li>
+          <li>
+            <p>Every player contributes 0.</p>
+          </li>
+        </ol>
+      </statement>
+    </task>
+
+    <task xml:id="hw-common-fund-trigger">
+      <statement>
+        <p>
+          Now suppose the same 4 students play this game over and over, in
+          rounds <m>k = 0, 1, 2, \ldots</m>, with discount factor
+          <m>\delta</m>, where <m>0 \lt \delta \lt 1</m>. If <m>p_k</m>
+          denotes a player's payoff in round <m>k</m>, then that player's
+          payoff for the repeated game is
+          <me>
+            \sum_{k=0}^{\infty} \delta^k p_k = p_0 + \delta p_1 + \delta^2 p_2 + \cdots.
+          </me>
+        </p>
+        <p>
+          Each round is a fresh copy of the game above. At the start of every
+          round, each player receives a <em>new</em> dollar and decides how
+          much of that dollar to put into the common fund. Money a player
+          kept or received in earlier rounds cannot be put into the fund. So
+          in every round, each player's payoff is given by your formula from
+          the first part.
+        </p>
+        <p>
+          Define a <q>trigger-type</q> strategy <m>\sigma_y</m>, where
+          <m>0 \lt y \leq 1</m>, as follows:
+        </p>
+        <ul>
+          <li>
+            <p>Contribute <m>y</m> in round 0.</p>
+          </li>
+          <li>
+            <p>
+              Keep contributing <m>y</m> in each later round, as long as
+              every other student contributed at least <m>y</m> in the
+              previous round.
+            </p>
+          </li>
+          <li>
+            <p>
+              If one or more students contributed less than <m>y</m> in the
+              previous round, contribute 0 in the current round, and keep
+              contributing 0 in every round after that.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Find <m>\delta_0</m> such that the strategy profile
+          <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> is a Nash
+          equilibrium whenever <m>\delta \geq \delta_0</m>.
+        </p>
+      </statement>
+      <hint>
+        <ul>
+          <li>
+            <p>You will need your results from the previous part.</p>
+          </li>
+          <li>
+            <p>
+              Just as with the Prisoner's Dilemma, you can think about the
+              first round in which Player <m>i</m> contributes 0 instead of
+              <m>y</m>. It is enough to consider the case where Player
+              <m>i</m> does this right away, in round 0. What is Player
+              <m>i</m>'s payoff in round 0, with everyone else contributing
+              <m>y</m>? What happens in later rounds? Don't forget that the
+              players keep receiving $1 in each round, even if they
+              contribute 0 to the fund.
+            </p>
+          </li>
+        </ul>
+      </hint>
+    </task>
+  </exercise>
+
+</exercises>

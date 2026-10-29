@@ -363,4 +363,389 @@
     </task>
   </exercise>
 
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-maximin-concepts">
+    <title>Maximins and Theorem 5.6</title>
+
+    <task xml:id="ans-maximin-concepts-pure">
+      <title>Pure strategies only</title>
+      <statement>
+        <p>
+          Find the pure worst cases, the best pure strategies
+          <m>s_1</m> and <m>s_2</m>, and decide whether
+          <m>(s_1, s_2)</m> is a Nash equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <ol marker="i.">
+          <li>
+            <p>
+              <m>m_1(a) = \min(3, -1) = -1</m>,
+              <m>m_1(b) = \min(-2, 1) = -2</m>,
+              <m>m_2(x) = \min(-3, 2) = -3</m>, and
+              <m>m_2(y) = \min(1, -1) = -1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>s_1 = a</m>, guaranteeing <m>m_1(a) = -1</m>, and
+              <m>s_2 = y</m>, guaranteeing <m>m_2(y) = -1</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              No. Against <m>y</m>, Player 1 would rather play <m>b</m>
+              (<m>1 \gt -1</m>). The guaranteed payoffs add up to
+              <m>-2</m>, not <m>0</m>.
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </task>
+
+    <task xml:id="ans-maximin-concepts-scenario">
+      <title>A general zero-sum game</title>
+      <statement>
+        <p>
+          Answer each question and say which part of Theorem 5.6 tells you.
+        </p>
+      </statement>
+      <solution>
+        <ol marker="i.">
+          <li>
+            <p>
+              <m>m_1^\dagger = 5</m> by part (2), since Player 1 gets her
+              maximin payoff at the Nash equilibrium
+              <m>(\sigma_1, \sigma_2)</m>. Then
+              <m>m_2^\dagger = -5</m> by part (3).
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\pi_1(\tau_1, \tau_2) = m_1^\dagger = 5</m>, by part (2).
+            </p>
+          </li>
+          <li>
+            <p>
+              Yes, by the interchangeability property (which comes from
+              part (1): <m>\sigma_1</m> and <m>\tau_2</m> are both maximin
+              strategies). By part (2),
+              <m>\pi_2(\sigma_1, \tau_2) = m_2^\dagger = -5</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              No. Interchangeability says you can swap halves, not that the
+              halves are equal, and a player can have more than one maximin
+              strategy. For example, in the zero-sum game where both of
+              Player 1's rows are <m>(1, -1)</m> against <m>x</m> and
+              <m>(0, 0)</m> against <m>y</m>, both <m>(a, y)</m> and
+              <m>(b, y)</m> are Nash equilibria.
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-maximin-2x2">
+    <title>Computing a Maximin Equilibrium</title>
+
+    <task xml:id="ans-maximin-2x2-worst-case">
+      <title>Player 1's worst case</title>
+      <statement>
+        <p>
+          Fill in the sign analysis and find <m>m_1(p)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dfrac{\partial \pi_1}{\partial q} = 7p - 3</m>, which is
+          negative if <m>0 \leq p \lt \frac{3}{7}</m>, zero if
+          <m>p = \frac{3}{7}</m>, and positive if
+          <m>\frac{3}{7} \lt p \leq 1</m>. So the worst case is at
+          <m>q = 1</m> for <m>p \lt \frac{3}{7}</m> and at <m>q = 0</m>
+          for <m>p \gt \frac{3}{7}</m>. Since
+          <m>\pi_1(p, 1) = 5p - 2</m> and <m>\pi_1(p, 0) = 1 - 2p</m>,
+          <me>
+            m_1(p) =
+            \begin{cases}
+              5p - 2 \amp \text{if } 0 \leq p \lt \frac{3}{7}, \\
+              \frac{1}{7} \amp \text{if } p = \frac{3}{7}, \\
+              1 - 2p \amp \text{if } \frac{3}{7} \lt p \leq 1.
+            \end{cases}
+          </me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-maximin-2x2-player1">
+      <title>Player 1's maximin strategy</title>
+      <statement>
+        <p>
+          Find <m>p^\dagger</m> and <m>m_1^\dagger</m>, and compare with
+          pure strategies.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The graph is an upside-down V with its peak at
+          <m>(\frac{3}{7}, \frac{1}{7})</m>. So
+          <m>p^\dagger = \frac{3}{7}</m>, that is,
+          <m>\sigma_1^\dagger = \frac{3}{7}a + \frac{4}{7}b</m>, and
+          <m>m_1^\dagger = \frac{1}{7}</m>. This is more than the
+          <m>m_1(a) = -1</m> that Player 1 could guarantee with pure
+          strategies only.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-maximin-2x2-player2">
+      <title>Player 2's maximin strategy</title>
+      <statement>
+        <p>
+          Explain why <m>\pi_2 = -\pi_1</m>, and find <m>m_2(q)</m>,
+          <m>q^\dagger</m>, and <m>m_2^\dagger</m>.
+        </p>
+      </statement>
+      <solution>
+        <ol marker="i.">
+          <li>
+            <p>
+              The game is zero-sum, so the payoffs add up to <m>0</m> in
+              every cell. Each expected payoff is a weighted average of the
+              cells with the same weights, so
+              <m>\pi_1 + \pi_2 = 0</m> for mixed strategies too, and
+              <m>\pi_2(p, q) = -\pi_1(p, q)</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>\dfrac{\partial \pi_2}{\partial p} = 2 - 7q</m>, which is
+              positive for <m>q \lt \frac{2}{7}</m> and negative for
+              <m>q \gt \frac{2}{7}</m>. So the worst case is at
+              <m>p = 0</m> for <m>q \lt \frac{2}{7}</m> and at
+              <m>p = 1</m> for <m>q \gt \frac{2}{7}</m>:
+              <me>
+                m_2(q) =
+                \begin{cases}
+                  \pi_2(0, q) = 3q - 1 \amp \text{if } 0 \leq q \lt \frac{2}{7}, \\
+                  -\frac{1}{7} \amp \text{if } q = \frac{2}{7}, \\
+                  \pi_2(1, q) = 1 - 4q \amp \text{if } \frac{2}{7} \lt q \leq 1.
+                \end{cases}
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              The peak is at <m>(\frac{2}{7}, -\frac{1}{7})</m>, so
+              <m>q^\dagger = \frac{2}{7}</m> and
+              <m>m_2^\dagger = -\frac{1}{7}</m>.
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </task>
+
+    <task xml:id="ans-maximin-2x2-theorem">
+      <title>Using Theorem 5.6</title>
+      <statement>
+        <p>
+          Find the maximin equilibrium, use Theorem 5.6, and compare with
+          pure strategies.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The maximin equilibrium is
+          <m>(p^\dagger, q^\dagger) = (\frac{3}{7}, \frac{2}{7})</m>, and
+          <m>m_1^\dagger + m_2^\dagger = \frac{1}{7} - \frac{1}{7} = 0</m>.
+          By part (1) of Theorem 5.6, <m>(\frac{3}{7}, \frac{2}{7})</m> is
+          a Nash equilibrium, and by part (2), the payoffs there are
+          <m>(\frac{1}{7}, -\frac{1}{7})</m>.
+        </p>
+        <p>
+          With pure strategies only, each player could guarantee just
+          <m>-1</m>, the guarantees added to <m>-2</m>, and there was no
+          Nash equilibrium. With mixing, both players can guarantee more,
+          the maximin payoffs add to <m>0</m>, and the maximin
+          equilibrium is a Nash equilibrium.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-triple-rps">
+    <title>Triple Rock-Paper-Scissors</title>
+
+    <task xml:id="ans-triple-rps-zero-sum">
+      <title>Zero-sum</title>
+      <statement>
+        <p>
+          Why is the game zero-sum?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          In every cell, the two payoffs add up to <m>0</m>: whatever the
+          winner gets, the loser loses, and ties give both players
+          <m>0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-triple-rps-player1">
+      <title>Player 1's strategy</title>
+      <statement>
+        <p>
+          Find <m>\sigma_1^*</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Player 2's three strategies are active, so
+          <m>-b + 3c = a - c = -3a + b</m>. These give <m>c = a</m> and
+          <m>b = 3a</m>, and <m>a + b + c = 1</m> then gives
+          <m>a = \frac{1}{5}</m>. So
+          <m>\sigma_1^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-triple-rps-player2">
+      <title>Player 2's strategy</title>
+      <statement>
+        <p>
+          Find <m>\sigma_2^*</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The same algebra, with Player 1's indifference equations
+          <m>-y + 3z = x - z = -3x + y</m>, gives
+          <m>\sigma_2^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-triple-rps-unique">
+      <title>Only one Nash equilibrium</title>
+      <statement>
+        <p>
+          Explain why there are no other Nash equilibria.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Let <m>(\tau_1, \tau_2)</m> be any Nash equilibrium. By
+          interchangeability, <m>(\tau_1, \sigma_2^*)</m> is also a Nash
+          equilibrium. In it, Player 2 uses all three strategies, so by
+          part (b), <m>\tau_1 = \sigma_1^*</m>. In the same way,
+          <m>(\sigma_1^*, \tau_2)</m> is a Nash equilibrium in which Player
+          1 uses all three strategies, so by part (c),
+          <m>\tau_2 = \sigma_2^*</m>. So
+          <m>(\tau_1, \tau_2) = (\sigma_1^*, \sigma_2^*)</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-triple-rps-paper">
+      <title>Why paper?</title>
+      <statement>
+        <p>
+          Speculate why paper is played most often.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Answers will vary. One explanation: rock now beats scissors by a
+          lot, so for rock not to be too tempting, scissors has to be
+          played rarely. Paper's only weakness is scissors, so when
+          scissors is rare, paper is safe and is played more. And with
+          more paper around, rock is played less.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-tit-for-tat">
+    <title>Tit for Tat</title>
+
+    <task xml:id="ans-tit-for-tat-tt">
+      <title>The tie</title>
+      <statement>
+        <p>
+          Check that <m>h</m> ties with <m>t</m> against Bob's <m>t</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Against Bob's <m>t</m>, Al gets <m>10</m> from <m>h</m> and
+          <m>10</m> from <m>t</m> (and <m>9</m> from <m>l</m>).
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tit-for-tat-equality">
+      <title>The indifference equations</title>
+      <statement>
+        <p>
+          Check that both indifference equations hold for every
+          <m>p</m> and <m>q</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_1(h, \tau) = 10q + 10(1-q) = 10</m> and
+          <m>\pi_1(t, \tau) = 10q + 10(1-q) = 10</m>. Similarly,
+          <m>\pi_2(\sigma, h) = \pi_2(\sigma, t) = 10</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tit-for-tat-inequality">
+      <title>The inequality conditions</title>
+      <statement>
+        <p>
+          Find the range of <m>p</m> and <m>q</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\pi_1(l, \tau) = 12q + 9(1-q) = 9 + 3q \leq 10</m> gives
+          <m>q \leq \frac{1}{3}</m>. Similarly,
+          <m>\pi_2(\sigma, l) = 9 + 3p \leq 10</m> gives
+          <m>p \leq \frac{1}{3}</m>. So
+          <m>(ph + (1-p)t,\ qh + (1-q)t)</m> is a Nash equilibrium for
+          every <m>0 \lt p \leq \frac{1}{3}</m> and
+          <m>0 \lt q \leq \frac{1}{3}</m>: a whole range of equilibria,
+          not just one.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="ans-tit-for-tat-swap">
+      <title>Swapping halves</title>
+      <statement>
+        <p>
+          Why doesn't <m>(l, \tau)</m> contradict interchangeability?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Interchangeability comes from Theorem 5.6, which only applies to
+          zero-sum games, and this game isn't zero-sum (for example,
+          <m>(10, 10)</m>). (Against Al's <m>l</m>, Bob's <m>\tau</m>
+          earns <m>\frac{1}{3}(0) + \frac{2}{3}(3) = 2</m>, while
+          <m>l</m> earns <m>6</m>.)
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+
+
 </exercises>
