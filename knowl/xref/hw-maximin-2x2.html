@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h2 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Maximin Equilibrium.</span>
+</h2>
+<div class="introduction">
+<div class="para">Consider the game from <a href="ch5-exercises.html#hw-maximin-concepts" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.6: Maximins and Theorem 5.6">Exercise 5.7.6</a> (<a href="ch5-exercises.html#table-hw-maximin-2x2" class="xref" data-knowl="./knowl/xref/table-hw-maximin-2x2.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.7.7: A 2 \times 2 zero-sum game">Table 5.7.7</a>). This time the players can use mixed strategies. Write Player 1’s mixed strategy as <span class="process-math">\(\sigma_1 = pa + (1-p)b\)</span> and Player 2’s as <span class="process-math">\(\sigma_2 = qx + (1-q)y\text{.}\)</span> Like the book, we write a strategy profile as <span class="process-math">\((p, q)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">We want Player 1’s worst case <span class="process-math">\(m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q)\)</span> for each <span class="process-math">\(p\text{.}\)</span> Follow the Battle of the Sexes example in the notes (starting at <a href="page4-zero-sum.html#table-bos-pq" class="xref" data-knowl="./knowl/xref/table-bos-pq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.5: Battle of the Sexes, with mixed strategies">Table 5.4.5</a>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-2x2-worst-case-1-2">
+<li>
+<div class="para logical">
+<div class="para">Show that Player 1’s expected payoff is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi_1(p, q) = 7pq - 2p - 3q + 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.i"><a href="#hw-maximin-2x2-worst-case-1-2-1" title="Copy heading and permalink for Item 5.7.7.i" aria-label="Copy heading and permalink for Item 5.7.7.i">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Hold <span class="process-math">\(p\)</span> fixed and differentiate with respect to <span class="process-math">\(q\text{.}\)</span> Fill in the blanks:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\partial \pi_1}{\partial q} = \underline{\qquad\qquad},
+\quad\text{which is }
+\begin{cases}
+\text{negative} \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+0 \amp \text{if } p = \underline{\qquad}, \\
+\text{positive} \amp \text{if } \underline{\qquad} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.ii"><a href="#hw-maximin-2x2-worst-case-1-2-2" title="Copy heading and permalink for Item 5.7.7.ii" aria-label="Copy heading and permalink for Item 5.7.7.ii">🔗</a></div>
+</li>
+<li>
+<div class="para logical">
+<div class="para">Use the sign from (ii) to fill in which value of <span class="process-math">\(q\)</span> gives Player 1 her worst case:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m_1(p) =
+\begin{cases}
+\pi_1(p, \underline{\qquad}) \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+\text{any } \pi_1(p, q) \amp \text{if } p = \underline{\qquad}, \\
+\pi_1(p, \underline{\qquad}) \amp \text{if } \underline{\qquad} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Then evaluate <span class="process-math">\(\pi_1(p, 1)\)</span> and <span class="process-math">\(\pi_1(p, 0)\)</span> using the formula from (i) to write <span class="process-math">\(m_1(p)\)</span> as a piecewise function of <span class="process-math">\(p\)</span> alone.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.iii"><a href="#hw-maximin-2x2-worst-case-1-2-3" title="Copy heading and permalink for Item 5.7.7.iii" aria-label="Copy heading and permalink for Item 5.7.7.iii">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para">If <span class="process-math">\(\dfrac{\partial \pi_1}{\partial q}\)</span> is negative, <span class="process-math">\(\pi_1(p, q)\)</span> goes down as <span class="process-math">\(q\)</span> goes up, so it’s lowest at <span class="process-math">\(q = 1\text{.}\)</span> If it’s positive, it’s lowest at <span class="process-math">\(q = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.7.a.1"><a href="#hw-maximin-2x2-worst-case-2" title="Copy heading and permalink for Hint 5.7.7.a.1" aria-label="Copy heading and permalink for Hint 5.7.7.a.1">🔗</a></div>
+</div></details>
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical">
+<div class="para">
+<span class="process-math">\(\dfrac{\partial \pi_1}{\partial q} = 7p - 3\text{,}\)</span> which changes sign at <span class="process-math">\(p = \frac{3}{7}\text{,}\)</span> and</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m_1(p) =
+\begin{cases}
+5p - 2 \amp \text{if } 0 \leq p \lt \frac{3}{7}, \\
+\frac{1}{7} \amp \text{if } p = \frac{3}{7}, \\
+1 - 2p \amp \text{if } \frac{3}{7} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.7.a.1"><a href="#hw-maximin-2x2-worst-case-3" title="Copy heading and permalink for Solution 5.7.7.a.1" aria-label="Copy heading and permalink for Solution 5.7.7.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.a"><a href="#hw-maximin-2x2-worst-case" title="Copy heading and permalink for Task 5.7.7.a" aria-label="Copy heading and permalink for Task 5.7.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">Sketch the graph of <span class="process-math">\(m_1(p)\text{.}\)</span> Use it to find Player 1’s maximin strategy <span class="process-math">\(p^\dagger\)</span> (write it as a mixed strategy <span class="process-math">\(\sigma_1^\dagger\)</span> too) and her maximin payoff <span class="process-math">\(m_1^\dagger\text{.}\)</span> Compare <span class="process-math">\(m_1^\dagger\)</span> with the payoff Player 1 could guarantee with pure strategies only, from <a href="ch5-exercises.html#hw-maximin-concepts-pure" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts-pure.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.7.6.a">Task 5.7.6.a</a>(ii).<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para">
+<span class="process-math">\(p^\dagger = \frac{3}{7}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{1}{7}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.7.b.1"><a href="#hw-maximin-2x2-player1-2" title="Copy heading and permalink for Solution 5.7.7.b.1" aria-label="Copy heading and permalink for Solution 5.7.7.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.b"><a href="#hw-maximin-2x2-player1" title="Copy heading and permalink for Task 5.7.7.b" aria-label="Copy heading and permalink for Task 5.7.7.b">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<div class="para">Now find Player 2’s maximin strategy and maximin payoff.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-2x2-player2-1-2">
+<li>
+<div class="para logical">
+<div class="para">Explain, without doing any computation, why</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\pi_2(p, q) = -(7pq - 2p - 3q + 1).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.i"><a href="#hw-maximin-2x2-player2-1-2-1" title="Copy heading and permalink for Item 5.7.7.i" aria-label="Copy heading and permalink for Item 5.7.7.i">🔗</a></div>
+</li>
+<li>
+<div class="para">Go through the process of part (a) for Player 2 to find her worst case <span class="process-math">\(m_2(q) = \min_{0 \leq p \leq 1} \pi_2(p, q)\)</span> as a piecewise function of <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.ii"><a href="#hw-maximin-2x2-player2-1-2-2" title="Copy heading and permalink for Item 5.7.7.ii" aria-label="Copy heading and permalink for Item 5.7.7.ii">🔗</a></div>
+</li>
+<li>
+<div class="para">Sketch the graph of <span class="process-math">\(m_2(q)\text{,}\)</span> and use it to find Player 2’s maximin strategy <span class="process-math">\(q^\dagger\)</span> and her maximin payoff <span class="process-math">\(m_2^\dagger\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.iii"><a href="#hw-maximin-2x2-player2-1-2-3" title="Copy heading and permalink for Item 5.7.7.iii" aria-label="Copy heading and permalink for Item 5.7.7.iii">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para">For i: the game is zero-sum, and you already know Player 1’s payoff. For ii: this time hold <span class="process-math">\(q\)</span> fixed and look at the sign of <span class="process-math">\(\dfrac{\partial \pi_2}{\partial p}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.7.c.1"><a href="#hw-maximin-2x2-player2-2" title="Copy heading and permalink for Hint 5.7.7.c.1" aria-label="Copy heading and permalink for Hint 5.7.7.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.c"><a href="#hw-maximin-2x2-player2" title="Copy heading and permalink for Task 5.7.7.c" aria-label="Copy heading and permalink for Task 5.7.7.c">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(d)</span></h3>
+<div class="para">Write down the maximin equilibrium <span class="process-math">\((p^\dagger, q^\dagger)\text{,}\)</span> and check that <span class="process-math">\(m_1^\dagger + m_2^\dagger = 0\text{.}\)</span> Then, <em class="emphasis">without</em> solving any indifference equations, use Theorem 5.6 to find a Nash equilibrium of this game and each player’s payoff there (hint: this should be quick!!). Say which parts of the theorem you used. Finally, compare with <a href="ch5-exercises.html#hw-maximin-concepts-pure" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts-pure.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.7.6.a">Task 5.7.6.a</a>: what changed when the players were allowed to mix?<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-theorem-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.d"><a href="#hw-maximin-2x2-theorem" title="Copy heading and permalink for Task 5.7.7.d" aria-label="Copy heading and permalink for Task 5.7.7.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 5.7.7: Computing a Maximin Equilibrium"><a href="#hw-maximin-2x2" title="Copy heading and permalink for Exercise 5.7.7: Computing a Maximin Equilibrium" aria-label="Copy heading and permalink for Exercise 5.7.7: Computing a Maximin Equilibrium">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch5-exercises.html#hw-maximin-2x2">In Context</a></span>
+</body>
+</html>

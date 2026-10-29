@@ -19,6 +19,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
@@ -629,6 +630,489 @@ x + y + z \amp = 1
 </div>
 </div>
 <div class="autopermalink" data-description="Exercise 5.7.5: A Simple Poker Game, Revisited"><a href="#hw-simple-poker-mixed" title="Copy heading and permalink for Exercise 5.7.5: A Simple Poker Game, Revisited" aria-label="Copy heading and permalink for Exercise 5.7.5: A Simple Poker Game, Revisited">🔗</a></div>
+</article></details>
+<details id="hw-maximin-concepts" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Maximins and Theorem 5.6.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-maximin-concepts-2">
+<div class="para" id="hw-maximin-concepts-2-1">Consider the following zero-sum game. We’ll come back to it in <a href="ch5-exercises.html#hw-maximin-2x2" class="xref" data-knowl="./knowl/xref/hw-maximin-2x2.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.7: Computing a Maximin Equilibrium">Exercise 5.7.7</a>.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-maximin-2x2"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>A <span class="process-math">\(2 \times 2\)</span> zero-sum game<div class="autopermalink" data-description="Table 5.7.7: A 2 \times 2 zero-sum game"><a href="#table-hw-maximin-2x2" title="Copy heading and permalink for Table 5.7.7: A 2 \times 2 zero-sum game" aria-label="Copy heading and permalink for Table 5.7.7: A 2 \times 2 zero-sum game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(x\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(y\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(3\text{,}\)</span> <span class="process-math">\(-3\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-1\text{,}\)</span> <span class="process-math">\(1\)</span>)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-2\text{,}\)</span> <span class="process-math">\(2\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(-1\)</span>)</td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-maximin-concepts-pure"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-maximin-concepts-pure-1-1">First, suppose each player may only use pure strategies.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-concepts-pure-1-2">
+<li id="hw-maximin-concepts-pure-1-2-1">
+<div class="para logical" id="hw-maximin-concepts-pure-1-2-1-1">
+<div class="para">Find each player’s worst case for each of their pure strategies: <span class="process-math">\(m_1(a)\)</span> and <span class="process-math">\(m_1(b)\)</span> for Player 1, and <span class="process-math">\(m_2(x)\)</span> and <span class="process-math">\(m_2(y)\)</span> for Player 2. For example,</div>
+<div class="displaymath process-math" id="hw-maximin-concepts-pure-1-2-1-1-5">
+\begin{equation*}
+m_1(a) = \min_{\sigma_2} \pi_1(a, \sigma_2).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.i"><a href="#hw-maximin-concepts-pure-1-2-1" title="Copy heading and permalink for Item 5.7.6.i" aria-label="Copy heading and permalink for Item 5.7.6.i">🔗</a></div>
+</li>
+<li id="hw-maximin-concepts-pure-1-2-2">
+<div class="para" id="hw-maximin-concepts-pure-1-2-2-1">Among pure strategies only, which strategy gives each player the largest worst case? Call these <span class="process-math">\(s_1\)</span> for Player 1 and <span class="process-math">\(s_2\)</span> for Player 2. What payoffs <span class="process-math">\(m_1(s_1)\)</span> and <span class="process-math">\(m_2(s_2)\)</span> do they guarantee? (This is a “max of mins” like a maximin, but it is <em class="emphasis">not</em> the maximin payoff <span class="process-math">\(m_1^\dagger\)</span> from Section 5.5, because we’re only allowing pure strategies.)<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.ii"><a href="#hw-maximin-concepts-pure-1-2-2" title="Copy heading and permalink for Item 5.7.6.ii" aria-label="Copy heading and permalink for Item 5.7.6.ii">🔗</a></div>
+</li>
+<li id="hw-maximin-concepts-pure-1-2-3">
+<div class="para" id="hw-maximin-concepts-pure-1-2-3-1">Is <span class="process-math">\((s_1, s_2)\)</span> a Nash equilibrium? Do the two guaranteed payoffs <span class="process-math">\(m_1(s_1)\)</span> and <span class="process-math">\(m_2(s_2)\)</span> add up to <span class="process-math">\(0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.iii"><a href="#hw-maximin-concepts-pure-1-2-3" title="Copy heading and permalink for Item 5.7.6.iii" aria-label="Copy heading and permalink for Item 5.7.6.iii">🔗</a></div>
+</li>
+</ol> 
+<div class="para" id="hw-maximin-concepts-pure-1-3">(Keep your answers in mind. In <a href="ch5-exercises.html#hw-maximin-2x2" class="xref" data-knowl="./knowl/xref/hw-maximin-2x2.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.7: Computing a Maximin Equilibrium">Exercise 5.7.7</a>, you’ll see what changes when the players can mix.)<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-maximin-concepts-pure-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-maximin-concepts-pure-2-1">For i: the minimum is over all of Player 2’s strategies, including mixed ones. But against a mixed strategy, Player 1’s payoff is a weighted average of her payoffs against <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> so the worst case is always at a pure strategy.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-pure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.6.a.1"><a href="#hw-maximin-concepts-pure-2" title="Copy heading and permalink for Hint 5.7.6.a.1" aria-label="Copy heading and permalink for Hint 5.7.6.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.6.a"><a href="#hw-maximin-concepts-pure" title="Copy heading and permalink for Task 5.7.6.a" aria-label="Copy heading and permalink for Task 5.7.6.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-maximin-concepts-scenario"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-maximin-concepts-scenario-1-1">Now let’s consider a general zero-sum game. Suppose that <span class="process-math">\((\sigma_1, \sigma_2)\)</span> and <span class="process-math">\((\tau_1, \tau_2)\)</span> are both Nash equilibria of a two-player zero-sum game, and that <span class="process-math">\(\pi_1(\sigma_1, \sigma_2) = 5\text{.}\)</span> Answer each question, and say which part of Theorem 5.6 (or the interchangeability property, <a href="page5-ultimatum-water-pollution.html#check-interchangeability" class="xref" data-knowl="./knowl/xref/check-interchangeability.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.5.1: Interchangeability">Checkpoint 5.5.1</a>) tells you.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-concepts-scenario-1-2">
+<li id="hw-maximin-concepts-scenario-1-2-1">
+<div class="para" id="hw-maximin-concepts-scenario-1-2-1-1">What are <span class="process-math">\(m_1^\dagger\)</span> and <span class="process-math">\(m_2^\dagger\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.i"><a href="#hw-maximin-concepts-scenario-1-2-1" title="Copy heading and permalink for Item 5.7.6.i" aria-label="Copy heading and permalink for Item 5.7.6.i">🔗</a></div>
+</li>
+<li id="hw-maximin-concepts-scenario-1-2-2">
+<div class="para" id="hw-maximin-concepts-scenario-1-2-2-1">What is <span class="process-math">\(\pi_1(\tau_1, \tau_2)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.ii"><a href="#hw-maximin-concepts-scenario-1-2-2" title="Copy heading and permalink for Item 5.7.6.ii" aria-label="Copy heading and permalink for Item 5.7.6.ii">🔗</a></div>
+</li>
+<li id="hw-maximin-concepts-scenario-1-2-3">
+<div class="para" id="hw-maximin-concepts-scenario-1-2-3-1">Is <span class="process-math">\((\sigma_1, \tau_2)\)</span> a Nash equilibrium? What is <span class="process-math">\(\pi_2(\sigma_1, \tau_2)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.iii"><a href="#hw-maximin-concepts-scenario-1-2-3" title="Copy heading and permalink for Item 5.7.6.iii" aria-label="Copy heading and permalink for Item 5.7.6.iii">🔗</a></div>
+</li>
+<li id="hw-maximin-concepts-scenario-1-2-4">
+<div class="para" id="hw-maximin-concepts-scenario-1-2-4-1">Must <span class="process-math">\(\sigma_1 = \tau_1\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.6.iv"><a href="#hw-maximin-concepts-scenario-1-2-4" title="Copy heading and permalink for Item 5.7.6.iv" aria-label="Copy heading and permalink for Item 5.7.6.iv">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="hw-maximin-concepts-scenario-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-maximin-concepts-scenario-2-1">For iv: does the interchangeability property say the halves of two Nash equilibria are <em class="emphasis">equal</em>, or only that you can <em class="emphasis">swap</em> them?<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-scenario-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.6.b.1"><a href="#hw-maximin-concepts-scenario-2" title="Copy heading and permalink for Hint 5.7.6.b.1" aria-label="Copy heading and permalink for Hint 5.7.6.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.6.b"><a href="#hw-maximin-concepts-scenario" title="Copy heading and permalink for Task 5.7.6.b" aria-label="Copy heading and permalink for Task 5.7.6.b">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-maximin-concepts-5">
+<div class="para" id="hw-maximin-concepts-5-1">
+<em class="alert">Remark.</em> In part (a), <span class="process-math">\((s_1, s_2)\)</span> is not a Nash equilibrium, even though the game is zero-sum. This doesn’t contradict Theorem 5.6. In Section 5.5, <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(\sigma_2\)</span> range over <em class="emphasis">all</em> strategies, including mixed ones, so the maximin strategies and maximin payoffs <span class="process-math">\(m_i^\dagger\)</span> in Theorem 5.6 are taken over all mixed strategies. As part (a)(ii) points out, <span class="process-math">\(s_1\)</span> and <span class="process-math">\(s_2\)</span> are only the best <em class="emphasis">pure</em> strategies, so <span class="process-math">\((s_1, s_2)\)</span> is not a maximin equilibrium. In <a href="ch5-exercises.html#hw-maximin-2x2" class="xref" data-knowl="./knowl/xref/hw-maximin-2x2.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.7: Computing a Maximin Equilibrium">Exercise 5.7.7</a>, you’ll see that mixing guarantees Player 1 more than <span class="process-math">\(m_1(s_1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="hw-maximin-concepts-5-2">In fact, Theorem 5.6 couldn’t hold for pure strategies alone. A pair of best pure strategies like <span class="process-math">\((s_1, s_2)\)</span> always exists, but this game has no pure strategy Nash equilibrium. Mixed strategies are what make the theorem work.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-concepts-5-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 5.7.6: Maximins and Theorem 5.6"><a href="#hw-maximin-concepts" title="Copy heading and permalink for Exercise 5.7.6: Maximins and Theorem 5.6" aria-label="Copy heading and permalink for Exercise 5.7.6: Maximins and Theorem 5.6">🔗</a></div>
+</article></details>
+<details id="hw-maximin-2x2" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Maximin Equilibrium.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-maximin-2x2-2">
+<div class="para" id="hw-maximin-2x2-2-1">Consider the game from <a href="ch5-exercises.html#hw-maximin-concepts" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts.html" data-reveal-label="Reveal" data-close-label="Close" title="Exercise 5.7.6: Maximins and Theorem 5.6">Exercise 5.7.6</a> (<a href="ch5-exercises.html#table-hw-maximin-2x2" class="xref" data-knowl="./knowl/xref/table-hw-maximin-2x2.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.7.7: A 2 \times 2 zero-sum game">Table 5.7.7</a>). This time the players can use mixed strategies. Write Player 1’s mixed strategy as <span class="process-math">\(\sigma_1 = pa + (1-p)b\)</span> and Player 2’s as <span class="process-math">\(\sigma_2 = qx + (1-q)y\text{.}\)</span> Like the book, we write a strategy profile as <span class="process-math">\((p, q)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-maximin-2x2-worst-case"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-maximin-2x2-worst-case-1-1">We want Player 1’s worst case <span class="process-math">\(m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q)\)</span> for each <span class="process-math">\(p\text{.}\)</span> Follow the Battle of the Sexes example in the notes (starting at <a href="page4-zero-sum.html#table-bos-pq" class="xref" data-knowl="./knowl/xref/table-bos-pq.html" data-reveal-label="Reveal" data-close-label="Close" title="Table 5.4.5: Battle of the Sexes, with mixed strategies">Table 5.4.5</a>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-2x2-worst-case-1-2">
+<li id="hw-maximin-2x2-worst-case-1-2-1">
+<div class="para logical" id="hw-maximin-2x2-worst-case-1-2-1-1">
+<div class="para">Show that Player 1’s expected payoff is</div>
+<div class="displaymath process-math" id="hw-maximin-2x2-worst-case-1-2-1-1-1">
+\begin{equation*}
+\pi_1(p, q) = 7pq - 2p - 3q + 1.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.i"><a href="#hw-maximin-2x2-worst-case-1-2-1" title="Copy heading and permalink for Item 5.7.7.i" aria-label="Copy heading and permalink for Item 5.7.7.i">🔗</a></div>
+</li>
+<li id="hw-maximin-2x2-worst-case-1-2-2">
+<div class="para logical" id="hw-maximin-2x2-worst-case-1-2-2-1">
+<div class="para">Hold <span class="process-math">\(p\)</span> fixed and differentiate with respect to <span class="process-math">\(q\text{.}\)</span> Fill in the blanks:</div>
+<div class="displaymath process-math" id="hw-maximin-2x2-worst-case-1-2-2-1-3">
+\begin{equation*}
+\frac{\partial \pi_1}{\partial q} = \underline{\qquad\qquad},
+\quad\text{which is }
+\begin{cases}
+\text{negative} \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+0 \amp \text{if } p = \underline{\qquad}, \\
+\text{positive} \amp \text{if } \underline{\qquad} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.ii"><a href="#hw-maximin-2x2-worst-case-1-2-2" title="Copy heading and permalink for Item 5.7.7.ii" aria-label="Copy heading and permalink for Item 5.7.7.ii">🔗</a></div>
+</li>
+<li id="hw-maximin-2x2-worst-case-1-2-3">
+<div class="para logical" id="hw-maximin-2x2-worst-case-1-2-3-1">
+<div class="para">Use the sign from (ii) to fill in which value of <span class="process-math">\(q\)</span> gives Player 1 her worst case:</div>
+<div class="displaymath process-math" id="hw-maximin-2x2-worst-case-1-2-3-1-2">
+\begin{equation*}
+m_1(p) =
+\begin{cases}
+\pi_1(p, \underline{\qquad}) \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+\text{any } \pi_1(p, q) \amp \text{if } p = \underline{\qquad}, \\
+\pi_1(p, \underline{\qquad}) \amp \text{if } \underline{\qquad} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="para">Then evaluate <span class="process-math">\(\pi_1(p, 1)\)</span> and <span class="process-math">\(\pi_1(p, 0)\)</span> using the formula from (i) to write <span class="process-math">\(m_1(p)\)</span> as a piecewise function of <span class="process-math">\(p\)</span> alone.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.iii"><a href="#hw-maximin-2x2-worst-case-1-2-3" title="Copy heading and permalink for Item 5.7.7.iii" aria-label="Copy heading and permalink for Item 5.7.7.iii">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="hw-maximin-2x2-worst-case-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-maximin-2x2-worst-case-2-1">If <span class="process-math">\(\dfrac{\partial \pi_1}{\partial q}\)</span> is negative, <span class="process-math">\(\pi_1(p, q)\)</span> goes down as <span class="process-math">\(q\)</span> goes up, so it’s lowest at <span class="process-math">\(q = 1\text{.}\)</span> If it’s positive, it’s lowest at <span class="process-math">\(q = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.7.a.1"><a href="#hw-maximin-2x2-worst-case-2" title="Copy heading and permalink for Hint 5.7.7.a.1" aria-label="Copy heading and permalink for Hint 5.7.7.a.1">🔗</a></div>
+</div></details>
+<details id="hw-maximin-2x2-worst-case-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="hw-maximin-2x2-worst-case-3-1">
+<div class="para">
+<span class="process-math">\(\dfrac{\partial \pi_1}{\partial q} = 7p - 3\text{,}\)</span> which changes sign at <span class="process-math">\(p = \frac{3}{7}\text{,}\)</span> and</div>
+<div class="displaymath process-math" id="hw-maximin-2x2-worst-case-3-1-3">
+\begin{equation*}
+m_1(p) =
+\begin{cases}
+5p - 2 \amp \text{if } 0 \leq p \lt \frac{3}{7}, \\
+\frac{1}{7} \amp \text{if } p = \frac{3}{7}, \\
+1 - 2p \amp \text{if } \frac{3}{7} \lt p \leq 1.
+\end{cases}
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-worst-case-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.7.a.1"><a href="#hw-maximin-2x2-worst-case-3" title="Copy heading and permalink for Solution 5.7.7.a.1" aria-label="Copy heading and permalink for Solution 5.7.7.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.a"><a href="#hw-maximin-2x2-worst-case" title="Copy heading and permalink for Task 5.7.7.a" aria-label="Copy heading and permalink for Task 5.7.7.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-maximin-2x2-player1"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-maximin-2x2-player1-1-1">Sketch the graph of <span class="process-math">\(m_1(p)\text{.}\)</span> Use it to find Player 1’s maximin strategy <span class="process-math">\(p^\dagger\)</span> (write it as a mixed strategy <span class="process-math">\(\sigma_1^\dagger\)</span> too) and her maximin payoff <span class="process-math">\(m_1^\dagger\text{.}\)</span> Compare <span class="process-math">\(m_1^\dagger\)</span> with the payoff Player 1 could guarantee with pure strategies only, from <a href="ch5-exercises.html#hw-maximin-concepts-pure" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts-pure.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.7.6.a">Task 5.7.6.a</a>(ii).<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-maximin-2x2-player1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="hw-maximin-2x2-player1-2-1">
+<span class="process-math">\(p^\dagger = \frac{3}{7}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{1}{7}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.7.b.1"><a href="#hw-maximin-2x2-player1-2" title="Copy heading and permalink for Solution 5.7.7.b.1" aria-label="Copy heading and permalink for Solution 5.7.7.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.b"><a href="#hw-maximin-2x2-player1" title="Copy heading and permalink for Task 5.7.7.b" aria-label="Copy heading and permalink for Task 5.7.7.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-maximin-2x2-player2"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-maximin-2x2-player2-1-1">Now find Player 2’s maximin strategy and maximin payoff.<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="lower-roman ol-marker-1" id="hw-maximin-2x2-player2-1-2">
+<li id="hw-maximin-2x2-player2-1-2-1">
+<div class="para logical" id="hw-maximin-2x2-player2-1-2-1-1">
+<div class="para">Explain, without doing any computation, why</div>
+<div class="displaymath process-math" id="hw-maximin-2x2-player2-1-2-1-1-1">
+\begin{equation*}
+\pi_2(p, q) = -(7pq - 2p - 3q + 1).
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.i"><a href="#hw-maximin-2x2-player2-1-2-1" title="Copy heading and permalink for Item 5.7.7.i" aria-label="Copy heading and permalink for Item 5.7.7.i">🔗</a></div>
+</li>
+<li id="hw-maximin-2x2-player2-1-2-2">
+<div class="para" id="hw-maximin-2x2-player2-1-2-2-1">Go through the process of part (a) for Player 2 to find her worst case <span class="process-math">\(m_2(q) = \min_{0 \leq p \leq 1} \pi_2(p, q)\)</span> as a piecewise function of <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.ii"><a href="#hw-maximin-2x2-player2-1-2-2" title="Copy heading and permalink for Item 5.7.7.ii" aria-label="Copy heading and permalink for Item 5.7.7.ii">🔗</a></div>
+</li>
+<li id="hw-maximin-2x2-player2-1-2-3">
+<div class="para" id="hw-maximin-2x2-player2-1-2-3-1">Sketch the graph of <span class="process-math">\(m_2(q)\text{,}\)</span> and use it to find Player 2’s maximin strategy <span class="process-math">\(q^\dagger\)</span> and her maximin payoff <span class="process-math">\(m_2^\dagger\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 5.7.7.iii"><a href="#hw-maximin-2x2-player2-1-2-3" title="Copy heading and permalink for Item 5.7.7.iii" aria-label="Copy heading and permalink for Item 5.7.7.iii">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="hw-maximin-2x2-player2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-maximin-2x2-player2-2-1">For i: the game is zero-sum, and you already know Player 1’s payoff. For ii: this time hold <span class="process-math">\(q\)</span> fixed and look at the sign of <span class="process-math">\(\dfrac{\partial \pi_2}{\partial p}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.7.c.1"><a href="#hw-maximin-2x2-player2-2" title="Copy heading and permalink for Hint 5.7.7.c.1" aria-label="Copy heading and permalink for Hint 5.7.7.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.c"><a href="#hw-maximin-2x2-player2" title="Copy heading and permalink for Task 5.7.7.c" aria-label="Copy heading and permalink for Task 5.7.7.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-maximin-2x2-theorem"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="hw-maximin-2x2-theorem-1-1">Write down the maximin equilibrium <span class="process-math">\((p^\dagger, q^\dagger)\text{,}\)</span> and check that <span class="process-math">\(m_1^\dagger + m_2^\dagger = 0\text{.}\)</span> Then, <em class="emphasis">without</em> solving any indifference equations, use Theorem 5.6 to find a Nash equilibrium of this game and each player’s payoff there (hint: this should be quick!!). Say which parts of the theorem you used. Finally, compare with <a href="ch5-exercises.html#hw-maximin-concepts-pure" class="xref" data-knowl="./knowl/xref/hw-maximin-concepts-pure.html" data-reveal-label="Reveal" data-close-label="Close" title="Task 5.7.6.a">Task 5.7.6.a</a>: what changed when the players were allowed to mix?<div class="autopermalink" data-description="Paragraph"><a href="#hw-maximin-2x2-theorem-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.7.d"><a href="#hw-maximin-2x2-theorem" title="Copy heading and permalink for Task 5.7.7.d" aria-label="Copy heading and permalink for Task 5.7.7.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 5.7.7: Computing a Maximin Equilibrium"><a href="#hw-maximin-2x2" title="Copy heading and permalink for Exercise 5.7.7: Computing a Maximin Equilibrium" aria-label="Copy heading and permalink for Exercise 5.7.7: Computing a Maximin Equilibrium">🔗</a></div>
+</article></details>
+<details id="hw-triple-rps" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Rock-Paper-Scissors.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-triple-rps-2">
+<div class="para" id="hw-triple-rps-2-1">In ordinary Rock-Paper-Scissors (Problem 5.12.4 in the book), paper beats rock, scissors beats paper, and rock beats scissors. The winner gets <span class="process-math">\(1\text{,}\)</span> the loser gets <span class="process-math">\(-1\text{,}\)</span> and a tie gives both players <span class="process-math">\(0\text{.}\)</span> In <dfn class="terminology">Triple Rock-Paper-Scissors</dfn>, a win with rock is worth three times as much: when rock beats scissors, the winner gets <span class="process-math">\(3\)</span> and the loser gets <span class="process-math">\(-3\text{.}\)</span> All other payoffs are the same.<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-triple-rps"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Triple Rock-Paper-Scissors<div class="autopermalink" data-description="Table 5.7.8: Triple Rock-Paper-Scissors"><a href="#table-hw-triple-rps" title="Copy heading and permalink for Table 5.7.8: Triple Rock-Paper-Scissors" aria-label="Copy heading and permalink for Table 5.7.8: Triple Rock-Paper-Scissors">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(r\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(p\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(s\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(r\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-1\text{,}\)</span> <span class="process-math">\(1\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(3\text{,}\)</span> <span class="process-math">\(-3\)</span>)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(p\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(-1\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-1\text{,}\)</span> <span class="process-math">\(1\)</span>)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(s\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(-3\text{,}\)</span> <span class="process-math">\(3\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(-1\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines">(<span class="process-math">\(0\text{,}\)</span> <span class="process-math">\(0\)</span>)</td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="hw-triple-rps-2-3">In this exercise, we’ll show that Triple Rock-Paper-Scissors has exactly one Nash equilibrium, using the same idea as One-Card Two-Round Poker (<a href="page5-ultimatum-water-pollution.html#check-poker-uniqueness" class="xref" data-knowl="./knowl/xref/check-poker-uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.5.2: Only One Equilibrium in Poker">Checkpoint 5.5.2</a>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="hw-triple-rps-zero-sum"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-triple-rps-zero-sum-1-1">Briefly explain why Triple Rock-Paper-Scissors is a zero-sum game. (This is what will let us use the interchangeability property later.)<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-zero-sum-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.8.a"><a href="#hw-triple-rps-zero-sum" title="Copy heading and permalink for Task 5.7.8.a" aria-label="Copy heading and permalink for Task 5.7.8.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-triple-rps-player1"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para logical" id="hw-triple-rps-player1-1-1">
+<div class="para">Suppose <span class="process-math">\((\sigma_1^*, \sigma_2^*)\)</span> is a Nash equilibrium in which Player 2 uses all three of his strategies. Write <span class="process-math">\(\sigma_1^* = ar + bp + cs\text{.}\)</span> Player 2’s expected payoffs against <span class="process-math">\(\sigma_1^*\)</span> are</div>
+<div class="displaymath process-math" id="hw-triple-rps-player1-1-1-4">
+\begin{align*}
+\pi_2(\sigma_1^*, r) \amp = -b + 3c,\\
+\pi_2(\sigma_1^*, p) \amp = a - c,\\
+\pi_2(\sigma_1^*, s) \amp = -3a + b.
+\end{align*}
+</div>
+<div class="para">(You don’t need to derive these, but you can check them against the payoff matrix for practice if you want.) Use the Fundamental Theorem, with Player 2’s indifference equations, to find <span class="process-math">\(\sigma_1^*\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-player1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-triple-rps-player1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="hw-triple-rps-player1-2-1">
+<span class="process-math">\(\sigma_1^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.8.b.1"><a href="#hw-triple-rps-player1-2" title="Copy heading and permalink for Solution 5.7.8.b.1" aria-label="Copy heading and permalink for Solution 5.7.8.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.8.b"><a href="#hw-triple-rps-player1" title="Copy heading and permalink for Task 5.7.8.b" aria-label="Copy heading and permalink for Task 5.7.8.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-triple-rps-player2"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para logical" id="hw-triple-rps-player2-1-1">
+<div class="para">Notice that your <span class="process-math">\(\sigma_1^*\)</span> uses all three of Player 1’s strategies. Because they are all active, we can just use Player 1’s indifference equations to solve for <span class="process-math">\(\sigma_2^* \text{.}\)</span> Write <span class="process-math">\(\sigma_2^* = xr + yp + zs\text{.}\)</span> Player 1’s expected payoffs against <span class="process-math">\(\sigma_2^*\)</span> are:</div>
+<div class="displaymath process-math" id="hw-triple-rps-player2-1-1-5">
+\begin{align*}
+\pi_1(r, \sigma_2^*) \amp = -y + 3z,\\
+\pi_1(p, \sigma_2^*) \amp = x - z,\\
+\pi_1(s, \sigma_2^*) \amp = -3x + y.
+\end{align*}
+</div>
+<div class="para">Use Player 1’s indifference equations to find <span class="process-math">\(\sigma_2^*\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-player2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.8.c"><a href="#hw-triple-rps-player2" title="Copy heading and permalink for Task 5.7.8.c" aria-label="Copy heading and permalink for Task 5.7.8.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-triple-rps-unique"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="hw-triple-rps-unique-1-1">Parts (b) and (c) show that if Player 2 uses all three strategies, then so does Player 1, and the only Nash equilibrium of this kind is <span class="process-math">\((\sigma_1^*, \sigma_2^*)\text{.}\)</span> Use the interchangeability property (<a href="page5-ultimatum-water-pollution.html#check-interchangeability" class="xref" data-knowl="./knowl/xref/check-interchangeability.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.5.1: Interchangeability">Checkpoint 5.5.1</a>) to explain why this implies that Triple Rock-Paper-Scissors has <em class="emphasis">no other</em> Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-unique-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-triple-rps-unique-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-triple-rps-unique-2-1">This is the same argument as the poker uniqueness activity (<a href="page5-ultimatum-water-pollution.html#check-poker-uniqueness" class="xref" data-knowl="./knowl/xref/check-poker-uniqueness.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.5.2: Only One Equilibrium in Poker">Checkpoint 5.5.2</a>), with parts (b) and (c) playing the role of the “fact from 5.4.” Follow the same steps, first for Player 1 and then with the players switched.<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-unique-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 5.7.8.d.1"><a href="#hw-triple-rps-unique-2" title="Copy heading and permalink for Hint 5.7.8.d.1" aria-label="Copy heading and permalink for Hint 5.7.8.d.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.8.d"><a href="#hw-triple-rps-unique" title="Copy heading and permalink for Task 5.7.8.d" aria-label="Copy heading and permalink for Task 5.7.8.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-triple-rps-paper"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para" id="hw-triple-rps-paper-1-1">In ordinary Rock-Paper-Scissors, the only Nash equilibrium has both players use <span class="process-math">\(\frac{1}{3}r + \frac{1}{3}p + \frac{1}{3}s\text{.}\)</span> In Triple Rock-Paper-Scissors, paper is played most often (<span class="process-math">\(\frac{3}{5}\)</span> of the time), even though it’s rock’s win that got bigger. Speculate why (just informally, you don’t need any mathematical justification).<div class="autopermalink" data-description="Paragraph"><a href="#hw-triple-rps-paper-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.8.e"><a href="#hw-triple-rps-paper" title="Copy heading and permalink for Task 5.7.8.e" aria-label="Copy heading and permalink for Task 5.7.8.e">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 5.7.8: Triple Rock-Paper-Scissors"><a href="#hw-triple-rps" title="Copy heading and permalink for Exercise 5.7.8: Triple Rock-Paper-Scissors" aria-label="Copy heading and permalink for Exercise 5.7.8: Triple Rock-Paper-Scissors">🔗</a></div>
+</article></details>
+<details id="hw-tit-for-tat" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tit for Tat.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-tit-for-tat-2">
+<div class="para" id="hw-tit-for-tat-2-1">This is based on Problem 5.12.6 in the book. Al’s and Bob’s toy stores each set their prices for two weeks in a row. Each store has three strategies:<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-tit-for-tat-2-2">
+<li id="hw-tit-for-tat-2-2-1">
+<div class="para" id="hw-tit-for-tat-2-2-1-1">
+<span class="process-math">\(h\text{:}\)</span> Always charge high prices.<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-tit-for-tat-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-tit-for-tat-2-2-2">
+<div class="para" id="hw-tit-for-tat-2-2-2-1">
+<span class="process-math">\(l\text{:}\)</span> Always charge low prices.<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-tit-for-tat-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-tit-for-tat-2-2-3">
+<div class="para" id="hw-tit-for-tat-2-2-3-1">
+<span class="process-math">\(t\text{:}\)</span> Tit for tat. Charge high prices the first week. The next week, do whatever the other store did the week before.<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-2-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-tit-for-tat-2-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="hw-tit-for-tat-2-3">The total payoffs over the two weeks are:<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-tit-for-tat"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.7.9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Al and Bob’s toy stores<div class="autopermalink" data-description="Table 5.7.9: Al and Bob’s toy stores"><a href="#table-hw-tit-for-tat" title="Copy heading and permalink for Table 5.7.9: Al and Bob’s toy stores" aria-label="Copy heading and permalink for Table 5.7.9: Al and Bob’s toy stores">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Bob: <span class="process-math">\(h\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Bob: <span class="process-math">\(l\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Bob: <span class="process-math">\(t\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Al: <span class="process-math">\(h\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(10, 10)</td>
+<td class="c m b1 r1 l0 t0 lines">(0, 12)</td>
+<td class="c m b1 r1 l0 t0 lines">(10, 10)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Al: <span class="process-math">\(l\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(12, 0)</td>
+<td class="c m b1 r1 l0 t0 lines">(6, 6)</td>
+<td class="c m b1 r1 l0 t0 lines">(9, 3)</td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Al: <span class="process-math">\(t\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines">(10, 10)</td>
+<td class="c m b1 r1 l0 t0 lines">(3, 9)</td>
+<td class="c m b1 r1 l0 t0 lines">(10, 10)</td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-tit-for-tat-tt"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-tit-for-tat-tt-1-1">
+<span class="process-math">\((t, t)\)</span> is a Nash equilibrium. Recall that the Fundamental Theorem only requires an inactive strategy to do <em class="emphasis">no better</em> than the active ones. Sometimes an inactive strategy ties the active ones and does exactly as well. Then the player is indifferent to this inactive strategy, so they could mix that strategy in without changing their payoff. If the other player’s strategy is still a best response after that, we get new Nash equilibria! This is the book’s advice in <a href="page5-ultimatum-water-pollution.html#read-5-6" class="xref" data-knowl="./knowl/xref/read-5-6.html" data-reveal-label="Reveal" data-close-label="Close" title="Reading: Section 5.6, The Ultimatum Minigame">Section 5.6, The Ultimatum Minigame</a>: a tie for an inactive strategy is a hint that there are more Nash equilibria in which that strategy is active too. (In the Ultimatum Minigame, this is how the book found the equilibria <span class="process-math">\((f,\ qa + (1-q)r)\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-tt-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="hw-tit-for-tat-tt-1-2">Quickly check that against Bob’s <span class="process-math">\(t\text{,}\)</span> Al’s inactive strategy <span class="process-math">\(h\)</span> earns exactly as much as <span class="process-math">\(t\text{.}\)</span> (By symmetry, the same is true for Bob.)<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-tt-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.9.a"><a href="#hw-tit-for-tat-tt" title="Copy heading and permalink for Task 5.7.9.a" aria-label="Copy heading and permalink for Task 5.7.9.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-tit-for-tat-equality"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para logical" id="hw-tit-for-tat-equality-1-1">
+<div class="para">Following the advice, we look for Nash equilibria <span class="process-math">\((\sigma, \tau)\)</span> in which each store mixes <span class="process-math">\(h\)</span> and <span class="process-math">\(t\text{:}\)</span>
+</div>
+<div class="displaymath process-math" id="hw-tit-for-tat-equality-1-1-4">
+\begin{equation*}
+\sigma = ph + (1-p)t, \qquad \tau = qh + (1-q)t,
+\end{equation*}
+</div>
+<div class="para">where <span class="process-math">\(0 \lt p \lt 1\)</span> and <span class="process-math">\(0 \lt q \lt 1\text{.}\)</span> Check that both indifference equations,</div>
+<div class="displaymath process-math" id="hw-tit-for-tat-equality-1-1-7">
+\begin{equation*}
+\pi_1(h, \tau) = \pi_1(t, \tau)
+\quad\text{and}\quad
+\pi_2(\sigma, h) = \pi_2(\sigma, t),
+\end{equation*}
+</div>
+<div class="para">hold for every <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-equality-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.9.b"><a href="#hw-tit-for-tat-equality" title="Copy heading and permalink for Task 5.7.9.b" aria-label="Copy heading and permalink for Task 5.7.9.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-tit-for-tat-inequality"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-tit-for-tat-inequality-1-1">The only inactive strategy for each store is <span class="process-math">\(l\text{.}\)</span> Use the second condition of the Fundamental Theorem (the inequality condition for <span class="process-math">\(l\)</span>) to find the range of <span class="process-math">\(q\text{,}\)</span> and then the range of <span class="process-math">\(p\text{,}\)</span> for which <span class="process-math">\((\sigma, \tau)\)</span> is a Nash equilibrium. Describe all the Nash equilibria of this form.<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-inequality-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-tit-for-tat-inequality-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="hw-tit-for-tat-inequality-2-1">
+<span class="process-math">\(0 \lt p \leq \frac{1}{3}\)</span> and <span class="process-math">\(0 \lt q \leq \frac{1}{3}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-inequality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 5.7.9.c.1"><a href="#hw-tit-for-tat-inequality-2" title="Copy heading and permalink for Solution 5.7.9.c.1" aria-label="Copy heading and permalink for Solution 5.7.9.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 5.7.9.c"><a href="#hw-tit-for-tat-inequality" title="Copy heading and permalink for Task 5.7.9.c" aria-label="Copy heading and permalink for Task 5.7.9.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-tit-for-tat-swap"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para" id="hw-tit-for-tat-swap-1-1">
+<span class="process-math">\((l, l)\)</span> is also a Nash equilibrium, and so is <span class="process-math">\((\tau, \tau)\)</span> with <span class="process-math">\(\tau = \frac{1}{3}h + \frac{2}{3}t\text{,}\)</span> from part (c). If we swap halves, notice that <span class="process-math">\((l, \tau)\)</span> is <em class="emphasis">not</em> a Nash equilibrium: Bob would rather switch to <span class="process-math">\(l\text{.}\)</span> Explain why this doesn’t contradict the interchangeability property (<a href="page5-ultimatum-water-pollution.html#check-interchangeability" class="xref" data-knowl="./knowl/xref/check-interchangeability.html" data-reveal-label="Reveal" data-close-label="Close" title="Checkpoint 5.5.1: Interchangeability">Checkpoint 5.5.1</a>).<div class="autopermalink" data-description="Paragraph"><a href="#hw-tit-for-tat-swap-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 5.7.9.d"><a href="#hw-tit-for-tat-swap" title="Copy heading and permalink for Task 5.7.9.d" aria-label="Copy heading and permalink for Task 5.7.9.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 5.7.9: Tit for Tat"><a href="#hw-tit-for-tat" title="Copy heading and permalink for Exercise 5.7.9: Tit for Tat" aria-label="Copy heading and permalink for Exercise 5.7.9: Tit for Tat">🔗</a></div>
 </article></details><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=chapter%205%20exercises" id="question-form-5-ex" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-5-ex.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
 <div class="autopermalink" data-description="Exercises 5.7: Exercises"><a href="#ch5-exercises" title="Copy heading and permalink for Exercises 5.7: Exercises" aria-label="Copy heading and permalink for Exercises 5.7: Exercises">🔗</a></div>
