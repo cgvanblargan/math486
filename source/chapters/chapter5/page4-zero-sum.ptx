@@ -250,6 +250,15 @@
   </exercise>
 
   <p>
+    In this example, the best pure strategy happens to be the maximin
+    strategy: a mix of Top and Bottom can't do better, because against M
+    any mix earns at most <m>0</m>. That isn't always true. Sometimes
+    mixing guarantees <em>more</em> than any pure strategy, and we'll see
+    this in the Battle of the Sexes below. Remember that a maximin
+    strategy is chosen from <em>all</em> strategies, including mixed ones.
+  </p>
+
+  <p>
     We can define the same things for Player 2: her worst case
     <m>m_2(\sigma_2)</m> for each strategy <m>\sigma_2</m>, her maximin
     strategy <m>\sigma_2^\dagger</m>, and her maximin payoff

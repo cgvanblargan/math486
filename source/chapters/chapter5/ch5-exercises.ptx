@@ -22,7 +22,20 @@
        5. A Simple Poker Game, Revisited  - new; Section 5.3.1 method,
                                             finishes hw-simple-poker (Ch. 4)
 
-     Confidence checks: Exercises 1(a), 2(a), and 4(a) have a
+     Exercises 6-9 go with Sections 5.5-5.6 (pages 4-5:
+     page4-zero-sum, page5-ultimatum-water-pollution).
+       6. Maximins and Theorem 5.6        - new; pure worst cases / pure
+                                            maximin on a 2x2 zero-sum game,
+                                            Thm 5.6 scenario
+       7. Computing a Maximin Equilibrium - new; same game as 6, mixing;
+                                            Battle of the Sexes method
+       8. Triple Rock-Paper-Scissors      - variation on book 5.12.4
+                                            (rock beating scissors pays 3);
+                                            uniqueness as in the poker activity
+       9. Tit for Tat                     - based on book 5.12.6
+
+     Confidence checks: Exercises 1(a), 2(a), 4(a), 7(a), 7(b), 8(b), and
+     9(c) have a
      <solution> so students can confirm before moving on. Divisional
      solutions are hidden dropdowns (see publication.ptx). -->
 
@@ -652,6 +665,614 @@
       </p>
     </conclusion>
   </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-maximin-concepts">
+    <title>Maximins and Theorem 5.6</title>
+
+    <introduction>
+      <p>
+        Consider the following zero-sum game. We'll come back to it in
+        <xref ref="hw-maximin-2x2" />.
+      </p>
+
+      <table xml:id="table-hw-maximin-2x2">
+        <title>A <m>2 \times 2</m> zero-sum game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>x</m></cell>
+            <cell>Player 2: <m>y</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>a</m></cell>
+            <cell>(<m>3</m>, <m>-3</m>)</cell>
+            <cell>(<m>-1</m>, <m>1</m>)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>b</m></cell>
+            <cell>(<m>-2</m>, <m>2</m>)</cell>
+            <cell>(<m>1</m>, <m>-1</m>)</cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-maximin-concepts-pure">
+      <statement>
+        <p>
+          First, suppose each player may only use pure strategies.
+        </p>
+        <ol marker="i.">
+          <li>
+            <p>
+              Find each player's worst case for each of their pure
+              strategies: <m>m_1(a)</m> and <m>m_1(b)</m> for Player 1,
+              and <m>m_2(x)</m> and <m>m_2(y)</m> for Player 2. For
+              example,
+              <me>
+                m_1(a) = \min_{\sigma_2} \pi_1(a, \sigma_2).
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Among pure strategies only, which strategy gives each player
+              the largest worst case? Call these <m>s_1</m> for Player 1
+              and <m>s_2</m> for Player 2. What payoffs
+              <m>m_1(s_1)</m> and <m>m_2(s_2)</m> do they guarantee?
+              (This is a <q>max of mins</q> like a maximin, but it is
+              <em>not</em> the maximin payoff <m>m_1^\dagger</m> from
+              Section 5.5, because we're only allowing pure strategies.)
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>(s_1, s_2)</m> a Nash equilibrium? Do the two
+              guaranteed payoffs <m>m_1(s_1)</m> and <m>m_2(s_2)</m> add
+              up to <m>0</m>?
+            </p>
+          </li>
+        </ol>
+        <p>
+          (Keep your answers in mind. In <xref ref="hw-maximin-2x2" />,
+          you'll see what changes when the players can mix.)
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For i: the minimum is over all of Player 2's strategies,
+          including mixed ones. But against a mixed strategy, Player 1's
+          payoff is a weighted average of her payoffs against <m>x</m> and
+          <m>y</m>, so the worst case is always at a pure strategy.
+        </p>
+
+      </hint>
+    </task>
+
+    <task xml:id="hw-maximin-concepts-scenario">
+      <statement>
+        <p>
+          Now let's consider a general zero-sum game. Suppose that
+          <m>(\sigma_1, \sigma_2)</m> and <m>(\tau_1, \tau_2)</m> are both
+          Nash equilibria of a two-player zero-sum game, and that
+          <m>\pi_1(\sigma_1, \sigma_2) = 5</m>. Answer each question, and
+          say which part of Theorem 5.6 (or the interchangeability
+          property, <xref ref="check-interchangeability" />) tells you.
+        </p>
+        <ol marker="i.">
+          <li>
+            <p>
+              What are <m>m_1^\dagger</m> and <m>m_2^\dagger</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              What is <m>\pi_1(\tau_1, \tau_2)</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Is <m>(\sigma_1, \tau_2)</m> a Nash equilibrium? What is
+              <m>\pi_2(\sigma_1, \tau_2)</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              Must <m>\sigma_1 = \tau_1</m>?
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <hint>
+        <p>
+          For iv: does the interchangeability property say the halves of
+          two Nash equilibria are <em>equal</em>, or only that you can
+          <em>swap</em> them?
+        </p>
+      </hint>
+    </task>
+
+    <conclusion>
+      <p>
+        <alert>Remark.</alert> In part (a), <m>(s_1, s_2)</m> is not a Nash
+        equilibrium, even though the game is zero-sum. This doesn't
+        contradict Theorem 5.6. In Section 5.5, <m>\sigma_1</m> and
+        <m>\sigma_2</m> range over <em>all</em> strategies, including mixed
+        ones, so the maximin strategies and maximin payoffs
+        <m>m_i^\dagger</m> in Theorem 5.6 are taken over all mixed
+        strategies. As part (a)(ii) points out, <m>s_1</m> and <m>s_2</m>
+        are only the best <em>pure</em> strategies, so
+        <m>(s_1, s_2)</m> is not a maximin equilibrium. In
+        <xref ref="hw-maximin-2x2" />, you'll see that mixing guarantees
+        Player 1 more than <m>m_1(s_1)</m>.
+      </p>
+      <p>
+        In fact, Theorem 5.6 couldn't hold for pure strategies alone. A pair
+        of best pure strategies like <m>(s_1, s_2)</m> always exists, but
+        this game has no pure strategy Nash equilibrium. Mixed strategies
+        are what make the theorem work.
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-maximin-2x2">
+    <title>Computing a Maximin Equilibrium</title>
+
+    <introduction>
+      <p>
+        Consider the game from <xref ref="hw-maximin-concepts" />
+        (<xref ref="table-hw-maximin-2x2" />). This time the players can use
+        mixed strategies. Write Player 1's mixed strategy as
+        <m>\sigma_1 = pa + (1-p)b</m> and Player 2's as
+        <m>\sigma_2 = qx + (1-q)y</m>. Like the book, we write a strategy
+        profile as <m>(p, q)</m>.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-maximin-2x2-worst-case">
+      <statement>
+        <p>
+          We want Player 1's worst case
+          <m>m_1(p) = \min_{0 \leq q \leq 1} \pi_1(p, q)</m> for each
+          <m>p</m>. Follow the Battle of the Sexes example in the notes
+          (starting at <xref ref="table-bos-pq" />).
+        </p>
+        <ol marker="i.">
+          <li>
+            <p>
+              Show that Player 1's expected payoff is
+              <me>
+                \pi_1(p, q) = 7pq - 2p - 3q + 1.
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Hold <m>p</m> fixed and differentiate with respect to
+              <m>q</m>. Fill in the blanks:
+              <me>
+                \frac{\partial \pi_1}{\partial q} = \underline{\qquad\qquad},
+                \quad\text{which is }
+                \begin{cases}
+                  \text{negative} \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+                  0 \amp \text{if } p = \underline{\qquad}, \\
+                  \text{positive} \amp \text{if } \underline{\qquad} \lt p \leq 1.
+                \end{cases}
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Use the sign from (ii) to fill in which value of <m>q</m>
+              gives Player 1 her worst case:
+              <me>
+                m_1(p) =
+                \begin{cases}
+                  \pi_1(p, \underline{\qquad}) \amp \text{if } 0 \leq p \lt \underline{\qquad}, \\
+                  \text{any } \pi_1(p, q) \amp \text{if } p = \underline{\qquad}, \\
+                  \pi_1(p, \underline{\qquad}) \amp \text{if } \underline{\qquad} \lt p \leq 1.
+                \end{cases}
+              </me>
+              Then evaluate <m>\pi_1(p, 1)</m> and <m>\pi_1(p, 0)</m>
+              using the formula from (i) to write <m>m_1(p)</m> as a
+              piecewise function of <m>p</m> alone.
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <hint>
+        <p>
+          If <m>\dfrac{\partial \pi_1}{\partial q}</m> is negative,
+          <m>\pi_1(p, q)</m> goes down as <m>q</m> goes up, so it's lowest
+          at <m>q = 1</m>. If it's positive, it's lowest at
+          <m>q = 0</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <m>\dfrac{\partial \pi_1}{\partial q} = 7p - 3</m>, which changes
+          sign at <m>p = \frac{3}{7}</m>, and
+          <me>
+            m_1(p) =
+            \begin{cases}
+              5p - 2 \amp \text{if } 0 \leq p \lt \frac{3}{7}, \\
+              \frac{1}{7} \amp \text{if } p = \frac{3}{7}, \\
+              1 - 2p \amp \text{if } \frac{3}{7} \lt p \leq 1.
+            \end{cases}
+          </me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-maximin-2x2-player1">
+      <statement>
+        <p>
+          Sketch the graph of <m>m_1(p)</m>. Use it to find Player 1's
+          maximin strategy <m>p^\dagger</m> (write it as a mixed strategy
+          <m>\sigma_1^\dagger</m> too) and her maximin payoff
+          <m>m_1^\dagger</m>. Compare <m>m_1^\dagger</m> with the payoff
+          Player 1 could guarantee with pure strategies only, from
+          <xref ref="hw-maximin-concepts-pure" />(ii).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p^\dagger = \frac{3}{7}</m> and
+          <m>m_1^\dagger = \frac{1}{7}</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-maximin-2x2-player2">
+      <statement>
+        <p>
+          Now find Player 2's maximin strategy and maximin payoff.
+        </p>
+        <ol marker="i.">
+          <li>
+            <p>
+              Explain, without doing any computation, why
+              <me>
+                \pi_2(p, q) = -(7pq - 2p - 3q + 1).
+              </me>
+            </p>
+          </li>
+          <li>
+            <p>
+              Go through the process of part (a) for Player 2 to find her
+              worst case
+              <m>m_2(q) = \min_{0 \leq p \leq 1} \pi_2(p, q)</m> as a
+              piecewise function of <m>q</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Sketch the graph of <m>m_2(q)</m>, and use it to find Player
+              2's maximin strategy <m>q^\dagger</m> and her maximin payoff
+              <m>m_2^\dagger</m>.
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <hint>
+        <p>
+          For i: the game is zero-sum, and you already know Player 1's
+          payoff. For ii: this time hold <m>q</m> fixed and look at the
+          sign of <m>\dfrac{\partial \pi_2}{\partial p}</m>.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-maximin-2x2-theorem">
+      <statement>
+        <p>
+          Write down the maximin equilibrium
+          <m>(p^\dagger, q^\dagger)</m>, and check that
+          <m>m_1^\dagger + m_2^\dagger = 0</m>. Then, <em>without</em>
+          solving any indifference equations, use Theorem 5.6 to find a
+          Nash equilibrium of this game and each player's payoff there (hint: this should be quick!!). Say
+          which parts of the theorem you used. Finally, compare with
+          <xref ref="hw-maximin-concepts-pure" />: what changed when the
+          players were allowed to mix?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-triple-rps">
+    <title>Triple Rock-Paper-Scissors</title>
+
+    <introduction>
+      <p>
+        In ordinary Rock-Paper-Scissors (Problem 5.12.4 in the book),
+        paper beats rock, scissors beats paper, and rock beats scissors.
+        The winner gets <m>1</m>, the loser gets <m>-1</m>, and a tie
+        gives both players <m>0</m>. In <term>Triple
+        Rock-Paper-Scissors</term>, a win with rock is worth three times as
+        much: when rock beats scissors, the winner gets <m>3</m> and the
+        loser gets <m>-3</m>. All other payoffs are the same.
+      </p>
+
+      <table xml:id="table-hw-triple-rps">
+        <title>Triple Rock-Paper-Scissors</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>r</m></cell>
+            <cell>Player 2: <m>p</m></cell>
+            <cell>Player 2: <m>s</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>r</m></cell>
+            <cell>(<m>0</m>, <m>0</m>)</cell>
+            <cell>(<m>-1</m>, <m>1</m>)</cell>
+            <cell>(<m>3</m>, <m>-3</m>)</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>p</m></cell>
+            <cell>(<m>1</m>, <m>-1</m>)</cell>
+            <cell>(<m>0</m>, <m>0</m>)</cell>
+            <cell>(<m>-1</m>, <m>1</m>)</cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>s</m></cell>
+            <cell>(<m>-3</m>, <m>3</m>)</cell>
+            <cell>(<m>1</m>, <m>-1</m>)</cell>
+            <cell>(<m>0</m>, <m>0</m>)</cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        In this exercise, we'll show that Triple Rock-Paper-Scissors has
+        exactly one Nash equilibrium, using the same idea as One-Card
+        Two-Round Poker (<xref ref="check-poker-uniqueness" />).
+      </p>
+    </introduction>
+
+    <task xml:id="hw-triple-rps-zero-sum">
+      <statement>
+        <p>
+          Briefly explain why Triple Rock-Paper-Scissors is a zero-sum
+          game. (This is what will let us use the interchangeability
+          property later.)
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-triple-rps-player1">
+      <statement>
+        <p>
+          Suppose <m>(\sigma_1^*, \sigma_2^*)</m> is a Nash equilibrium in
+          which Player 2 uses all three of his strategies. Write
+          <m>\sigma_1^* = ar + bp + cs</m>. Player 2's expected payoffs
+          against <m>\sigma_1^*</m> are
+          <md>
+            <mrow>\pi_2(\sigma_1^*, r) \amp = -b + 3c,</mrow>
+            <mrow>\pi_2(\sigma_1^*, p) \amp = a - c,</mrow>
+            <mrow>\pi_2(\sigma_1^*, s) \amp = -3a + b.</mrow>
+          </md>
+          (You don't need to derive these, but you can check them against
+          the payoff matrix for practice if you want.) Use the Fundamental Theorem,
+          with Player 2's indifference equations, to find
+          <m>\sigma_1^*</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\sigma_1^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-triple-rps-player2">
+      <statement>
+        <p>
+          Notice that your <m>\sigma_1^*</m> uses all three of Player 1's
+          strategies. Because they are all active, we can just use Player 1's indifference
+          equations to solve for <m>\sigma_2^* </m>. Write <m>\sigma_2^* = xr + yp + zs</m>. Player 1's
+          expected payoffs against <m>\sigma_2^*</m> are:
+          <md>
+            <mrow>\pi_1(r, \sigma_2^*) \amp = -y + 3z,</mrow>
+            <mrow>\pi_1(p, \sigma_2^*) \amp = x - z,</mrow>
+            <mrow>\pi_1(s, \sigma_2^*) \amp = -3x + y.</mrow>
+          </md>
+          Use Player 1's indifference equations to find
+          <m>\sigma_2^*</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-triple-rps-unique">
+      <statement>
+        <p>
+          Parts (b) and (c) show that if Player 2 uses all three
+          strategies, then so does Player 1, and the only Nash equilibrium
+          of this kind is <m>(\sigma_1^*, \sigma_2^*)</m>. Use the
+          interchangeability property
+          (<xref ref="check-interchangeability" />) to explain why this
+          implies that Triple Rock-Paper-Scissors has <em>no other</em>
+          Nash equilibria.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          This is the same argument as the poker uniqueness activity
+          (<xref ref="check-poker-uniqueness" />), with parts (b) and (c)
+          playing the role of the <q>fact from 5.4.</q> Follow the same
+          steps, first for Player 1 and then with the players switched.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-triple-rps-paper">
+      <statement>
+        <p>
+          In ordinary Rock-Paper-Scissors, the only Nash equilibrium has
+          both players use <m>\frac{1}{3}r + \frac{1}{3}p + \frac{1}{3}s</m>.
+          In Triple Rock-Paper-Scissors, paper is played most often
+          (<m>\frac{3}{5}</m> of the time), even though it's rock's win
+          that got bigger. Speculate why (just informally, you don't need any mathematical justification).
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-tit-for-tat">
+    <title>Tit for Tat</title>
+
+    <introduction>
+      <p>
+        This is based on Problem 5.12.6 in the book. Al's and Bob's toy
+        stores each set their prices for two weeks in a row. Each store has
+        three strategies:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <m>h</m>: Always charge high prices.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>l</m>: Always charge low prices.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>t</m>: Tit for tat. Charge high prices the first week. The
+            next week, do whatever the other store did the week before.
+          </p>
+        </li>
+      </ul>
+      <p>
+        The total payoffs over the two weeks are:
+      </p>
+
+      <table xml:id="table-hw-tit-for-tat">
+        <title>Al and Bob's toy stores</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor" />
+          <col right="minor" />
+          <col right="minor" />
+          <col />
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Bob: <m>h</m></cell>
+            <cell>Bob: <m>l</m></cell>
+            <cell>Bob: <m>t</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Al: <m>h</m></cell>
+            <cell>(10, 10)</cell>
+            <cell>(0, 12)</cell>
+            <cell>(10, 10)</cell>
+          </row>
+          <row bottom="minor">
+            <cell>Al: <m>l</m></cell>
+            <cell>(12, 0)</cell>
+            <cell>(6, 6)</cell>
+            <cell>(9, 3)</cell>
+          </row>
+          <row>
+            <cell>Al: <m>t</m></cell>
+            <cell>(10, 10)</cell>
+            <cell>(3, 9)</cell>
+            <cell>(10, 10)</cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-tit-for-tat-tt">
+      <statement>
+        <p>
+          <m>(t, t)</m> is a Nash equilibrium. Recall that the Fundamental
+          Theorem only requires an inactive strategy to do <em>no
+          better</em> than the active ones. Sometimes an inactive strategy
+         ties the active ones and does exactly as well. Then the player is
+          indifferent to this inactive strategy, so they could mix that strategy in without changing their payoff.
+          If the other player's strategy is still a best
+          response after that, we get new Nash equilibria! This is the
+          book's advice in <xref ref="read-5-6" text="title" />: a tie for
+          an inactive strategy is a hint that there are more Nash
+          equilibria in which that strategy is active too. (In the
+          Ultimatum Minigame, this is how the book found the equilibria
+          <m>(f,\ qa + (1-q)r)</m>.)
+        </p>
+        <p>
+          Quickly check that against Bob's <m>t</m>, Al's inactive strategy
+          <m>h</m> earns exactly as much as <m>t</m>. (By symmetry, the
+          same is true for Bob.)
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-equality">
+      <statement>
+        <p>
+          Following the advice, we look for Nash equilibria
+          <m>(\sigma, \tau)</m> in which each store mixes <m>h</m> and
+          <m>t</m>:
+          <me>
+            \sigma = ph + (1-p)t, \qquad \tau = qh + (1-q)t,
+          </me>
+          where <m>0 \lt p \lt 1</m> and <m>0 \lt q \lt 1</m>. Check that
+          both indifference equations,
+          <me>
+            \pi_1(h, \tau) = \pi_1(t, \tau)
+            \quad\text{and}\quad
+            \pi_2(\sigma, h) = \pi_2(\sigma, t),
+          </me>
+          hold for every <m>p</m> and <m>q</m>.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-inequality">
+      <statement>
+        <p>
+          The only inactive strategy for each store is <m>l</m>. Use the
+          second condition of the Fundamental Theorem (the inequality
+          condition for <m>l</m>) to find the range of <m>q</m>, and then
+          the range of <m>p</m>, for which <m>(\sigma, \tau)</m> is a Nash
+          equilibrium. Describe all the Nash equilibria of this form.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>0 \lt p \leq \frac{1}{3}</m> and
+          <m>0 \lt q \leq \frac{1}{3}</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-tit-for-tat-swap">
+      <statement>
+        <p>
+          <m>(l, l)</m> is also a Nash equilibrium, and so is
+          <m>(\tau, \tau)</m> with <m>\tau = \frac{1}{3}h + \frac{2}{3}t</m>,
+          from part (c). If we swap halves, notice that
+          <m>(l, \tau)</m> is <em>not</em> a Nash equilibrium: Bob would
+          rather switch to <m>l</m>. Explain why this doesn't contradict
+          the interchangeability property
+          (<xref ref="check-interchangeability" />).
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
 
   <interactive xml:id="question-form-5-ex" iframe="question-form.html?section=chapter 5 exercises" width="100%" aspect="2:1"/>
 </exercises>
