@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 270" width="680" height="270" role="img" aria-labelledby="t d" font-family="serif">
+<title id="t">The first round of the repeated Wine Merchant game</title>
+<desc id="d">The root is the start of round 0. Four branches lead from it, one for each possible outcome of round 0, written (Player 1, Player 2): (c, c), (c, d), (d, c), and (d, d). Each branch ends at a node where round 1 begins, and dotted lines from each of those nodes show that the game keeps branching. The node after the outcome (d, c), where Player 1 defected and Player 2 cooperated, is labeled n1.</desc>
+<rect width="680" height="270" fill="white"/>
+<line x1="340" y1="40" x2="100" y2="150" stroke="#3d3d3a" stroke-width="1.5"/>
+<text x="212.0" y="95.0" text-anchor="end" font-size="15" fill="#3d3d3a">(c, c)</text>
+<line x1="100" y1="150" x2="60" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="100" y1="150" x2="86" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="100" y1="150" x2="114" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="100" y1="150" x2="140" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="340" y1="40" x2="260" y2="150" stroke="#3d3d3a" stroke-width="1.5"/>
+<text x="292.0" y="95.0" text-anchor="end" font-size="15" fill="#3d3d3a">(c, d)</text>
+<line x1="260" y1="150" x2="220" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="260" y1="150" x2="246" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="260" y1="150" x2="274" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="260" y1="150" x2="300" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="340" y1="40" x2="420" y2="150" stroke="#3d3d3a" stroke-width="1.5"/>
+<text x="388.0" y="95.0" text-anchor="start" font-size="15" fill="#3d3d3a">(d, c)</text>
+<line x1="420" y1="150" x2="380" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="420" y1="150" x2="406" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="420" y1="150" x2="434" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="420" y1="150" x2="460" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="340" y1="40" x2="580" y2="150" stroke="#3d3d3a" stroke-width="1.5"/>
+<text x="468.0" y="95.0" text-anchor="start" font-size="15" fill="#3d3d3a">(d, d)</text>
+<line x1="580" y1="150" x2="540" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="150" x2="566" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="150" x2="594" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="150" x2="620" y2="220" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<circle cx="340" cy="40" r="8" fill="#1a1a1a"/>
+<text x="356" y="45" font-size="15" fill="#1a1a1a">start of round 0</text>
+<circle cx="100" cy="150" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<circle cx="260" cy="150" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<circle cx="420" cy="150" r="9" fill="white" stroke="#1a1a1a" stroke-width="3"/>
+<circle cx="580" cy="150" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<text x="436" y="148" font-size="17" font-weight="bold" fill="#1a1a1a">n₁</text>
+<text x="340" y="262" text-anchor="middle" font-size="14" fill="#3d3d3a">round 1, round 2, …</text>
+</svg>

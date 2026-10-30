@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 190" width="680" height="190" role="img" aria-labelledby="t d" font-family="serif">
+<title id="t">A path of cooperation leading to the node n</title>
+<desc id="d">A path through the repeated game. Starting at round 0, the outcome is (c, c) in round 0, (c, c) in round 1, (c, c) in round 2, and so on, up to a node labeled n at the start of round k. At each node, dotted lines show the other possible outcomes, which are not taken. Dotted lines leaving n show that the game continues.</desc>
+<rect width="680" height="190" fill="white"/>
+<line x1="60" y1="70" x2="210" y2="70" stroke="#1a1a1a" stroke-width="2.5"/>
+<text x="135.0" y="58" text-anchor="middle" font-size="15" fill="#1a1a1a">(c, c)</text>
+<line x1="210" y1="70" x2="360" y2="70" stroke="#1a1a1a" stroke-width="2.5"/>
+<text x="285.0" y="58" text-anchor="middle" font-size="15" fill="#1a1a1a">(c, c)</text>
+<line x1="360" y1="70" x2="430" y2="70" stroke="#1a1a1a" stroke-width="2.5"/>
+<text x="395" y="58" text-anchor="middle" font-size="15" fill="#1a1a1a">(c, c)</text>
+<text x="470" y="76" text-anchor="middle" font-size="22" fill="#1a1a1a">⋯</text>
+<line x1="505" y1="70" x2="575" y2="70" stroke="#1a1a1a" stroke-width="2.5"/>
+<text x="540" y="58" text-anchor="middle" font-size="15" fill="#1a1a1a">(c, c)</text>
+<line x1="60" y1="70" x2="42" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="60" y1="70" x2="60" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="60" y1="70" x2="78" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="210" y1="70" x2="192" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="210" y1="70" x2="210" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="210" y1="70" x2="228" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="360" y1="70" x2="342" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="360" y1="70" x2="360" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="360" y1="70" x2="378" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="70" x2="550" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="70" x2="570" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="70" x2="590" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<line x1="580" y1="70" x2="610" y2="125" stroke="#6b6b66" stroke-width="1.5" stroke-dasharray="3 4"/>
+<circle cx="60" cy="70" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<text x="60" y="150" text-anchor="middle" font-size="14" fill="#3d3d3a">round 0</text>
+<circle cx="210" cy="70" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<text x="210" y="150" text-anchor="middle" font-size="14" fill="#3d3d3a">round 1</text>
+<circle cx="360" cy="70" r="7" fill="#1a1a1a" stroke="#1a1a1a" stroke-width="1"/>
+<text x="360" y="150" text-anchor="middle" font-size="14" fill="#3d3d3a">round 2</text>
+<circle cx="580" cy="70" r="9" fill="white" stroke="#1a1a1a" stroke-width="3"/>
+<text x="580" y="150" text-anchor="middle" font-size="14" fill="#3d3d3a">round k</text>
+<text x="580" y="54" text-anchor="middle" font-size="18" font-weight="bold" font-style="italic" fill="#1a1a1a">n</text>
+</svg>

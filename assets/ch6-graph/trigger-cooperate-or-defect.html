@@ -33,13 +33,14 @@ table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:14px;marg
 caption{text-align:left;font-size:16px;font-weight:bold;padding:0 0 4px}
 th,td{text-align:center;padding:2px 2px;font-weight:normal}
 th[scope=row]{text-align:left;color:var(--text-secondary);width:92px;font-size:13px}
+th.totc{width:118px}
 thead th{color:var(--text-secondary)}
 .bx{height:44px;display:flex;align-items:flex-end;justify-content:center;border-bottom:1px solid var(--border-strong)}
 .b{width:60%;background:#1D9E75;border-radius:2px 2px 0 0}
-.tot{font-size:18px;font-weight:bold}
+.tot{font-size:15px;font-weight:bold;white-space:nowrap}
 </style>
 <div class="wrap">
-<h1 class="sr-only">Bernard against the trigger strategy: using trigger himself versus always defecting</h1>
+<h1 class="sr-only">Bernard against the trigger strategy: using trigger himself, (sigma, sigma), versus always defecting, (sigma, beta)</h1>
 <div style="display:flex;align-items:center;gap:12px;margin:0 0 12px">
 <label for="d" style="font-size:16px;color:var(--text-secondary)">Discount factor &delta;</label>
 <input type="range" id="d" min="0.3" max="0.95" step="0.01" value="0.6" style="flex:1" aria-describedby="v"><output id="dO" for="d" style="font-size:16px;font-weight:bold;min-width:40px"></output></div>
@@ -50,20 +51,20 @@ thead th{color:var(--text-secondary)}
 </div>
 <script>
 const $=id=>document.getElementById(id);
-function table(el,title,out,pay,d){
+function table(el,title,out,pay,d,totTxt){
  let h=`<caption>${title}</caption><thead><tr><th scope="row">Round</th>`;
  for(let k=0;k<8;k++)h+=`<th scope="col">${k}</th>`;
- h+=`<th scope="col" aria-label="later rounds">&hellip;</th><th scope="col">Total</th></tr></thead><tbody><tr><th scope="row">Outcome</th>`;
+ h+=`<th scope="col" aria-label="later rounds">&hellip;</th><th scope="col" class="totc">Total</th></tr></thead><tbody><tr><th scope="row">Outcome</th>`;
  for(let k=0;k<8;k++)h+=`<td>${out(k)}</td>`;
  h+=`<td aria-hidden="true"></td><td></td></tr><tr><th scope="row">Bernard's payoff &times; &delta;<sup>k</sup></th>`;
  for(let k=0;k<8;k++){const w=Math.pow(d,k)*pay(k);h+=`<td><div class="bx" aria-hidden="true"><div class="b" style="height:${w/4*44}px"></div></div>${w.toFixed(2)}</td>`}
  const T=pay(1)?1/(1-d):4;
- h+=`<td aria-hidden="true">&hellip;</td><td class="tot">${T.toFixed(2)}</td></tr></tbody>`;
+ h+=`<td aria-hidden="true">&hellip;</td><td class="tot">${totTxt(d,T)}</td></tr></tbody>`;
  el.innerHTML=h;return T}
 function up(){const d=+$("d").value;$("dO").textContent=d.toFixed(2);
- const a=table($("t1"),"Both use trigger",k=>"(c, c)",k=>1,d);
- const b=table($("t2"),"Merchant uses trigger, Bernard always defects",k=>k?"(d, d)":"(c, d)",k=>k?0:4,d);
- $("v").textContent=a>=b-1e-9?`Bernard does better using trigger: ${a.toFixed(2)} versus 4.00.`:`Bernard does better always defecting: 4.00 versus ${a.toFixed(2)}.`}
+ const a=table($("t1"),"(\u03c3, \u03c3): both use trigger",k=>"(c, c)",k=>1,d,(d,T)=>`1/(1 \u2212 ${d.toFixed(2)}) = ${T.toFixed(2)}`);
+ const b=table($("t2"),"(\u03c3, \u03b2): the Merchant uses trigger, Bernard always defects",k=>k?"(d, d)":"(c, d)",k=>k?0:4,d,(d,T)=>`4 + 0 + 0 + \u22ef = 4`);
+ $("v").textContent=a>=b-1e-9?`\u03c0\u2082(\u03c3, \u03c3) = ${a.toFixed(2)} \u2265 4 = \u03c0\u2082(\u03c3, \u03b2), so Bernard does better using trigger.`:`\u03c0\u2082(\u03c3, \u03c3) = ${a.toFixed(2)} < 4 = \u03c0\u2082(\u03c3, \u03b2), so Bernard does better always defecting.`}
 $("d").oninput=up;up();
 </script>
 

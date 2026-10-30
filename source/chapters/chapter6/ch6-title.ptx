@@ -4,7 +4,7 @@
 
     <xi:include href="./page1-subgame-perfection.ptx" />
     <xi:include href="./page2-repeated-games.ptx" />
-    <xi:include href="./page3-folk-theorem.ptx" />
+    <xi:include href="./page3-activities.ptx" />
     <xi:include href="./ch6-exercises.ptx" />
 
 </chapter>

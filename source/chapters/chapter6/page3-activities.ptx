@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch6-page3-activities" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>More repeated game examples</title>
+
+  <p>
+    On this page, we'll get more practice analyzing repeated games. These
+    examples are not in the book. There is no new theory or definitions
+    here, but the practice should help before you tackle the homework
+    questions! The examples are labeled <q>activities</q>, since you'll be
+    working through each part yourself.
+  </p>
+
+  <p>
+    We'll look at repeated versions of a classic game, Chicken. First,
+    here is the table for a single game of Chicken. Each teenager either goes <term>straight</term>
+    or <term>swerves</term>, with payoffs listed as (Teenager 1, Teenager 2).
+  </p>
+
+  <table xml:id="table-chicken-stage">
+    <title>Chicken</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Teenager 2: straight</cell>
+        <cell>Teenager 2: swerve</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Teenager 1: straight</cell>
+        <cell><m>(-2, -2)</m></cell>
+        <cell><m>(1, -1)</m></cell>
+      </row>
+      <row>
+        <cell>Teenager 1: swerve</cell>
+        <cell><m>(-1, 1)</m></cell>
+        <cell><m>(0, 0)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Unlike the Prisoner's Dilemma, Chicken has two pure strategy Nash
+    equilibria: (straight, swerve) and (swerve, straight). In each one, one
+    teenager goes straight and the other swerves.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Activity 1: a Nash equilibrium of repeated Chicken           -->
+  <!-- ============================================================ -->
+
+  <p>
+    In the next two activities, we'll find a Nash equilibrium of repeated
+    Chicken, show why it is one, and then check whether it is subgame
+    perfect. This is the same process we used for the trigger strategy on
+    the previous page.
+  </p>
+
+  <activity xml:id="activity-chicken-nash">
+    <title>Swerving, Backed by a Threat</title>
+
+    <introduction>
+      <p>
+        The two teenagers play Chicken over and over, in rounds
+        <m>k = 0, 1, 2, \ldots</m>, with discount factor <m>\delta</m>, where
+        <m>0 \lt \delta \lt 1</m>. Consider the following strategy, which we'll call <m>\gamma</m>:
+      </p>
+      <ul>
+        <li>
+          <p>
+            Swerve as long as both teenagers have swerved in every earlier
+            round.
+          </p>
+        </li>
+        <li>
+          <p>
+            If <em>either</em> teenager has ever gone straight, go straight
+            in every round from then on.
+          </p>
+        </li>
+      </ul>
+      <p>
+        This is Chicken's version of the trigger strategy: the threat is
+        <q>if anyone goes straight, we crash every round from now on.</q>
+        We'll show that <m>(\gamma, \gamma)</m> is a Nash equilibrium when
+        <m>\delta \geq \frac{1}{2}</m>, following the same steps as the
+        proof of Theorem 6.1. Suppose Teenager 1 uses <m>\gamma</m>, and
+        we'll check whether Teenager 2 can do better by switching to a
+        different strategy.
+      </p>
+    </introduction>
+
+    <task xml:id="activity-chicken-nash-both">
+      <statement>
+        <p>
+          Suppose both teenagers use <m>\gamma</m>. Fill in the table below,
+          and find <m>\pi_2(\gamma, \gamma)</m>.
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell>round 0</cell><cell>round 1</cell><cell>round 2</cell><cell>round 3</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 1's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 2's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Teenager 2's payoff</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+      </statement>
+      <solution>
+        <p>
+          Nobody ever goes straight first, so both swerve in every round:
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell>round 0</cell><cell>round 1</cell><cell>round 2</cell><cell>round 3</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 1's move</cell><cell>swerve</cell><cell>swerve</cell><cell>swerve</cell><cell>swerve</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 2's move</cell><cell>swerve</cell><cell>swerve</cell><cell>swerve</cell><cell>swerve</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Teenager 2's payoff</cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>0</m></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+        <p>
+          Teenager 2 gets 0 every round, so
+          <m>\pi_2(\gamma, \gamma) = 0</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-nash-never">
+      <statement>
+        <p>
+          Now suppose Teenager 1 keeps using <m>\gamma</m>, but Teenager 2
+          switches to some other strategy, <m>\gamma'</m>. First, suppose
+          <m>\gamma'</m> never goes straight. What happens in every round?
+          What is <m>\pi_2(\gamma, \gamma')</m>? Does Teenager 2 do any better
+          than with <m>\gamma</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Teenager 2 swerves in every round, so nobody ever goes straight, and
+          <m>\gamma</m> tells Teenager 1 to swerve in every round too. Both
+          swerve forever, just as with <m>(\gamma, \gamma)</m>, so
+          <m>\pi_2(\gamma, \gamma') = 0 = \pi_2(\gamma, \gamma)</m>. Teenager 2
+          does no better.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-nash-table">
+      <statement>
+        <p>
+          Otherwise, <m>\gamma'</m> goes straight at some point. Say Teenager
+          2 goes straight for the first time in round <m>k</m>. Then:
+        </p>
+        <ul>
+          <li>
+            <p>
+              In rounds 0 through <m>k-1</m>, nobody has gone straight, so
+              both teenagers swerve.
+            </p>
+          </li>
+          <li>
+            <p>
+              In round <m>k</m>, Teenager 1 still swerves, since nobody had
+              gone straight before round <m>k</m>, and Teenager 2 goes
+              straight.
+            </p>
+          </li>
+        </ul>
+        <p>
+          Fill in the rest of the table, assuming that from round
+          <m>k+1</m> on, Teenager 2 makes their best move in every round.
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell>round 0</cell><cell><m>\cdots</m></cell><cell>round <m>k-1</m></cell><cell>round <m>k</m></cell><cell>round <m>k+1</m></cell><cell>round <m>k+2</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 1's move (<m>\gamma</m>)</cell><cell colspan="3">swerve</cell><cell>swerve</cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 2's move (<m>\gamma'</m>)</cell><cell colspan="3">swerve</cell><cell>straight</cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Teenager 2's discounted payoff</cell><cell colspan="3"><m>0</m></cell><cell><m>\delta^k</m></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+      </statement>
+      <hint>
+        <p>
+          From round <m>k+1</m> on, Teenager 2 has gone straight, so
+          <m>\gamma</m> tells Teenager 1 to go straight in every round, no
+          matter what Teenager 2 does. What is Teenager 2's best response to a
+          teenager who goes straight?
+        </p>
+      </hint>
+      <solution>
+        <p>
+          From round <m>k+1</m> on, Teenager 1 goes straight in every round.
+          Against that, Teenager 2 gets <m>-1</m> by swerving and <m>-2</m> by
+          going straight, and nothing Teenager 2 does can change Teenager 1's
+          later moves. So Teenager 2's best move is to swerve in every round,
+          for <m>-1</m> each round:
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell>round 0</cell><cell><m>\cdots</m></cell><cell>round <m>k-1</m></cell><cell>round <m>k</m></cell><cell>round <m>k+1</m></cell><cell>round <m>k+2</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 1's move (<m>\gamma</m>)</cell><cell colspan="3">swerve</cell><cell>swerve</cell><cell>straight</cell><cell>straight</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Teenager 2's move (<m>\gamma'</m>)</cell><cell colspan="3">swerve</cell><cell>straight</cell><cell>swerve</cell><cell>swerve</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Teenager 2's discounted payoff</cell><cell colspan="3"><m>0</m></cell><cell><m>\delta^k</m></cell><cell><m>-\delta^{k+1}</m></cell><cell><m>-\delta^{k+2}</m></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+        <p>
+          This is different from the Wine Merchant game. There, after Bernard
+          defected, his best move was to <em>keep</em> defecting. Here, after
+          Teenager 2 goes straight once, their best move is to go back to
+          swerving.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-nash-sum">
+      <statement>
+        <p>
+          Using the tables, here are Teenager 2's payoffs for the two
+          strategies:
+          <md>
+            <mrow>\pi_2(\gamma, \gamma) \amp = \underbrace{0 + 0 + \cdots + 0}_{\text{rounds } 0 \text{ to } k-1} + 0 + 0 + 0 + \cdots</mrow>
+            <mrow>\pi_2(\gamma, \gamma') \amp = \underbrace{0 + 0 + \cdots + 0}_{\text{rounds } 0 \text{ to } k-1} + \delta^k - \delta^{k+1} - \delta^{k+2} - \cdots</mrow>
+          </md>
+          The terms for rounds 0 through <m>k-1</m> are the same, so we are
+          really comparing
+          <me>0 + 0 + 0 + \cdots = 0 \qquad \text{with} \qquad \delta^k - \delta^{k+1} - \delta^{k+2} - \cdots.</me>
+          Find the sum <m>\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          After the first term, the rest is a geometric series:
+          <m>-\delta^{k+1} - \delta^{k+2} - \cdots</m> has
+          <m>a = -\delta^{k+1}</m> and <m>r = \delta</m>.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          The only positive term is the first one, from round <m>k</m>.
+          Everything after it is a geometric series:
+          <me>\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots = \underbrace{\delta^k}_{\text{round } k} + \underbrace{\left(-\delta^{k+1} - \delta^{k+2} - \cdots\right)}_{a = -\delta^{k+1},\ r = \delta}.</me>
+          So
+          <me>\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots = \delta^k - \frac{\delta^{k+1}}{1 - \delta}.</me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-nash-compare">
+      <statement>
+        <p>
+          Going straight in round <m>k</m> does <em>not</em> help Teenager 2
+          when <m>\pi_2(\gamma, \gamma') \leq \pi_2(\gamma, \gamma)</m>, that
+          is, when
+          <me>\delta^k - \frac{\delta^{k+1}}{1 - \delta} \leq 0.</me>
+          For which values of <m>\delta</m> is this true? Conclude that
+          <m>(\gamma, \gamma)</m> is a Nash equilibrium for those values of
+          <m>\delta</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Divide both sides by <m>\delta^k</m>, just as in the proof of
+          Theorem 6.1.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          Dividing by <m>\delta^k</m> gives
+          <m>1 - \frac{\delta}{1 - \delta} \leq 0</m>. Multiplying by
+          <m>1 - \delta</m>, which is positive, gives
+          <m>1 - \delta - \delta \leq 0</m>, so <m>\delta \geq \frac{1}{2}</m>.
+        </p>
+        <p>
+          So when <m>\delta \geq \frac{1}{2}</m>, no strategy <m>\gamma'</m>
+          gives Teenager 2 more than <m>\pi_2(\gamma, \gamma)</m>: if
+          <m>\gamma'</m> never goes straight, Teenager 2 gets the same payoff,
+          and if it first goes straight in round <m>k</m>, the best Teenager 2
+          can do is the payoff we just found, which is at most 0. So
+          <m>\gamma</m> is a best response to <m>\gamma</m>. By symmetry, the
+          same is true for Teenager 1, so <m>(\gamma, \gamma)</m> is a Nash
+          equilibrium when <m>\delta \geq \frac{1}{2}</m>.
+        </p>
+      </solution>
+    </task>
+  </activity>
+
+  <p>
+    The strategy <m>\gamma</m> contains a threat. Each teenager starts out
+    cooperating, by swerving, but threatens that if anyone ever goes
+    straight, they'll go straight forever, so the teenagers crash every
+    round. If <m>(\gamma, \gamma)</m> is a subgame perfect Nash
+    equilibrium, then the threat is <em>believable</em>: carrying it out
+    is a best response in every subgame, including the subgames after
+    someone has gone straight, where the threat actually has to be carried
+    out. If it isn't subgame perfect, then the threat only works because it
+    is never tested.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Activity 2: is it subgame perfect?                            -->
+  <!-- ============================================================ -->
+
+  <activity xml:id="activity-chicken-spne">
+    <title>Is the Threat Believable?</title>
+
+    <introduction>
+      <p>
+        Now let's check whether <m>(\gamma, \gamma)</m> is a subgame
+        perfect Nash equilibrium. As on the previous page, take any subgame,
+        starting at a node <m>m</m> at the beginning of round <m>k</m>.
+        There are two possibilities for what happened before <m>m</m>:
+        either nobody has gone straight yet, or at least one teenager has
+        gone straight at some point.
+      </p>
+    </introduction>
+
+    <task xml:id="activity-chicken-spne-case1">
+      <statement>
+        <p>
+          Suppose nobody has gone straight before <m>m</m>. What does
+          <m>\gamma</m> tell both teenagers to do at <m>m</m>? Is the
+          restriction of <m>(\gamma, \gamma)</m> to this subgame a Nash
+          equilibrium when <m>\delta \geq \frac{1}{2}</m>?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\gamma</m> tells both teenagers to swerve, exactly as at the
+          start of the game. So the subgame looks just like the whole game,
+          with every payoff multiplied by <m>\delta^k</m>, and by <xref ref="activity-chicken-nash"/>,
+          the restriction is a Nash equilibrium when
+          <m>\delta \geq \frac{1}{2}</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-spne-case2">
+      <statement>
+        <p>
+          Now suppose someone has gone straight before <m>m</m>.
+        </p>
+        <ol>
+          <li>
+            <p>
+              What does <m>\gamma</m> tell both teenagers to do in every round
+              of the subgame?
+            </p>
+          </li>
+          <li>
+            <p>
+              What payoff does each teenager get per round?
+            </p>
+          </li>
+          <li>
+            <p>
+              If Teenager 2 does what <m>\gamma</m> says, is going straight
+              every round Teenager 1's best response?
+            </p>
+          </li>
+          <li>
+            <p>
+              Is the restriction of <m>(\gamma, \gamma)</m> to this subgame a
+              Nash equilibrium?
+            </p>
+          </li>
+        </ol>
+      </statement>
+      <hint>
+        <p>
+          For the first two questions:
+        </p>
+        <ol>
+          <li>
+            <p>
+              Since someone has already gone straight, <m>\gamma</m> tells
+              both teenagers to go straight in every round of the subgame.
+            </p>
+          </li>
+          <li>
+            <p>
+              They crash every round, so each gets <m>-2</m> per round.
+            </p>
+          </li>
+        </ol>
+        <p>
+          For the third question, look back at the Chicken table at the top of
+          this page: if Teenager 2 goes straight, what does Teenager 1 get by
+          swerving instead?
+        </p>
+      </hint>
+      <solution>
+        <ol>
+          <li>
+            <p>
+              Since someone has already gone straight, <m>\gamma</m> tells
+              both teenagers to go straight in every round of the subgame.
+            </p>
+          </li>
+          <li>
+            <p>
+              They crash every round, so each gets <m>-2</m> per round.
+            </p>
+          </li>
+          <li>
+            <p>
+              No. If Teenager 2 goes straight every round, Teenager 1 gets
+              <m>-1</m> per round by swerving, which is better than <m>-2</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              No. Going straight every round isn't a best response, so the
+              restriction of <m>(\gamma, \gamma)</m> is not a Nash
+              equilibrium of this subgame.
+            </p>
+          </li>
+        </ol>
+      </solution>
+    </task>
+
+    <task xml:id="activity-chicken-spne-conclude">
+      <statement>
+        <p>
+          Is <m>(\gamma, \gamma)</m> a subgame perfect Nash equilibrium? Is
+          the threat believable?
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Look back at the previous part, where we found subgames in which
+          the restriction of <m>(\gamma, \gamma)</m> is not a Nash
+          equilibrium.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          No, <m>(\gamma, \gamma)</m> is not subgame perfect, because its
+          restriction to any subgame after someone has gone straight is not a
+          Nash equilibrium. So the threat is not believable.
+        </p>
+      </solution>
+    </task>
+  </activity>
+
+  <p>
+    Let's reflect on why the trigger strategy was a subgame perfect Nash
+    equilibrium in the Wine Merchant game, but <m>\gamma</m> is not in
+    Chicken. The difference is what the players do forever after someone
+    breaks the plan. The Wine Merchant game is a version of the Prisoner's
+    Dilemma, where your best response to someone defecting is to defect
+    too. So carrying out the threat is in your own interest. In Chicken,
+    your best response to someone going straight is to swerve, to avoid a
+    crash. So the threat to keep crashing forever is not one a rational
+    player would actually carry out.
+  </p>
+
+  <interactive xml:id="question-form-6-3" iframe="question-form.html?section=6.3" width="100%" aspect="2:1"/>
+</section>
