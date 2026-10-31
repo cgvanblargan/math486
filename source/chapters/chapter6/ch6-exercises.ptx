@@ -2,7 +2,7 @@
 
 <!-- Chapter 6 exercises.
 
-     One flat list, numbered in order. Which exercises get assigned
+     One flat list, numbered in order. Which exercises get assignedz
      together lives in the course schedule, not here.
 
      Exercise 1 is new (subgame perfection, following page 1 of the
@@ -29,8 +29,10 @@
         This exercise does not involve a repeated game. Consider the game
         in extensive form below, with payoffs listed as (Player 1, Player
         2). Player 1 chooses <m>U</m> or <m>D</m>, and then Player 2
-        chooses <m>x</m> or <m>y</m>. Player 2's two nodes are labeled
-        <m>n_1</m> (after <m>U</m>) and <m>n_2</m> (after <m>D</m>).
+        chooses <m>x</m> or <m>y</m>. In the tree, <m>P_1</m> and
+        <m>P_2</m> mark which player moves at each node, and Player 2's two
+        nodes are labeled <m>n_1</m> (after <m>U</m>) and <m>n_2</m> (after
+        <m>D</m>).
       </p>
 
       <figure xml:id="fig-hw-threat-tree">
@@ -103,14 +105,63 @@
           </li>
         </ul>
       </statement>
+      <hint>
+        <p>
+          The whole game is one subgame, and its table is the one from part
+          (a). For the subgames at <m>n_1</m> and <m>n_2</m>, notice that
+          there is no <m>U</m> or <m>D</m> in the table: Player 1 doesn't
+          move in these subgames, so Player 1 has no strategies there. Player
+          2 has two strategies, <m>x</m> and <m>y</m>, in both. So the tables
+          look like this:
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell>Subgame at <m>n_1</m></cell>
+            <cell>Player 2: <m>x</m></cell>
+            <cell>Player 2: <m>y</m></cell>
+          </row>
+          <row>
+            <cell>Payoffs</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell>Subgame at <m>n_2</m></cell>
+            <cell>Player 2: <m>x</m></cell>
+            <cell>Player 2: <m>y</m></cell>
+          </row>
+          <row>
+            <cell>Payoffs</cell>
+            <cell></cell>
+            <cell></cell>
+          </row>
+        </tabular>
+        <p>
+          To box the outcome of <m>(U, xx)</m> in each subgame, first decide:
+          what does Player 2's strategy <m>xx</m> correspond to in the
+          subgame at <m>n_1</m>? In the subgame at <m>n_2</m>?
+        </p>
+      </hint>
     </task>
 
     <task xml:id="hw-spne-threat-words">
       <statement>
         <p>
           Use backward induction to find the subgame perfect Nash
-          equilibrium of this game, and compare its outcome with the
-          outcome of <m>(U, xx)</m>. Explain in words why Player 2's plan at
+          equilibrium of this game. Your answer should be a strategy for each
+          player, not just the path the game takes: Player 2's strategy needs
+          to say what she does at <em>both</em> <m>n_1</m> and <m>n_2</m>,
+          because Player 1's choice depends on what Player 2 would do at
+          either node, even the one that isn't reached. Then compare its
+          outcome with the outcome of <m>(U, xx)</m>. Explain in words why Player 2's plan at
           <m>n_2</m> in <m>(U, xx)</m> is a threat, and who benefits from it.
           Why does the threat only work if Player 1 believes it?
         </p>
@@ -365,16 +416,19 @@
         defects in round <m>k</m>. Player 1 keeps defecting through round
         <m>k + m - 1</m>, and then plays <m>c</m> again in round
         <m>k + m</m>, where <m>m \geq 1</m>. We'll call this an
-        <term>excursion</term>.
+        <term>excursion</term>. In round <m>k + m + 1</m>, Player 1
+        cooperates again, just like at the start of the game. (If Player 1
+        defects again later, that's a new excursion.)
       </p>
     </introduction>
 
     <task xml:id="hw-tit-for-tat-nash-not-spne-table">
       <statement>
         <p>
-          Fill in the first three rows of the table below for an excursion.
-          The last row is filled in for you: it is Player 1's discounted
-          payoff in each round if they had kept using <m>\tau</m>, as in
+          The table below shows both players' moves during an excursion. Fill
+          in Player 1's payoff (with discount factor) in each round. The last
+          row is filled in for you: it is Player 1's payoff (with discount
+          factor) in each round if they had kept using <m>\tau</m>, as in
           <xref ref="hw-trigger-and-tit-for-tat"/>.
         </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
@@ -384,21 +438,24 @@
           <col right="minor"/>
           <col right="minor"/>
           <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
           <col/>
           <row header="yes" bottom="minor">
-            <cell></cell><cell>round <m>k</m></cell><cell>round <m>k+1</m></cell><cell><m>\cdots</m></cell><cell>round <m>k+m-1</m></cell><cell>round <m>k+m</m></cell><cell>round <m>k+m+1</m></cell>
+            <cell></cell><cell>round 0</cell><cell><m>\cdots</m></cell><cell>round <m>k-1</m></cell><cell>round <m>k</m></cell><cell>round <m>k+1</m></cell><cell><m>\cdots</m></cell><cell>round <m>k+m-1</m></cell><cell>round <m>k+m</m></cell><cell>round <m>k+m+1</m></cell>
           </row>
           <row bottom="minor">
-            <cell>Player 1's move</cell><cell></cell><cell></cell><cell><m>\cdots</m></cell><cell></cell><cell></cell><cell></cell>
+            <cell>Player 1's move</cell><cell colspan="3"><m>c</m></cell><cell><m>d</m></cell><cell><m>d</m></cell><cell><m>\cdots</m></cell><cell><m>d</m></cell><cell><m>c</m></cell><cell><m>c</m></cell>
           </row>
           <row bottom="minor">
-            <cell>Player 2's move</cell><cell></cell><cell></cell><cell><m>\cdots</m></cell><cell></cell><cell></cell><cell></cell>
+            <cell>Player 2's move (<m>\tau</m>)</cell><cell colspan="3"><m>c</m></cell><cell><m>c</m></cell><cell><m>d</m></cell><cell><m>\cdots</m></cell><cell><m>d</m></cell><cell><m>d</m></cell><cell><m>c</m></cell>
           </row>
           <row bottom="minor">
-            <cell>Player 1's discounted payoff</cell><cell></cell><cell></cell><cell><m>\cdots</m></cell><cell></cell><cell></cell><cell></cell>
+            <cell>Player 1's payoff (with discount factor)</cell><cell colspan="3"></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell><cell></cell><cell></cell><cell></cell>
           </row>
           <row>
-            <cell>Player 1's discounted payoff if they had kept using <m>\tau</m></cell><cell><m>5\delta^k</m></cell><cell><m>5\delta^{k+1}</m></cell><cell><m>\cdots</m></cell><cell><m>5\delta^{k+m-1}</m></cell><cell><m>5\delta^{k+m}</m></cell><cell><m>5\delta^{k+m+1}</m></cell>
+            <cell>Player 1's payoff (with discount factor) if they had kept using <m>\tau</m></cell><cell colspan="3"><m>5, 5\delta, \ldots, 5\delta^{k-1}</m></cell><cell><m>5\delta^k</m></cell><cell><m>5\delta^{k+1}</m></cell><cell><m>\cdots</m></cell><cell><m>5\delta^{k+m-1}</m></cell><cell><m>5\delta^{k+m}</m></cell><cell><m>5\delta^{k+m+1}</m></cell>
           </row>
         </tabular>
       </statement>
@@ -409,16 +466,27 @@
         <p>
           Using your table, show that the excursion does not improve Player
           1's payoff in rounds <m>k</m> through <m>k + m</m> when
-          <m>\delta \geq \frac{3}{8}</m>. After canceling a factor of
-          <m>\delta^k</m>, you should need to show that
-          <me>
-            8 - 8\delta^m \leq 5(1 + \delta + \delta^2 + \cdots + \delta^m).
-          </me>
+          <m>\delta \geq \frac{3}{8}</m>.
         </p>
       </statement>
       <hint>
         <p>
-          The right side is a finite geometric series:
+          Add up Player 1's payoffs in rounds <m>k</m> through <m>k + m</m>
+          for the excursion, and for <m>\tau</m>. The excursion doesn't help
+          if its total is at most the total for <m>\tau</m>:
+          <me>
+            8\delta^k + 0 + \cdots + 0 - 8\delta^{k+m} \leq 5\delta^k + 5\delta^{k+1} + \cdots + 5\delta^{k+m}.
+          </me>
+          After canceling a factor of <m>\delta^k</m>, this becomes
+          <me>
+            8 - 8\delta^m \leq 5(1 + \delta + \delta^2 + \cdots + \delta^m).
+          </me>
+          So you need to show that this is true when
+          <m>\delta \geq \frac{3}{8}</m>.
+        </p>
+        <p>
+          Some facts that may help: the right side is a finite geometric
+          series,
           <m>5(1 + \delta + \cdots + \delta^m) = \frac{5}{1 - \delta}(1 - \delta^{m+1})</m>.
           When <m>\delta \geq \frac{3}{8}</m>, you know
           <m>\frac{5}{1 - \delta} \geq 8</m>. Also,
@@ -430,44 +498,58 @@
     <task xml:id="hw-tit-for-tat-nash-not-spne-reset">
       <statement>
         <p>
-          Now we put the excursions together.
+          Now we put the pieces together. Any way Player 1 can switch away
+          from <m>\tau</m> is made of excursions, one after another, possibly
+          ending with Player 1 defecting at some point and never playing
+          <m>c</m> again.
+        </p>
+        <p>
+          Look at round <m>k + m + 1</m> in the table: both players play
+          <m>c</m>, just like in round 0. Since Player 2's move only depends
+          on what Player 1 did in the round before, from round
+          <m>k + m + 1</m> on, the game looks exactly like it did at the
+          start, just with every payoff multiplied by
+          <m>\delta^{k+m+1}</m>.
         </p>
         <ol marker="i.">
           <li>
             <p>
-              Look at round <m>k + m + 1</m> in your table. What does Player
-              2 play? Compare this with round 0 of the game.
-            </p>
-          </li>
-          <li>
-            <p>
-              Explain why, from round <m>k + m + 1</m> on, the game looks
-              exactly like it did at the start, just with every payoff
-              multiplied by <m>\delta^{k+m+1}</m>. So if Player 1 switches
-              away from <m>\tau</m> again later, that's a new excursion, and
-              the previous part applies to it too.
-            </p>
-          </li>
-          <li>
-            <p>
-              Player 1 might also never come back: after defecting in round
-              <m>k</m>, they never play <m>c</m> again. What are Player 1's
-              payoffs from round <m>k</m> on? Which part of
-              <xref ref="hw-tit-for-tat-equilibrium"/> already showed that
-              this doesn't help when <m>\delta \geq \frac{3}{8}</m>?
-            </p>
-          </li>
-          <li>
-            <p>
-              Any way of switching away from <m>\tau</m> is some number of
-              excursions, each followed by a reset, possibly ending with one
-              that never comes back. Explain why this shows that
-              <m>(\tau, \tau)</m> is a Nash equilibrium when
+              <em>Several excursions.</em> If Player 1 switches away from
+              <m>\tau</m> again later, that's a new excursion, and part (b)
+              applies to it too. Explain, without computing anything, why
+              Player 1 does <em>worse</em> with several excursions than by
+              cooperating the whole time with <m>\tau</m>, when
               <m>\delta \geq \frac{3}{8}</m>.
             </p>
           </li>
+          <li>
+            <p>
+              <em>Never coming back.</em> Player 1 might also defect in round
+              <m>k</m> and never play <m>c</m> again (they keep defecting
+              forever). Which part of
+              <xref ref="hw-tit-for-tat-equilibrium"/> already showed that this
+              doesn't help when <m>\delta \geq \frac{3}{8}</m>?
+            </p>
+          </li>
         </ol>
+        <p>
+          Putting these together: when <m>\delta \geq \frac{3}{8}</m>, any
+          way of switching away from <m>\tau</m> is some excursions, none of
+          which help Player 1, possibly followed by defecting forever, which
+          doesn't help either. So no strategy gives Player 1 a higher payoff
+          against <m>\tau</m> than <m>\tau</m> does. By symmetry, the same is
+          true for Player 2. So <m>(\tau, \tau)</m> is a Nash equilibrium
+          when <m>\delta \geq \frac{3}{8}</m>.
+        </p>
       </statement>
+      <hint>
+        <p>
+          For i: compare Player 1's payoffs with <m>\tau</m> one excursion at
+          a time. For ii: from round <m>k</m> on, defecting forever is just
+          <m>\beta</m> against <m>\tau</m>, with every payoff multiplied by
+          <m>\delta^k</m>.
+        </p>
+      </hint>
     </task>
 
     <task xml:id="hw-tit-for-tat-nash-not-spne-subgame">
@@ -481,12 +563,32 @@
         </p>
         <p>
           Now we show that <m>(\tau, \tau)</m> is not a subgame perfect Nash
-          equilibrium. Suppose that in round 0, Player 1 played <m>c</m> and
-          Player 2 played <m>d</m>. Consider the subgame starting in round 1,
-          with Player 2 using <m>\tau</m>. (In this subgame, round 1 is
-          discounted by <m>\delta</m>, round 2 by <m>\delta^2</m>, and so
-          on.)
+          equilibrium. Here is the setup:
         </p>
+        <ul>
+          <li>
+            <p>
+              In round 0, Player 1 played <m>c</m> and Player 2 played
+              <m>d</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Consider the subgame starting in round 1.
+            </p>
+          </li>
+          <li>
+            <p>
+              Player 2 uses <m>\tau</m> in this subgame.
+            </p>
+          </li>
+          <li>
+            <p>
+              In this subgame, round 1 is discounted by <m>\delta</m>, round
+              2 by <m>\delta^2</m>, and so on.
+            </p>
+          </li>
+        </ul>
         <ol marker="i.">
           <li>
             <p>
@@ -501,16 +603,16 @@
               <col right="minor"/>
               <col/>
               <row header="yes" bottom="minor">
-                <cell></cell><cell>round 1</cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
+                <cell></cell><cell><line>round 1</line><line>(after <m>(c, d)</m>)</line></cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
               </row>
               <row bottom="minor">
-                <cell>Player 1's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 1's move (<m>\tau</m>)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
               <row bottom="minor">
-                <cell>Player 2's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 2's move (<m>\tau</m>)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
               <row>
-                <cell>Player 1's discounted payoff</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 1's payoff (with discount factor)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
             </tabular>
           </li>
@@ -527,29 +629,95 @@
               <col right="minor"/>
               <col/>
               <row header="yes" bottom="minor">
-                <cell></cell><cell>round 1</cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
+                <cell></cell><cell><line>round 1</line><line>(after <m>(c, d)</m>)</line></cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
               </row>
               <row bottom="minor">
-                <cell>Player 1's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 1's move (<m>\zeta</m>)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
               <row bottom="minor">
-                <cell>Player 2's move</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 2's move (<m>\tau</m>)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
               <row>
-                <cell>Player 1's discounted payoff</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
+                <cell>Player 1's payoff (with discount factor)</cell><cell></cell><cell></cell><cell></cell><cell></cell><cell><m>\cdots</m></cell>
               </row>
             </tabular>
           </li>
           <li>
             <p>
               For which values of <m>\delta</m> is Player 1's payoff larger
-              with <m>\zeta</m>? For those <m>\delta</m>, is the restriction of
+              with <m>\zeta</m> than with <m>\tau</m>?
+            </p>
+          </li>
+          <li>
+            <p>
+              For those values of <m>\delta</m>, is the restriction of
               <m>(\tau, \tau)</m> to this subgame a Nash equilibrium? Is
-              <m>(\tau, \tau)</m> a subgame perfect Nash equilibrium?
+              <m>(\tau, \tau)</m> a subgame perfect Nash equilibrium? (This
+              should be quick, since you just did the relevant computations.)
             </p>
           </li>
         </ol>
       </statement>
+      <hint>
+        <p>
+          In each round, a player using <m>\tau</m> copies what the other
+          player did in the round before. So in round 1, look back at round 0,
+          where Player 1 played <m>c</m> and Player 2 played <m>d</m>.
+        </p>
+        <p>
+          For i, both players use <m>\tau</m>, so in round 1, Player 1 copies
+          Player 2's <m>d</m> and Player 2 copies Player 1's <m>c</m>. After
+          that, they keep copying each other, so they take turns defecting:
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell><line>round 1</line><line>(after <m>(c, d)</m>)</line></cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1's move (<m>\tau</m>)</cell><cell><m>d</m></cell><cell><m>c</m></cell><cell><m>d</m></cell><cell><m>c</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 2's move (<m>\tau</m>)</cell><cell><m>c</m></cell><cell><m>d</m></cell><cell><m>c</m></cell><cell><m>d</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Player 1's payoff (with discount factor)</cell><cell><m>8\delta</m></cell><cell><m>-8\delta^2</m></cell><cell><m>8\delta^3</m></cell><cell><m>-8\delta^4</m></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+        <p>
+          For ii, <m>\zeta</m> plays <m>c</m> in round 1 no matter what, and
+          Player 2 copies Player 1's <m>c</m> from round 0. Both cooperate in
+          round 1, and then they keep copying each other's <m>c</m>:
+        </p>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell><line>round 1</line><line>(after <m>(c, d)</m>)</line></cell><cell>round 2</cell><cell>round 3</cell><cell>round 4</cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1's move (<m>\zeta</m>)</cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 2's move (<m>\tau</m>)</cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>c</m></cell><cell><m>\cdots</m></cell>
+          </row>
+          <row>
+            <cell>Player 1's payoff (with discount factor)</cell><cell><m>5\delta</m></cell><cell><m>5\delta^2</m></cell><cell><m>5\delta^3</m></cell><cell><m>5\delta^4</m></cell><cell><m>\cdots</m></cell>
+          </row>
+        </tabular>
+        <p>
+          Now add up each payoff row using a geometric series.
+        </p>
+      </hint>
     </task>
   </exercise>
 
@@ -664,14 +832,14 @@
           <li>
             <p>
               Keep contributing <m>y</m> in each later round, as long as
-              every other student contributed at least <m>y</m> in the
-              previous round.
+              every student, including yourself, contributed at least
+              <m>y</m> in the previous round.
             </p>
           </li>
           <li>
             <p>
-              If one or more students contributed less than <m>y</m> in the
-              previous round, contribute 0 in the current round, and keep
+              If one or more students (including yourself) contributed less
+              than <m>y</m> in the previous round, contribute 0 in the current round, and keep
               contributing 0 in every round after that.
             </p>
           </li>
@@ -706,37 +874,62 @@
     <task xml:id="hw-common-fund-subgame">
       <statement>
         <p>
-          Is <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> a subgame perfect
-          Nash equilibrium? Suppose that in round 0, Player 1 contributes 0
-          and every other player contributes <m>y</m>.
+          Now we check whether <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m>
+          is a subgame perfect Nash equilibrium when
+          <m>\delta \geq \delta_0</m>, just as we did for the trigger strategy
+          in the Wine Merchant game. Take any subgame, starting at a node
+          <m>m</m> at the beginning of round <m>k</m>. There are two cases:
         </p>
+        <ul>
+          <li>
+            <p>
+              Every student contributed at least <m>y</m> in every round
+              before <m>m</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              At least one student contributed less than <m>y</m> in some
+              round before <m>m</m>.
+            </p>
+          </li>
+        </ul>
         <ol marker="i.">
           <li>
             <p>
-              In round 1, what does <m>\sigma_y</m> tell Player 1 to do? What
-              does it tell the other players to do?
+              Consider a subgame where every student contributed at least
+              <m>y</m> in every round before <m>m</m>. Is the restriction of
+              <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> to this subgame
+              a Nash equilibrium?
             </p>
           </li>
           <li>
             <p>
-              Is Player 1's move in round 1 a best response to what the
-              other players do in round 1 and later? What does this tell you
-              about whether <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m>
-              is subgame perfect?
+              Consider a subgame where at least one student contributed less
+              than <m>y</m> in some round before <m>m</m>. Is the restriction
+              of <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> to this
+              subgame a Nash equilibrium?
             </p>
           </li>
           <li>
             <p>
-              How could you change the definition of <m>\sigma_y</m> to fix
-              this problem?
+              Is <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> a subgame
+              perfect Nash equilibrium?
             </p>
           </li>
         </ol>
       </statement>
       <hint>
         <p>
-          Compare this with the original definition of the trigger strategy
-          in the Wine Merchant game, and why it had to be redefined.
+          This argument follows the same structure as
+          <xref ref="example-trigger-spne"/>, where we showed that the trigger
+          strategy in the Wine Merchant game is subgame perfect.
+        </p>
+        <p>
+          For i: what does <m>\sigma_y</m> tell everyone to do at <m>m</m>?
+          How does the subgame compare with the whole game? For ii: what does
+          <m>\sigma_y</m> tell everyone to do in every round of the subgame?
+          Use part (b).
         </p>
       </hint>
     </task>

@@ -6,9 +6,7 @@
   <p>
     Back in Section 3.7, we found three Nash equilibria of Big Monkey and
     Little Monkey: <m>(w, cw)</m>, <m>(c, ww)</m>, and <m>(w, cc)</m>. In
-    this chapter, we'll see that some Nash equilibria make more sense than
-    others, and we'll define a stronger kind of equilibrium that tells them
-    apart.
+    this chapter, we'll see a stronger version of Nash equilibria.
   </p>
 
   <assemblage xml:id="read-6-1">
@@ -24,18 +22,24 @@
 
   <p>
     Part of the definition of a subgame deals with information sets, which
-    only matter in games with incomplete information. We'll focus on games
-    with complete information, where things are simpler: every node that
-    isn't a terminal node is the start of a subgame. So let's explore these
-    ideas further in the Big Monkey and Little Monkey game.
+    only matter in games with incomplete information. We'll only be focusing on games
+    with complete information, which makes things a bit simpler!
   </p>
 
+  <definition xml:id="def-spne">
+    <title>Subgame Perfect Nash Equilibrium</title>
+    <statement>
+      <p>
+        A strategy profile is a <term>subgame perfect Nash equilibrium</term>
+        if, for every subgame, the restriction of the strategy profile to
+        that subgame is a Nash equilibrium of that subgame.
+      </p>
+    </statement>
+  </definition>
+
   <p>
-    A strategy profile is a <term>subgame perfect Nash equilibrium</term> if,
-    for every subgame, the <term>restriction</term> of the strategy profile
-    to that subgame is a Nash equilibrium of that subgame. Notice that when
-    we look at a subgame, moves at nodes outside the subgame are disregarded
-    in the restricted strategies.
+    Notice that when we look at a subgame, moves at nodes outside the
+    subgame are disregarded in the restricted strategies.
   </p>
 
   <p>
@@ -78,11 +82,12 @@
       <choice correct="yes">
         <statement><p>3</p></statement>
         <feedback>
-          <p>
-            Correct. There is one subgame starting at the root (the whole
-            game), one starting at <m>n_1</m> (after Big Monkey waits), and
-            one starting at <m>n_2</m> (after Big Monkey climbs).
-          </p>
+          <p>Correct. The three subgames are:</p>
+          <ol>
+            <li><p>the subgame starting at the root (the whole game),</p></li>
+            <li><p>the subgame starting at <m>n_1</m> (after Big Monkey waits), and</p></li>
+            <li><p>the subgame starting at <m>n_2</m> (after Big Monkey climbs).</p></li>
+          </ol>
         </feedback>
       </choice>
     </choices>
@@ -152,8 +157,8 @@
   <!-- ============================================================ -->
 
   <p>
-    Now it's your turn, with the strategy profile <m>(c, ww)</m>. Here are
-    its moves, drawn thick.
+    Now it's your turn to do a similar analysis, but with the strategy profile <m>(c, ww)</m>! On the tree below,
+    we've thickened the branches that correspond to the moves described with this strategy profile.
   </p>
 
   <figure xml:id="fig-bmlm-tree-c-ww">
@@ -178,6 +183,9 @@
         Click every outcome in the original normal form below that is still
         possible in this subgame.
       </p>
+
+      <p>Be careful! This subgame is the node that starts after Big Monkey waits, even though in the original strategy profile, <m>(c, ww)</m>, Big Monkey
+      climbs!! </p>
     </statement>
     <areas>
       <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
@@ -340,18 +348,18 @@
   <p>
     Little Monkey waits and gets 0, but climbing would give her 1. So the
     restriction of <m>(c, ww)</m> to this subgame is <em>not</em> a Nash
-    equilibrium. (It is a Nash equilibrium in the other two subgames.) That
+    equilibrium! (Notice that it is a Nash equilibrium in the other two subgames.) That
     means <m>(c, ww)</m> is <em>not</em> a subgame perfect Nash equilibrium.
   </p>
 
   <p>
-    Little Monkey's plan to wait if Big Monkey waits is what Section 1.6
-    called a <term>threat</term>: it would hurt Big Monkey, but it would
-    also hurt Little Monkey. <m>(c, ww)</m> is still a Nash equilibrium of
+    Recall that Little Monkey's plan to wait if Big Monkey waits is a <term>threat</term>
+    (it would hurt Big Monkey, but it would
+    also hurt Little Monkey). However, <m>(c, ww)</m> is still a Nash equilibrium of
     the whole game, because Big Monkey climbs, so <m>n_1</m> is never
-    reached and Little Monkey never has to carry out the threat. Subgame
-    perfection catches it, because it checks every subgame, including the
-    ones that are never reached.
+    reached and Little Monkey never has to carry out the threat! Checking whether the Nash equilibrium is subgame
+    perfect catches this because we check every subgame. The threat only works if Big Monkey believes the threat. If they don't believe the threat,
+    they will go ahead and climb, forcing Little Monkey to decide whether they want to make the rational move or the threat! 
   </p>
 
   <!-- ============================================================ -->
@@ -366,7 +374,7 @@
     <p>
       You've already seen most of this section! It covers the same three
       Nash equilibria, and it also explains the third one,
-      <m>(w, cc)</m>.
+      <m>(w, cc)</m>. It is a good idea to quickly think about <m>(w, cc)</m> on your own first before reading!
     </p>
   </assemblage>
 
@@ -416,15 +424,20 @@
     <p>
       The main point is in the first paragraph: backward induction finds
       subgame perfect Nash equilibria, because it chooses the best move at
-      every node, whether or not that node is reached. Notice that
-      <m>(w, cw)</m>, the subgame perfect equilibrium we found above, is
-      exactly the backward induction answer from Chapter 1. You can skim
-      the paragraph about chess.
+      every node, whether or not that node is reached.</p>
+      
+      <p> Notice that
+      <m>(w, cw)</m>, the subgame perfect equilibrium we found earlier, is
+      exactly the backward induction answer from Chapter 1. 
     </p>
   </assemblage>
 
   <p>
-    The last paragraph of Section 6.3 explains why we care. In games that go
+    Now you might be wondering why we care about subgame perfect Nash equilibria if they just
+    correspond to the backward induction outcome. Actually, this is only
+    true for finite games, where the game tree has finitely many nodes, so
+    there is a last move to start backward induction from. The last
+    paragraph of Section 6.3 goes into this. In games that go
     on forever, there's no last move to start backward induction from, but
     we can still start the game at any point and ask whether the players'
     plans make sense from there. That's how we'll use subgame perfection
