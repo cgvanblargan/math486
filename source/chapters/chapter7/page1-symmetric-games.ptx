@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch7-page1-symmetric-games" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Symmetric Games</title>
+
+  <p>
+    This chapter is short: we only need one idea from it, symmetric games,
+    because it sets up everything we'll do with evolutionary stability in
+    Chapter 8.
+  </p>
+
+  <assemblage xml:id="read-7-1">
+    <title>Section 7.1, Interchangeable Players</title>
+    <p>
+      <alert>Read Section 7.1.</alert>
+    </p>
+    <p>
+      Focus on the idea, not the notation. You don't need to master the
+      notation with permutations. The main point is this: a two-player game
+      is <term>symmetric</term> if both players have the same strategies,
+      and swapping the players just swaps their payoffs. In symbols,
+      <me>\pi_1(s, t) = \pi_2(t, s)</me>
+      for all strategies <m>s</m> and <m>t</m>. In a payoff table, this
+      means the entry in row <m>s</m>, column <m>t</m> is the entry in row
+      <m>t</m>, column <m>s</m> with the two payoffs switched.
+    </p>
+  </assemblage>
+
+  <p>
+    Here is the main result of the section, restated.
+  </p>
+
+  <theorem xml:id="thm-7-1-restated">
+    <title>Theorem 7.1</title>
+    <statement>
+      <p>
+        Every symmetric game with finitely many pure strategies has a
+        <term>symmetric Nash equilibrium</term>, one in which every player
+        uses the same (possibly mixed) strategy. For a two-player game, this
+        is a Nash equilibrium of the form <m>(\sigma, \sigma)</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    This is essential for Chapter 8. There, we'll think of a game as being
+    played over and over by members of a large population, and a
+    population state <m>\sigma</m> describes how often each strategy is
+    used. Evolutionary stability is about Nash equilibria of the form
+    <m>(\sigma, \sigma)</m>, and Theorem 7.1 guarantees that every
+    symmetric game has at least one.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Canonical games                                              -->
+  <!-- ============================================================ -->
+
+  <p>
+    Some games keep coming back, in this course and in game theory in
+    general. Here is a reminder of four canonical symmetric games we've
+    already seen. In each table, the pure strategy Nash equilibria are
+    boxed.
+  </p>
+
+  <paragraphs xml:id="ch7-canonical-pd">
+    <title>Prisoner's Dilemma</title>
+    <p>
+      Each player can cooperate (<m>c</m>) or defect (<m>d</m>).
+    </p>
+  <table xml:id="table-ch7-pd">
+    <title>Prisoner's Dilemma</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Player 2: <m>c</m></cell>
+        <cell>Player 2: <m>d</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Player 1: <m>c</m></cell>
+        <cell><m>(-1, -1)</m></cell>
+        <cell><m>(-10, 0)</m></cell>
+      </row>
+      <row>
+        <cell>Player 1: <m>d</m></cell>
+        <cell><m>(0, -10)</m></cell>
+        <cell><m>\boxed{(-6, -6)}</m></cell>
+      </row>
+    </tabular>
+  </table>
+    <p>
+      Defecting is a strictly dominant strategy, so <m>(d, d)</m> is the
+      only Nash equilibrium, even though both players would be better off
+      if they both cooperated. It is already symmetric.
+    </p>
+  </paragraphs>
+
+  <paragraphs xml:id="ch7-canonical-stag">
+    <title>Stag Hunt</title>
+    <p>
+      Each hunter can hunt a stag together with the other hunter, or hunt a
+      hare alone.
+    </p>
+  <table xml:id="table-ch7-stag">
+    <title>Stag Hunt</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Hunter 2: stag</cell>
+        <cell>Hunter 2: hare</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Hunter 1: stag</cell>
+        <cell><m>\boxed{(2, 2)}</m></cell>
+        <cell><m>(0, 1)</m></cell>
+      </row>
+      <row>
+        <cell>Hunter 1: hare</cell>
+        <cell><m>(1, 0)</m></cell>
+        <cell><m>\boxed{(1, 1)}</m></cell>
+      </row>
+    </tabular>
+  </table>
+    <p>
+      Both Nash equilibria are symmetric. The hunters agree that
+      (stag, stag) is better, but hunting stag is risky if you aren't sure
+      the other hunter will join you.
+    </p>
+  </paragraphs>
+
+  <paragraphs xml:id="ch7-canonical-chicken">
+    <title>Chicken</title>
+    <p>
+      Each teenager can go straight or swerve.
+    </p>
+  <table xml:id="table-ch7-chicken">
+    <title>Chicken</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Teenager 2: straight</cell>
+        <cell>Teenager 2: swerve</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Teenager 1: straight</cell>
+        <cell><m>(-2, -2)</m></cell>
+        <cell><m>\boxed{(1, -1)}</m></cell>
+      </row>
+      <row>
+        <cell>Teenager 1: swerve</cell>
+        <cell><m>\boxed{(-1, 1)}</m></cell>
+        <cell><m>(0, 0)</m></cell>
+      </row>
+    </tabular>
+  </table>
+    <p>
+      Each teenager wants to be the one who goes straight while the other
+      swerves, so the two pure Nash equilibria are <em>not</em> symmetric.
+      The symmetric Nash equilibrium promised by Theorem 7.1 is mixed: each
+      teenager goes straight with probability <m>\frac{1}{2}</m>.
+    </p>
+  </paragraphs>
+
+  <paragraphs xml:id="ch7-canonical-water">
+    <title>Water Pollution</title>
+    <p>
+      Three firms each either purify their waste (<m>g</m>) or pollute
+      (<m>b</m>). Purifying costs 1, and if two or more firms pollute, the
+      water is polluted and each firm pays 3. Since there are three
+      players, we use two tables, one for each choice of Firm 3, with
+      payoffs listed as (Firm 1, Firm 2, Firm 3).
+    </p>
+  <table xml:id="table-ch7-water-g">
+    <title>Water Pollution, Firm 3 purifies</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Firm 2: <m>g</m></cell>
+        <cell>Firm 2: <m>b</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Firm 1: <m>g</m></cell>
+        <cell><m>(-1, -1, -1)</m></cell>
+        <cell><m>\boxed{(-1, 0, -1)}</m></cell>
+      </row>
+      <row>
+        <cell>Firm 1: <m>b</m></cell>
+        <cell><m>\boxed{(0, -1, -1)}</m></cell>
+        <cell><m>(-3, -3, -4)</m></cell>
+      </row>
+    </tabular>
+  </table>
+  <table xml:id="table-ch7-water-b">
+    <title>Water Pollution, Firm 3 pollutes</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Firm 2: <m>g</m></cell>
+        <cell>Firm 2: <m>b</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Firm 1: <m>g</m></cell>
+        <cell><m>\boxed{(-1, -1, 0)}</m></cell>
+        <cell><m>(-4, -3, -3)</m></cell>
+      </row>
+      <row>
+        <cell>Firm 1: <m>b</m></cell>
+        <cell><m>(-3, -4, -3)</m></cell>
+        <cell><m>\boxed{(-3, -3, -3)}</m></cell>
+      </row>
+    </tabular>
+  </table>
+    <p>
+      In the pure Nash equilibria where two firms purify and one pollutes,
+      the polluter gets clean water for free. These aren't symmetric. The
+      symmetric one is the worst outcome: all three firms pollute, and
+      nobody wants to be the only one paying to purify water that stays
+      polluted anyway.
+    </p>
+  </paragraphs>
+
+  <exercise xml:id="check-chicken-symmetric">
+    <statement>
+      <p>
+        Chicken is a symmetric game, but neither of its pure strategy Nash
+        equilibria is symmetric. Does this contradict Theorem 7.1?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>Yes, because Theorem 7.1 says there is a symmetric Nash equilibrium.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Theorem 7.1 allows the symmetric Nash equilibrium to
+            be mixed.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>No, because the symmetric Nash equilibrium can be mixed.</p>
+        </statement>
+        <feedback>
+          <p>
+            Right. In Chicken, the symmetric Nash equilibrium is
+            <m>(\sigma, \sigma)</m> where each teenager goes straight with
+            probability <m>\frac{1}{2}</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <interactive xml:id="question-form-7-1" iframe="question-form.html?section=7.1" width="100%" aspect="2:1"/>
+</section>
