@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 8 exercises.
+
+     One flat list, numbered in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Adapted from the previous instructor's Lesson 11 written homework:
+     Exercise 1 = old Exercise 1, Exercise 2 = old Exercise 2,
+     Exercise 3 = old Problem 1 plus a new part (c) (no mixed
+     evolutionarily stable state), Exercise 4 = old Problem 2 plus a hint
+     for part (c).
+
+     Uses Sections 8.3 and 8.4 (Theorems 8.1, 8.3, 8.5) and the idea of a
+     symmetric game from Section 7.1.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch8-exercises">
+  <title>Exercises</title>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ess-unique-symmetric">
+    <title>A Completely Mixed Evolutionarily Stable State</title>
+
+    <introduction>
+      <p>
+        Consider the symmetric two-player game below, with payoffs listed
+        as (Player 1, Player 2). Let
+        <m>\sigma = \left(\frac{11}{18}, \frac{5}{18}, \frac{2}{18}\right)</m>.
+        In an earlier homework, we showed that <m>(\sigma, \sigma)</m> is a
+        mixed strategy Nash equilibrium. Since both players use the same
+        mixed strategy in a symmetric game, this is a
+        <term>symmetric</term> mixed strategy Nash equilibrium.
+      </p>
+      <table xml:id="table-hw-ess-3x3">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>a</m></cell>
+            <cell>Player 2: <m>b</m></cell>
+            <cell>Player 2: <m>c</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>a</m></cell>
+            <cell><m>(2, 2)</m></cell>
+            <cell><m>(6, 3)</m></cell>
+            <cell><m>(7, 4)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>b</m></cell>
+            <cell><m>(3, 6)</m></cell>
+            <cell><m>(3, 3)</m></cell>
+            <cell><m>(9, 4)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>c</m></cell>
+            <cell><m>(4, 7)</m></cell>
+            <cell><m>(4, 9)</m></cell>
+            <cell><m>(1, 1)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-ess-unique-symmetric-only-ne">
+      <statement>
+        <p>
+          The population state <m>\sigma</m> is an evolutionarily stable
+          state of the corresponding evolutionary game. (You do not need to
+          check this.) Use Theorem 8.3 to show that <m>(\sigma, \sigma)</m>
+          is the only symmetric Nash equilibrium of the game.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-unique-symmetric-only-ess">
+      <statement>
+        <p>
+          Explain why the result from the previous part implies that
+          <m>\sigma</m> is the only evolutionarily stable state of the
+          corresponding evolutionary game.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        <em>Remark:</em> No calculations are needed for this exercise. It
+        is about understanding and applying the relevant definitions and
+        theorem. One important step in using a theorem is checking that its
+        hypotheses are satisfied.
+      </p>
+    </conclusion>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ess-two-strategies">
+    <title>Evolutionary Stability with Two Pure Strategies</title>
+
+    <introduction>
+      <p>
+        Consider the symmetric two-player game below, where the parameters
+        <m>w</m>, <m>x</m>, and <m>y</m> satisfy
+        <me>0 \lt x \lt y \lt w.</me>
+      </p>
+      <table xml:id="table-hw-ess-wxy">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>a</m></cell>
+            <cell>Player 2: <m>b</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>a</m></cell>
+            <cell><m>(w - x, w - x)</m></cell>
+            <cell><m>(w - y, w)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>b</m></cell>
+            <cell><m>(w, w - y)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-ess-two-strategies-pure">
+      <statement>
+        <p>
+          Find all pure strategy Nash equilibria. You can use best responses
+          to find and indicate them in the usual way.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-two-strategies-pure-ess">
+      <statement>
+        <p>
+          Which of the strategies used in the pure strategy Nash equilibria
+          from the previous part (if any) are evolutionarily stable states?
+          Explain.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-two-strategies-mixed">
+      <statement>
+        <p>
+          Use Theorem 8.5 to find a symmetric mixed strategy Nash
+          equilibrium <m>(\sigma, \sigma)</m>. Is <m>\sigma</m> an
+          evolutionarily stable state of the corresponding evolutionary
+          game? Explain. You can cite Theorem 8.5 in your explanation. Be
+          careful to check its conditions and to say which case you are
+          using.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ess-theorem-8-1">
+    <title>Checking the Conditions of Theorem 8.1</title>
+
+    <introduction>
+      <p>
+        Consider the symmetric two-player game below.
+      </p>
+      <table xml:id="table-hw-ess-4401">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>a</m></cell>
+            <cell>Player 2: <m>b</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>a</m></cell>
+            <cell><m>(4, 4)</m></cell>
+            <cell><m>(0, 4)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>b</m></cell>
+            <cell><m>(4, 0)</m></cell>
+            <cell><m>(1, 1)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-ess-theorem-8-1-pure">
+      <statement>
+        <p>
+          Find all pure strategy Nash equilibria. You can use best responses
+          to find and indicate them in the usual way.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-theorem-8-1-check">
+      <statement>
+        <p>
+          Let <m>\tau = (p, 1 - p)</m> denote a mixed strategy. Use Theorem
+          8.1 and <m>\tau</m> to decide whether either of the pure
+          strategies used in the Nash equilibria from the previous part is
+          an evolutionarily stable state. For each pure strategy, show that
+          it either satisfies or fails the conditions of Theorem 8.1.
+        </p>
+        <p>
+          <em>Remark:</em> To satisfy the conditions, they must hold for
+          <em>every</em> <m>\tau</m>. To fail them, it is enough to find
+          <em>one</em> <m>\tau</m> where a condition fails. Also, be careful
+          to distinguish between a population state <m>\sigma</m> and a
+          profile <m>(\sigma, \sigma)</m> or <m>(\sigma, \tau)</m>. For
+          example, it does not make sense to say that
+          <m>(\sigma, \sigma)</m> is evolutionarily stable.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-theorem-8-1-mixed">
+      <statement>
+        <p>
+          Let <m>\sigma = (q, 1 - q)</m> with <m>0 \lt q \lt 1</m>. Is
+          <m>\sigma</m> an evolutionarily stable state? Compare the payoffs
+          of <m>a</m> and <m>b</m> against <m>\sigma</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For <m>(\sigma, \sigma)</m> to be a Nash equilibrium when
+          <m>\sigma</m> uses both <m>a</m> and <m>b</m>, the strategies
+          <m>a</m> and <m>b</m> must do equally well against <m>\sigma</m>.
+        </p>
+      </hint>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-hawk-dove-owl">
+    <title>Hawk, Dove, and Owl</title>
+
+    <introduction>
+      <p>
+        In earlier assignments, we looked at the hawk-dove game. Here is a
+        variation where each player has three strategies. The players are
+        fighting over valuable territory, and one of them arrived in the
+        territory first. Each player is equally likely to be the one who
+        arrived first.
+      </p>
+      <p>
+        Each player has three strategies:
+      </p>
+      <ul>
+        <li>
+          <p>
+            <term>hawk</term> (<m>h</m>): fight aggressively until you win or
+            are injured.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>dove</term> (<m>d</m>): bluff by displaying, but retreat if
+            the other player begins to fight.
+          </p>
+        </li>
+        <li>
+          <p>
+            <term>owl</term> (<m>o</m>): if you arrived in the territory
+            first, play <m>h</m> (defend your territory). If the other
+            player arrived first, play <m>d</m> (give up the territory if
+            they fight for it).
+          </p>
+        </li>
+      </ul>
+      <p>
+        We use the following parameters:
+      </p>
+      <ul>
+        <li>
+          <p><m>v</m>: the value of the territory.</p>
+        </li>
+        <li>
+          <p><m>w</m>: the cost of getting injured in a fight.</p>
+        </li>
+        <li>
+          <p>
+            We assume <m>v \lt w</m>: the cost of being injured is greater
+            than the benefit of winning the fight.
+          </p>
+        </li>
+      </ul>
+      <p>
+        These assumptions lead to the following payoff matrix, with
+        payoffs listed as (Player 1, Player 2).
+      </p>
+      <table xml:id="table-hw-hawk-dove-owl">
+        <title>Hawk, dove, and owl</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>h</m></cell>
+            <cell>Player 2: <m>d</m></cell>
+            <cell>Player 2: <m>o</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>h</m></cell>
+            <cell><m>\left(\frac{v - w}{2}, \frac{v - w}{2}\right)</m></cell>
+            <cell><m>(v, 0)</m></cell>
+            <cell><m>\left(\frac{3v - w}{4}, \frac{v - w}{4}\right)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>d</m></cell>
+            <cell><m>(0, v)</m></cell>
+            <cell><m>\left(\frac{v}{2}, \frac{v}{2}\right)</m></cell>
+            <cell><m>\left(\frac{v}{4}, \frac{3v}{4}\right)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>o</m></cell>
+            <cell><m>\left(\frac{v - w}{4}, \frac{3v - w}{4}\right)</m></cell>
+            <cell><m>\left(\frac{3v}{4}, \frac{v}{4}\right)</m></cell>
+            <cell><m>\left(\frac{v}{2}, \frac{v}{2}\right)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-hawk-dove-owl-payoffs">
+      <statement>
+        <p>
+          Show how the payoffs for the strategy profile <m>(d, o)</m> were
+          calculated.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-owl-pure">
+      <statement>
+        <p>
+          Use best responses to find all pure strategy Nash equilibria.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-hawk-dove-owl-ess">
+      <statement>
+        <p>
+          For each Nash equilibrium from the previous part, determine whether
+          the equilibrium strategy is an evolutionarily stable state of the
+          corresponding evolutionary game.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          For each Nash equilibrium, consider:
+        </p>
+        <ul>
+          <li>
+            <p>
+              Is it symmetric, so that both players use the same strategy?
+              Only a symmetric Nash equilibrium <m>(s, s)</m> can give an
+              evolutionarily stable state <m>s</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              If it is symmetric, is it a strict Nash equilibrium? If so,
+              what does that tell you about whether <m>s</m> is
+              evolutionarily stable?
+            </p>
+          </li>
+        </ul>
+      </hint>
+    </task>
+  </exercise>
+
+</exercises>
