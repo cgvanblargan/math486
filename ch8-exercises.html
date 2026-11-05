@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Exercises</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-alternatives-to-nash.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-alternatives-to-nash.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch8-page1-evolutionary-stability.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-answers.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Answers to Ch. 4 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-answers.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Answers to Ch. 5 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
+<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-exercises active"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="exercises" id="ch8-exercises">
+<h2 class="heading hide-type">
+<span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Exercises</span>
+</h2>
+<details id="hw-ess-unique-symmetric" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Completely Mixed Evolutionarily Stable State.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-ess-unique-symmetric-2">
+<div class="para" id="hw-ess-unique-symmetric-2-1">Consider the symmetric two-player game below, with payoffs listed as (Player 1, Player 2). Let <span class="process-math">\(\sigma = \left(\frac{11}{18}, \frac{5}{18}, \frac{2}{18}\right)\text{.}\)</span> In an earlier homework, we showed that <span class="process-math">\((\sigma, \sigma)\)</span> is a mixed strategy Nash equilibrium. Since both players use the same mixed strategy in a symmetric game, this is a <dfn class="terminology">symmetric</dfn> mixed strategy Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-unique-symmetric-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-ess-3x3"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The game<div class="autopermalink" data-description="Table 8.1.1: The game"><a href="#table-hw-ess-3x3" title="Copy heading and permalink for Table 8.1.1: The game" aria-label="Copy heading and permalink for Table 8.1.1: The game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(a\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(b\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((2, 2)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((6, 3)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((7, 4)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((3, 6)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((3, 3)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((9, 4)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((4, 7)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((4, 9)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((1, 1)\)</span></td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-ess-unique-symmetric-only-ne"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-ess-unique-symmetric-only-ne-1-1">The population state <span class="process-math">\(\sigma\)</span> is an evolutionarily stable state of the corresponding evolutionary game. (You do not need to check this.) Use Theorem 8.3 to show that <span class="process-math">\((\sigma, \sigma)\)</span> is the only symmetric Nash equilibrium of the game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-unique-symmetric-only-ne-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.1.a"><a href="#hw-ess-unique-symmetric-only-ne" title="Copy heading and permalink for Task 8.1.1.a" aria-label="Copy heading and permalink for Task 8.1.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-ess-unique-symmetric-only-ess"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-ess-unique-symmetric-only-ess-1-1">Explain why the result from the previous part implies that <span class="process-math">\(\sigma\)</span> is the only evolutionarily stable state of the corresponding evolutionary game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-unique-symmetric-only-ess-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.1.b"><a href="#hw-ess-unique-symmetric-only-ess" title="Copy heading and permalink for Task 8.1.1.b" aria-label="Copy heading and permalink for Task 8.1.1.b">🔗</a></div>
+</article>
+<div class="conclusion" id="hw-ess-unique-symmetric-5">
+<div class="para" id="hw-ess-unique-symmetric-5-1">
+<em class="emphasis">Remark:</em> No calculations are needed for this exercise. It is about understanding and applying the relevant definitions and theorem. One important step in using a theorem is checking that its hypotheses are satisfied.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-unique-symmetric-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<div class="autopermalink" data-description="Exercise 8.1.1: A Completely Mixed Evolutionarily Stable State"><a href="#hw-ess-unique-symmetric" title="Copy heading and permalink for Exercise 8.1.1: A Completely Mixed Evolutionarily Stable State" aria-label="Copy heading and permalink for Exercise 8.1.1: A Completely Mixed Evolutionarily Stable State">🔗</a></div>
+</article></details>
+<details id="hw-ess-two-strategies" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Evolutionary Stability with Two Pure Strategies.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-ess-two-strategies-2">
+<div class="para logical" id="hw-ess-two-strategies-2-1">
+<div class="para">Consider the symmetric two-player game below, where the parameters <span class="process-math">\(w\text{,}\)</span> <span class="process-math">\(x\text{,}\)</span> and <span class="process-math">\(y\)</span> satisfy</div>
+<div class="displaymath process-math" id="hw-ess-two-strategies-2-1-4">
+\begin{equation*}
+0 \lt x \lt y \lt w.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-two-strategies-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-ess-wxy"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The game<div class="autopermalink" data-description="Table 8.1.2: The game"><a href="#table-hw-ess-wxy" title="Copy heading and permalink for Table 8.1.2: The game" aria-label="Copy heading and permalink for Table 8.1.2: The game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(a\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(b\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((w - x, w - x)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((w - y, w)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((w, w - y)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 0)\)</span></td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-ess-two-strategies-pure"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-ess-two-strategies-pure-1-1">Find all pure strategy Nash equilibria. You can use best responses to find and indicate them in the usual way.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-two-strategies-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.2.a"><a href="#hw-ess-two-strategies-pure" title="Copy heading and permalink for Task 8.1.2.a" aria-label="Copy heading and permalink for Task 8.1.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-ess-two-strategies-pure-ess"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-ess-two-strategies-pure-ess-1-1">Which of the strategies used in the pure strategy Nash equilibria from the previous part (if any) are evolutionarily stable states? Explain.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-two-strategies-pure-ess-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.2.b"><a href="#hw-ess-two-strategies-pure-ess" title="Copy heading and permalink for Task 8.1.2.b" aria-label="Copy heading and permalink for Task 8.1.2.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-ess-two-strategies-mixed"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-ess-two-strategies-mixed-1-1">Use Theorem 8.5 to find a symmetric mixed strategy Nash equilibrium <span class="process-math">\((\sigma, \sigma)\text{.}\)</span> Is <span class="process-math">\(\sigma\)</span> an evolutionarily stable state of the corresponding evolutionary game? Explain. You can cite Theorem 8.5 in your explanation. Be careful to check its conditions and to say which case you are using.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-two-strategies-mixed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.2.c"><a href="#hw-ess-two-strategies-mixed" title="Copy heading and permalink for Task 8.1.2.c" aria-label="Copy heading and permalink for Task 8.1.2.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 8.1.2: Evolutionary Stability with Two Pure Strategies"><a href="#hw-ess-two-strategies" title="Copy heading and permalink for Exercise 8.1.2: Evolutionary Stability with Two Pure Strategies" aria-label="Copy heading and permalink for Exercise 8.1.2: Evolutionary Stability with Two Pure Strategies">🔗</a></div>
+</article></details>
+<details id="hw-ess-theorem-8-1" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Checking the Conditions of Theorem 8.1.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-ess-theorem-8-1-2">
+<div class="para" id="hw-ess-theorem-8-1-2-1">Consider the symmetric two-player game below.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-ess-4401"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The game<div class="autopermalink" data-description="Table 8.1.3: The game"><a href="#table-hw-ess-4401" title="Copy heading and permalink for Table 8.1.3: The game" aria-label="Copy heading and permalink for Table 8.1.3: The game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(a\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(b\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(a\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((4, 4)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 4)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((4, 0)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((1, 1)\)</span></td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-ess-theorem-8-1-pure"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-ess-theorem-8-1-pure-1-1">Find all pure strategy Nash equilibria. You can use best responses to find and indicate them in the usual way.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.3.a"><a href="#hw-ess-theorem-8-1-pure" title="Copy heading and permalink for Task 8.1.3.a" aria-label="Copy heading and permalink for Task 8.1.3.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-ess-theorem-8-1-check"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-ess-theorem-8-1-check-1-1">Let <span class="process-math">\(\tau = (p, 1 - p)\)</span> denote a mixed strategy. Use Theorem 8.1 and <span class="process-math">\(\tau\)</span> to decide whether either of the pure strategies used in the Nash equilibria from the previous part is an evolutionarily stable state. For each pure strategy, show that it either satisfies or fails the conditions of Theorem 8.1.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-check-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<div class="para" id="hw-ess-theorem-8-1-check-1-2">
+<em class="emphasis">Remark:</em> To satisfy the conditions, they must hold for <em class="emphasis">every</em> <span class="process-math">\(\tau\text{.}\)</span> To fail them, it is enough to find <em class="emphasis">one</em> <span class="process-math">\(\tau\)</span> where a condition fails. Also, be careful to distinguish between a population state <span class="process-math">\(\sigma\)</span> and a profile <span class="process-math">\((\sigma, \sigma)\)</span> or <span class="process-math">\((\sigma, \tau)\text{.}\)</span> For example, it does not make sense to say that <span class="process-math">\((\sigma, \sigma)\)</span> is evolutionarily stable.<div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-check-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.3.b"><a href="#hw-ess-theorem-8-1-check" title="Copy heading and permalink for Task 8.1.3.b" aria-label="Copy heading and permalink for Task 8.1.3.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-ess-theorem-8-1-mixed"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-ess-theorem-8-1-mixed-1-1">Let <span class="process-math">\(\sigma = (q, 1 - q)\)</span> with <span class="process-math">\(0 \lt q \lt 1\text{.}\)</span> Is <span class="process-math">\(\sigma\)</span> an evolutionarily stable state? Compare the payoffs of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> against <span class="process-math">\(\sigma\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-mixed-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-ess-theorem-8-1-mixed-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-ess-theorem-8-1-mixed-2-1">For <span class="process-math">\((\sigma, \sigma)\)</span> to be a Nash equilibrium when <span class="process-math">\(\sigma\)</span> uses both <span class="process-math">\(a\)</span> and <span class="process-math">\(b\text{,}\)</span> the strategies <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> must do equally well against <span class="process-math">\(\sigma\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-ess-theorem-8-1-mixed-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 8.1.3.c.1"><a href="#hw-ess-theorem-8-1-mixed-2" title="Copy heading and permalink for Hint 8.1.3.c.1" aria-label="Copy heading and permalink for Hint 8.1.3.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 8.1.3.c"><a href="#hw-ess-theorem-8-1-mixed" title="Copy heading and permalink for Task 8.1.3.c" aria-label="Copy heading and permalink for Task 8.1.3.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 8.1.3: Checking the Conditions of Theorem 8.1"><a href="#hw-ess-theorem-8-1" title="Copy heading and permalink for Exercise 8.1.3: Checking the Conditions of Theorem 8.1" aria-label="Copy heading and permalink for Exercise 8.1.3: Checking the Conditions of Theorem 8.1">🔗</a></div>
+</article></details>
+<details id="hw-hawk-dove-owl" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hawk, Dove, and Owl.</span>
+</h3></summary>
+<article class="exercise exercise-like knowl__content">
+<div class="introduction" id="hw-hawk-dove-owl-2">
+<div class="para" id="hw-hawk-dove-owl-2-1">In earlier assignments, we looked at the hawk-dove game. Here is a variation where each player has three strategies. The players are fighting over valuable territory, and one of them arrived in the territory first. Each player is equally likely to be the one who arrived first.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="hw-hawk-dove-owl-2-2">Each player has three strategies:<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-hawk-dove-owl-2-3">
+<li id="hw-hawk-dove-owl-2-3-1">
+<div class="para" id="hw-hawk-dove-owl-2-3-1-1">
+<dfn class="terminology">hawk</dfn> (<span class="process-math">\(h\)</span>): fight aggressively until you win or are injured.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-hawk-dove-owl-2-3-2">
+<div class="para" id="hw-hawk-dove-owl-2-3-2-1">
+<dfn class="terminology">dove</dfn> (<span class="process-math">\(d\)</span>): bluff by displaying, but retreat if the other player begins to fight.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-hawk-dove-owl-2-3-3">
+<div class="para" id="hw-hawk-dove-owl-2-3-3-1">
+<dfn class="terminology">owl</dfn> (<span class="process-math">\(o\)</span>): if you arrived in the territory first, play <span class="process-math">\(h\)</span> (defend your territory). If the other player arrived first, play <span class="process-math">\(d\)</span> (give up the territory if they fight for it).<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-3-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-3-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="hw-hawk-dove-owl-2-4">We use the following parameters:<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-hawk-dove-owl-2-5">
+<li id="hw-hawk-dove-owl-2-5-1">
+<div class="para" id="hw-hawk-dove-owl-2-5-1-1">
+<span class="process-math">\(v\text{:}\)</span> the value of the territory.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-hawk-dove-owl-2-5-2">
+<div class="para" id="hw-hawk-dove-owl-2-5-2-1">
+<span class="process-math">\(w\text{:}\)</span> the cost of getting injured in a fight.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-hawk-dove-owl-2-5-3">
+<div class="para" id="hw-hawk-dove-owl-2-5-3-1">We assume <span class="process-math">\(v \lt w\text{:}\)</span> the cost of being injured is greater than the benefit of winning the fight.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-2-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="hw-hawk-dove-owl-2-6">These assumptions lead to the following payoff matrix, with payoffs listed as (Player 1, Player 2).<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-2-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-hw-hawk-dove-owl"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">8.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Hawk, dove, and owl<div class="autopermalink" data-description="Table 8.1.4: Hawk, dove, and owl"><a href="#table-hw-hawk-dove-owl" title="Copy heading and permalink for Table 8.1.4: Hawk, dove, and owl" aria-label="Copy heading and permalink for Table 8.1.4: Hawk, dove, and owl">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(h\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(d\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(o\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(h\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v - w}{2}, \frac{v - w}{2}\right)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((v, 0)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{3v - w}{4}, \frac{v - w}{4}\right)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(d\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, v)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v}{2}, \frac{v}{2}\right)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v}{4}, \frac{3v}{4}\right)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(o\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v - w}{4}, \frac{3v - w}{4}\right)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{3v}{4}, \frac{v}{4}\right)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\left(\frac{v}{2}, \frac{v}{2}\right)\)</span></td>
+</tr>
+</table></div>
+</figure>
+</div>
+<article class="task exercise-like" id="hw-hawk-dove-owl-payoffs"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="hw-hawk-dove-owl-payoffs-1-1">Show how the payoffs for the strategy profile <span class="process-math">\((d, o)\)</span> were calculated.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-payoffs-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.4.a"><a href="#hw-hawk-dove-owl-payoffs" title="Copy heading and permalink for Task 8.1.4.a" aria-label="Copy heading and permalink for Task 8.1.4.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-hawk-dove-owl-pure"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="hw-hawk-dove-owl-pure-1-1">Use best responses to find all pure strategy Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-pure-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 8.1.4.b"><a href="#hw-hawk-dove-owl-pure" title="Copy heading and permalink for Task 8.1.4.b" aria-label="Copy heading and permalink for Task 8.1.4.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="hw-hawk-dove-owl-ess"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="hw-hawk-dove-owl-ess-1-1">For each Nash equilibrium from the previous part, determine whether the equilibrium strategy is an evolutionarily stable state of the corresponding evolutionary game.<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-ess-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="hw-hawk-dove-owl-ess-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="hw-hawk-dove-owl-ess-2-1">For each Nash equilibrium, consider:<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-ess-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-hawk-dove-owl-ess-2-2">
+<li id="hw-hawk-dove-owl-ess-2-2-1">
+<div class="para" id="hw-hawk-dove-owl-ess-2-2-1-1">Is it symmetric, so that both players use the same strategy? Only a symmetric Nash equilibrium <span class="process-math">\((s, s)\)</span> can give an evolutionarily stable state <span class="process-math">\(s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-ess-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-ess-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="hw-hawk-dove-owl-ess-2-2-2">
+<div class="para" id="hw-hawk-dove-owl-ess-2-2-2-1">If it is symmetric, is it a strict Nash equilibrium? If so, what does that tell you about whether <span class="process-math">\(s\)</span> is evolutionarily stable?<div class="autopermalink" data-description="Paragraph"><a href="#hw-hawk-dove-owl-ess-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-hawk-dove-owl-ess-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" data-description="Hint 8.1.4.c.1"><a href="#hw-hawk-dove-owl-ess-2" title="Copy heading and permalink for Hint 8.1.4.c.1" aria-label="Copy heading and permalink for Hint 8.1.4.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 8.1.4.c"><a href="#hw-hawk-dove-owl-ess" title="Copy heading and permalink for Task 8.1.4.c" aria-label="Copy heading and permalink for Task 8.1.4.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 8.1.4: Hawk, Dove, and Owl"><a href="#hw-hawk-dove-owl" title="Copy heading and permalink for Exercise 8.1.4: Hawk, Dove, and Owl" aria-label="Copy heading and permalink for Exercise 8.1.4: Hawk, Dove, and Owl">🔗</a></div>
+</article></details><div class="autopermalink" data-description="Exercises 8.1: Exercises"><a href="#ch8-exercises" title="Copy heading and permalink for Exercises 8.1: Exercises" aria-label="Copy heading and permalink for Exercises 8.1: Exercises">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-alternatives-to-nash.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch8-page1-evolutionary-stability.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Symmetric Games</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch-symmetries-of-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-symmetries-of-games.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-alternatives-to-nash.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-answers.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Answers to Ch. 4 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-answers.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Answers to Ch. 5 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
+<ul class="structural toc-item-list contains-active"><li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch7-page1-symmetric-games">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Symmetric Games</span>
+</h2>
+<div class="para" id="ch7-page1-symmetric-games-2">This chapter is short: we only need one idea from it, symmetric games, because it sets up everything we’ll do with evolutionary stability in Chapter 8.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-page1-symmetric-games-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="assemblage assemblage-like" id="read-7-1"><h3 class="heading"><span class="title">Section 7.1, Interchangeable Players.</span></h3>
+<div class="para" id="read-7-1-2">
+<em class="alert">Read Section 7.1.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-7-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="read-7-1-3">
+<div class="para">Focus on the idea, not the notation. You don’t need to master the notation with permutations. The main point is this: a two-player game is <dfn class="terminology">symmetric</dfn> if both players have the same strategies, and swapping the players just swaps their payoffs. In symbols,</div>
+<div class="displaymath process-math" id="read-7-1-3-2">
+\begin{equation*}
+\pi_1(s, t) = \pi_2(t, s)
+\end{equation*}
+</div>
+<div class="para">for all strategies <span class="process-math">\(s\)</span> and <span class="process-math">\(t\text{.}\)</span> In a payoff table, this means the entry in row <span class="process-math">\(s\text{,}\)</span> column <span class="process-math">\(t\)</span> is the entry in row <span class="process-math">\(t\text{,}\)</span> column <span class="process-math">\(s\)</span> with the two payoffs switched.</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#read-7-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Reading: Section 7.1, Interchangeable Players"><a href="#read-7-1" title="Copy heading and permalink for Reading: Section 7.1, Interchangeable Players" aria-label="Copy heading and permalink for Reading: Section 7.1, Interchangeable Players">🔗</a></div>
+</article>
+<div class="para" id="ch7-page1-symmetric-games-4">Here is the main result of the section, restated.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-page1-symmetric-games-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="theorem theorem-like" id="thm-7-1-restated"><h3 class="heading">
+<span class="type">Theorem</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Theorem 7.1.</span>
+</h3>
+<div class="para" id="thm-7-1-restated-2-1">Every symmetric game with finitely many pure strategies has a <dfn class="terminology">symmetric Nash equilibrium</dfn>, one in which every player uses the same (possibly mixed) strategy. For a two-player game, this is a Nash equilibrium of the form <span class="process-math">\((\sigma, \sigma)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#thm-7-1-restated-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Theorem 7.1.1: Theorem 7.1"><a href="#thm-7-1-restated" title="Copy heading and permalink for Theorem 7.1.1: Theorem 7.1" aria-label="Copy heading and permalink for Theorem 7.1.1: Theorem 7.1">🔗</a></div>
+</article>
+<div class="para" id="ch7-page1-symmetric-games-6">This is essential for Chapter 8. There, we’ll think of a game as being played over and over by members of a large population, and a population state <span class="process-math">\(\sigma\)</span> describes how often each strategy is used. Evolutionary stability is about Nash equilibria of the form <span class="process-math">\((\sigma, \sigma)\text{,}\)</span> and Theorem 7.1 guarantees that every symmetric game has at least one.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-page1-symmetric-games-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch7-page1-symmetric-games-7">Some games keep coming back, in this course and in game theory in general. Here is a reminder of four canonical symmetric games we’ve already seen. In each table, the pure strategy Nash equilibria are boxed.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-page1-symmetric-games-7" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="ch7-canonical-pd"><h3 class="heading"><span class="title">Prisoner’s Dilemma.</span></h3>
+<div class="para" id="ch7-canonical-pd-2">Each player can cooperate (<span class="process-math">\(c\)</span>) or defect (<span class="process-math">\(d\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-pd-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-ch7-pd"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Prisoner’s Dilemma<div class="autopermalink" data-description="Table 7.1.2: Prisoner’s Dilemma"><a href="#table-ch7-pd" title="Copy heading and permalink for Table 7.1.2: Prisoner’s Dilemma" aria-label="Copy heading and permalink for Table 7.1.2: Prisoner’s Dilemma">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(d\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-1, -1)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-10, 0)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(d\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, -10)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(-6, -6)}\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch7-canonical-pd-4">Defecting is a strictly dominant strategy, so <span class="process-math">\((d, d)\)</span> is the only Nash equilibrium, even though both players would be better off if they both cooperated. It is already symmetric.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-pd-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Prisoner’s Dilemma"><a href="#ch7-canonical-pd" title="Copy heading and permalink for Paragraphs: Prisoner’s Dilemma" aria-label="Copy heading and permalink for Paragraphs: Prisoner’s Dilemma">🔗</a></div>
+</section>
+<section class="paragraphs" id="ch7-canonical-stag"><h3 class="heading"><span class="title">Stag Hunt.</span></h3>
+<div class="para" id="ch7-canonical-stag-2">Each hunter can hunt a stag together with the other hunter, or hunt a hare alone.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-stag-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-ch7-stag"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Stag Hunt<div class="autopermalink" data-description="Table 7.1.3: Stag Hunt"><a href="#table-ch7-stag" title="Copy heading and permalink for Table 7.1.3: Stag Hunt" aria-label="Copy heading and permalink for Table 7.1.3: Stag Hunt">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Hunter 2: stag</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Hunter 2: hare</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Hunter 1: stag</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(2, 2)}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 1)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Hunter 1: hare</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((1, 0)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(1, 1)}\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch7-canonical-stag-4">Both Nash equilibria are symmetric. The hunters agree that (stag, stag) is better, but hunting stag is risky if you aren’t sure the other hunter will join you.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-stag-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Stag Hunt"><a href="#ch7-canonical-stag" title="Copy heading and permalink for Paragraphs: Stag Hunt" aria-label="Copy heading and permalink for Paragraphs: Stag Hunt">🔗</a></div>
+</section>
+<section class="paragraphs" id="ch7-canonical-chicken"><h3 class="heading"><span class="title">Chicken.</span></h3>
+<div class="para" id="ch7-canonical-chicken-2">Each teenager can go straight or swerve.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-chicken-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-ch7-chicken"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Chicken<div class="autopermalink" data-description="Table 7.1.4: Chicken"><a href="#table-ch7-chicken" title="Copy heading and permalink for Table 7.1.4: Chicken" aria-label="Copy heading and permalink for Table 7.1.4: Chicken">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: straight</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: swerve</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Teenager 1: straight</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-2, -2)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(1, -1)}\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Teenager 1: swerve</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(-1, 1)}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 0)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch7-canonical-chicken-4">Each teenager wants to be the one who goes straight while the other swerves, so the two pure Nash equilibria are <em class="emphasis">not</em> symmetric. The symmetric Nash equilibrium promised by Theorem 7.1 is mixed: each teenager goes straight with probability <span class="process-math">\(\frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-chicken-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Chicken"><a href="#ch7-canonical-chicken" title="Copy heading and permalink for Paragraphs: Chicken" aria-label="Copy heading and permalink for Paragraphs: Chicken">🔗</a></div>
+</section>
+<section class="paragraphs" id="ch7-canonical-water"><h3 class="heading"><span class="title">Water Pollution.</span></h3>
+<div class="para" id="ch7-canonical-water-2">Three firms each either purify their waste (<span class="process-math">\(g\)</span>) or pollute (<span class="process-math">\(b\)</span>). Purifying costs 1, and if two or more firms pollute, the water is polluted and each firm pays 3. Since there are three players, we use two tables, one for each choice of Firm 3, with payoffs listed as (Firm 1, Firm 2, Firm 3).<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-water-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-ch7-water-g"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 purifies<div class="autopermalink" data-description="Table 7.1.5: Water Pollution, Firm 3 purifies"><a href="#table-ch7-water-g" title="Copy heading and permalink for Table 7.1.5: Water Pollution, Firm 3 purifies" aria-label="Copy heading and permalink for Table 7.1.5: Water Pollution, Firm 3 purifies">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Firm 2: <span class="process-math">\(g\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Firm 2: <span class="process-math">\(b\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Firm 1: <span class="process-math">\(g\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-1, -1, -1)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(-1, 0, -1)}\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Firm 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(0, -1, -1)}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-3, -3, -4)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<figure class="table table-like" id="table-ch7-water-b"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 pollutes<div class="autopermalink" data-description="Table 7.1.6: Water Pollution, Firm 3 pollutes"><a href="#table-ch7-water-b" title="Copy heading and permalink for Table 7.1.6: Water Pollution, Firm 3 pollutes" aria-label="Copy heading and permalink for Table 7.1.6: Water Pollution, Firm 3 pollutes">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Firm 2: <span class="process-math">\(g\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Firm 2: <span class="process-math">\(b\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Firm 1: <span class="process-math">\(g\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(-1, -1, 0)}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-4, -3, -3)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Firm 1: <span class="process-math">\(b\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-3, -4, -3)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\boxed{(-3, -3, -3)}\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch7-canonical-water-5">In the pure Nash equilibria where two firms purify and one pollutes, the polluter gets clean water for free. These aren’t symmetric. The symmetric one is the worst outcome: all three firms pollute, and nobody wants to be the only one paying to purify water that stays polluted anyway.<div class="autopermalink" data-description="Paragraph"><a href="#ch7-canonical-water-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Paragraphs: Water Pollution"><a href="#ch7-canonical-water" title="Copy heading and permalink for Paragraphs: Water Pollution" aria-label="Copy heading and permalink for Paragraphs: Water Pollution">🔗</a></div>
+</section>
+<article class="exercise exercise-like" id="check-chicken-symmetric"><h3 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">7.1.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h3>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-chicken-symmetric-1-1">Chicken is a symmetric game, but neither of its pure strategy Nash equilibria is symmetric. Does this contradict Theorem 7.1?<div class="autopermalink" data-description="Paragraph"><a href="#check-chicken-symmetric-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-chicken-symmetric" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-chicken-symmetric_opt_a">
+<div class="para" id="check-chicken-symmetric-2-1-1-1">Yes, because Theorem 7.1 says there is a symmetric Nash equilibrium.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-symmetric_opt_a">
+<div class="para" id="check-chicken-symmetric-2-1-2-1">Not quite. Theorem 7.1 allows the symmetric Nash equilibrium to be mixed.</div>
+</li>
+<li data-component="answer" id="rs-check-chicken-symmetric_opt_b" data-correct="">
+<div class="para" id="check-chicken-symmetric-2-2-1-1">No, because the symmetric Nash equilibrium can be mixed.</div>
+</li>
+<li data-component="feedback" id="rs-check-chicken-symmetric_opt_b">
+<div class="para" id="check-chicken-symmetric-2-2-2-1">Right. In Chicken, the symmetric Nash equilibrium is <span class="process-math">\((\sigma, \sigma)\)</span> where each teenager goes straight with probability <span class="process-math">\(\frac{1}{2}\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" data-description="Checkpoint 7.1.7"><a href="#check-chicken-symmetric" title="Copy heading and permalink for Checkpoint 7.1.7" aria-label="Copy heading and permalink for Checkpoint 7.1.7">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=7.1" id="question-form-7-1" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-7-1.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 7.1: Symmetric Games"><a href="#ch7-page1-symmetric-games" title="Copy heading and permalink for Section 7.1: Symmetric Games" aria-label="Copy heading and permalink for Section 7.1: Symmetric Games">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch-symmetries-of-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-alternatives-to-nash.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>

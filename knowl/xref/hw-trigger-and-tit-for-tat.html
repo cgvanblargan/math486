@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="exercise exercise-like"><h2 class="heading">
+<span class="type">Exercise</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Trigger and Tit for Tat.</span>
+</h2>
+<div class="introduction">
+<div class="para">Players 1 and 2 play the infinitely repeated game whose stage game is the Prisoner’s Dilemma below, with payoffs listed as (Player 1, Player 2).<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.4.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The stage game<div class="autopermalink" data-description="Table 6.4.2: The stage game"><a href="#table-hw-pd-5-8" title="Copy heading and permalink for Table 6.4.2: The stage game" aria-label="Copy heading and permalink for Table 6.4.2: The stage game">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(c\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Player 2: <span class="process-math">\(d\)</span>
+</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(c\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((5, 5)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-8, 8)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Player 1: <span class="process-math">\(d\)</span>
+</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((8, -8)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 0)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para logical">
+<div class="para">The players play this stage game in rounds <span class="process-math">\(k = 0, 1, 2, \ldots\text{,}\)</span> with discount factor <span class="process-math">\(\delta\text{,}\)</span> where <span class="process-math">\(0 \lt \delta \lt 1\text{.}\)</span> If <span class="process-math">\(p_k\)</span> denotes a player’s payoff in round <span class="process-math">\(k\text{,}\)</span> then that player’s payoff for the repeated game is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{\infty} \delta^k p_k = p_0 + \delta p_1 + \delta^2 p_2 + \cdots.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para">We will use the following strategies for the repeated game:<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="hw-trigger-and-tit-for-tat-2-5">
+<li>
+<div class="para">
+<span class="process-math">\(\sigma\text{,}\)</span> the <dfn class="terminology">trigger</dfn> strategy: begin by playing <span class="process-math">\(c\text{.}\)</span> Keep playing <span class="process-math">\(c\)</span> as long as the other player plays <span class="process-math">\(c\text{.}\)</span> If the other player ever plays <span class="process-math">\(d\text{,}\)</span> play <span class="process-math">\(d\)</span> in every round after that.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-trigger-and-tit-for-tat-2-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\tau\text{,}\)</span> <dfn class="terminology">tit for tat</dfn>: begin by playing <span class="process-math">\(c\text{.}\)</span> After that, play whatever the other player played in the previous round.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-trigger-and-tit-for-tat-2-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li>
+<div class="para">
+<span class="process-math">\(\nu\text{,}\)</span> <dfn class="terminology">suspicious tit for tat</dfn>: begin by playing <span class="process-math">\(d\text{.}\)</span> After that, play whatever the other player played in the previous round.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-2-5-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#hw-trigger-and-tit-for-tat-2-5-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+</div>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(a)</span></h3>
+<div class="para">Suppose Player 1 uses <span class="process-math">\(\sigma\)</span> in the repeated game. Explain in words what this means.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-words-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.4.2.a"><a href="#hw-trigger-and-tit-for-tat-words" title="Copy heading and permalink for Task 6.4.2.a" aria-label="Copy heading and permalink for Task 6.4.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(b)</span></h3>
+<div class="para">Find the payoffs <span class="process-math">\(\pi_1(\sigma, \tau)\)</span> and <span class="process-math">\(\pi_2(\sigma, \tau)\)</span> when Player 1 uses <span class="process-math">\(\sigma\)</span> and Player 2 uses <span class="process-math">\(\tau\text{.}\)</span> Make it clear in your work which move each player makes in each round. You can explain this in words, or show the pattern as part of your calculation.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-sigma-tau-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.4.2.b"><a href="#hw-trigger-and-tit-for-tat-sigma-tau" title="Copy heading and permalink for Task 6.4.2.b" aria-label="Copy heading and permalink for Task 6.4.2.b">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(c)</span></h3>
+<div class="para">Find the payoffs <span class="process-math">\(\pi_1(\tau, \nu)\)</span> and <span class="process-math">\(\pi_2(\tau, \nu)\)</span> when Player 1 uses <span class="process-math">\(\tau\)</span> and Player 2 uses <span class="process-math">\(\nu\text{.}\)</span> Start by filling in the table below.<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-tau-nu-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 0</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 1</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 2</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 3</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 4</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Player 1’s move</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Player 2’s move</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Player 1’s payoff</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Player 2’s payoff</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+</table></div>
+<div class="solutions">
+<details class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para">The payoffs alternate in sign. A series like <span class="process-math">\(1 - \delta + \delta^2 - \delta^3 + \cdots\)</span> is still geometric: it has <span class="process-math">\(a = 1\)</span> and <span class="process-math">\(r = -\delta\text{,}\)</span> so it equals <span class="process-math">\(\frac{1}{1 - (-\delta)} = \frac{1}{1 + \delta}\text{.}\)</span> What are <span class="process-math">\(a\)</span> and <span class="process-math">\(r\)</span> for each player’s payoffs?<div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-tau-nu-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.4.2.c.1"><a href="#hw-trigger-and-tit-for-tat-tau-nu-2" title="Copy heading and permalink for Hint 6.4.2.c.1" aria-label="Copy heading and permalink for Hint 6.4.2.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.4.2.c"><a href="#hw-trigger-and-tit-for-tat-tau-nu" title="Copy heading and permalink for Task 6.4.2.c" aria-label="Copy heading and permalink for Task 6.4.2.c">🔗</a></div>
+</article>
+<article class="task exercise-like"><h3 class="heading"><span class="codenumber">(d)</span></h3>
+<div class="para">Find <span class="process-math">\(\delta_0\)</span> such that the strategy profile <span class="process-math">\((\sigma, \sigma)\)</span> is a Nash equilibrium of the repeated game whenever <span class="process-math">\(\delta \geq \delta_0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#hw-trigger-and-tit-for-tat-threshold-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Task 6.4.2.d"><a href="#hw-trigger-and-tit-for-tat-threshold" title="Copy heading and permalink for Task 6.4.2.d" aria-label="Copy heading and permalink for Task 6.4.2.d">🔗</a></div>
+</article><div class="autopermalink" data-description="Exercise 6.4.2: Trigger and Tit for Tat"><a href="#hw-trigger-and-tit-for-tat" title="Copy heading and permalink for Exercise 6.4.2: Trigger and Tit for Tat" aria-label="Copy heading and permalink for Exercise 6.4.2: Trigger and Tit for Tat">🔗</a></div>
+</article><span class="incontext"><a class="internal" href="ch6-exercises.html#hw-trigger-and-tit-for-tat">In Context</a></span>
+</body>
+</html>

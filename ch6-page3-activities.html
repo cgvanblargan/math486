@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>More repeated game examples</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.3.6';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.4beca1fdeed766a2.bundle.js"></script><script src="_static/prefix-926.5c7038c8ef173faf.bundle.js"></script><script src="_static/prefix-runestone.ebd33f6a21eed414.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-926.229729d09512acc9.css">
+<link rel="stylesheet" type="text/css" href="_static/prefix-runestone.9963089870a016c8.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
+<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch6-page2-repeated-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-more-extensive-form.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch6-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-answers.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Answers to Ch. 4 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-answers.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Answers to Ch. 5 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch6-page3-activities">
+<h2 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">More repeated game examples</span>
+</h2>
+<div class="para" id="ch6-page3-activities-2">On this page, we’ll get more practice analyzing repeated games. These examples are not in the book. There is no new theory or definitions here, but the practice should help before you tackle the homework questions! The examples are labeled “activities”, since you’ll be working through each part yourself.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page3-activities-3">We’ll look at repeated versions of a classic game, Chicken. First, here is the table for a single game of Chicken. Each teenager either goes <dfn class="terminology">straight</dfn> or <dfn class="terminology">swerves</dfn>, with payoffs listed as (Teenager 1, Teenager 2).<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<figure class="table table-like" id="table-chicken-stage"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Chicken<div class="autopermalink" data-description="Table 6.3.1: Chicken"><a href="#table-chicken-stage" title="Copy heading and permalink for Table 6.3.1: Chicken" aria-label="Copy heading and permalink for Table 6.3.1: Chicken">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: straight</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">Teenager 2: swerve</th>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Teenager 1: straight</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-2, -2)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((1, -1)\)</span></td>
+</tr>
+<tr>
+<th scope="row" class="l m b1 r1 l1 t0 lines">Teenager 1: swerve</th>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((-1, 1)\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\((0, 0)\)</span></td>
+</tr>
+</table></div>
+</figure>
+<div class="para" id="ch6-page3-activities-5">Unlike the Prisoner’s Dilemma, Chicken has two pure strategy Nash equilibria: (straight, swerve) and (swerve, straight). In each one, one teenager goes straight and the other swerves.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch6-page3-activities-6">In the next two activities, we’ll find a Nash equilibrium of repeated Chicken, show why it is one, and then check whether it is subgame perfect. This is the same process we used for the trigger strategy on the previous page.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="activity project-like" id="activity-chicken-nash"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Swerving, Backed by a Threat.</span>
+</h3>
+<div class="introduction" id="activity-chicken-nash-2">
+<div class="para" id="activity-chicken-nash-2-1">The two teenagers play Chicken over and over, in rounds <span class="process-math">\(k = 0, 1, 2, \ldots\text{,}\)</span> with discount factor <span class="process-math">\(\delta\text{,}\)</span> where <span class="process-math">\(0 \lt \delta \lt 1\text{.}\)</span> Consider the following strategy, which we’ll call <span class="process-math">\(\gamma\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ul class="disc" id="activity-chicken-nash-2-2">
+<li id="activity-chicken-nash-2-2-1">
+<div class="para" id="activity-chicken-nash-2-2-1-1">Swerve as long as both teenagers have swerved in every earlier round.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#activity-chicken-nash-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="activity-chicken-nash-2-2-2">
+<div class="para" id="activity-chicken-nash-2-2-2-1">If <em class="emphasis">either</em> teenager has ever gone straight, go straight in every round from then on.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#activity-chicken-nash-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para" id="activity-chicken-nash-2-3">This is Chicken’s version of the trigger strategy: the threat is “if anyone goes straight, we crash every round from now on.” We’ll show that <span class="process-math">\((\gamma, \gamma)\)</span> is a Nash equilibrium when <span class="process-math">\(\delta \geq \frac{1}{2}\text{,}\)</span> following the same steps as the proof of Theorem 6.1. Suppose Teenager 1 uses <span class="process-math">\(\gamma\text{,}\)</span> and we’ll check whether Teenager 2 can do better by switching to a different strategy.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="activity-chicken-nash-both"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="activity-chicken-nash-both-1-1">Suppose both teenagers use <span class="process-math">\(\gamma\text{.}\)</span> Fill in the table below, and find <span class="process-math">\(\pi_2(\gamma, \gamma)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-both-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 0</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 1</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 2</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 3</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1’s move</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s move</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s payoff</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+</table></div>
+<div class="solutions">
+<details id="activity-chicken-nash-both-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-both-2-1">Nobody ever goes straight first, so both swerve in every round:<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-both-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 0</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 1</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 2</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 3</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1’s move</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s move</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s payoff</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+</table></div>
+<div class="para" id="activity-chicken-nash-both-2-3">Teenager 2 gets 0 every round, so <span class="process-math">\(\pi_2(\gamma, \gamma) = 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-both-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.1.a.1"><a href="#activity-chicken-nash-both-2" title="Copy heading and permalink for Solution 6.3.1.a.1" aria-label="Copy heading and permalink for Solution 6.3.1.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.1.a"><a href="#activity-chicken-nash-both" title="Copy heading and permalink for Task 6.3.1.a" aria-label="Copy heading and permalink for Task 6.3.1.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-nash-never"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="activity-chicken-nash-never-1-1">Now suppose Teenager 1 keeps using <span class="process-math">\(\gamma\text{,}\)</span> but Teenager 2 switches to some other strategy, <span class="process-math">\(\gamma'\text{.}\)</span> First, suppose <span class="process-math">\(\gamma'\)</span> never goes straight. What happens in every round? What is <span class="process-math">\(\pi_2(\gamma, \gamma')\text{?}\)</span> Does Teenager 2 do any better than with <span class="process-math">\(\gamma\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-never-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="activity-chicken-nash-never-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-never-2-1">Teenager 2 swerves in every round, so nobody ever goes straight, and <span class="process-math">\(\gamma\)</span> tells Teenager 1 to swerve in every round too. Both swerve forever, just as with <span class="process-math">\((\gamma, \gamma)\text{,}\)</span> so <span class="process-math">\(\pi_2(\gamma, \gamma') = 0 = \pi_2(\gamma, \gamma)\text{.}\)</span> Teenager 2 does no better.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-never-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.1.b.1"><a href="#activity-chicken-nash-never-2" title="Copy heading and permalink for Solution 6.3.1.b.1" aria-label="Copy heading and permalink for Solution 6.3.1.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.1.b"><a href="#activity-chicken-nash-never" title="Copy heading and permalink for Task 6.3.1.b" aria-label="Copy heading and permalink for Task 6.3.1.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-nash-table"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="activity-chicken-nash-table-1-1">Otherwise, <span class="process-math">\(\gamma'\)</span> goes straight at some point. Say Teenager 2 goes straight for the first time in round <span class="process-math">\(k\text{.}\)</span> Then:<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ul class="disc" id="activity-chicken-nash-table-1-2">
+<li id="activity-chicken-nash-table-1-2-1">
+<div class="para" id="activity-chicken-nash-table-1-2-1-1">In rounds 0 through <span class="process-math">\(k-1\text{,}\)</span> nobody has gone straight, so both teenagers swerve.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#activity-chicken-nash-table-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="activity-chicken-nash-table-1-2-2">
+<div class="para" id="activity-chicken-nash-table-1-2-2-1">In round <span class="process-math">\(k\text{,}\)</span> Teenager 1 still swerves, since nobody had gone straight before round <span class="process-math">\(k\text{,}\)</span> and Teenager 2 goes straight.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item"><a href="#activity-chicken-nash-table-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul> 
+<div class="para" id="activity-chicken-nash-table-1-3">Fill in the rest of the table, assuming that from round <span class="process-math">\(k+1\)</span> on, Teenager 2 makes their best move in every round.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-1-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> <div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 0</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k-1\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k+1\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k+2\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1’s move (<span class="process-math">\(\gamma\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s move (<span class="process-math">\(\gamma'\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">straight</td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s discounted payoff</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\delta^k\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+</table></div>
+<div class="solutions">
+<details id="activity-chicken-nash-table-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-table-2-1">From round <span class="process-math">\(k+1\)</span> on, Teenager 2 has gone straight, so <span class="process-math">\(\gamma\)</span> tells Teenager 1 to go straight in every round, no matter what Teenager 2 does. What is Teenager 2’s best response to a teenager who goes straight?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.1.c.1"><a href="#activity-chicken-nash-table-2" title="Copy heading and permalink for Hint 6.3.1.c.1" aria-label="Copy heading and permalink for Hint 6.3.1.c.1">🔗</a></div>
+</div></details>
+<details id="activity-chicken-nash-table-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-table-3-1">From round <span class="process-math">\(k+1\)</span> on, Teenager 1 goes straight in every round. Against that, Teenager 2 gets <span class="process-math">\(-1\)</span> by swerving and <span class="process-math">\(-2\)</span> by going straight, and nothing Teenager 2 does can change Teenager 1’s later moves. So Teenager 2’s best move is to swerve in every round, for <span class="process-math">\(-1\)</span> each round:<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="l m b1 r1 l1 t1 lines"></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round 0</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k-1\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k+1\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines">round <span class="process-math">\(k+2\)</span>
+</th>
+<th scope="col" class="c m b1 r1 l0 t1 lines"><span class="process-math">\(\cdots\)</span></th>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 1’s move (<span class="process-math">\(\gamma\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">straight</td>
+<td class="c m b1 r1 l0 t0 lines">straight</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s move (<span class="process-math">\(\gamma'\)</span>)</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">straight</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines">swerve</td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+<tr>
+<td class="l m b1 r1 l1 t0 lines">Teenager 2’s discounted payoff</td>
+<td class="c m b1 r1 l0 t0 lines" colspan="3"><span class="process-math">\(0\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\delta^k\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(-\delta^{k+1}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(-\delta^{k+2}\)</span></td>
+<td class="c m b1 r1 l0 t0 lines"><span class="process-math">\(\cdots\)</span></td>
+</tr>
+</table></div>
+<div class="para" id="activity-chicken-nash-table-3-3">This is different from the Wine Merchant game. There, after Bernard defected, his best move was to <em class="emphasis">keep</em> defecting. Here, after Teenager 2 goes straight once, their best move is to go back to swerving.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-table-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.1.c.1"><a href="#activity-chicken-nash-table-3" title="Copy heading and permalink for Solution 6.3.1.c.1" aria-label="Copy heading and permalink for Solution 6.3.1.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.1.c"><a href="#activity-chicken-nash-table" title="Copy heading and permalink for Task 6.3.1.c" aria-label="Copy heading and permalink for Task 6.3.1.c">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-nash-sum"><h4 class="heading"><span class="codenumber">(d)</span></h4>
+<div class="para logical" id="activity-chicken-nash-sum-1-1">
+<div class="para">Using the tables, here are Teenager 2’s payoffs for the two strategies:</div>
+<div class="displaymath process-math" id="activity-chicken-nash-sum-1-1-1">
+\begin{align*}
+\pi_2(\gamma, \gamma) \amp = \underbrace{0 + 0 + \cdots + 0}_{\text{rounds } 0 \text{ to } k-1} + 0 + 0 + 0 + \cdots\\
+\pi_2(\gamma, \gamma') \amp = \underbrace{0 + 0 + \cdots + 0}_{\text{rounds } 0 \text{ to } k-1} + \delta^k - \delta^{k+1} - \delta^{k+2} - \cdots
+\end{align*}
+</div>
+<div class="para">The terms for rounds 0 through <span class="process-math">\(k-1\)</span> are the same, so we are really comparing</div>
+<div class="displaymath process-math" id="activity-chicken-nash-sum-1-1-3">
+\begin{equation*}
+0 + 0 + 0 + \cdots = 0 \qquad \text{with} \qquad \delta^k - \delta^{k+1} - \delta^{k+2} - \cdots.
+\end{equation*}
+</div>
+<div class="para">Find the sum <span class="process-math">\(\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-sum-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="activity-chicken-nash-sum-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-sum-2-1">After the first term, the rest is a geometric series: <span class="process-math">\(-\delta^{k+1} - \delta^{k+2} - \cdots\)</span> has <span class="process-math">\(a = -\delta^{k+1}\)</span> and <span class="process-math">\(r = \delta\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-sum-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.1.d.1"><a href="#activity-chicken-nash-sum-2" title="Copy heading and permalink for Hint 6.3.1.d.1" aria-label="Copy heading and permalink for Hint 6.3.1.d.1">🔗</a></div>
+</div></details>
+<details id="activity-chicken-nash-sum-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para logical" id="activity-chicken-nash-sum-3-1">
+<div class="para">The only positive term is the first one, from round <span class="process-math">\(k\text{.}\)</span> Everything after it is a geometric series:</div>
+<div class="displaymath process-math" id="activity-chicken-nash-sum-3-1-2">
+\begin{equation*}
+\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots = \underbrace{\delta^k}_{\text{round } k} + \underbrace{\left(-\delta^{k+1} - \delta^{k+2} - \cdots\right)}_{a = -\delta^{k+1},\ r = \delta}.
+\end{equation*}
+</div>
+<div class="para">So</div>
+<div class="displaymath process-math" id="activity-chicken-nash-sum-3-1-3">
+\begin{equation*}
+\delta^k - \delta^{k+1} - \delta^{k+2} - \cdots = \delta^k - \frac{\delta^{k+1}}{1 - \delta}.
+\end{equation*}
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-sum-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.1.d.1"><a href="#activity-chicken-nash-sum-3" title="Copy heading and permalink for Solution 6.3.1.d.1" aria-label="Copy heading and permalink for Solution 6.3.1.d.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.1.d"><a href="#activity-chicken-nash-sum" title="Copy heading and permalink for Task 6.3.1.d" aria-label="Copy heading and permalink for Task 6.3.1.d">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-nash-compare"><h4 class="heading"><span class="codenumber">(e)</span></h4>
+<div class="para logical" id="activity-chicken-nash-compare-1-1">
+<div class="para">Going straight in round <span class="process-math">\(k\)</span> does <em class="emphasis">not</em> help Teenager 2 when <span class="process-math">\(\pi_2(\gamma, \gamma') \leq \pi_2(\gamma, \gamma)\text{,}\)</span> that is, when</div>
+<div class="displaymath process-math" id="activity-chicken-nash-compare-1-1-4">
+\begin{equation*}
+\delta^k - \frac{\delta^{k+1}}{1 - \delta} \leq 0.
+\end{equation*}
+</div>
+<div class="para">For which values of <span class="process-math">\(\delta\)</span> is this true? Conclude that <span class="process-math">\((\gamma, \gamma)\)</span> is a Nash equilibrium for those values of <span class="process-math">\(\delta\text{.}\)</span>
+</div>
+<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-compare-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="activity-chicken-nash-compare-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-compare-2-1">Divide both sides by <span class="process-math">\(\delta^k\text{,}\)</span> just as in the proof of Theorem 6.1.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-compare-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.1.e.1"><a href="#activity-chicken-nash-compare-2" title="Copy heading and permalink for Hint 6.3.1.e.1" aria-label="Copy heading and permalink for Hint 6.3.1.e.1">🔗</a></div>
+</div></details>
+<details id="activity-chicken-nash-compare-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-nash-compare-3-1">Dividing by <span class="process-math">\(\delta^k\)</span> gives <span class="process-math">\(1 - \frac{\delta}{1 - \delta} \leq 0\text{.}\)</span> Multiplying by <span class="process-math">\(1 - \delta\text{,}\)</span> which is positive, gives <span class="process-math">\(1 - \delta - \delta \leq 0\text{,}\)</span> so <span class="process-math">\(\delta \geq \frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-compare-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="activity-chicken-nash-compare-3-2">So when <span class="process-math">\(\delta \geq \frac{1}{2}\text{,}\)</span> no strategy <span class="process-math">\(\gamma'\)</span> gives Teenager 2 more than <span class="process-math">\(\pi_2(\gamma, \gamma)\text{:}\)</span> if <span class="process-math">\(\gamma'\)</span> never goes straight, Teenager 2 gets the same payoff, and if it first goes straight in round <span class="process-math">\(k\text{,}\)</span> the best Teenager 2 can do is the payoff we just found, which is at most 0. So <span class="process-math">\(\gamma\)</span> is a best response to <span class="process-math">\(\gamma\text{.}\)</span> By symmetry, the same is true for Teenager 1, so <span class="process-math">\((\gamma, \gamma)\)</span> is a Nash equilibrium when <span class="process-math">\(\delta \geq \frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-nash-compare-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.1.e.1"><a href="#activity-chicken-nash-compare-3" title="Copy heading and permalink for Solution 6.3.1.e.1" aria-label="Copy heading and permalink for Solution 6.3.1.e.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.1.e"><a href="#activity-chicken-nash-compare" title="Copy heading and permalink for Task 6.3.1.e" aria-label="Copy heading and permalink for Task 6.3.1.e">🔗</a></div>
+</article><div class="autopermalink" data-description="Activity 6.3.1: Swerving, Backed by a Threat"><a href="#activity-chicken-nash" title="Copy heading and permalink for Activity 6.3.1: Swerving, Backed by a Threat" aria-label="Copy heading and permalink for Activity 6.3.1: Swerving, Backed by a Threat">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-activities-8">The strategy <span class="process-math">\(\gamma\)</span> contains a threat. Each teenager starts out cooperating, by swerving, but threatens that if anyone ever goes straight, they’ll go straight forever, so the teenagers crash every round. If <span class="process-math">\((\gamma, \gamma)\)</span> is a subgame perfect Nash equilibrium, then the threat is <em class="emphasis">believable</em>: carrying it out is a best response in every subgame, including the subgames after someone has gone straight, where the threat actually has to be carried out. If it isn’t subgame perfect, then the threat only works because it is never tested.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="activity project-like" id="activity-chicken-spne"><h3 class="heading">
+<span class="type">Activity</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">6.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Is the Threat Believable?</span>
+</h3>
+<div class="introduction" id="activity-chicken-spne-2">
+<div class="para" id="activity-chicken-spne-2-1">Now let’s check whether <span class="process-math">\((\gamma, \gamma)\)</span> is a subgame perfect Nash equilibrium. As on the previous page, take any subgame, starting at a node <span class="process-math">\(m\)</span> at the beginning of round <span class="process-math">\(k\text{.}\)</span> There are two possibilities for what happened before <span class="process-math">\(m\text{:}\)</span> either nobody has gone straight yet, or at least one teenager has gone straight at some point.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<article class="task exercise-like" id="activity-chicken-spne-case1"><h4 class="heading"><span class="codenumber">(a)</span></h4>
+<div class="para" id="activity-chicken-spne-case1-1-1">Suppose nobody has gone straight before <span class="process-math">\(m\text{.}\)</span> What does <span class="process-math">\(\gamma\)</span> tell both teenagers to do at <span class="process-math">\(m\text{?}\)</span> Is the restriction of <span class="process-math">\((\gamma, \gamma)\)</span> to this subgame a Nash equilibrium when <span class="process-math">\(\delta \geq \frac{1}{2}\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="activity-chicken-spne-case1-2" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-spne-case1-2-1">
+<span class="process-math">\(\gamma\)</span> tells both teenagers to swerve, exactly as at the start of the game. So the subgame looks just like the whole game, with every payoff multiplied by <span class="process-math">\(\delta^k\text{,}\)</span> and by <a href="ch6-page3-activities.html#activity-chicken-nash" class="xref" data-knowl="./knowl/xref/activity-chicken-nash.html" data-reveal-label="Reveal" data-close-label="Close" title="Activity 6.3.1: Swerving, Backed by a Threat">Activity 6.3.1</a>, the restriction is a Nash equilibrium when <span class="process-math">\(\delta \geq \frac{1}{2}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.2.a.1"><a href="#activity-chicken-spne-case1-2" title="Copy heading and permalink for Solution 6.3.2.a.1" aria-label="Copy heading and permalink for Solution 6.3.2.a.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.2.a"><a href="#activity-chicken-spne-case1" title="Copy heading and permalink for Task 6.3.2.a" aria-label="Copy heading and permalink for Task 6.3.2.a">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-spne-case2"><h4 class="heading"><span class="codenumber">(b)</span></h4>
+<div class="para" id="activity-chicken-spne-case2-1-1">Now suppose someone has gone straight before <span class="process-math">\(m\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div> 
+<ol class="decimal" id="activity-chicken-spne-case2-1-2">
+<li id="activity-chicken-spne-case2-1-2-1">
+<div class="para" id="activity-chicken-spne-case2-1-2-1-1">What does <span class="process-math">\(\gamma\)</span> tell both teenagers to do in every round of the subgame?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#activity-chicken-spne-case2-1-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-1-2-2">
+<div class="para" id="activity-chicken-spne-case2-1-2-2-1">What payoff does each teenager get per round?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#activity-chicken-spne-case2-1-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-1-2-3">
+<div class="para" id="activity-chicken-spne-case2-1-2-3-1">If Teenager 2 does what <span class="process-math">\(\gamma\)</span> says, is going straight every round Teenager 1’s best response?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-1-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#activity-chicken-spne-case2-1-2-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-1-2-4">
+<div class="para" id="activity-chicken-spne-case2-1-2-4-1">Is the restriction of <span class="process-math">\((\gamma, \gamma)\)</span> to this subgame a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-1-2-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#activity-chicken-spne-case2-1-2-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="solutions">
+<details id="activity-chicken-spne-case2-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="activity-chicken-spne-case2-2-1">For the first two questions:<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<ol class="decimal" id="activity-chicken-spne-case2-2-2">
+<li id="activity-chicken-spne-case2-2-2-1">
+<div class="para" id="activity-chicken-spne-case2-2-2-1-1">Since someone has already gone straight, <span class="process-math">\(\gamma\)</span> tells both teenagers to go straight in every round of the subgame.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#activity-chicken-spne-case2-2-2-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-2-2-2">
+<div class="para" id="activity-chicken-spne-case2-2-2-2-1">They crash every round, so each gets <span class="process-math">\(-2\)</span> per round.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#activity-chicken-spne-case2-2-2-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+</ol>
+<div class="para" id="activity-chicken-spne-case2-2-3">For the third question, look back at the Chicken table at the top of this page: if Teenager 2 goes straight, what does Teenager 1 get by swerving instead?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.2.b.1"><a href="#activity-chicken-spne-case2-2" title="Copy heading and permalink for Hint 6.3.2.b.1" aria-label="Copy heading and permalink for Hint 6.3.2.b.1">🔗</a></div>
+</div></details>
+<details id="activity-chicken-spne-case2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<ol class="decimal" id="activity-chicken-spne-case2-3-1">
+<li id="activity-chicken-spne-case2-3-1-1">
+<div class="para" id="activity-chicken-spne-case2-3-1-1-1">Since someone has already gone straight, <span class="process-math">\(\gamma\)</span> tells both teenagers to go straight in every round of the subgame.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 1"><a href="#activity-chicken-spne-case2-3-1-1" title="Copy heading and permalink for Item 1" aria-label="Copy heading and permalink for Item 1">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-3-1-2">
+<div class="para" id="activity-chicken-spne-case2-3-1-2-1">They crash every round, so each gets <span class="process-math">\(-2\)</span> per round.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 2"><a href="#activity-chicken-spne-case2-3-1-2" title="Copy heading and permalink for Item 2" aria-label="Copy heading and permalink for Item 2">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-3-1-3">
+<div class="para" id="activity-chicken-spne-case2-3-1-3-1">No. If Teenager 2 goes straight every round, Teenager 1 gets <span class="process-math">\(-1\)</span> per round by swerving, which is better than <span class="process-math">\(-2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 3"><a href="#activity-chicken-spne-case2-3-1-3" title="Copy heading and permalink for Item 3" aria-label="Copy heading and permalink for Item 3">🔗</a></div>
+</li>
+<li id="activity-chicken-spne-case2-3-1-4">
+<div class="para" id="activity-chicken-spne-case2-3-1-4-1">No. Going straight every round isn’t a best response, so the restriction of <span class="process-math">\((\gamma, \gamma)\)</span> is not a Nash equilibrium of this subgame.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-case2-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Item 4"><a href="#activity-chicken-spne-case2-3-1-4" title="Copy heading and permalink for Item 4" aria-label="Copy heading and permalink for Item 4">🔗</a></div>
+</li>
+</ol>
+<div class="autopermalink" data-description="Solution 6.3.2.b.1"><a href="#activity-chicken-spne-case2-3" title="Copy heading and permalink for Solution 6.3.2.b.1" aria-label="Copy heading and permalink for Solution 6.3.2.b.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.2.b"><a href="#activity-chicken-spne-case2" title="Copy heading and permalink for Task 6.3.2.b" aria-label="Copy heading and permalink for Task 6.3.2.b">🔗</a></div>
+</article>
+<article class="task exercise-like" id="activity-chicken-spne-conclude"><h4 class="heading"><span class="codenumber">(c)</span></h4>
+<div class="para" id="activity-chicken-spne-conclude-1-1">Is <span class="process-math">\((\gamma, \gamma)\)</span> a subgame perfect Nash equilibrium? Is the threat believable?<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-conclude-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="solutions">
+<details id="activity-chicken-spne-conclude-2" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="hint solution-like knowl__content">
+<div class="para" id="activity-chicken-spne-conclude-2-1">Look back at the previous part, where we found subgames in which the restriction of <span class="process-math">\((\gamma, \gamma)\)</span> is not a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-conclude-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Hint 6.3.2.c.1"><a href="#activity-chicken-spne-conclude-2" title="Copy heading and permalink for Hint 6.3.2.c.1" aria-label="Copy heading and permalink for Hint 6.3.2.c.1">🔗</a></div>
+</div></details>
+<details id="activity-chicken-spne-conclude-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
+<div class="solution solution-like knowl__content">
+<div class="para" id="activity-chicken-spne-conclude-3-1">No, <span class="process-math">\((\gamma, \gamma)\)</span> is not subgame perfect, because its restriction to any subgame after someone has gone straight is not a Nash equilibrium. So the threat is not believable.<div class="autopermalink" data-description="Paragraph"><a href="#activity-chicken-spne-conclude-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" data-description="Solution 6.3.2.c.1"><a href="#activity-chicken-spne-conclude-3" title="Copy heading and permalink for Solution 6.3.2.c.1" aria-label="Copy heading and permalink for Solution 6.3.2.c.1">🔗</a></div>
+</div></details>
+</div>
+<div class="autopermalink" data-description="Task 6.3.2.c"><a href="#activity-chicken-spne-conclude" title="Copy heading and permalink for Task 6.3.2.c" aria-label="Copy heading and permalink for Task 6.3.2.c">🔗</a></div>
+</article><div class="autopermalink" data-description="Activity 6.3.2: Is the Threat Believable?"><a href="#activity-chicken-spne" title="Copy heading and permalink for Activity 6.3.2: Is the Threat Believable?" aria-label="Copy heading and permalink for Activity 6.3.2: Is the Threat Believable?">🔗</a></div>
+</article>
+<div class="para" id="ch6-page3-activities-10">Let’s reflect on why the trigger strategy was a subgame perfect Nash equilibrium in the Wine Merchant game, but <span class="process-math">\(\gamma\)</span> is not in Chicken. The difference is what the players do forever after someone breaks the plan. The Wine Merchant game is a version of the Prisoner’s Dilemma, where your best response to someone defecting is to defect too. So carrying out the threat is in your own interest. In Chicken, your best response to someone going straight is to swerve, to avoid a crash. So the threat to keep crashing forever is not one a rational player would actually carry out.<div class="autopermalink" data-description="Paragraph"><a href="#ch6-page3-activities-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="interactive-iframe-container"><iframe src="external/question-form.html?section=6.3" id="question-form-6-3" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-6-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" data-description="Section 6.3: More repeated game examples"><a href="#ch6-page3-activities" title="Copy heading and permalink for Section 6.3: More repeated game examples" aria-label="Copy heading and permalink for Section 6.3: More repeated game examples">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch6-page2-repeated-games.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch6-exercises.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+</div>
+</body>
+</html>
