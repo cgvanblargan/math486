@@ -6,14 +6,18 @@
      together lives in the course schedule, not here.
 
      Adapted from the previous instructor's Lesson 11 written homework:
-     Exercise 1 = old Exercise 1, Exercise 2 = old Exercise 2,
-     Exercise 3 = old Problem 1 plus a new part (c) (no mixed
-     evolutionarily stable state), Exercise 4 = old Problem 2 plus a hint
-     for part (c). Exercise 5 (Rock-Paper-Scissors, no evolutionarily
-     stable state) is new, based on book Problem 5.12.4.
+     Exercise 1 = old Exercise 1, reworked to ask which theorem applies,
+     plus new parts (b)-(d) on applying Theorems 8.2 and 8.3.
+     Exercise 2 = old Exercise 2, with part (b) asking for a theorem-based
+     explanation. Exercise 3 = old Problem 1, reworked: new part (a) (why
+     Theorem 8.5 doesn't apply), part (b) uses Theorem 8.1 or 8.2 on the
+     pure states, part (c) uses Theorem 8.3 for the mixed states.
+     Exercise 4 = old Problem 2 plus a hint for part (c). Exercise 5
+     (Rock-Paper-Scissors, no evolutionarily stable state) is new, based
+     on book Problem 5.12.4.
 
-     Uses Sections 8.3 and 8.4 (Theorems 8.1, 8.3, 8.5) and the idea of a
-     symmetric game from Section 7.1.
+     Uses Sections 8.3 and 8.4 (Theorems 8.1, 8.2, 8.3, 8.5) and the idea
+     of a symmetric game from Section 7.1.
 
      Add more by appending another <exercise> below; numbering of the
      existing ones will not shift. -->
@@ -75,28 +79,66 @@
         <p>
           The population state <m>\sigma</m> is an evolutionarily stable
           state of the corresponding evolutionary game. (You do not need to
-          check this.) Use Theorem 8.3 to show that <m>(\sigma, \sigma)</m>
-          is the only symmetric Nash equilibrium of the game.
+          check this.) Which theorem from Chapter 8 lets you quickly conclude that
+          <m>(\sigma, \sigma)</m> is the only symmetric Nash equilibrium of
+          the game? Check that its hypotheses are satisfied. What does the
+          same theorem tell you about other evolutionarily stable states?
         </p>
       </statement>
     </task>
 
-    <task xml:id="hw-ess-unique-symmetric-only-ess">
+    <task xml:id="hw-ess-unique-symmetric-pure">
       <statement>
         <p>
-          Explain why the result from the previous part implies that
-          <m>\sigma</m> is the only evolutionarily stable state of the
-          corresponding evolutionary game.
+          Without computing payoffs or using best responses, quickly deduce
+          that none of <m>(a, a)</m>, <m>(b, b)</m>, and <m>(c, c)</m> is a
+          Nash equilibrium.
         </p>
       </statement>
+      <hint>
+        <p>
+          Use a theorem from Chapter 8.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-ess-unique-symmetric-strict">
+      <statement>
+        <p>
+          <em>This part and the next are not about the game above.</em>
+          Suppose that in some symmetric game with three pure strategies
+          <m>a</m>, <m>b</m>, and <m>c</m>, the profile <m>(a, a)</m> is a
+          strict Nash equilibrium. What can you conclude about the population
+          state <m>a</m>? What can you conclude about any population state
+          in which all three pure strategies are active? Cite the theorems
+          you use.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-ess-unique-symmetric-two-mixed">
+      <statement>
+        <p>
+          Suppose a symmetric game has two different symmetric Nash
+          equilibria <m>(\sigma, \sigma)</m> and <m>(\tau, \tau)</m>, and
+          all pure strategies are active in both <m>\sigma</m> and
+          <m>\tau</m>. Explain why neither <m>\sigma</m> nor <m>\tau</m> is an
+          evolutionarily stable state.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Theorem 8.3 is useful here.
+        </p>
+      </hint>
     </task>
 
     <conclusion>
       <p>
         <em>Remark:</em> No calculations are needed for this exercise. It
         is about understanding and applying the relevant definitions and
-        theorem. One important step in using a theorem is checking that its
-        hypotheses are satisfied.
+        theorems. One important step in using a theorem is checking that
+        its hypotheses are satisfied.
       </p>
     </conclusion>
   </exercise>
@@ -150,7 +192,8 @@
         <p>
           Which of the strategies used in the pure strategy Nash equilibria
           from the previous part (if any) are evolutionarily stable states?
-          Explain.
+          Explain by citing the relevant theorem(s). No computation is
+          needed.
         </p>
       </statement>
     </task>
@@ -202,11 +245,10 @@
       </table>
     </introduction>
 
-    <task xml:id="hw-ess-theorem-8-1-pure">
+    <task xml:id="hw-ess-theorem-8-1-no-8-5">
       <statement>
         <p>
-          Find all pure strategy Nash equilibria. You can use best responses
-          to find and indicate them in the usual way.
+          Why doesn't Theorem 8.5 apply to this game?
         </p>
       </statement>
     </task>
@@ -214,20 +256,19 @@
     <task xml:id="hw-ess-theorem-8-1-check">
       <statement>
         <p>
-          Let <m>\tau = (p, 1 - p)</m> denote a mixed strategy. Use Theorem
-          8.1 and <m>\tau</m> to decide whether either of the pure
-          strategies used in the Nash equilibria from the previous part is
-          an evolutionarily stable state. For each pure strategy, show that
-          it either satisfies or fails the conditions of Theorem 8.1.
+          Notice that <m>(a, a)</m> and <m>(b, b)</m> are Nash equilibria.
+          Using the relevant results from Theorem 8.1 or Theorem 8.2,
+          determine whether each of the population states <m>a</m> and
+          <m>b</m> is evolutionarily stable.
         </p>
         <p>
-          <em>Remark:</em> To satisfy the conditions, they must hold for
-          <em>every</em> <m>\tau</m>. To fail them, it is enough to find
-          <em>one</em> <m>\tau</m> where a condition fails. Also, be careful
-          to distinguish between a population state <m>\sigma</m> and a
-          profile <m>(\sigma, \sigma)</m> or <m>(\sigma, \tau)</m>. For
-          example, it does not make sense to say that
-          <m>(\sigma, \sigma)</m> is evolutionarily stable.
+          <em>Remark:</em> To satisfy the conditions of Theorem 8.1, they
+          must hold for <em>every</em> <m>\tau \neq \sigma</m>. To fail them,
+          it is enough to find <em>one</em> <m>\tau</m> where a condition
+          fails. Also, be careful to distinguish between a population state
+          <m>\sigma</m> and a profile <m>(\sigma, \sigma)</m> or
+          <m>(\sigma, \tau)</m>. For example, it does not make sense to say
+          that <m>(\sigma, \sigma)</m> is evolutionarily stable.
         </p>
       </statement>
     </task>
@@ -235,18 +276,17 @@
     <task xml:id="hw-ess-theorem-8-1-mixed">
       <statement>
         <p>
-          Let <m>\sigma = (q, 1 - q)</m> with <m>0 \lt q \lt 1</m>. Is
-          <m>\sigma</m> an evolutionarily stable state? Compare the payoffs
-          of <m>a</m> and <m>b</m> against <m>\sigma</m>.
+          Let <m>\sigma = (q, 1 - q) = qa + (1 - q)b</m> with
+          <m>0 \lt q \lt 1</m>. Without computation, use a theorem from
+          this chapter to explain why <m>\sigma</m> is not an evolutionarily
+          stable state.
+        </p>
+        <p>
+          <em>Optional:</em> Check this directly by comparing the payoffs of
+          <m>a</m> and <m>b</m> against <m>\sigma</m>. You should find that
+          <m>(\sigma, \sigma)</m> is not even a Nash equilibrium.
         </p>
       </statement>
-      <hint>
-        <p>
-          For <m>(\sigma, \sigma)</m> to be a Nash equilibrium when
-          <m>\sigma</m> uses both <m>a</m> and <m>b</m>, the strategies
-          <m>a</m> and <m>b</m> must do equally well against <m>\sigma</m>.
-        </p>
-      </hint>
     </task>
   </exercise>
 
@@ -467,9 +507,7 @@
       <hint>
         <p>
           It is enough to find <em>one</em> <m>\tau \neq \sigma</m> for which
-          a condition of Theorem 8.1 fails. Try <m>\tau = r</m>. First check
-          whether <m>\pi_1(\tau, \sigma) = \pi_1(\sigma, \sigma)</m>, so that
-          condition (2) applies.
+          a condition of Theorem 8.1 fails.
         </p>
       </hint>
     </task>
@@ -479,8 +517,9 @@
         <p>
           You may use the fact (Problem 5.12.4 in the book) that
           <m>(\sigma, \sigma)</m> is the only Nash equilibrium of
-          Rock-Paper-Scissors. Explain why the corresponding evolutionary
-          game has <em>no</em> evolutionarily stable state at all.
+          Rock-Paper-Scissors. Using a relevant theorem from this chapter,
+          explain why the corresponding evolutionary game has <em>no</em>
+          evolutionarily stable state at all.
         </p>
       </statement>
     </task>

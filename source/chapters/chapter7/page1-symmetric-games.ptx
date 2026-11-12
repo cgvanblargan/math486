@@ -4,9 +4,9 @@
   <title>Symmetric Games</title>
 
   <p>
-    This chapter is short: we only need one idea from it, symmetric games,
-    because it sets up everything we'll do with evolutionary stability in
-    Chapter 8.
+    This chapter is short, and we only need one idea from it! We'll briefly
+    look at symmetric games, because they set up everything we'll do with
+    evolutionary stability in Chapter 8.
   </p>
 
   <assemblage xml:id="read-7-1">
@@ -15,10 +15,13 @@
       <alert>Read Section 7.1.</alert>
     </p>
     <p>
-      Focus on the idea, not the notation. You don't need to master the
-      notation with permutations. The main point is this: a two-player game
+      Focus on the ideas rather than the notation. You don't need to master
+      the notation with permutations.
+    </p>
+    <p>
+      The main point is that a two-player game
       is <term>symmetric</term> if both players have the same strategies,
-      and swapping the players just swaps their payoffs. In symbols,
+      and swapping the players just swaps their payoffs. In payoff notation:
       <me>\pi_1(s, t) = \pi_2(t, s)</me>
       for all strategies <m>s</m> and <m>t</m>. In a payoff table, this
       means the entry in row <m>s</m>, column <m>t</m> is the entry in row
@@ -27,7 +30,7 @@
   </assemblage>
 
   <p>
-    Here is the main result of the section, restated.
+    Here is the main result of the section:
   </p>
 
   <theorem xml:id="thm-7-1-restated">
@@ -43,10 +46,9 @@
   </theorem>
 
   <p>
-    This is essential for Chapter 8. There, we'll think of a game as being
-    played over and over by members of a large population, and a
-    population state <m>\sigma</m> describes how often each strategy is
-    used. Evolutionary stability is about Nash equilibria of the form
+    This result will turn out to be essential for Chapter 8! There we'll
+    study something called evolutionary stability, which involves Nash
+    equilibria of the form
     <m>(\sigma, \sigma)</m>, and Theorem 7.1 guarantees that every
     symmetric game has at least one.
   </p>
@@ -56,8 +58,7 @@
   <!-- ============================================================ -->
 
   <p>
-    Some games keep coming back, in this course and in game theory in
-    general. Here is a reminder of four canonical symmetric games we've
+    Here is a reminder of four canonical symmetric games we've
     already seen. In each table, the pure strategy Nash equilibria are
     boxed.
   </p>
@@ -227,9 +228,7 @@
     <p>
       In the pure Nash equilibria where two firms purify and one pollutes,
       the polluter gets clean water for free. These aren't symmetric. The
-      symmetric one is the worst outcome: all three firms pollute, and
-      nobody wants to be the only one paying to purify water that stays
-      polluted anyway.
+      symmetric one is the worst outcome, where all three firms pollute!
     </p>
   </paragraphs>
 

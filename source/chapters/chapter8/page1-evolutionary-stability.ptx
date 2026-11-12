@@ -251,7 +251,7 @@
   </theorem>
 
   <p>
-    In words: if <m>\sigma</m> is evolutionarily stable, then no other state
+    Theorem 8.4 is really saying that if <m>\sigma</m> is evolutionarily stable, then no other state
     that uses <em>only</em> strategies that are active in <m>\sigma</m> can
     give a symmetric Nash equilibrium, so none of them can be evolutionarily
     stable either. Theorem 8.3 is the special case where <m>\sigma</m> uses
@@ -687,5 +687,5 @@
       </p>
     </solution>
   </exercise>
-  <interactive xml:id="question-form-8-3" iframe="question-form.html?section=8.3" width="100%" aspect="2:1"/>
+  <interactive xml:id="question-form-8-1" iframe="question-form.html?section=8.1" width="100%" aspect="2:1"/>
 </section>
