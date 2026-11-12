@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch8-page2-two-pure-strategies" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Evolutionary Stability with Two Pure Strategies</title>
+
+  <p>
+    Now we look at evolutionary games based on a symmetric two-player game
+    with just two pure strategies, <m>s_1</m> and <m>s_2</m>. Because the
+    game is symmetric, its payoff matrix must have the following form:
+  </p>
+
+  <table xml:id="table-ch8-general-2x2">
+    <title>A symmetric game with two pure strategies</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Player 2: <m>s_1</m></cell>
+        <cell>Player 2: <m>s_2</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Player 1: <m>s_1</m></cell>
+        <cell><m>(a, a)</m></cell>
+        <cell><m>(b, c)</m></cell>
+      </row>
+      <row>
+        <cell>Player 1: <m>s_2</m></cell>
+        <cell><m>(c, b)</m></cell>
+        <cell><m>(d, d)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    The book analyzes this game when <m>a \neq c</m> and <m>b \neq d</m>. It
+    finds all of the Nash equilibria and determines which population states are
+    evolutionarily stable.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Reading 1: Section 8.4 up to 8.4.1                           -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-8-4-part1">
+    <title>Section 8.4, Evolutionary Stability with Two Pure Strategies (Part 1)</title>
+    <p>
+      <alert>Read Section 8.4 up to (but not including) 8.4.1, Stag Hunt.</alert>
+    </p>
+    <p>
+      Theorem 8.5 splits the game into four cases:
+      <ol marker="(1)">
+        <li>
+          <p>
+            <m>a \gt c</m> and <m>d \lt b</m>: <m>s_1</m> strictly dominates
+            <m>s_2</m>. The population state <m>s_1</m> is evolutionarily
+            stable.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a \lt c</m> and <m>d \gt b</m>: <m>s_2</m> strictly dominates
+            <m>s_1</m>. The population state <m>s_2</m> is evolutionarily
+            stable.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a \gt c</m> and <m>d \gt b</m>: each strategy is the best
+            response to itself. The population states <m>s_1</m> and
+            <m>s_2</m> are evolutionarily stable, but the mixed state
+            <m>\sigma</m> is not.
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>a \lt c</m> and <m>d \lt b</m>: each strategy is the best
+            response to the other. The mixed state <m>\sigma</m> is
+            evolutionarily stable.
+          </p>
+        </li>
+      </ol>
+      In cases (3) and (4), <m>\sigma = ps_1 + (1 - p)s_2</m>, with <m>p</m>
+      given by formula (8.5).
+    </p>
+    <p>
+      Make sure you understand the statement of the theorem. Look through the
+      proof for a bit to see the idea, but you can skip over the algebra.
+    </p>
+  </assemblage>
+
+  <p>
+    Let's check our understanding with some questions. First, practice
+    figuring out which case a game is in.
+  </p>
+
+  <table xml:id="table-ch8-chicken">
+    <title>Chicken</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Teenager 2: straight</cell>
+        <cell>Teenager 2: swerve</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Teenager 1: straight</cell>
+        <cell><m>(-2, -2)</m></cell>
+        <cell><m>(1, -1)</m></cell>
+      </row>
+      <row>
+        <cell>Teenager 1: swerve</cell>
+        <cell><m>(-1, 1)</m></cell>
+        <cell><m>(0, 0)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <exercise xml:id="check-chicken-which-case">
+    <statement>
+      <p>
+        Here is Chicken from Chapter 7, with <m>s_1 = </m> straight and
+        <m>s_2 = </m> swerve. Which case of Theorem 8.5 is it?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>Case (3)</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Matching with the general matrix,
+            <m>a = -2</m>, <m>b = 1</m>, <m>c = -1</m>, and <m>d = 0</m>.
+            Case (3) needs <m>a \gt c</m>, but <m>-2 \lt -1</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Case (4)</p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Here <m>a = -2</m>, <m>b = 1</m>, <m>c = -1</m>, and
+            <m>d = 0</m>, so <m>a \lt c</m> and <m>d \lt b</m>. By Theorem
+            8.5, there are three Nash equilibria: (straight, swerve),
+            (swerve, straight), and <m>(\sigma, \sigma)</m>. Only
+            <m>(\sigma, \sigma)</m> is symmetric, and <m>\sigma</m> is
+            evolutionarily stable. By (8.5),
+            <me>
+              p = \frac{d - b}{(a - c) + (d - b)} = \frac{0 - 1}{(-1) + (-1)} = \frac{1}{2},
+            </me>
+            so <m>\sigma</m> goes straight half the time, just like we saw in
+            Chapter 7.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-case4-asymmetric">
+    <statement>
+      <p>
+        In case (4), why can we immediately rule out the Nash equilibria
+        <m>(s_1, s_2)</m> and <m>(s_2, s_1)</m> when looking for
+        evolutionarily stable states?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            They aren't symmetric. An evolutionarily stable state is a
+            population state <m>\sigma</m>, which goes with a symmetric
+            profile <m>(\sigma, \sigma)</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Everyone in the population plays against everyone else, so
+            there is no <q>Player 1 strategy</q> and <q>Player 2 strategy.</q>
+            Only symmetric Nash equilibria <m>(\sigma, \sigma)</m> can give an
+            evolutionarily stable state <m>\sigma</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            They aren't strict Nash equilibria.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. They actually are strict: in case (4), switching
+            strategies lowers your payoff. The problem is that they aren't
+            symmetric.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+<p>Okay, now back to the statement of the theorem! Some ideas follow pretty quickly from the previous section without any computation. </p>
+  <exercise xml:id="check-cases123-strict">
+    <statement>
+      <p>
+        In cases (1), (2), and (3), there are strict symmetric Nash
+        equilibria of the form <m>(s_1, s_1)</m> and/or <m>(s_2, s_2)</m>.
+        How do we immediately know the population states <m>s_1</m> and/or
+        <m>s_2</m> are evolutionarily stable?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            We check condition (2) of Theorem 8.1 for every
+            <m>\tau \neq s_1</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. That would work, but it isn't immediate. There's a
+            theorem that does all of that work for strict Nash equilibria.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            By Theorem 8.2, since they come from strict symmetric Nash
+            equilibria.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Theorem 8.2 says that if <m>(\sigma, \sigma)</m> is a strict
+            Nash equilibrium, then <m>\sigma</m> is evolutionarily stable. No
+            further checking needed!
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    In cases (1) and (2), the only Nash equilibria use pure strategies.
+    Recall that being a Nash equilibrium is required (but not sufficient)
+    for evolutionary stability. In case (3), there is a mixed symmetric Nash
+    equilibrium <m>(\sigma, \sigma)</m>, but <m>\sigma</m> is not
+    evolutionarily stable. The book shows this with a computation, but we
+    can actually see why without any computation.
+  </p>
+
+  <exercise xml:id="check-case3-mixed-not-stable">
+    <statement>
+      <p>
+        In case (3), why is the mixed state <m>\sigma</m> not evolutionarily
+        stable?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>
+            Because <m>(\sigma, \sigma)</m> is not a strict Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. It's true that <m>(\sigma, \sigma)</m> is not strict,
+            but that doesn't rule out evolutionary stability. In case (4),
+            <m>(\sigma, \sigma)</m> isn't strict either, and <m>\sigma</m> is
+            evolutionarily stable there!
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Because of Theorem 8.3: <m>\sigma</m> uses both pure strategies,
+            and <m>(s_1, s_1)</m> (or <m>(s_2, s_2)</m>) is also a Nash
+            equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Since <m>0 \lt p \lt 1</m>, all pure strategies are active
+            in <m>\sigma</m>. If <m>\sigma</m> were evolutionarily stable,
+            Theorem 8.3 would say <m>(\tau, \tau)</m> is not a Nash
+            equilibrium for any <m>\tau \neq \sigma</m>. But
+            <m>\tau = s_1</m> gives the Nash equilibrium
+            <m>(s_1, s_1)</m>, so <m>\sigma</m> can't be evolutionarily
+            stable. (Using <m>\tau = s_2</m> works just as well, since
+            <m>(s_2, s_2)</m> is a Nash equilibrium too.)
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Stag Hunt variation, worked before reading 8.4.2             -->
+  <!-- ============================================================ -->
+
+  <p>
+    Theorem 8.5 doesn't cover every game. Here is a variation of Stag Hunt
+    (Section 8.4.2 in the book), where a hunter who hunts the stag alone has
+    a <m>\frac{1}{4}</m> chance of catching it. The pure strategy Nash
+    equilibria are boxed.
+  </p>
+
+  <table xml:id="table-ch8-stag-variation">
+    <title>Stag Hunt variation</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Hunter 2: stag</cell>
+        <cell>Hunter 2: hare</cell>
+      </row>
+      <row bottom="minor">
+        <cell>Hunter 1: stag</cell>
+        <cell><m>\boxed{(2, 2)}</m></cell>
+        <cell><m>(1, 1)</m></cell>
+      </row>
+      <row>
+        <cell>Hunter 1: hare</cell>
+        <cell><m>(1, 1)</m></cell>
+        <cell><m>\boxed{(1, 1)}</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Here <m>b = d = 1</m>, so Theorem 8.5 doesn't apply. Notice the following
+    Nash equilibria:
+    <ul>
+      <li>
+        <p>
+          (stag, stag) is a strict Nash equilibrium: switching to hare drops
+          your payoff from 2 to 1.
+        </p>
+      </li>
+      <li>
+        <p>
+          (hare, hare) is a Nash equilibrium, but it is not strict:
+          switching to stag still gives you 1.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    By the same reasoning as in the questions above:
+    <ul>
+      <li>
+        <p>
+          Because (stag, stag) is a strict symmetric Nash equilibrium,
+          Theorem 8.2 says the population state stag is evolutionarily stable.
+        </p>
+      </li>
+      <li>
+        <p>
+          A mixed state uses both pure strategies, so if it were
+          evolutionarily stable, Theorem 8.3 would say (stag, stag) can't be
+          a Nash equilibrium. Since (stag, stag) is a Nash equilibrium, there
+          are no mixed evolutionarily stable states. (The same argument works
+          using (hare, hare), which is also a Nash equilibrium.)
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    So the only state that isn't settled right away is hare. Since
+    (hare, hare) isn't strict, we have to check the two conditions of
+    Theorem 8.1 directly.
+  </p>
+
+  <exercise xml:id="check-stag-variation-hare">
+    <title>Is Hare Evolutionarily Stable?</title>
+    <statement>
+      <p>
+        We want to decide whether the population state hare is evolutionarily
+        stable, using Theorem 8.1 with <m>\sigma = </m> hare. For condition
+        (2), we use <m>\tau = </m> stag.
+      </p>
+      <p>
+        <alert>Your task.</alert> The argument has four lines, and each block
+        is labeled with the line it belongs on. Lines 1, 2, and 3 each come in
+        two versions, (a) and (b). Pick the right version of each line and
+        drag it into the answer area in order.
+      </p>
+    </statement>
+    <blocks randomize="no">
+      <block>
+        <choice correct="yes">
+          <p>
+            <alert>1(a).</alert> Condition (1) is satisfied, because
+            (hare, hare) is a Nash equilibrium, so no <m>\tau</m> does better
+            against hare than hare does.
+          </p>
+        </choice>
+        <choice>
+          <p>
+            <alert>1(b).</alert> Condition (1) is not satisfied, because
+            (hare, hare) is not a strict Nash equilibrium.
+          </p>
+        </choice>
+      </block>
+      <block>
+        <choice>
+          <p>
+            <alert>2(a).</alert> Since
+            <m>\pi_1(\text{stag}, \text{hare}) \neq \pi_1(\text{hare}, \text{hare})</m>,
+            condition (2) doesn't apply to <m>\tau = </m> stag.
+          </p>
+        </choice>
+        <choice correct="yes">
+          <p>
+            <alert>2(b).</alert> Since
+            <m>\underbrace{\pi_1(\text{stag}, \text{hare})}_{1} = \underbrace{\pi_1(\text{hare}, \text{hare})}_{1}</m>,
+            condition (2) must be checked for <m>\tau = </m> stag.
+          </p>
+        </choice>
+      </block>
+      <block>
+        <choice>
+          <p>
+            <alert>3(a).</alert> Since
+            <m>\pi_1(\text{hare}, \text{stag}) \gt \pi_1(\text{stag}, \text{stag})</m>,
+            condition (2) is satisfied.
+          </p>
+        </choice>
+        <choice correct="yes">
+          <p>
+            <alert>3(b).</alert> Condition (2) needs
+            <m>\pi_1(\text{hare}, \text{stag}) \gt \pi_1(\text{stag}, \text{stag})</m>,
+            but
+            <m>\underbrace{\pi_1(\text{hare}, \text{stag})}_{1} \lt \underbrace{\pi_1(\text{stag}, \text{stag})}_{2}</m>,
+            so condition (2) is not satisfied.
+          </p>
+        </choice>
+      </block>
+      <block>
+        <p>
+          <alert>4.</alert> So the population state hare is not
+          evolutionarily stable.
+        </p>
+      </block>
+    </blocks>
+    <hint>
+      <p>
+        Condition (2) of Theorem 8.1 says: if
+        <m>\pi_1(\tau, \sigma) = \pi_1(\sigma, \sigma)</m>, then
+        <m>\pi_1(\sigma, \tau) \gt \pi_1(\tau, \tau)</m>. Plug in
+        <m>\sigma = </m> hare and <m>\tau = </m> stag, and read the payoffs
+        off the table.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        The correct lines are 1(a), 2(b), 3(b), 4. Condition (1) holds
+        because (hare, hare) is a Nash equilibrium. Stag ties with hare
+        against hare, so condition (2) must be checked, and it fails: hare
+        gets 1 against stag, but stag gets 2 against itself. If a few stag
+        hunters invade a population of hare hunters, they do better against
+        each other than the hare hunters do against them.
+      </p>
+      <p>
+        1(b) is wrong because condition (1) only needs a Nash equilibrium,
+        not a strict one. 2(a) is wrong because both payoffs are 1. 3(a) is
+        wrong because <m>1 \gt 2</m> is false.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Reading 2: the three examples                                -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-8-4-part2">
+    <title>Section 8.4, Evolutionary Stability with Two Pure Strategies (Part 2)</title>
+    <p>
+      <alert>Read the rest of Section 8.4.</alert> It has three examples:
+      <ul>
+        <li>
+          <p>
+            8.4.1, Stag Hunt: this is case (3) of Theorem 8.5.
+          </p>
+        </li>
+        <li>
+          <p>
+            8.4.2, Stag Hunt variation: the example we just reasoned
+            through. Theorem 8.5 doesn't apply because <m>b = d</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            8.4.3, Hawks and Doves: this version includes <m>t</m>, the cost
+            of a protracted display. It is case (4), so the book uses formula
+            (8.5) to find the mixed evolutionarily stable state.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <interactive xml:id="question-form-8-4" iframe="question-form.html?section=8.4" width="100%" aspect="2:1"/>
+</section>

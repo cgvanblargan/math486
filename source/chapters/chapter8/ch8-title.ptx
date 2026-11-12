@@ -4,7 +4,9 @@
 <chapter xml:id="ch-alternatives-to-nash" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Evolutionary stability</title>
 
-<xi:include href="./ch8-exercises.ptx" />
+
 <xi:include href="./page1-evolutionary-stability.ptx" />
+<xi:include href="./page2-two-pure-strategies.ptx" />
+<xi:include href="./ch8-exercises.ptx" />
 
 </chapter>

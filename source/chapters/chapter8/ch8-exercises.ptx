@@ -9,7 +9,8 @@
      Exercise 1 = old Exercise 1, Exercise 2 = old Exercise 2,
      Exercise 3 = old Problem 1 plus a new part (c) (no mixed
      evolutionarily stable state), Exercise 4 = old Problem 2 plus a hint
-     for part (c).
+     for part (c). Exercise 5 (Rock-Paper-Scissors, no evolutionarily
+     stable state) is new, based on book Problem 5.12.4.
 
      Uses Sections 8.3 and 8.4 (Theorems 8.1, 8.3, 8.5) and the idea of a
      symmetric game from Section 7.1.
@@ -389,6 +390,110 @@
         </ul>
       </hint>
     </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-rps-no-ess">
+    <title>Rock-Paper-Scissors Has No Evolutionarily Stable State</title>
+
+    <introduction>
+      <p>
+        In Rock-Paper-Scissors (Problem 5.12.4 in the book), paper beats
+        rock, scissors beats paper, and rock beats scissors. The winner gets
+        <m>1</m>, the loser gets <m>-1</m>, and a tie gives both players
+        <m>0</m>. Payoffs are listed as (Player 1, Player 2).
+      </p>
+      <table xml:id="table-hw-rps-no-ess">
+        <title>Rock-Paper-Scissors</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>r</m></cell>
+            <cell>Player 2: <m>p</m></cell>
+            <cell>Player 2: <m>s</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>r</m></cell>
+            <cell><m>(0, 0)</m></cell>
+            <cell><m>(-1, 1)</m></cell>
+            <cell><m>(1, -1)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>p</m></cell>
+            <cell><m>(1, -1)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+            <cell><m>(-1, 1)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>s</m></cell>
+            <cell><m>(-1, 1)</m></cell>
+            <cell><m>(1, -1)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+          </row>
+        </tabular>
+      </table>
+      <p>
+        Let
+        <m>\sigma = \left(\frac{1}{3}, \frac{1}{3}, \frac{1}{3}\right)</m>,
+        the strategy that plays rock, paper, and scissors equally often.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-rps-no-ess-nash">
+      <statement>
+        <p>
+          Show that <m>(\sigma, \sigma)</m> is a Nash equilibrium.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          Compute the payoff of each pure strategy <m>r</m>, <m>p</m>, and
+          <m>s</m> against <m>\sigma</m>.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-rps-no-ess-not-stable">
+      <statement>
+        <p>
+          Use Theorem 8.1 to show that <m>\sigma</m> is not an
+          evolutionarily stable state.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          It is enough to find <em>one</em> <m>\tau \neq \sigma</m> for which
+          a condition of Theorem 8.1 fails. Try <m>\tau = r</m>. First check
+          whether <m>\pi_1(\tau, \sigma) = \pi_1(\sigma, \sigma)</m>, so that
+          condition (2) applies.
+        </p>
+      </hint>
+    </task>
+
+    <task xml:id="hw-rps-no-ess-none">
+      <statement>
+        <p>
+          You may use the fact (Problem 5.12.4 in the book) that
+          <m>(\sigma, \sigma)</m> is the only Nash equilibrium of
+          Rock-Paper-Scissors. Explain why the corresponding evolutionary
+          game has <em>no</em> evolutionarily stable state at all.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        <em>Remark:</em> By Theorem 7.1, every symmetric game has a
+        symmetric Nash equilibrium. This exercise shows that nothing
+        similar is true for evolutionarily stable states: being
+        evolutionarily stable is a stronger requirement than being a Nash
+        equilibrium, and some games have no evolutionarily stable state.
+      </p>
+    </conclusion>
   </exercise>
 
 </exercises>

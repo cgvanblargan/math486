@@ -16,9 +16,7 @@
   </p>
   <p>
     We will be looking for population states <m>\sigma</m> that are
-    <term>evolutionarily stable</term>. One consequence of being
-    evolutionarily stable is that <m>(\sigma, \sigma)</m> is a Nash
-    equilibrium of the game. We'll see why after the reading.
+    <term>evolutionarily stable</term>. 
   </p>
 
   <!-- ============================================================ -->
@@ -59,15 +57,34 @@
   </assemblage>
 
   <p>
-    Here is the definition from the reading, restated. A population state
+    Before we break down the definition, watch this video with Richard
+    Dawkins explaining the idea behind evolutionary stability. His example
+    is a population of birds where each bird is either a <q>pirate</q> or a
+    <q>fisher.</q> A population of all pirates isn't stable, and neither is
+    a population of all fishers. But a certain ratio between the two can be
+    stable. In our language, that ratio is a <em>mixed</em> population
+    state <m>\sigma</m>.
+  </p>
+
+  <figure xml:id="video-ch8-dawkins-ess">
+    <caption>
+      <q>Evolutionarily Stable Strategies ft. Richard Dawkins</q> (Veritasium,
+      2015). If the video doesn't load, watch it on
+      <url href="https://www.youtube.com/watch?v=mUxt--mMjwA&amp;t=139s">YouTube</url>.
+    </caption>
+    <video youtube="mUxt--mMjwA" start="139" width="80%"/>
+  </figure>
+
+  <p>
+    Now let's quickly just make sure we understand some of new notation and definitions! A population state
     <m>\sigma</m> is <term>evolutionarily stable</term> if for each
     <m>\tau \neq \sigma</m> there is a number <m>\varepsilon_0 \gt 0</m> such
     that if <m>0 \lt \varepsilon \lt \varepsilon_0</m>, then
-    <men xml:id="eq-ch8-ess-def">
+    <me>
       \pi_1\bigl(\sigma, (1 - \varepsilon)\sigma + \varepsilon\tau\bigr)
       \gt
       \pi_1\bigl(\tau, (1 - \varepsilon)\sigma + \varepsilon\tau\bigr).
-    </men>
+    </me>
     This is inequality (8.3) in the book.
   </p>
 
@@ -129,7 +146,7 @@
   </exercise>
 
   <p>
-    So <m>\varepsilon</m> and <m>1 - \varepsilon</m> are weights: as
+    We should think of <m>\varepsilon</m> and <m>1 - \varepsilon</m> as weights on the two population states! And as
     <m>\varepsilon</m> goes from 0 to 1, the population shifts from all
     <m>\sigma</m> to all <m>\tau</m>. The definition of evolutionary
     stability only cares about <em>small</em> <m>\varepsilon</m>. Then
@@ -146,9 +163,9 @@
     </me>
     So if a small part of the population starts using <m>\tau</m> (because
     of invaders or a mutation), an individual is still better off using
-    <m>\sigma</m>. This is why we call <m>\sigma</m> stable: individuals
-    using <m>\tau</m> do worse, so <m>\tau</m> should die out, and the
-    population returns to all <m>\sigma</m>.
+    <m>\sigma</m>. This is why we call <m>\sigma</m> stable! That is, individuals
+    using <m>\tau</m> do worse, meaning <m>\tau</m> should die out and the
+    population will return to all <m>\sigma</m>.
   </p>
 
   <!-- ============================================================ -->
@@ -161,13 +178,13 @@
       <alert>Read the rest of Section 8.3.</alert>
     </p>
     <p>
-      We will use Theorems 8.1, 8.2, and 8.3 a lot on the homework, so make
-      sure you understand what each one says and when it applies.
+      We will use Theorems 8.1, 8.2, 8.3, and 8.4 a lot, so make sure you
+      understand what each one says and when it applies.
     </p>
   </assemblage>
 
   <p>
-    For reference, here are the three theorems, restated.
+    For reference, we restate the four theorems here, as well.
   </p>
 
   <theorem xml:id="thm-8-1-restated">
@@ -217,10 +234,36 @@
     </statement>
   </theorem>
 
-  <!-- ============================================================ -->
-  <!-- Concept checks on Theorems 8.1-8.3                           -->
-  <!-- ============================================================ -->
+  <theorem xml:id="thm-8-4-restated">
+    <title>Theorem 8.4</title>
+    <statement>
+      <p>
+        Let <m>\sigma = \sum p_i s_i</m> be an evolutionarily stable state,
+        and let <m>I = \{i : p_i \gt 0\}</m>. Let <m>\tau \neq \sigma</m>,
+        <m>\tau = \sum q_i s_i</m>, be a population state for which the set of
+        <m>i</m> values such that <m>q_i \gt 0</m> is a subset of <m>I</m>.
+        Then <m>(\tau, \tau)</m> is not a Nash equilibrium of the symmetric
+        two-player game. Hence there are no other evolutionarily stable
+        states in which the set of active strategies is a subset of the set
+        of active strategies in <m>\sigma</m>.
+      </p>
+    </statement>
+  </theorem>
 
+  <p>
+    In words: if <m>\sigma</m> is evolutionarily stable, then no other state
+    that uses <em>only</em> strategies that are active in <m>\sigma</m> can
+    give a symmetric Nash equilibrium, so none of them can be evolutionarily
+    stable either. Theorem 8.3 is the special case where <m>\sigma</m> uses
+    every pure strategy.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Concept checks on Theorems 8.1-8.4                           -->
+  <!-- ============================================================ -->
+<p>
+  Okay time to make sure we understand what these theorems are saying!!
+</p>
   <exercise xml:id="check-ess-implies-nash">
     <statement>
       <p>
@@ -423,6 +466,71 @@
     </choices>
   </exercise>
 
+<p>The last three concept checks are on Theorems 8.3 and 8.4, which sometimes have more subtle uses. </p>
+
+
+  <exercise xml:id="check-thm-8-3-contrapositive">
+    <statement>
+      <p>
+        Consider a symmetric game where each player has three pure strategies,
+        <m>a</m>, <m>b</m>, and <m>c</m>. Suppose
+        <m>\sigma = p_1 a + p_2 b + p_3 c</m> with
+        <m>p_1, p_2, p_3 \gt 0</m>, so <m>a</m>, <m>b</m>, and <m>c</m> are
+        all active pure strategies in <m>\sigma</m>. Suppose also that
+        <m>(\sigma, \sigma)</m> is a Nash equilibrium. You also find that
+        <m>(a, a)</m> is a Nash equilibrium. What can you conclude about
+        <m>\sigma</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\sigma</m> is not an evolutionarily stable state.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. If <m>\sigma</m> were evolutionarily stable, then since
+            all pure strategies are active in <m>\sigma</m>, Theorem 8.3
+            would say <m>(\tau, \tau)</m> is not a Nash equilibrium for any
+            <m>\tau \neq \sigma</m>. But <m>\tau = a</m> gives a Nash
+            equilibrium <m>(a, a)</m>, so <m>\sigma</m> can't be
+            evolutionarily stable.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\sigma</m> is an evolutionarily stable state, because
+            <m>(\sigma, \sigma)</m> is a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Being a Nash equilibrium is necessary for evolutionary
+            stability (condition (1) of Theorem 8.1), but it is not enough.
+            Think about what Theorem 8.3 says about <m>(a, a)</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            Both <m>\sigma</m> and <m>a</m> are evolutionarily stable states.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. By Theorem 8.3, if <m>\sigma</m> were evolutionarily
+            stable, there would be no other evolutionarily stable states, and
+            <m>(a, a)</m> couldn't even be a Nash equilibrium.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
   <exercise xml:id="check-thm-8-3-hypothesis">
     <statement>
       <p>
@@ -479,67 +587,105 @@
       </choice>
     </choices>
   </exercise>
-
-  <exercise xml:id="check-thm-8-3-contrapositive">
+  <p>
+    And we can say a bit more about the last example with Theorem 8.4!
+  </p>
+  <exercise xml:id="check-thm-8-4-select-all">
     <statement>
       <p>
-        Consider a symmetric game where each player has three pure strategies,
-        <m>a</m>, <m>b</m>, and <m>c</m>. Suppose <m>\sigma</m> uses all three
-        pure strategies with positive probability and
-        <m>(\sigma, \sigma)</m> is a Nash equilibrium. You also find that
-        <m>(a, a)</m> is a Nash equilibrium. What can you conclude about
-        <m>\sigma</m>?
+        Consider the same game, with
+        <m>\sigma = \left(\frac{1}{2}, \frac{1}{2}, 0\right)</m>
+        evolutionarily stable. Which of these population states does Theorem
+        8.4 rule out as evolutionarily stable? <alert>Select all that
+        apply.</alert>
       </p>
     </statement>
     <choices randomize="no">
       <choice correct="yes">
         <statement>
-          <p>
-            <m>\sigma</m> is not an evolutionarily stable state.
-          </p>
+          <p><m>a</m></p>
         </statement>
         <feedback>
           <p>
-            Right. If <m>\sigma</m> were evolutionarily stable, then since
-            all pure strategies are active in <m>\sigma</m>, Theorem 8.3
-            would say <m>(\tau, \tau)</m> is not a Nash equilibrium for any
-            <m>\tau \neq \sigma</m>. But <m>\tau = a</m> gives a Nash
-            equilibrium <m>(a, a)</m>, so <m>\sigma</m> can't be
-            evolutionarily stable.
+            Yes. The only active strategy in <m>a</m> is <m>a</m>, which is
+            active in <m>\sigma</m>. So <m>(a, a)</m> isn't even a Nash
+            equilibrium!
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>b</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Yes. The only active strategy in <m>b</m> is <m>b</m>, which is
+            active in <m>\sigma</m>. So <m>(b, b)</m> isn't even a Nash
+            equilibrium!
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>\left(\frac{1}{3}, \frac{2}{3}, 0\right)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Yes. This state mixes only <m>a</m> and <m>b</m>, which are both
+            active in <m>\sigma</m>. Theorem 8.4 covers mixed states too, not
+            just pure ones.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
-          <p>
-            <m>\sigma</m> is an evolutionarily stable state, because
-            <m>(\sigma, \sigma)</m> is a Nash equilibrium.
-          </p>
+          <p><m>c</m></p>
         </statement>
         <feedback>
           <p>
-            Not quite. Being a Nash equilibrium is necessary for evolutionary
-            stability (condition (1) of Theorem 8.1), but it is not enough.
-            Think about what Theorem 8.3 says about <m>(a, a)</m>.
+            Not ruled out. <m>c</m> is not active in <m>\sigma</m>, so
+            Theorem 8.4 says nothing about it. Whether it is evolutionarily
+            stable depends on the specific game.
           </p>
         </feedback>
       </choice>
       <choice>
         <statement>
-          <p>
-            Both <m>\sigma</m> and <m>a</m> are evolutionarily stable states.
-          </p>
+          <p><m>\left(0, \frac{1}{2}, \frac{1}{2}\right)</m></p>
         </statement>
         <feedback>
           <p>
-            Not quite. By Theorem 8.3, if <m>\sigma</m> were evolutionarily
-            stable, there would be no other evolutionarily stable states, and
-            <m>(a, a)</m> couldn't even be a Nash equilibrium.
+            Not ruled out. This state uses <m>c</m>, which is not active in
+            <m>\sigma</m>, so Theorem 8.4 doesn't apply to it.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>\left(\frac{1}{3}, \frac{1}{3}, \frac{1}{3}\right)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not ruled out. This state uses <m>c</m>, which is not active in
+            <m>\sigma</m>. It doesn't matter that it also uses <m>a</m> and
+            <m>b</m>: <em>all</em> of its active strategies have to be active
+            in <m>\sigma</m>.
           </p>
         </feedback>
       </choice>
     </choices>
+    <solution>
+      <p>
+        Theorem 8.4 rules out <m>a</m>, <m>b</m>, and
+        <m>\left(\frac{1}{3}, \frac{2}{3}, 0\right)</m>, since they use only
+        <m>a</m> and <m>b</m>, the active strategies in <m>\sigma</m>. In
+        fact, it gives an even stronger conclusion: <m>(a, a)</m>,
+        <m>(b, b)</m>, and <m>(\tau, \tau)</m> for any other <m>\tau</m>
+        mixing only <m>a</m> and <m>b</m> are not Nash equilibria. Any state
+        that uses <m>c</m> is still a candidate, and whether it is
+        evolutionarily stable depends on the specific game.
+      </p>
+    </solution>
   </exercise>
-
   <interactive xml:id="question-form-8-3" iframe="question-form.html?section=8.3" width="100%" aspect="2:1"/>
 </section>
