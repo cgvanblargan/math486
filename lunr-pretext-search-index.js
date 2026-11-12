@@ -2629,6 +2629,384 @@ var ptx_lunr_docs = [
   "body": " Contributing to a Common Fund   Suppose 4 students from the class play the following game:    Each student is given one (infinitely divisible) dollar. Each student chooses, simultaneously, how much of their dollar to put into a common fund.    The amount in the common fund is multiplied by 3, and the total is split equally among the 4 students.    Let denote Player 's strategy, the amount they put into the fund, so .       Find the payoff function for Player . Remember that each player receives $1 before choosing how much to put into the common fund.           Show that for each player , choosing is strictly dominated by choosing . In other words, explain why your expression from the previous part is largest when , no matter what the other players contribute.      Let . Using your payoff function, find Player 's payoff in each of these situations:    Every player, including Player , contributes .    Player contributes 0, and every other player contributes .    Every player contributes 0.        Now suppose the same 4 students play this game over and over, in rounds , with discount factor , where . If denotes a player's payoff in round , then that player's payoff for the repeated game is   Each round is a fresh copy of the game above. At the start of every round, each player receives a new dollar and decides how much of that dollar to put into the common fund. Money a player kept or received in earlier rounds cannot be put into the fund. So in every round, each player's payoff is given by your formula from the first part.  Define a trigger-type strategy , where , as follows:    Contribute in round 0.    Keep contributing in each later round, as long as every student, including yourself, contributed at least in the previous round.    If one or more students (including yourself) contributed less than in the previous round, contribute 0 in the current round, and keep contributing 0 in every round after that.    Find such that the strategy profile is a Nash equilibrium whenever .      You will need your results from the previous part.    Just as with the Prisoner's Dilemma, you can think about the first round in which Player contributes 0 instead of . It is enough to consider the case where Player does this right away, in round 0. What is Player 's payoff in round 0, with everyone else contributing ? What happens in later rounds? Don't forget that the players keep receiving $1 in each round, even if they contribute 0 to the fund.        Now we check whether is a subgame perfect Nash equilibrium when , just as we did for the trigger strategy in the Wine Merchant game. Take any subgame, starting at a node at the beginning of round . There are two cases:    Every student contributed at least in every round before .    At least one student contributed less than in some round before .      Consider a subgame where every student contributed at least in every round before . Is the restriction of to this subgame a Nash equilibrium?    Consider a subgame where at least one student contributed less than in some round before . Is the restriction of to this subgame a Nash equilibrium?    Is a subgame perfect Nash equilibrium?      This argument follows the same structure as , where we showed that the trigger strategy in the Wine Merchant game is subgame perfect.  For i: what does tell everyone to do at ? How does the subgame compare with the whole game? For ii: what does tell everyone to do in every round of the subgame? Use part (b).    "
 },
 {
+  "id": "ch7-page1-symmetric-games",
+  "level": "1",
+  "url": "ch7-page1-symmetric-games.html",
+  "type": "Section",
+  "number": "7.1",
+  "title": "Symmetric Games",
+  "body": " Symmetric Games  This chapter is short, and we only need one idea from it! We'll briefly look at symmetric games, because they set up everything we'll do with evolutionary stability in Chapter 8.   Section 7.1, Interchangeable Players   Read Section 7.1.   Focus on the ideas rather than the notation. You don't need to master the notation with permutations.  The main point is that a two-player game is symmetric if both players have the same strategies, and swapping the players just swaps their payoffs. In payoff notation: for all strategies and . In a payoff table, this means the entry in row , column is the entry in row , column with the two payoffs switched.   Here is the main result of the section:   Theorem 7.1   Every symmetric game with finitely many pure strategies has a symmetric Nash equilibrium , one in which every player uses the same (possibly mixed) strategy. For a two-player game, this is a Nash equilibrium of the form .    This result will turn out to be essential for Chapter 8! There we'll study something called evolutionary stability, which involves Nash equilibria of the form , and Theorem 7.1 guarantees that every symmetric game has at least one.     Here is a reminder of four canonical symmetric games we've already seen. In each table, the pure strategy Nash equilibria are boxed.   Prisoner's Dilemma  Each player can cooperate ( ) or defect ( ).   Prisoner's Dilemma        Player 2:  Player 2:    Player 1:      Player 1:       Defecting is a strictly dominant strategy, so is the only Nash equilibrium, even though both players would be better off if they both cooperated. It is already symmetric.    Stag Hunt  Each hunter can hunt a stag together with the other hunter, or hunt a hare alone.   Stag Hunt        Hunter 2: stag  Hunter 2: hare    Hunter 1: stag      Hunter 1: hare       Both Nash equilibria are symmetric. The hunters agree that (stag, stag) is better, but hunting stag is risky if you aren't sure the other hunter will join you.    Chicken  Each teenager can go straight or swerve.   Chicken        Teenager 2: straight  Teenager 2: swerve    Teenager 1: straight      Teenager 1: swerve       Each teenager wants to be the one who goes straight while the other swerves, so the two pure Nash equilibria are not symmetric. The symmetric Nash equilibrium promised by Theorem 7.1 is mixed: each teenager goes straight with probability .    Water Pollution  Three firms each either purify their waste ( ) or pollute ( ). Purifying costs 1, and if two or more firms pollute, the water is polluted and each firm pays 3. Since there are three players, we use two tables, one for each choice of Firm 3, with payoffs listed as (Firm 1, Firm 2, Firm 3).   Water Pollution, Firm 3 purifies        Firm 2:  Firm 2:    Firm 1:      Firm 1:        Water Pollution, Firm 3 pollutes        Firm 2:  Firm 2:    Firm 1:      Firm 1:       In the pure Nash equilibria where two firms purify and one pollutes, the polluter gets clean water for free. These aren't symmetric. The symmetric one is the worst outcome, where all three firms pollute!     Chicken is a symmetric game, but neither of its pure strategy Nash equilibria is symmetric. Does this contradict Theorem 7.1?      Yes, because Theorem 7.1 says there is a symmetric Nash equilibrium.    Not quite. Theorem 7.1 allows the symmetric Nash equilibrium to be mixed.      No, because the symmetric Nash equilibrium can be mixed.    Right. In Chicken, the symmetric Nash equilibrium is where each teenager goes straight with probability .       "
+},
+{
+  "id": "read-7-1-4",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#read-7-1-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "symmetric "
+},
+{
+  "id": "thm-7-1-restated",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#thm-7-1-restated",
+  "type": "Theorem",
+  "number": "7.1.1",
+  "title": "Theorem 7.1.",
+  "body": " Theorem 7.1   Every symmetric game with finitely many pure strategies has a symmetric Nash equilibrium , one in which every player uses the same (possibly mixed) strategy. For a two-player game, this is a Nash equilibrium of the form .   "
+},
+{
+  "id": "table-ch7-pd",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#table-ch7-pd",
+  "type": "Table",
+  "number": "7.1.2",
+  "title": "Prisoner’s Dilemma",
+  "body": " Prisoner's Dilemma        Player 2:  Player 2:    Player 1:      Player 1:      "
+},
+{
+  "id": "table-ch7-stag",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#table-ch7-stag",
+  "type": "Table",
+  "number": "7.1.3",
+  "title": "Stag Hunt",
+  "body": " Stag Hunt        Hunter 2: stag  Hunter 2: hare    Hunter 1: stag      Hunter 1: hare      "
+},
+{
+  "id": "table-ch7-chicken",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#table-ch7-chicken",
+  "type": "Table",
+  "number": "7.1.4",
+  "title": "Chicken",
+  "body": " Chicken        Teenager 2: straight  Teenager 2: swerve    Teenager 1: straight      Teenager 1: swerve      "
+},
+{
+  "id": "table-ch7-water-g",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#table-ch7-water-g",
+  "type": "Table",
+  "number": "7.1.5",
+  "title": "Water Pollution, Firm 3 purifies",
+  "body": " Water Pollution, Firm 3 purifies        Firm 2:  Firm 2:    Firm 1:      Firm 1:      "
+},
+{
+  "id": "table-ch7-water-b",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#table-ch7-water-b",
+  "type": "Table",
+  "number": "7.1.6",
+  "title": "Water Pollution, Firm 3 pollutes",
+  "body": " Water Pollution, Firm 3 pollutes        Firm 2:  Firm 2:    Firm 1:      Firm 1:      "
+},
+{
+  "id": "check-chicken-symmetric",
+  "level": "2",
+  "url": "ch7-page1-symmetric-games.html#check-chicken-symmetric",
+  "type": "Checkpoint",
+  "number": "7.1.7",
+  "title": "",
+  "body": "  Chicken is a symmetric game, but neither of its pure strategy Nash equilibria is symmetric. Does this contradict Theorem 7.1?      Yes, because Theorem 7.1 says there is a symmetric Nash equilibrium.    Not quite. Theorem 7.1 allows the symmetric Nash equilibrium to be mixed.      No, because the symmetric Nash equilibrium can be mixed.    Right. In Chicken, the symmetric Nash equilibrium is where each teenager goes straight with probability .     "
+},
+{
+  "id": "ch8-page1-evolutionary-stability",
+  "level": "1",
+  "url": "ch8-page1-evolutionary-stability.html",
+  "type": "Section",
+  "number": "8.1",
+  "title": "Evolutionary Stability",
+  "body": " Evolutionary Stability  In this chapter we study evolutionary stability . Instead of two individual players, we think of a large population whose members play a game against each other over and over.   Everything in this chapter is for symmetric games. Recall from Chapter 7 that a two-player game is symmetric if both players have the same strategies and swapping the players just swaps their payoffs: .  We will be looking for population states that are evolutionarily stable .      Section 8.3, Evolutionary Stability (Part 1)   Read Section 8.3 up to (but not including) Theorem 8.1.   The main ideas to take away:   An individual's type  is the (possibly mixed) strategy that individual uses.    The state of the population describes how often each pure strategy is used across the whole population. Playing against a random member of the population is like playing against the mixed strategy .    If a small fraction of the population is replaced by individuals of type , the new population state is .      Before we break down the definition, watch this video with Richard Dawkins explaining the idea behind evolutionary stability. His example is a population of birds where each bird is either a pirate or a fisher. A population of all pirates isn't stable, and neither is a population of all fishers. But a certain ratio between the two can be stable. In our language, that ratio is a mixed population state .    Evolutionarily Stable Strategies ft. Richard Dawkins (Veritasium, 2015). If the video doesn't load, watch it on YouTube .    Now let's quickly just make sure we understand some of new notation and definitions! A population state is evolutionarily stable if for each there is a number such that if , then This is inequality (8.3) in the book.    Consider the population state . What is it when , and what is it when ?      When it is ; when it is .    Right. At we get , and at we get .      When it is ; when it is .    Not quite. Plug in: at , the coefficient of is and the coefficient of is .      It is half and half in both cases.    Not quite. That happens at . Try plugging and into the coefficients and .      We should think of and as weights on the two population states! And as goes from 0 to 1, the population shifts from all to all . The definition of evolutionary stability only cares about small  . Then is almost entirely , with a small fraction of the population using instead.  Let's look at the inequality again: So if a small part of the population starts using (because of invaders or a mutation), an individual is still better off using . This is why we call stable! That is, individuals using do worse, meaning should die out and the population will return to all .      Section 8.3, Evolutionary Stability (Part 2)   Read the rest of Section 8.3.   We will use Theorems 8.1, 8.2, 8.3, and 8.4 a lot, so make sure you understand what each one says and when it applies.   For reference, we restate the four theorems here, as well.   Theorem 8.1   A population state is evolutionarily stable if and only if for all ,    .    If , then .        Theorem 8.2   If is a strict Nash equilibrium of a symmetric two-player game, then is an evolutionarily stable state of the corresponding evolutionary game.     Theorem 8.3   If is an evolutionarily stable state in which all pure strategies are active, then for all , is not a Nash equilibrium of the symmetric two-player game. Hence there are no other evolutionarily stable states.     Theorem 8.4   Let be an evolutionarily stable state, and let . Let , , be a population state for which the set of values such that is a subset of . Then is not a Nash equilibrium of the symmetric two-player game. Hence there are no other evolutionarily stable states in which the set of active strategies is a subset of the set of active strategies in .    Theorem 8.4 is really saying that if is evolutionarily stable, then no other state that uses only strategies that are active in can give a symmetric Nash equilibrium, so none of them can be evolutionarily stable either. Theorem 8.3 is the special case where uses every pure strategy.     Okay time to make sure we understand what these theorems are saying!!    Why is always a Nash equilibrium when is an evolutionarily stable state?      Condition (1) of Theorem 8.1 says for every , so is a best response to .    Right. No other strategy does better against than does. Since the game is symmetric, the same holds for Player 2, so is a Nash equilibrium.      Condition (2) of Theorem 8.1 says .    Not quite. Condition (2) compares how and do against . A Nash equilibrium is about how strategies do against .      Because the game is symmetric, every symmetric strategy profile is a Nash equilibrium.    Not quite. In the Prisoner's Dilemma, is symmetric but not a Nash equilibrium.        Why does Theorem 8.2 follow from Theorem 8.1?      In a strict Nash equilibrium, for every . So condition (1) holds, and the equality in condition (2) never happens, so there is nothing to check for condition (2).    Right. Condition (2) only applies to strategies that tie with against . In a strict Nash equilibrium, there are no ties.      In a strict Nash equilibrium, for every , which is condition (2).    Not quite. Being a strict Nash equilibrium is about how strategies do against , not against . Look at what happens to the if part of condition (2) instead.      Every Nash equilibrium is strict, so condition (1) is enough.    Not quite. Many Nash equilibria are not strict, like the mixed Nash equilibrium in Chicken. For those, condition (2) really does need to be checked.      Let's apply Theorem 8.2. Here is the Prisoner's Dilemma again, with the Nash equilibrium boxed.   Prisoner's Dilemma        Player 2:  Player 2:    Player 1:      Player 1:         Notice that is a strict Nash equilibrium: if either player switches to , their payoff goes down from to . What can you conclude?      By Theorem 8.2, the population state (everyone defects) is evolutionarily stable.    Right. A population of defectors can't be invaded by a small group of cooperators: the cooperators do worse, so they die out.      By Theorem 8.2, is evolutionarily stable.    Almost! Be careful: evolutionary stability is a property of a population state , not of a strategy profile . It is the population state that is evolutionarily stable.      Nothing yet. We still need to check condition (2) of Theorem 8.1 for every .    Not quite. That's the point of Theorem 8.2: for a strict Nash equilibrium, condition (2) never comes up, so there is nothing more to check.      The last three concept checks are on Theorems 8.3 and 8.4, which sometimes have more subtle uses.    Consider a symmetric game where each player has three pure strategies, , , and . Suppose with , so , , and are all active pure strategies in . Suppose also that is a Nash equilibrium. You also find that is a Nash equilibrium. What can you conclude about ?       is not an evolutionarily stable state.    Right. If were evolutionarily stable, then since all pure strategies are active in , Theorem 8.3 would say is not a Nash equilibrium for any . But gives a Nash equilibrium , so can't be evolutionarily stable.       is an evolutionarily stable state, because is a Nash equilibrium.    Not quite. Being a Nash equilibrium is necessary for evolutionary stability (condition (1) of Theorem 8.1), but it is not enough. Think about what Theorem 8.3 says about .      Both and are evolutionarily stable states.    Not quite. By Theorem 8.3, if were evolutionarily stable, there would be no other evolutionarily stable states, and couldn't even be a Nash equilibrium.        Consider a symmetric game where each player has three pure strategies, , , and . Suppose the population state is evolutionarily stable. Can we use Theorem 8.3 to conclude that is the only evolutionarily stable state?      Yes, because is evolutionarily stable.    Not quite. Theorem 8.3 needs more than being evolutionarily stable. Check its other hypothesis.      Yes, because is a Nash equilibrium.    Not quite. It's true that is a Nash equilibrium, but that isn't what Theorem 8.3 needs. Check its hypotheses.      No, because strategy is never used, so not all pure strategies are active in .    Right. Theorem 8.3 only applies when every pure strategy is used with positive probability. Here, there could be another evolutionarily stable state that uses . Always check the hypotheses before using a theorem!      And we can say a bit more about the last example with Theorem 8.4!    Consider the same game, with evolutionarily stable. Which of these population states does Theorem 8.4 rule out as evolutionarily stable? Select all that apply.          Yes. The only active strategy in is , which is active in . So isn't even a Nash equilibrium!         Yes. The only active strategy in is , which is active in . So isn't even a Nash equilibrium!         Yes. This state mixes only and , which are both active in . Theorem 8.4 covers mixed states too, not just pure ones.         Not ruled out. is not active in , so Theorem 8.4 says nothing about it. Whether it is evolutionarily stable depends on the specific game.         Not ruled out. This state uses , which is not active in , so Theorem 8.4 doesn't apply to it.         Not ruled out. This state uses , which is not active in . It doesn't matter that it also uses and : all of its active strategies have to be active in .      Theorem 8.4 rules out , , and , since they use only and , the active strategies in . In fact, it gives an even stronger conclusion: , , and for any other mixing only and are not Nash equilibria. Any state that uses is still a candidate, and whether it is evolutionarily stable depends on the specific game.     "
+},
+{
+  "id": "ch8-page1-evolutionary-stability-2",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#ch8-page1-evolutionary-stability-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "evolutionary stability "
+},
+{
+  "id": "ch8-page1-evolutionary-stability-4",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#ch8-page1-evolutionary-stability-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "evolutionarily stable "
+},
+{
+  "id": "read-8-3-part1-3",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#read-8-3-part1-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "type state "
+},
+{
+  "id": "video-ch8-dawkins-ess",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#video-ch8-dawkins-ess",
+  "type": "Figure",
+  "number": "8.1.1",
+  "title": "",
+  "body": "  Evolutionarily Stable Strategies ft. Richard Dawkins (Veritasium, 2015). If the video doesn't load, watch it on YouTube .   "
+},
+{
+  "id": "ch8-page1-evolutionary-stability-8",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#ch8-page1-evolutionary-stability-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "evolutionarily stable "
+},
+{
+  "id": "check-epsilon-endpoints",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-epsilon-endpoints",
+  "type": "Checkpoint",
+  "number": "8.1.2",
+  "title": "",
+  "body": "  Consider the population state . What is it when , and what is it when ?      When it is ; when it is .    Right. At we get , and at we get .      When it is ; when it is .    Not quite. Plug in: at , the coefficient of is and the coefficient of is .      It is half and half in both cases.    Not quite. That happens at . Try plugging and into the coefficients and .     "
+},
+{
+  "id": "thm-8-1-restated",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#thm-8-1-restated",
+  "type": "Theorem",
+  "number": "8.1.3",
+  "title": "Theorem 8.1.",
+  "body": " Theorem 8.1   A population state is evolutionarily stable if and only if for all ,    .    If , then .      "
+},
+{
+  "id": "thm-8-2-restated",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#thm-8-2-restated",
+  "type": "Theorem",
+  "number": "8.1.4",
+  "title": "Theorem 8.2.",
+  "body": " Theorem 8.2   If is a strict Nash equilibrium of a symmetric two-player game, then is an evolutionarily stable state of the corresponding evolutionary game.   "
+},
+{
+  "id": "thm-8-3-restated",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#thm-8-3-restated",
+  "type": "Theorem",
+  "number": "8.1.5",
+  "title": "Theorem 8.3.",
+  "body": " Theorem 8.3   If is an evolutionarily stable state in which all pure strategies are active, then for all , is not a Nash equilibrium of the symmetric two-player game. Hence there are no other evolutionarily stable states.   "
+},
+{
+  "id": "thm-8-4-restated",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#thm-8-4-restated",
+  "type": "Theorem",
+  "number": "8.1.6",
+  "title": "Theorem 8.4.",
+  "body": " Theorem 8.4   Let be an evolutionarily stable state, and let . Let , , be a population state for which the set of values such that is a subset of . Then is not a Nash equilibrium of the symmetric two-player game. Hence there are no other evolutionarily stable states in which the set of active strategies is a subset of the set of active strategies in .   "
+},
+{
+  "id": "check-ess-implies-nash",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-ess-implies-nash",
+  "type": "Checkpoint",
+  "number": "8.1.7",
+  "title": "",
+  "body": "  Why is always a Nash equilibrium when is an evolutionarily stable state?      Condition (1) of Theorem 8.1 says for every , so is a best response to .    Right. No other strategy does better against than does. Since the game is symmetric, the same holds for Player 2, so is a Nash equilibrium.      Condition (2) of Theorem 8.1 says .    Not quite. Condition (2) compares how and do against . A Nash equilibrium is about how strategies do against .      Because the game is symmetric, every symmetric strategy profile is a Nash equilibrium.    Not quite. In the Prisoner's Dilemma, is symmetric but not a Nash equilibrium.     "
+},
+{
+  "id": "check-thm-8-2-from-8-1",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-thm-8-2-from-8-1",
+  "type": "Checkpoint",
+  "number": "8.1.8",
+  "title": "",
+  "body": "  Why does Theorem 8.2 follow from Theorem 8.1?      In a strict Nash equilibrium, for every . So condition (1) holds, and the equality in condition (2) never happens, so there is nothing to check for condition (2).    Right. Condition (2) only applies to strategies that tie with against . In a strict Nash equilibrium, there are no ties.      In a strict Nash equilibrium, for every , which is condition (2).    Not quite. Being a strict Nash equilibrium is about how strategies do against , not against . Look at what happens to the if part of condition (2) instead.      Every Nash equilibrium is strict, so condition (1) is enough.    Not quite. Many Nash equilibria are not strict, like the mixed Nash equilibrium in Chicken. For those, condition (2) really does need to be checked.     "
+},
+{
+  "id": "table-ch8-pd",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#table-ch8-pd",
+  "type": "Table",
+  "number": "8.1.9",
+  "title": "Prisoner’s Dilemma",
+  "body": " Prisoner's Dilemma        Player 2:  Player 2:    Player 1:      Player 1:      "
+},
+{
+  "id": "check-pd-strict-ess",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-pd-strict-ess",
+  "type": "Checkpoint",
+  "number": "8.1.10",
+  "title": "",
+  "body": "  Notice that is a strict Nash equilibrium: if either player switches to , their payoff goes down from to . What can you conclude?      By Theorem 8.2, the population state (everyone defects) is evolutionarily stable.    Right. A population of defectors can't be invaded by a small group of cooperators: the cooperators do worse, so they die out.      By Theorem 8.2, is evolutionarily stable.    Almost! Be careful: evolutionary stability is a property of a population state , not of a strategy profile . It is the population state that is evolutionarily stable.      Nothing yet. We still need to check condition (2) of Theorem 8.1 for every .    Not quite. That's the point of Theorem 8.2: for a strict Nash equilibrium, condition (2) never comes up, so there is nothing more to check.     "
+},
+{
+  "id": "check-thm-8-3-contrapositive",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-thm-8-3-contrapositive",
+  "type": "Checkpoint",
+  "number": "8.1.11",
+  "title": "",
+  "body": "  Consider a symmetric game where each player has three pure strategies, , , and . Suppose with , so , , and are all active pure strategies in . Suppose also that is a Nash equilibrium. You also find that is a Nash equilibrium. What can you conclude about ?       is not an evolutionarily stable state.    Right. If were evolutionarily stable, then since all pure strategies are active in , Theorem 8.3 would say is not a Nash equilibrium for any . But gives a Nash equilibrium , so can't be evolutionarily stable.       is an evolutionarily stable state, because is a Nash equilibrium.    Not quite. Being a Nash equilibrium is necessary for evolutionary stability (condition (1) of Theorem 8.1), but it is not enough. Think about what Theorem 8.3 says about .      Both and are evolutionarily stable states.    Not quite. By Theorem 8.3, if were evolutionarily stable, there would be no other evolutionarily stable states, and couldn't even be a Nash equilibrium.     "
+},
+{
+  "id": "check-thm-8-3-hypothesis",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-thm-8-3-hypothesis",
+  "type": "Checkpoint",
+  "number": "8.1.12",
+  "title": "",
+  "body": "  Consider a symmetric game where each player has three pure strategies, , , and . Suppose the population state is evolutionarily stable. Can we use Theorem 8.3 to conclude that is the only evolutionarily stable state?      Yes, because is evolutionarily stable.    Not quite. Theorem 8.3 needs more than being evolutionarily stable. Check its other hypothesis.      Yes, because is a Nash equilibrium.    Not quite. It's true that is a Nash equilibrium, but that isn't what Theorem 8.3 needs. Check its hypotheses.      No, because strategy is never used, so not all pure strategies are active in .    Right. Theorem 8.3 only applies when every pure strategy is used with positive probability. Here, there could be another evolutionarily stable state that uses . Always check the hypotheses before using a theorem!     "
+},
+{
+  "id": "check-thm-8-4-select-all",
+  "level": "2",
+  "url": "ch8-page1-evolutionary-stability.html#check-thm-8-4-select-all",
+  "type": "Checkpoint",
+  "number": "8.1.13",
+  "title": "",
+  "body": "  Consider the same game, with evolutionarily stable. Which of these population states does Theorem 8.4 rule out as evolutionarily stable? Select all that apply.          Yes. The only active strategy in is , which is active in . So isn't even a Nash equilibrium!         Yes. The only active strategy in is , which is active in . So isn't even a Nash equilibrium!         Yes. This state mixes only and , which are both active in . Theorem 8.4 covers mixed states too, not just pure ones.         Not ruled out. is not active in , so Theorem 8.4 says nothing about it. Whether it is evolutionarily stable depends on the specific game.         Not ruled out. This state uses , which is not active in , so Theorem 8.4 doesn't apply to it.         Not ruled out. This state uses , which is not active in . It doesn't matter that it also uses and : all of its active strategies have to be active in .      Theorem 8.4 rules out , , and , since they use only and , the active strategies in . In fact, it gives an even stronger conclusion: , , and for any other mixing only and are not Nash equilibria. Any state that uses is still a candidate, and whether it is evolutionarily stable depends on the specific game.   "
+},
+{
+  "id": "ch8-page2-two-pure-strategies",
+  "level": "1",
+  "url": "ch8-page2-two-pure-strategies.html",
+  "type": "Section",
+  "number": "8.2",
+  "title": "Evolutionary Stability with Two Pure Strategies",
+  "body": " Evolutionary Stability with Two Pure Strategies  Now we look at evolutionary games based on a symmetric two-player game with just two pure strategies, and . Because the game is symmetric, its payoff matrix must have the following form:   A symmetric game with two pure strategies        Player 2:  Player 2:    Player 1:      Player 1:       The book analyzes this game when and . It finds all of the Nash equilibria and determines which population states are evolutionarily stable.      Section 8.4, Evolutionary Stability with Two Pure Strategies (Part 1)   Read Section 8.4 up to (but not including) 8.4.1, Stag Hunt.   Theorem 8.5 splits the game into four cases:    and : strictly dominates . The population state is evolutionarily stable.     and : strictly dominates . The population state is evolutionarily stable.     and : each strategy is the best response to itself. The population states and are evolutionarily stable, but the mixed state is not.     and : each strategy is the best response to the other. The mixed state is evolutionarily stable.   In cases (3) and (4), , with given by formula (8.5).  Make sure you understand the statement of the theorem. Look through the proof for a bit to see the idea, but you can skip over the algebra.   Let's check our understanding with some questions. First, practice figuring out which case a game is in.   Chicken        Teenager 2: straight  Teenager 2: swerve    Teenager 1: straight      Teenager 1: swerve         Here is Chicken from Chapter 7, with straight and swerve. Which case of Theorem 8.5 is it?      Case (3)    Not quite. Matching with the general matrix, , , , and . Case (3) needs , but .      Case (4)    Right. Here , , , and , so and . By Theorem 8.5, there are three Nash equilibria: (straight, swerve), (swerve, straight), and . Only is symmetric, and is evolutionarily stable. By (8.5), so goes straight half the time, just like we saw in Chapter 7.        In case (4), why can we immediately rule out the Nash equilibria and when looking for evolutionarily stable states?      They aren't symmetric. An evolutionarily stable state is a population state , which goes with a symmetric profile .    Right. Everyone in the population plays against everyone else, so there is no Player 1 strategy and Player 2 strategy. Only symmetric Nash equilibria can give an evolutionarily stable state .      They aren't strict Nash equilibria.    Not quite. They actually are strict: in case (4), switching strategies lowers your payoff. The problem is that they aren't symmetric.      Okay, now back to the statement of the theorem! Some ideas follow pretty quickly from the previous section without any computation.    In cases (1), (2), and (3), there are strict symmetric Nash equilibria of the form and\/or . How do we immediately know the population states and\/or are evolutionarily stable?      We check condition (2) of Theorem 8.1 for every .    Not quite. That would work, but it isn't immediate. There's a theorem that does all of that work for strict Nash equilibria.      By Theorem 8.2, since they come from strict symmetric Nash equilibria.    Right. Theorem 8.2 says that if is a strict Nash equilibrium, then is evolutionarily stable. No further checking needed!      In cases (1) and (2), the only Nash equilibria use pure strategies. Recall that being a Nash equilibrium is required (but not sufficient) for evolutionary stability. In case (3), there is a mixed symmetric Nash equilibrium , but is not evolutionarily stable. The book shows this with a computation, but we can actually see why without any computation.    In case (3), why is the mixed state not evolutionarily stable?      Because is not a strict Nash equilibrium.    Not quite. It's true that is not strict, but that doesn't rule out evolutionary stability. In case (4), isn't strict either, and is evolutionarily stable there!      Because of Theorem 8.3: uses both pure strategies, and (or ) is also a Nash equilibrium.    Right. Since , all pure strategies are active in . If were evolutionarily stable, Theorem 8.3 would say is not a Nash equilibrium for any . But gives the Nash equilibrium , so can't be evolutionarily stable. (Using works just as well, since is a Nash equilibrium too.)         Theorem 8.5 doesn't cover every game. Here is a variation of Stag Hunt (Section 8.4.2 in the book), where a hunter who hunts the stag alone has a chance of catching it. The pure strategy Nash equilibria are boxed.   Stag Hunt variation        Hunter 2: stag  Hunter 2: hare    Hunter 1: stag      Hunter 1: hare       Here , so Theorem 8.5 doesn't apply. Notice the following Nash equilibria:   (stag, stag) is a strict Nash equilibrium: switching to hare drops your payoff from 2 to 1.    (hare, hare) is a Nash equilibrium, but it is not strict: switching to stag still gives you 1.     By the same reasoning as in the questions above:   Because (stag, stag) is a strict symmetric Nash equilibrium, Theorem 8.2 says the population state stag is evolutionarily stable.    A mixed state uses both pure strategies, so if it were evolutionarily stable, Theorem 8.3 would say (stag, stag) can't be a Nash equilibrium. Since (stag, stag) is a Nash equilibrium, there are no mixed evolutionarily stable states. (The same argument works using (hare, hare), which is also a Nash equilibrium.)     So the only state that isn't settled right away is hare. Since (hare, hare) isn't strict, we have to check the two conditions of Theorem 8.1 directly.   Is Hare Evolutionarily Stable?   We want to decide whether the population state hare is evolutionarily stable, using Theorem 8.1 with hare. For condition (2), we use stag.   Your task. The argument has four lines, and each block is labeled with the line it belongs on. Lines 1, 2, and 3 each come in two versions, (a) and (b). Pick the right version of each line and drag it into the answer area in order.       1(a). Condition (1) is satisfied, because (hare, hare) is a Nash equilibrium, so no does better against hare than hare does.     1(b). Condition (1) is not satisfied, because (hare, hare) is not a strict Nash equilibrium.       2(a). Since , condition (2) doesn't apply to stag.     2(b). Since , condition (2) must be checked for stag.       3(a). Since , condition (2) is satisfied.     3(b). Condition (2) needs , but , so condition (2) is not satisfied.      4. So the population state hare is not evolutionarily stable.     Condition (2) of Theorem 8.1 says: if , then . Plug in hare and stag, and read the payoffs off the table.    The correct lines are 1(a), 2(b), 3(b), 4. Condition (1) holds because (hare, hare) is a Nash equilibrium. Stag ties with hare against hare, so condition (2) must be checked, and it fails: hare gets 1 against stag, but stag gets 2 against itself. If a few stag hunters invade a population of hare hunters, they do better against each other than the hare hunters do against them.  1(b) is wrong because condition (1) only needs a Nash equilibrium, not a strict one. 2(a) is wrong because both payoffs are 1. 3(a) is wrong because is false.        Section 8.4, Evolutionary Stability with Two Pure Strategies (Part 2)   Read the rest of Section 8.4. It has three examples:   8.4.1, Stag Hunt: this is case (3) of Theorem 8.5.    8.4.2, Stag Hunt variation: the example we just reasoned through. Theorem 8.5 doesn't apply because .    8.4.3, Hawks and Doves: this version includes , the cost of a protracted display. It is case (4), so the book uses formula (8.5) to find the mixed evolutionarily stable state.       "
+},
+{
+  "id": "table-ch8-general-2x2",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#table-ch8-general-2x2",
+  "type": "Table",
+  "number": "8.2.1",
+  "title": "A symmetric game with two pure strategies",
+  "body": " A symmetric game with two pure strategies        Player 2:  Player 2:    Player 1:      Player 1:      "
+},
+{
+  "id": "table-ch8-chicken",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#table-ch8-chicken",
+  "type": "Table",
+  "number": "8.2.2",
+  "title": "Chicken",
+  "body": " Chicken        Teenager 2: straight  Teenager 2: swerve    Teenager 1: straight      Teenager 1: swerve      "
+},
+{
+  "id": "check-chicken-which-case",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#check-chicken-which-case",
+  "type": "Checkpoint",
+  "number": "8.2.3",
+  "title": "",
+  "body": "  Here is Chicken from Chapter 7, with straight and swerve. Which case of Theorem 8.5 is it?      Case (3)    Not quite. Matching with the general matrix, , , , and . Case (3) needs , but .      Case (4)    Right. Here , , , and , so and . By Theorem 8.5, there are three Nash equilibria: (straight, swerve), (swerve, straight), and . Only is symmetric, and is evolutionarily stable. By (8.5), so goes straight half the time, just like we saw in Chapter 7.     "
+},
+{
+  "id": "check-case4-asymmetric",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#check-case4-asymmetric",
+  "type": "Checkpoint",
+  "number": "8.2.4",
+  "title": "",
+  "body": "  In case (4), why can we immediately rule out the Nash equilibria and when looking for evolutionarily stable states?      They aren't symmetric. An evolutionarily stable state is a population state , which goes with a symmetric profile .    Right. Everyone in the population plays against everyone else, so there is no Player 1 strategy and Player 2 strategy. Only symmetric Nash equilibria can give an evolutionarily stable state .      They aren't strict Nash equilibria.    Not quite. They actually are strict: in case (4), switching strategies lowers your payoff. The problem is that they aren't symmetric.     "
+},
+{
+  "id": "check-cases123-strict",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#check-cases123-strict",
+  "type": "Checkpoint",
+  "number": "8.2.5",
+  "title": "",
+  "body": "  In cases (1), (2), and (3), there are strict symmetric Nash equilibria of the form and\/or . How do we immediately know the population states and\/or are evolutionarily stable?      We check condition (2) of Theorem 8.1 for every .    Not quite. That would work, but it isn't immediate. There's a theorem that does all of that work for strict Nash equilibria.      By Theorem 8.2, since they come from strict symmetric Nash equilibria.    Right. Theorem 8.2 says that if is a strict Nash equilibrium, then is evolutionarily stable. No further checking needed!     "
+},
+{
+  "id": "check-case3-mixed-not-stable",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#check-case3-mixed-not-stable",
+  "type": "Checkpoint",
+  "number": "8.2.6",
+  "title": "",
+  "body": "  In case (3), why is the mixed state not evolutionarily stable?      Because is not a strict Nash equilibrium.    Not quite. It's true that is not strict, but that doesn't rule out evolutionary stability. In case (4), isn't strict either, and is evolutionarily stable there!      Because of Theorem 8.3: uses both pure strategies, and (or ) is also a Nash equilibrium.    Right. Since , all pure strategies are active in . If were evolutionarily stable, Theorem 8.3 would say is not a Nash equilibrium for any . But gives the Nash equilibrium , so can't be evolutionarily stable. (Using works just as well, since is a Nash equilibrium too.)     "
+},
+{
+  "id": "table-ch8-stag-variation",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#table-ch8-stag-variation",
+  "type": "Table",
+  "number": "8.2.7",
+  "title": "Stag Hunt variation",
+  "body": " Stag Hunt variation        Hunter 2: stag  Hunter 2: hare    Hunter 1: stag      Hunter 1: hare      "
+},
+{
+  "id": "check-stag-variation-hare",
+  "level": "2",
+  "url": "ch8-page2-two-pure-strategies.html#check-stag-variation-hare",
+  "type": "Checkpoint",
+  "number": "8.2.8",
+  "title": "Is Hare Evolutionarily Stable?",
+  "body": " Is Hare Evolutionarily Stable?   We want to decide whether the population state hare is evolutionarily stable, using Theorem 8.1 with hare. For condition (2), we use stag.   Your task. The argument has four lines, and each block is labeled with the line it belongs on. Lines 1, 2, and 3 each come in two versions, (a) and (b). Pick the right version of each line and drag it into the answer area in order.       1(a). Condition (1) is satisfied, because (hare, hare) is a Nash equilibrium, so no does better against hare than hare does.     1(b). Condition (1) is not satisfied, because (hare, hare) is not a strict Nash equilibrium.       2(a). Since , condition (2) doesn't apply to stag.     2(b). Since , condition (2) must be checked for stag.       3(a). Since , condition (2) is satisfied.     3(b). Condition (2) needs , but , so condition (2) is not satisfied.      4. So the population state hare is not evolutionarily stable.     Condition (2) of Theorem 8.1 says: if , then . Plug in hare and stag, and read the payoffs off the table.    The correct lines are 1(a), 2(b), 3(b), 4. Condition (1) holds because (hare, hare) is a Nash equilibrium. Stag ties with hare against hare, so condition (2) must be checked, and it fails: hare gets 1 against stag, but stag gets 2 against itself. If a few stag hunters invade a population of hare hunters, they do better against each other than the hare hunters do against them.  1(b) is wrong because condition (1) only needs a Nash equilibrium, not a strict one. 2(a) is wrong because both payoffs are 1. 3(a) is wrong because is false.   "
+},
+{
+  "id": "ch8-exercises",
+  "level": "1",
+  "url": "ch8-exercises.html",
+  "type": "Exercises",
+  "number": "8.3",
+  "title": "Exercises",
+  "body": " Exercises    A Completely Mixed Evolutionarily Stable State   Consider the symmetric two-player game below, with payoffs listed as (Player 1, Player 2). Let . In an earlier homework, we showed that is a mixed strategy Nash equilibrium. Since both players use the same mixed strategy in a symmetric game, this is a symmetric mixed strategy Nash equilibrium.   The game         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:           The population state is an evolutionarily stable state of the corresponding evolutionary game. (You do not need to check this.) Which theorem from Chapter 8 lets you quickly conclude that is the only symmetric Nash equilibrium of the game? Check that its hypotheses are satisfied. What does the same theorem tell you about other evolutionarily stable states?      Without computing payoffs or using best responses, quickly deduce that none of , , and is a Nash equilibrium.    Use a theorem from Chapter 8.       This part and the next are not about the game above. Suppose that in some symmetric game with three pure strategies , , and , the profile is a strict Nash equilibrium. What can you conclude about the population state ? What can you conclude about any population state in which all three pure strategies are active? Cite the theorems you use.      Suppose a symmetric game has two different symmetric Nash equilibria and , and all pure strategies are active in both and . Explain why neither nor is an evolutionarily stable state.    Theorem 8.3 is useful here.      Remark: No calculations are needed for this exercise. It is about understanding and applying the relevant definitions and theorems. One important step in using a theorem is checking that its hypotheses are satisfied.      Evolutionary Stability with Two Pure Strategies   Consider the symmetric two-player game below, where the parameters , , and satisfy    The game        Player 2:  Player 2:    Player 1:      Player 1:          Find all pure strategy Nash equilibria. You can use best responses to find and indicate them in the usual way.      Which of the strategies used in the pure strategy Nash equilibria from the previous part (if any) are evolutionarily stable states? Explain by citing the relevant theorem(s). No computation is needed.      Use Theorem 8.5 to find a symmetric mixed strategy Nash equilibrium . Is an evolutionarily stable state of the corresponding evolutionary game? Explain. You can cite Theorem 8.5 in your explanation. Be careful to check its conditions and to say which case you are using.       Checking the Conditions of Theorem 8.1   Consider the symmetric two-player game below.   The game        Player 2:  Player 2:    Player 1:      Player 1:          Why doesn't Theorem 8.5 apply to this game?      Notice that and are Nash equilibria. Using the relevant results from Theorem 8.1 or Theorem 8.2, determine whether each of the population states and is evolutionarily stable.   Remark: To satisfy the conditions of Theorem 8.1, they must hold for every  . To fail them, it is enough to find one  where a condition fails. Also, be careful to distinguish between a population state and a profile or . For example, it does not make sense to say that is evolutionarily stable.      Let with . Without computation, use a theorem from this chapter to explain why is not an evolutionarily stable state.   Optional: Check this directly by comparing the payoffs of and against . You should find that is not even a Nash equilibrium.       Hawk, Dove, and Owl   In earlier assignments, we looked at the hawk-dove game. Here is a variation where each player has three strategies. The players are fighting over valuable territory, and one of them arrived in the territory first. Each player is equally likely to be the one who arrived first.  Each player has three strategies:     hawk ( ): fight aggressively until you win or are injured.     dove ( ): bluff by displaying, but retreat if the other player begins to fight.     owl ( ): if you arrived in the territory first, play (defend your territory). If the other player arrived first, play (give up the territory if they fight for it).    We use the following parameters:    : the value of the territory.    : the cost of getting injured in a fight.    We assume : the cost of being injured is greater than the benefit of winning the fight.    These assumptions lead to the following payoff matrix, with payoffs listed as (Player 1, Player 2).   Hawk, dove, and owl         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:           Show how the payoffs for the strategy profile were calculated.      Use best responses to find all pure strategy Nash equilibria.      For each Nash equilibrium from the previous part, determine whether the equilibrium strategy is an evolutionarily stable state of the corresponding evolutionary game.    For each Nash equilibrium, consider:    Is it symmetric, so that both players use the same strategy? Only a symmetric Nash equilibrium can give an evolutionarily stable state .    If it is symmetric, is it a strict Nash equilibrium? If so, what does that tell you about whether is evolutionarily stable?         Rock-Paper-Scissors Has No Evolutionarily Stable State   In Rock-Paper-Scissors (Problem 5.12.4 in the book), paper beats rock, scissors beats paper, and rock beats scissors. The winner gets , the loser gets , and a tie gives both players . Payoffs are listed as (Player 1, Player 2).   Rock-Paper-Scissors         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        Let , the strategy that plays rock, paper, and scissors equally often.     Show that is a Nash equilibrium.    Compute the payoff of each pure strategy , , and against .      Use Theorem 8.1 to show that is not an evolutionarily stable state.    It is enough to find one  for which a condition of Theorem 8.1 fails.      You may use the fact (Problem 5.12.4 in the book) that is the only Nash equilibrium of Rock-Paper-Scissors. Using a relevant theorem from this chapter, explain why the corresponding evolutionary game has no evolutionarily stable state at all.      Remark: By Theorem 7.1, every symmetric game has a symmetric Nash equilibrium. This exercise shows that nothing similar is true for evolutionarily stable states: being evolutionarily stable is a stronger requirement than being a Nash equilibrium, and some games have no evolutionarily stable state.    "
+},
+{
+  "id": "hw-ess-unique-symmetric",
+  "level": "2",
+  "url": "ch8-exercises.html#hw-ess-unique-symmetric",
+  "type": "Exercise",
+  "number": "8.3.1",
+  "title": "A Completely Mixed Evolutionarily Stable State.",
+  "body": " A Completely Mixed Evolutionarily Stable State   Consider the symmetric two-player game below, with payoffs listed as (Player 1, Player 2). Let . In an earlier homework, we showed that is a mixed strategy Nash equilibrium. Since both players use the same mixed strategy in a symmetric game, this is a symmetric mixed strategy Nash equilibrium.   The game         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:           The population state is an evolutionarily stable state of the corresponding evolutionary game. (You do not need to check this.) Which theorem from Chapter 8 lets you quickly conclude that is the only symmetric Nash equilibrium of the game? Check that its hypotheses are satisfied. What does the same theorem tell you about other evolutionarily stable states?      Without computing payoffs or using best responses, quickly deduce that none of , , and is a Nash equilibrium.    Use a theorem from Chapter 8.       This part and the next are not about the game above. Suppose that in some symmetric game with three pure strategies , , and , the profile is a strict Nash equilibrium. What can you conclude about the population state ? What can you conclude about any population state in which all three pure strategies are active? Cite the theorems you use.      Suppose a symmetric game has two different symmetric Nash equilibria and , and all pure strategies are active in both and . Explain why neither nor is an evolutionarily stable state.    Theorem 8.3 is useful here.      Remark: No calculations are needed for this exercise. It is about understanding and applying the relevant definitions and theorems. One important step in using a theorem is checking that its hypotheses are satisfied.   "
+},
+{
+  "id": "hw-ess-two-strategies",
+  "level": "2",
+  "url": "ch8-exercises.html#hw-ess-two-strategies",
+  "type": "Exercise",
+  "number": "8.3.2",
+  "title": "Evolutionary Stability with Two Pure Strategies.",
+  "body": " Evolutionary Stability with Two Pure Strategies   Consider the symmetric two-player game below, where the parameters , , and satisfy    The game        Player 2:  Player 2:    Player 1:      Player 1:          Find all pure strategy Nash equilibria. You can use best responses to find and indicate them in the usual way.      Which of the strategies used in the pure strategy Nash equilibria from the previous part (if any) are evolutionarily stable states? Explain by citing the relevant theorem(s). No computation is needed.      Use Theorem 8.5 to find a symmetric mixed strategy Nash equilibrium . Is an evolutionarily stable state of the corresponding evolutionary game? Explain. You can cite Theorem 8.5 in your explanation. Be careful to check its conditions and to say which case you are using.    "
+},
+{
+  "id": "hw-ess-theorem-8-1",
+  "level": "2",
+  "url": "ch8-exercises.html#hw-ess-theorem-8-1",
+  "type": "Exercise",
+  "number": "8.3.3",
+  "title": "Checking the Conditions of Theorem 8.1.",
+  "body": " Checking the Conditions of Theorem 8.1   Consider the symmetric two-player game below.   The game        Player 2:  Player 2:    Player 1:      Player 1:          Why doesn't Theorem 8.5 apply to this game?      Notice that and are Nash equilibria. Using the relevant results from Theorem 8.1 or Theorem 8.2, determine whether each of the population states and is evolutionarily stable.   Remark: To satisfy the conditions of Theorem 8.1, they must hold for every  . To fail them, it is enough to find one  where a condition fails. Also, be careful to distinguish between a population state and a profile or . For example, it does not make sense to say that is evolutionarily stable.      Let with . Without computation, use a theorem from this chapter to explain why is not an evolutionarily stable state.   Optional: Check this directly by comparing the payoffs of and against . You should find that is not even a Nash equilibrium.    "
+},
+{
+  "id": "hw-hawk-dove-owl",
+  "level": "2",
+  "url": "ch8-exercises.html#hw-hawk-dove-owl",
+  "type": "Exercise",
+  "number": "8.3.4",
+  "title": "Hawk, Dove, and Owl.",
+  "body": " Hawk, Dove, and Owl   In earlier assignments, we looked at the hawk-dove game. Here is a variation where each player has three strategies. The players are fighting over valuable territory, and one of them arrived in the territory first. Each player is equally likely to be the one who arrived first.  Each player has three strategies:     hawk ( ): fight aggressively until you win or are injured.     dove ( ): bluff by displaying, but retreat if the other player begins to fight.     owl ( ): if you arrived in the territory first, play (defend your territory). If the other player arrived first, play (give up the territory if they fight for it).    We use the following parameters:    : the value of the territory.    : the cost of getting injured in a fight.    We assume : the cost of being injured is greater than the benefit of winning the fight.    These assumptions lead to the following payoff matrix, with payoffs listed as (Player 1, Player 2).   Hawk, dove, and owl         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:           Show how the payoffs for the strategy profile were calculated.      Use best responses to find all pure strategy Nash equilibria.      For each Nash equilibrium from the previous part, determine whether the equilibrium strategy is an evolutionarily stable state of the corresponding evolutionary game.    For each Nash equilibrium, consider:    Is it symmetric, so that both players use the same strategy? Only a symmetric Nash equilibrium can give an evolutionarily stable state .    If it is symmetric, is it a strict Nash equilibrium? If so, what does that tell you about whether is evolutionarily stable?      "
+},
+{
+  "id": "hw-rps-no-ess",
+  "level": "2",
+  "url": "ch8-exercises.html#hw-rps-no-ess",
+  "type": "Exercise",
+  "number": "8.3.5",
+  "title": "Rock-Paper-Scissors Has No Evolutionarily Stable State.",
+  "body": " Rock-Paper-Scissors Has No Evolutionarily Stable State   In Rock-Paper-Scissors (Problem 5.12.4 in the book), paper beats rock, scissors beats paper, and rock beats scissors. The winner gets , the loser gets , and a tie gives both players . Payoffs are listed as (Player 1, Player 2).   Rock-Paper-Scissors         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        Let , the strategy that plays rock, paper, and scissors equally often.     Show that is a Nash equilibrium.    Compute the payoff of each pure strategy , , and against .      Use Theorem 8.1 to show that is not an evolutionarily stable state.    It is enough to find one  for which a condition of Theorem 8.1 fails.      You may use the fact (Problem 5.12.4 in the book) that is the only Nash equilibrium of Rock-Paper-Scissors. Using a relevant theorem from this chapter, explain why the corresponding evolutionary game has no evolutionarily stable state at all.      Remark: By Theorem 7.1, every symmetric game has a symmetric Nash equilibrium. This exercise shows that nothing similar is true for evolutionarily stable states: being evolutionarily stable is a stronger requirement than being a Nash equilibrium, and some games have no evolutionarily stable state.   "
+},
+{
   "id": "back-colophon",
   "level": "1",
   "url": "back-colophon.html",
