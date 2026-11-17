@@ -542,7 +542,7 @@
 
     <introduction>
       <p>
-        In Section 2.7 (<xref ref="read-2-7-part1" />) we showed that in a
+       In <xref ref="read-2-7-part1" text="custom">Section 2.7</xref> we showed that in a 
         second-price auction, bidding your value weakly dominates every
         other strategy. Here we look at a <term>first-price</term> auction,
         where the winner pays their <em>own</em> bid. The setup:

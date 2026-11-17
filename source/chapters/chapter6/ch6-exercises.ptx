@@ -857,14 +857,7 @@
           </li>
           <li>
             <p>
-              Just as with the Prisoner's Dilemma, you can think about the
-              first round in which Player <m>i</m> contributes 0 instead of
-              <m>y</m>. It is enough to consider the case where Player
-              <m>i</m> does this right away, in round 0. What is Player
-              <m>i</m>'s payoff in round 0, with everyone else contributing
-              <m>y</m>? What happens in later rounds? Don't forget that the
-              players keep receiving $1 in each round, even if they
-              contribute 0 to the fund.
+              Make a similar argument as with the Prisoner's dilemma trigger strategy. 
             </p>
           </li>
         </ul>

@@ -63,7 +63,7 @@
       </statement>
       <solution>
         <p>
-          Against <m>xx</m>, Player 1 gets 2 from <m>U</m> and 1 from <m>D</m>, so <m>U</m> is a best response. Against <m>U</m>, Player 2 gets 3 from <m>xx</m>, which is the most she can get (<m>xy</m> also gives 3, and <m>yx</m> and <m>yy</m> give 1), so <m>xx</m> is a best response. So <m>(U, xx)</m> is a Nash equilibrium.
+          Against <m>xx</m>, <m>U</m> is Player 1's best response (2 vs. 1). Against <m>U</m>, <m>xx</m> is Player 2's best response (3, the most she can get).
         </p>
       </solution>
     </task>
@@ -76,10 +76,7 @@
       </statement>
       <solution>
         <p>
-          There are three subgames. In each table, the outcome of <m>(U, xx)</m> restricted to the subgame is boxed.
-        </p>
-        <p>
-          <em>The whole game.</em> The restriction is <m>(U, xx)</m> itself, which is a Nash equilibrium by part (b).
+          <em>Whole game:</em> a Nash equilibrium, by part (b).
         </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
@@ -98,7 +95,7 @@
           </row>
         </tabular>
         <p>
-          <em>The subgame at <m>n_1</m>.</em> <m>xx</m> restricts to <m>x</m>. This is a Nash equilibrium, since <m>x</m> gives Player 2 a payoff of 3, and <m>y</m> gives only 1.
+          <em>Subgame at <m>n_1</m>:</em> <m>xx</m> restricts to <m>x</m>. A Nash equilibrium, since <m>3 \gt 1</m>.
         </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
@@ -112,7 +109,7 @@
           </row>
         </tabular>
         <p>
-          <em>The subgame at <m>n_2</m>.</em> <m>xx</m> restricts to <m>x</m>. This is <em>not</em> a Nash equilibrium, since <m>x</m> gives Player 2 a payoff of 0, but <m>y</m> would give her 2.
+          <em>Subgame at <m>n_2</m>:</em> <m>xx</m> restricts to <m>x</m>. Not a Nash equilibrium, since <m>y</m> gives Player 2 a payoff of 2, more than 0.
         </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
@@ -139,13 +136,10 @@
       </statement>
       <solution>
         <p>
-          At <m>n_1</m>, Player 2 plays <m>x</m> (3 is more than 1). At <m>n_2</m>, she plays <m>y</m> (2 is more than 0). Knowing this, Player 1 compares <m>U</m>, which gives <m>(2, 3)</m>, with <m>D</m>, which gives <m>(3, 2)</m>, and chooses <m>D</m>. So the subgame perfect Nash equilibrium is <m>(D, xy)</m>, with outcome <m>(3, 2)</m>. The outcome of <m>(U, xx)</m> is <m>(2, 3)</m>.
+          The subgame perfect Nash equilibrium is <m>(D, xy)</m>, with outcome <m>(3, 2)</m>. The outcome of <m>(U, xx)</m> is <m>(2, 3)</m>.
         </p>
         <p>
-          In <m>(U, xx)</m>, Player 2's plan to play <m>x</m> at <m>n_2</m> is a threat: it would hurt Player 1 (1 instead of 3), and it would also hurt Player 2 (0 instead of 2). Player 2 benefits from it: it convinces Player 1 to choose <m>U</m>, so Player 2 gets 3 instead of 2.
-        </p>
-        <p>
-          The threat only works if Player 1 believes it. If Player 1 chooses <m>D</m> anyway, Player 2's best move at <m>n_2</m> is <m>y</m>, which gives Player 1 a payoff of 3. So a Player 1 who doesn't believe the threat chooses <m>D</m>.
+          Playing <m>x</m> at <m>n_2</m> is a threat because it hurts Player 1 (1 instead of 3) and also hurts Player 2 (0 instead of 2). Player 2 benefits: it gets Player 1 to choose <m>U</m>, so Player 2 gets 3 instead of 2. It only works if Player 1 believes it: if Player 1 chooses <m>D</m>, Player 2's best move at <m>n_2</m> is <m>y</m>, which gives Player 1 a payoff of 3.
         </p>
       </solution>
     </task>
@@ -176,9 +170,8 @@
       </statement>
       <solution>
         <p>
-          Both strategies start with <m>c</m>, and each keeps playing <m>c</m> as long as the other does, so both players play <m>c</m> in every round and get 5 each round. So
+          Both players play <m>c</m> in every round, so <m>\pi_1(\sigma, \tau) = \pi_2(\sigma, \tau) = \frac{5}{1 - \delta}</m>.
         </p>
-        <me>\pi_1(\sigma, \tau) = \pi_2(\sigma, \tau) = 5 + 5\delta + 5\delta^2 + \cdots = \frac{5}{1 - \delta}.</me>
       </solution>
     </task>
     <task xml:id="ans-trigger-tft-tau-nu">
@@ -189,9 +182,6 @@
         </p>
       </statement>
       <solution>
-        <p>
-          In round 0, Player 1 plays <m>c</m> and Player 2 plays <m>d</m>. After that, each player copies the other, so they take turns defecting:
-        </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
           <col right="minor"/>
@@ -217,12 +207,8 @@
           </row>
         </tabular>
         <p>
-          Player 1's payoffs form a geometric series with <m>a = -8</m> and <m>r = -\delta</m>, and Player 2's with <m>a = 8</m> and <m>r = -\delta</m>:
+          <m>\pi_1(\tau, \nu) = \frac{-8}{1 + \delta}</m> and <m>\pi_2(\tau, \nu) = \frac{8}{1 + \delta}</m>.
         </p>
-        <md>
-          <mrow>\pi_1(\tau, \nu) \amp = -8 + 8\delta - 8\delta^2 + \cdots = \frac{-8}{1 + \delta},</mrow>
-          <mrow>\pi_2(\tau, \nu) \amp = 8 - 8\delta + 8\delta^2 - \cdots = \frac{8}{1 + \delta}.</mrow>
-        </md>
       </solution>
     </task>
     <task xml:id="ans-trigger-tft-threshold">
@@ -235,13 +221,6 @@
       <solution>
         <p>
           <m>\delta_0 = \frac{3}{8}</m>.
-        </p>
-        <p>
-          With <m>(\sigma, \sigma)</m>, Player 1 gets <m>\frac{5}{1 - \delta}</m>. If Player 1 first defects in round <m>k</m>, they get <m>8\delta^k</m> in round <m>k</m>, and after that Player 2 defects forever, so the best Player 1 can do is defect too and get 0 in every later round. From round <m>k</m> on, this gives <m>8\delta^k</m>, compared with <m>\frac{5\delta^k}{1 - \delta}</m> from cooperating. Canceling <m>\delta^k</m>, defecting doesn't help when
-        </p>
-        <me>8 \leq \frac{5}{1 - \delta}, \quad\text{that is,}\quad 8 - 8\delta \leq 5, \quad\text{so}\quad \delta \geq \frac{3}{8}.</me>
-        <p>
-          By symmetry, the same is true for Player 2.
         </p>
       </solution>
     </task>
@@ -259,7 +238,7 @@
       </statement>
       <solution>
         <p>
-          They are the same. In both profiles, both players play <m>c</m> in every round, so each player gets <m>\frac{5}{1 - \delta}</m>.
+          They are the same: both players play <m>c</m> in every round, so each gets <m>\frac{5}{1 - \delta}</m>.
         </p>
       </solution>
     </task>
@@ -272,12 +251,8 @@
       </statement>
       <solution>
         <p>
-          <m>\delta_0 = \frac{3}{13}</m>.
+          <m>\pi_1(\nu, \tau) = \frac{8}{1 + \delta}</m>, and <m>\delta_0 = \frac{3}{13}</m>.
         </p>
-        <p>
-          With <m>(\nu, \tau)</m>, Player 1 defects in round 0 and Player 2 cooperates, and then they take turns: Player 1's payoffs are <m>8, -8, 8, -8, \ldots</m>, so <m>\pi_1(\nu, \tau) = \frac{8}{1 + \delta}</m>. We need
-        </p>
-        <me>\frac{8}{1 + \delta} \leq \frac{5}{1 - \delta}, \quad\text{that is,}\quad 8 - 8\delta \leq 5 + 5\delta, \quad\text{so}\quad \delta \geq \frac{3}{13}.</me>
       </solution>
     </task>
     <task xml:id="ans-tft-eq-beta">
@@ -288,9 +263,6 @@
         </p>
       </statement>
       <solution>
-        <p>
-          <m>\delta_0 = \frac{3}{8}</m>.
-        </p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
           <col right="minor"/>
@@ -313,9 +285,8 @@
           </row>
         </tabular>
         <p>
-          So <m>\pi_1(\beta, \tau) = 8</m>. We need
+          <m>\pi_1(\beta, \tau) = 8</m>, and <m>\delta_0 = \frac{3}{8}</m>.
         </p>
-        <me>8 \leq \frac{5}{1 - \delta}, \quad\text{that is,}\quad 8 - 8\delta \leq 5, \quad\text{so}\quad \delta \geq \frac{3}{8}.</me>
       </solution>
     </task>
   </exercise>
@@ -358,9 +329,6 @@
             <cell>Player 1's payoff (with discount factor) if they had kept using <m>\tau</m></cell><cell colspan="3"><m>5, 5\delta, \ldots, 5\delta^{k-1}</m></cell><cell><m>5\delta^k</m></cell><cell><m>5\delta^{k+1}</m></cell><cell><m>\cdots</m></cell><cell><m>5\delta^{k+m-1}</m></cell><cell><m>5\delta^{k+m}</m></cell><cell><m>5\delta^{k+m+1}</m></cell>
           </row>
         </tabular>
-        <p>
-          In round <m>k</m>, Player 1 defects while Player 2 still cooperates, for 8. In rounds <m>k+1</m> through <m>k+m-1</m>, both defect, for 0. In round <m>k+m</m>, Player 1 cooperates while Player 2 defects, for <m>-8</m>. In round <m>k+m+1</m>, both cooperate again, for 5.
-        </p>
       </solution>
     </task>
     <task xml:id="ans-tft-spne-inequality">
@@ -372,7 +340,7 @@
       </statement>
       <solution>
         <p>
-          From the table, we need <m>8\delta^k - 8\delta^{k+m} \leq 5\delta^k + 5\delta^{k+1} + \cdots + 5\delta^{k+m}</m>. Canceling <m>\delta^k</m>, this is <m>8 - 8\delta^m \leq 5(1 + \delta + \cdots + \delta^m)</m>. When <m>\delta \geq \frac{3}{8}</m>,
+          Canceling <m>\delta^k</m>, we need <m>8 - 8\delta^m \leq 5(1 + \delta + \cdots + \delta^m)</m>. When <m>\delta \geq \frac{3}{8}</m>,
         </p>
         <md>
           <mrow>5(1 + \delta + \cdots + \delta^m) \amp = \frac{5}{1 - \delta}\left(1 - \delta^{m+1}\right) \amp \amp \text{(finite geometric series)}</mrow>
@@ -393,12 +361,12 @@
         <ol marker="i.">
           <li>
             <p>
-              Since the game starts over after each excursion (with payoffs multiplied by a power of <m>\delta</m>), each excursion can be compared with <m>\tau</m> on its own rounds. By part (b), each excursion gives Player 1 less than cooperating would in those rounds. (It is strictly less: in the last step, <m>\delta^{m+1} \lt \delta^m</m>.) In all the other rounds, Player 1 gets the same as with <m>\tau</m>. So adding up, several excursions give Player 1 less than <m>\tau</m>.
+              After each excursion the game starts over, so each excursion can be compared with <m>\tau</m> on its own rounds. By part (b), each one gives Player 1 less than cooperating would, and every other round is the same as with <m>\tau</m>. So several excursions give Player 1 less than <m>\tau</m>.
             </p>
           </li>
           <li>
             <p>
-              <xref ref="hw-tit-for-tat-equilibrium-beta"/>: from round <m>k</m> on, defecting forever is <m>\beta</m> against <m>\tau</m> with every payoff multiplied by <m>\delta^k</m>, and that part showed <m>\beta</m> does no better than <m>\tau</m> when <m>\delta \geq \frac{3}{8}</m>.
+              <xref ref="hw-tit-for-tat-equilibrium-beta"/>.
             </p>
           </li>
         </ol>
@@ -414,8 +382,6 @@
       <solution>
         <ol marker="i.">
           <li>
-            <p>
-              With <m>\tau</m>, the players take turns defecting:</p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
           <col right="minor"/>
@@ -436,12 +402,11 @@
             <cell>Player 1's payoff (with discount factor)</cell><cell><m>8\delta</m></cell><cell><m>-8\delta^2</m></cell><cell><m>8\delta^3</m></cell><cell><m>-8\delta^4</m></cell><cell><m>\cdots</m></cell>
           </row>
         </tabular>
-              <p>Player 1's payoff is a geometric series with <m>a = 8\delta</m> and <m>r = -\delta</m>: <m>8\delta - 8\delta^2 + 8\delta^3 - \cdots = \frac{8\delta}{1 + \delta}</m>.
+            <p>
+              <m>\frac{8\delta}{1 + \delta}</m>
             </p>
           </li>
           <li>
-            <p>
-              With <m>\zeta</m>, both players cooperate in every round of the subgame:</p>
         <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
           <col halign="left" right="minor"/>
           <col right="minor"/>
@@ -462,17 +427,18 @@
             <cell>Player 1's payoff (with discount factor)</cell><cell><m>5\delta</m></cell><cell><m>5\delta^2</m></cell><cell><m>5\delta^3</m></cell><cell><m>5\delta^4</m></cell><cell><m>\cdots</m></cell>
           </row>
         </tabular>
-              <p>Player 1's payoff is <m>5\delta + 5\delta^2 + \cdots = \frac{5\delta}{1 - \delta}</m>.
+            <p>
+              <m>\frac{5\delta}{1 - \delta}</m>
             </p>
           </li>
           <li>
             <p>
-              <m>\frac{5\delta}{1 - \delta} \gt \frac{8\delta}{1 + \delta}</m> exactly when <m>5(1 + \delta) \gt 8(1 - \delta)</m>, that is, when <m>\delta \gt \frac{3}{13}</m>.
+              <m>\delta \gt \frac{3}{13}</m>
             </p>
           </li>
           <li>
             <p>
-              No. For <m>\delta \gt \frac{3}{13}</m>, Player 1 does better in this subgame by switching from <m>\tau</m> to <m>\zeta</m>, so the restriction of <m>(\tau, \tau)</m> is not a Nash equilibrium. So <m>(\tau, \tau)</m> is not subgame perfect. In particular, this holds for every <m>\delta \geq \frac{3}{8}</m>, where <m>(\tau, \tau)</m> is a Nash equilibrium.
+              No, the restriction is not a Nash equilibrium. No, <m>(\tau, \tau)</m> is not subgame perfect.
             </p>
           </li>
         </ol>
@@ -503,7 +469,7 @@
       </statement>
       <solution>
         <p>
-          Collecting the <m>x_i</m> terms, <m>\pi_i = 1 - \frac{1}{4}x_i + \frac{3}{4}(\text{sum of the others' contributions})</m>. Each dollar Player <m>i</m> contributes costs them 1 and returns only <m>\frac{3}{4}</m> to them. So for any contributions by the others, <m>\pi_i(0, x_{-i}) - \pi_i(x_i, x_{-i}) = \frac{1}{4}x_i \gt 0</m> whenever <m>x_i \gt 0</m>.
+          <m>\pi_i = 1 - \frac{1}{4}x_i + \frac{3}{4}(\text{sum of the others' contributions})</m>, which decreases as <m>x_i</m> increases, whatever the others contribute. So <m>x_i = 0</m> gives the largest payoff.
         </p>
       </solution>
     </task>
@@ -543,14 +509,11 @@
       </statement>
       <solution>
         <p>
-          <m>\delta_0 = \frac{1}{9}</m>, for every <m>y</m>.
+          Solve
         </p>
+        <me>\frac{1 + 2y}{1 - \delta} \geq 1 + \frac{9}{4}y + \frac{\delta}{1 - \delta}</me>
         <p>
-          If everyone uses <m>\sigma_y</m>, Player <m>i</m> gets <m>1 + 2y</m> every round, for <m>\frac{1 + 2y}{1 - \delta}</m>. If Player <m>i</m> contributes 0 in round 0, they get <m>1 + \frac{9}{4}y</m> in round 0, and then everyone else contributes 0 forever, so the best Player <m>i</m> can do is contribute 0 too and get 1 in every later round, for <m>1 + \frac{9}{4}y + \frac{\delta}{1 - \delta}</m>. We need
-        </p>
-        <me>\frac{1 + 2y}{1 - \delta} \geq 1 + \frac{9}{4}y + \frac{\delta}{1 - \delta}.</me>
-        <p>
-          Multiplying by <m>1 - \delta</m> gives <m>1 + 2y \geq \left(1 + \frac{9}{4}y\right)(1 - \delta) + \delta = 1 + \frac{9}{4}y(1 - \delta)</m>, so <m>2y \geq \frac{9}{4}y(1 - \delta)</m>. Dividing by <m>y</m> gives <m>8 \geq 9(1 - \delta)</m>, so <m>\delta \geq \frac{1}{9}</m>.
+          to get <m>\delta_0 = \frac{1}{9}</m>.
         </p>
       </solution>
     </task>
@@ -565,17 +528,17 @@
         <ol marker="i.">
           <li>
             <p>
-              Yes. Nobody has contributed less than <m>y</m>, so <m>\sigma_y</m> tells everyone to contribute <m>y</m> at <m>m</m>, just as at the start of the game. The subgame looks exactly like the whole game, with every payoff multiplied by <m>\delta^k</m>, so by part (d) the restriction is a Nash equilibrium when <m>\delta \geq \frac{1}{9}</m>.
+              Yes, when <m>\delta \geq \frac{1}{9}</m>. Everyone contributes <m>y</m>, so the subgame looks like the whole game with every payoff multiplied by <m>\delta^k</m>, and part (d) applies.
             </p>
           </li>
           <li>
             <p>
-              Yes. Someone has contributed less than <m>y</m>, so <m>\sigma_y</m> tells everyone to contribute 0 in every round of the subgame. By part (b), contributing 0 is strictly dominant in every round, and the other players contribute 0 forever no matter what Player <m>i</m> does, so contributing 0 every round is a best response. So the restriction is a Nash equilibrium.
+              Yes. Everyone contributes 0 forever, and by part (b) contributing 0 is a best response in every round.
             </p>
           </li>
           <li>
             <p>
-              Yes. Every subgame falls into one of the two cases, and in both the restriction is a Nash equilibrium. So <m>(\sigma_y, \sigma_y, \sigma_y, \sigma_y)</m> is a subgame perfect Nash equilibrium when <m>\delta \geq \frac{1}{9}</m>.
+              Yes, when <m>\delta \geq \frac{1}{9}</m>, since every subgame falls into one of the two cases.
             </p>
           </li>
         </ol>
