@@ -17,17 +17,21 @@
 <title>Elimination Revisited, and Threats and Promises Again</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends decimal; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
-</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+</script><script defer data-pretext-mathjax="true" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
@@ -36,7 +40,7 @@ htmlPresentation: false,
 <meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -58,33 +62,61 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.4.0';
+eBookConfig.runestone_version = '8.4.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.7e2ee203f2ecd6c8.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
+<script src="_static/prefix-runtime.82b21a4699b89209.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="deforest-gametheory-math486" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></div>
 <p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
-<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
-<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
 <div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
-<h2 class="ptx-search-results-heading">Search Results: </h2>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page2-inspection-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page4-best-response.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="page2-inspection-examples.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page4-best-response.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -93,17 +125,17 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-frontmatter" class="structural toc-item-list">
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
 <li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-backward-induction" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
@@ -117,7 +149,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-eliminating-dominated-strategies" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
@@ -128,7 +160,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-nash-equilibria">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
 <li class="toc-item toc-section active"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
@@ -139,7 +171,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-incomplete-information" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
@@ -149,7 +181,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-mixed-strategy-nash-equilibria" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
@@ -162,20 +194,21 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-more-extensive-form" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-answers.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Answers to Ch. 6 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+<ul id="ptx-toc-group-ch-symmetries-of-games" class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-alternatives-to-nash" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Evolutionary Stability</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page2-two-pure-strategies.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability with Two Pure Strategies</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Exercises</span></a></div></li>
@@ -185,41 +218,41 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="page3-elimination-and-threats">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Elimination Revisited, and Threats and Promises Again</span>
-</h2>
-<div class="para" id="page3-elimination-and-threats-2">Earlier we saw that in the Prisoner’s Dilemma, <span class="process-math">\(\text{talk}\)</span> strictly dominates <span class="process-math">\(\text{refuse}\)</span> for both executives, so eliminating dominated strategies would have landed on <span class="process-math">\((\text{talk}, \text{talk})\text{,}\)</span> which is exactly the Nash equilibrium we found by inspection. In Section 3.6, you will read some theorems showing this is not a coincidence!! However, the connection between Nash equilibria and iterated elimination also has some nuances to pay attention to.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h1>
+<div class="para" id="page3-elimination-and-threats-2">Earlier we saw that in the Prisoner’s Dilemma, <span class="process-math">\(\text{talk}\)</span> strictly dominates <span class="process-math">\(\text{refuse}\)</span> for both executives, so eliminating dominated strategies would have landed on <span class="process-math">\((\text{talk}, \text{talk})\text{,}\)</span> which is exactly the Nash equilibrium we found by inspection. In Section 3.6, you will read some theorems showing this is not a coincidence!! However, the connection between Nash equilibria and iterated elimination also has some nuances to pay attention to.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="read-3-6"><h3 class="heading"><span class="title">Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies.</span></h3>
+<article class="assemblage assemblage-like" id="read-3-6"><h2 class="heading"><span class="title">Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies.</span></h2>
 <div class="para" id="read-3-6-2">
-<em class="alert">Read everything <em class="emphasis">before</em> the proof in Section 3.6. Reading the proof is optional. If you are a math major or particularly interested in game theory, you should read the proof.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read everything <em class="emphasis">before</em> the proof in Section 3.6. Reading the proof is optional. If you are a math major or particularly interested in game theory, you should read the proof.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-3-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-3-6-3">You’ll be reading about connections between iterated elimination and Nash equilibria in Theorem 3.1 (for iterated elimination of weakly dominated strategies) and then in Theorem 3.2 (for iterated elimination of strictly dominated strategies). Pay attention to the similarities and differences between the statements.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-3-6-3">You’ll be reading about connections between iterated elimination and Nash equilibria in Theorem 3.1 (for iterated elimination of weakly dominated strategies) and then in Theorem 3.2 (for iterated elimination of strictly dominated strategies). Pay attention to the similarities and differences between the statements.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-3-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies"><a href="#read-3-6" title="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies" aria-label="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies"><a tabindex="-1" href="#read-3-6" title="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies" aria-label="Copy heading and permalink for Reading: Section 3.6, Finding Nash Equilibria by Iterated Elimination of Dominated Strategies">🔗</a></div>
 </article>
-<div class="para" id="page3-elimination-and-threats-4">In both theorems, we take a game <span class="process-math">\(G\text{,}\)</span> run iterated elimination on it, and call the reduced game we end up with <span class="process-math">\(H\text{.}\)</span> The main question is whether Nash equilibria are preserved along the way, which really splits into two questions:<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-4">In both theorems, we take a game <span class="process-math">\(G\text{,}\)</span> run iterated elimination on it, and call the reduced game we end up with <span class="process-math">\(H\text{.}\)</span> The main question is whether Nash equilibria are preserved along the way, which really splits into two questions:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="page3-elimination-and-threats-5">
 <li id="page3-elimination-and-threats-5-1">
-<div class="para" id="page3-elimination-and-threats-5-1-1">Is every Nash equilibrium of <span class="process-math">\(H\)</span> a Nash equilibrium of <span class="process-math">\(G\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-5-1-1">Is every Nash equilibrium of <span class="process-math">\(H\)</span> a Nash equilibrium of <span class="process-math">\(G\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-5-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-5-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="page3-elimination-and-threats-5-2">
-<div class="para" id="page3-elimination-and-threats-5-2-1">Is every Nash equilibrium of <span class="process-math">\(G\)</span> a Nash equilibrium of <span class="process-math">\(H\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-5-2-1">Is every Nash equilibrium of <span class="process-math">\(G\)</span> a Nash equilibrium of <span class="process-math">\(H\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-5-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-5-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="page3-elimination-and-threats-6">The answers depend on whether you eliminate weakly or strictly dominated strategies! After reading through the statements of Theorems 3.1 and 3.2, answer the following:<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-6">The answers depend on whether you eliminate weakly or strictly dominated strategies! After reading through the statements of Theorems 3.1 and 3.2, answer the following:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-strict-vs-weak-loss"><h3 class="heading">
+<article class="exercise exercise-like" id="check-strict-vs-weak-loss"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-strict-vs-weak-loss-1-1">You run iterated elimination on a game <span class="process-math">\(G\)</span> and get a reduced game <span class="process-math">\(H\text{.}\)</span> What is the difference between having used strict dominance and having used weak dominance?<div class="autopermalink" data-description="Paragraph"><a href="#check-strict-vs-weak-loss-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-strict-vs-weak-loss-1-1">You run iterated elimination on a game <span class="process-math">\(G\)</span> and get a reduced game <span class="process-math">\(H\text{.}\)</span> What is the difference between having used strict dominance and having used weak dominance?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-strict-vs-weak-loss-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-strict-vs-weak-loss" data-multipleanswers="false">
@@ -244,14 +277,14 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.1"><a href="#check-strict-vs-weak-loss" title="Copy heading and permalink for Checkpoint 3.3.1" aria-label="Copy heading and permalink for Checkpoint 3.3.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 3.3.1"><a tabindex="-1" href="#check-strict-vs-weak-loss" title="Copy heading and permalink for Checkpoint 3.3.1" aria-label="Copy heading and permalink for Checkpoint 3.3.1">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="check-strategy-vs-profile"><h3 class="heading">
+<article class="exercise exercise-like" id="check-strategy-vs-profile"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-strategy-vs-profile-1-1">Statement (2) of Theorem 3.2 says that each strategy eliminated in the course of iterated elimination of strictly dominated strategies is not part of any Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> What does that let you conclude about a strategy profile <span class="process-math">\(s = (s_1, \ldots, s_n)\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-strategy-vs-profile-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-strategy-vs-profile-1-1">Statement (2) of Theorem 3.2 says that each strategy eliminated in the course of iterated elimination of strictly dominated strategies is not part of any Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> What does that let you conclude about a strategy profile <span class="process-math">\(s = (s_1, \ldots, s_n)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-strategy-vs-profile-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-strategy-vs-profile" data-multipleanswers="false">
@@ -272,14 +305,14 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.2"><a href="#check-strategy-vs-profile" title="Copy heading and permalink for Checkpoint 3.3.2" aria-label="Copy heading and permalink for Checkpoint 3.3.2">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 3.3.2"><a tabindex="-1" href="#check-strategy-vs-profile" title="Copy heading and permalink for Checkpoint 3.3.2" aria-label="Copy heading and permalink for Checkpoint 3.3.2">🔗</a></div>
 </article>
-<article class="exercise exercise-like" id="check-single-profile-conclusion"><h3 class="heading">
+<article class="exercise exercise-like" id="check-single-profile-conclusion"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-single-profile-conclusion-1-1">Suppose iterated elimination of <em class="emphasis">strictly</em> dominated strategies reduces a game <span class="process-math">\(G\)</span> all the way down to a single strategy profile <span class="process-math">\((s_1^*, \ldots, s_n^*)\text{.}\)</span> What can you conclude?<div class="autopermalink" data-description="Paragraph"><a href="#check-single-profile-conclusion-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-single-profile-conclusion-1-1">Suppose iterated elimination of <em class="emphasis">strictly</em> dominated strategies reduces a game <span class="process-math">\(G\)</span> all the way down to a single strategy profile <span class="process-math">\((s_1^*, \ldots, s_n^*)\text{.}\)</span> What can you conclude?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-single-profile-conclusion-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-single-profile-conclusion" data-multipleanswers="false">
@@ -303,45 +336,45 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.3"><a href="#check-single-profile-conclusion" title="Copy heading and permalink for Checkpoint 3.3.3" aria-label="Copy heading and permalink for Checkpoint 3.3.3">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 3.3.3"><a tabindex="-1" href="#check-single-profile-conclusion" title="Copy heading and permalink for Checkpoint 3.3.3" aria-label="Copy heading and permalink for Checkpoint 3.3.3">🔗</a></div>
 </article>
-<div class="para" id="page3-elimination-and-threats-10">And here is a quick summary of some of the conclusions!<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-10">And here is a quick summary of some of the conclusions!<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="page3-elimination-and-threats-11">
 <li id="page3-elimination-and-threats-11-1">
-<div class="para" id="page3-elimination-and-threats-11-1-1">With either kind of elimination, every Nash equilibrium of <span class="process-math">\(H\)</span> is a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> Elimination never introduces a false equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-11-1-1">With either kind of elimination, every Nash equilibrium of <span class="process-math">\(H\)</span> is a Nash equilibrium of <span class="process-math">\(G\text{.}\)</span> Elimination never introduces a false equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-11-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-11-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-11-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="page3-elimination-and-threats-11-2">
-<div class="para" id="page3-elimination-and-threats-11-2-1">With strict elimination, every Nash equilibrium of <span class="process-math">\(G\)</span> also survives to <span class="process-math">\(H\text{,}\)</span> so <span class="process-math">\(G\)</span> and <span class="process-math">\(H\)</span> have exactly the same Nash equilibria. With weak elimination, equilibria of <span class="process-math">\(G\)</span> can be lost along the way.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-11-2-1">With strict elimination, every Nash equilibrium of <span class="process-math">\(G\)</span> also survives to <span class="process-math">\(H\text{,}\)</span> so <span class="process-math">\(G\)</span> and <span class="process-math">\(H\)</span> have exactly the same Nash equilibria. With weak elimination, equilibria of <span class="process-math">\(G\)</span> can be lost along the way.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-11-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-11-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-11-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="page3-elimination-and-threats-11-3">
-<div class="para" id="page3-elimination-and-threats-11-3-1">If strict elimination leaves a single profile, it is the unique Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> and a strict one.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-11-3-1">If strict elimination leaves a single profile, it is the unique Nash equilibrium of <span class="process-math">\(G\text{,}\)</span> and a strict one.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-11-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-11-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-11-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
 <div class="para" id="page3-elimination-and-threats-12">
-<em class="alert">Weak elimination can lose you equilibria; strict elimination cannot.</em><div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Weak elimination can lose you equilibria; strict elimination cannot.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="page3-elimination-and-threats-13">Now we apply these theorems to one of our favorite games :)<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-13">Now we apply these theorems to one of our favorite games :)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-13" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="read-3-7"><h3 class="heading"><span class="title">Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited.</span></h3>
+<article class="assemblage assemblage-like" id="read-3-7"><h2 class="heading"><span class="title">Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited.</span></h2>
 <div class="para" id="read-3-7-2">
-<em class="alert">Read Section 3.7.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-3-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read Section 3.7.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-3-7-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-3-7-3">This is a short section that connects the elimination of weakly dominated strategies in the normal form of Big Monkey and Little Monkey to its Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#read-3-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-3-7-3">This is a short section that connects the elimination of weakly dominated strategies in the normal form of Big Monkey and Little Monkey to its Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-3-7-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited"><a href="#read-3-7" title="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited" aria-label="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited"><a tabindex="-1" href="#read-3-7" title="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited" aria-label="Copy heading and permalink for Reading: Section 3.7, Big Monkey and Little Monkey 4: Threats, Promises, and Commitments Revisited">🔗</a></div>
 </article>
-<div class="para" id="page3-elimination-and-threats-15">Here is the matrix again for reference, with Big Monkey moving first, as it appeared in Section 2.10 and in the two elimination interactives from Chapter 2.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-15">Here is the matrix again for reference, with Big Monkey moving first, as it appeared in Section 2.10 and in the two elimination interactives from Chapter 2.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table-bmlm-normal-form-3-7"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big Monkey and Little Monkey in normal form, Big Monkey first<div class="autopermalink" data-description="Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first"><a href="#table-bmlm-normal-form-3-7" title="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first" aria-label="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-bmlm-normal-form-3-7"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Big Monkey and Little Monkey in normal form, Big Monkey first<div class="autopermalink" aria-hidden="true" data-description="Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first"><a tabindex="-1" href="#table-bmlm-normal-form-3-7" title="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first" aria-label="Copy heading and permalink for Table 3.3.4: Big Monkey and Little Monkey in normal form, Big Monkey first">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
+<td class="c m b0 r0 l0 t0 lines"></td>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: ww</th>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: wc</th>
 <th scope="col" class="c m b0 r0 l0 t0 lines">Little Monkey: cw</th>
@@ -363,92 +396,92 @@ eBookConfig.enable_chatcodes =  false;
 </tr>
 </table></div>
 </figure>
-<div class="para" id="page3-elimination-and-threats-17">Some of the Nash equilibria here can be deduced from the reduced games found in Section 2.11 of the textbook. That is, <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> are Nash equilibria of the reduced games from Section 2.11, so by Theorem 3.1 they are guaranteed to be Nash equilibria of the original game. However, <span class="process-math">\((c, ww)\)</span> is another Nash equilibrium!! It did not appear in either reduced game, so this is exactly the kind of equilibrium weak elimination can lose.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-17">Some of the Nash equilibria here can be deduced from the reduced games found in Section 2.11 of the textbook. That is, <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> are Nash equilibria of the reduced games from Section 2.11, so by Theorem 3.1 they are guaranteed to be Nash equilibria of the original game. However, <span class="process-math">\((c, ww)\)</span> is another Nash equilibrium!! It did not appear in either reduced game, so this is exactly the kind of equilibrium weak elimination can lose.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-17" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="page3-elimination-and-threats-18">The book verifies <span class="process-math">\((c, ww)\)</span> for us in words, and its argument needs reasoning for both players:<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-18">The book verifies <span class="process-math">\((c, ww)\)</span> for us in words, and its argument needs reasoning for both players:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="page3-elimination-and-threats-19">
 <li id="page3-elimination-and-threats-19-1">
-<div class="para" id="page3-elimination-and-threats-19-1-1">If Little Monkey commits in advance to waiting no matter what Big Monkey does, then Big Monkey can do no better than to climb.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-19-1-1">If Little Monkey commits in advance to waiting no matter what Big Monkey does, then Big Monkey can do no better than to climb.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-19-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-19-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-19-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="page3-elimination-and-threats-19-2">
-<div class="para" id="page3-elimination-and-threats-19-2-1">If Big Monkey climbs, then Little Monkey can do no better than to wait, which is what <span class="process-math">\(ww\)</span> has her do.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-19-2-1">If Big Monkey climbs, then Little Monkey can do no better than to wait, which is what <span class="process-math">\(ww\)</span> has her do.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-19-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#page3-elimination-and-threats-19-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#page3-elimination-and-threats-19-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="page3-elimination-and-threats-20">Those two sentences together are the definition of a Nash equilibrium applied to this profile. To practice this reasoning, try it out for the other two equilibria in the following example!<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-20">Those two sentences together are the definition of a Nash equilibrium applied to this profile. To practice this reasoning, try it out for the other two equilibria in the following example!<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="example example-like" id="example-verify-w-cc-w-cw"><h3 class="heading">
-<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying the other two equilibria.</span>
-</h3>
+<article class="example example-like" id="example-verify-w-cc-w-cw"><h2 class="heading">
+<span class="type">Example</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Verifying the other two equilibria.</span>
+</h2>
 <div class="introduction" id="example-verify-w-cc-w-cw-2">
-<div class="para" id="example-verify-w-cc-w-cw-2-1">For each profile, give the argument that it is a Nash equilibrium: one statement about Big Monkey’s incentive and one about Little Monkey’s, in the same style as the book’s argument for <span class="process-math">\((c, ww)\text{.}\)</span> Cite the payoffs from the matrix above.<div class="autopermalink" data-description="Paragraph"><a href="#example-verify-w-cc-w-cw-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="example-verify-w-cc-w-cw-2-1">For each profile, give the argument that it is a Nash equilibrium: one statement about Big Monkey’s incentive and one about Little Monkey’s, in the same style as the book’s argument for <span class="process-math">\((c, ww)\text{.}\)</span> Cite the payoffs from the matrix above.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#example-verify-w-cc-w-cw-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
-<article class="task exercise-like" id="verify-w-cc"><h4 class="heading">
+<article class="task exercise-like" id="verify-w-cc"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The promise, <span class="process-math">\((w, cc)\)</span>.</span>
-</h4>
-<div class="para" id="verify-w-cc-2-1">Show that <span class="process-math">\((w, cc)\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="verify-w-cc-2-1">Show that <span class="process-math">\((w, cc)\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cc-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="verify-w-cc-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <ul class="disc" id="verify-w-cc-3-1">
 <li id="verify-w-cc-3-1-1">
-<div class="para" id="verify-w-cc-3-1-1-1">If Little Monkey commits in advance to climbing no matter what Big Monkey does, then Big Monkey can do no better than to wait: waiting pays him <span class="process-math">\(9\)</span> and climbing pays him <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cc-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="verify-w-cc-3-1-1-1">If Little Monkey commits in advance to climbing no matter what Big Monkey does, then Big Monkey can do no better than to wait: waiting pays him <span class="process-math">\(9\)</span> and climbing pays him <span class="process-math">\(5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cc-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#verify-w-cc-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#verify-w-cc-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="verify-w-cc-3-1-2">
-<div class="para" id="verify-w-cc-3-1-2-1">If Big Monkey waits, then Little Monkey can do no better than to climb, which is what <span class="process-math">\(cc\)</span> has her do: across the <span class="process-math">\(w\)</span> row her payoffs are <span class="process-math">\(0, 0, 1, 1\text{,}\)</span> and <span class="process-math">\(cc\)</span> gives her one of the two best.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cc-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="verify-w-cc-3-1-2-1">If Big Monkey waits, then Little Monkey can do no better than to climb, which is what <span class="process-math">\(cc\)</span> has her do: across the <span class="process-math">\(w\)</span> row her payoffs are <span class="process-math">\(0, 0, 1, 1\text{,}\)</span> and <span class="process-math">\(cc\)</span> gives her one of the two best.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cc-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#verify-w-cc-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#verify-w-cc-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.3.5.a.1"><a href="#verify-w-cc-3" title="Copy heading and permalink for Solution 3.3.5.a.1" aria-label="Copy heading and permalink for Solution 3.3.5.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.3.5.a.1"><a tabindex="-1" href="#verify-w-cc-3" title="Copy heading and permalink for Solution 3.3.5.a.1" aria-label="Copy heading and permalink for Solution 3.3.5.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.3.5.a: The promise, (w, cc)"><a href="#verify-w-cc" title="Copy heading and permalink for Task 3.3.5.a: The promise, (w, cc)" aria-label="Copy heading and permalink for Task 3.3.5.a: The promise, (w, cc)">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.3.5.a: The promise, (w, cc)"><a tabindex="-1" href="#verify-w-cc" title="Copy heading and permalink for Task 3.3.5.a: The promise, (w, cc)" aria-label="Copy heading and permalink for Task 3.3.5.a: The promise, (w, cc)">🔗</a></div>
 </article>
-<article class="task exercise-like" id="verify-w-cw"><h4 class="heading">
+<article class="task exercise-like" id="verify-w-cw"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Backward induction’s answer, <span class="process-math">\((w, cw)\)</span>.</span>
-</h4>
-<div class="para" id="verify-w-cw-2-1">Show that <span class="process-math">\((w, cw)\)</span> is a Nash equilibrium. Then compare your argument to the one for <span class="process-math">\((w, cc)\text{:}\)</span> what changed?<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="verify-w-cw-2-1">Show that <span class="process-math">\((w, cw)\)</span> is a Nash equilibrium. Then compare your argument to the one for <span class="process-math">\((w, cc)\text{:}\)</span> what changed?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cw-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="verify-w-cw-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <ul class="disc" id="verify-w-cw-3-1">
 <li id="verify-w-cw-3-1-1">
-<div class="para" id="verify-w-cw-3-1-1-1">If Little Monkey commits in advance to <span class="process-math">\(cw\text{,}\)</span> then Big Monkey can do no better than to wait: waiting pays him <span class="process-math">\(9\)</span> and climbing pays him <span class="process-math">\(4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="verify-w-cw-3-1-1-1">If Little Monkey commits in advance to <span class="process-math">\(cw\text{,}\)</span> then Big Monkey can do no better than to wait: waiting pays him <span class="process-math">\(9\)</span> and climbing pays him <span class="process-math">\(4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cw-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#verify-w-cw-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#verify-w-cw-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="verify-w-cw-3-1-2">
-<div class="para" id="verify-w-cw-3-1-2-1">If Big Monkey waits, then Little Monkey can do no better than <span class="process-math">\(cw\text{:}\)</span> across the <span class="process-math">\(w\)</span> row her payoffs are <span class="process-math">\(0, 0, 1, 1\text{,}\)</span> and <span class="process-math">\(cw\)</span> gives her one of the two best.<div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="verify-w-cw-3-1-2-1">If Big Monkey waits, then Little Monkey can do no better than <span class="process-math">\(cw\text{:}\)</span> across the <span class="process-math">\(w\)</span> row her payoffs are <span class="process-math">\(0, 0, 1, 1\text{,}\)</span> and <span class="process-math">\(cw\)</span> gives her one of the two best.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cw-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#verify-w-cw-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#verify-w-cw-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="verify-w-cw-3-2">The only thing that changed is Big Monkey’s alternative payoff, <span class="process-math">\(4\)</span> instead of <span class="process-math">\(5\text{,}\)</span> and either way it loses to <span class="process-math">\(9\text{.}\)</span> Little Monkey’s half is identical: the same row, the same payoffs, and the same tie between <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#verify-w-cw-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="verify-w-cw-3-2">The only thing that changed is Big Monkey’s alternative payoff, <span class="process-math">\(4\)</span> instead of <span class="process-math">\(5\text{,}\)</span> and either way it loses to <span class="process-math">\(9\text{.}\)</span> Little Monkey’s half is identical: the same row, the same payoffs, and the same tie between <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#verify-w-cw-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.3.5.b.1"><a href="#verify-w-cw-3" title="Copy heading and permalink for Solution 3.3.5.b.1" aria-label="Copy heading and permalink for Solution 3.3.5.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.3.5.b.1"><a tabindex="-1" href="#verify-w-cw-3" title="Copy heading and permalink for Solution 3.3.5.b.1" aria-label="Copy heading and permalink for Solution 3.3.5.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.3.5.b: Backward induction’s answer, (w, cw)"><a href="#verify-w-cw" title="Copy heading and permalink for Task 3.3.5.b: Backward induction’s answer, (w, cw)" aria-label="Copy heading and permalink for Task 3.3.5.b: Backward induction’s answer, (w, cw)">🔗</a></div>
-</article><div class="autopermalink" data-description="Example 3.3.5: Verifying the other two equilibria"><a href="#example-verify-w-cc-w-cw" title="Copy heading and permalink for Example 3.3.5: Verifying the other two equilibria" aria-label="Copy heading and permalink for Example 3.3.5: Verifying the other two equilibria">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.3.5.b: Backward induction’s answer, (w, cw)"><a tabindex="-1" href="#verify-w-cw" title="Copy heading and permalink for Task 3.3.5.b: Backward induction’s answer, (w, cw)" aria-label="Copy heading and permalink for Task 3.3.5.b: Backward induction’s answer, (w, cw)">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Example 3.3.5: Verifying the other two equilibria"><a tabindex="-1" href="#example-verify-w-cc-w-cw" title="Copy heading and permalink for Example 3.3.5: Verifying the other two equilibria" aria-label="Copy heading and permalink for Example 3.3.5: Verifying the other two equilibria">🔗</a></div>
 </article>
-<div class="para" id="page3-elimination-and-threats-22">Notice <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> are two different strategy profiles, but they pay both players identically and their verifications are nearly the same argument. What distinguishes them?<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-22">Notice <span class="process-math">\((w, cw)\)</span> and <span class="process-math">\((w, cc)\)</span> are two different strategy profiles, but they pay both players identically and their verifications are nearly the same argument. What distinguishes them?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-22" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-off-path"><h3 class="heading">
+<article class="exercise exercise-like" id="check-off-path"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.3.6</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-off-path-1-1">What is the actual difference between Little Monkey’s strategies <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{,}\)</span> given that Big Monkey is playing <span class="process-math">\(w\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-off-path-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-off-path-1-1">What is the actual difference between Little Monkey’s strategies <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{,}\)</span> given that Big Monkey is playing <span class="process-math">\(w\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-off-path-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-off-path" data-multipleanswers="false">
@@ -472,13 +505,13 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 3.3.6"><a href="#check-off-path" title="Copy heading and permalink for Checkpoint 3.3.6" aria-label="Copy heading and permalink for Checkpoint 3.3.6">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 3.3.6"><a tabindex="-1" href="#check-off-path" title="Copy heading and permalink for Checkpoint 3.3.6" aria-label="Copy heading and permalink for Checkpoint 3.3.6">🔗</a></div>
 </article>
-<div class="para" id="page3-elimination-and-threats-24">Note that none of these three equilibria is strict, and Little Monkey’s payoffs are the reason. In the <span class="process-math">\(w\)</span> row she is indifferent between <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{;}\)</span> in the <span class="process-math">\(c\)</span> row she is indifferent between <span class="process-math">\(ww\)</span> and <span class="process-math">\(cw\text{.}\)</span> She is never made strictly worse off by deviating.<div class="autopermalink" data-description="Paragraph"><a href="#page3-elimination-and-threats-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page3-elimination-and-threats-24">Note that none of these three equilibria is strict, and Little Monkey’s payoffs are the reason. In the <span class="process-math">\(w\)</span> row she is indifferent between <span class="process-math">\(cw\)</span> and <span class="process-math">\(cc\text{;}\)</span> in the <span class="process-math">\(c\)</span> row she is indifferent between <span class="process-math">\(ww\)</span> and <span class="process-math">\(cw\text{.}\)</span> She is never made strictly worse off by deviating.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page3-elimination-and-threats-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="interactive-iframe-container"><iframe src="external/question-form.html?section=3.3" id="question-form-3-3" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-3-3.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-<div class="autopermalink" data-description="Section 3.3: Elimination Revisited, and Threats and Promises Again"><a href="#page3-elimination-and-threats" title="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again" aria-label="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Section 3.3: Elimination Revisited, and Threats and Promises Again"><a tabindex="-1" href="#page3-elimination-and-threats" title="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again" aria-label="Copy heading and permalink for Section 3.3: Elimination Revisited, and Threats and Promises Again">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
@@ -486,7 +519,7 @@ eBookConfig.enable_chatcodes =  false;
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" alt="Runestone Academy logo" src="data:image/png;base64,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"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" alt="MathJax logo" src="data:image/png;base64,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"></a>
 </div>
 </body>
 </html>

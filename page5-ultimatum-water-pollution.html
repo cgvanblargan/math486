@@ -17,17 +17,21 @@
 <title>Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends decimal; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
-</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+</script><script defer data-pretext-mathjax="true" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
@@ -36,7 +40,7 @@ htmlPresentation: false,
 <meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -58,33 +62,61 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.4.0';
+eBookConfig.runestone_version = '8.4.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.7e2ee203f2ecd6c8.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
+<script src="_static/prefix-runtime.82b21a4699b89209.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="deforest-gametheory-math486" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></div>
 <p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
-<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
-<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
 <div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
-<h2 class="ptx-search-results-heading">Search Results: </h2>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="page4-zero-sum.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page6-equivalent-games-critique.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="page4-zero-sum.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="page6-equivalent-games-critique.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -93,17 +125,17 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-frontmatter" class="structural toc-item-list">
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
 <li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-backward-induction" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
@@ -117,7 +149,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-eliminating-dominated-strategies" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
@@ -128,7 +160,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-nash-equilibria" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
@@ -139,7 +171,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-incomplete-information" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
@@ -149,7 +181,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-mixed-strategy-nash-equilibria">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
@@ -162,20 +194,21 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-more-extensive-form" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-answers.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Answers to Ch. 6 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+<ul id="ptx-toc-group-ch-symmetries-of-games" class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-alternatives-to-nash" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Evolutionary Stability</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page2-two-pure-strategies.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability with Two Pure Strategies</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Exercises</span></a></div></li>
@@ -185,21 +218,21 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="section" id="page5-ultimatum-water-pollution">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span>
+</h1>
+<div class="para" id="page5-ultimatum-water-pollution-2">This page covers three sections. First we’ll finish Section 5.5 by seeing what Theorem 5.6 tells us about One-Card Two-Round Poker. Then come two more examples of finding mixed strategy Nash equilibria with the Fundamental Theorem (Theorem 5.2).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page5-ultimatum-water-pollution-3">A quick recap from the last page. In a two-player <dfn class="terminology">zero-sum</dfn> game, the players’ payoffs add up to <span class="process-math">\(0\)</span> in every cell. Theorem 5.6 says that in these games, Nash equilibria and maximin equilibria are exactly the same thing, and at every Nash equilibrium, each player gets their maximin payoff.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="page5-ultimatum-water-pollution-4">Before you read on, see if you can work out a consequence of Theorem 5.6 on your own.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-interchangeability"><h2 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.1</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interchangeability.</span>
 </h2>
-<div class="para" id="page5-ultimatum-water-pollution-2">This page covers three sections. First we’ll finish Section 5.5 by seeing what Theorem 5.6 tells us about One-Card Two-Round Poker. Then come two more examples of finding mixed strategy Nash equilibria with the Fundamental Theorem (Theorem 5.2).<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page5-ultimatum-water-pollution-3">A quick recap from the last page. In a two-player <dfn class="terminology">zero-sum</dfn> game, the players’ payoffs add up to <span class="process-math">\(0\)</span> in every cell. Theorem 5.6 says that in these games, Nash equilibria and maximin equilibria are exactly the same thing, and at every Nash equilibrium, each player gets their maximin payoff.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<div class="para" id="page5-ultimatum-water-pollution-4">Before you read on, see if you can work out a consequence of Theorem 5.6 on your own.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
-</div>
-<article class="exercise exercise-like" id="check-interchangeability"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.1</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interchangeability.</span>
-</h3>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-interchangeability-2-1">Suppose <span class="process-math">\((\sigma_1, \sigma_2)\)</span> and <span class="process-math">\((\tau_1, \tau_2)\)</span> are both Nash equilibria of a two-player zero-sum game. Is <span class="process-math">\((\sigma_1, \tau_2)\)</span> also a Nash equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#check-interchangeability-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-interchangeability-2-1">Suppose <span class="process-math">\((\sigma_1, \sigma_2)\)</span> and <span class="process-math">\((\tau_1, \tau_2)\)</span> are both Nash equilibria of a two-player zero-sum game. Is <span class="process-math">\((\sigma_1, \tau_2)\)</span> also a Nash equilibrium?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-interchangeability-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-interchangeability" data-multipleanswers="false">
@@ -217,23 +250,23 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 5.5.1: Interchangeability"><a href="#check-interchangeability" title="Copy heading and permalink for Checkpoint 5.5.1: Interchangeability" aria-label="Copy heading and permalink for Checkpoint 5.5.1: Interchangeability">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 5.5.1: Interchangeability"><a tabindex="-1" href="#check-interchangeability" title="Copy heading and permalink for Checkpoint 5.5.1: Interchangeability" aria-label="Copy heading and permalink for Checkpoint 5.5.1: Interchangeability">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-6">So Nash equilibria of zero-sum games have an <em class="emphasis">interchangeability</em> property: you can swap halves of two Nash equilibria and get another one.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-6">So Nash equilibria of zero-sum games have an <em class="emphasis">interchangeability</em> property: you can swap halves of two Nash equilibria and get another one.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-6" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="read-5-5-rest"><h3 class="heading"><span class="title">Section 5.5, The Rest.</span></h3>
+<article class="assemblage assemblage-like" id="read-5-5-rest"><h2 class="heading"><span class="title">Section 5.5, The Rest.</span></h2>
 <div class="para" id="read-5-5-rest-2">
-<em class="alert">Finish reading Section 5.5.</em> Pick up right after the statement of Theorem 5.6. You can skip or skim the book’s proof, since we did the main part of it on the last page.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-5-rest-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Finish reading Section 5.5.</em> Pick up right after the statement of Theorem 5.6. You can skip or skim the book’s proof, since we did the main part of it on the last page.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-5-rest-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-5-5-rest-3">The first paragraph after the proof is the interchangeability property you just found in the checkpoint. The book then uses it to show that One-Card Two-Round Poker has only one Nash equilibrium. The argument can be hard to follow, so after you give it a first reading, we’ll put it together step by step.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-5-rest-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-5-5-rest-3">The first paragraph after the proof is the interchangeability property you just found in the checkpoint. The book then uses it to show that One-Card Two-Round Poker has only one Nash equilibrium. The argument can be hard to follow, so after you give it a first reading, we’ll put it together step by step.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-5-rest-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Reading: Section 5.5, The Rest"><a href="#read-5-5-rest" title="Copy heading and permalink for Reading: Section 5.5, The Rest" aria-label="Copy heading and permalink for Reading: Section 5.5, The Rest">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Reading: Section 5.5, The Rest"><a tabindex="-1" href="#read-5-5-rest" title="Copy heading and permalink for Reading: Section 5.5, The Rest" aria-label="Copy heading and permalink for Reading: Section 5.5, The Rest">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-8">The book’s argument is a proof by contradiction. We’ll build a direct version instead, using the interchangeability property and one more fact that came out of the calculations in Section 5.4.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-8">The book’s argument is a proof by contradiction. We’ll build a direct version instead, using the interchangeability property and one more fact that came out of the calculations in Section 5.4.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-poker-uniqueness"><h3 class="heading">
-<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.2</span><span class="period heading-divison-mark heading-divison-mark__period">.</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Only One Equilibrium in Poker.</span>
-</h3>
+<article class="exercise exercise-like" id="check-poker-uniqueness"><h2 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Only One Equilibrium in Poker.</span>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone parsons_section" style="max-width: none;"><div data-component="parsons" class="parsons" id="rs-check-poker-uniqueness">
 <div class="parsons_question parsons-text">
 <div class="para logical" id="check-poker-uniqueness-2-1">
@@ -246,18 +279,18 @@ eBookConfig.enable_chatcodes =  false;
 \end{align*}
 </div>
 <div class="para">In both, all three strategies are active (every pure strategy gets positive probability). At the end of Section 5.4, the book also points out the following.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#check-poker-uniqueness-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-poker-uniqueness-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <blockquote class="blockquote" id="check-poker-uniqueness-2-2">
 <div class="para" id="check-poker-uniqueness-2-2-1">
-<em class="alert">Fact from 5.4:</em> In <em class="emphasis">any</em> Nash equilibrium of One-Card Two-Round Poker where Player 2 uses all three of his strategies, Player 1 must play <span class="process-math">\(\sigma_1^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-poker-uniqueness-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Fact from 5.4:</em> In <em class="emphasis">any</em> Nash equilibrium of One-Card Two-Round Poker where Player 2 uses all three of his strategies, Player 1 must play <span class="process-math">\(\sigma_1^*\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-poker-uniqueness-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Quotation"><a href="#check-poker-uniqueness-2-2" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Quotation"><a tabindex="-1" href="#check-poker-uniqueness-2-2" title="Copy heading and permalink for Quotation" aria-label="Copy heading and permalink for Quotation">🔗</a></div>
 </blockquote> 
-<div class="para" id="check-poker-uniqueness-2-3">Now let <span class="process-math">\((\tau_1, \tau_2)\)</span> be <em class="emphasis">any</em> Nash equilibrium of the poker game. We want to show <span class="process-math">\(\tau_1 = \sigma_1^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#check-poker-uniqueness-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-poker-uniqueness-2-3">Now let <span class="process-math">\((\tau_1, \tau_2)\)</span> be <em class="emphasis">any</em> Nash equilibrium of the poker game. We want to show <span class="process-math">\(\tau_1 = \sigma_1^*\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-poker-uniqueness-2-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
 <div class="para" id="check-poker-uniqueness-2-4">
-<em class="alert">Your task.</em> The argument has four lines, and each block is labeled with the line it belongs on. Lines 1, 2, and 3 each come in two versions, (a) and (b). Pick the right version of each line and drag it into the answer area in order.<div class="autopermalink" data-description="Paragraph"><a href="#check-poker-uniqueness-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Your task.</em> The argument has four lines, and each block is labeled with the line it belongs on. Lines 1, 2, and 3 each come in two versions, (a) and (b). Pick the right version of each line and drag it into the answer area in order.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-poker-uniqueness-2-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-order="0,1,2,3,4,5,6" data-noindent="true">
@@ -293,33 +326,33 @@ eBookConfig.enable_chatcodes =  false;
 <div class="solutions">
 <details id="check-poker-uniqueness-4" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<div class="para" id="check-poker-uniqueness-4-1">The fact from 5.4 only applies to an equilibrium where Player 2 uses all three strategies. We don’t know anything about <span class="process-math">\(\tau_2\text{,}\)</span> so build an equilibrium that keeps <span class="process-math">\(\tau_1\)</span> but gives Player 2 a strategy we do know.<div class="autopermalink" data-description="Paragraph"><a href="#check-poker-uniqueness-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-poker-uniqueness-4-1">The fact from 5.4 only applies to an equilibrium where Player 2 uses all three strategies. We don’t know anything about <span class="process-math">\(\tau_2\text{,}\)</span> so build an equilibrium that keeps <span class="process-math">\(\tau_1\)</span> but gives Player 2 a strategy we do know.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-poker-uniqueness-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Hint 5.5.2.1"><a href="#check-poker-uniqueness-4" title="Copy heading and permalink for Hint 5.5.2.1" aria-label="Copy heading and permalink for Hint 5.5.2.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 5.5.2.1"><a tabindex="-1" href="#check-poker-uniqueness-4" title="Copy heading and permalink for Hint 5.5.2.1" aria-label="Copy heading and permalink for Hint 5.5.2.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Checkpoint 5.5.2: Only One Equilibrium in Poker"><a href="#check-poker-uniqueness" title="Copy heading and permalink for Checkpoint 5.5.2: Only One Equilibrium in Poker" aria-label="Copy heading and permalink for Checkpoint 5.5.2: Only One Equilibrium in Poker">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 5.5.2: Only One Equilibrium in Poker"><a tabindex="-1" href="#check-poker-uniqueness" title="Copy heading and permalink for Checkpoint 5.5.2: Only One Equilibrium in Poker" aria-label="Copy heading and permalink for Checkpoint 5.5.2: Only One Equilibrium in Poker">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-10">The same argument with the players switched (build <span class="process-math">\((\sigma_1^*, \tau_2)\)</span> this time) shows <span class="process-math">\(\tau_2 = \sigma_2^*\text{.}\)</span> So <span class="process-math">\((\tau_1, \tau_2) = (\sigma_1^*, \sigma_2^*)\text{,}\)</span> the equilibrium we already found. It’s the only Nash equilibrium of the game!<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-10">The same argument with the players switched (build <span class="process-math">\((\sigma_1^*, \tau_2)\)</span> this time) shows <span class="process-math">\(\tau_2 = \sigma_2^*\text{.}\)</span> So <span class="process-math">\((\tau_1, \tau_2) = (\sigma_1^*, \sigma_2^*)\text{,}\)</span> the equilibrium we already found. It’s the only Nash equilibrium of the game!<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-10" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="read-5-6"><h3 class="heading"><span class="title">Section 5.6, The Ultimatum Minigame.</span></h3>
+<article class="assemblage assemblage-like" id="read-5-6"><h2 class="heading"><span class="title">Section 5.6, The Ultimatum Minigame.</span></h2>
 <div class="para" id="read-5-6-2">
-<em class="alert">Read all of Section 5.6.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-5-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read all of Section 5.6.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-6-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="read-5-6-3">It’s a short section. Pay attention to how the book uses the Fundamental Theorem: first on the pure strategy equilibrium <span class="process-math">\((f, r)\text{,}\)</span> and then on the mixed profiles <span class="process-math">\((f,\ qa + (1-q)r)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#read-5-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-5-6-3">It’s a short section. Pay attention to how the book uses the Fundamental Theorem: first on the pure strategy equilibrium <span class="process-math">\((f, r)\text{,}\)</span> and then on the mixed profiles <span class="process-math">\((f,\ qa + (1-q)r)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-6-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Reading: Section 5.6, The Ultimatum Minigame"><a href="#read-5-6" title="Copy heading and permalink for Reading: Section 5.6, The Ultimatum Minigame" aria-label="Copy heading and permalink for Reading: Section 5.6, The Ultimatum Minigame">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Reading: Section 5.6, The Ultimatum Minigame"><a tabindex="-1" href="#read-5-6" title="Copy heading and permalink for Reading: Section 5.6, The Ultimatum Minigame" aria-label="Copy heading and permalink for Reading: Section 5.6, The Ultimatum Minigame">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-12">Let’s make sure the way the book applied the theorem is clear. The book looks at strategy profiles of the form <span class="process-math">\((f,\ qa + (1-q)r)\)</span> with <span class="process-math">\(0 \lt q \lt 1\text{.}\)</span> Theorem 5.2 gives a list of conditions to check, and which conditions show up depends on which strategies are active.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-12">Let’s make sure the way the book applied the theorem is clear. The book looks at strategy profiles of the form <span class="process-math">\((f,\ qa + (1-q)r)\)</span> with <span class="process-math">\(0 \lt q \lt 1\text{.}\)</span> Theorem 5.2 gives a list of conditions to check, and which conditions show up depends on which strategies are active.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-ultimatum-conditions"><h3 class="heading">
+<article class="exercise exercise-like" id="check-ultimatum-conditions"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.3</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone parsons_section" style="max-width: none;"><div data-component="parsons" class="parsons" id="rs-check-ultimatum-conditions">
 <div class="parsons_question parsons-text">
-<div class="para" id="check-ultimatum-conditions-1-1">To show that <span class="process-math">\((f,\ qa + (1-q)r)\)</span> with <span class="process-math">\(0 \lt q \lt 1\)</span> is a Nash equilibrium, which conditions from Theorem 5.2 do we need to check? Here <span class="process-math">\(\sigma_2 = qa + (1-q)r\)</span> is Bob’s mixed strategy. Notice that the strict inequalities in <span class="process-math">\(0 \lt q \lt 1\)</span> mean both of Bob’s strategies, <span class="process-math">\(a\)</span> and <span class="process-math">\(r\text{,}\)</span> are active!<div class="autopermalink" data-description="Paragraph"><a href="#check-ultimatum-conditions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-ultimatum-conditions-1-1">To show that <span class="process-math">\((f,\ qa + (1-q)r)\)</span> with <span class="process-math">\(0 \lt q \lt 1\)</span> is a Nash equilibrium, which conditions from Theorem 5.2 do we need to check? Here <span class="process-math">\(\sigma_2 = qa + (1-q)r\)</span> is Bob’s mixed strategy. Notice that the strict inequalities in <span class="process-math">\(0 \lt q \lt 1\)</span> mean both of Bob’s strategies, <span class="process-math">\(a\)</span> and <span class="process-math">\(r\text{,}\)</span> are active!<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ultimatum-conditions-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div> 
-<div class="para" id="check-ultimatum-conditions-1-2">Drag every condition we need into the answer area. The order doesn’t matter, and not every condition belongs!<div class="autopermalink" data-description="Paragraph"><a href="#check-ultimatum-conditions-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-ultimatum-conditions-1-2">Drag every condition we need into the answer area. The order doesn’t matter, and not every condition belongs!<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ultimatum-conditions-1-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <pre class="parsonsblocks" data-question_label="" style="visibility: hidden;" data-language="natural" data-grader="dag" data-noindent="true"><span class="process-math">\(\pi_2(f, a) = \pi_2(f, r)\)</span> #tag:bob-eq; depends:;
@@ -335,21 +368,21 @@ eBookConfig.enable_chatcodes =  false;
 <div class="solutions">
 <details id="check-ultimatum-conditions-3" class="hint solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Hint</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="hint solution-like knowl__content">
-<div class="para" id="check-ultimatum-conditions-3-1">Alice has only one active strategy, <span class="process-math">\(f\text{,}\)</span> and one inactive strategy, <span class="process-math">\(u\text{.}\)</span> Bob has two active strategies and no inactive ones. Which kind of condition does each active or inactive strategy give?<div class="autopermalink" data-description="Paragraph"><a href="#check-ultimatum-conditions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-ultimatum-conditions-3-1">Alice has only one active strategy, <span class="process-math">\(f\text{,}\)</span> and one inactive strategy, <span class="process-math">\(u\text{.}\)</span> Bob has two active strategies and no inactive ones. Which kind of condition does each active or inactive strategy give?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ultimatum-conditions-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Hint 5.5.3.1"><a href="#check-ultimatum-conditions-3" title="Copy heading and permalink for Hint 5.5.3.1" aria-label="Copy heading and permalink for Hint 5.5.3.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Hint 5.5.3.1"><a tabindex="-1" href="#check-ultimatum-conditions-3" title="Copy heading and permalink for Hint 5.5.3.1" aria-label="Copy heading and permalink for Hint 5.5.3.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Checkpoint 5.5.3"><a href="#check-ultimatum-conditions" title="Copy heading and permalink for Checkpoint 5.5.3" aria-label="Copy heading and permalink for Checkpoint 5.5.3">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 5.5.3"><a tabindex="-1" href="#check-ultimatum-conditions" title="Copy heading and permalink for Checkpoint 5.5.3" aria-label="Copy heading and permalink for Checkpoint 5.5.3">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-14">So the equality <span class="process-math">\(\pi_2(f, a) = \pi_2(f, r)\)</span> holds automatically (both are <span class="process-math">\(2\)</span>), and all the work is in Alice’s inequality, which comes out to <span class="process-math">\(q \leq \frac{2}{3}\text{.}\)</span> Before moving on, let’s make sure that answer makes sense.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-14">So the equality <span class="process-math">\(\pi_2(f, a) = \pi_2(f, r)\)</span> holds automatically (both are <span class="process-math">\(2\)</span>), and all the work is in Alice’s inequality, which comes out to <span class="process-math">\(q \leq \frac{2}{3}\text{.}\)</span> Before moving on, let’s make sure that answer makes sense.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-14" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-ultimatum-why-upper-bound"><h3 class="heading">
+<article class="exercise exercise-like" id="check-ultimatum-why-upper-bound"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.4</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
 <div class="exercise-statement">
-<div class="para" id="check-ultimatum-why-upper-bound-1-1">The condition turned out to be <span class="process-math">\(q \leq \frac{2}{3}\text{.}\)</span> Why does it make sense that this is an upper limit on <span class="process-math">\(q\text{,}\)</span> rather than a lower limit?<div class="autopermalink" data-description="Paragraph"><a href="#check-ultimatum-why-upper-bound-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="check-ultimatum-why-upper-bound-1-1">The condition turned out to be <span class="process-math">\(q \leq \frac{2}{3}\text{.}\)</span> Why does it make sense that this is an upper limit on <span class="process-math">\(q\text{,}\)</span> rather than a lower limit?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ultimatum-why-upper-bound-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 </div>
 <ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-ultimatum-why-upper-bound" data-multipleanswers="false">
@@ -369,52 +402,52 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 </ul>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 5.5.4"><a href="#check-ultimatum-why-upper-bound" title="Copy heading and permalink for Checkpoint 5.5.4" aria-label="Copy heading and permalink for Checkpoint 5.5.4">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 5.5.4"><a tabindex="-1" href="#check-ultimatum-why-upper-bound" title="Copy heading and permalink for Checkpoint 5.5.4" aria-label="Copy heading and permalink for Checkpoint 5.5.4">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-16">We’re going to skip Section 5.7 (Colonel Blotto). Next up is Section 5.8.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-16">We’re going to skip Section 5.7 (Colonel Blotto). Next up is Section 5.8.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-16" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="assemblage assemblage-like" id="read-5-8"><h3 class="heading"><span class="title">Section 5.8, Water Pollution 3.</span></h3>
+<article class="assemblage assemblage-like" id="read-5-8"><h2 class="heading"><span class="title">Section 5.8, Water Pollution 3.</span></h2>
 <div class="para" id="read-5-8-2">
-<em class="alert">Read all of Section 5.8.</em><div class="autopermalink" data-description="Paragraph"><a href="#read-5-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<em class="alert">Read all of Section 5.8.</em><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-8-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="para logical" id="read-5-8-3">
 <div class="para">This is the Water Pollution game from Section 3.3, now looking for mixed strategy equilibria. Keep the following in mind:</div>
 <ul class="disc" id="read-5-8-3-1">
 <li id="read-5-8-3-1-1">
-<div class="para" id="read-5-8-3-1-1-1">The book writes the payoffs as functions of <span class="process-math">\((x, y, z)\text{,}\)</span> the probabilities that each firm purifies. Plugging in <span class="process-math">\(1\)</span> or <span class="process-math">\(0\)</span> for one of them means that firm plays a pure strategy.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-8-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-5-8-3-1-1-1">The book writes the payoffs as functions of <span class="process-math">\((x, y, z)\text{,}\)</span> the probabilities that each firm purifies. Plugging in <span class="process-math">\(1\)</span> or <span class="process-math">\(0\)</span> for one of them means that firm plays a pure strategy.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-8-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#read-5-8-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#read-5-8-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="read-5-8-3-1-2">
-<div class="para" id="read-5-8-3-1-2-1">The book only writes out the first of the three indifference equations in full. We’ll do the second one together below.<div class="autopermalink" data-description="Paragraph"><a href="#read-5-8-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="read-5-8-3-1-2-1">The book only writes out the first of the three indifference equations in full. We’ll do the second one together below.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-8-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#read-5-8-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#read-5-8-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Paragraph"><a href="#read-5-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#read-5-8-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Reading: Section 5.8, Water Pollution 3"><a href="#read-5-8" title="Copy heading and permalink for Reading: Section 5.8, Water Pollution 3" aria-label="Copy heading and permalink for Reading: Section 5.8, Water Pollution 3">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Reading: Section 5.8, Water Pollution 3"><a tabindex="-1" href="#read-5-8" title="Copy heading and permalink for Reading: Section 5.8, Water Pollution 3" aria-label="Copy heading and permalink for Reading: Section 5.8, Water Pollution 3">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-18">Here’s Table 5.2 again for reference. In each triple, the payoffs are listed in the order (Firm 1, Firm 2, Firm 3).<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-18">Here’s Table 5.2 again for reference. In each triple, the payoffs are listed in the order (Firm 1, Firm 2, Firm 3).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<figure class="table table-like" id="table-water-pollution-firm3-g"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 purifies (probability <span class="process-math">\(z\)</span>)<div class="autopermalink" data-description="Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)"><a href="#table-water-pollution-firm3-g" title="Copy heading and permalink for Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)" aria-label="Copy heading and permalink for Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-water-pollution-firm3-g"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 purifies (probability <span class="process-math">\(z\)</span>)<div class="autopermalink" aria-hidden="true" data-description="Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)"><a tabindex="-1" href="#table-water-pollution-firm3-g" title="Copy heading and permalink for Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)" aria-label="Copy heading and permalink for Table 5.5.5: Water Pollution, Firm 3 purifies (probability z)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b0 r0 l0 t0 lines" colspan="2">Firm 2</th>
 </tr>
 <tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(y\)</span></th>
 <th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-y}\)</span></th>
 </tr>
 <tr class="header-horizontal">
-<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b1 r1 l0 t0 lines"></th>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(g\)</span></th>
 <th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(b\)</span></th>
 </tr>
@@ -434,24 +467,24 @@ eBookConfig.enable_chatcodes =  false;
 </tr>
 </table></div>
 </figure>
-<figure class="table table-like" id="table-water-pollution-firm3-b"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 pollutes (probability <span class="process-math">\(1-z\)</span>)<div class="autopermalink" data-description="Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)"><a href="#table-water-pollution-firm3-b" title="Copy heading and permalink for Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)" aria-label="Copy heading and permalink for Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<figure class="table table-like" id="table-water-pollution-firm3-b"><figcaption><span class="type">Table</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Water Pollution, Firm 3 pollutes (probability <span class="process-math">\(1-z\)</span>)<div class="autopermalink" aria-hidden="true" data-description="Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)"><a tabindex="-1" href="#table-water-pollution-firm3-b" title="Copy heading and permalink for Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)" aria-label="Copy heading and permalink for Table 5.5.6: Water Pollution, Firm 3 pollutes (probability 1-z)">🔗</a></div></figcaption><div class="tabular-box natural-width"><table class="tabular">
 <tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b0 r0 l0 t0 lines" colspan="2">Firm 2</th>
 </tr>
 <tr class="header-horizontal">
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b0 r1 l0 t0 lines"></th>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\(y\)</span></th>
 <th scope="col" class="c m b0 r0 l0 t0 lines"><span class="process-math">\({1-y}\)</span></th>
 </tr>
 <tr class="header-horizontal">
-<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b1 r0 l0 t0 lines"></th>
-<th scope="col" class="c m b1 r1 l0 t0 lines"></th>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r0 l0 t0 lines"></td>
+<td class="c m b1 r1 l0 t0 lines"></td>
 <th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(g\)</span></th>
 <th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(b\)</span></th>
 </tr>
@@ -471,28 +504,28 @@ eBookConfig.enable_chatcodes =  false;
 </tr>
 </table></div>
 </figure>
-<div class="para" id="page5-ultimatum-water-pollution-21">The book writes out the first indifference equation, <span class="process-math">\(\pi_1(1, y, z) = \pi_1(0, y, z)\text{,}\)</span> in full. Let’s do the second one, <span class="process-math">\(\pi_2(x, 1, z) = \pi_2(x, 0, z)\text{,}\)</span> which says Firm 2 gets the same payoff from <span class="process-math">\(g\)</span> and <span class="process-math">\(b\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-21">The book writes out the first indifference equation, <span class="process-math">\(\pi_1(1, y, z) = \pi_1(0, y, z)\text{,}\)</span> in full. Let’s do the second one, <span class="process-math">\(\pi_2(x, 1, z) = \pi_2(x, 0, z)\text{,}\)</span> which says Firm 2 gets the same payoff from <span class="process-math">\(g\)</span> and <span class="process-math">\(b\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<article class="exercise exercise-like" id="check-water-pollution-firm2-long-form"><h3 class="heading">
+<article class="exercise exercise-like" id="check-water-pollution-firm2-long-form"><h2 class="heading">
 <span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.5.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
-</h3>
+</h2>
 <div class="ptx-runestone-container"><div class="runestone">
 <div data-component="fillintheblank" class="fillintheblank" style="visibility: hidden;" id="rs-check-water-pollution-firm2-long-form"><script type="application/json">{
-"problemHtml": "\n<div class=\"para logical\" id=\"check-water-pollution-firm2-long-form-1-1\"><div class=\"para\">Here’s the left side, Firm 2’s payoff if it purifies:<\/div><div class=\"displaymath process-math\" id=\"check-water-pollution-firm2-long-form-1-1-1\">\n\\begin{equation*}\n\\pi_2(x, 1, z) = -1\\cdot xz - 1\\cdot (1-x)z - 1\\cdot x(1-z) - 4\\cdot(1-x)(1-z).\n\\end{equation*}\n<\/div><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-water-pollution-firm2-long-form-1-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-1-2\">Now you do the right side, Firm 2’s payoff if it pollutes. Remember that Firm 2’s payoff is the <em class=\"emphasis\">second<\/em> entry in each triple.<div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-water-pollution-firm2-long-form-1-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-1-3\"><span class=\"process-math\">\\(\\pi_2(x, 0, z) =\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b1\" name=\"b1\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot xz \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b2\" name=\"b2\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot (1-x)z \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b3\" name=\"b3\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot x(1-z) \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b4\" name=\"b4\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot (1-x)(1-z)\\)<\/span><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-water-pollution-firm2-long-form-1-3\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
-"solutionHtml": "\n<div class=\"para logical\" id=\"check-water-pollution-firm2-long-form-3-1\"><div class=\"para\">Setting the two payoffs equal gives<\/div><div class=\"displaymath process-math\" id=\"check-water-pollution-firm2-long-form-3-1-1\">\n\\begin{equation*}\n-xz - (1-x)z - x(1-z) - 4(1-x)(1-z)\n= 0xz - 3(1-x)z - 3x(1-z) - 3(1-x)(1-z).\n\\end{equation*}\n<\/div><div class=\"para\">Compare this with the book’s version of Firm 1’s equation. It has exactly the same shape, with <span class=\"process-math\">\\(y\\)<\/span> replaced by <span class=\"process-math\">\\(x\\text{.}\\)<\/span> That’s the symmetry of the game at work: from Firm 2’s point of view, the situation is the same as Firm 1’s. That’s why this equation simplifies to <span class=\"process-math\">\\(1 - 3x - 3z + 6xz = 0\\text{,}\\)<\/span> the first equation in (5.13).<\/div><div class=\"autopermalink\" data-description=\"Paragraph\"><a href=\"#check-water-pollution-firm2-long-form-3-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"problemHtml": "\n<div class=\"para logical\" id=\"check-water-pollution-firm2-long-form-1-1\"><div class=\"para\">Here’s the left side, Firm 2’s payoff if it purifies:<\/div><div class=\"displaymath process-math\" id=\"check-water-pollution-firm2-long-form-1-1-1\">\n\\begin{equation*}\n\\pi_2(x, 1, z) = -1\\cdot xz - 1\\cdot (1-x)z - 1\\cdot x(1-z) - 4\\cdot(1-x)(1-z).\n\\end{equation*}\n<\/div><div class=\"autopermalink\" aria-hidden=\"true\" data-description=\"Paragraph\"><a tabindex=\"-1\" href=\"#check-water-pollution-firm2-long-form-1-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-1-2\">Now you do the right side, Firm 2’s payoff if it pollutes. Remember that Firm 2’s payoff is the <em class=\"emphasis\">second<\/em> entry in each triple.<div class=\"autopermalink\" aria-hidden=\"true\" data-description=\"Paragraph\"><a tabindex=\"-1\" href=\"#check-water-pollution-firm2-long-form-1-2\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-1-3\"><span class=\"process-math\">\\(\\pi_2(x, 0, z) =\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b1\" name=\"b1\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot xz \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b2\" name=\"b2\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot (1-x)z \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b3\" name=\"b3\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot x(1-z) \\;+\\)<\/span> <input type=\"text\" id=\"check-water-pollution-firm2-long-form-b4\" name=\"b4\" size=\"3\"\/> <span class=\"process-math\">\\(\\cdot (1-x)(1-z)\\)<\/span><div class=\"autopermalink\" aria-hidden=\"true\" data-description=\"Paragraph\"><a tabindex=\"-1\" href=\"#check-water-pollution-firm2-long-form-1-3\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
+"solutionHtml": "\n<div class=\"para logical\" id=\"check-water-pollution-firm2-long-form-3-1\"><div class=\"para\">Setting the two payoffs equal gives<\/div><div class=\"displaymath process-math\" id=\"check-water-pollution-firm2-long-form-3-1-1\">\n\\begin{equation*}\n-xz - (1-x)z - x(1-z) - 4(1-x)(1-z)\n= 0xz - 3(1-x)z - 3x(1-z) - 3(1-x)(1-z).\n\\end{equation*}\n<\/div><div class=\"para\">Compare this with the book’s version of Firm 1’s equation. It has exactly the same shape, with <span class=\"process-math\">\\(y\\)<\/span> replaced by <span class=\"process-math\">\\(x\\text{.}\\)<\/span> That’s the symmetry of the game at work: from Firm 2’s point of view, the situation is the same as Firm 1’s. That’s why this equation simplifies to <span class=\"process-math\">\\(1 - 3x - 3z + 6xz = 0\\text{,}\\)<\/span> the first equation in (5.13).<\/div><div class=\"autopermalink\" aria-hidden=\"true\" data-description=\"Paragraph\"><a tabindex=\"-1\" href=\"#check-water-pollution-firm2-long-form-3-1\" title=\"Copy heading and permalink for Paragraph\" aria-label=\"Copy heading and permalink for Paragraph\">🔗<\/a><\/div><\/div>",
 "blankNames": {"b1": 0, "b2": 1, "b3": 2, "b4": 3},
 "feedbackArray": [[{"number": [0,0], "feedback": "Correct!"}, {"number": [-1,-1], "feedback": "\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-2-1-2-2-1\">That’s Firm 1’s or Firm 3’s payoff. Firm 2’s payoff is the second entry.<\/div>"}, {"feedback": "Incorrect."}], [{"number": [-3,-3], "feedback": "Correct!"}, {"number": [-4,-4], "feedback": "\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-2-2-2-2-1\">That’s the third entry, Firm 3’s payoff. Firm 2’s payoff is the second entry.<\/div>"}, {"feedback": "Incorrect."}], [{"number": [-3,-3], "feedback": "Correct!"}, {"number": [-4,-4], "feedback": "\n<div class=\"para\" id=\"check-water-pollution-firm2-long-form-2-3-2-2-1\">That’s the first entry, Firm 1’s payoff. Firm 2’s payoff is the second entry.<\/div>"}, {"feedback": "Incorrect."}], [{"number": [-3,-3], "feedback": "Correct!"}, {"feedback": "Incorrect."}]]
 }</script></div>
 </div></div>
-<div class="autopermalink" data-description="Checkpoint 5.5.7"><a href="#check-water-pollution-firm2-long-form" title="Copy heading and permalink for Checkpoint 5.5.7" aria-label="Copy heading and permalink for Checkpoint 5.5.7">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 5.5.7"><a tabindex="-1" href="#check-water-pollution-firm2-long-form" title="Copy heading and permalink for Checkpoint 5.5.7" aria-label="Copy heading and permalink for Checkpoint 5.5.7">🔗</a></div>
 </article>
-<div class="para" id="page5-ultimatum-water-pollution-23">So the second indifference equation is just <span class="process-math">\(\pi_2(x, 1, z) = \pi_2(x, 0, z)\text{,}\)</span> using the two expressions above. The third one, <span class="process-math">\(\pi_3(x, y, 1) = \pi_3(x, y, 0)\text{,}\)</span> works the same way. Once you’re comfortable with that, the rest is solving the three equations, as the book does.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-23">So the second indifference equation is just <span class="process-math">\(\pi_2(x, 1, z) = \pi_2(x, 0, z)\text{,}\)</span> using the two expressions above. The third one, <span class="process-math">\(\pi_3(x, y, 1) = \pi_3(x, y, 0)\text{,}\)</span> works the same way. Once you’re comfortable with that, the rest is solving the three equations, as the book does.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-23" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="page5-ultimatum-water-pollution-24">You might wonder whether we also need an equation saying the probabilities add up to <span class="process-math">\(1\text{.}\)</span> We don’t: writing each firm’s strategy as <span class="process-math">\(xg + (1-x)b\)</span> already builds that in. There are also no inequalities to check, since every strategy is active.<div class="autopermalink" data-description="Paragraph"><a href="#page5-ultimatum-water-pollution-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="page5-ultimatum-water-pollution-24">You might wonder whether we also need an equation saying the probabilities add up to <span class="process-math">\(1\text{.}\)</span> We don’t: writing each firm’s strategy as <span class="process-math">\(xg + (1-x)b\)</span> already builds that in. There are also no inequalities to check, since every strategy is active.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#page5-ultimatum-water-pollution-24" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="interactive-iframe-container"><iframe src="external/question-form.html?section=5.5" id="question-form-5-5" style="width:600px; height:300px; display: block; "></iframe></div>
 <div class="interactive-iframe-container__opener"><a href="question-form-5-5.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
-<div class="autopermalink" data-description="Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution"><a href="#page5-ultimatum-water-pollution" title="Copy heading and permalink for Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution" aria-label="Copy heading and permalink for Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution"><a tabindex="-1" href="#page5-ultimatum-water-pollution" title="Copy heading and permalink for Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution" aria-label="Copy heading and permalink for Section 5.5: Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
@@ -500,7 +533,7 @@ eBookConfig.enable_chatcodes =  false;
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" alt="Runestone Academy logo" src="data:image/png;base64,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"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" alt="MathJax logo" src="data:image/png;base64,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"></a>
 </div>
 </body>
 </html>

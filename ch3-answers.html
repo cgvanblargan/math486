@@ -17,17 +17,21 @@
 <title>Answers to Ch. 3 Exercises</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends decimal; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
-</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+</script><script defer data-pretext-mathjax="true" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
@@ -36,7 +40,7 @@ htmlPresentation: false,
 <meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -58,33 +62,61 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.4.0';
+eBookConfig.runestone_version = '8.4.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.7e2ee203f2ecd6c8.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
+<script src="_static/prefix-runtime.82b21a4699b89209.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="deforest-gametheory-math486" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></div>
 <p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
-<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
-<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
 <div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
-<h2 class="ptx-search-results-heading">Search Results: </h2>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch3-exercises.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-incomplete-information.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch3-exercises.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-incomplete-information.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -93,17 +125,17 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-frontmatter" class="structural toc-item-list">
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
 <li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-backward-induction" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
@@ -117,7 +149,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-eliminating-dominated-strategies" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
@@ -128,7 +160,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-nash-equilibria">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
@@ -139,7 +171,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-incomplete-information" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
@@ -149,7 +181,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-mixed-strategy-nash-equilibria" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
@@ -162,20 +194,21 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-more-extensive-form" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-answers.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Answers to Ch. 6 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+<ul id="ptx-toc-group-ch-symmetries-of-games" class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-alternatives-to-nash" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Evolutionary Stability</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page2-two-pure-strategies.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability with Two Pure Strategies</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Exercises</span></a></div></li>
@@ -185,22 +218,22 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="exercises" id="ch3-answers">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">3.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Answers to Ch. 3 Exercises</span>
-</h2>
+</h1>
 <section class="introduction" id="ch3-answers-2">
-<div class="para" id="ch3-answers-2-1">Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click <dfn class="terminology">Solution</dfn> to reveal the answer.<div class="autopermalink" data-description="Paragraph"><a href="#ch3-answers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ch3-answers-2-1">Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click <dfn class="terminology">Solution</dfn> to reveal the answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch3-answers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ch3-answers-2-2">These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.<div class="autopermalink" data-description="Paragraph"><a href="#ch3-answers-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ch3-answers-2-2">These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch3-answers-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
-<details id="ans-hw-nash-definition" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-nash-definition" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Nash Equilibrium Definition.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-nash-definition-math"><h4 class="heading">
+<article class="task exercise-like" id="ans-nash-definition-math"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Nash equilibrium, in notation.</span>
-</h4>
-<div class="para" id="ans-nash-definition-math-2-1">State mathematically what it means for <span class="process-math">\(s^*\)</span> to be a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-math-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-nash-definition-math-2-1">State mathematically what it means for <span class="process-math">\(s^*\)</span> to be a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-math-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-nash-definition-math-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -213,17 +246,17 @@ eBookConfig.enable_chatcodes =  false;
 \pi_i(s^*) \geq \pi_i(s_i, s^*_{-i}).
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-math-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-math-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.1.a.1"><a href="#ans-nash-definition-math-3" title="Copy heading and permalink for Solution 3.6.1.a.1" aria-label="Copy heading and permalink for Solution 3.6.1.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.1.a.1"><a tabindex="-1" href="#ans-nash-definition-math-3" title="Copy heading and permalink for Solution 3.6.1.a.1" aria-label="Copy heading and permalink for Solution 3.6.1.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.1.a: Nash equilibrium, in notation"><a href="#ans-nash-definition-math" title="Copy heading and permalink for Task 3.6.1.a: Nash equilibrium, in notation" aria-label="Copy heading and permalink for Task 3.6.1.a: Nash equilibrium, in notation">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.1.a: Nash equilibrium, in notation"><a tabindex="-1" href="#ans-nash-definition-math" title="Copy heading and permalink for Task 3.6.1.a: Nash equilibrium, in notation" aria-label="Copy heading and permalink for Task 3.6.1.a: Nash equilibrium, in notation">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-nash-definition-not"><h4 class="heading">
+<article class="task exercise-like" id="ans-nash-definition-not"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Not a Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-nash-definition-not-2-1">State mathematically what it means for <span class="process-math">\(s^*\)</span> to not be a Nash equilibrium, and explain it in words.<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-not-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-nash-definition-not-2-1">State mathematically what it means for <span class="process-math">\(s^*\)</span> to not be a Nash equilibrium, and explain it in words.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-not-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-nash-definition-not-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -236,17 +269,17 @@ eBookConfig.enable_chatcodes =  false;
 \end{equation*}
 </div>
 <div class="para">In words: at least one player can strictly improve by changing strategy alone. One such player and one such strategy are enough.</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-not-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-not-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.1.b.1"><a href="#ans-nash-definition-not-3" title="Copy heading and permalink for Solution 3.6.1.b.1" aria-label="Copy heading and permalink for Solution 3.6.1.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.1.b.1"><a tabindex="-1" href="#ans-nash-definition-not-3" title="Copy heading and permalink for Solution 3.6.1.b.1" aria-label="Copy heading and permalink for Solution 3.6.1.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.1.b: Not a Nash equilibrium"><a href="#ans-nash-definition-not" title="Copy heading and permalink for Task 3.6.1.b: Not a Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.1.b: Not a Nash equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.1.b: Not a Nash equilibrium"><a tabindex="-1" href="#ans-nash-definition-not" title="Copy heading and permalink for Task 3.6.1.b: Not a Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.1.b: Not a Nash equilibrium">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-nash-definition-matrix"><h4 class="heading">
+<article class="task exercise-like" id="ans-nash-definition-matrix"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Three profiles in a <span class="process-math">\(3 \times 3\)</span> game.</span>
-</h4>
-<div class="para" id="ans-nash-definition-matrix-2-1">Determine whether <span class="process-math">\((a, x)\text{,}\)</span> <span class="process-math">\((b, y)\text{,}\)</span> and <span class="process-math">\((c, z)\)</span> are Nash equilibria, and whether each equilibrium is strict.<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-matrix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-nash-definition-matrix-2-1">Determine whether <span class="process-math">\((a, x)\text{,}\)</span> <span class="process-math">\((b, y)\text{,}\)</span> and <span class="process-math">\((c, z)\)</span> are Nash equilibria, and whether each equilibrium is strict.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-matrix-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-nash-definition-matrix-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -254,37 +287,37 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="disc" id="ans-nash-definition-matrix-3-1">
 <li id="ans-nash-definition-matrix-3-1-1">
 <div class="para" id="ans-nash-definition-matrix-3-1-1-1">
-<span class="process-math">\((a, x)\)</span> is a strict Nash equilibrium. If player 1 switches, their payoff drops from 4 to 2 or 1. If player 2 switches, their payoff drops from 3 to 1 or 2.<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-matrix-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((a, x)\)</span> is a strict Nash equilibrium. If player 1 switches, their payoff drops from 4 to 2 or 1. If player 2 switches, their payoff drops from 3 to 1 or 2.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-nash-definition-matrix-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-nash-definition-matrix-3-1-2">
 <div class="para" id="ans-nash-definition-matrix-3-1-2-1">
-<span class="process-math">\((b, y)\)</span> is not a Nash equilibrium. Player 1 can switch to <span class="process-math">\(c\)</span> and get 6 instead of 5. (Player 2 can also improve, by switching to <span class="process-math">\(z\)</span> for 6, but one player is enough.)<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-matrix-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((b, y)\)</span> is not a Nash equilibrium. Player 1 can switch to <span class="process-math">\(c\)</span> and get 6 instead of 5. (Player 2 can also improve, by switching to <span class="process-math">\(z\)</span> for 6, but one player is enough.)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-nash-definition-matrix-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-nash-definition-matrix-3-1-3">
 <div class="para" id="ans-nash-definition-matrix-3-1-3-1">
-<span class="process-math">\((c, z)\)</span> is a Nash equilibrium, but not strict. Neither player can do better by switching, but player 2 gets 3 at either <span class="process-math">\(x\)</span> or <span class="process-math">\(z\text{,}\)</span> so switching to <span class="process-math">\(x\)</span> does not make them strictly worse off.<div class="autopermalink" data-description="Paragraph"><a href="#ans-nash-definition-matrix-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((c, z)\)</span> is a Nash equilibrium, but not strict. Neither player can do better by switching, but player 2 gets 3 at either <span class="process-math">\(x\)</span> or <span class="process-math">\(z\text{,}\)</span> so switching to <span class="process-math">\(x\)</span> does not make them strictly worse off.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-nash-definition-matrix-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-nash-definition-matrix-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.1.c.1"><a href="#ans-nash-definition-matrix-3" title="Copy heading and permalink for Solution 3.6.1.c.1" aria-label="Copy heading and permalink for Solution 3.6.1.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.1.c.1"><a tabindex="-1" href="#ans-nash-definition-matrix-3" title="Copy heading and permalink for Solution 3.6.1.c.1" aria-label="Copy heading and permalink for Solution 3.6.1.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.1.c: Three profiles in a 3 \times 3 game"><a href="#ans-nash-definition-matrix" title="Copy heading and permalink for Task 3.6.1.c: Three profiles in a 3 \times 3 game" aria-label="Copy heading and permalink for Task 3.6.1.c: Three profiles in a 3 \times 3 game">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.1: The Nash Equilibrium Definition"><a href="#ans-hw-nash-definition" title="Copy heading and permalink for Exercise 3.6.1: The Nash Equilibrium Definition" aria-label="Copy heading and permalink for Exercise 3.6.1: The Nash Equilibrium Definition">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.1.c: Three profiles in a 3 \times 3 game"><a tabindex="-1" href="#ans-nash-definition-matrix" title="Copy heading and permalink for Task 3.6.1.c: Three profiles in a 3 \times 3 game" aria-label="Copy heading and permalink for Task 3.6.1.c: Three profiles in a 3 \times 3 game">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.1: The Nash Equilibrium Definition"><a tabindex="-1" href="#ans-hw-nash-definition" title="Copy heading and permalink for Exercise 3.6.1: The Nash Equilibrium Definition" aria-label="Copy heading and permalink for Exercise 3.6.1: The Nash Equilibrium Definition">🔗</a></div>
 </article></details>
-<details id="ans-hw-water-pollution-five" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-water-pollution-five" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Water Pollution with Five Firms.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-water-pollution-five-k"><h4 class="heading">
+<article class="task exercise-like" id="ans-water-pollution-five-k"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Each number of polluters.</span>
-</h4>
-<div class="para" id="ans-water-pollution-five-k-2-1">For each <span class="process-math">\(k = 0, \ldots, 5\text{,}\)</span> determine whether profiles with exactly <span class="process-math">\(k\)</span> polluters are Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-water-pollution-five-k-2-1">For each <span class="process-math">\(k = 0, \ldots, 5\text{,}\)</span> determine whether profiles with exactly <span class="process-math">\(k\)</span> polluters are Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-water-pollution-five-k-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -292,79 +325,79 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="disc" id="ans-water-pollution-five-k-3-1">
 <li id="ans-water-pollution-five-k-3-1-1">
 <div class="para" id="ans-water-pollution-five-k-3-1-1-1">
-<span class="process-math">\(k = 0\)</span> or <span class="process-math">\(1\text{:}\)</span> Not a Nash equilibrium. A purifier can switch to polluting, and the lake stays clean, so their payoff rises from <span class="process-math">\(-1\)</span> to <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 0\)</span> or <span class="process-math">\(1\text{:}\)</span> Not a Nash equilibrium. A purifier can switch to polluting, and the lake stays clean, so their payoff rises from <span class="process-math">\(-1\)</span> to <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-water-pollution-five-k-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-water-pollution-five-k-3-1-2">
 <div class="para" id="ans-water-pollution-five-k-3-1-2-1">
-<span class="process-math">\(k = 2\text{:}\)</span> A Nash equilibrium. A polluter who switches to purifying drops from <span class="process-math">\(0\)</span> to <span class="process-math">\(-1\text{.}\)</span> A purifier who switches to polluting fouls the lake and drops from <span class="process-math">\(-1\)</span> to <span class="process-math">\(-3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 2\text{:}\)</span> A Nash equilibrium. A polluter who switches to purifying drops from <span class="process-math">\(0\)</span> to <span class="process-math">\(-1\text{.}\)</span> A purifier who switches to polluting fouls the lake and drops from <span class="process-math">\(-1\)</span> to <span class="process-math">\(-3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-water-pollution-five-k-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-water-pollution-five-k-3-1-3">
 <div class="para" id="ans-water-pollution-five-k-3-1-3-1">
-<span class="process-math">\(k = 3\text{:}\)</span> Not a Nash equilibrium. A polluter can switch to purifying, which cleans the lake, so their payoff rises from <span class="process-math">\(-3\)</span> to <span class="process-math">\(-1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 3\text{:}\)</span> Not a Nash equilibrium. A polluter can switch to purifying, which cleans the lake, so their payoff rises from <span class="process-math">\(-3\)</span> to <span class="process-math">\(-1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-water-pollution-five-k-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-water-pollution-five-k-3-1-4">
 <div class="para" id="ans-water-pollution-five-k-3-1-4-1">
-<span class="process-math">\(k = 4\text{:}\)</span> Not a Nash equilibrium. The purifier can switch to polluting. The lake stays fouled either way, so their payoff rises from <span class="process-math">\(-4\)</span> to <span class="process-math">\(-3\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 4\text{:}\)</span> Not a Nash equilibrium. The purifier can switch to polluting. The lake stays fouled either way, so their payoff rises from <span class="process-math">\(-4\)</span> to <span class="process-math">\(-3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-water-pollution-five-k-3-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-4" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-water-pollution-five-k-3-1-5">
 <div class="para" id="ans-water-pollution-five-k-3-1-5-1">
-<span class="process-math">\(k = 5\text{:}\)</span> A Nash equilibrium. A firm that switches to purifying leaves 4 polluters, so the lake stays fouled and its payoff drops from <span class="process-math">\(-3\)</span> to <span class="process-math">\(-4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-k-3-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 5\text{:}\)</span> A Nash equilibrium. A firm that switches to purifying leaves 4 polluters, so the lake stays fouled and its payoff drops from <span class="process-math">\(-3\)</span> to <span class="process-math">\(-4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-5-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-water-pollution-five-k-3-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-water-pollution-five-k-3-1-5" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.2.a.1"><a href="#ans-water-pollution-five-k-3" title="Copy heading and permalink for Solution 3.6.2.a.1" aria-label="Copy heading and permalink for Solution 3.6.2.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.2.a.1"><a tabindex="-1" href="#ans-water-pollution-five-k-3" title="Copy heading and permalink for Solution 3.6.2.a.1" aria-label="Copy heading and permalink for Solution 3.6.2.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.2.a: Each number of polluters"><a href="#ans-water-pollution-five-k" title="Copy heading and permalink for Task 3.6.2.a: Each number of polluters" aria-label="Copy heading and permalink for Task 3.6.2.a: Each number of polluters">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.2.a: Each number of polluters"><a tabindex="-1" href="#ans-water-pollution-five-k" title="Copy heading and permalink for Task 3.6.2.a: Each number of polluters" aria-label="Copy heading and permalink for Task 3.6.2.a: Each number of polluters">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-water-pollution-five-all"><h4 class="heading">
+<article class="task exercise-like" id="ans-water-pollution-five-all"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">All Nash equilibria.</span>
-</h4>
-<div class="para" id="ans-water-pollution-five-all-2-1">Describe all Nash equilibria and count them.<div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-all-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-water-pollution-five-all-2-1">Describe all Nash equilibria and count them.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-all-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-water-pollution-five-all-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-water-pollution-five-all-3-1">Every profile in which exactly 2 firms pollute, plus the profile in which all 5 pollute. That is <span class="process-math">\(\binom{5}{2} + 1 = 11\)</span> Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-water-pollution-five-all-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-water-pollution-five-all-3-1">Every profile in which exactly 2 firms pollute, plus the profile in which all 5 pollute. That is <span class="process-math">\(\binom{5}{2} + 1 = 11\)</span> Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-water-pollution-five-all-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.2.b.1"><a href="#ans-water-pollution-five-all-3" title="Copy heading and permalink for Solution 3.6.2.b.1" aria-label="Copy heading and permalink for Solution 3.6.2.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.2.b.1"><a tabindex="-1" href="#ans-water-pollution-five-all-3" title="Copy heading and permalink for Solution 3.6.2.b.1" aria-label="Copy heading and permalink for Solution 3.6.2.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.2.b: All Nash equilibria"><a href="#ans-water-pollution-five-all" title="Copy heading and permalink for Task 3.6.2.b: All Nash equilibria" aria-label="Copy heading and permalink for Task 3.6.2.b: All Nash equilibria">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.2: Water Pollution with Five Firms"><a href="#ans-hw-water-pollution-five" title="Copy heading and permalink for Exercise 3.6.2: Water Pollution with Five Firms" aria-label="Copy heading and permalink for Exercise 3.6.2: Water Pollution with Five Firms">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.2.b: All Nash equilibria"><a tabindex="-1" href="#ans-water-pollution-five-all" title="Copy heading and permalink for Task 3.6.2.b: All Nash equilibria" aria-label="Copy heading and permalink for Task 3.6.2.b: All Nash equilibria">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.2: Water Pollution with Five Firms"><a tabindex="-1" href="#ans-hw-water-pollution-five" title="Copy heading and permalink for Exercise 3.6.2: Water Pollution with Five Firms" aria-label="Copy heading and permalink for Exercise 3.6.2: Water Pollution with Five Firms">🔗</a></div>
 </article></details>
-<details id="ans-hw-bank-location-nash" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-bank-location-nash" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Locating Two Banks, Revisited.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-bank-location-nash-center"><h4 class="heading">
+<article class="task exercise-like" id="ans-bank-location-nash-center"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\((50, 50)\)</span> is a Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-bank-location-nash-center-2-1">Show directly that <span class="process-math">\((50, 50)\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-center-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-bank-location-nash-center-2-1">Show directly that <span class="process-math">\((50, 50)\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-center-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-bank-location-nash-center-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-bank-location-nash-center-3-1">At <span class="process-math">\((50, 50)\)</span> each bank has <span class="process-math">\(4950\text{.}\)</span> If <span class="process-math">\(A\)</span> moves to any <span class="process-math">\(p \neq 50\text{,}\)</span> <span class="process-math">\(A\)</span> gets at most <span class="process-math">\(4900\)</span> (achieved at <span class="process-math">\(p = 49\)</span> or <span class="process-math">\(p = 51\)</span>). So <span class="process-math">\(\pi_A(p, 50) \leq 4900 \lt 4950\text{,}\)</span> and by symmetry the same holds for <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-center-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-bank-location-nash-center-3-1">At <span class="process-math">\((50, 50)\)</span> each bank has <span class="process-math">\(4950\text{.}\)</span> If <span class="process-math">\(A\)</span> moves to any <span class="process-math">\(p \neq 50\text{,}\)</span> <span class="process-math">\(A\)</span> gets at most <span class="process-math">\(4900\)</span> (achieved at <span class="process-math">\(p = 49\)</span> or <span class="process-math">\(p = 51\)</span>). So <span class="process-math">\(\pi_A(p, 50) \leq 4900 \lt 4950\text{,}\)</span> and by symmetry the same holds for <span class="process-math">\(B\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-center-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.3.a.1"><a href="#ans-bank-location-nash-center-3" title="Copy heading and permalink for Solution 3.6.3.a.1" aria-label="Copy heading and permalink for Solution 3.6.3.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.3.a.1"><a tabindex="-1" href="#ans-bank-location-nash-center-3" title="Copy heading and permalink for Solution 3.6.3.a.1" aria-label="Copy heading and permalink for Solution 3.6.3.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.3.a: (50, 50) is a Nash equilibrium"><a href="#ans-bank-location-nash-center" title="Copy heading and permalink for Task 3.6.3.a: (50, 50) is a Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.3.a: (50, 50) is a Nash equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.3.a: (50, 50) is a Nash equilibrium"><a tabindex="-1" href="#ans-bank-location-nash-center" title="Copy heading and permalink for Task 3.6.3.a: (50, 50) is a Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.3.a: (50, 50) is a Nash equilibrium">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-bank-location-nash-apart"><h4 class="heading">
+<article class="task exercise-like" id="ans-bank-location-nash-apart"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Profiles with <span class="process-math">\(p \lt q\)</span>.</span>
-</h4>
-<div class="para" id="ans-bank-location-nash-apart-2-1">Show that no profile <span class="process-math">\((p, q)\)</span> with <span class="process-math">\(p \lt q\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-apart-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-bank-location-nash-apart-2-1">Show that no profile <span class="process-math">\((p, q)\)</span> with <span class="process-math">\(p \lt q\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-apart-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-bank-location-nash-apart-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -372,390 +405,390 @@ eBookConfig.enable_chatcodes =  false;
 <ul class="disc" id="ans-bank-location-nash-apart-3-1">
 <li id="ans-bank-location-nash-apart-3-1-1">
 <div class="para" id="ans-bank-location-nash-apart-3-1-1-1">
-<span class="process-math">\(q \geq p + 2\text{:}\)</span> Bank <span class="process-math">\(A\)</span> can move to <span class="process-math">\(p + 1\text{.}\)</span> It is still to the left of bank <span class="process-math">\(B\text{,}\)</span> and it gains 50 customers.<div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-apart-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(q \geq p + 2\text{:}\)</span> Bank <span class="process-math">\(A\)</span> can move to <span class="process-math">\(p + 1\text{.}\)</span> It is still to the left of bank <span class="process-math">\(B\text{,}\)</span> and it gains 50 customers.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-bank-location-nash-apart-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-bank-location-nash-apart-3-1-2">
 <div class="para" id="ans-bank-location-nash-apart-3-1-2-1">
-<span class="process-math">\(q = p + 1\text{:}\)</span> Bank <span class="process-math">\(A\)</span> has <span class="process-math">\(100p\)</span> customers and bank <span class="process-math">\(B\)</span> has <span class="process-math">\(100(99 - p)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-apart-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(q = p + 1\text{:}\)</span> Bank <span class="process-math">\(A\)</span> has <span class="process-math">\(100p\)</span> customers and bank <span class="process-math">\(B\)</span> has <span class="process-math">\(100(99 - p)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="circle" id="ans-bank-location-nash-apart-3-1-2-2">
 <li id="ans-bank-location-nash-apart-3-1-2-2-1">
-<div class="para" id="ans-bank-location-nash-apart-3-1-2-2-1-1">If <span class="process-math">\(p \leq 49\text{,}\)</span> bank <span class="process-math">\(A\)</span> has at most <span class="process-math">\(4900\text{.}\)</span> It can move onto block <span class="process-math">\(q\)</span> and get <span class="process-math">\(4950\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-apart-3-1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-bank-location-nash-apart-3-1-2-2-1-1">If <span class="process-math">\(p \leq 49\text{,}\)</span> bank <span class="process-math">\(A\)</span> has at most <span class="process-math">\(4900\text{.}\)</span> It can move onto block <span class="process-math">\(q\)</span> and get <span class="process-math">\(4950\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-bank-location-nash-apart-3-1-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-bank-location-nash-apart-3-1-2-2-2">
-<div class="para" id="ans-bank-location-nash-apart-3-1-2-2-2-1">If <span class="process-math">\(p \geq 50\text{,}\)</span> bank <span class="process-math">\(B\)</span> has at most <span class="process-math">\(4900\text{.}\)</span> It can move onto block <span class="process-math">\(p\)</span> and get <span class="process-math">\(4950\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-apart-3-1-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-bank-location-nash-apart-3-1-2-2-2-1">If <span class="process-math">\(p \geq 50\text{,}\)</span> bank <span class="process-math">\(B\)</span> has at most <span class="process-math">\(4900\text{.}\)</span> It can move onto block <span class="process-math">\(p\)</span> and get <span class="process-math">\(4950\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-bank-location-nash-apart-3-1-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Item"><a href="#ans-bank-location-nash-apart-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-bank-location-nash-apart-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.3.b.1"><a href="#ans-bank-location-nash-apart-3" title="Copy heading and permalink for Solution 3.6.3.b.1" aria-label="Copy heading and permalink for Solution 3.6.3.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.3.b.1"><a tabindex="-1" href="#ans-bank-location-nash-apart-3" title="Copy heading and permalink for Solution 3.6.3.b.1" aria-label="Copy heading and permalink for Solution 3.6.3.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.3.b: Profiles with p \lt q"><a href="#ans-bank-location-nash-apart" title="Copy heading and permalink for Task 3.6.3.b: Profiles with p \lt q" aria-label="Copy heading and permalink for Task 3.6.3.b: Profiles with p \lt q">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.3.b: Profiles with p \lt q"><a tabindex="-1" href="#ans-bank-location-nash-apart" title="Copy heading and permalink for Task 3.6.3.b: Profiles with p \lt q" aria-label="Copy heading and permalink for Task 3.6.3.b: Profiles with p \lt q">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-bank-location-nash-same"><h4 class="heading">
+<article class="task exercise-like" id="ans-bank-location-nash-same"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Profiles with <span class="process-math">\(p = q \neq 50\)</span>.</span>
-</h4>
-<div class="para" id="ans-bank-location-nash-same-2-1">Show that no profile <span class="process-math">\((p, p)\)</span> with <span class="process-math">\(p \neq 50\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-same-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-bank-location-nash-same-2-1">Show that no profile <span class="process-math">\((p, p)\)</span> with <span class="process-math">\(p \neq 50\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-same-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-bank-location-nash-same-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-bank-location-nash-same-3-1">Each bank has <span class="process-math">\(4950\text{.}\)</span> If <span class="process-math">\(p \lt 50\text{,}\)</span> <span class="process-math">\(A\)</span> moves to <span class="process-math">\(p + 1\)</span> and gets blocks <span class="process-math">\(p+1\)</span> through <span class="process-math">\(99\text{,}\)</span> for <span class="process-math">\(100(99 - p) \geq 5000\text{.}\)</span> If <span class="process-math">\(p \gt 50\text{,}\)</span> <span class="process-math">\(A\)</span> moves to <span class="process-math">\(p - 1\)</span> and gets <span class="process-math">\(100(p - 1) \geq 5000\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-bank-location-nash-same-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-bank-location-nash-same-3-1">Each bank has <span class="process-math">\(4950\text{.}\)</span> If <span class="process-math">\(p \lt 50\text{,}\)</span> <span class="process-math">\(A\)</span> moves to <span class="process-math">\(p + 1\)</span> and gets blocks <span class="process-math">\(p+1\)</span> through <span class="process-math">\(99\text{,}\)</span> for <span class="process-math">\(100(99 - p) \geq 5000\text{.}\)</span> If <span class="process-math">\(p \gt 50\text{,}\)</span> <span class="process-math">\(A\)</span> moves to <span class="process-math">\(p - 1\)</span> and gets <span class="process-math">\(100(p - 1) \geq 5000\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-bank-location-nash-same-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.3.c.1"><a href="#ans-bank-location-nash-same-3" title="Copy heading and permalink for Solution 3.6.3.c.1" aria-label="Copy heading and permalink for Solution 3.6.3.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.3.c.1"><a tabindex="-1" href="#ans-bank-location-nash-same-3" title="Copy heading and permalink for Solution 3.6.3.c.1" aria-label="Copy heading and permalink for Solution 3.6.3.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.3.c: Profiles with p = q \neq 50"><a href="#ans-bank-location-nash-same" title="Copy heading and permalink for Task 3.6.3.c: Profiles with p = q \neq 50" aria-label="Copy heading and permalink for Task 3.6.3.c: Profiles with p = q \neq 50">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.3: Locating Two Banks, Revisited"><a href="#ans-hw-bank-location-nash" title="Copy heading and permalink for Exercise 3.6.3: Locating Two Banks, Revisited" aria-label="Copy heading and permalink for Exercise 3.6.3: Locating Two Banks, Revisited">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.3.c: Profiles with p = q \neq 50"><a tabindex="-1" href="#ans-bank-location-nash-same" title="Copy heading and permalink for Task 3.6.3.c: Profiles with p = q \neq 50" aria-label="Copy heading and permalink for Task 3.6.3.c: Profiles with p = q \neq 50">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.3: Locating Two Banks, Revisited"><a tabindex="-1" href="#ans-hw-bank-location-nash" title="Copy heading and permalink for Exercise 3.6.3: Locating Two Banks, Revisited" aria-label="Copy heading and permalink for Exercise 3.6.3: Locating Two Banks, Revisited">🔗</a></div>
 </article></details>
-<details id="ans-hw-resource-game" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-resource-game" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Bidding the Resource.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-resource-game-one-one"><h4 class="heading">
+<article class="task exercise-like" id="ans-resource-game-one-one"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\((1, 1)\)</span>.</span>
-</h4>
-<div class="para" id="ans-resource-game-one-one-2-1">Show that <span class="process-math">\((1, 1)\)</span> is a Nash equilibrium, and decide whether it is strict.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-one-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-resource-game-one-one-2-1">Show that <span class="process-math">\((1, 1)\)</span> is a Nash equilibrium, and decide whether it is strict.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-one-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-resource-game-one-one-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-resource-game-one-one-3-1">
-<span class="process-math">\(\pi_1(1, 1) = 0\text{.}\)</span> Any <span class="process-math">\(s_1 \lt 1\)</span> gives <span class="process-math">\(s_1 \lt s_2\text{,}\)</span> so <span class="process-math">\(\pi_1(s_1, 1) = 0 \leq 0\text{.}\)</span> The same holds for player 2 by symmetry, so <span class="process-math">\((1, 1)\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-one-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(1, 1) = 0\text{.}\)</span> Any <span class="process-math">\(s_1 \lt 1\)</span> gives <span class="process-math">\(s_1 \lt s_2\text{,}\)</span> so <span class="process-math">\(\pi_1(s_1, 1) = 0 \leq 0\text{.}\)</span> The same holds for player 2 by symmetry, so <span class="process-math">\((1, 1)\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-one-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ans-resource-game-one-one-3-2">It is <em class="emphasis">not</em> strict: deviations give exactly <span class="process-math">\(0\text{,}\)</span> not strictly less.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-one-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-resource-game-one-one-3-2">It is <em class="emphasis">not</em> strict: deviations give exactly <span class="process-math">\(0\text{,}\)</span> not strictly less.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-one-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.4.a.1"><a href="#ans-resource-game-one-one-3" title="Copy heading and permalink for Solution 3.6.4.a.1" aria-label="Copy heading and permalink for Solution 3.6.4.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.4.a.1"><a tabindex="-1" href="#ans-resource-game-one-one-3" title="Copy heading and permalink for Solution 3.6.4.a.1" aria-label="Copy heading and permalink for Solution 3.6.4.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.4.a: (1, 1)"><a href="#ans-resource-game-one-one" title="Copy heading and permalink for Task 3.6.4.a: (1, 1)" aria-label="Copy heading and permalink for Task 3.6.4.a: (1, 1)">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.4.a: (1, 1)"><a tabindex="-1" href="#ans-resource-game-one-one" title="Copy heading and permalink for Task 3.6.4.a: (1, 1)" aria-label="Copy heading and permalink for Task 3.6.4.a: (1, 1)">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-resource-game-below-one"><h4 class="heading">
+<article class="task exercise-like" id="ans-resource-game-below-one"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(s_2 \lt s_1 \lt 1\)</span>.</span>
-</h4>
-<div class="para" id="ans-resource-game-below-one-2-1">Show that player 2 can improve.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-below-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-resource-game-below-one-2-1">Show that player 2 can improve.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-below-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-resource-game-below-one-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-resource-game-below-one-3-1">Player 2 currently gets <span class="process-math">\(0\text{.}\)</span> Switching to any <span class="process-math">\(s_2'\)</span> with <span class="process-math">\(s_1 \lt s_2' \leq 1\)</span> makes player 2 the winner, with payoff <span class="process-math">\((1 - s_1) + (1 - s_2') \geq 1 - s_1 \gt 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-below-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-resource-game-below-one-3-1">Player 2 currently gets <span class="process-math">\(0\text{.}\)</span> Switching to any <span class="process-math">\(s_2'\)</span> with <span class="process-math">\(s_1 \lt s_2' \leq 1\)</span> makes player 2 the winner, with payoff <span class="process-math">\((1 - s_1) + (1 - s_2') \geq 1 - s_1 \gt 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-below-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.4.b.1"><a href="#ans-resource-game-below-one-3" title="Copy heading and permalink for Solution 3.6.4.b.1" aria-label="Copy heading and permalink for Solution 3.6.4.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.4.b.1"><a tabindex="-1" href="#ans-resource-game-below-one-3" title="Copy heading and permalink for Solution 3.6.4.b.1" aria-label="Copy heading and permalink for Solution 3.6.4.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.4.b: s_2 \lt s_1 \lt 1"><a href="#ans-resource-game-below-one" title="Copy heading and permalink for Task 3.6.4.b: s_2 \lt s_1 \lt 1" aria-label="Copy heading and permalink for Task 3.6.4.b: s_2 \lt s_1 \lt 1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.4.b: s_2 \lt s_1 \lt 1"><a tabindex="-1" href="#ans-resource-game-below-one" title="Copy heading and permalink for Task 3.6.4.b: s_2 \lt s_1 \lt 1" aria-label="Copy heading and permalink for Task 3.6.4.b: s_2 \lt s_1 \lt 1">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-resource-game-at-one"><h4 class="heading">
+<article class="task exercise-like" id="ans-resource-game-at-one"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(s_2 \lt s_1 = 1\)</span>.</span>
-</h4>
-<div class="para" id="ans-resource-game-at-one-2-1">Explain why player 2’s deviation no longer works, and show the profile is still not a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-at-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-resource-game-at-one-2-1">Explain why player 2’s deviation no longer works, and show the profile is still not a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-at-one-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-resource-game-at-one-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-resource-game-at-one-3-1">Player 2 cannot bid more than 1, and tying at <span class="process-math">\(1\)</span> gives player 2 a payoff of <span class="process-math">\(1 - 1 = 0\text{,}\)</span> which is no improvement.<div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-at-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-resource-game-at-one-3-1">Player 2 cannot bid more than 1, and tying at <span class="process-math">\(1\)</span> gives player 2 a payoff of <span class="process-math">\(1 - 1 = 0\text{,}\)</span> which is no improvement.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-at-one-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ans-resource-game-at-one-3-2">Player 1 improves instead: currently <span class="process-math">\(\pi_1 = 1 - s_2\text{.}\)</span> Switching to any <span class="process-math">\(s_1'\)</span> with <span class="process-math">\(s_2 \lt s_1' \lt 1\)</span> keeps player 1 the winner, with payoff <span class="process-math">\((1 - s_1') + (1 - s_2) \gt 1 - s_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-at-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-resource-game-at-one-3-2">Player 1 improves instead: currently <span class="process-math">\(\pi_1 = 1 - s_2\text{.}\)</span> Switching to any <span class="process-math">\(s_1'\)</span> with <span class="process-math">\(s_2 \lt s_1' \lt 1\)</span> keeps player 1 the winner, with payoff <span class="process-math">\((1 - s_1') + (1 - s_2) \gt 1 - s_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-at-one-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.4.c.1"><a href="#ans-resource-game-at-one-3" title="Copy heading and permalink for Solution 3.6.4.c.1" aria-label="Copy heading and permalink for Solution 3.6.4.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.4.c.1"><a tabindex="-1" href="#ans-resource-game-at-one-3" title="Copy heading and permalink for Solution 3.6.4.c.1" aria-label="Copy heading and permalink for Solution 3.6.4.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.4.c: s_2 \lt s_1 = 1"><a href="#ans-resource-game-at-one" title="Copy heading and permalink for Task 3.6.4.c: s_2 \lt s_1 = 1" aria-label="Copy heading and permalink for Task 3.6.4.c: s_2 \lt s_1 = 1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.4.c: s_2 \lt s_1 = 1"><a tabindex="-1" href="#ans-resource-game-at-one" title="Copy heading and permalink for Task 3.6.4.c: s_2 \lt s_1 = 1" aria-label="Copy heading and permalink for Task 3.6.4.c: s_2 \lt s_1 = 1">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-resource-game-tie"><h4 class="heading">
+<article class="task exercise-like" id="ans-resource-game-tie"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(s_1 = s_2 \lt 1\)</span>.</span>
-</h4>
-<div class="para" id="ans-resource-game-tie-2-1">Show there are no Nash equilibria with <span class="process-math">\(s_1 = s_2 \lt 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-tie-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-resource-game-tie-2-1">Show there are no Nash equilibria with <span class="process-math">\(s_1 = s_2 \lt 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-tie-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-resource-game-tie-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-resource-game-tie-3-1">Write <span class="process-math">\(s_1 = s_2 = s\text{,}\)</span> so player 1 gets <span class="process-math">\(1 - s\text{.}\)</span> Switching to any <span class="process-math">\(s_1'\)</span> with <span class="process-math">\(s \lt s_1' \lt 1\)</span> gives player 1 <span class="process-math">\((1 - s_1') + (1 - s) \gt 1 - s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-resource-game-tie-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-resource-game-tie-3-1">Write <span class="process-math">\(s_1 = s_2 = s\text{,}\)</span> so player 1 gets <span class="process-math">\(1 - s\text{.}\)</span> Switching to any <span class="process-math">\(s_1'\)</span> with <span class="process-math">\(s \lt s_1' \lt 1\)</span> gives player 1 <span class="process-math">\((1 - s_1') + (1 - s) \gt 1 - s\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-resource-game-tie-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.4.d.1"><a href="#ans-resource-game-tie-3" title="Copy heading and permalink for Solution 3.6.4.d.1" aria-label="Copy heading and permalink for Solution 3.6.4.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.4.d.1"><a tabindex="-1" href="#ans-resource-game-tie-3" title="Copy heading and permalink for Solution 3.6.4.d.1" aria-label="Copy heading and permalink for Solution 3.6.4.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.4.d: s_1 = s_2 \lt 1"><a href="#ans-resource-game-tie" title="Copy heading and permalink for Task 3.6.4.d: s_1 = s_2 \lt 1" aria-label="Copy heading and permalink for Task 3.6.4.d: s_1 = s_2 \lt 1">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.4: Bidding the Resource"><a href="#ans-hw-resource-game" title="Copy heading and permalink for Exercise 3.6.4: Bidding the Resource" aria-label="Copy heading and permalink for Exercise 3.6.4: Bidding the Resource">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.4.d: s_1 = s_2 \lt 1"><a tabindex="-1" href="#ans-resource-game-tie" title="Copy heading and permalink for Task 3.6.4.d: s_1 = s_2 \lt 1" aria-label="Copy heading and permalink for Task 3.6.4.d: s_1 = s_2 \lt 1">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.4: Bidding the Resource"><a tabindex="-1" href="#ans-hw-resource-game" title="Copy heading and permalink for Exercise 3.6.4: Bidding the Resource" aria-label="Copy heading and permalink for Exercise 3.6.4: Bidding the Resource">🔗</a></div>
 </article></details>
-<details id="ans-hw-hawk-dove-nash" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-hawk-dove-nash" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Hawk and Dove, Revisited.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-hawk-dove-nash-dominated"><h4 class="heading">
+<article class="task exercise-like" id="ans-hawk-dove-nash-dominated"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Dominated strategies.</span>
-</h4>
-<div class="para" id="ans-hawk-dove-nash-dominated-2-1">Identify any dominated strategies when <span class="process-math">\(0 \lt v \lt w\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-dominated-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-hawk-dove-nash-dominated-2-1">Identify any dominated strategies when <span class="process-math">\(0 \lt v \lt w\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-dominated-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-hawk-dove-nash-dominated-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-hawk-dove-nash-dominated-3-1">Neither strategy is dominated. If the other player plays <span class="process-math">\(h\text{,}\)</span> then <span class="process-math">\(d\)</span> is better, since <span class="process-math">\(0 \gt \frac{v-w}{2}\text{.}\)</span> If the other player plays <span class="process-math">\(d\text{,}\)</span> then <span class="process-math">\(h\)</span> is better, since <span class="process-math">\(v \gt \frac{v}{2}\text{.}\)</span> Each strategy does better against something, so neither one dominates the other, weakly or strictly.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-dominated-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hawk-dove-nash-dominated-3-1">Neither strategy is dominated. If the other player plays <span class="process-math">\(h\text{,}\)</span> then <span class="process-math">\(d\)</span> is better, since <span class="process-math">\(0 \gt \frac{v-w}{2}\text{.}\)</span> If the other player plays <span class="process-math">\(d\text{,}\)</span> then <span class="process-math">\(h\)</span> is better, since <span class="process-math">\(v \gt \frac{v}{2}\text{.}\)</span> Each strategy does better against something, so neither one dominates the other, weakly or strictly.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-dominated-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.5.a.1"><a href="#ans-hawk-dove-nash-dominated-3" title="Copy heading and permalink for Solution 3.6.5.a.1" aria-label="Copy heading and permalink for Solution 3.6.5.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.5.a.1"><a tabindex="-1" href="#ans-hawk-dove-nash-dominated-3" title="Copy heading and permalink for Solution 3.6.5.a.1" aria-label="Copy heading and permalink for Solution 3.6.5.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.5.a: Dominated strategies"><a href="#ans-hawk-dove-nash-dominated" title="Copy heading and permalink for Task 3.6.5.a: Dominated strategies" aria-label="Copy heading and permalink for Task 3.6.5.a: Dominated strategies">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.5.a: Dominated strategies"><a tabindex="-1" href="#ans-hawk-dove-nash-dominated" title="Copy heading and permalink for Task 3.6.5.a: Dominated strategies" aria-label="Copy heading and permalink for Task 3.6.5.a: Dominated strategies">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-hawk-dove-nash-find"><h4 class="heading">
+<article class="task exercise-like" id="ans-hawk-dove-nash-find"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">All Nash equilibria.</span>
-</h4>
-<div class="para" id="ans-hawk-dove-nash-find-2-1">Find all Nash equilibria when <span class="process-math">\(0 \lt v \lt w\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-find-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-hawk-dove-nash-find-2-1">Find all Nash equilibria when <span class="process-math">\(0 \lt v \lt w\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-find-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-hawk-dove-nash-find-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-hawk-dove-nash-find-3-1">The only Nash equilibria are <span class="process-math">\((h, d)\)</span> and <span class="process-math">\((d, h)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-find-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hawk-dove-nash-find-3-1">The only Nash equilibria are <span class="process-math">\((h, d)\)</span> and <span class="process-math">\((d, h)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-find-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.5.b.1"><a href="#ans-hawk-dove-nash-find-3" title="Copy heading and permalink for Solution 3.6.5.b.1" aria-label="Copy heading and permalink for Solution 3.6.5.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.5.b.1"><a tabindex="-1" href="#ans-hawk-dove-nash-find-3" title="Copy heading and permalink for Solution 3.6.5.b.1" aria-label="Copy heading and permalink for Solution 3.6.5.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.5.b: All Nash equilibria"><a href="#ans-hawk-dove-nash-find" title="Copy heading and permalink for Task 3.6.5.b: All Nash equilibria" aria-label="Copy heading and permalink for Task 3.6.5.b: All Nash equilibria">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.5.b: All Nash equilibria"><a tabindex="-1" href="#ans-hawk-dove-nash-find" title="Copy heading and permalink for Task 3.6.5.b: All Nash equilibria" aria-label="Copy heading and permalink for Task 3.6.5.b: All Nash equilibria">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-hawk-dove-nash-words"><h4 class="heading">
+<article class="task exercise-like" id="ans-hawk-dove-nash-words"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Explaining in words.</span>
-</h4>
-<div class="para" id="ans-hawk-dove-nash-words-2-1">Explain informally why neither animal wants to switch.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-words-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-hawk-dove-nash-words-2-1">Explain informally why neither animal wants to switch.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-words-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-hawk-dove-nash-words-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-hawk-dove-nash-words-3-1">At <span class="process-math">\((h, d)\text{:}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-words-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hawk-dove-nash-words-3-1">At <span class="process-math">\((h, d)\text{:}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-hawk-dove-nash-words-3-2">
 <li id="ans-hawk-dove-nash-words-3-2-1">
-<div class="para" id="ans-hawk-dove-nash-words-3-2-1-1">The hawk gets the whole territory without a fight. Switching to dove would mean only getting to share it.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-words-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hawk-dove-nash-words-3-2-1-1">The hawk gets the whole territory without a fight. Switching to dove would mean only getting to share it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-hawk-dove-nash-words-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-hawk-dove-nash-words-3-2-2">
-<div class="para" id="ans-hawk-dove-nash-words-3-2-2-1">The dove retreats and avoids injury. Switching to hawk would start a fight, and the risk of injury costs more than the territory is worth.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-words-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hawk-dove-nash-words-3-2-2-1">The dove retreats and avoids injury. Switching to hawk would start a fight, and the risk of injury costs more than the territory is worth.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-hawk-dove-nash-words-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
 <div class="para" id="ans-hawk-dove-nash-words-3-3">
-<span class="process-math">\((d, h)\)</span> is the same argument with the players swapped.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hawk-dove-nash-words-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((d, h)\)</span> is the same argument with the players swapped.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.5.c.1"><a href="#ans-hawk-dove-nash-words-3" title="Copy heading and permalink for Solution 3.6.5.c.1" aria-label="Copy heading and permalink for Solution 3.6.5.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.5.c.1"><a tabindex="-1" href="#ans-hawk-dove-nash-words-3" title="Copy heading and permalink for Solution 3.6.5.c.1" aria-label="Copy heading and permalink for Solution 3.6.5.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.5.c: Explaining in words"><a href="#ans-hawk-dove-nash-words" title="Copy heading and permalink for Task 3.6.5.c: Explaining in words" aria-label="Copy heading and permalink for Task 3.6.5.c: Explaining in words">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.5: Hawk and Dove, Revisited"><a href="#ans-hw-hawk-dove-nash" title="Copy heading and permalink for Exercise 3.6.5: Hawk and Dove, Revisited" aria-label="Copy heading and permalink for Exercise 3.6.5: Hawk and Dove, Revisited">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.5.c: Explaining in words"><a tabindex="-1" href="#ans-hawk-dove-nash-words" title="Copy heading and permalink for Task 3.6.5.c: Explaining in words" aria-label="Copy heading and permalink for Task 3.6.5.c: Explaining in words">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.5: Hawk and Dove, Revisited"><a tabindex="-1" href="#ans-hw-hawk-dove-nash" title="Copy heading and permalink for Exercise 3.6.5: Hawk and Dove, Revisited" aria-label="Copy heading and permalink for Exercise 3.6.5: Hawk and Dove, Revisited">🔗</a></div>
 </article></details>
-<details id="ans-hw-three-player-best-response" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-three-player-best-response" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Three Player Game, Using Best Response.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<div class="para" id="ans-hw-three-player-best-response-2-1">Use best responses to find all Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hw-three-player-best-response-2-1">Use best responses to find all Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-hw-three-player-best-response-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-hw-three-player-best-response-3-1">There are three Nash equilibria, listed as (player 1, player 2, player 3):<div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hw-three-player-best-response-3-1">There are three Nash equilibria, listed as (player 1, player 2, player 3):<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-hw-three-player-best-response-3-2">
 <li id="ans-hw-three-player-best-response-3-2-1">
 <div class="para" id="ans-hw-three-player-best-response-3-2-1-1">
-<span class="process-math">\((A, A, B)\)</span> with payoffs <span class="process-math">\((20, 20, 20)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((A, A, B)\)</span> with payoffs <span class="process-math">\((20, 20, 20)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-hw-three-player-best-response-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-hw-three-player-best-response-3-2-2">
 <div class="para" id="ans-hw-three-player-best-response-3-2-2-1">
-<span class="process-math">\((B, A, A)\)</span> with payoffs <span class="process-math">\((20, 15, 10)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((B, A, A)\)</span> with payoffs <span class="process-math">\((20, 15, 10)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-hw-three-player-best-response-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-hw-three-player-best-response-3-2-3">
 <div class="para" id="ans-hw-three-player-best-response-3-2-3-1">
-<span class="process-math">\((B, B, B)\)</span> with payoffs <span class="process-math">\((30, 25, 30)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((B, B, B)\)</span> with payoffs <span class="process-math">\((30, 25, 30)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-hw-three-player-best-response-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="ans-hw-three-player-best-response-3-3">These are the only cells with all three payoffs boxed.<div class="autopermalink" data-description="Paragraph"><a href="#ans-hw-three-player-best-response-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-hw-three-player-best-response-3-3">These are the only cells with all three payoffs boxed.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-hw-three-player-best-response-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.6.1"><a href="#ans-hw-three-player-best-response-3" title="Copy heading and permalink for Solution 3.6.6.1" aria-label="Copy heading and permalink for Solution 3.6.6.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.6.1"><a tabindex="-1" href="#ans-hw-three-player-best-response-3" title="Copy heading and permalink for Solution 3.6.6.1" aria-label="Copy heading and permalink for Solution 3.6.6.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Exercise 3.6.6: A Three Player Game, Using Best Response"><a href="#ans-hw-three-player-best-response" title="Copy heading and permalink for Exercise 3.6.6: A Three Player Game, Using Best Response" aria-label="Copy heading and permalink for Exercise 3.6.6: A Three Player Game, Using Best Response">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.6: A Three Player Game, Using Best Response"><a tabindex="-1" href="#ans-hw-three-player-best-response" title="Copy heading and permalink for Exercise 3.6.6: A Three Player Game, Using Best Response" aria-label="Copy heading and permalink for Exercise 3.6.6: A Three Player Game, Using Best Response">🔗</a></div>
 </article></details>
-<details id="ans-hw-pick-a-number" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-pick-a-number" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pick a Number.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-pick-a-number-nash"><h4 class="heading">
+<article class="task exercise-like" id="ans-pick-a-number-nash"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Everyone choosing <span class="process-math">\(k\)</span>.</span>
-</h4>
-<div class="para" id="ans-pick-a-number-nash-2-1">Show that every player choosing <span class="process-math">\(k\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-pick-a-number-nash-2-1">Show that every player choosing <span class="process-math">\(k\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-pick-a-number-nash-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-pick-a-number-nash-3-1">The average is <span class="process-math">\(k\text{,}\)</span> so the target is <span class="process-math">\(\frac{3k}{4}\text{.}\)</span> Every player is the same distance from it, so all tie and <span class="process-math">\(\pi_i(k, \bar{k}) = 4\text{.}\)</span> Since 4 is the largest possible payoff, <span class="process-math">\(\pi_i(s_i, \bar{k}) \leq 4 = \pi_i(k, \bar{k})\)</span> for every <span class="process-math">\(s_i\text{,}\)</span> so this is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-nash-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-pick-a-number-nash-3-1">The average is <span class="process-math">\(k\text{,}\)</span> so the target is <span class="process-math">\(\frac{3k}{4}\text{.}\)</span> Every player is the same distance from it, so all tie and <span class="process-math">\(\pi_i(k, \bar{k}) = 4\text{.}\)</span> Since 4 is the largest possible payoff, <span class="process-math">\(\pi_i(s_i, \bar{k}) \leq 4 = \pi_i(k, \bar{k})\)</span> for every <span class="process-math">\(s_i\text{,}\)</span> so this is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-nash-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.7.a.1"><a href="#ans-pick-a-number-nash-3" title="Copy heading and permalink for Solution 3.6.7.a.1" aria-label="Copy heading and permalink for Solution 3.6.7.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.7.a.1"><a tabindex="-1" href="#ans-pick-a-number-nash-3" title="Copy heading and permalink for Solution 3.6.7.a.1" aria-label="Copy heading and permalink for Solution 3.6.7.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.7.a: Everyone choosing k"><a href="#ans-pick-a-number-nash" title="Copy heading and permalink for Task 3.6.7.a: Everyone choosing k" aria-label="Copy heading and permalink for Task 3.6.7.a: Everyone choosing k">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.7.a: Everyone choosing k"><a tabindex="-1" href="#ans-pick-a-number-nash" title="Copy heading and permalink for Task 3.6.7.a: Everyone choosing k" aria-label="Copy heading and permalink for Task 3.6.7.a: Everyone choosing k">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-pick-a-number-strict"><h4 class="heading">
+<article class="task exercise-like" id="ans-pick-a-number-strict"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">When it is strict.</span>
-</h4>
-<div class="para" id="ans-pick-a-number-strict-2-1">For which <span class="process-math">\(k\)</span> is the equilibrium strict?<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-strict-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-pick-a-number-strict-2-1">For which <span class="process-math">\(k\)</span> is the equilibrium strict?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-strict-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-pick-a-number-strict-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-pick-a-number-strict-3-1">The equilibrium is strict only when <span class="process-math">\(k = 1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-strict-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-pick-a-number-strict-3-1">The equilibrium is strict only when <span class="process-math">\(k = 1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-strict-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-pick-a-number-strict-3-2">
 <li id="ans-pick-a-number-strict-3-2-1">
 <div class="para" id="ans-pick-a-number-strict-3-2-1-1">
-<span class="process-math">\(k = 1\text{:}\)</span> The target is <span class="process-math">\(\frac{3}{4}\text{.}\)</span> Every other choice is larger, so it is farther from the target, and the player’s payoff drops from 4 to 0. So the equilibrium is strict.<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-strict-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 1\text{:}\)</span> The target is <span class="process-math">\(\frac{3}{4}\text{.}\)</span> Every other choice is larger, so it is farther from the target, and the player’s payoff drops from 4 to 0. So the equilibrium is strict.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-pick-a-number-strict-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-pick-a-number-strict-3-2-2">
 <div class="para" id="ans-pick-a-number-strict-3-2-2-1">
-<span class="process-math">\(k = 2\text{:}\)</span> The target is <span class="process-math">\(\frac{3}{2}\text{.}\)</span> Choosing 1 is just as close to the target as 2, so the player still ties and gets 4. So the equilibrium is not strict.<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-strict-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k = 2\text{:}\)</span> The target is <span class="process-math">\(\frac{3}{2}\text{.}\)</span> Choosing 1 is just as close to the target as 2, so the player still ties and gets 4. So the equilibrium is not strict.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-pick-a-number-strict-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-pick-a-number-strict-3-2-3">
 <div class="para" id="ans-pick-a-number-strict-3-2-3-1">
-<span class="process-math">\(k \geq 3\text{:}\)</span> The integer closest to the target <span class="process-math">\(\frac{3k}{4}\)</span> is not <span class="process-math">\(k\text{.}\)</span> A player who switches to it wins outright and still gets 4. So the equilibrium is not strict.<div class="autopermalink" data-description="Paragraph"><a href="#ans-pick-a-number-strict-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(k \geq 3\text{:}\)</span> The integer closest to the target <span class="process-math">\(\frac{3k}{4}\)</span> is not <span class="process-math">\(k\text{.}\)</span> A player who switches to it wins outright and still gets 4. So the equilibrium is not strict.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-pick-a-number-strict-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-pick-a-number-strict-3-2-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.7.b.1"><a href="#ans-pick-a-number-strict-3" title="Copy heading and permalink for Solution 3.6.7.b.1" aria-label="Copy heading and permalink for Solution 3.6.7.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.7.b.1"><a tabindex="-1" href="#ans-pick-a-number-strict-3" title="Copy heading and permalink for Solution 3.6.7.b.1" aria-label="Copy heading and permalink for Solution 3.6.7.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.7.b: When it is strict"><a href="#ans-pick-a-number-strict" title="Copy heading and permalink for Task 3.6.7.b: When it is strict" aria-label="Copy heading and permalink for Task 3.6.7.b: When it is strict">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.7: Pick a Number"><a href="#ans-hw-pick-a-number" title="Copy heading and permalink for Exercise 3.6.7: Pick a Number" aria-label="Copy heading and permalink for Exercise 3.6.7: Pick a Number">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.7.b: When it is strict"><a tabindex="-1" href="#ans-pick-a-number-strict" title="Copy heading and permalink for Task 3.6.7.b: When it is strict" aria-label="Copy heading and permalink for Task 3.6.7.b: When it is strict">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.7: Pick a Number"><a tabindex="-1" href="#ans-hw-pick-a-number" title="Copy heading and permalink for Exercise 3.6.7: Pick a Number" aria-label="Copy heading and permalink for Exercise 3.6.7: Pick a Number">🔗</a></div>
 </article></details>
-<details id="ans-hw-first-price-auction" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-first-price-auction" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A First-Price Auction.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-first-price-auction-nash"><h4 class="heading">
+<article class="task exercise-like" id="ans-first-price-auction-nash"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-first-price-auction-nash-2-1">Show that <span class="process-math">\(b_1 = v_2\)</span> and <span class="process-math">\(b_i = v_i\)</span> for <span class="process-math">\(i \geq 2\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-first-price-auction-nash-2-1">Show that <span class="process-math">\(b_1 = v_2\)</span> and <span class="process-math">\(b_i = v_i\)</span> for <span class="process-math">\(i \geq 2\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-first-price-auction-nash-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-first-price-auction-nash-3-1">We need to check that no player can improve their payoff by switching their bid on their own.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-1">We need to check that no player can improve their payoff by switching their bid on their own.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-first-price-auction-nash-3-2">
 <li id="ans-first-price-auction-nash-3-2-1">
-<div class="para" id="ans-first-price-auction-nash-3-2-1-1">Player 1: Since <span class="process-math">\(h_1 = v_2\text{,}\)</span> player 1 ties player 2’s bid and wins because of the lower index. Player 1’s payoff is <span class="process-math">\(v_1 - v_2 \geq 0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-1-1">Player 1: Since <span class="process-math">\(h_1 = v_2\text{,}\)</span> player 1 ties player 2’s bid and wins because of the lower index. Player 1’s payoff is <span class="process-math">\(v_1 - v_2 \geq 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="circle" id="ans-first-price-auction-nash-3-2-1-2">
 <li id="ans-first-price-auction-nash-3-2-1-2-1">
-<div class="para" id="ans-first-price-auction-nash-3-2-1-2-1-1">Bidding higher: Player 1 still wins, but pays more, so the payoff goes down.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-1-2-1-1">Bidding higher: Player 1 still wins, but pays more, so the payoff goes down.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-first-price-auction-nash-3-2-1-2-2">
-<div class="para" id="ans-first-price-auction-nash-3-2-1-2-2-1">Bidding lower: Player 1 loses the auction, and the payoff becomes <span class="process-math">\(0\text{,}\)</span> which is no better than <span class="process-math">\(v_1 - v_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-1-2-2-1">Bidding lower: Player 1 loses the auction, and the payoff becomes <span class="process-math">\(0\text{,}\)</span> which is no better than <span class="process-math">\(v_1 - v_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-first-price-auction-nash-3-2-2">
-<div class="para" id="ans-first-price-auction-nash-3-2-2-1">Player <span class="process-math">\(i \geq 2\text{:}\)</span> Player <span class="process-math">\(i\)</span> loses the auction, so their payoff is <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-2-1">Player <span class="process-math">\(i \geq 2\text{:}\)</span> Player <span class="process-math">\(i\)</span> loses the auction, so their payoff is <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="circle" id="ans-first-price-auction-nash-3-2-2-2">
 <li id="ans-first-price-auction-nash-3-2-2-2-1">
-<div class="para" id="ans-first-price-auction-nash-3-2-2-2-1-1">Bidding lower: Player <span class="process-math">\(i\)</span> still loses, and the payoff stays <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-2-2-1-1">Bidding lower: Player <span class="process-math">\(i\)</span> still loses, and the payoff stays <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-first-price-auction-nash-3-2-2-2-2">
-<div class="para" id="ans-first-price-auction-nash-3-2-2-2-2-1">Bidding higher: Player 1 bids <span class="process-math">\(v_2\)</span> and wins ties, so to win, player <span class="process-math">\(i\)</span> must bid <span class="process-math">\(b_i \gt v_2\text{.}\)</span> Then the payoff is <span class="process-math">\(v_i - b_i \lt v_i - v_2 \leq 0\text{,}\)</span> which is worse than <span class="process-math">\(0\text{.}\)</span> A higher bid that does not win still pays <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-2-2-2-2-1">Bidding higher: Player 1 bids <span class="process-math">\(v_2\)</span> and wins ties, so to win, player <span class="process-math">\(i\)</span> must bid <span class="process-math">\(b_i \gt v_2\text{.}\)</span> Then the payoff is <span class="process-math">\(v_i - b_i \lt v_i - v_2 \leq 0\text{,}\)</span> which is worse than <span class="process-math">\(0\text{.}\)</span> A higher bid that does not win still pays <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-nash-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-nash-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="para" id="ans-first-price-auction-nash-3-3">No player can improve, so this is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-nash-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-nash-3-3">No player can improve, so this is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-nash-3-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 3.6.8.a.1"><a href="#ans-first-price-auction-nash-3" title="Copy heading and permalink for Solution 3.6.8.a.1" aria-label="Copy heading and permalink for Solution 3.6.8.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.8.a.1"><a tabindex="-1" href="#ans-first-price-auction-nash-3" title="Copy heading and permalink for Solution 3.6.8.a.1" aria-label="Copy heading and permalink for Solution 3.6.8.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.8.a: The Nash equilibrium"><a href="#ans-first-price-auction-nash" title="Copy heading and permalink for Task 3.6.8.a: The Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.8.a: The Nash equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.8.a: The Nash equilibrium"><a tabindex="-1" href="#ans-first-price-auction-nash" title="Copy heading and permalink for Task 3.6.8.a: The Nash equilibrium" aria-label="Copy heading and permalink for Task 3.6.8.a: The Nash equilibrium">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-first-price-auction-above"><h4 class="heading">
+<article class="task exercise-like" id="ans-first-price-auction-above"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Bidding above your value.</span>
-</h4>
-<div class="para" id="ans-first-price-auction-above-2-1">Show <span class="process-math">\(b_i \gt v_i\)</span> is weakly dominated by <span class="process-math">\(b_i' = v_i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-above-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-first-price-auction-above-2-1">Show <span class="process-math">\(b_i \gt v_i\)</span> is weakly dominated by <span class="process-math">\(b_i' = v_i\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-above-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-first-price-auction-above-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-first-price-auction-above-3-1">We need to check both conditions in the definition of a weakly dominated strategy.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-above-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-above-3-1">We need to check both conditions in the definition of a weakly dominated strategy.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-above-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-first-price-auction-above-3-2">
 <li id="ans-first-price-auction-above-3-2-1">
-<div class="para" id="ans-first-price-auction-above-3-2-1-1">Never worse: If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(v_i\text{,}\)</span> the payoff is always <span class="process-math">\(0\text{,}\)</span> because winning pays <span class="process-math">\(v_i - v_i = 0\)</span> and losing pays <span class="process-math">\(0\text{.}\)</span> If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(b_i \gt v_i\text{,}\)</span> the payoff is either <span class="process-math">\(v_i - b_i \lt 0\)</span> (a win) or <span class="process-math">\(0\)</span> (a loss). So <span class="process-math">\(\pi_i(v_i, b_{-i}) \geq \pi_i(b_i, b_{-i})\)</span> for every <span class="process-math">\(b_{-i}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-above-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-above-3-2-1-1">Never worse: If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(v_i\text{,}\)</span> the payoff is always <span class="process-math">\(0\text{,}\)</span> because winning pays <span class="process-math">\(v_i - v_i = 0\)</span> and losing pays <span class="process-math">\(0\text{.}\)</span> If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(b_i \gt v_i\text{,}\)</span> the payoff is either <span class="process-math">\(v_i - b_i \lt 0\)</span> (a win) or <span class="process-math">\(0\)</span> (a loss). So <span class="process-math">\(\pi_i(v_i, b_{-i}) \geq \pi_i(b_i, b_{-i})\)</span> for every <span class="process-math">\(b_{-i}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-above-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-above-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-above-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-first-price-auction-above-3-2-2">
-<div class="para" id="ans-first-price-auction-above-3-2-2-1">Sometimes strictly better: Suppose every other player bids <span class="process-math">\(0\text{.}\)</span> Then the bid <span class="process-math">\(b_i\)</span> wins, and player <span class="process-math">\(i\)</span> gets <span class="process-math">\(v_i - b_i \lt 0\text{,}\)</span> while bidding <span class="process-math">\(v_i\)</span> gives <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-above-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-above-3-2-2-1">Sometimes strictly better: Suppose every other player bids <span class="process-math">\(0\text{.}\)</span> Then the bid <span class="process-math">\(b_i\)</span> wins, and player <span class="process-math">\(i\)</span> gets <span class="process-math">\(v_i - b_i \lt 0\text{,}\)</span> while bidding <span class="process-math">\(v_i\)</span> gives <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-above-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-above-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-above-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.8.b.1"><a href="#ans-first-price-auction-above-3" title="Copy heading and permalink for Solution 3.6.8.b.1" aria-label="Copy heading and permalink for Solution 3.6.8.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.8.b.1"><a tabindex="-1" href="#ans-first-price-auction-above-3" title="Copy heading and permalink for Solution 3.6.8.b.1" aria-label="Copy heading and permalink for Solution 3.6.8.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.8.b: Bidding above your value"><a href="#ans-first-price-auction-above" title="Copy heading and permalink for Task 3.6.8.b: Bidding above your value" aria-label="Copy heading and permalink for Task 3.6.8.b: Bidding above your value">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.8.b: Bidding above your value"><a tabindex="-1" href="#ans-first-price-auction-above" title="Copy heading and permalink for Task 3.6.8.b: Bidding above your value" aria-label="Copy heading and permalink for Task 3.6.8.b: Bidding above your value">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-first-price-auction-at"><h4 class="heading">
+<article class="task exercise-like" id="ans-first-price-auction-at"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Bidding exactly your value.</span>
-</h4>
-<div class="para" id="ans-first-price-auction-at-2-1">Show <span class="process-math">\(b_i = v_i\)</span> is weakly dominated by any <span class="process-math">\(0 \lt b_i' \lt v_i\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-at-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-first-price-auction-at-2-1">Show <span class="process-math">\(b_i = v_i\)</span> is weakly dominated by any <span class="process-math">\(0 \lt b_i' \lt v_i\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-at-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-first-price-auction-at-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-first-price-auction-at-3-1">We need to check both conditions in the definition of a weakly dominated strategy.<div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-at-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-at-3-1">We need to check both conditions in the definition of a weakly dominated strategy.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-at-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <ul class="disc" id="ans-first-price-auction-at-3-2">
 <li id="ans-first-price-auction-at-3-2-1">
-<div class="para" id="ans-first-price-auction-at-3-2-1-1">Never worse: If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(v_i\text{,}\)</span> the payoff is always <span class="process-math">\(0\text{.}\)</span> If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(b_i'\)</span> with <span class="process-math">\(0 \lt b_i' \lt v_i\text{,}\)</span> the payoff is either <span class="process-math">\(v_i - b_i' \gt 0\)</span> (a win) or <span class="process-math">\(0\)</span> (a loss). So <span class="process-math">\(\pi_i(b_i', b_{-i}) \geq \pi_i(v_i, b_{-i})\)</span> for every <span class="process-math">\(b_{-i}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-at-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-at-3-2-1-1">Never worse: If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(v_i\text{,}\)</span> the payoff is always <span class="process-math">\(0\text{.}\)</span> If player <span class="process-math">\(i\)</span> bids <span class="process-math">\(b_i'\)</span> with <span class="process-math">\(0 \lt b_i' \lt v_i\text{,}\)</span> the payoff is either <span class="process-math">\(v_i - b_i' \gt 0\)</span> (a win) or <span class="process-math">\(0\)</span> (a loss). So <span class="process-math">\(\pi_i(b_i', b_{-i}) \geq \pi_i(v_i, b_{-i})\)</span> for every <span class="process-math">\(b_{-i}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-at-3-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-at-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-at-3-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-first-price-auction-at-3-2-2">
-<div class="para" id="ans-first-price-auction-at-3-2-2-1">Sometimes strictly better: Suppose every other player bids <span class="process-math">\(0\text{.}\)</span> Then the bid <span class="process-math">\(b_i'\)</span> wins, and player <span class="process-math">\(i\)</span> gets <span class="process-math">\(v_i - b_i' \gt 0\text{,}\)</span> while bidding <span class="process-math">\(v_i\)</span> gives <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-first-price-auction-at-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-first-price-auction-at-3-2-2-1">Sometimes strictly better: Suppose every other player bids <span class="process-math">\(0\text{.}\)</span> Then the bid <span class="process-math">\(b_i'\)</span> wins, and player <span class="process-math">\(i\)</span> gets <span class="process-math">\(v_i - b_i' \gt 0\text{,}\)</span> while bidding <span class="process-math">\(v_i\)</span> gives <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-first-price-auction-at-3-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-first-price-auction-at-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-first-price-auction-at-3-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 3.6.8.c.1"><a href="#ans-first-price-auction-at-3" title="Copy heading and permalink for Solution 3.6.8.c.1" aria-label="Copy heading and permalink for Solution 3.6.8.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 3.6.8.c.1"><a tabindex="-1" href="#ans-first-price-auction-at-3" title="Copy heading and permalink for Solution 3.6.8.c.1" aria-label="Copy heading and permalink for Solution 3.6.8.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 3.6.8.c: Bidding exactly your value"><a href="#ans-first-price-auction-at" title="Copy heading and permalink for Task 3.6.8.c: Bidding exactly your value" aria-label="Copy heading and permalink for Task 3.6.8.c: Bidding exactly your value">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 3.6.8: A First-Price Auction"><a href="#ans-hw-first-price-auction" title="Copy heading and permalink for Exercise 3.6.8: A First-Price Auction" aria-label="Copy heading and permalink for Exercise 3.6.8: A First-Price Auction">🔗</a></div>
-</article></details><div class="autopermalink" data-description="Exercises 3.6: Answers to Ch. 3 Exercises"><a href="#ch3-answers" title="Copy heading and permalink for Exercises 3.6: Answers to Ch. 3 Exercises" aria-label="Copy heading and permalink for Exercises 3.6: Answers to Ch. 3 Exercises">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 3.6.8.c: Bidding exactly your value"><a tabindex="-1" href="#ans-first-price-auction-at" title="Copy heading and permalink for Task 3.6.8.c: Bidding exactly your value" aria-label="Copy heading and permalink for Task 3.6.8.c: Bidding exactly your value">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 3.6.8: A First-Price Auction"><a tabindex="-1" href="#ans-hw-first-price-auction" title="Copy heading and permalink for Exercise 3.6.8: A First-Price Auction" aria-label="Copy heading and permalink for Exercise 3.6.8: A First-Price Auction">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Exercises 3.6: Answers to Ch. 3 Exercises"><a tabindex="-1" href="#ch3-answers" title="Copy heading and permalink for Exercises 3.6: Answers to Ch. 3 Exercises" aria-label="Copy heading and permalink for Exercises 3.6: Answers to Ch. 3 Exercises">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
@@ -763,7 +796,7 @@ eBookConfig.enable_chatcodes =  false;
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" alt="Runestone Academy logo" src="data:image/png;base64,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"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" alt="MathJax logo" src="data:image/png;base64,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"></a>
 </div>
 </body>
 </html>

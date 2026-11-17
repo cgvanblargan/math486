@@ -17,17 +17,21 @@
 <title>Answers to Ch. 5 Exercises</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0">
+<link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
 <link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
-<link href="_static/pretext/css/ol-markers.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends decimal; prefix: '('; suffix: ') '; }
+</style>
 <script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
 startMathJax({
 hasWebworkReps: false,
 hasSage: false,
 isReact: false,
 htmlPresentation: false,
+lang: "en-US",
 });
-</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+</script><script defer data-pretext-mathjax="true" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta property="og:type" content="book">
 <meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
@@ -36,7 +40,7 @@ htmlPresentation: false,
 <meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
 <meta name="twitter:card" content="summary">
-<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.42"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
 <!--** Runestone components to run locally in reader's browser **-->
 <!--** No external communication:                              **-->
 <!--**     log level is 0, Runestone Services are disabled     **-->
@@ -58,33 +62,61 @@ eBookConfig.allow_pairs = false;
 eBookConfig.enableScratchAC = false;
 eBookConfig.build_info = "";
 eBookConfig.python3 = null;
-eBookConfig.runestone_version = '8.4.0';
+eBookConfig.runestone_version = '8.4.1';
 eBookConfig.jobehost = '';
 eBookConfig.proxyuri_runs = '';
 eBookConfig.proxyuri_files = '';
 eBookConfig.enable_chatcodes =  false;
 </script>
 <!--*** Runestone Services ***-->
-<script src="_static/prefix-runtime.7e2ee203f2ecd6c8.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
+<script src="_static/prefix-runtime.82b21a4699b89209.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.35a40fea06647cf2.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.7062ede5334282a6.css">
 <script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
 </script>
 </head>
 <body id="deforest-gametheory-math486" class="pretext book ignore-math">
-<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead"><div class="ptx-banner"><div class="title-container">
-<h1 class="heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></h1>
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></div>
 <p class="byline">Caroline VanBlargan</p>
 </div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
-<button class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
-<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search book" commandfor="ptx-search-dialog" command="show-modal"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
-<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog" closedby="closerequest"><div class="ptx-search-dialog-controls">
-<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close search" id="ptx-search-close" class="ptx-search-close" commandfor="ptx-search-dialog" command="close"><span class="material-symbols-outlined">close</span></button>
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
 </div>
 <div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
-<h2 class="ptx-search-results-heading">Search Results: </h2>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
 <div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
 <ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
 </div>
-<span class="nav-other-controls"><button id="light-dark-button" class="light-dark-button button" title="Dark Mode"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span class="name">Dark Mode</span></button></span><span class="treebuttons"><a class="previous-button button" href="ch5-exercises.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-more-extensive-form.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch5-exercises.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-mixed-strategy-nash-equilibria.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-more-extensive-form.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
 </div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
 \newcommand{\lt}{&lt;}
 \newcommand{\gt}{&gt;}
@@ -93,17 +125,17 @@ eBookConfig.enable_chatcodes =  false;
 \newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
 \)</span></div>
 <div class="ptx-page">
-<div id="ptx-sidebar" class="ptx-sidebar"><nav id="ptx-toc" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
 <li class="toc-item toc-frontmatter">
 <div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-frontmatter" class="structural toc-item-list">
 <li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
 <li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-backward-induction" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
@@ -117,7 +149,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-eliminating-dominated-strategies" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
@@ -128,7 +160,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-nash-equilibria" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
@@ -139,7 +171,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-incomplete-information" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
@@ -149,7 +181,7 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter contains-active">
 <div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
-<ul class="structural toc-item-list contains-active">
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-mixed-strategy-nash-equilibria">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
@@ -162,20 +194,21 @@ eBookConfig.enable_chatcodes =  false;
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-more-extensive-form" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-answers.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Answers to Ch. 6 Exercises</span></a></div></li>
 </ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
-<ul class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+<ul id="ptx-toc-group-ch-symmetries-of-games" class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
 </li>
 <li class="toc-item toc-chapter">
 <div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
-<ul class="structural toc-item-list">
+<ul id="ptx-toc-group-ch-alternatives-to-nash" class="structural toc-item-list">
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Evolutionary Stability</span></a></div></li>
 <li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page2-two-pure-strategies.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability with Two Pure Strategies</span></a></div></li>
 <li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Exercises</span></a></div></li>
@@ -185,58 +218,58 @@ eBookConfig.enable_chatcodes =  false;
 </ul></nav></div>
 <main class="ptx-main"><div id="ptx-content" class="ptx-content">
 <section class="exercises" id="ch5-answers">
-<h2 class="heading hide-type">
+<h1 class="heading hide-type">
 <span class="type">Exercises</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">5.8</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Answers to Ch. 5 Exercises</span>
-</h2>
+</h1>
 <section class="introduction" id="ch5-answers-2">
-<div class="para" id="ch5-answers-2-1">Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click <dfn class="terminology">Solution</dfn> to reveal the answer.<div class="autopermalink" data-description="Paragraph"><a href="#ch5-answers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ch5-answers-2-1">Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click <dfn class="terminology">Solution</dfn> to reveal the answer.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch5-answers-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ch5-answers-2-2">These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.<div class="autopermalink" data-description="Paragraph"><a href="#ch5-answers-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ch5-answers-2-2">These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch5-answers-2-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div></section>
-<details id="ans-hw-compute-msne" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-compute-msne" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Mixed Equilibrium.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-compute-msne-find"><h4 class="heading">
+<article class="task exercise-like" id="ans-compute-msne-find"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The mixed strategy Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-compute-msne-find-2-1">Find a mixed strategy Nash equilibrium in which both players use both of their strategies.<div class="autopermalink" data-description="Paragraph"><a href="#ans-compute-msne-find-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-compute-msne-find-2-1">Find a mixed strategy Nash equilibrium in which both players use both of their strategies.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-compute-msne-find-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-compute-msne-find-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-compute-msne-find-3-1">
-<span class="process-math">\(\left(\frac{1}{5}a + \frac{4}{5}b,\ \frac{3}{4}x + \frac{1}{4}y\right)\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-compute-msne-find-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\left(\frac{1}{5}a + \frac{4}{5}b,\ \frac{3}{4}x + \frac{1}{4}y\right)\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-compute-msne-find-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.1.a.1"><a href="#ans-compute-msne-find-3" title="Copy heading and permalink for Solution 5.8.1.a.1" aria-label="Copy heading and permalink for Solution 5.8.1.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.1.a.1"><a tabindex="-1" href="#ans-compute-msne-find-3" title="Copy heading and permalink for Solution 5.8.1.a.1" aria-label="Copy heading and permalink for Solution 5.8.1.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.1.a: The mixed strategy Nash equilibrium"><a href="#ans-compute-msne-find" title="Copy heading and permalink for Task 5.8.1.a: The mixed strategy Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.1.a: The mixed strategy Nash equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.1.a: The mixed strategy Nash equilibrium"><a tabindex="-1" href="#ans-compute-msne-find" title="Copy heading and permalink for Task 5.8.1.a: The mixed strategy Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.1.a: The mixed strategy Nash equilibrium">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-compute-msne-payoff"><h4 class="heading">
+<article class="task exercise-like" id="ans-compute-msne-payoff"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Expected payoffs.</span>
-</h4>
-<div class="para" id="ans-compute-msne-payoff-2-1">What is each player’s expected payoff at this equilibrium?<div class="autopermalink" data-description="Paragraph"><a href="#ans-compute-msne-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-compute-msne-payoff-2-1">What is each player’s expected payoff at this equilibrium?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-compute-msne-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-compute-msne-payoff-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-compute-msne-payoff-3-1">Player 1 gets <span class="process-math">\(\frac{3}{2}\)</span> and Player 2 gets <span class="process-math">\(\frac{28}{5}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-compute-msne-payoff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-compute-msne-payoff-3-1">Player 1 gets <span class="process-math">\(\frac{3}{2}\)</span> and Player 2 gets <span class="process-math">\(\frac{28}{5}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-compute-msne-payoff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.1.b.1"><a href="#ans-compute-msne-payoff-3" title="Copy heading and permalink for Solution 5.8.1.b.1" aria-label="Copy heading and permalink for Solution 5.8.1.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.1.b.1"><a tabindex="-1" href="#ans-compute-msne-payoff-3" title="Copy heading and permalink for Solution 5.8.1.b.1" aria-label="Copy heading and permalink for Solution 5.8.1.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.1.b: Expected payoffs"><a href="#ans-compute-msne-payoff" title="Copy heading and permalink for Task 5.8.1.b: Expected payoffs" aria-label="Copy heading and permalink for Task 5.8.1.b: Expected payoffs">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.1: Computing a Mixed Equilibrium"><a href="#ans-hw-compute-msne" title="Copy heading and permalink for Exercise 5.8.1: Computing a Mixed Equilibrium" aria-label="Copy heading and permalink for Exercise 5.8.1: Computing a Mixed Equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.1.b: Expected payoffs"><a tabindex="-1" href="#ans-compute-msne-payoff" title="Copy heading and permalink for Task 5.8.1.b: Expected payoffs" aria-label="Copy heading and permalink for Task 5.8.1.b: Expected payoffs">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.1: Computing a Mixed Equilibrium"><a tabindex="-1" href="#ans-hw-compute-msne" title="Copy heading and permalink for Exercise 5.8.1: Computing a Mixed Equilibrium" aria-label="Copy heading and permalink for Exercise 5.8.1: Computing a Mixed Equilibrium">🔗</a></div>
 </article></details>
-<details id="ans-hw-symmetric-3x3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-symmetric-3x3" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Symmetric <span class="process-math">\(3 \times 3\)</span> Game.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-symmetric-3x3-system"><h4 class="heading">
+<article class="task exercise-like" id="ans-symmetric-3x3-system"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The system of equations.</span>
-</h4>
-<div class="para" id="ans-symmetric-3x3-system-2-1">Set up a system of linear equations whose solution gives a symmetric Nash equilibrium <span class="process-math">\((\sigma, \sigma)\)</span> with all three strategies active.<div class="autopermalink" data-description="Paragraph"><a href="#ans-symmetric-3x3-system-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-symmetric-3x3-system-2-1">Set up a system of linear equations whose solution gives a symmetric Nash equilibrium <span class="process-math">\((\sigma, \sigma)\)</span> with all three strategies active.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-symmetric-3x3-system-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-symmetric-3x3-system-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -259,54 +292,54 @@ x + y + z \amp = 1
 \end{align*}
 </div>
 <div class="para">(Using <span class="process-math">\(z = 1 - x - y\)</span> instead gives two equations in <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{.}\)</span>)</div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ans-symmetric-3x3-system-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-symmetric-3x3-system-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.2.a.1"><a href="#ans-symmetric-3x3-system-3" title="Copy heading and permalink for Solution 5.8.2.a.1" aria-label="Copy heading and permalink for Solution 5.8.2.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.2.a.1"><a tabindex="-1" href="#ans-symmetric-3x3-system-3" title="Copy heading and permalink for Solution 5.8.2.a.1" aria-label="Copy heading and permalink for Solution 5.8.2.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.2.a: The system of equations"><a href="#ans-symmetric-3x3-system" title="Copy heading and permalink for Task 5.8.2.a: The system of equations" aria-label="Copy heading and permalink for Task 5.8.2.a: The system of equations">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.2.a: The system of equations"><a tabindex="-1" href="#ans-symmetric-3x3-system" title="Copy heading and permalink for Task 5.8.2.a: The system of equations" aria-label="Copy heading and permalink for Task 5.8.2.a: The system of equations">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-symmetric-3x3-solve"><h4 class="heading">
+<article class="task exercise-like" id="ans-symmetric-3x3-solve"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The symmetric Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-symmetric-3x3-solve-2-1">Solve the system and state the Nash equilibrium <span class="process-math">\((\sigma, \sigma)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-symmetric-3x3-solve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-symmetric-3x3-solve-2-1">Solve the system and state the Nash equilibrium <span class="process-math">\((\sigma, \sigma)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-symmetric-3x3-solve-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-symmetric-3x3-solve-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-symmetric-3x3-solve-3-1">
-<span class="process-math">\((\sigma, \sigma)\)</span> with <span class="process-math">\(\sigma = \frac{1}{6}a + \frac{1}{2}b + \frac{1}{3}c\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-symmetric-3x3-solve-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((\sigma, \sigma)\)</span> with <span class="process-math">\(\sigma = \frac{1}{6}a + \frac{1}{2}b + \frac{1}{3}c\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-symmetric-3x3-solve-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.2.b.1"><a href="#ans-symmetric-3x3-solve-3" title="Copy heading and permalink for Solution 5.8.2.b.1" aria-label="Copy heading and permalink for Solution 5.8.2.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.2.b.1"><a tabindex="-1" href="#ans-symmetric-3x3-solve-3" title="Copy heading and permalink for Solution 5.8.2.b.1" aria-label="Copy heading and permalink for Solution 5.8.2.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.2.b: The symmetric Nash equilibrium"><a href="#ans-symmetric-3x3-solve" title="Copy heading and permalink for Task 5.8.2.b: The symmetric Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.2.b: The symmetric Nash equilibrium">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.2: A Symmetric 3 \times 3 Game"><a href="#ans-hw-symmetric-3x3" title="Copy heading and permalink for Exercise 5.8.2: A Symmetric 3 \times 3 Game" aria-label="Copy heading and permalink for Exercise 5.8.2: A Symmetric 3 \times 3 Game">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.2.b: The symmetric Nash equilibrium"><a tabindex="-1" href="#ans-symmetric-3x3-solve" title="Copy heading and permalink for Task 5.8.2.b: The symmetric Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.2.b: The symmetric Nash equilibrium">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.2: A Symmetric 3 \times 3 Game"><a tabindex="-1" href="#ans-hw-symmetric-3x3" title="Copy heading and permalink for Exercise 5.8.2: A Symmetric 3 \times 3 Game" aria-label="Copy heading and permalink for Exercise 5.8.2: A Symmetric 3 \times 3 Game">🔗</a></div>
 </article></details>
-<details id="ans-hw-active-inactive" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-active-inactive" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Active and Inactive Strategies.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-active-inactive-three"><h4 class="heading">
+<article class="task exercise-like" id="ans-active-inactive-three"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">All three strategies active.</span>
-</h4>
-<div class="para" id="ans-active-inactive-three-2-1">Show that there is no mixed strategy Nash equilibrium in which all three of Player 1’s strategies are active.<div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-three-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-active-inactive-three-2-1">Show that there is no mixed strategy Nash equilibrium in which all three of Player 1’s strategies are active.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-three-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-active-inactive-three-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-active-inactive-three-3-1">
-<span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2)\)</span> requires <span class="process-math">\(q = \frac{1}{2}\text{,}\)</span> but <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2)\)</span> requires <span class="process-math">\(q = \frac{2}{3}\text{.}\)</span> Both can’t hold, so there is no such equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-three-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2)\)</span> requires <span class="process-math">\(q = \frac{1}{2}\text{,}\)</span> but <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2)\)</span> requires <span class="process-math">\(q = \frac{2}{3}\text{.}\)</span> Both can’t hold, so there is no such equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-three-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.3.a.1"><a href="#ans-active-inactive-three-3" title="Copy heading and permalink for Solution 5.8.3.a.1" aria-label="Copy heading and permalink for Solution 5.8.3.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.3.a.1"><a tabindex="-1" href="#ans-active-inactive-three-3" title="Copy heading and permalink for Solution 5.8.3.a.1" aria-label="Copy heading and permalink for Solution 5.8.3.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.3.a: All three strategies active"><a href="#ans-active-inactive-three" title="Copy heading and permalink for Task 5.8.3.a: All three strategies active" aria-label="Copy heading and permalink for Task 5.8.3.a: All three strategies active">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.3.a: All three strategies active"><a tabindex="-1" href="#ans-active-inactive-three" title="Copy heading and permalink for Task 5.8.3.a: All three strategies active" aria-label="Copy heading and permalink for Task 5.8.3.a: All three strategies active">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-active-inactive-ab"><h4 class="heading">
+<article class="task exercise-like" id="ans-active-inactive-ab"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> active.</span>
-</h4>
-<div class="para" id="ans-active-inactive-ab-2-1">Find a mixed strategy Nash equilibrium with <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> active in <span class="process-math">\(\sigma_1\text{,}\)</span> <span class="process-math">\(c\)</span> inactive, and both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> active in <span class="process-math">\(\sigma_2\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-ab-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-active-inactive-ab-2-1">Find a mixed strategy Nash equilibrium with <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> active in <span class="process-math">\(\sigma_1\text{,}\)</span> <span class="process-math">\(c\)</span> inactive, and both <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> active in <span class="process-math">\(\sigma_2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-ab-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-active-inactive-ab-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -314,93 +347,93 @@ x + y + z \amp = 1
 <ul class="disc" id="ans-active-inactive-ab-3-1">
 <li id="ans-active-inactive-ab-3-1-1">
 <div class="para" id="ans-active-inactive-ab-3-1-1-1">
-<span class="process-math">\(\left(\frac{3}{4}a + \frac{1}{4}b,\ \frac{1}{2}x + \frac{1}{2}y\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-ab-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\left(\frac{3}{4}a + \frac{1}{4}b,\ \frac{1}{2}x + \frac{1}{2}y\right)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-ab-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-active-inactive-ab-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-active-inactive-ab-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-active-inactive-ab-3-1-2">
-<div class="para" id="ans-active-inactive-ab-3-1-2-1">Inequality condition: <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2) = 4\)</span> and <span class="process-math">\(\pi_1(c, \sigma_2) = \frac{7}{2} \leq 4\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-ab-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-active-inactive-ab-3-1-2-1">Inequality condition: <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(b, \sigma_2) = 4\)</span> and <span class="process-math">\(\pi_1(c, \sigma_2) = \frac{7}{2} \leq 4\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-ab-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-active-inactive-ab-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-active-inactive-ab-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 5.8.3.b.1"><a href="#ans-active-inactive-ab-3" title="Copy heading and permalink for Solution 5.8.3.b.1" aria-label="Copy heading and permalink for Solution 5.8.3.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.3.b.1"><a tabindex="-1" href="#ans-active-inactive-ab-3" title="Copy heading and permalink for Solution 5.8.3.b.1" aria-label="Copy heading and permalink for Solution 5.8.3.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.3.b: a and b active"><a href="#ans-active-inactive-ab" title="Copy heading and permalink for Task 5.8.3.b: a and b active" aria-label="Copy heading and permalink for Task 5.8.3.b: a and b active">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.3.b: a and b active"><a tabindex="-1" href="#ans-active-inactive-ab" title="Copy heading and permalink for Task 5.8.3.b: a and b active" aria-label="Copy heading and permalink for Task 5.8.3.b: a and b active">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-active-inactive-ac"><h4 class="heading">
+<article class="task exercise-like" id="ans-active-inactive-ac"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title"><span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> active.</span>
-</h4>
-<div class="para" id="ans-active-inactive-ac-2-1">Show that there is no mixed strategy Nash equilibrium with <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> active in <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(b\)</span> inactive.<div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-ac-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-active-inactive-ac-2-1">Show that there is no mixed strategy Nash equilibrium with <span class="process-math">\(a\)</span> and <span class="process-math">\(c\)</span> active in <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(b\)</span> inactive.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-ac-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-active-inactive-ac-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-active-inactive-ac-3-1">The equality condition gives <span class="process-math">\(q = \frac{2}{3}\text{.}\)</span> Then <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2) = \frac{10}{3}\text{,}\)</span> but <span class="process-math">\(\pi_1(b, \sigma_2) = \frac{13}{3} \gt \frac{10}{3}\text{,}\)</span> so the inequality condition fails.<div class="autopermalink" data-description="Paragraph"><a href="#ans-active-inactive-ac-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-active-inactive-ac-3-1">The equality condition gives <span class="process-math">\(q = \frac{2}{3}\text{.}\)</span> Then <span class="process-math">\(\pi_1(a, \sigma_2) = \pi_1(c, \sigma_2) = \frac{10}{3}\text{,}\)</span> but <span class="process-math">\(\pi_1(b, \sigma_2) = \frac{13}{3} \gt \frac{10}{3}\text{,}\)</span> so the inequality condition fails.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-active-inactive-ac-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.3.c.1"><a href="#ans-active-inactive-ac-3" title="Copy heading and permalink for Solution 5.8.3.c.1" aria-label="Copy heading and permalink for Solution 5.8.3.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.3.c.1"><a tabindex="-1" href="#ans-active-inactive-ac-3" title="Copy heading and permalink for Solution 5.8.3.c.1" aria-label="Copy heading and permalink for Solution 5.8.3.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.3.c: a and c active"><a href="#ans-active-inactive-ac" title="Copy heading and permalink for Task 5.8.3.c: a and c active" aria-label="Copy heading and permalink for Task 5.8.3.c: a and c active">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.3: Active and Inactive Strategies"><a href="#ans-hw-active-inactive" title="Copy heading and permalink for Exercise 5.8.3: Active and Inactive Strategies" aria-label="Copy heading and permalink for Exercise 5.8.3: Active and Inactive Strategies">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.3.c: a and c active"><a tabindex="-1" href="#ans-active-inactive-ac" title="Copy heading and permalink for Task 5.8.3.c: a and c active" aria-label="Copy heading and permalink for Task 5.8.3.c: a and c active">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.3: Active and Inactive Strategies"><a tabindex="-1" href="#ans-hw-active-inactive" title="Copy heading and permalink for Exercise 5.8.3: Active and Inactive Strategies" aria-label="Copy heading and permalink for Exercise 5.8.3: Active and Inactive Strategies">🔗</a></div>
 </article></details>
-<details id="ans-hw-two-stage-pd" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-two-stage-pd" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Two-Stage Prisoner’s Dilemma.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-two-stage-pd-fill"><h4 class="heading">
+<article class="task exercise-like" id="ans-two-stage-pd-fill"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The missing payoffs.</span>
-</h4>
-<div class="para" id="ans-two-stage-pd-fill-2-1">Find the payoffs for <span class="process-math">\((D, T)\)</span> and <span class="process-math">\((T, D)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-fill-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-two-stage-pd-fill-2-1">Find the payoffs for <span class="process-math">\((D, T)\)</span> and <span class="process-math">\((T, D)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-fill-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-two-stage-pd-fill-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-two-stage-pd-fill-3-1">
-<span class="process-math">\((D, T)\)</span> gives <span class="process-math">\((5, -1)\)</span> and <span class="process-math">\((T, D)\)</span> gives <span class="process-math">\((-1, 5)\text{.}\)</span> In stage 1 the defector gets <span class="process-math">\(5\)</span> and the tit for tat player gets <span class="process-math">\(-1\text{;}\)</span> in stage 2 both play <span class="process-math">\(d\)</span> and get <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-fill-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((D, T)\)</span> gives <span class="process-math">\((5, -1)\)</span> and <span class="process-math">\((T, D)\)</span> gives <span class="process-math">\((-1, 5)\text{.}\)</span> In stage 1 the defector gets <span class="process-math">\(5\)</span> and the tit for tat player gets <span class="process-math">\(-1\text{;}\)</span> in stage 2 both play <span class="process-math">\(d\)</span> and get <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-fill-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.4.a.1"><a href="#ans-two-stage-pd-fill-3" title="Copy heading and permalink for Solution 5.8.4.a.1" aria-label="Copy heading and permalink for Solution 5.8.4.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.4.a.1"><a tabindex="-1" href="#ans-two-stage-pd-fill-3" title="Copy heading and permalink for Solution 5.8.4.a.1" aria-label="Copy heading and permalink for Solution 5.8.4.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.4.a: The missing payoffs"><a href="#ans-two-stage-pd-fill" title="Copy heading and permalink for Task 5.8.4.a: The missing payoffs" aria-label="Copy heading and permalink for Task 5.8.4.a: The missing payoffs">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.4.a: The missing payoffs"><a tabindex="-1" href="#ans-two-stage-pd-fill" title="Copy heading and permalink for Task 5.8.4.a: The missing payoffs" aria-label="Copy heading and permalink for Task 5.8.4.a: The missing payoffs">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-two-stage-pd-pure"><h4 class="heading">
+<article class="task exercise-like" id="ans-two-stage-pd-pure"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pure strategy Nash equilibria.</span>
-</h4>
-<div class="para" id="ans-two-stage-pd-pure-2-1">Find all pure strategy Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-pure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-two-stage-pd-pure-2-1">Find all pure strategy Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-pure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-two-stage-pd-pure-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-two-stage-pd-pure-3-1">
-<span class="process-math">\((D, D)\)</span> and <span class="process-math">\((T, T)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-pure-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\((D, D)\)</span> and <span class="process-math">\((T, T)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-pure-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.4.b.1"><a href="#ans-two-stage-pd-pure-3" title="Copy heading and permalink for Solution 5.8.4.b.1" aria-label="Copy heading and permalink for Solution 5.8.4.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.4.b.1"><a tabindex="-1" href="#ans-two-stage-pd-pure-3" title="Copy heading and permalink for Solution 5.8.4.b.1" aria-label="Copy heading and permalink for Solution 5.8.4.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.4.b: Pure strategy Nash equilibria"><a href="#ans-two-stage-pd-pure" title="Copy heading and permalink for Task 5.8.4.b: Pure strategy Nash equilibria" aria-label="Copy heading and permalink for Task 5.8.4.b: Pure strategy Nash equilibria">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.4.b: Pure strategy Nash equilibria"><a tabindex="-1" href="#ans-two-stage-pd-pure" title="Copy heading and permalink for Task 5.8.4.b: Pure strategy Nash equilibria" aria-label="Copy heading and permalink for Task 5.8.4.b: Pure strategy Nash equilibria">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-two-stage-pd-equality"><h4 class="heading">
+<article class="task exercise-like" id="ans-two-stage-pd-equality"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The equality condition.</span>
-</h4>
-<div class="para" id="ans-two-stage-pd-equality-2-1">Show that the equality condition holds for every <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> in <span class="process-math">\((0, 1)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-two-stage-pd-equality-2-1">Show that the equality condition holds for every <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> in <span class="process-math">\((0, 1)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-two-stage-pd-equality-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-two-stage-pd-equality-3-1">
-<span class="process-math">\(\pi_1(C, \sigma_2) = \pi_1(T, \sigma_2) = 6\)</span> and <span class="process-math">\(\pi_2(\sigma_1, C) = \pi_2(\sigma_1, T) = 6\text{,}\)</span> no matter what <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are.<div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(C, \sigma_2) = \pi_1(T, \sigma_2) = 6\)</span> and <span class="process-math">\(\pi_2(\sigma_1, C) = \pi_2(\sigma_1, T) = 6\text{,}\)</span> no matter what <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.4.c.1"><a href="#ans-two-stage-pd-equality-3" title="Copy heading and permalink for Solution 5.8.4.c.1" aria-label="Copy heading and permalink for Solution 5.8.4.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.4.c.1"><a tabindex="-1" href="#ans-two-stage-pd-equality-3" title="Copy heading and permalink for Solution 5.8.4.c.1" aria-label="Copy heading and permalink for Solution 5.8.4.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.4.c: The equality condition"><a href="#ans-two-stage-pd-equality" title="Copy heading and permalink for Task 5.8.4.c: The equality condition" aria-label="Copy heading and permalink for Task 5.8.4.c: The equality condition">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.4.c: The equality condition"><a tabindex="-1" href="#ans-two-stage-pd-equality" title="Copy heading and permalink for Task 5.8.4.c: The equality condition" aria-label="Copy heading and permalink for Task 5.8.4.c: The equality condition">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-two-stage-pd-inequality"><h4 class="heading">
+<article class="task exercise-like" id="ans-two-stage-pd-inequality"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The inequality condition.</span>
-</h4>
-<div class="para" id="ans-two-stage-pd-inequality-2-1">Find exactly which values of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> make <span class="process-math">\((\sigma_1, \sigma_2)\)</span> a Nash equilibrium, and interpret.<div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-inequality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-two-stage-pd-inequality-2-1">Find exactly which values of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> make <span class="process-math">\((\sigma_1, \sigma_2)\)</span> a Nash equilibrium, and interpret.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-inequality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-two-stage-pd-inequality-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -408,35 +441,35 @@ x + y + z \amp = 1
 <ul class="disc" id="ans-two-stage-pd-inequality-3-1">
 <li id="ans-two-stage-pd-inequality-3-1-1">
 <div class="para" id="ans-two-stage-pd-inequality-3-1-1-1">
-<span class="process-math">\(\pi_1(D, \sigma_2) = 5 + 5q \leq 6\)</span> gives <span class="process-math">\(q \leq \frac{1}{5}\text{,}\)</span> and likewise <span class="process-math">\(\pi_2(\sigma_1, D) = 5 + 5p \leq 6\)</span> gives <span class="process-math">\(p \leq \frac{1}{5}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-inequality-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(D, \sigma_2) = 5 + 5q \leq 6\)</span> gives <span class="process-math">\(q \leq \frac{1}{5}\text{,}\)</span> and likewise <span class="process-math">\(\pi_2(\sigma_1, D) = 5 + 5p \leq 6\)</span> gives <span class="process-math">\(p \leq \frac{1}{5}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-two-stage-pd-inequality-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-two-stage-pd-inequality-3-1-2">
-<div class="para" id="ans-two-stage-pd-inequality-3-1-2-1">So the Nash equilibria are exactly the profiles with <span class="process-math">\(0 \lt p \leq \frac{1}{5}\)</span> and <span class="process-math">\(0 \lt q \leq \frac{1}{5}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-inequality-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-two-stage-pd-inequality-3-1-2-1">So the Nash equilibria are exactly the profiles with <span class="process-math">\(0 \lt p \leq \frac{1}{5}\)</span> and <span class="process-math">\(0 \lt q \leq \frac{1}{5}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-two-stage-pd-inequality-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-two-stage-pd-inequality-3-1-3">
-<div class="para" id="ans-two-stage-pd-inequality-3-1-3-1">In words: a player can use always cooperate at most <span class="process-math">\(\frac{1}{5}\)</span> of the time. Any more, and the other player does better by switching to always defect.<div class="autopermalink" data-description="Paragraph"><a href="#ans-two-stage-pd-inequality-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-two-stage-pd-inequality-3-1-3-1">In words: a player can use always cooperate at most <span class="process-math">\(\frac{1}{5}\)</span> of the time. Any more, and the other player does better by switching to always defect.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-two-stage-pd-inequality-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 5.8.4.d.1"><a href="#ans-two-stage-pd-inequality-3" title="Copy heading and permalink for Solution 5.8.4.d.1" aria-label="Copy heading and permalink for Solution 5.8.4.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.4.d.1"><a tabindex="-1" href="#ans-two-stage-pd-inequality-3" title="Copy heading and permalink for Solution 5.8.4.d.1" aria-label="Copy heading and permalink for Solution 5.8.4.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.4.d: The inequality condition"><a href="#ans-two-stage-pd-inequality" title="Copy heading and permalink for Task 5.8.4.d: The inequality condition" aria-label="Copy heading and permalink for Task 5.8.4.d: The inequality condition">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma"><a href="#ans-hw-two-stage-pd" title="Copy heading and permalink for Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma" aria-label="Copy heading and permalink for Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.4.d: The inequality condition"><a tabindex="-1" href="#ans-two-stage-pd-inequality" title="Copy heading and permalink for Task 5.8.4.d: The inequality condition" aria-label="Copy heading and permalink for Task 5.8.4.d: The inequality condition">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma"><a tabindex="-1" href="#ans-hw-two-stage-pd" title="Copy heading and permalink for Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma" aria-label="Copy heading and permalink for Exercise 5.8.4: A Two-Stage Prisoner’s Dilemma">🔗</a></div>
 </article></details>
-<details id="ans-hw-simple-poker-mixed" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-simple-poker-mixed" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">5<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A Simple Poker Game, Revisited.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-simple-poker-mixed-functions"><h4 class="heading">
+<article class="task exercise-like" id="ans-simple-poker-mixed-functions"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The payoff functions.</span>
-</h4>
-<div class="para" id="ans-simple-poker-mixed-functions-2-1">Find <span class="process-math">\(\pi_1(p, q)\)</span> and <span class="process-math">\(\pi_2(p, q)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-functions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-simple-poker-mixed-functions-2-1">Find <span class="process-math">\(\pi_1(p, q)\)</span> and <span class="process-math">\(\pi_2(p, q)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-functions-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-simple-poker-mixed-functions-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -447,164 +480,164 @@ x + y + z \amp = 1
 \pi_2(p, q) \amp = -2p(1-q) - q(1-p)
 \end{align*}
 </div>
-<div class="autopermalink" data-description="Solution 5.8.5.a.1"><a href="#ans-simple-poker-mixed-functions-3" title="Copy heading and permalink for Solution 5.8.5.a.1" aria-label="Copy heading and permalink for Solution 5.8.5.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.5.a.1"><a tabindex="-1" href="#ans-simple-poker-mixed-functions-3" title="Copy heading and permalink for Solution 5.8.5.a.1" aria-label="Copy heading and permalink for Solution 5.8.5.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.5.a: The payoff functions"><a href="#ans-simple-poker-mixed-functions" title="Copy heading and permalink for Task 5.8.5.a: The payoff functions" aria-label="Copy heading and permalink for Task 5.8.5.a: The payoff functions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.5.a: The payoff functions"><a tabindex="-1" href="#ans-simple-poker-mixed-functions" title="Copy heading and permalink for Task 5.8.5.a: The payoff functions" aria-label="Copy heading and permalink for Task 5.8.5.a: The payoff functions">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-simple-poker-mixed-derivatives"><h4 class="heading">
+<article class="task exercise-like" id="ans-simple-poker-mixed-derivatives"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The partial derivative method.</span>
-</h4>
-<div class="para" id="ans-simple-poker-mixed-derivatives-2-1">Use the partial derivative method to find a mixed strategy Nash equilibrium. Which partial derivatives do you set to <span class="process-math">\(0\text{?}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-derivatives-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-simple-poker-mixed-derivatives-2-1">Use the partial derivative method to find a mixed strategy Nash equilibrium. Which partial derivatives do you set to <span class="process-math">\(0\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-simple-poker-mixed-derivatives-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <ul class="disc" id="ans-simple-poker-mixed-derivatives-3-1">
 <li id="ans-simple-poker-mixed-derivatives-3-1-1">
-<div class="para" id="ans-simple-poker-mixed-derivatives-3-1-1-1">Set <span class="process-math">\(\frac{\partial \pi_1}{\partial p} = 2 - 3q = 0\)</span> and <span class="process-math">\(\frac{\partial \pi_2}{\partial q} = 3p - 1 = 0\text{,}\)</span> since each player only controls their own variable.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-derivatives-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-derivatives-3-1-1-1">Set <span class="process-math">\(\frac{\partial \pi_1}{\partial p} = 2 - 3q = 0\)</span> and <span class="process-math">\(\frac{\partial \pi_2}{\partial q} = 3p - 1 = 0\text{,}\)</span> since each player only controls their own variable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-simple-poker-mixed-derivatives-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-simple-poker-mixed-derivatives-3-1-2">
-<div class="para" id="ans-simple-poker-mixed-derivatives-3-1-2-1">The equilibrium is <span class="process-math">\(\left(\frac{1}{3}BB + \frac{2}{3}BF,\ \frac{2}{3}B + \frac{1}{3}F\right)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-derivatives-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-derivatives-3-1-2-1">The equilibrium is <span class="process-math">\(\left(\frac{1}{3}BB + \frac{2}{3}BF,\ \frac{2}{3}B + \frac{1}{3}F\right)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-simple-poker-mixed-derivatives-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 5.8.5.b.1"><a href="#ans-simple-poker-mixed-derivatives-3" title="Copy heading and permalink for Solution 5.8.5.b.1" aria-label="Copy heading and permalink for Solution 5.8.5.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.5.b.1"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives-3" title="Copy heading and permalink for Solution 5.8.5.b.1" aria-label="Copy heading and permalink for Solution 5.8.5.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.5.b: The partial derivative method"><a href="#ans-simple-poker-mixed-derivatives" title="Copy heading and permalink for Task 5.8.5.b: The partial derivative method" aria-label="Copy heading and permalink for Task 5.8.5.b: The partial derivative method">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.5.b: The partial derivative method"><a tabindex="-1" href="#ans-simple-poker-mixed-derivatives" title="Copy heading and permalink for Task 5.8.5.b: The partial derivative method" aria-label="Copy heading and permalink for Task 5.8.5.b: The partial derivative method">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-simple-poker-mixed-payoff"><h4 class="heading">
+<article class="task exercise-like" id="ans-simple-poker-mixed-payoff"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Expected payoffs.</span>
-</h4>
-<div class="para" id="ans-simple-poker-mixed-payoff-2-1">Find each player’s expected payoff at the Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-simple-poker-mixed-payoff-2-1">Find each player’s expected payoff at the Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-payoff-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-simple-poker-mixed-payoff-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-simple-poker-mixed-payoff-3-1">Player 1 gets <span class="process-math">\(\frac{2}{3}\)</span> and Player 2 gets <span class="process-math">\(-\frac{2}{3}\text{.}\)</span> The payoffs in every cell add to <span class="process-math">\(0\text{,}\)</span> so <span class="process-math">\(\pi_2 = -\pi_1\)</span> for every strategy profile.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-payoff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-payoff-3-1">Player 1 gets <span class="process-math">\(\frac{2}{3}\)</span> and Player 2 gets <span class="process-math">\(-\frac{2}{3}\text{.}\)</span> The payoffs in every cell add to <span class="process-math">\(0\text{,}\)</span> so <span class="process-math">\(\pi_2 = -\pi_1\)</span> for every strategy profile.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-payoff-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.5.c.1"><a href="#ans-simple-poker-mixed-payoff-3" title="Copy heading and permalink for Solution 5.8.5.c.1" aria-label="Copy heading and permalink for Solution 5.8.5.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.5.c.1"><a tabindex="-1" href="#ans-simple-poker-mixed-payoff-3" title="Copy heading and permalink for Solution 5.8.5.c.1" aria-label="Copy heading and permalink for Solution 5.8.5.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.5.c: Expected payoffs"><a href="#ans-simple-poker-mixed-payoff" title="Copy heading and permalink for Task 5.8.5.c: Expected payoffs" aria-label="Copy heading and permalink for Task 5.8.5.c: Expected payoffs">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.5.c: Expected payoffs"><a tabindex="-1" href="#ans-simple-poker-mixed-payoff" title="Copy heading and permalink for Task 5.8.5.c: Expected payoffs" aria-label="Copy heading and permalink for Task 5.8.5.c: Expected payoffs">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-simple-poker-mixed-interpret"><h4 class="heading">
+<article class="task exercise-like" id="ans-simple-poker-mixed-interpret"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Interpreting the equilibrium.</span>
-</h4>
-<div class="para" id="ans-simple-poker-mixed-interpret-2-1">Interpret the equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-interpret-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-simple-poker-mixed-interpret-2-1">Interpret the equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-simple-poker-mixed-interpret-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <ul class="disc" id="ans-simple-poker-mixed-interpret-3-1">
 <li id="ans-simple-poker-mixed-interpret-3-1-1">
-<div class="para" id="ans-simple-poker-mixed-interpret-3-1-1-1">With the high card, Player 1 always bids.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-interpret-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-interpret-3-1-1-1">With the high card, Player 1 always bids.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-simple-poker-mixed-interpret-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-simple-poker-mixed-interpret-3-1-2">
-<div class="para" id="ans-simple-poker-mixed-interpret-3-1-2-1">With the low card, Player 1 bluffs <span class="process-math">\(\frac{1}{3}\)</span> of the time.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-interpret-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-interpret-3-1-2-1">With the low card, Player 1 bluffs <span class="process-math">\(\frac{1}{3}\)</span> of the time.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-simple-poker-mixed-interpret-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 <li id="ans-simple-poker-mixed-interpret-3-1-3">
-<div class="para" id="ans-simple-poker-mixed-interpret-3-1-3-1">Player 2 bids back <span class="process-math">\(\frac{2}{3}\)</span> of the time.<div class="autopermalink" data-description="Paragraph"><a href="#ans-simple-poker-mixed-interpret-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-simple-poker-mixed-interpret-3-1-3-1">Player 2 bids back <span class="process-math">\(\frac{2}{3}\)</span> of the time.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item"><a href="#ans-simple-poker-mixed-interpret-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3-1-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
 </li>
 </ul>
-<div class="autopermalink" data-description="Solution 5.8.5.d.1"><a href="#ans-simple-poker-mixed-interpret-3" title="Copy heading and permalink for Solution 5.8.5.d.1" aria-label="Copy heading and permalink for Solution 5.8.5.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.5.d.1"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret-3" title="Copy heading and permalink for Solution 5.8.5.d.1" aria-label="Copy heading and permalink for Solution 5.8.5.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.5.d: Interpreting the equilibrium"><a href="#ans-simple-poker-mixed-interpret" title="Copy heading and permalink for Task 5.8.5.d: Interpreting the equilibrium" aria-label="Copy heading and permalink for Task 5.8.5.d: Interpreting the equilibrium">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.5: A Simple Poker Game, Revisited"><a href="#ans-hw-simple-poker-mixed" title="Copy heading and permalink for Exercise 5.8.5: A Simple Poker Game, Revisited" aria-label="Copy heading and permalink for Exercise 5.8.5: A Simple Poker Game, Revisited">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.5.d: Interpreting the equilibrium"><a tabindex="-1" href="#ans-simple-poker-mixed-interpret" title="Copy heading and permalink for Task 5.8.5.d: Interpreting the equilibrium" aria-label="Copy heading and permalink for Task 5.8.5.d: Interpreting the equilibrium">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.5: A Simple Poker Game, Revisited"><a tabindex="-1" href="#ans-hw-simple-poker-mixed" title="Copy heading and permalink for Exercise 5.8.5: A Simple Poker Game, Revisited" aria-label="Copy heading and permalink for Exercise 5.8.5: A Simple Poker Game, Revisited">🔗</a></div>
 </article></details>
-<details id="ans-hw-maximin-concepts" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-maximin-concepts" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">6<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Maximins and Theorem 5.6.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-maximin-concepts-pure"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-concepts-pure"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Pure strategies only.</span>
-</h4>
-<div class="para" id="ans-maximin-concepts-pure-2-1">Find the pure worst cases, the best pure strategies <span class="process-math">\(s_1\)</span> and <span class="process-math">\(s_2\text{,}\)</span> and decide whether <span class="process-math">\((s_1, s_2)\)</span> is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-pure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-concepts-pure-2-1">Find the pure worst cases, the best pure strategies <span class="process-math">\(s_1\)</span> and <span class="process-math">\(s_2\text{,}\)</span> and decide whether <span class="process-math">\((s_1, s_2)\)</span> is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-pure-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-concepts-pure-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<ol class="lower-roman ol-marker-1" id="ans-maximin-concepts-pure-3-1">
+<ol class="lower-roman" style="list-style: ptx-marker-1;" id="ans-maximin-concepts-pure-3-1">
 <li id="ans-maximin-concepts-pure-3-1-1">
 <div class="para" id="ans-maximin-concepts-pure-3-1-1-1">
-<span class="process-math">\(m_1(a) = \min(3, -1) = -1\text{,}\)</span> <span class="process-math">\(m_1(b) = \min(-2, 1) = -2\text{,}\)</span> <span class="process-math">\(m_2(x) = \min(-3, 2) = -3\text{,}\)</span> and <span class="process-math">\(m_2(y) = \min(1, -1) = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-pure-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(m_1(a) = \min(3, -1) = -1\text{,}\)</span> <span class="process-math">\(m_1(b) = \min(-2, 1) = -2\text{,}\)</span> <span class="process-math">\(m_2(x) = \min(-3, 2) = -3\text{,}\)</span> and <span class="process-math">\(m_2(y) = \min(1, -1) = -1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.i"><a href="#ans-maximin-concepts-pure-3-1-1" title="Copy heading and permalink for Item 5.8.6.i" aria-label="Copy heading and permalink for Item 5.8.6.i">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item i"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
 </li>
 <li id="ans-maximin-concepts-pure-3-1-2">
 <div class="para" id="ans-maximin-concepts-pure-3-1-2-1">
-<span class="process-math">\(s_1 = a\text{,}\)</span> guaranteeing <span class="process-math">\(m_1(a) = -1\text{,}\)</span> and <span class="process-math">\(s_2 = y\text{,}\)</span> guaranteeing <span class="process-math">\(m_2(y) = -1\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-pure-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(s_1 = a\text{,}\)</span> guaranteeing <span class="process-math">\(m_1(a) = -1\text{,}\)</span> and <span class="process-math">\(s_2 = y\text{,}\)</span> guaranteeing <span class="process-math">\(m_2(y) = -1\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.ii"><a href="#ans-maximin-concepts-pure-3-1-2" title="Copy heading and permalink for Item 5.8.6.ii" aria-label="Copy heading and permalink for Item 5.8.6.ii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item ii"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
 </li>
 <li id="ans-maximin-concepts-pure-3-1-3">
-<div class="para" id="ans-maximin-concepts-pure-3-1-3-1">No. Against <span class="process-math">\(y\text{,}\)</span> Player 1 would rather play <span class="process-math">\(b\)</span> (<span class="process-math">\(1 \gt -1\)</span>). The guaranteed payoffs add up to <span class="process-math">\(-2\text{,}\)</span> not <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-pure-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-concepts-pure-3-1-3-1">No. Against <span class="process-math">\(y\text{,}\)</span> Player 1 would rather play <span class="process-math">\(b\)</span> (<span class="process-math">\(1 \gt -1\)</span>). The guaranteed payoffs add up to <span class="process-math">\(-2\text{,}\)</span> not <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.iii"><a href="#ans-maximin-concepts-pure-3-1-3" title="Copy heading and permalink for Item 5.8.6.iii" aria-label="Copy heading and permalink for Item 5.8.6.iii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item iii"><a tabindex="-1" href="#ans-maximin-concepts-pure-3-1-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Solution 5.8.6.a.1"><a href="#ans-maximin-concepts-pure-3" title="Copy heading and permalink for Solution 5.8.6.a.1" aria-label="Copy heading and permalink for Solution 5.8.6.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.6.a.1"><a tabindex="-1" href="#ans-maximin-concepts-pure-3" title="Copy heading and permalink for Solution 5.8.6.a.1" aria-label="Copy heading and permalink for Solution 5.8.6.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.6.a: Pure strategies only"><a href="#ans-maximin-concepts-pure" title="Copy heading and permalink for Task 5.8.6.a: Pure strategies only" aria-label="Copy heading and permalink for Task 5.8.6.a: Pure strategies only">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.6.a: Pure strategies only"><a tabindex="-1" href="#ans-maximin-concepts-pure" title="Copy heading and permalink for Task 5.8.6.a: Pure strategies only" aria-label="Copy heading and permalink for Task 5.8.6.a: Pure strategies only">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-maximin-concepts-scenario"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-concepts-scenario"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">A general zero-sum game.</span>
-</h4>
-<div class="para" id="ans-maximin-concepts-scenario-2-1">Answer each question and say which part of Theorem 5.6 tells you.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-scenario-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-concepts-scenario-2-1">Answer each question and say which part of Theorem 5.6 tells you.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-scenario-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-concepts-scenario-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<ol class="lower-roman ol-marker-1" id="ans-maximin-concepts-scenario-3-1">
+<ol class="lower-roman" style="list-style: ptx-marker-1;" id="ans-maximin-concepts-scenario-3-1">
 <li id="ans-maximin-concepts-scenario-3-1-1">
 <div class="para" id="ans-maximin-concepts-scenario-3-1-1-1">
-<span class="process-math">\(m_1^\dagger = 5\)</span> by part (2), since Player 1 gets her maximin payoff at the Nash equilibrium <span class="process-math">\((\sigma_1, \sigma_2)\text{.}\)</span> Then <span class="process-math">\(m_2^\dagger = -5\)</span> by part (3).<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-scenario-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(m_1^\dagger = 5\)</span> by part (2), since Player 1 gets her maximin payoff at the Nash equilibrium <span class="process-math">\((\sigma_1, \sigma_2)\text{.}\)</span> Then <span class="process-math">\(m_2^\dagger = -5\)</span> by part (3).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.i"><a href="#ans-maximin-concepts-scenario-3-1-1" title="Copy heading and permalink for Item 5.8.6.i" aria-label="Copy heading and permalink for Item 5.8.6.i">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item i"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
 </li>
 <li id="ans-maximin-concepts-scenario-3-1-2">
 <div class="para" id="ans-maximin-concepts-scenario-3-1-2-1">
-<span class="process-math">\(\pi_1(\tau_1, \tau_2) = m_1^\dagger = 5\text{,}\)</span> by part (2).<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-scenario-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(\tau_1, \tau_2) = m_1^\dagger = 5\text{,}\)</span> by part (2).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.ii"><a href="#ans-maximin-concepts-scenario-3-1-2" title="Copy heading and permalink for Item 5.8.6.ii" aria-label="Copy heading and permalink for Item 5.8.6.ii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item ii"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
 </li>
 <li id="ans-maximin-concepts-scenario-3-1-3">
-<div class="para" id="ans-maximin-concepts-scenario-3-1-3-1">Yes, by the interchangeability property (which comes from part (1): <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(\tau_2\)</span> are both maximin strategies). By part (2), <span class="process-math">\(\pi_2(\sigma_1, \tau_2) = m_2^\dagger = -5\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-scenario-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-concepts-scenario-3-1-3-1">Yes, by the interchangeability property (which comes from part (1): <span class="process-math">\(\sigma_1\)</span> and <span class="process-math">\(\tau_2\)</span> are both maximin strategies). By part (2), <span class="process-math">\(\pi_2(\sigma_1, \tau_2) = m_2^\dagger = -5\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.iii"><a href="#ans-maximin-concepts-scenario-3-1-3" title="Copy heading and permalink for Item 5.8.6.iii" aria-label="Copy heading and permalink for Item 5.8.6.iii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item iii"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
 </li>
 <li id="ans-maximin-concepts-scenario-3-1-4">
-<div class="para" id="ans-maximin-concepts-scenario-3-1-4-1">No. Interchangeability says you can swap halves, not that the halves are equal, and a player can have more than one maximin strategy. For example, in the zero-sum game where both of Player 1’s rows are <span class="process-math">\((1, -1)\)</span> against <span class="process-math">\(x\)</span> and <span class="process-math">\((0, 0)\)</span> against <span class="process-math">\(y\text{,}\)</span> both <span class="process-math">\((a, y)\)</span> and <span class="process-math">\((b, y)\)</span> are Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-concepts-scenario-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-concepts-scenario-3-1-4-1">No. Interchangeability says you can swap halves, not that the halves are equal, and a player can have more than one maximin strategy. For example, in the zero-sum game where both of Player 1’s rows are <span class="process-math">\((1, -1)\)</span> against <span class="process-math">\(x\)</span> and <span class="process-math">\((0, 0)\)</span> against <span class="process-math">\(y\text{,}\)</span> both <span class="process-math">\((a, y)\)</span> and <span class="process-math">\((b, y)\)</span> are Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-4-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.6.iv"><a href="#ans-maximin-concepts-scenario-3-1-4" title="Copy heading and permalink for Item 5.8.6.iv" aria-label="Copy heading and permalink for Item 5.8.6.iv">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item iv"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3-1-4" title="Copy heading and permalink for Item iv" aria-label="Copy heading and permalink for Item iv">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Solution 5.8.6.b.1"><a href="#ans-maximin-concepts-scenario-3" title="Copy heading and permalink for Solution 5.8.6.b.1" aria-label="Copy heading and permalink for Solution 5.8.6.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.6.b.1"><a tabindex="-1" href="#ans-maximin-concepts-scenario-3" title="Copy heading and permalink for Solution 5.8.6.b.1" aria-label="Copy heading and permalink for Solution 5.8.6.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.6.b: A general zero-sum game"><a href="#ans-maximin-concepts-scenario" title="Copy heading and permalink for Task 5.8.6.b: A general zero-sum game" aria-label="Copy heading and permalink for Task 5.8.6.b: A general zero-sum game">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.6: Maximins and Theorem 5.6"><a href="#ans-hw-maximin-concepts" title="Copy heading and permalink for Exercise 5.8.6: Maximins and Theorem 5.6" aria-label="Copy heading and permalink for Exercise 5.8.6: Maximins and Theorem 5.6">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.6.b: A general zero-sum game"><a tabindex="-1" href="#ans-maximin-concepts-scenario" title="Copy heading and permalink for Task 5.8.6.b: A general zero-sum game" aria-label="Copy heading and permalink for Task 5.8.6.b: A general zero-sum game">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.6: Maximins and Theorem 5.6"><a tabindex="-1" href="#ans-hw-maximin-concepts" title="Copy heading and permalink for Exercise 5.8.6: Maximins and Theorem 5.6" aria-label="Copy heading and permalink for Exercise 5.8.6: Maximins and Theorem 5.6">🔗</a></div>
 </article></details>
-<details id="ans-hw-maximin-2x2" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-maximin-2x2" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">7<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Computing a Maximin Equilibrium.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-maximin-2x2-worst-case"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-2x2-worst-case"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Player 1’s worst case.</span>
-</h4>
-<div class="para" id="ans-maximin-2x2-worst-case-2-1">Fill in the sign analysis and find <span class="process-math">\(m_1(p)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-worst-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-2x2-worst-case-2-1">Fill in the sign analysis and find <span class="process-math">\(m_1(p)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-worst-case-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-2x2-worst-case-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
@@ -623,41 +656,41 @@ m_1(p) =
 \end{cases}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-worst-case-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-worst-case-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.7.a.1"><a href="#ans-maximin-2x2-worst-case-3" title="Copy heading and permalink for Solution 5.8.7.a.1" aria-label="Copy heading and permalink for Solution 5.8.7.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.7.a.1"><a tabindex="-1" href="#ans-maximin-2x2-worst-case-3" title="Copy heading and permalink for Solution 5.8.7.a.1" aria-label="Copy heading and permalink for Solution 5.8.7.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.7.a: Player 1’s worst case"><a href="#ans-maximin-2x2-worst-case" title="Copy heading and permalink for Task 5.8.7.a: Player 1’s worst case" aria-label="Copy heading and permalink for Task 5.8.7.a: Player 1’s worst case">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.7.a: Player 1’s worst case"><a tabindex="-1" href="#ans-maximin-2x2-worst-case" title="Copy heading and permalink for Task 5.8.7.a: Player 1’s worst case" aria-label="Copy heading and permalink for Task 5.8.7.a: Player 1’s worst case">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-maximin-2x2-player1"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-2x2-player1"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Player 1’s maximin strategy.</span>
-</h4>
-<div class="para" id="ans-maximin-2x2-player1-2-1">Find <span class="process-math">\(p^\dagger\)</span> and <span class="process-math">\(m_1^\dagger\text{,}\)</span> and compare with pure strategies.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-2x2-player1-2-1">Find <span class="process-math">\(p^\dagger\)</span> and <span class="process-math">\(m_1^\dagger\text{,}\)</span> and compare with pure strategies.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-2x2-player1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-maximin-2x2-player1-3-1">The graph is an upside-down V with its peak at <span class="process-math">\((\frac{3}{7}, \frac{1}{7})\text{.}\)</span> So <span class="process-math">\(p^\dagger = \frac{3}{7}\text{,}\)</span> that is, <span class="process-math">\(\sigma_1^\dagger = \frac{3}{7}a + \frac{4}{7}b\text{,}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{1}{7}\text{.}\)</span> This is more than the <span class="process-math">\(m_1(a) = -1\)</span> that Player 1 could guarantee with pure strategies only.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-2x2-player1-3-1">The graph is an upside-down V with its peak at <span class="process-math">\((\frac{3}{7}, \frac{1}{7})\text{.}\)</span> So <span class="process-math">\(p^\dagger = \frac{3}{7}\text{,}\)</span> that is, <span class="process-math">\(\sigma_1^\dagger = \frac{3}{7}a + \frac{4}{7}b\text{,}\)</span> and <span class="process-math">\(m_1^\dagger = \frac{1}{7}\text{.}\)</span> This is more than the <span class="process-math">\(m_1(a) = -1\)</span> that Player 1 could guarantee with pure strategies only.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.7.b.1"><a href="#ans-maximin-2x2-player1-3" title="Copy heading and permalink for Solution 5.8.7.b.1" aria-label="Copy heading and permalink for Solution 5.8.7.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.7.b.1"><a tabindex="-1" href="#ans-maximin-2x2-player1-3" title="Copy heading and permalink for Solution 5.8.7.b.1" aria-label="Copy heading and permalink for Solution 5.8.7.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.7.b: Player 1’s maximin strategy"><a href="#ans-maximin-2x2-player1" title="Copy heading and permalink for Task 5.8.7.b: Player 1’s maximin strategy" aria-label="Copy heading and permalink for Task 5.8.7.b: Player 1’s maximin strategy">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.7.b: Player 1’s maximin strategy"><a tabindex="-1" href="#ans-maximin-2x2-player1" title="Copy heading and permalink for Task 5.8.7.b: Player 1’s maximin strategy" aria-label="Copy heading and permalink for Task 5.8.7.b: Player 1’s maximin strategy">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-maximin-2x2-player2"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-2x2-player2"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Player 2’s maximin strategy.</span>
-</h4>
-<div class="para" id="ans-maximin-2x2-player2-2-1">Explain why <span class="process-math">\(\pi_2 = -\pi_1\text{,}\)</span> and find <span class="process-math">\(m_2(q)\text{,}\)</span> <span class="process-math">\(q^\dagger\text{,}\)</span> and <span class="process-math">\(m_2^\dagger\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-2x2-player2-2-1">Explain why <span class="process-math">\(\pi_2 = -\pi_1\text{,}\)</span> and find <span class="process-math">\(m_2(q)\text{,}\)</span> <span class="process-math">\(q^\dagger\text{,}\)</span> and <span class="process-math">\(m_2^\dagger\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-2x2-player2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<ol class="lower-roman ol-marker-1" id="ans-maximin-2x2-player2-3-1">
+<ol class="lower-roman" style="list-style: ptx-marker-1;" id="ans-maximin-2x2-player2-3-1">
 <li id="ans-maximin-2x2-player2-3-1-1">
-<div class="para" id="ans-maximin-2x2-player2-3-1-1-1">The game is zero-sum, so the payoffs add up to <span class="process-math">\(0\)</span> in every cell. Each expected payoff is a weighted average of the cells with the same weights, so <span class="process-math">\(\pi_1 + \pi_2 = 0\)</span> for mixed strategies too, and <span class="process-math">\(\pi_2(p, q) = -\pi_1(p, q)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player2-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-2x2-player2-3-1-1-1">The game is zero-sum, so the payoffs add up to <span class="process-math">\(0\)</span> in every cell. Each expected payoff is a weighted average of the cells with the same weights, so <span class="process-math">\(\pi_1 + \pi_2 = 0\)</span> for mixed strategies too, and <span class="process-math">\(\pi_2(p, q) = -\pi_1(p, q)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.7.i"><a href="#ans-maximin-2x2-player2-3-1-1" title="Copy heading and permalink for Item 5.8.7.i" aria-label="Copy heading and permalink for Item 5.8.7.i">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item i"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-1" title="Copy heading and permalink for Item i" aria-label="Copy heading and permalink for Item i">🔗</a></div>
 </li>
 <li id="ans-maximin-2x2-player2-3-1-2">
 <div class="para logical" id="ans-maximin-2x2-player2-3-1-2-1">
@@ -674,186 +707,186 @@ m_2(q) =
 \end{cases}
 \end{equation*}
 </div>
-<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player2-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.7.ii"><a href="#ans-maximin-2x2-player2-3-1-2" title="Copy heading and permalink for Item 5.8.7.ii" aria-label="Copy heading and permalink for Item 5.8.7.ii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item ii"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-2" title="Copy heading and permalink for Item ii" aria-label="Copy heading and permalink for Item ii">🔗</a></div>
 </li>
 <li id="ans-maximin-2x2-player2-3-1-3">
-<div class="para" id="ans-maximin-2x2-player2-3-1-3-1">The peak is at <span class="process-math">\((\frac{2}{7}, -\frac{1}{7})\text{,}\)</span> so <span class="process-math">\(q^\dagger = \frac{2}{7}\)</span> and <span class="process-math">\(m_2^\dagger = -\frac{1}{7}\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-player2-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-2x2-player2-3-1-3-1">The peak is at <span class="process-math">\((\frac{2}{7}, -\frac{1}{7})\text{,}\)</span> so <span class="process-math">\(q^\dagger = \frac{2}{7}\)</span> and <span class="process-math">\(m_2^\dagger = -\frac{1}{7}\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Item 5.8.7.iii"><a href="#ans-maximin-2x2-player2-3-1-3" title="Copy heading and permalink for Item 5.8.7.iii" aria-label="Copy heading and permalink for Item 5.8.7.iii">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Item iii"><a tabindex="-1" href="#ans-maximin-2x2-player2-3-1-3" title="Copy heading and permalink for Item iii" aria-label="Copy heading and permalink for Item iii">🔗</a></div>
 </li>
 </ol>
-<div class="autopermalink" data-description="Solution 5.8.7.c.1"><a href="#ans-maximin-2x2-player2-3" title="Copy heading and permalink for Solution 5.8.7.c.1" aria-label="Copy heading and permalink for Solution 5.8.7.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.7.c.1"><a tabindex="-1" href="#ans-maximin-2x2-player2-3" title="Copy heading and permalink for Solution 5.8.7.c.1" aria-label="Copy heading and permalink for Solution 5.8.7.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.7.c: Player 2’s maximin strategy"><a href="#ans-maximin-2x2-player2" title="Copy heading and permalink for Task 5.8.7.c: Player 2’s maximin strategy" aria-label="Copy heading and permalink for Task 5.8.7.c: Player 2’s maximin strategy">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.7.c: Player 2’s maximin strategy"><a tabindex="-1" href="#ans-maximin-2x2-player2" title="Copy heading and permalink for Task 5.8.7.c: Player 2’s maximin strategy" aria-label="Copy heading and permalink for Task 5.8.7.c: Player 2’s maximin strategy">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-maximin-2x2-theorem"><h4 class="heading">
+<article class="task exercise-like" id="ans-maximin-2x2-theorem"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Using Theorem 5.6.</span>
-</h4>
-<div class="para" id="ans-maximin-2x2-theorem-2-1">Find the maximin equilibrium, use Theorem 5.6, and compare with pure strategies.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-maximin-2x2-theorem-2-1">Find the maximin equilibrium, use Theorem 5.6, and compare with pure strategies.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-theorem-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-maximin-2x2-theorem-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-maximin-2x2-theorem-3-1">The maximin equilibrium is <span class="process-math">\((p^\dagger, q^\dagger) = (\frac{3}{7}, \frac{2}{7})\text{,}\)</span> and <span class="process-math">\(m_1^\dagger + m_2^\dagger = \frac{1}{7} - \frac{1}{7} = 0\text{.}\)</span> By part (1) of Theorem 5.6, <span class="process-math">\((\frac{3}{7}, \frac{2}{7})\)</span> is a Nash equilibrium, and by part (2), the payoffs there are <span class="process-math">\((\frac{1}{7}, -\frac{1}{7})\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-theorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-2x2-theorem-3-1">The maximin equilibrium is <span class="process-math">\((p^\dagger, q^\dagger) = (\frac{3}{7}, \frac{2}{7})\text{,}\)</span> and <span class="process-math">\(m_1^\dagger + m_2^\dagger = \frac{1}{7} - \frac{1}{7} = 0\text{.}\)</span> By part (1) of Theorem 5.6, <span class="process-math">\((\frac{3}{7}, \frac{2}{7})\)</span> is a Nash equilibrium, and by part (2), the payoffs there are <span class="process-math">\((\frac{1}{7}, -\frac{1}{7})\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-theorem-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="para" id="ans-maximin-2x2-theorem-3-2">With pure strategies only, each player could guarantee just <span class="process-math">\(-1\text{,}\)</span> the guarantees added to <span class="process-math">\(-2\text{,}\)</span> and there was no Nash equilibrium. With mixing, both players can guarantee more, the maximin payoffs add to <span class="process-math">\(0\text{,}\)</span> and the maximin equilibrium is a Nash equilibrium.<div class="autopermalink" data-description="Paragraph"><a href="#ans-maximin-2x2-theorem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-maximin-2x2-theorem-3-2">With pure strategies only, each player could guarantee just <span class="process-math">\(-1\text{,}\)</span> the guarantees added to <span class="process-math">\(-2\text{,}\)</span> and there was no Nash equilibrium. With mixing, both players can guarantee more, the maximin payoffs add to <span class="process-math">\(0\text{,}\)</span> and the maximin equilibrium is a Nash equilibrium.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-maximin-2x2-theorem-3-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.7.d.1"><a href="#ans-maximin-2x2-theorem-3" title="Copy heading and permalink for Solution 5.8.7.d.1" aria-label="Copy heading and permalink for Solution 5.8.7.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.7.d.1"><a tabindex="-1" href="#ans-maximin-2x2-theorem-3" title="Copy heading and permalink for Solution 5.8.7.d.1" aria-label="Copy heading and permalink for Solution 5.8.7.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.7.d: Using Theorem 5.6"><a href="#ans-maximin-2x2-theorem" title="Copy heading and permalink for Task 5.8.7.d: Using Theorem 5.6" aria-label="Copy heading and permalink for Task 5.8.7.d: Using Theorem 5.6">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.7: Computing a Maximin Equilibrium"><a href="#ans-hw-maximin-2x2" title="Copy heading and permalink for Exercise 5.8.7: Computing a Maximin Equilibrium" aria-label="Copy heading and permalink for Exercise 5.8.7: Computing a Maximin Equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.7.d: Using Theorem 5.6"><a tabindex="-1" href="#ans-maximin-2x2-theorem" title="Copy heading and permalink for Task 5.8.7.d: Using Theorem 5.6" aria-label="Copy heading and permalink for Task 5.8.7.d: Using Theorem 5.6">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.7: Computing a Maximin Equilibrium"><a tabindex="-1" href="#ans-hw-maximin-2x2" title="Copy heading and permalink for Exercise 5.8.7: Computing a Maximin Equilibrium" aria-label="Copy heading and permalink for Exercise 5.8.7: Computing a Maximin Equilibrium">🔗</a></div>
 </article></details>
-<details id="ans-hw-triple-rps" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-triple-rps" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">8<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Triple Rock-Paper-Scissors.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-triple-rps-zero-sum"><h4 class="heading">
+<article class="task exercise-like" id="ans-triple-rps-zero-sum"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Zero-sum.</span>
-</h4>
-<div class="para" id="ans-triple-rps-zero-sum-2-1">Why is the game zero-sum?<div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-zero-sum-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-triple-rps-zero-sum-2-1">Why is the game zero-sum?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-zero-sum-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-triple-rps-zero-sum-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-triple-rps-zero-sum-3-1">In every cell, the two payoffs add up to <span class="process-math">\(0\text{:}\)</span> whatever the winner gets, the loser loses, and ties give both players <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-zero-sum-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-triple-rps-zero-sum-3-1">In every cell, the two payoffs add up to <span class="process-math">\(0\text{:}\)</span> whatever the winner gets, the loser loses, and ties give both players <span class="process-math">\(0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-zero-sum-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.8.a.1"><a href="#ans-triple-rps-zero-sum-3" title="Copy heading and permalink for Solution 5.8.8.a.1" aria-label="Copy heading and permalink for Solution 5.8.8.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.8.a.1"><a tabindex="-1" href="#ans-triple-rps-zero-sum-3" title="Copy heading and permalink for Solution 5.8.8.a.1" aria-label="Copy heading and permalink for Solution 5.8.8.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.8.a: Zero-sum"><a href="#ans-triple-rps-zero-sum" title="Copy heading and permalink for Task 5.8.8.a: Zero-sum" aria-label="Copy heading and permalink for Task 5.8.8.a: Zero-sum">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.8.a: Zero-sum"><a tabindex="-1" href="#ans-triple-rps-zero-sum" title="Copy heading and permalink for Task 5.8.8.a: Zero-sum" aria-label="Copy heading and permalink for Task 5.8.8.a: Zero-sum">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-triple-rps-player1"><h4 class="heading">
+<article class="task exercise-like" id="ans-triple-rps-player1"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Player 1’s strategy.</span>
-</h4>
-<div class="para" id="ans-triple-rps-player1-2-1">Find <span class="process-math">\(\sigma_1^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-triple-rps-player1-2-1">Find <span class="process-math">\(\sigma_1^*\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-player1-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-triple-rps-player1-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-triple-rps-player1-3-1">Player 2’s three strategies are active, so <span class="process-math">\(-b + 3c = a - c = -3a + b\text{.}\)</span> These give <span class="process-math">\(c = a\)</span> and <span class="process-math">\(b = 3a\text{,}\)</span> and <span class="process-math">\(a + b + c = 1\)</span> then gives <span class="process-math">\(a = \frac{1}{5}\text{.}\)</span> So <span class="process-math">\(\sigma_1^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-player1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-triple-rps-player1-3-1">Player 2’s three strategies are active, so <span class="process-math">\(-b + 3c = a - c = -3a + b\text{.}\)</span> These give <span class="process-math">\(c = a\)</span> and <span class="process-math">\(b = 3a\text{,}\)</span> and <span class="process-math">\(a + b + c = 1\)</span> then gives <span class="process-math">\(a = \frac{1}{5}\text{.}\)</span> So <span class="process-math">\(\sigma_1^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-player1-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.8.b.1"><a href="#ans-triple-rps-player1-3" title="Copy heading and permalink for Solution 5.8.8.b.1" aria-label="Copy heading and permalink for Solution 5.8.8.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.8.b.1"><a tabindex="-1" href="#ans-triple-rps-player1-3" title="Copy heading and permalink for Solution 5.8.8.b.1" aria-label="Copy heading and permalink for Solution 5.8.8.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.8.b: Player 1’s strategy"><a href="#ans-triple-rps-player1" title="Copy heading and permalink for Task 5.8.8.b: Player 1’s strategy" aria-label="Copy heading and permalink for Task 5.8.8.b: Player 1’s strategy">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.8.b: Player 1’s strategy"><a tabindex="-1" href="#ans-triple-rps-player1" title="Copy heading and permalink for Task 5.8.8.b: Player 1’s strategy" aria-label="Copy heading and permalink for Task 5.8.8.b: Player 1’s strategy">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-triple-rps-player2"><h4 class="heading">
+<article class="task exercise-like" id="ans-triple-rps-player2"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Player 2’s strategy.</span>
-</h4>
-<div class="para" id="ans-triple-rps-player2-2-1">Find <span class="process-math">\(\sigma_2^*\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-triple-rps-player2-2-1">Find <span class="process-math">\(\sigma_2^*\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-player2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-triple-rps-player2-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-triple-rps-player2-3-1">The same algebra, with Player 1’s indifference equations <span class="process-math">\(-y + 3z = x - z = -3x + y\text{,}\)</span> gives <span class="process-math">\(\sigma_2^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-player2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-triple-rps-player2-3-1">The same algebra, with Player 1’s indifference equations <span class="process-math">\(-y + 3z = x - z = -3x + y\text{,}\)</span> gives <span class="process-math">\(\sigma_2^* = \frac{1}{5}r + \frac{3}{5}p + \frac{1}{5}s\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-player2-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.8.c.1"><a href="#ans-triple-rps-player2-3" title="Copy heading and permalink for Solution 5.8.8.c.1" aria-label="Copy heading and permalink for Solution 5.8.8.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.8.c.1"><a tabindex="-1" href="#ans-triple-rps-player2-3" title="Copy heading and permalink for Solution 5.8.8.c.1" aria-label="Copy heading and permalink for Solution 5.8.8.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.8.c: Player 2’s strategy"><a href="#ans-triple-rps-player2" title="Copy heading and permalink for Task 5.8.8.c: Player 2’s strategy" aria-label="Copy heading and permalink for Task 5.8.8.c: Player 2’s strategy">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.8.c: Player 2’s strategy"><a tabindex="-1" href="#ans-triple-rps-player2" title="Copy heading and permalink for Task 5.8.8.c: Player 2’s strategy" aria-label="Copy heading and permalink for Task 5.8.8.c: Player 2’s strategy">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-triple-rps-unique"><h4 class="heading">
+<article class="task exercise-like" id="ans-triple-rps-unique"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Only one Nash equilibrium.</span>
-</h4>
-<div class="para" id="ans-triple-rps-unique-2-1">Explain why there are no other Nash equilibria.<div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-unique-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-triple-rps-unique-2-1">Explain why there are no other Nash equilibria.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-unique-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-triple-rps-unique-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-triple-rps-unique-3-1">Let <span class="process-math">\((\tau_1, \tau_2)\)</span> be any Nash equilibrium. By interchangeability, <span class="process-math">\((\tau_1, \sigma_2^*)\)</span> is also a Nash equilibrium. In it, Player 2 uses all three strategies, so by part (b), <span class="process-math">\(\tau_1 = \sigma_1^*\text{.}\)</span> In the same way, <span class="process-math">\((\sigma_1^*, \tau_2)\)</span> is a Nash equilibrium in which Player 1 uses all three strategies, so by part (c), <span class="process-math">\(\tau_2 = \sigma_2^*\text{.}\)</span> So <span class="process-math">\((\tau_1, \tau_2) = (\sigma_1^*, \sigma_2^*)\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-unique-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-triple-rps-unique-3-1">Let <span class="process-math">\((\tau_1, \tau_2)\)</span> be any Nash equilibrium. By interchangeability, <span class="process-math">\((\tau_1, \sigma_2^*)\)</span> is also a Nash equilibrium. In it, Player 2 uses all three strategies, so by part (b), <span class="process-math">\(\tau_1 = \sigma_1^*\text{.}\)</span> In the same way, <span class="process-math">\((\sigma_1^*, \tau_2)\)</span> is a Nash equilibrium in which Player 1 uses all three strategies, so by part (c), <span class="process-math">\(\tau_2 = \sigma_2^*\text{.}\)</span> So <span class="process-math">\((\tau_1, \tau_2) = (\sigma_1^*, \sigma_2^*)\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-unique-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.8.d.1"><a href="#ans-triple-rps-unique-3" title="Copy heading and permalink for Solution 5.8.8.d.1" aria-label="Copy heading and permalink for Solution 5.8.8.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.8.d.1"><a tabindex="-1" href="#ans-triple-rps-unique-3" title="Copy heading and permalink for Solution 5.8.8.d.1" aria-label="Copy heading and permalink for Solution 5.8.8.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.8.d: Only one Nash equilibrium"><a href="#ans-triple-rps-unique" title="Copy heading and permalink for Task 5.8.8.d: Only one Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.8.d: Only one Nash equilibrium">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.8.d: Only one Nash equilibrium"><a tabindex="-1" href="#ans-triple-rps-unique" title="Copy heading and permalink for Task 5.8.8.d: Only one Nash equilibrium" aria-label="Copy heading and permalink for Task 5.8.8.d: Only one Nash equilibrium">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-triple-rps-paper"><h4 class="heading">
+<article class="task exercise-like" id="ans-triple-rps-paper"><h3 class="heading">
 <span class="codenumber">(e)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Why paper?</span>
-</h4>
-<div class="para" id="ans-triple-rps-paper-2-1">Speculate why paper is played most often.<div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-paper-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-triple-rps-paper-2-1">Speculate why paper is played most often.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-paper-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-triple-rps-paper-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-triple-rps-paper-3-1">Answers will vary. One explanation: rock now beats scissors by a lot, so for rock not to be too tempting, scissors has to be played rarely. Paper’s only weakness is scissors, so when scissors is rare, paper is safe and is played more. And with more paper around, rock is played less.<div class="autopermalink" data-description="Paragraph"><a href="#ans-triple-rps-paper-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-triple-rps-paper-3-1">Answers will vary. One explanation: rock now beats scissors by a lot, so for rock not to be too tempting, scissors has to be played rarely. Paper’s only weakness is scissors, so when scissors is rare, paper is safe and is played more. And with more paper around, rock is played less.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-triple-rps-paper-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.8.e.1"><a href="#ans-triple-rps-paper-3" title="Copy heading and permalink for Solution 5.8.8.e.1" aria-label="Copy heading and permalink for Solution 5.8.8.e.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.8.e.1"><a tabindex="-1" href="#ans-triple-rps-paper-3" title="Copy heading and permalink for Solution 5.8.8.e.1" aria-label="Copy heading and permalink for Solution 5.8.8.e.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.8.e: Why paper?"><a href="#ans-triple-rps-paper" title="Copy heading and permalink for Task 5.8.8.e: Why paper?" aria-label="Copy heading and permalink for Task 5.8.8.e: Why paper?">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.8: Triple Rock-Paper-Scissors"><a href="#ans-hw-triple-rps" title="Copy heading and permalink for Exercise 5.8.8: Triple Rock-Paper-Scissors" aria-label="Copy heading and permalink for Exercise 5.8.8: Triple Rock-Paper-Scissors">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.8.e: Why paper?"><a tabindex="-1" href="#ans-triple-rps-paper" title="Copy heading and permalink for Task 5.8.8.e: Why paper?" aria-label="Copy heading and permalink for Task 5.8.8.e: Why paper?">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.8: Triple Rock-Paper-Scissors"><a tabindex="-1" href="#ans-hw-triple-rps" title="Copy heading and permalink for Exercise 5.8.8: Triple Rock-Paper-Scissors" aria-label="Copy heading and permalink for Exercise 5.8.8: Triple Rock-Paper-Scissors">🔗</a></div>
 </article></details>
-<details id="ans-hw-tit-for-tat" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h3 class="heading">
+<details id="ans-hw-tit-for-tat" class="exercise exercise-like born-hidden-knowl"><summary class="knowl__link"><h2 class="heading">
 <span class="codenumber">9<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Tit for Tat.</span>
-</h3></summary>
+</h2></summary>
 <article class="exercise exercise-like knowl__content">
-<article class="task exercise-like" id="ans-tit-for-tat-tt"><h4 class="heading">
+<article class="task exercise-like" id="ans-tit-for-tat-tt"><h3 class="heading">
 <span class="codenumber">(a)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The tie.</span>
-</h4>
-<div class="para" id="ans-tit-for-tat-tt-2-1">Check that <span class="process-math">\(h\)</span> ties with <span class="process-math">\(t\)</span> against Bob’s <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-tt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-tit-for-tat-tt-2-1">Check that <span class="process-math">\(h\)</span> ties with <span class="process-math">\(t\)</span> against Bob’s <span class="process-math">\(t\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-tt-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-tit-for-tat-tt-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-tit-for-tat-tt-3-1">Against Bob’s <span class="process-math">\(t\text{,}\)</span> Al gets <span class="process-math">\(10\)</span> from <span class="process-math">\(h\)</span> and <span class="process-math">\(10\)</span> from <span class="process-math">\(t\)</span> (and <span class="process-math">\(9\)</span> from <span class="process-math">\(l\)</span>).<div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-tt-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-tit-for-tat-tt-3-1">Against Bob’s <span class="process-math">\(t\text{,}\)</span> Al gets <span class="process-math">\(10\)</span> from <span class="process-math">\(h\)</span> and <span class="process-math">\(10\)</span> from <span class="process-math">\(t\)</span> (and <span class="process-math">\(9\)</span> from <span class="process-math">\(l\)</span>).<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-tt-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.9.a.1"><a href="#ans-tit-for-tat-tt-3" title="Copy heading and permalink for Solution 5.8.9.a.1" aria-label="Copy heading and permalink for Solution 5.8.9.a.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.9.a.1"><a tabindex="-1" href="#ans-tit-for-tat-tt-3" title="Copy heading and permalink for Solution 5.8.9.a.1" aria-label="Copy heading and permalink for Solution 5.8.9.a.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.9.a: The tie"><a href="#ans-tit-for-tat-tt" title="Copy heading and permalink for Task 5.8.9.a: The tie" aria-label="Copy heading and permalink for Task 5.8.9.a: The tie">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.9.a: The tie"><a tabindex="-1" href="#ans-tit-for-tat-tt" title="Copy heading and permalink for Task 5.8.9.a: The tie" aria-label="Copy heading and permalink for Task 5.8.9.a: The tie">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-tit-for-tat-equality"><h4 class="heading">
+<article class="task exercise-like" id="ans-tit-for-tat-equality"><h3 class="heading">
 <span class="codenumber">(b)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The indifference equations.</span>
-</h4>
-<div class="para" id="ans-tit-for-tat-equality-2-1">Check that both indifference equations hold for every <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-tit-for-tat-equality-2-1">Check that both indifference equations hold for every <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-equality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-tit-for-tat-equality-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-tit-for-tat-equality-3-1">
-<span class="process-math">\(\pi_1(h, \tau) = 10q + 10(1-q) = 10\)</span> and <span class="process-math">\(\pi_1(t, \tau) = 10q + 10(1-q) = 10\text{.}\)</span> Similarly, <span class="process-math">\(\pi_2(\sigma, h) = \pi_2(\sigma, t) = 10\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(h, \tau) = 10q + 10(1-q) = 10\)</span> and <span class="process-math">\(\pi_1(t, \tau) = 10q + 10(1-q) = 10\text{.}\)</span> Similarly, <span class="process-math">\(\pi_2(\sigma, h) = \pi_2(\sigma, t) = 10\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-equality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.9.b.1"><a href="#ans-tit-for-tat-equality-3" title="Copy heading and permalink for Solution 5.8.9.b.1" aria-label="Copy heading and permalink for Solution 5.8.9.b.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.9.b.1"><a tabindex="-1" href="#ans-tit-for-tat-equality-3" title="Copy heading and permalink for Solution 5.8.9.b.1" aria-label="Copy heading and permalink for Solution 5.8.9.b.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.9.b: The indifference equations"><a href="#ans-tit-for-tat-equality" title="Copy heading and permalink for Task 5.8.9.b: The indifference equations" aria-label="Copy heading and permalink for Task 5.8.9.b: The indifference equations">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.9.b: The indifference equations"><a tabindex="-1" href="#ans-tit-for-tat-equality" title="Copy heading and permalink for Task 5.8.9.b: The indifference equations" aria-label="Copy heading and permalink for Task 5.8.9.b: The indifference equations">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-tit-for-tat-inequality"><h4 class="heading">
+<article class="task exercise-like" id="ans-tit-for-tat-inequality"><h3 class="heading">
 <span class="codenumber">(c)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">The inequality conditions.</span>
-</h4>
-<div class="para" id="ans-tit-for-tat-inequality-2-1">Find the range of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-inequality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-tit-for-tat-inequality-2-1">Find the range of <span class="process-math">\(p\)</span> and <span class="process-math">\(q\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-inequality-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-tit-for-tat-inequality-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
 <div class="para" id="ans-tit-for-tat-inequality-3-1">
-<span class="process-math">\(\pi_1(l, \tau) = 12q + 9(1-q) = 9 + 3q \leq 10\)</span> gives <span class="process-math">\(q \leq \frac{1}{3}\text{.}\)</span> Similarly, <span class="process-math">\(\pi_2(\sigma, l) = 9 + 3p \leq 10\)</span> gives <span class="process-math">\(p \leq \frac{1}{3}\text{.}\)</span> So <span class="process-math">\((ph + (1-p)t,\ qh + (1-q)t)\)</span> is a Nash equilibrium for every <span class="process-math">\(0 \lt p \leq \frac{1}{3}\)</span> and <span class="process-math">\(0 \lt q \leq \frac{1}{3}\text{:}\)</span> a whole range of equilibria, not just one.<div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-inequality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<span class="process-math">\(\pi_1(l, \tau) = 12q + 9(1-q) = 9 + 3q \leq 10\)</span> gives <span class="process-math">\(q \leq \frac{1}{3}\text{.}\)</span> Similarly, <span class="process-math">\(\pi_2(\sigma, l) = 9 + 3p \leq 10\)</span> gives <span class="process-math">\(p \leq \frac{1}{3}\text{.}\)</span> So <span class="process-math">\((ph + (1-p)t,\ qh + (1-q)t)\)</span> is a Nash equilibrium for every <span class="process-math">\(0 \lt p \leq \frac{1}{3}\)</span> and <span class="process-math">\(0 \lt q \leq \frac{1}{3}\text{:}\)</span> a whole range of equilibria, not just one.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-inequality-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.9.c.1"><a href="#ans-tit-for-tat-inequality-3" title="Copy heading and permalink for Solution 5.8.9.c.1" aria-label="Copy heading and permalink for Solution 5.8.9.c.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.9.c.1"><a tabindex="-1" href="#ans-tit-for-tat-inequality-3" title="Copy heading and permalink for Solution 5.8.9.c.1" aria-label="Copy heading and permalink for Solution 5.8.9.c.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.9.c: The inequality conditions"><a href="#ans-tit-for-tat-inequality" title="Copy heading and permalink for Task 5.8.9.c: The inequality conditions" aria-label="Copy heading and permalink for Task 5.8.9.c: The inequality conditions">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.9.c: The inequality conditions"><a tabindex="-1" href="#ans-tit-for-tat-inequality" title="Copy heading and permalink for Task 5.8.9.c: The inequality conditions" aria-label="Copy heading and permalink for Task 5.8.9.c: The inequality conditions">🔗</a></div>
 </article>
-<article class="task exercise-like" id="ans-tit-for-tat-swap"><h4 class="heading">
+<article class="task exercise-like" id="ans-tit-for-tat-swap"><h3 class="heading">
 <span class="codenumber">(d)</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Swapping halves.</span>
-</h4>
-<div class="para" id="ans-tit-for-tat-swap-2-1">Why doesn’t <span class="process-math">\((l, \tau)\)</span> contradict interchangeability?<div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-swap-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</h3>
+<div class="para" id="ans-tit-for-tat-swap-2-1">Why doesn’t <span class="process-math">\((l, \tau)\)</span> contradict interchangeability?<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-swap-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
 <div class="solutions">
 <details id="ans-tit-for-tat-swap-3" class="solution solution-like born-hidden-knowl"><summary class="knowl__link"><span class="type">Solution</span><span class="period heading-divison-mark heading-divison-mark__period">.</span></summary>
 <div class="solution solution-like knowl__content">
-<div class="para" id="ans-tit-for-tat-swap-3-1">Interchangeability comes from Theorem 5.6, which only applies to zero-sum games, and this game isn’t zero-sum (for example, <span class="process-math">\((10, 10)\)</span>). (Against Al’s <span class="process-math">\(l\text{,}\)</span> Bob’s <span class="process-math">\(\tau\)</span> earns <span class="process-math">\(\frac{1}{3}(0) + \frac{2}{3}(3) = 2\text{,}\)</span> while <span class="process-math">\(l\)</span> earns <span class="process-math">\(6\text{.}\)</span>)<div class="autopermalink" data-description="Paragraph"><a href="#ans-tit-for-tat-swap-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+<div class="para" id="ans-tit-for-tat-swap-3-1">Interchangeability comes from Theorem 5.6, which only applies to zero-sum games, and this game isn’t zero-sum (for example, <span class="process-math">\((10, 10)\)</span>). (Against Al’s <span class="process-math">\(l\text{,}\)</span> Bob’s <span class="process-math">\(\tau\)</span> earns <span class="process-math">\(\frac{1}{3}(0) + \frac{2}{3}(3) = 2\text{,}\)</span> while <span class="process-math">\(l\)</span> earns <span class="process-math">\(6\text{.}\)</span>)<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ans-tit-for-tat-swap-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
 </div>
-<div class="autopermalink" data-description="Solution 5.8.9.d.1"><a href="#ans-tit-for-tat-swap-3" title="Copy heading and permalink for Solution 5.8.9.d.1" aria-label="Copy heading and permalink for Solution 5.8.9.d.1">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Solution 5.8.9.d.1"><a tabindex="-1" href="#ans-tit-for-tat-swap-3" title="Copy heading and permalink for Solution 5.8.9.d.1" aria-label="Copy heading and permalink for Solution 5.8.9.d.1">🔗</a></div>
 </div></details>
 </div>
-<div class="autopermalink" data-description="Task 5.8.9.d: Swapping halves"><a href="#ans-tit-for-tat-swap" title="Copy heading and permalink for Task 5.8.9.d: Swapping halves" aria-label="Copy heading and permalink for Task 5.8.9.d: Swapping halves">🔗</a></div>
-</article><div class="autopermalink" data-description="Exercise 5.8.9: Tit for Tat"><a href="#ans-hw-tit-for-tat" title="Copy heading and permalink for Exercise 5.8.9: Tit for Tat" aria-label="Copy heading and permalink for Exercise 5.8.9: Tit for Tat">🔗</a></div>
-</article></details><div class="autopermalink" data-description="Exercises 5.8: Answers to Ch. 5 Exercises"><a href="#ch5-answers" title="Copy heading and permalink for Exercises 5.8: Answers to Ch. 5 Exercises" aria-label="Copy heading and permalink for Exercises 5.8: Answers to Ch. 5 Exercises">🔗</a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Task 5.8.9.d: Swapping halves"><a tabindex="-1" href="#ans-tit-for-tat-swap" title="Copy heading and permalink for Task 5.8.9.d: Swapping halves" aria-label="Copy heading and permalink for Task 5.8.9.d: Swapping halves">🔗</a></div>
+</article><div class="autopermalink" aria-hidden="true" data-description="Exercise 5.8.9: Tit for Tat"><a tabindex="-1" href="#ans-hw-tit-for-tat" title="Copy heading and permalink for Exercise 5.8.9: Tit for Tat" aria-label="Copy heading and permalink for Exercise 5.8.9: Tit for Tat">🔗</a></div>
+</article></details><div class="autopermalink" aria-hidden="true" data-description="Exercises 5.8: Answers to Ch. 5 Exercises"><a tabindex="-1" href="#ch5-answers" title="Copy heading and permalink for Exercises 5.8: Answers to Ch. 5 Exercises" aria-label="Copy heading and permalink for Exercises 5.8: Answers to Ch. 5 Exercises">🔗</a></div>
 </section>
 </div>
 <div id="ptx-content-footer" class="ptx-content-footer">
@@ -861,7 +894,7 @@ m_2(q) =
 </div></main>
 </div>
 <div id="ptx-page-footer" class="ptx-page-footer">
-<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" src="https://runestone.academy/runestone/static/images/RAIcon_cropped.png" alt="Runstone Academy logo"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" src="https://www.mathjax.org/badge/badge-square-2.png" alt="MathJax logo"></a>
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" alt="Runestone Academy logo" src="data:image/png;base64,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"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" alt="MathJax logo" src="data:image/png;base64,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"></a>
 </div>
 </body>
 </html>
