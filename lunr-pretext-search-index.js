@@ -3070,6 +3070,537 @@ var ptx_lunr_docs = [
   "body": " Rock-Paper-Scissors Has No Evolutionarily Stable State   In Rock-Paper-Scissors (Problem 5.12.4 in the book), paper beats rock, scissors beats paper, and rock beats scissors. The winner gets , the loser gets , and a tie gives both players . Payoffs are listed as (Player 1, Player 2).   Rock-Paper-Scissors         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        Let , the strategy that plays rock, paper, and scissors equally often.     Show that is a Nash equilibrium.    Compute the payoff of each pure strategy , , and against .      Use Theorem 8.1 to show that is not an evolutionarily stable state.    It is enough to find one  for which a condition of Theorem 8.1 fails.      You may use the fact (Problem 5.12.4 in the book) that is the only Nash equilibrium of Rock-Paper-Scissors. Using a relevant theorem from this chapter, explain why the corresponding evolutionary game has no evolutionarily stable state at all.      Remark: By Theorem 7.1, every symmetric game has a symmetric Nash equilibrium. This exercise shows that nothing similar is true for evolutionarily stable states: being evolutionarily stable is a stronger requirement than being a Nash equilibrium, and some games have no evolutionarily stable state.   "
 },
 {
+  "id": "ch9-page1-autonomous-equations",
+  "level": "1",
+  "url": "ch9-page1-autonomous-equations.html",
+  "type": "Section",
+  "number": "9.1",
+  "title": "Autonomous Differential Equations and Equilibria",
+  "body": " Autonomous Differential Equations and Equilibria  In this chapter, we cover the parts of Chapter 9 of the book that are relevant to what we will be doing in the next chapter. You're welcome to look at Chapter 9, but it goes into much more than we cover here, and more than we will need!  In Chapter 10, we will model populations whose makeup changes over time. To do that, we need differential equations , which are equations that relate an unknown function to its derivative. In this class, we will only look at one kind, called autonomous differential equations.   Autonomous Differential Equation   An autonomous differential equation is a differential equation of the form where is an unknown function of time , and the right side depends only on , not on .    The book often writes for , so the equation can also be written . We will use both.  Here is the simplest example. Suppose a population grows at a rate proportional to its size, with proportionality constant 1. If is the size of the population at time , this says That is, a solution to this equation is a function whose derivative is equal to itself!    Which famous function is equal to its own derivative?         Right! , so is a solution of .         Not quite. The derivative of is , which is not .         Not quite. The derivative of is , which is not .         Not quite. The derivative of is , which is not .      In fact, works for any constant , since Plugging in gives , so the constant is just the starting value of the population. Each choice of gives a different solution:   Solutions of for several starting values .   Graph of solutions p of t equals C e to the t for five starting values   Five solution curves are drawn for t greater than or equal to 0, starting at , , , , and . The curves starting at 2 and 1 rise faster and faster, the curves starting at and fall faster and faster, and the curve starting at 0 stays at 0.      Mathematically, can be any real number, including negative numbers. For a population, of course, only makes sense. (In Chapter 10, will be a fraction of a population, so only will matter.)   General and Particular Solutions   The general solution of a differential equation is a formula that describes all of its solutions, usually involving an arbitrary constant such as .  A particular solution is one specific solution. It is usually determined by a starting value , called an initial condition .    For example, is the general solution of , and is the particular solution with .  Now suppose the population grows at a rate proportional to its size, with proportionality constant 3: A quick check shows that anything of the form is a solution, since . It turns out that these are all of the solutions, so is the general solution. (The same is true for above. We won't prove that there are no other solutions.)  Notice that in both examples, setting gives , a constant solution. If the population starts at , it stays there forever! We will see that constant solutions like this turn out to be very important for understanding the behavior of all the other solutions. They are called equilibrium solutions.   Equilibrium Solution   A solution of of the form for some constant is called an equilibrium solution . We often just call the number an equilibrium .    To find the equilibria, we don't have to solve the differential equation at all. The following fact will be very useful for us!   Finding Equilibria    is an equilibrium solution of if and only if .    Justification  If is a solution, then , since is constant. Conversely, if , then has , so it is a solution.    In general, solving differential equations can be much more complicated than it was for something like . Much of what we will be doing involves studying the behavior of solutions without actually solving the differential equation. In the example below, we find the equilibria using the fact above, instead of finding all the solutions and picking out the constant ones.   Finding equilibria   Find the equilibrium solutions of .    Here . Setting gives or , so the equilibrium solutions are and .      Which of the following are equilibrium solutions of ? Don't forget to factor first! Select all that apply.          Yes. , and makes the first factor 0.         No. , which is not 0.         Yes. , and makes the second factor 0.         No. , which is not 0.       "
+},
+{
+  "id": "ch9-page1-autonomous-equations-3",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#ch9-page1-autonomous-equations-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "differential equations "
+},
+{
+  "id": "def-autonomous-ode",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#def-autonomous-ode",
+  "type": "Definition",
+  "number": "9.1.1",
+  "title": "Autonomous Differential Equation.",
+  "body": " Autonomous Differential Equation   An autonomous differential equation is a differential equation of the form where is an unknown function of time , and the right side depends only on , not on .   "
+},
+{
+  "id": "check-ode-derivative-itself",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#check-ode-derivative-itself",
+  "type": "Checkpoint",
+  "number": "9.1.2",
+  "title": "",
+  "body": "  Which famous function is equal to its own derivative?         Right! , so is a solution of .         Not quite. The derivative of is , which is not .         Not quite. The derivative of is , which is not .         Not quite. The derivative of is , which is not .     "
+},
+{
+  "id": "fig-ode-exp-solutions",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#fig-ode-exp-solutions",
+  "type": "Figure",
+  "number": "9.1.3",
+  "title": "",
+  "body": " Solutions of for several starting values .   Graph of solutions p of t equals C e to the t for five starting values   Five solution curves are drawn for t greater than or equal to 0, starting at , , , , and . The curves starting at 2 and 1 rise faster and faster, the curves starting at and fall faster and faster, and the curve starting at 0 stays at 0.     "
+},
+{
+  "id": "def-general-particular-solution",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#def-general-particular-solution",
+  "type": "Definition",
+  "number": "9.1.4",
+  "title": "General and Particular Solutions.",
+  "body": " General and Particular Solutions   The general solution of a differential equation is a formula that describes all of its solutions, usually involving an arbitrary constant such as .  A particular solution is one specific solution. It is usually determined by a starting value , called an initial condition .   "
+},
+{
+  "id": "def-equilibrium-solution",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#def-equilibrium-solution",
+  "type": "Definition",
+  "number": "9.1.5",
+  "title": "Equilibrium Solution.",
+  "body": " Equilibrium Solution   A solution of of the form for some constant is called an equilibrium solution . We often just call the number an equilibrium .   "
+},
+{
+  "id": "fact-equilibria-zeros",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#fact-equilibria-zeros",
+  "type": "Fact",
+  "number": "9.1.6",
+  "title": "Finding Equilibria.",
+  "body": " Finding Equilibria    is an equilibrium solution of if and only if .    Justification  If is a solution, then , since is constant. Conversely, if , then has , so it is a solution.   "
+},
+{
+  "id": "eg-ode-equilibria",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#eg-ode-equilibria",
+  "type": "Example",
+  "number": "9.1.7",
+  "title": "Finding equilibria.",
+  "body": " Finding equilibria   Find the equilibrium solutions of .    Here . Setting gives or , so the equilibrium solutions are and .   "
+},
+{
+  "id": "check-ode-equilibria",
+  "level": "2",
+  "url": "ch9-page1-autonomous-equations.html#check-ode-equilibria",
+  "type": "Checkpoint",
+  "number": "9.1.8",
+  "title": "",
+  "body": "  Which of the following are equilibrium solutions of ? Don't forget to factor first! Select all that apply.          Yes. , and makes the first factor 0.         No. , which is not 0.         Yes. , and makes the second factor 0.         No. , which is not 0.     "
+},
+{
+  "id": "ch9-page2-stability",
+  "level": "1",
+  "url": "ch9-page2-stability.html",
+  "type": "Section",
+  "number": "9.2",
+  "title": "Stability and the Phase Line",
+  "body": " Stability and the Phase Line  On the previous page, we found the equilibria of an autonomous differential equation . As we mentioned, we can study the behavior of solutions without actually finding the general solution. On this page, we look at solutions that start near an equilibrium and determine whether they move toward it or away from it. This ultimately lets us understand the long-term behavior of solutions.   An unstable equilibrium  Recall that has general solution , and its only equilibrium is . Here are several solutions again, with the equilibrium highlighted:    Solutions of . Solutions that start near the equilibrium move away from it.   Solutions of dp\/dt = p moving away from the equilibrium p = 0   The equilibrium is drawn as a highlighted horizontal line. Solutions starting at , , and increase away from it, and solutions starting at , , and decrease away from it.      A solution that starts slightly above 0 grows, and a solution that starts slightly below 0 decreases. Either way, it moves away from the equilibrium, no matter how close to 0 it starts. We call the equilibrium  unstable .   A stable equilibrium  Now consider . A quick check shows that is the general solution, since . Again, the only equilibrium is .    Solutions of . Solutions approach the equilibrium .   Solutions of dp\/dt = -p approaching the equilibrium p = 0   The equilibrium is drawn as a highlighted horizontal line. Solutions starting at , , and decrease toward it, and solutions starting at , , and increase toward it.      This time, every solution approaches 0 as , from above or from below. We call the equilibrium  stable .   The phase line  We will skip over some of the underlying theory, but the ideas for doing this with any are simple, as long as is nice enough (for example, if has a continuous derivative, which is true for every in this class). In that case, solutions can't cross each other. In particular, a solution can never cross an equilibrium, so a solution that starts between two equilibria stays between them.  This means we only need to know the sign of :   Where , we have , so is increasing.    Where , we have , so is decreasing.     For example, take from the previous page, with equilibria and . Checking the sign of each factor:   For , both factors are negative, so and is increasing.    For , and , so and is decreasing.    For , both factors are positive, so and is increasing.     We record this on a phase line : a number line for , with a dot at each equilibrium and an arrow on each interval between them. An arrow pointing right means is increasing there, and an arrow pointing left means is decreasing.    Left: the graph of , with the phase line below it. Right: sketches of solutions , with the equilibria highlighted. Arrows pointing right on the phase line correspond to solutions going up on the right.   Graph of f(p) = (p - 2)(p + 3) with its phase line, and sketches of solutions   On the left is the graph of , an upward parabola crossing the -axis at and . It is above the axis for and , labeled dp\/dt > 0, p increasing, and below the axis for , labeled dp\/dt < 0, p decreasing. Below the graph is the phase line: an arrow pointing right for , an arrow pointing left for , and an arrow pointing right for . The equilibrium is labeled stable and is labeled unstable. On the right are solutions , with the equilibria and drawn as highlighted horizontal lines. Solutions starting above 2 increase without bound, solutions starting between and 2 decrease toward , and solutions starting below increase toward .      Understanding how the three pictures relate lets you visualize how the sign of determines what happens to the solutions. However, we can determine stability directly from the phase line:   At , the arrows on both sides point toward the equilibrium. Solutions that start near approach it, so is stable .    At , the arrows on both sides point away from the equilibrium. Solutions that start near 2 move away from it, so is unstable .     You should be able to connect these ideas to the direction of the arrows and to the sketches of solutions approaching or moving away from the equilibria. However, the precise reason this always works depends on an existence and uniqueness theorem, which we won't go into.   A semistable equilibrium  There is one more possibility: the arrows on both sides can point the same way. For example, has the equilibrium , and on both sides of it.    The phase line and solutions of .   Phase line and solutions of dp\/dt = (p + 1) squared   On the left is the phase line, with the equilibrium labeled semistable and arrows pointing right on both sides of it. On the right are solutions , with the equilibrium drawn as a highlighted horizontal line. Solutions starting below increase toward it, and solutions starting above increase away from it without bound.      Solutions that start below approach it, but solutions that start above move away from it. We call  semistable . Since some nearby solutions move away, a semistable equilibrium is not stable.   The technical definitions  For all the equations in this class, stability will work out the way we have described, by reading the phase line. For reference, here are the technical definitions from Section 9.4.3 of the book, written for one variable.    Stable and Asymptotically Stable   Let be an equilibrium of .    is stable if solutions that start near stay near in future time. More precisely, for each there is a such that if , then for all .     is asymptotically stable if solutions that start near stay near in future time, and in addition approach as . More precisely, for each there is a such that if , then (i) for all , and (ii) as .   An equilibrium that is not stable is called unstable .    On a phase line, if the arrows on both sides point toward an equilibrium, it is asymptotically stable. If the arrows on at least one side point away, it is unstable. So in this class, when we call an equilibrium on a phase line stable, we mean asymptotically stable.   Basin of Attraction   The basin of attraction of an asymptotically stable equilibrium is the set of starting values whose solutions approach as .    For example, for , every solution that starts below 2 approaches , so the basin of attraction of is . Solutions that start at exactly stay at 2, and solutions that start above 2 increase without bound.  Let's practice with an equation that will look familiar in Chapter 10.    Which is the phase line for ?           Right. For , and , so . For , both factors are positive, so . For , , so . So is unstable and is stable.           Not quite. The arrows are backward. Try a value between 0 and 1, like : both factors are positive, so .           Not quite. Check the sign for : then , so .           Not quite. Check the sign for : both factors are positive, so .        For , what is the basin of attraction of the stable equilibrium ?         Close, but check : that solution stays at the equilibrium 0 forever, so it never approaches 1.         Right. Every solution that starts above 0 approaches 1: from below if , and from above if .         Not quite. Solutions that start above 1 also approach 1, since the arrow for points left.         Not quite. Solutions that start below 0 decrease, moving away from 0 and never reaching 1.       "
+},
+{
+  "id": "fig-ode-unstable",
+  "level": "2",
+  "url": "ch9-page2-stability.html#fig-ode-unstable",
+  "type": "Figure",
+  "number": "9.2.1",
+  "title": "",
+  "body": " Solutions of . Solutions that start near the equilibrium move away from it.   Solutions of dp\/dt = p moving away from the equilibrium p = 0   The equilibrium is drawn as a highlighted horizontal line. Solutions starting at , , and increase away from it, and solutions starting at , , and decrease away from it.     "
+},
+{
+  "id": "ch9-page2-stability-5",
+  "level": "2",
+  "url": "ch9-page2-stability.html#ch9-page2-stability-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "unstable "
+},
+{
+  "id": "fig-ode-stable",
+  "level": "2",
+  "url": "ch9-page2-stability.html#fig-ode-stable",
+  "type": "Figure",
+  "number": "9.2.2",
+  "title": "",
+  "body": " Solutions of . Solutions approach the equilibrium .   Solutions of dp\/dt = -p approaching the equilibrium p = 0   The equilibrium is drawn as a highlighted horizontal line. Solutions starting at , , and decrease toward it, and solutions starting at , , and increase toward it.     "
+},
+{
+  "id": "ch9-page2-stability-8",
+  "level": "2",
+  "url": "ch9-page2-stability.html#ch9-page2-stability-8",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "stable "
+},
+{
+  "id": "para-ode-phase-line-5",
+  "level": "2",
+  "url": "ch9-page2-stability.html#para-ode-phase-line-5",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "phase line "
+},
+{
+  "id": "fig-ode-phase-line",
+  "level": "2",
+  "url": "ch9-page2-stability.html#fig-ode-phase-line",
+  "type": "Figure",
+  "number": "9.2.3",
+  "title": "",
+  "body": " Left: the graph of , with the phase line below it. Right: sketches of solutions , with the equilibria highlighted. Arrows pointing right on the phase line correspond to solutions going up on the right.   Graph of f(p) = (p - 2)(p + 3) with its phase line, and sketches of solutions   On the left is the graph of , an upward parabola crossing the -axis at and . It is above the axis for and , labeled dp\/dt > 0, p increasing, and below the axis for , labeled dp\/dt < 0, p decreasing. Below the graph is the phase line: an arrow pointing right for , an arrow pointing left for , and an arrow pointing right for . The equilibrium is labeled stable and is labeled unstable. On the right are solutions , with the equilibria and drawn as highlighted horizontal lines. Solutions starting above 2 increase without bound, solutions starting between and 2 decrease toward , and solutions starting below increase toward .     "
+},
+{
+  "id": "fig-ode-semistable",
+  "level": "2",
+  "url": "ch9-page2-stability.html#fig-ode-semistable",
+  "type": "Figure",
+  "number": "9.2.4",
+  "title": "",
+  "body": " The phase line and solutions of .   Phase line and solutions of dp\/dt = (p + 1) squared   On the left is the phase line, with the equilibrium labeled semistable and arrows pointing right on both sides of it. On the right are solutions , with the equilibrium drawn as a highlighted horizontal line. Solutions starting below increase toward it, and solutions starting above increase away from it without bound.     "
+},
+{
+  "id": "ch9-page2-stability-15",
+  "level": "2",
+  "url": "ch9-page2-stability.html#ch9-page2-stability-15",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "semistable "
+},
+{
+  "id": "def-ode-stability",
+  "level": "2",
+  "url": "ch9-page2-stability.html#def-ode-stability",
+  "type": "Definition",
+  "number": "9.2.5",
+  "title": "Stable and Asymptotically Stable.",
+  "body": " Stable and Asymptotically Stable   Let be an equilibrium of .    is stable if solutions that start near stay near in future time. More precisely, for each there is a such that if , then for all .     is asymptotically stable if solutions that start near stay near in future time, and in addition approach as . More precisely, for each there is a such that if , then (i) for all , and (ii) as .   An equilibrium that is not stable is called unstable .   "
+},
+{
+  "id": "def-basin-of-attraction",
+  "level": "2",
+  "url": "ch9-page2-stability.html#def-basin-of-attraction",
+  "type": "Definition",
+  "number": "9.2.6",
+  "title": "Basin of Attraction.",
+  "body": " Basin of Attraction   The basin of attraction of an asymptotically stable equilibrium is the set of starting values whose solutions approach as .   "
+},
+{
+  "id": "check-ode-phase-line",
+  "level": "2",
+  "url": "ch9-page2-stability.html#check-ode-phase-line",
+  "type": "Checkpoint",
+  "number": "9.2.7",
+  "title": "",
+  "body": "  Which is the phase line for ?           Right. For , and , so . For , both factors are positive, so . For , , so . So is unstable and is stable.           Not quite. The arrows are backward. Try a value between 0 and 1, like : both factors are positive, so .           Not quite. Check the sign for : then , so .           Not quite. Check the sign for : both factors are positive, so .     "
+},
+{
+  "id": "check-ode-basin",
+  "level": "2",
+  "url": "ch9-page2-stability.html#check-ode-basin",
+  "type": "Checkpoint",
+  "number": "9.2.8",
+  "title": "",
+  "body": "  For , what is the basin of attraction of the stable equilibrium ?         Close, but check : that solution stays at the equilibrium 0 forever, so it never approaches 1.         Right. Every solution that starts above 0 approaches 1: from below if , and from above if .         Not quite. Solutions that start above 1 also approach 1, since the arrow for points left.         Not quite. Solutions that start below 0 decrease, moving away from 0 and never reaching 1.     "
+},
+{
+  "id": "ch10-page1-replicator-system",
+  "level": "1",
+  "url": "ch10-page1-replicator-system.html",
+  "type": "Section",
+  "number": "10.1",
+  "title": "The Replicator System",
+  "body": " The Replicator System  In this chapter, we continue to study evolutionary games, so we are dealing with a large population whose members play a symmetric two-player game against each other over and over. In Chapter 8, the population state was fixed, and we asked whether it was evolutionarily stable, that is, whether it could hold off a small group of invaders.  In this chapter, we model the population state as changing continuously over time. We will write the population state as a function of time: where is the fraction of the population using strategy at time . The state at the start is .  This makes differential equations a natural model, and we can use the ideas from Chapter 9 to analyze their solutions and equilibria. If a strategy does well, you'd expect the portion of the population using it to increase with time. On the other hand, a strategy that doesn't do well should die out! We will look for asymptotically stable equilibria that the population state approaches.      Section 10.1, Replicator System   Read Section 10.1.   In the reading, the following important ideas are introduced:   The replicator system (10.1) is the system of differential equations that models how the population state changes:     Theorem 10.1 lists some basic properties of the replicator system, about which sets of population states solutions stay in ( invariance ) and which states are always equilibria.   Reading the proof of Theorem 10.1 will help you get acquainted with the concepts and notation, but it is not strictly required to get through the material.   Let's write down the important ideas from the reading for reference. We will use all of them throughout this chapter.   The replicator system  Here is the replicator system again, with the different parts labeled. (Note that in the replicator system, , , and are all functions of time.)   Recall that is the expected payoff to an individual using against a random member of the population, and is the average payoff in the population. Both are computed using the current state , so as the population changes, the payoffs change too.     Using the labeled replicator system, which of the following statements are true? Select all that apply.       If does better than average, increases.    True. The payoff advantage is positive and , so .      If does worse than average, increases.    False. The payoff advantage is negative, so and decreases.      If does exactly as well as average, or nobody uses it, stays constant.    True. In the first case the payoff advantage is 0, and in the second case . Either way, .      The book gives two ways to interpret this. In biology, strategies with higher payoffs have more offspring. In social situations, people see which strategies are succeeding and copy them.   The simplex and its strata  The replicator system only makes sense for population states, where every share is nonnegative and the shares add up to 1. This set is called the simplex :   The simplex is split into pieces called strata based on which strategies are actually in use. For a nonempty set , the stratum contains the states where exactly the strategies with are used:   Figure 10.1 gives a good visualization of the different strata for .   Last, we restate Theorem 10.1 for reference, and then we'll see a quick interpretation of each part!   Theorem 10.1   The replicator system has the following properties:   If , then .    Let . If , then .    Each stratum is invariant.    Each stratum is an equilibrium.       Here are ways to think about each part of the theorem:    (1) An inactive strategy stays inactive. The model has no mutation, so a new strategy can never appear on its own.     (2) The fractions of the population using each strategy always add up to 1. It's good that this is true! Otherwise, would stop being a legitimate population state.     (3) A solution never leaves the stratum it starts in. In particular, an active strategy never dies out completely in finite time. Its share can approach 0 as , but it never reaches 0.     (4) Note that consists of just the pure state . So this says every pure state, where the whole population uses one strategy, is an equilibrium. That is, if the initial population state uses only this pure strategy, it stays that way for all time! However, an equilibrium does not have to be stable : nearby solutions could move away from it. Deciding which equilibria are stable is a big part of this chapter.      Reducing the number of equations  The end of Section 10.1 points out that we don't need all equations. Since the shares add up to 1, we can use and keep only the first equations. We will see this in the Microsoft vs. Apple example coming up!      In Section 10.2, the book discusses an example: Microsoft vs. Apple. I have broken down the math in the following example block, with some dropdown solutions and checkpoint questions. You can read it in the book first if you like, but this breaks down the different steps, and some parts will have you thinking more actively about the example!   Microsoft vs. Apple   In the early days of personal computers, you could buy a computer running Microsoft Windows or one running Apple's operating system. Apple's was better, but neither handled files from the other well, so if you and your coworker used different systems, not much got done. The strategies are buy Microsoft ( ) or buy Apple ( ):   Microsoft vs. Apple        Player 2:  Player 2:    Player 1:      Player 1:       This is case (3) of Theorem 8.5 (a game like Stag Hunt). As the book lists, there are three Nash equilibria:    and , which are strict, so the population states and are evolutionarily stable;     with , which is not evolutionarily stable.   Now let's see what the replicator system says. Write the population state as , so is the share using Microsoft and is the share using Apple.    The payoffs   Find , , and in terms of and .    A Microsoft user gets 1 against another Microsoft user and 0 against an Apple user, so An Apple user gets 0 against a Microsoft user and 2 against another Apple user, so The average payoff weights each strategy's payoff by its share:      The equation for   Write the replicator equation for .    Plug the payoffs into :      The equation for   Now try it yourself! Which of the following is the replicator equation for ?         Right. This is , with .         Not quite. This is the payoff advantage of , but the replicator equation multiplies it by the current share .         Not quite. This uses , the payoff to a Microsoft user. For , we need the payoff to an Apple user, .         Not quite. The subtraction is backward: this would make Apple shrink when it does better than average. The replicator equation uses the strategy's payoff minus the average.       Reducing to one variable   As we noted after Theorem 10.1, we only need one of these equations: since , knowing tells us too. Substitute into the equation for and factor it.    Start with the equation for and substitute : We know in advance that must be a factor, since is an equilibrium. To pull it out, notice that : So the whole replicator system comes down to one autonomous differential equation,      The equilibria   Now let's find all the equilibria and draw the whole phase line.  Which values of in are equilibria of ? Select all that apply.          Yes. This is the factor , and it is the pure state where everyone uses Apple, which Theorem 10.1(4) says is always an equilibrium.         No. At , the factor , so . (The equilibrium has , not .)         No. At , the factor , so .         Yes. This is where . It is also where both strategies earn the same payoff: and .         Yes. This is the factor , and it is the pure state where everyone uses Microsoft.       The phase line   Which is the phase line for on ?           Right. For , the factors and are positive and is negative, so and the arrows point left. For , all three factors are positive, so the arrows point right.           Not quite. The arrows are backward. For , the factor is negative, so and the arrows point left.           Not quite. The sign of changes at , because the factor changes sign there: it is negative below .           Not quite. The sign of changes at , because the factor changes sign there: it is positive above .       From the phase line, we can read off the stability of each equilibrium:    (everyone uses Apple) is stable.     (everyone uses Microsoft) is stable.     is unstable. It is a tipping point between the other two.     You will be asked to interpret the equilibria and their stability in the checkpoints after the reading!  Compare this with the game analysis at the start of the example. The three equilibria of the replicator system match the three symmetric Nash equilibria exactly: is , is , and is . Even better, the stable equilibria are exactly the evolutionarily stable states  and , and the unstable one is , which is not evolutionarily stable. We will see later that this is not a coincidence!        Section 10.2, Microsoft vs. Apple   Read Section 10.2.   We already did the math in the example above, so you can skim over the computations. Read it for the full context: the book's discussion of the game, Figure 10.2, and why the worse computer can still take over.   Now let's make sure you can correctly interpret the equilibria and their stability!    For which initial Microsoft shares does the population eventually end up with everyone using Microsoft?         Not quite. A Microsoft majority is not enough. For every between and , the Microsoft share shrinks.         Close, but check the endpoint. If , the population starts at an equilibrium, so it stays at forever.         Right. This is the basin of attraction of . Any population that starts with more than using Microsoft ends up all Microsoft, even though everyone would be better off with Apple. Similarly, is the basin of attraction of : starting with fewer than using Microsoft, everyone ends up with Apple.         Not quite. The tipping point is at , not . (It is that equals there.)        Suppose the population starts at , so . How does the population evolve over time?      It stays at forever.    Right. is an equilibrium, so there and the population never moves. It is unstable, but that only matters if the population starts near  rather than exactly at it.      It moves toward everyone using Microsoft.    Not quite. That happens if the population starts above  . Starting exactly at the equilibrium, , so nothing changes.      It moves toward everyone using Apple.    Not quite. That happens if the population starts below  . Starting exactly at the equilibrium, , so nothing changes.       The book calls the mixed Nash equilibrium a mystery : why would anyone choose the worse computer with higher probability? Because is unstable, it is not a state the population is likely to settle into. It is better thought of as the tipping point between the two basins of attraction. Since Apple users get twice the payoff when they match, Microsoft needs more than of the population before it does better than Apple. Any small deviation from sends the population all the way to everyone using Microsoft or everyone using Apple.    "
+},
+{
+  "id": "read-10-1-3",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#read-10-1-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "replicator system invariance "
+},
+{
+  "id": "check-replicator-signs",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#check-replicator-signs",
+  "type": "Checkpoint",
+  "number": "10.1.1",
+  "title": "",
+  "body": "  Using the labeled replicator system, which of the following statements are true? Select all that apply.       If does better than average, increases.    True. The payoff advantage is positive and , so .      If does worse than average, increases.    False. The payoff advantage is negative, so and decreases.      If does exactly as well as average, or nobody uses it, stays constant.    True. In the first case the payoff advantage is 0, and in the second case . Either way, .     "
+},
+{
+  "id": "para-ch10-simplex-2",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#para-ch10-simplex-2",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "simplex "
+},
+{
+  "id": "para-ch10-simplex-3",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#para-ch10-simplex-3",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "strata "
+},
+{
+  "id": "thm-10-1-restated",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#thm-10-1-restated",
+  "type": "Theorem",
+  "number": "10.1.2",
+  "title": "Theorem 10.1.",
+  "body": " Theorem 10.1   The replicator system has the following properties:   If , then .    Let . If , then .    Each stratum is invariant.    Each stratum is an equilibrium.      "
+},
+{
+  "id": "eg-microsoft-apple",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#eg-microsoft-apple",
+  "type": "Example",
+  "number": "10.1.3",
+  "title": "Microsoft vs. Apple.",
+  "body": " Microsoft vs. Apple   In the early days of personal computers, you could buy a computer running Microsoft Windows or one running Apple's operating system. Apple's was better, but neither handled files from the other well, so if you and your coworker used different systems, not much got done. The strategies are buy Microsoft ( ) or buy Apple ( ):   Microsoft vs. Apple        Player 2:  Player 2:    Player 1:      Player 1:       This is case (3) of Theorem 8.5 (a game like Stag Hunt). As the book lists, there are three Nash equilibria:    and , which are strict, so the population states and are evolutionarily stable;     with , which is not evolutionarily stable.   Now let's see what the replicator system says. Write the population state as , so is the share using Microsoft and is the share using Apple.    The payoffs   Find , , and in terms of and .    A Microsoft user gets 1 against another Microsoft user and 0 against an Apple user, so An Apple user gets 0 against a Microsoft user and 2 against another Apple user, so The average payoff weights each strategy's payoff by its share:      The equation for   Write the replicator equation for .    Plug the payoffs into :      The equation for   Now try it yourself! Which of the following is the replicator equation for ?         Right. This is , with .         Not quite. This is the payoff advantage of , but the replicator equation multiplies it by the current share .         Not quite. This uses , the payoff to a Microsoft user. For , we need the payoff to an Apple user, .         Not quite. The subtraction is backward: this would make Apple shrink when it does better than average. The replicator equation uses the strategy's payoff minus the average.       Reducing to one variable   As we noted after Theorem 10.1, we only need one of these equations: since , knowing tells us too. Substitute into the equation for and factor it.    Start with the equation for and substitute : We know in advance that must be a factor, since is an equilibrium. To pull it out, notice that : So the whole replicator system comes down to one autonomous differential equation,      The equilibria   Now let's find all the equilibria and draw the whole phase line.  Which values of in are equilibria of ? Select all that apply.          Yes. This is the factor , and it is the pure state where everyone uses Apple, which Theorem 10.1(4) says is always an equilibrium.         No. At , the factor , so . (The equilibrium has , not .)         No. At , the factor , so .         Yes. This is where . It is also where both strategies earn the same payoff: and .         Yes. This is the factor , and it is the pure state where everyone uses Microsoft.       The phase line   Which is the phase line for on ?           Right. For , the factors and are positive and is negative, so and the arrows point left. For , all three factors are positive, so the arrows point right.           Not quite. The arrows are backward. For , the factor is negative, so and the arrows point left.           Not quite. The sign of changes at , because the factor changes sign there: it is negative below .           Not quite. The sign of changes at , because the factor changes sign there: it is positive above .       From the phase line, we can read off the stability of each equilibrium:    (everyone uses Apple) is stable.     (everyone uses Microsoft) is stable.     is unstable. It is a tipping point between the other two.     You will be asked to interpret the equilibria and their stability in the checkpoints after the reading!  Compare this with the game analysis at the start of the example. The three equilibria of the replicator system match the three symmetric Nash equilibria exactly: is , is , and is . Even better, the stable equilibria are exactly the evolutionarily stable states  and , and the unstable one is , which is not evolutionarily stable. We will see later that this is not a coincidence!   "
+},
+{
+  "id": "check-ms-apple-initial-share",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#check-ms-apple-initial-share",
+  "type": "Checkpoint",
+  "number": "10.1.5",
+  "title": "",
+  "body": "  For which initial Microsoft shares does the population eventually end up with everyone using Microsoft?         Not quite. A Microsoft majority is not enough. For every between and , the Microsoft share shrinks.         Close, but check the endpoint. If , the population starts at an equilibrium, so it stays at forever.         Right. This is the basin of attraction of . Any population that starts with more than using Microsoft ends up all Microsoft, even though everyone would be better off with Apple. Similarly, is the basin of attraction of : starting with fewer than using Microsoft, everyone ends up with Apple.         Not quite. The tipping point is at , not . (It is that equals there.)     "
+},
+{
+  "id": "check-ms-apple-start-at-sigma-star",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#check-ms-apple-start-at-sigma-star",
+  "type": "Checkpoint",
+  "number": "10.1.6",
+  "title": "",
+  "body": "  Suppose the population starts at , so . How does the population evolve over time?      It stays at forever.    Right. is an equilibrium, so there and the population never moves. It is unstable, but that only matters if the population starts near  rather than exactly at it.      It moves toward everyone using Microsoft.    Not quite. That happens if the population starts above  . Starting exactly at the equilibrium, , so nothing changes.      It moves toward everyone using Apple.    Not quite. That happens if the population starts below  . Starting exactly at the equilibrium, , so nothing changes.     "
+},
+{
+  "id": "remark-ms-apple-mystery",
+  "level": "2",
+  "url": "ch10-page1-replicator-system.html#remark-ms-apple-mystery",
+  "type": "Remark",
+  "number": "10.1.7",
+  "title": "",
+  "body": " The book calls the mixed Nash equilibrium a mystery : why would anyone choose the worse computer with higher probability? Because is unstable, it is not a state the population is likely to settle into. It is better thought of as the tipping point between the two basins of attraction. Since Apple users get twice the payoff when they match, Microsoft needs more than of the population before it does better than Apple. Any small deviation from sends the population all the way to everyone using Microsoft or everyone using Apple.  "
+},
+{
+  "id": "ch10-page2-dynamics-two-strategies",
+  "level": "1",
+  "url": "ch10-page2-dynamics-two-strategies.html",
+  "type": "Section",
+  "number": "10.2",
+  "title": "Two Pure Strategies, and a Look Beyond",
+  "body": " Two Pure Strategies, and a Look Beyond  Now we generalize what we did for Microsoft vs. Apple to any symmetric game with two pure strategies. The payoff matrix has the form:   A symmetric game with two pure strategies        Player 2:  Player 2:    Player 1:      Player 1:           Section 10.3, Evolutionary Dynamics with Two Pure Strategies   Read Section 10.3.   Read through the setup, but you can skim the algebra: the computations follow the same steps as Microsoft vs. Apple, just with letters instead of numbers. Take note of the result at the end and of Figure 10.3, which we summarize below!   Note: Figure 10.3 has a typo. It labels two of the pictures (3) . The bottom-right picture, with and , is case (4).   Alright, now for a quick summary! After substituting , the replicator system becomes the single equation Its equilibria are:    ,     , and     , provided is between 0 and 1.     For , the factors and are positive, so the sign of comes from the last factor. That factor is linear in , so it changes sign at most once. This gives the four possible cases shown in Figure 10.3.   Comparing with Theorem 8.5  These are exactly the four cases of Theorem 8.5 from Chapter 8 (see ), and two things match up.  First, the formula for the interior equilibrium is the same as formula (8.5) in the book. So the interior equilibrium of the replicator system is exactly the mixed-strategy Nash equilibrium .  Second, here are the four cases, with the stable equilibria of the replicator system next to the evolutionarily stable states from Theorem 8.5:    Stable equilibria and evolutionarily stable states        Case  Conditions  Stable equilibria of the replicator equation  Evolutionarily stable states (Theorem 8.5)    (1)  ,   ( )    (2)  ,   ( )    (3)  ,  and  ( ) and ( )    (4)  ,   ( )     The last two columns match in every row. (These four cases assume and .) As the book puts it at the end of Section 10.3: in all cases, the asymptotically stable equilibria correspond to evolutionarily stable population states. So for games with two pure strategies, the static idea from Chapter 8 (a state that can't be invaded) and the dynamic idea from this chapter (a state the population returns to) give the same answer. This is what we saw for Microsoft vs. Apple, which is in case (3).      Hawks and Doves  Recall the game of Hawks and Doves from Section 8.4.3. Animals fight over a resource using one of two strategies: Hawk ( ), which fights until injured or until the opponent retreats, and Dove ( ), which displays hostility but retreats if the opponent won't. The parameters are    = value of what they are fighting over,     = cost of injury,     = cost of protracted display,   where , , and are all positive and . The payoff matrix is    Hawks and Doves        Animal 2:  Animal 2:    Animal 1:      Animal 1:       Before reading the book's analysis, let's see how much we can figure out from Figure 10.3 alone. Take and .    Which case of Figure 10.3 is Hawks and Doves in?      Case (1): and    Not quite. Here and . Since , is negative, so : a hawk does worse than a dove against a hawk.      Case (2): and    Not quite. is right, but compare and : and . Since , .      Case (3): and    Not quite. Case (3) would mean a hawk does better than a dove against a hawk. But , since the cost of injury is larger than the value of the resource.      Case (4): and    Right. because , and because . Each strategy is the best response to the other.        Knowing only which case Hawks and Doves is in, what can we conclude about the evolution of the population?      From any starting state with , the population tends toward the mixed state .    Right. In case (4), is the only stable equilibrium, and both pure states are unstable. This agrees with Theorem 8.5, which says is evolutionarily stable.      Hawks take over the population.    Not quite. In case (4), the all-hawk state is unstable. When almost everyone is a hawk, doves do better, because they avoid costly injuries.      Doves take over the population.    Not quite. In case (4), the all-dove state is unstable. When almost everyone is a dove, a hawk takes the resource from every dove it meets.      It depends on the starting state: some populations end up all hawks and some end up all doves.    Not quite. That describes case (3), with a tipping point. In case (4), the arrows on both sides point toward .          Section 10.4, Hawks and Doves Revisited   Read Section 10.4.   The book confirms our conclusion by computing directly. Make sure you get the gist of each step. The algebra in step 3 can be skimmed.   Compute the payoffs , , and .    Write the replicator equation for . (The book also writes , but we don't need it.)    Substitute and factor out , to get .    Find the equilibria: , , and , which is the mixed Nash equilibrium from Section 8.4.3.    Use the phase portrait (Figure 10.4) to determine stability: is stable.    Notice the book's last sentence: we could have gotten this phase portrait from case (4) of Figure 10.3, which is exactly what you just did.         So far, every population has tended towards an equilibrium. To finish, let's take a quick look at what can happen with three strategies. We won't go into the mathematical techniques used in this section, so this is just a quick look to get the main idea!   Section 10.5, Side-blotched Lizards   Skim Section 10.5. This section is here to show you something new: with three strategies, a population doesn't have to settle down at an equilibrium at all. Read the background on the lizards and look at the payoff matrix. You can skip the rest of the math. With three strategies, the replicator system has two variables, and we won't be doing multivariable analysis in this class. Then look at Figure 10.5 and read the conclusion at the end of the section.   Figure 10.5 shows the direction the population moves from each state in the triangle of possible population states. The arrows circle around the interior equilibrium . The book shows that the population cycles forever. It goes from mostly orange-throats, to mostly yellow-stripes, to mostly blue-throats, and back again! This behavior is observed in real lizard populations.  This is a new kind of behavior. With two pure strategies, every population tends to an equilibrium. With three, a population might never settle down at all. Here is a Nash equilibrium but not an evolutionarily stable state, and studying the dynamics shows what the population actually does.   "
+},
+{
+  "id": "table-ch10-general-2x2",
+  "level": "2",
+  "url": "ch10-page2-dynamics-two-strategies.html#table-ch10-general-2x2",
+  "type": "Table",
+  "number": "10.2.1",
+  "title": "A symmetric game with two pure strategies",
+  "body": " A symmetric game with two pure strategies        Player 2:  Player 2:    Player 1:      Player 1:      "
+},
+{
+  "id": "table-ch10-stable-vs-ess",
+  "level": "2",
+  "url": "ch10-page2-dynamics-two-strategies.html#table-ch10-stable-vs-ess",
+  "type": "Table",
+  "number": "10.2.2",
+  "title": "Stable equilibria and evolutionarily stable states",
+  "body": " Stable equilibria and evolutionarily stable states        Case  Conditions  Stable equilibria of the replicator equation  Evolutionarily stable states (Theorem 8.5)    (1)  ,   ( )    (2)  ,   ( )    (3)  ,  and  ( ) and ( )    (4)  ,   ( )    "
+},
+{
+  "id": "table-ch10-hawks-doves",
+  "level": "2",
+  "url": "ch10-page2-dynamics-two-strategies.html#table-ch10-hawks-doves",
+  "type": "Table",
+  "number": "10.2.3",
+  "title": "Hawks and Doves",
+  "body": " Hawks and Doves        Animal 2:  Animal 2:    Animal 1:      Animal 1:      "
+},
+{
+  "id": "check-hd-which-case",
+  "level": "2",
+  "url": "ch10-page2-dynamics-two-strategies.html#check-hd-which-case",
+  "type": "Checkpoint",
+  "number": "10.2.4",
+  "title": "",
+  "body": "  Which case of Figure 10.3 is Hawks and Doves in?      Case (1): and    Not quite. Here and . Since , is negative, so : a hawk does worse than a dove against a hawk.      Case (2): and    Not quite. is right, but compare and : and . Since , .      Case (3): and    Not quite. Case (3) would mean a hawk does better than a dove against a hawk. But , since the cost of injury is larger than the value of the resource.      Case (4): and    Right. because , and because . Each strategy is the best response to the other.     "
+},
+{
+  "id": "check-hd-conclusion",
+  "level": "2",
+  "url": "ch10-page2-dynamics-two-strategies.html#check-hd-conclusion",
+  "type": "Checkpoint",
+  "number": "10.2.5",
+  "title": "",
+  "body": "  Knowing only which case Hawks and Doves is in, what can we conclude about the evolution of the population?      From any starting state with , the population tends toward the mixed state .    Right. In case (4), is the only stable equilibrium, and both pure states are unstable. This agrees with Theorem 8.5, which says is evolutionarily stable.      Hawks take over the population.    Not quite. In case (4), the all-hawk state is unstable. When almost everyone is a hawk, doves do better, because they avoid costly injuries.      Doves take over the population.    Not quite. In case (4), the all-dove state is unstable. When almost everyone is a dove, a hawk takes the resource from every dove it meets.      It depends on the starting state: some populations end up all hawks and some end up all doves.    Not quite. That describes case (3), with a tipping point. In case (4), the arrows on both sides point toward .     "
+},
+{
+  "id": "ch10-page3-equilibria-replicator",
+  "level": "1",
+  "url": "ch10-page3-equilibria-replicator.html",
+  "type": "Section",
+  "number": "10.3",
+  "title": "Equilibria of the Replicator System",
+  "body": " Equilibria of the Replicator System  We have already seen some connections between equilibria of the replicator system, Nash equilibria, and evolutionarily stable states. This makes sense, since in each of these settings, an equilibrium is often a state that a population tends toward or gets stuck at. In this section, we look at some theorems that make these connections clearer!  Before reading, let's recall two things:  An equilibrium is asymptotically stable if every solution that starts close enough to it stays close to it and approaches it as . On a phase line, this means the arrows on both sides point toward it.  The theorems also refer to the two conditions of Theorem 5.2, the Fundamental Theorem of Nash Equilibria (see ). For a population state , is a Nash equilibrium exactly when:   every active strategy at earns the same payoff , and    no inactive strategy earns more than the active strategies.         Section 10.6, Equilibria of the Replicator System   Read Section 10.6 , as follows:   Read the statements and proofs of Theorems 10.2 and 10.3, and the paragraph after the proof of Theorem 10.3 that interprets it.    Read the statement of Theorem 10.4. You can skip Lemma 10.5 and the proof of Theorem 10.4.      Let's restate each theorem for reference and explore each one a bit further!      Theorem 10.2   Let , and let be the corresponding population state. Then is an equilibrium of the replicator system if and only if satisfies condition (1) of the Fundamental Theorem of Nash Equilibria (Theorem 5.2).  In other words, if for some nonempty subset of , then is an equilibrium of the replicator system if and only if all with are equal.    So a population state is an equilibrium exactly when every active strategy earns the same payoff. As in condition (1) of the Fundamental Theorem of Nash Equilibria, only the active strategies are compared.  We saw this in Microsoft vs. Apple: the equilibrium is exactly where Microsoft and Apple users earn the same payoff.    Suppose every strategy is active at (all ). Which statement is true?       is an equilibrium if and only if is a Nash equilibrium.    Right. Condition (2) of Theorem 5.2 is about inactive strategies, and here there are none. So a Nash equilibrium only needs condition (1), which is exactly what Theorem 10.2 requires for an equilibrium.       can be an equilibrium without being a Nash equilibrium.    Not quite. That can only happen if condition (2) fails, which needs an inactive strategy that does better. Here every strategy is active.       can be a Nash equilibrium without being an equilibrium.    Not quite. A Nash equilibrium satisfies condition (1), so by Theorem 10.2 it is always an equilibrium.          Theorem 10.3   Let be an equilibrium of the replicator system, and let be the corresponding population state. Suppose does not satisfy condition (2) of Theorem 5.2; that is, suppose there is an such that . Let be a subset of that includes both and . Then no solution of the replicator system that lies in approaches as .    The idea is simpler than it looks! If an inactive strategy would do better than the population average, the population can't settle at that state. In this case, is an equilibrium, but it is an unstable one! If you introduce a few individuals using the better strategy , their share grows, so the population moves away. (If that strategy stays inactive, the population can stay at , since by Theorem 10.1(1) an inactive strategy never appears on its own.)  Combined with Theorem 10.2, this says that a population can only settle at a Nash equilibrium. Theorem 10.2 handles condition (1), and Theorem 10.3 handles condition (2).    In Hawks and Doves, consider the all-dove state . Hawks are inactive, but a hawk would earn against the doves, while the doves earn only . What does Theorem 10.3 tell us?      The all-dove state is an equilibrium, but no solution with some hawks approaches it.    Right. Since , the inactive strategy does better, so condition (2) fails. A few hawks invade, and the population moves away. That's why was unstable on the phase line on the previous page.      The all-dove state is not an equilibrium.    Not quite. The all-dove state is a pure state, so it is an equilibrium (Theorem 10.1(4)). Theorem 10.3 is about whether solutions approach it.      A population that starts with all doves will eventually have some hawks.    Not quite. An inactive strategy never appears on its own (Theorem 10.1(1)), so an all-dove population stays all doves. Theorem 10.3 is about populations that already have a few hawks.         And last, we have Theorem 10.4!   Theorem 10.4   Let . Suppose the corresponding population state is evolutionarily stable. Then is an asymptotically stable equilibrium of the replicator system.    So every evolutionarily stable state is asymptotically stable. Being evolutionarily stable (Chapter 8) is a static condition: we look at a single, fixed state and check that any small group of invaders does worse than the rest of the population. Nothing changes over time. Being asymptotically stable is a dynamic condition: it is about how the population changes over time, returning to after small deviations. Theorem 10.4 says the static condition guarantees the dynamic one.  This theorem only goes in one direction . An asymptotically stable equilibrium does not have to be an evolutionarily stable state. For games with two pure strategies, though, the two ideas match exactly in the four cases of Figure 10.3 (when and ), as we saw in on the previous page.    In Hawks and Doves, the mixed state with is evolutionarily stable (case (4) of Theorem 8.5). What does Theorem 10.4 tell us?       is an asymptotically stable equilibrium of the replicator system.    Right. This matches the phase line we found on the previous page, where the arrows on both sides point toward .       is the only equilibrium of the replicator system.    Not quite. and are also equilibria (Theorem 10.1(4)). Theorem 10.4 is about stability, not about how many equilibria there are.       is an equilibrium, but we can't say anything about its stability.    Not quite. Since is evolutionarily stable, Theorem 10.4 tells us that is asymptotically stable.       is a Nash equilibrium, but it is unstable.    Not quite. It is a Nash equilibrium, but Theorem 10.4 says it is asymptotically stable, since is evolutionarily stable.         Let's finish by putting the theorems together.    Which of the following statements are true? Select all that apply.       If is an equilibrium of the replicator system, then is a Nash equilibrium.    False. This is only guaranteed when every strategy is active. Theorem 10.2 gives condition (1) of Theorem 5.2, but not condition (2). For example, the all-dove state in Hawks and Doves is an equilibrium, but it is not a Nash equilibrium, since a hawk would do better.      Every evolutionarily stable state is asymptotically stable.    True. This is Theorem 10.4.      If a population state is not evolutionarily stable, then it is not asymptotically stable.    False. This doesn't follow from Theorem 10.4. The contrapositive of Theorem 10.4 is if a state is not asymptotically stable, then it is not evolutionarily stable, which is a different statement. For example, in the lizards game, is not evolutionarily stable, and Theorem 10.4 tells us nothing about its stability. (The analysis in Section 10.5 shows the population cycles around it, but that comes from a separate argument.)      For a game with two pure strategies (with and ), a population state is asymptotically stable exactly when it is evolutionarily stable.    True. This is what we saw on the previous page: in all four cases, the stable equilibria are exactly the evolutionarily stable states.      Notice the difference between the first statement in this checkpoint and . In , every strategy was active, so there was nothing to check in condition (2) of Theorem 5.2! Here, could have inactive strategies.   "
+},
+{
+  "id": "ch10-page3-equilibria-replicator-4",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#ch10-page3-equilibria-replicator-4",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "asymptotically stable "
+},
+{
+  "id": "thm-10-2-restated",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#thm-10-2-restated",
+  "type": "Theorem",
+  "number": "10.3.1",
+  "title": "Theorem 10.2.",
+  "body": " Theorem 10.2   Let , and let be the corresponding population state. Then is an equilibrium of the replicator system if and only if satisfies condition (1) of the Fundamental Theorem of Nash Equilibria (Theorem 5.2).  In other words, if for some nonempty subset of , then is an equilibrium of the replicator system if and only if all with are equal.   "
+},
+{
+  "id": "check-thm-10-2-all-in-use",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#check-thm-10-2-all-in-use",
+  "type": "Checkpoint",
+  "number": "10.3.2",
+  "title": "",
+  "body": "  Suppose every strategy is active at (all ). Which statement is true?       is an equilibrium if and only if is a Nash equilibrium.    Right. Condition (2) of Theorem 5.2 is about inactive strategies, and here there are none. So a Nash equilibrium only needs condition (1), which is exactly what Theorem 10.2 requires for an equilibrium.       can be an equilibrium without being a Nash equilibrium.    Not quite. That can only happen if condition (2) fails, which needs an inactive strategy that does better. Here every strategy is active.       can be a Nash equilibrium without being an equilibrium.    Not quite. A Nash equilibrium satisfies condition (1), so by Theorem 10.2 it is always an equilibrium.     "
+},
+{
+  "id": "thm-10-3-restated",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#thm-10-3-restated",
+  "type": "Theorem",
+  "number": "10.3.3",
+  "title": "Theorem 10.3.",
+  "body": " Theorem 10.3   Let be an equilibrium of the replicator system, and let be the corresponding population state. Suppose does not satisfy condition (2) of Theorem 5.2; that is, suppose there is an such that . Let be a subset of that includes both and . Then no solution of the replicator system that lies in approaches as .   "
+},
+{
+  "id": "check-thm-10-3-hawks-doves",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#check-thm-10-3-hawks-doves",
+  "type": "Checkpoint",
+  "number": "10.3.4",
+  "title": "",
+  "body": "  In Hawks and Doves, consider the all-dove state . Hawks are inactive, but a hawk would earn against the doves, while the doves earn only . What does Theorem 10.3 tell us?      The all-dove state is an equilibrium, but no solution with some hawks approaches it.    Right. Since , the inactive strategy does better, so condition (2) fails. A few hawks invade, and the population moves away. That's why was unstable on the phase line on the previous page.      The all-dove state is not an equilibrium.    Not quite. The all-dove state is a pure state, so it is an equilibrium (Theorem 10.1(4)). Theorem 10.3 is about whether solutions approach it.      A population that starts with all doves will eventually have some hawks.    Not quite. An inactive strategy never appears on its own (Theorem 10.1(1)), so an all-dove population stays all doves. Theorem 10.3 is about populations that already have a few hawks.     "
+},
+{
+  "id": "thm-10-4-restated",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#thm-10-4-restated",
+  "type": "Theorem",
+  "number": "10.3.5",
+  "title": "Theorem 10.4.",
+  "body": " Theorem 10.4   Let . Suppose the corresponding population state is evolutionarily stable. Then is an asymptotically stable equilibrium of the replicator system.   "
+},
+{
+  "id": "check-thm-10-4-hawks-doves",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#check-thm-10-4-hawks-doves",
+  "type": "Checkpoint",
+  "number": "10.3.6",
+  "title": "",
+  "body": "  In Hawks and Doves, the mixed state with is evolutionarily stable (case (4) of Theorem 8.5). What does Theorem 10.4 tell us?       is an asymptotically stable equilibrium of the replicator system.    Right. This matches the phase line we found on the previous page, where the arrows on both sides point toward .       is the only equilibrium of the replicator system.    Not quite. and are also equilibria (Theorem 10.1(4)). Theorem 10.4 is about stability, not about how many equilibria there are.       is an equilibrium, but we can't say anything about its stability.    Not quite. Since is evolutionarily stable, Theorem 10.4 tells us that is asymptotically stable.       is a Nash equilibrium, but it is unstable.    Not quite. It is a Nash equilibrium, but Theorem 10.4 says it is asymptotically stable, since is evolutionarily stable.     "
+},
+{
+  "id": "check-ch10-wrapup-stability",
+  "level": "2",
+  "url": "ch10-page3-equilibria-replicator.html#check-ch10-wrapup-stability",
+  "type": "Checkpoint",
+  "number": "10.3.7",
+  "title": "",
+  "body": "  Which of the following statements are true? Select all that apply.       If is an equilibrium of the replicator system, then is a Nash equilibrium.    False. This is only guaranteed when every strategy is active. Theorem 10.2 gives condition (1) of Theorem 5.2, but not condition (2). For example, the all-dove state in Hawks and Doves is an equilibrium, but it is not a Nash equilibrium, since a hawk would do better.      Every evolutionarily stable state is asymptotically stable.    True. This is Theorem 10.4.      If a population state is not evolutionarily stable, then it is not asymptotically stable.    False. This doesn't follow from Theorem 10.4. The contrapositive of Theorem 10.4 is if a state is not asymptotically stable, then it is not evolutionarily stable, which is a different statement. For example, in the lizards game, is not evolutionarily stable, and Theorem 10.4 tells us nothing about its stability. (The analysis in Section 10.5 shows the population cycles around it, but that comes from a separate argument.)      For a game with two pure strategies (with and ), a population state is asymptotically stable exactly when it is evolutionarily stable.    True. This is what we saw on the previous page: in all four cases, the stable equilibria are exactly the evolutionarily stable states.     "
+},
+{
+  "id": "ch10-exercises",
+  "level": "1",
+  "url": "ch10-exercises.html",
+  "type": "Exercises",
+  "number": "10.4",
+  "title": "Exercises",
+  "body": " Exercises    Deriving the Replicator Equation   Consider the following symmetric game:   The game        Player 2:  Player 2:    Player 1:      Player 1:          Let denote the population state. Derive the replicator system for this game (a system of two differential equations and ).      Let , so that . Reduce the system from part (a) to a single differential equation .    You should expect to have both and as factors.           Find the equilibria of in .      Without using your formula for , explain why we already know that and must be equilibria. Which theorem tells us this? Then explain which theorem tells us that the interior equilibrium (the one between 0 and 1) is where both strategies earn the same payoff against the population state at that equilibrium, and why.       Phase Line and Stability   This is a continuation of , with the same game.     Using your results from , sketch a graph of and use it to sketch the phase line on .     , so is stable and and are unstable.      Summarize in words the behavior of a typical solution that does not begin at an equilibrium. What happens to a solution that begins with near 0? What about one that begins with near 1?      Analyze the game using Theorem 8.5: which case is this game in, and what does that case tell you? Then explain the connection between the results of that analysis and part (b).      Suppose the population starts exactly at the interior equilibrium. What happens? What if it starts just below it?      Remark: In Microsoft vs. Apple, the mixed equilibrium was unstable, but here it is stable. You can see why from the game itself. When almost everyone plays , a typical opponent plays , so earns 1 while earns 0, and spreads. When almost everyone plays , earns 4 while earns 0, and spreads. Either way, the population is pushed toward a mix of the two strategies.      A Game Outside the Four Cases   This is the Stag Hunt with Easily Spooked Hares from Section 8.6.3 of the book, which you analyzed in (there, with = stag and = hare). Two hunters together can kill a stag, worth 4 to each of them. A hunter alone can't kill a stag, but can catch four hares, each worth 1. If both hunters go after the hares, the hares run away and each hunter catches only one. The strategies are hunt the stag ( ) or hunt the hares ( ):   The game        Player 2:  Player 2:    Player 1:      Player 1:          Derive the replicator system for this game and reduce it to a single differential equation , where is the share using .      Find the equilibria of in .      Sketch a graph of and use it to draw the phase line.     , so is stable and is unstable.      Give a brief interpretation of your results from part (c).    Unless everyone starts with , dies out and the population approaches all- .      In , you found that and are Nash equilibria. Which theorem from this chapter, combined with your answer to part (b), tells us that there are no other symmetric Nash equilibria? Explain.      In , you found the evolutionarily stable states of this game. Compare them with the stability of the equilibria from part (c). Then explain why this game does not fit any of the four cases in .      Consider the all- state, where .   Compute , the payoff an -player would earn, and , the population's average payoff.    Theorem 10.3 needs . Does that hold here? Does Theorem 10.3 apply?    From our analysis earlier, the all- state is unstable. Why doesn't this contradict Theorem 10.3?          Using the Theorems with Three Strategies   In an earlier homework, we considered a Prisoner's Dilemma repeated for two stages, with three strategies:   Always cooperate ( )    Always defect ( )    Tit-for-tat ( ): choose in stage 1. In stage 2, copy the other player's move from stage 1.   This led to the following game:   The game         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        With three strategies, the replicator system has two variables, so we won't analyze it directly. Instead, answer each part using Theorems 10.1 through 10.4.     Use Theorem 10.1 to name three equilibria of the replicator system without any computation.    The pure states: all- , all- , and all- .      Consider the all- state, where everyone always cooperates.   Use best response (box each player's best responses in the payoff matrix) to show that is not a Nash equilibrium.    By Theorem 10.1, the all- state is an equilibrium of the replicator system. Why doesn't this contradict Theorem 10.2?         Again consider the all- state, where .   A quick computation shows that and . What does Theorem 10.3 tell you about the behavior over time of solutions that contain some -players?    What happens if the population starts at all- with no -players at all? Which part of Theorem 10.1 tells you this?         Notice that is a strict Nash equilibrium. Use one theorem from Chapter 8 and another from Chapter 10 to conclude that the all- state is an asymptotically stable equilibrium of the replicator system.      Notice that the all- state is not evolutionarily stable. A quick check shows that is a Nash equilibrium. However, it fails condition (2) of Theorem 8.1: taking , we have , but , so is not greater than .  A classmate says, Since the all- state isn't evolutionarily stable, Theorem 10.4 shows that it is not asymptotically stable. Explain the error.      Remark: The classmate's conclusion happens to be true, even though the reasoning is not. Section 10.7 of the book analyzes this game with slightly different payoffs, and shows that populations near the all- state stay near it, but don't return exactly to all- .    "
+},
+{
+  "id": "hw-replicator-derive",
+  "level": "2",
+  "url": "ch10-exercises.html#hw-replicator-derive",
+  "type": "Exercise",
+  "number": "10.4.1",
+  "title": "Deriving the Replicator Equation.",
+  "body": " Deriving the Replicator Equation   Consider the following symmetric game:   The game        Player 2:  Player 2:    Player 1:      Player 1:          Let denote the population state. Derive the replicator system for this game (a system of two differential equations and ).      Let , so that . Reduce the system from part (a) to a single differential equation .    You should expect to have both and as factors.           Find the equilibria of in .      Without using your formula for , explain why we already know that and must be equilibria. Which theorem tells us this? Then explain which theorem tells us that the interior equilibrium (the one between 0 and 1) is where both strategies earn the same payoff against the population state at that equilibrium, and why.    "
+},
+{
+  "id": "hw-replicator-phase-line",
+  "level": "2",
+  "url": "ch10-exercises.html#hw-replicator-phase-line",
+  "type": "Exercise",
+  "number": "10.4.2",
+  "title": "Phase Line and Stability.",
+  "body": " Phase Line and Stability   This is a continuation of , with the same game.     Using your results from , sketch a graph of and use it to sketch the phase line on .     , so is stable and and are unstable.      Summarize in words the behavior of a typical solution that does not begin at an equilibrium. What happens to a solution that begins with near 0? What about one that begins with near 1?      Analyze the game using Theorem 8.5: which case is this game in, and what does that case tell you? Then explain the connection between the results of that analysis and part (b).      Suppose the population starts exactly at the interior equilibrium. What happens? What if it starts just below it?      Remark: In Microsoft vs. Apple, the mixed equilibrium was unstable, but here it is stable. You can see why from the game itself. When almost everyone plays , a typical opponent plays , so earns 1 while earns 0, and spreads. When almost everyone plays , earns 4 while earns 0, and spreads. Either way, the population is pushed toward a mix of the two strategies.   "
+},
+{
+  "id": "hw-replicator-outside-cases",
+  "level": "2",
+  "url": "ch10-exercises.html#hw-replicator-outside-cases",
+  "type": "Exercise",
+  "number": "10.4.3",
+  "title": "A Game Outside the Four Cases.",
+  "body": " A Game Outside the Four Cases   This is the Stag Hunt with Easily Spooked Hares from Section 8.6.3 of the book, which you analyzed in (there, with = stag and = hare). Two hunters together can kill a stag, worth 4 to each of them. A hunter alone can't kill a stag, but can catch four hares, each worth 1. If both hunters go after the hares, the hares run away and each hunter catches only one. The strategies are hunt the stag ( ) or hunt the hares ( ):   The game        Player 2:  Player 2:    Player 1:      Player 1:          Derive the replicator system for this game and reduce it to a single differential equation , where is the share using .      Find the equilibria of in .      Sketch a graph of and use it to draw the phase line.     , so is stable and is unstable.      Give a brief interpretation of your results from part (c).    Unless everyone starts with , dies out and the population approaches all- .      In , you found that and are Nash equilibria. Which theorem from this chapter, combined with your answer to part (b), tells us that there are no other symmetric Nash equilibria? Explain.      In , you found the evolutionarily stable states of this game. Compare them with the stability of the equilibria from part (c). Then explain why this game does not fit any of the four cases in .      Consider the all- state, where .   Compute , the payoff an -player would earn, and , the population's average payoff.    Theorem 10.3 needs . Does that hold here? Does Theorem 10.3 apply?    From our analysis earlier, the all- state is unstable. Why doesn't this contradict Theorem 10.3?       "
+},
+{
+  "id": "hw-replicator-theorems-fsp",
+  "level": "2",
+  "url": "ch10-exercises.html#hw-replicator-theorems-fsp",
+  "type": "Exercise",
+  "number": "10.4.4",
+  "title": "Using the Theorems with Three Strategies.",
+  "body": " Using the Theorems with Three Strategies   In an earlier homework, we considered a Prisoner's Dilemma repeated for two stages, with three strategies:   Always cooperate ( )    Always defect ( )    Tit-for-tat ( ): choose in stage 1. In stage 2, copy the other player's move from stage 1.   This led to the following game:   The game         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        With three strategies, the replicator system has two variables, so we won't analyze it directly. Instead, answer each part using Theorems 10.1 through 10.4.     Use Theorem 10.1 to name three equilibria of the replicator system without any computation.    The pure states: all- , all- , and all- .      Consider the all- state, where everyone always cooperates.   Use best response (box each player's best responses in the payoff matrix) to show that is not a Nash equilibrium.    By Theorem 10.1, the all- state is an equilibrium of the replicator system. Why doesn't this contradict Theorem 10.2?         Again consider the all- state, where .   A quick computation shows that and . What does Theorem 10.3 tell you about the behavior over time of solutions that contain some -players?    What happens if the population starts at all- with no -players at all? Which part of Theorem 10.1 tells you this?         Notice that is a strict Nash equilibrium. Use one theorem from Chapter 8 and another from Chapter 10 to conclude that the all- state is an asymptotically stable equilibrium of the replicator system.      Notice that the all- state is not evolutionarily stable. A quick check shows that is a Nash equilibrium. However, it fails condition (2) of Theorem 8.1: taking , we have , but , so is not greater than .  A classmate says, Since the all- state isn't evolutionarily stable, Theorem 10.4 shows that it is not asymptotically stable. Explain the error.      Remark: The classmate's conclusion happens to be true, even though the reasoning is not. Section 10.7 of the book analyzes this game with slightly different payoffs, and shows that populations near the all- state stay near it, but don't return exactly to all- .   "
+},
+{
+  "id": "ch10-answers",
+  "level": "1",
+  "url": "ch10-answers.html",
+  "type": "Exercises",
+  "number": "10.5",
+  "title": "Answers to Ch. 10 Exercises",
+  "body": " Answers to Ch. 10 Exercises   Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click Solution to reveal the answer.  These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.     Deriving the Replicator Equation   The replicator system   Derive the replicator system.     and      One equation   Reduce to .          Equilibria   Find the equilibria.     , , and      Using Theorems 10.1 and 10.2   Explain why and are equilibria, and which theorem says the interior equilibrium has equal payoffs.    Theorem 10.1(4): and are pure states. Theorem 10.2: at an interior equilibrium , both strategies are active, so .       Phase Line and Stability   The phase line   Sketch and the phase line.          Typical solutions   Describe a typical solution.    Every solution starting in approaches . Near 0, increases; near 1, decreases.     Connection to Theorem 8.5   Which case of Theorem 8.5, and how does it connect to part (b)?    Case (4) ( , ): the only evolutionarily stable state is , the same as the stable equilibrium.     Starting at the equilibrium   Start exactly at the interior equilibrium, then just below it.    It stays at forever. Just below, increases toward .       A Game Outside the Four Cases   One equation   Reduce to .          Equilibria   Find the equilibria.     and      The phase line   Sketch and the phase line.     : is stable and is unstable.     Interpretation   Interpret part (c).    Unless everyone starts with , dies out and the population approaches all- .     No other symmetric Nash equilibria   Which theorem shows there are no other symmetric Nash equilibria?    Theorem 10.2: a symmetric Nash equilibrium satisfies condition (1), so is an equilibrium of the replicator system. By part (b), the only equilibria are and .     Comparing with evolutionary stability   Compare with the evolutionarily stable states, and explain why the game is not in Figure 10.3.    The only evolutionarily stable state is , which matches the stable equilibrium . The game has , and the four cases require .     Theorem 10.3 at all-   Compute the payoffs at all- , decide whether Theorem 10.3 applies, and explain why there is no contradiction.     , so the strict inequality fails and Theorem 10.3 does not apply. No contradiction: Theorem 10.3 only gives one way an equilibrium can fail to be approached. It doesn't say every unstable equilibrium is of that kind.       Using the Theorems with Three Strategies   Three equilibria   Name three equilibria using Theorem 10.1.    All- , all- , and all- .     The all- state   Use best response to show is not a Nash equilibrium, and explain why this doesn't contradict Theorem 10.2.          Player 2: Player 2: Player 2:    Player 1:    Player 1:    Player 1:     has no boxes, so it is not a Nash equilibrium. No contradiction: Theorem 10.2 only requires condition (1), which holds since is the only active strategy.     Invading all-   Apply Theorem 10.3 at all- , and consider starting with no -players.    Since , no solution containing some -players approaches all- . With no -players, the population stays at all- (Theorem 10.1(4)).     The all- state   Use a theorem from Chapter 8 and one from Chapter 10 to show all- is asymptotically stable.    Theorem 8.2: is a strict Nash equilibrium, so all- is evolutionarily stable. Theorem 10.4: so it is an asymptotically stable equilibrium.     The classmate's error   Explain the error in the classmate's reasoning.    Theorem 10.4 only goes from evolutionarily stable to asymptotically stable. It says nothing about a state that is not evolutionarily stable.     "
+},
+{
+  "id": "ch10-answers-2-1",
+  "level": "2",
+  "url": "ch10-answers.html#ch10-answers-2-1",
+  "type": "Paragraph (with a defined term)",
+  "number": "",
+  "title": "",
+  "body": "Solution "
+},
+{
+  "id": "ans-hw-replicator-derive",
+  "level": "2",
+  "url": "ch10-answers.html#ans-hw-replicator-derive",
+  "type": "Exercise",
+  "number": "10.5.1",
+  "title": "Deriving the Replicator Equation.",
+  "body": " Deriving the Replicator Equation   The replicator system   Derive the replicator system.     and      One equation   Reduce to .          Equilibria   Find the equilibria.     , , and      Using Theorems 10.1 and 10.2   Explain why and are equilibria, and which theorem says the interior equilibrium has equal payoffs.    Theorem 10.1(4): and are pure states. Theorem 10.2: at an interior equilibrium , both strategies are active, so .    "
+},
+{
+  "id": "ans-hw-replicator-phase-line",
+  "level": "2",
+  "url": "ch10-answers.html#ans-hw-replicator-phase-line",
+  "type": "Exercise",
+  "number": "10.5.2",
+  "title": "Phase Line and Stability.",
+  "body": " Phase Line and Stability   The phase line   Sketch and the phase line.          Typical solutions   Describe a typical solution.    Every solution starting in approaches . Near 0, increases; near 1, decreases.     Connection to Theorem 8.5   Which case of Theorem 8.5, and how does it connect to part (b)?    Case (4) ( , ): the only evolutionarily stable state is , the same as the stable equilibrium.     Starting at the equilibrium   Start exactly at the interior equilibrium, then just below it.    It stays at forever. Just below, increases toward .    "
+},
+{
+  "id": "ans-hw-replicator-outside-cases",
+  "level": "2",
+  "url": "ch10-answers.html#ans-hw-replicator-outside-cases",
+  "type": "Exercise",
+  "number": "10.5.3",
+  "title": "A Game Outside the Four Cases.",
+  "body": " A Game Outside the Four Cases   One equation   Reduce to .          Equilibria   Find the equilibria.     and      The phase line   Sketch and the phase line.     : is stable and is unstable.     Interpretation   Interpret part (c).    Unless everyone starts with , dies out and the population approaches all- .     No other symmetric Nash equilibria   Which theorem shows there are no other symmetric Nash equilibria?    Theorem 10.2: a symmetric Nash equilibrium satisfies condition (1), so is an equilibrium of the replicator system. By part (b), the only equilibria are and .     Comparing with evolutionary stability   Compare with the evolutionarily stable states, and explain why the game is not in Figure 10.3.    The only evolutionarily stable state is , which matches the stable equilibrium . The game has , and the four cases require .     Theorem 10.3 at all-   Compute the payoffs at all- , decide whether Theorem 10.3 applies, and explain why there is no contradiction.     , so the strict inequality fails and Theorem 10.3 does not apply. No contradiction: Theorem 10.3 only gives one way an equilibrium can fail to be approached. It doesn't say every unstable equilibrium is of that kind.    "
+},
+{
+  "id": "ans-hw-replicator-theorems-fsp",
+  "level": "2",
+  "url": "ch10-answers.html#ans-hw-replicator-theorems-fsp",
+  "type": "Exercise",
+  "number": "10.5.4",
+  "title": "Using the Theorems with Three Strategies.",
+  "body": " Using the Theorems with Three Strategies   Three equilibria   Name three equilibria using Theorem 10.1.    All- , all- , and all- .     The all- state   Use best response to show is not a Nash equilibrium, and explain why this doesn't contradict Theorem 10.2.          Player 2: Player 2: Player 2:    Player 1:    Player 1:    Player 1:     has no boxes, so it is not a Nash equilibrium. No contradiction: Theorem 10.2 only requires condition (1), which holds since is the only active strategy.     Invading all-   Apply Theorem 10.3 at all- , and consider starting with no -players.    Since , no solution containing some -players approaches all- . With no -players, the population stays at all- (Theorem 10.1(4)).     The all- state   Use a theorem from Chapter 8 and one from Chapter 10 to show all- is asymptotically stable.    Theorem 8.2: is a strict Nash equilibrium, so all- is evolutionarily stable. Theorem 10.4: so it is an asymptotically stable equilibrium.     The classmate's error   Explain the error in the classmate's reasoning.    Theorem 10.4 only goes from evolutionarily stable to asymptotically stable. It says nothing about a state that is not evolutionarily stable.    "
+},
+{
   "id": "back-colophon",
   "level": "1",
   "url": "back-colophon.html",

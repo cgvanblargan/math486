@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US" dir="ltr">
+<!--******************************************-->
+<!--*  Authored with PreTeXt                 *-->
+<!--*  pretextbook.org                       *-->
+<!--*  Theme: default-modern                 *-->
+<!--*  Palette:                              *-->
+<!--******************************************-->
+<head xmlns:og="http://ogp.me/ns#" xmlns:book="https://ogp.me/ns/book#">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Stability and the Phase Line</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="_static/pretext/fonts/material-symbols-outlined.css">
+<link href="_static/pretext/css/theme.css" rel="stylesheet" type="text/css">
+<style>
+@counter-style ptx-marker-1 { system: extends lower-roman; prefix: ''; suffix: '. '; }
+@counter-style ptx-marker-2 { system: extends decimal; prefix: '('; suffix: ') '; }
+@counter-style ptx-marker-3 { system: extends decimal; prefix: ''; suffix: '. '; }
+</style>
+<script type="module">import { startMathJax } from './_static/pretext/js/dist/mathjax_startup.js';
+startMathJax({
+hasWebworkReps: false,
+hasSage: false,
+isReact: false,
+htmlPresentation: false,
+lang: "en-US",
+});
+</script><script defer data-pretext-mathjax="true" onerror="this.dataset.loadFailed = 'true';" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script><meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:type" content="book">
+<meta name="twitter:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="og:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta property="book:title" content="Game Theory: Interactive Notes for Math 486: Penn State University">
+<meta name="twitter:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta property="og:description" content='Online notes and reading companion and study guide for Game Theory (Math 486) at Penn State University, built around the required textbook "Game Theory in Action" by Schecter and Gintis.'>
+<meta name="twitter:card" content="summary">
+<script src="_static/pretext/js/jquery.min.js"></script><script src="_static/pretext/js/dist/pretext-core.js?v=2.56"></script><script src="_static/pretext/js/dist/pretext-read-aloud.js?v=2.56"></script><!--** eBookCongig is necessary to configure interactive       **-->
+<!--** Runestone components to run locally in reader's browser **-->
+<!--** No external communication:                              **-->
+<!--**     log level is 0, Runestone Services are disabled     **-->
+<script type="text/javascript">
+eBookConfig = {};
+eBookConfig.useRunestoneServices = false;
+eBookConfig.host = 'http://127.0.0.1:8000';
+eBookConfig.course = 'PTX_Course_Title_Here';
+eBookConfig.basecourse = 'PTX_Base_Course';
+eBookConfig.isLoggedIn = false;
+eBookConfig.email = '';
+eBookConfig.isInstructor = false;
+eBookConfig.logLevel = 0;
+eBookConfig.username = '';
+eBookConfig.readings = null;
+eBookConfig.activities = null;
+eBookConfig.downloadsEnabled = false;
+eBookConfig.allow_pairs = false;
+eBookConfig.enableScratchAC = false;
+eBookConfig.build_info = "";
+eBookConfig.python3 = null;
+eBookConfig.runestone_version = '8.4.4';
+eBookConfig.jobehost = '';
+eBookConfig.proxyuri_runs = '';
+eBookConfig.proxyuri_files = '';
+eBookConfig.enable_chatcodes =  false;
+</script>
+<!--*** Runestone Services ***-->
+<script src="_static/prefix-runtime.f8f1b0356e390ae7.bundle.js"></script><script src="_static/prefix-23.7d27cb317c36911a.bundle.js"></script><script src="_static/prefix-runestone.c97e392d8ab1b208.bundle.js"></script><link rel="stylesheet" type="text/css" href="_static/prefix-runestone.52ceae47a9e6e8ed.css">
+<script src="_static/pretext/js/dist/lti_iframe_resizer.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.9/lunr.min.js" integrity="sha512-4xUl/d6D6THrAnXAwGajXkoWaeMNwEKK4iNfq5DotEbLPAfk6FSxSP3ydNxqDgCw1c/0Z1Jg6L8h2j+++9BZmg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><script src="lunr-pretext-search-index.js" async=""></script><script src="_static/pretext/js/dist/pretext_search.js"></script><!--knowl.js code controls Sage Cells within knowls--><script>sagecellEvalName='Evaluate (Sage)';
+</script>
+</head>
+<body id="deforest-gametheory-math486" class="pretext book ignore-math">
+<a class="assistive" href="#ptx-content">Skip to main content</a><header id="ptx-masthead" class="ptx-masthead" role="banner"><div class="ptx-banner"><div class="title-container">
+<div class="heading ptx-banner-heading"><a href="math486-game-theory.html"><span class="title">Game Theory: Interactive Notes for Math 486</span> <span class="subtitle">Penn State University</span></a></div>
+<p class="byline">Caroline VanBlargan</p>
+</div></div></header><nav id="ptx-navbar" class="ptx-navbar navbar"><div class="ptx-navbar-contents">
+<button id="ptx-toc-toggle" type="button" aria-controls="ptx-sidebar" class="toc-toggle button" title="Contents"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d2;</span><span class="name">Contents</span></button><div class="ptx-search-box">
+<div class="ptx-search-widget"><button id="ptx-search-button" type="button" class="ptx-search-button button" title="Search Book"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe8b6;</span><span class="name">Search Book</span></button></div>
+<dialog id="ptx-search-dialog" class="ptx-dialog ptx-search-dialog"><div class="ptx-search-dialog-controls">
+<input aria-label="Search term" id="ptx-search-terms" class="ptx-search-terms" type="text" name="terms" placeholder="Search terms"><button aria-label="Close" id="ptx-search-close" class="ptx-search-close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div id="ptx-search-status" class="ptx-search-status" aria-live="polite" aria-atomic="true"></div>
+<h2 class="heading ptx-search-results-heading">Search Results: </h2>
+<div id="ptx-search-empty" class="ptx-search-empty"><span>No results.</span></div>
+<ol id="ptx-search-results" class="ptx-search-results"></ol></dialog>
+</div>
+<span class="nav-other-controls"><button id="ptx-read-aloud-button" class="ptx-read-aloud-button button" title="Read aloud" aria-expanded="false"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf1bc;</span><span class="name">Read aloud</span></button><div id="ptx-read-aloud-player" class="ptx-read-aloud-player" hidden="hidden" role="group" aria-label="Read aloud">
+<button id="ptx-read-aloud-prev" class="button" title="Previous sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe045;</span></button><button id="ptx-read-aloud-toggle" class="ptx-read-aloud-toggle button" title="Play"><span class="ptx-read-aloud-icon-play"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></span><span class="ptx-read-aloud-icon-pause"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe034;</span></span></button><button id="ptx-read-aloud-next" class="button" title="Next sentence"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe044;</span></button><a id="ptx-read-aloud-continue" class="ptx-read-aloud-continue button" hidden="hidden">Continue<span class="icon material-symbols-outlined" aria-hidden="true">&#xe037;</span></a><button id="ptx-read-aloud-settings-button" class="ptx-read-aloud-settings-button button" title="Reading settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe429;</span></button>
+</div>
+<dialog class="ptx-dialog ptx-read-aloud-settings-popup" id="ptx-read-aloud-settings-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Read aloud settings</h2>
+<button class="ptx-read-aloud-settings-close-button button" id="ptx-read-aloud-settings-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label for="ptx-read-aloud-voice"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe91f;</span><span>Voice</span></label><select id="ptx-read-aloud-voice"></select><label class="ptx-readability-slider-label" for="ptx-read-aloud-rate"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe9e4;</span><span>Reading speed</span><output id="ptx-read-aloud-rate-value" for="ptx-read-aloud-rate">1×</output></label><input type="range" id="ptx-read-aloud-rate" min="0.5" max="2" step="0.1" value="1"><label for="ptx-read-aloud-asides"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5d7;</span><span>Collapsed content</span></label><select id="ptx-read-aloud-asides"><option value="skip">Announce, do not read</option>
+<option value="read">Read automatically</option></select><label for="ptx-read-aloud-autoscroll"><input type="checkbox" id="ptx-read-aloud-autoscroll" checked><span>Follow along (auto-scroll)</span></label><label for="ptx-read-aloud-autocontinue"><input type="checkbox" id="ptx-read-aloud-autocontinue"><span>Continue to the next page automatically</span></label>
+</div></dialog><button id="ptx-readability-options-button" class="ptx-readability-options-button button" title="Readability settings"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf6f1;</span><span class="name">Readability settings</span></button><dialog class="ptx-dialog ptx-readability-options-popup" id="ptx-readability-options-popup"><div class="ptx-readability-options-popup-controls">
+<h2 class="heading">Readability settings</h2>
+<button class="ptx-readability-options-close-button button" id="ptx-readability-options-close-button" title="Close"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cd;</span></button>
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-line-height"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe240;</span><span>Line height</span><output id="ptx-readability-line-height-value" for="ptx-readability-line-height">1.35</output></label><input type="range" id="ptx-readability-line-height" min="1.10" max="3" step="0.05" value="1.35">
+</div>
+<div class="ptx-readability-options-group">
+<label class="ptx-readability-slider-label" for="ptx-readability-font-size"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe245;</span><span>Content font size</span><output id="ptx-readability-font-size-value" for="ptx-readability-font-size">100%</output></label><input type="range" id="ptx-readability-font-size" min="0.8" max="1.5" step="0.05" value="1">
+</div>
+<fieldset class="ptx-readability-options-group ptx-readability-options-group-theme">
+<legend>Theme</legend>
+<label for="ptx-readability-theme-system"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-system" value="system"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe1ab;</span><span>System</span></label><label for="ptx-readability-theme-light"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-light" value="light"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe518;</span><span>Light</span></label><label for="ptx-readability-theme-dark"><input type="radio" name="ptx-readability-theme" id="ptx-readability-theme-dark" value="dark"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe51c;</span><span>Dark</span></label>
+</fieldset>
+<fieldset class="ptx-readability-options-group">
+<legend>Assistive technologies</legend>
+<label for="ptx-readability-accessible-permalinks"><input type="checkbox" id="ptx-readability-accessible-permalinks"><span>🔗</span><span>Expose permalinks</span></label>
+</fieldset>
+<div class="ptx-readability-options-group"><button type="button" class="ptx-readability-reset-button button" id="ptx-readability-reset-button"><span class="icon material-symbols-outlined" aria-hidden="true">&#xf053;</span><span class="name">Reset All</span></button></div></dialog></span><span class="treebuttons"><a class="previous-button button" href="ch9-page1-autonomous-equations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="up-button button" href="ch-differential-equations.html" title="Up"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Up</span></a><a class="next-button button" href="ch-evolutionary-dynamics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a></span>
+</div></nav><div id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\N}{\mathbb N} \newcommand{\Z}{\mathbb Z} \newcommand{\Q}{\mathbb Q} \newcommand{\R}{\mathbb R}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\definecolor{fillinmathshade}{gray}{0.9}
+\newcommand{\fillinmath}[1]{\mathchoice{\colorbox{fillinmathshade}{$\displaystyle     \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\textstyle        \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptstyle      \phantom{\,#1\,}$}}{\colorbox{fillinmathshade}{$\scriptscriptstyle\phantom{\,#1\,}$}}}
+\)</span></div>
+<div class="ptx-page">
+<div id="ptx-sidebar" role="complementary" class="ptx-sidebar"><nav id="ptx-toc" tabindex="-1" aria-label="Contents" class="ptx-toc depth3 focused" data-preexpanded-levels="0" data-max-levels="3"><ul class="structural toc-item-list contains-active">
+<li class="toc-item toc-frontmatter">
+<div class="toc-title-box"><a href="frontmatter.html" class="internal"><span class="title">Front Matter</span></a></div>
+<ul id="ptx-toc-group-frontmatter" class="structural toc-item-list">
+<li class="toc-item toc-colophon"><div class="toc-title-box"><a href="front-colophon.html" class="internal"><span class="title">Colophon</span></a></div></li>
+<li class="toc-item toc-preface"><div class="toc-title-box"><a href="preface.html" class="internal"><span class="title">How to Use This Guide</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-backward-induction.html" class="internal"><span class="codenumber">1</span> <span class="title">Backward Induction</span></a></div>
+<ul id="ptx-toc-group-ch-backward-induction" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-what-is-a-game.html" class="internal"><span class="codenumber">1.1</span> <span class="title">What is an Extensive Form Game?</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-strategies-and-backward-induction.html" class="internal"><span class="codenumber">1.2</span> <span class="title">Strategies and Backward Induction</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-threats-promises.html" class="internal"><span class="codenumber">1.3</span> <span class="title">Threats and Promises</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-ultimatum-and-centipede.html" class="internal"><span class="codenumber">1.4</span> <span class="title">The Ultimatum Game and the Centipede Game</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-continuous-games-stackelberg.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Continuous Games and Stackelberg’s Duopoly Part 1</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-continuous-part2.html" class="internal"><span class="codenumber">1.6</span> <span class="title">Continuous Games and Stackelberg’s Duopoly, Part 2</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page7-finite-horizon-and-critique.html" class="internal"><span class="codenumber">1.7</span> <span class="title">Finite Horizon Games and a Critique of Backward Induction</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-exercises.html" class="internal"><span class="codenumber">1.8</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch1-answers.html" class="internal"><span class="codenumber">1.9</span> <span class="title">Answers to Ch. 1 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-eliminating-dominated-strategies.html" class="internal"><span class="codenumber">2</span> <span class="title">Eliminating Dominated Strategies</span></a></div>
+<ul id="ptx-toc-group-ch-eliminating-dominated-strategies" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page1-prisoners-dilemma.html" class="internal"><span class="codenumber">2.1</span> <span class="title">Prisoner’s Dilemma and Normal Form</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page2-dominated-strategies.html" class="internal"><span class="codenumber">2.2</span> <span class="title">Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page3-iterated-elim.html" class="internal"><span class="codenumber">2.3</span> <span class="title">Iterated Elimination of Dominated Strategies</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch2-page5-critique.html" class="internal"><span class="codenumber">2.4</span> <span class="title">Generalizing the Correspondence and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-exercises.html" class="internal"><span class="codenumber">2.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch2-answers.html" class="internal"><span class="codenumber">2.6</span> <span class="title">Answers to Ch. 2 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-nash-equilibria.html" class="internal"><span class="codenumber">3</span> <span class="title">Nash Equilibria</span></a></div>
+<ul id="ptx-toc-group-ch-nash-equilibria" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-nash-definition.html" class="internal"><span class="codenumber">3.1</span> <span class="title">The Nash Equilibrium and Two Important Examples</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-inspection-examples.html" class="internal"><span class="codenumber">3.2</span> <span class="title">Two More Examples: Water Pollution and Arguing over Marbles</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-elimination-and-threats.html" class="internal"><span class="codenumber">3.3</span> <span class="title">Elimination Revisited, and Threats and Promises Again</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-best-response.html" class="internal"><span class="codenumber">3.4</span> <span class="title">Finding Nash Equilibria Using Best Response</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-exercises.html" class="internal"><span class="codenumber">3.5</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch3-answers.html" class="internal"><span class="codenumber">3.6</span> <span class="title">Answers to Ch. 3 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-incomplete-information.html" class="internal"><span class="codenumber">4</span> <span class="title">Games in Extensive Form with Incomplete Information</span></a></div>
+<ul id="ptx-toc-group-ch-incomplete-information" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-utility-and-incomplete-info.html" class="internal"><span class="codenumber">4.1</span> <span class="title">Utility, Lotteries, and Incomplete Information</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-buying-a-used-car.html" class="internal"><span class="codenumber">4.2</span> <span class="title">Buying a Used Car</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-boss-gorilla.html" class="internal"><span class="codenumber">4.3</span> <span class="title">The Travails of Boss Gorilla</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-exercises.html" class="internal"><span class="codenumber">4.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch4-answers.html" class="internal"><span class="codenumber">4.5</span> <span class="title">Answers to Ch. 4 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-mixed-strategy-nash-equilibria.html" class="internal"><span class="codenumber">5</span> <span class="title">Mixed Strategy Nash Equilibria</span></a></div>
+<ul id="ptx-toc-group-ch-mixed-strategy-nash-equilibria" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page1-mixed-strategies.html" class="internal"><span class="codenumber">5.1</span> <span class="title">Mixed Strategies and the Fundamental Theorem</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page2-tennis-other-methods.html" class="internal"><span class="codenumber">5.2</span> <span class="title">Tennis, and Other Ways to Find Mixed Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page3-poker.html" class="internal"><span class="codenumber">5.3</span> <span class="title">One-Card Two-Round Poker</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page4-zero-sum.html" class="internal"><span class="codenumber">5.4</span> <span class="title">Maximins and Two-Player Zero-Sum Games</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page5-ultimatum-water-pollution.html" class="internal"><span class="codenumber">5.5</span> <span class="title">Finishing Zero-Sum Games, the Ultimatum Minigame, and Water Pollution</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="page6-equivalent-games-critique.html" class="internal"><span class="codenumber">5.6</span> <span class="title">Equivalent Games, Software, and a Critique</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-exercises.html" class="internal"><span class="codenumber">5.7</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch5-answers.html" class="internal"><span class="codenumber">5.8</span> <span class="title">Answers to Ch. 5 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-more-extensive-form.html" class="internal"><span class="codenumber">6</span> <span class="title">More about Games in Extensive Form with Complete Information</span></a></div>
+<ul id="ptx-toc-group-ch-more-extensive-form" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page1-subgame-perfection.html" class="internal"><span class="codenumber">6.1</span> <span class="title">Subgame Perfect Nash Equilibria</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page2-repeated-games.html" class="internal"><span class="codenumber">6.2</span> <span class="title">Repeated Games and the Wine Merchant</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch6-page3-activities.html" class="internal"><span class="codenumber">6.3</span> <span class="title">More repeated game examples</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-exercises.html" class="internal"><span class="codenumber">6.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch6-answers.html" class="internal"><span class="codenumber">6.5</span> <span class="title">Answers to Ch. 6 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-symmetries-of-games.html" class="internal"><span class="codenumber">7</span> <span class="title">Symmetries of Games</span></a></div>
+<ul id="ptx-toc-group-ch-symmetries-of-games" class="structural toc-item-list"><li class="toc-item toc-section"><div class="toc-title-box"><a href="ch7-page1-symmetric-games.html" class="internal"><span class="codenumber">7.1</span> <span class="title">Symmetric Games</span></a></div></li></ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-alternatives-to-nash.html" class="internal"><span class="codenumber">8</span> <span class="title">Evolutionary stability</span></a></div>
+<ul id="ptx-toc-group-ch-alternatives-to-nash" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page1-evolutionary-stability.html" class="internal"><span class="codenumber">8.1</span> <span class="title">Evolutionary Stability</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch8-page2-two-pure-strategies.html" class="internal"><span class="codenumber">8.2</span> <span class="title">Evolutionary Stability with Two Pure Strategies</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch8-exercises.html" class="internal"><span class="codenumber">8.3</span> <span class="title">Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter contains-active">
+<div class="toc-title-box"><a href="ch-differential-equations.html" class="internal"><span class="codenumber">9</span> <span class="title">Differential Equations</span></a></div>
+<ul class="structural toc-item-list contains-active" id="ptx-toc-group-ch-differential-equations">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch9-page1-autonomous-equations.html" class="internal"><span class="codenumber">9.1</span> <span class="title">Autonomous Differential Equations and Equilibria</span></a></div></li>
+<li class="toc-item toc-section active"><div class="toc-title-box"><a href="ch9-page2-stability.html" class="internal"><span class="codenumber">9.2</span> <span class="title">Stability and the Phase Line</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-chapter">
+<div class="toc-title-box"><a href="ch-evolutionary-dynamics.html" class="internal"><span class="codenumber">10</span> <span class="title">Evolutionary Dynamics</span></a></div>
+<ul id="ptx-toc-group-ch-evolutionary-dynamics" class="structural toc-item-list">
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch10-page1-replicator-system.html" class="internal"><span class="codenumber">10.1</span> <span class="title">The Replicator System</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch10-page2-dynamics-two-strategies.html" class="internal"><span class="codenumber">10.2</span> <span class="title">Two Pure Strategies, and a Look Beyond</span></a></div></li>
+<li class="toc-item toc-section"><div class="toc-title-box"><a href="ch10-page3-equilibria-replicator.html" class="internal"><span class="codenumber">10.3</span> <span class="title">Equilibria of the Replicator System</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch10-exercises.html" class="internal"><span class="codenumber">10.4</span> <span class="title">Exercises</span></a></div></li>
+<li class="toc-item toc-exercises"><div class="toc-title-box"><a href="ch10-answers.html" class="internal"><span class="codenumber">10.5</span> <span class="title">Answers to Ch. 10 Exercises</span></a></div></li>
+</ul>
+</li>
+<li class="toc-item toc-backmatter"><div class="toc-title-box"><a href="backmatter.html" class="internal"><span class="title">Backmatter</span></a></div></li>
+</ul></nav></div>
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="ch9-page2-stability">
+<h1 class="heading hide-type">
+<span class="type">Section</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stability and the Phase Line</span>
+</h1>
+<div class="para" id="ch9-page2-stability-2">On the previous page, we found the equilibria of an autonomous differential equation <span class="process-math">\(\frac{dp}{dt} = f(p)\text{.}\)</span> As we mentioned, we can study the behavior of solutions without actually finding the general solution. On this page, we look at solutions that start near an equilibrium and determine whether they move toward it or away from it. This ultimately lets us understand the long-term behavior of solutions.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="para-ode-unstable-example"><h2 class="heading"><span class="title">An unstable equilibrium.</span></h2>
+<div class="para" id="para-ode-unstable-example-2">Recall that <span class="process-math">\(\frac{dp}{dt} = p\)</span> has general solution <span class="process-math">\(p(t) = Ce^t\text{,}\)</span> and its only equilibrium is <span class="process-math">\(p = 0\text{.}\)</span> Here are several solutions again, with the equilibrium highlighted:<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-unstable-example-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphs: An unstable equilibrium"><a tabindex="-1" href="#para-ode-unstable-example" title="Copy heading and permalink for Paragraphs: An unstable equilibrium" aria-label="Copy heading and permalink for Paragraphs: An unstable equilibrium">🔗</a></div>
+</section>
+<figure class="figure figure-like" id="fig-ode-unstable"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;">
+<img src="generated/latex-image/fig-ode-unstable-2.svg" role="img" class="contained" alt="Solutions of dp/dt = p moving away from the equilibrium p = 0"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-ode-unstable-2-description" style="width: 123.08%; margin-left: -11.54%;">
+<div class="para" id="fig-ode-unstable-2-2-1">The equilibrium <span class="process-math">\(p = 0\)</span> is drawn as a highlighted horizontal line. Solutions starting at <span class="process-math">\(p(0) = 2\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(\frac{1}{2}\)</span> increase away from it, and solutions starting at <span class="process-math">\(-\frac{1}{2}\text{,}\)</span> <span class="process-math">\(-1\text{,}\)</span> and <span class="process-math">\(-2\)</span> decrease away from it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-ode-unstable-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.1<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solutions of <span class="process-math">\(\frac{dp}{dt} = p\text{.}\)</span> Solutions that start near the equilibrium <span class="process-math">\(p = 0\)</span> move away from it.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.2.1"><a tabindex="-1" href="#fig-ode-unstable" title="Copy heading and permalink for Figure 9.2.1" aria-label="Copy heading and permalink for Figure 9.2.1">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ch9-page2-stability-5">A solution that starts slightly above 0 grows, and a solution that starts slightly below 0 decreases. Either way, it moves away from the equilibrium, no matter how close to 0 it starts. We call the equilibrium <span class="process-math">\(p = 0\)</span> <dfn class="terminology">unstable</dfn>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="para-ode-stable-example"><h2 class="heading"><span class="title">A stable equilibrium.</span></h2>
+<div class="para" id="para-ode-stable-example-2">Now consider <span class="process-math">\(\frac{dp}{dt} = -p\text{.}\)</span> A quick check shows that <span class="process-math">\(p(t) = Ce^{-t}\)</span> is the general solution, since <span class="process-math">\(\frac{d}{dt}\left(Ce^{-t}\right) = -Ce^{-t}\text{.}\)</span> Again, the only equilibrium is <span class="process-math">\(p = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-stable-example-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphs: A stable equilibrium"><a tabindex="-1" href="#para-ode-stable-example" title="Copy heading and permalink for Paragraphs: A stable equilibrium" aria-label="Copy heading and permalink for Paragraphs: A stable equilibrium">🔗</a></div>
+</section>
+<figure class="figure figure-like" id="fig-ode-stable"><div class="image-box" style="width: 65%; margin-left: 17.5%; margin-right: 17.5%;">
+<img src="generated/latex-image/fig-ode-stable-2.svg" role="img" class="contained" alt="Solutions of dp/dt = -p approaching the equilibrium p = 0"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-ode-stable-2-description" style="width: 123.08%; margin-left: -11.54%;">
+<div class="para" id="fig-ode-stable-2-2-1">The equilibrium <span class="process-math">\(p = 0\)</span> is drawn as a highlighted horizontal line. Solutions starting at <span class="process-math">\(p(0) = 2\text{,}\)</span> <span class="process-math">\(1\text{,}\)</span> and <span class="process-math">\(\frac{1}{2}\)</span> decrease toward it, and solutions starting at <span class="process-math">\(-\frac{1}{2}\text{,}\)</span> <span class="process-math">\(-1\text{,}\)</span> and <span class="process-math">\(-2\)</span> increase toward it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-ode-stable-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.2<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Solutions of <span class="process-math">\(\frac{dp}{dt} = -p\text{.}\)</span> Solutions approach the equilibrium <span class="process-math">\(p = 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 9.2.2"><a tabindex="-1" href="#fig-ode-stable" title="Copy heading and permalink for Figure 9.2.2" aria-label="Copy heading and permalink for Figure 9.2.2">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ch9-page2-stability-8">This time, every solution approaches 0 as <span class="process-math">\(t \to \infty\text{,}\)</span> from above or from below. We call the equilibrium <span class="process-math">\(p = 0\)</span> <dfn class="terminology">stable</dfn>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-8" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="para-ode-phase-line"><h2 class="heading"><span class="title">The phase line.</span></h2>
+<div class="para" id="para-ode-phase-line-2">We will skip over some of the underlying theory, but the ideas for doing this with any <span class="process-math">\(\frac{dp}{dt} = f(p)\)</span> are simple, as long as <span class="process-math">\(f\)</span> is nice enough (for example, if <span class="process-math">\(f\)</span> has a continuous derivative, which is true for every <span class="process-math">\(f\)</span> in this class). In that case, solutions can’t cross each other. In particular, a solution can never cross an equilibrium, so a solution that starts between two equilibria stays between them.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="para-ode-phase-line-3">
+<div class="para">This means we only need to know the <em class="emphasis">sign</em> of <span class="process-math">\(f(p)\text{:}\)</span>
+</div>
+<ul class="disc" id="para-ode-phase-line-3-3">
+<li id="para-ode-phase-line-3-3-1">
+<div class="para" id="para-ode-phase-line-3-3-1-1">Where <span class="process-math">\(f(p) \gt 0\text{,}\)</span> we have <span class="process-math">\(\frac{dp}{dt} \gt 0\text{,}\)</span> so <span class="process-math">\(p\)</span> is increasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-3-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#para-ode-phase-line-3-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="para-ode-phase-line-3-3-2">
+<div class="para" id="para-ode-phase-line-3-3-2-1">Where <span class="process-math">\(f(p) \lt 0\text{,}\)</span> we have <span class="process-math">\(\frac{dp}{dt} \lt 0\text{,}\)</span> so <span class="process-math">\(p\)</span> is decreasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-3-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#para-ode-phase-line-3-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-3" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para logical" id="para-ode-phase-line-4">
+<div class="para">For example, take <span class="process-math">\(\frac{dp}{dt} = (p - 2)(p + 3)\)</span> from the previous page, with equilibria <span class="process-math">\(p = -3\)</span> and <span class="process-math">\(p = 2\text{.}\)</span> Checking the sign of each factor:</div>
+<ul class="disc" id="para-ode-phase-line-4-4">
+<li id="para-ode-phase-line-4-4-1">
+<div class="para" id="para-ode-phase-line-4-4-1-1">For <span class="process-math">\(p \lt -3\text{,}\)</span> both factors are negative, so <span class="process-math">\(\frac{dp}{dt} \gt 0\)</span> and <span class="process-math">\(p\)</span> is increasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-4-4-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#para-ode-phase-line-4-4-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="para-ode-phase-line-4-4-2">
+<div class="para" id="para-ode-phase-line-4-4-2-1">For <span class="process-math">\(-3 \lt p \lt 2\text{,}\)</span> <span class="process-math">\(p - 2 \lt 0\)</span> and <span class="process-math">\(p + 3 \gt 0\text{,}\)</span> so <span class="process-math">\(\frac{dp}{dt} \lt 0\)</span> and <span class="process-math">\(p\)</span> is decreasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-4-4-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#para-ode-phase-line-4-4-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="para-ode-phase-line-4-4-3">
+<div class="para" id="para-ode-phase-line-4-4-3-1">For <span class="process-math">\(p \gt 2\text{,}\)</span> both factors are positive, so <span class="process-math">\(\frac{dp}{dt} \gt 0\)</span> and <span class="process-math">\(p\)</span> is increasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-4-4-3-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#para-ode-phase-line-4-4-3" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-4" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="para-ode-phase-line-5">We record this on a <dfn class="terminology">phase line</dfn>: a number line for <span class="process-math">\(p\text{,}\)</span> with a dot at each equilibrium and an arrow on each interval between them. An arrow pointing <em class="alert">right</em> means <span class="process-math">\(p\)</span> is increasing there, and an arrow pointing <em class="alert">left</em> means <span class="process-math">\(p\)</span> is decreasing.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-phase-line-5" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphs: The phase line"><a tabindex="-1" href="#para-ode-phase-line" title="Copy heading and permalink for Paragraphs: The phase line" aria-label="Copy heading and permalink for Paragraphs: The phase line">🔗</a></div>
+</section>
+<figure class="figure figure-like" id="fig-ode-phase-line"><div class="image-box" style="width: 100%; margin-left: 0%; margin-right: 0%;">
+<img src="generated/latex-image/fig-ode-phase-line-2.svg" role="img" class="contained" alt="Graph of f(p) = (p - 2)(p + 3) with its phase line, and sketches of solutions"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-ode-phase-line-2-description" style="width: 80%; margin-left: 10%;">
+<div class="para" id="fig-ode-phase-line-2-2-1">On the left is the graph of <span class="process-math">\(f(p) = (p - 2)(p + 3)\text{,}\)</span> an upward parabola crossing the <span class="process-math">\(p\)</span>-axis at <span class="process-math">\(-3\)</span> and <span class="process-math">\(2\text{.}\)</span> It is above the axis for <span class="process-math">\(p \lt -3\)</span> and <span class="process-math">\(p \gt 2\text{,}\)</span> labeled “dp/dt &gt; 0, p increasing,” and below the axis for <span class="process-math">\(-3 \lt p \lt 2\text{,}\)</span> labeled “dp/dt &lt; 0, p decreasing.” Below the graph is the phase line: an arrow pointing right for <span class="process-math">\(p \lt -3\text{,}\)</span> an arrow pointing left for <span class="process-math">\(-3 \lt p \lt 2\text{,}\)</span> and an arrow pointing right for <span class="process-math">\(p \gt 2\text{.}\)</span> The equilibrium <span class="process-math">\(-3\)</span> is labeled stable and <span class="process-math">\(2\)</span> is labeled unstable. On the right are solutions <span class="process-math">\(p(t)\text{,}\)</span> with the equilibria <span class="process-math">\(p = 2\)</span> and <span class="process-math">\(p = -3\)</span> drawn as highlighted horizontal lines. Solutions starting above 2 increase without bound, solutions starting between <span class="process-math">\(-3\)</span> and 2 decrease toward <span class="process-math">\(-3\text{,}\)</span> and solutions starting below <span class="process-math">\(-3\)</span> increase toward <span class="process-math">\(-3\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-ode-phase-line-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.3<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>Left: the graph of <span class="process-math">\(f(p) = (p - 2)(p + 3)\text{,}\)</span> with the phase line below it. Right: sketches of solutions <span class="process-math">\(p(t)\text{,}\)</span> with the equilibria highlighted. Arrows pointing right on the phase line correspond to solutions going up on the right.<div class="autopermalink" aria-hidden="true" data-description="Figure 9.2.3"><a tabindex="-1" href="#fig-ode-phase-line" title="Copy heading and permalink for Figure 9.2.3" aria-label="Copy heading and permalink for Figure 9.2.3">🔗</a></div></figcaption>
+</figure>
+<div class="para logical" id="ch9-page2-stability-11">
+<div class="para">Understanding how the three pictures relate lets you visualize how the sign of <span class="process-math">\(f(p)\)</span> determines what happens to the solutions. However, we can determine stability directly from the phase line:</div>
+<ul class="disc" id="ch9-page2-stability-11-2">
+<li id="ch9-page2-stability-11-2-1">
+<div class="para" id="ch9-page2-stability-11-2-1-1">At <span class="process-math">\(p = -3\text{,}\)</span> the arrows on both sides point <em class="emphasis">toward</em> the equilibrium. Solutions that start near <span class="process-math">\(-3\)</span> approach it, so <span class="process-math">\(p = -3\)</span> is <em class="alert">stable</em>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-11-2-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ch9-page2-stability-11-2-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="ch9-page2-stability-11-2-2">
+<div class="para" id="ch9-page2-stability-11-2-2-1">At <span class="process-math">\(p = 2\text{,}\)</span> the arrows on both sides point <em class="emphasis">away</em> from the equilibrium. Solutions that start near 2 move away from it, so <span class="process-math">\(p = 2\)</span> is <em class="alert">unstable</em>.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-11-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#ch9-page2-stability-11-2-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-11" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch9-page2-stability-12">You should be able to connect these ideas to the direction of the arrows and to the sketches of solutions approaching or moving away from the equilibria. However, the precise reason this always works depends on an existence and uniqueness theorem, which we won’t go into.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-12" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="para-ode-semistable"><h2 class="heading"><span class="title">A semistable equilibrium.</span></h2>
+<div class="para" id="para-ode-semistable-2">There is one more possibility: the arrows on both sides can point the same way. For example, <span class="process-math">\(\frac{dp}{dt} = (p + 1)^2\)</span> has the equilibrium <span class="process-math">\(p = -1\text{,}\)</span> and <span class="process-math">\((p + 1)^2 \gt 0\)</span> on both sides of it.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-semistable-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphs: A semistable equilibrium"><a tabindex="-1" href="#para-ode-semistable" title="Copy heading and permalink for Paragraphs: A semistable equilibrium" aria-label="Copy heading and permalink for Paragraphs: A semistable equilibrium">🔗</a></div>
+</section>
+<figure class="figure figure-like" id="fig-ode-semistable"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;">
+<img src="generated/latex-image/fig-ode-semistable-2.svg" role="img" class="contained" alt="Phase line and solutions of dp/dt = (p + 1) squared"><details class="image-description" aria-live="polite"><summary title="details"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe88e;</span></summary><div id="fig-ode-semistable-2-description" style="width: 88.89%; margin-left: 5.56%;">
+<div class="para" id="fig-ode-semistable-2-2-1">On the left is the phase line, with the equilibrium <span class="process-math">\(-1\)</span> labeled semistable and arrows pointing right on both sides of it. On the right are solutions <span class="process-math">\(p(t)\text{,}\)</span> with the equilibrium <span class="process-math">\(p = -1\)</span> drawn as a highlighted horizontal line. Solutions starting below <span class="process-math">\(-1\)</span> increase toward it, and solutions starting above <span class="process-math">\(-1\)</span> increase away from it without bound.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#fig-ode-semistable-2-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div></details>
+</div>
+<figcaption><span class="type">Figure</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.4<span class="period heading-divison-mark heading-divison-mark__period">.</span></span><span class="space heading-divison-mark heading-divison-mark__space"> </span>The phase line and solutions of <span class="process-math">\(\frac{dp}{dt} = (p + 1)^2\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Figure 9.2.4"><a tabindex="-1" href="#fig-ode-semistable" title="Copy heading and permalink for Figure 9.2.4" aria-label="Copy heading and permalink for Figure 9.2.4">🔗</a></div></figcaption>
+</figure>
+<div class="para" id="ch9-page2-stability-15">Solutions that start below <span class="process-math">\(-1\)</span> approach it, but solutions that start above <span class="process-math">\(-1\)</span> move away from it. We call <span class="process-math">\(p = -1\)</span> <dfn class="terminology">semistable</dfn>. Since some nearby solutions move away, a semistable equilibrium is not stable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-15" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<section class="paragraphs" id="para-ode-technical-defs"><h2 class="heading"><span class="title">The technical definitions.</span></h2>
+<div class="para" id="para-ode-technical-defs-2">For all the equations in this class, stability will work out the way we have described, by reading the phase line. For reference, here are the technical definitions from Section 9.4.3 of the book, written for one variable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#para-ode-technical-defs-2" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraphs: The technical definitions"><a tabindex="-1" href="#para-ode-technical-defs" title="Copy heading and permalink for Paragraphs: The technical definitions" aria-label="Copy heading and permalink for Paragraphs: The technical definitions">🔗</a></div>
+</section>
+<article class="definition definition-like" id="def-ode-stability"><h2 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.5</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Stable and Asymptotically Stable.</span>
+</h2>
+<div class="para logical" id="def-ode-stability-2-1">
+<div class="para">Let <span class="process-math">\(k\)</span> be an equilibrium of <span class="process-math">\(\frac{dp}{dt} = f(p)\text{.}\)</span>
+</div>
+<ul class="disc" id="def-ode-stability-2-1-3">
+<li id="def-ode-stability-2-1-3-1">
+<div class="para" id="def-ode-stability-2-1-3-1-1">
+<span class="process-math">\(k\)</span> is <dfn class="terminology">stable</dfn> if solutions that start near <span class="process-math">\(k\)</span> stay near <span class="process-math">\(k\)</span> in future time. More precisely, for each <span class="process-math">\(\epsilon \gt 0\)</span> there is a <span class="process-math">\(\delta \gt 0\)</span> such that if <span class="process-math">\(|p(0) - k| \lt \delta\text{,}\)</span> then <span class="process-math">\(|p(t) - k| \lt \epsilon\)</span> for all <span class="process-math">\(t \geq 0\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def-ode-stability-2-1-3-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#def-ode-stability-2-1-3-1" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+<li id="def-ode-stability-2-1-3-2">
+<div class="para" id="def-ode-stability-2-1-3-2-1">
+<span class="process-math">\(k\)</span> is <dfn class="terminology">asymptotically stable</dfn> if solutions that start near <span class="process-math">\(k\)</span> stay near <span class="process-math">\(k\)</span> in future time, and in addition approach <span class="process-math">\(k\)</span> as <span class="process-math">\(t \to \infty\text{.}\)</span> More precisely, for each <span class="process-math">\(\epsilon \gt 0\)</span> there is a <span class="process-math">\(\delta \gt 0\)</span> such that if <span class="process-math">\(|p(0) - k| \lt \delta\text{,}\)</span> then (i) <span class="process-math">\(|p(t) - k| \lt \epsilon\)</span> for all <span class="process-math">\(t \geq 0\text{,}\)</span> and (ii) <span class="process-math">\(p(t) \to k\)</span> as <span class="process-math">\(t \to \infty\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def-ode-stability-2-1-3-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Item"><a tabindex="-1" href="#def-ode-stability-2-1-3-2" title="Copy heading and permalink for Item" aria-label="Copy heading and permalink for Item">🔗</a></div>
+</li>
+</ul>
+<div class="para">An equilibrium that is not stable is called <dfn class="terminology">unstable</dfn>.</div>
+<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def-ode-stability-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.5: Stable and Asymptotically Stable"><a tabindex="-1" href="#def-ode-stability" title="Copy heading and permalink for Definition 9.2.5: Stable and Asymptotically Stable" aria-label="Copy heading and permalink for Definition 9.2.5: Stable and Asymptotically Stable">🔗</a></div>
+</article>
+<div class="para" id="ch9-page2-stability-18">On a phase line, if the arrows on both sides point toward an equilibrium, it is asymptotically stable. If the arrows on at least one side point away, it is unstable. So in this class, when we call an equilibrium on a phase line “stable,” we mean asymptotically stable.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-18" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="definition definition-like" id="def-basin-of-attraction"><h2 class="heading">
+<span class="type">Definition</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.6</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="title">Basin of Attraction.</span>
+</h2>
+<div class="para" id="def-basin-of-attraction-2-1">The <dfn class="terminology">basin of attraction</dfn> of an asymptotically stable equilibrium <span class="process-math">\(k\)</span> is the set of starting values <span class="process-math">\(p(0)\)</span> whose solutions approach <span class="process-math">\(k\)</span> as <span class="process-math">\(t \to \infty\text{.}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#def-basin-of-attraction-2-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="autopermalink" aria-hidden="true" data-description="Definition 9.2.6: Basin of Attraction"><a tabindex="-1" href="#def-basin-of-attraction" title="Copy heading and permalink for Definition 9.2.6: Basin of Attraction" aria-label="Copy heading and permalink for Definition 9.2.6: Basin of Attraction">🔗</a></div>
+</article>
+<div class="para" id="ch9-page2-stability-20">For example, for <span class="process-math">\(\frac{dp}{dt} = (p - 2)(p + 3)\text{,}\)</span> every solution that starts below 2 approaches <span class="process-math">\(-3\text{,}\)</span> so the basin of attraction of <span class="process-math">\(p = -3\)</span> is <span class="process-math">\((-\infty, 2)\text{.}\)</span> Solutions that start at exactly <span class="process-math">\(p(0) = 2\)</span> stay at 2, and solutions that start above 2 increase without bound.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-20" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<div class="para" id="ch9-page2-stability-21">Let’s practice with an equation that will look familiar in Chapter 10.<div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#ch9-page2-stability-21" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+<article class="exercise exercise-like" id="check-ode-phase-line"><h2 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.7</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-ode-phase-line-1-1">Which is the phase line for <span class="process-math">\(\frac{dp}{dt} = p(1 - p)\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ode-phase-line-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-ode-phase-line" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-ode-phase-line_opt_a" data-correct="">
+<div class="para" id="check-ode-phase-line-2-1-1-1"><span class="process-math">\(\longleftarrow \underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet} \longleftarrow\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-phase-line_opt_a">
+<div class="para" id="check-ode-phase-line-2-1-2-1">Right. For <span class="process-math">\(p \lt 0\text{,}\)</span> <span class="process-math">\(p \lt 0\)</span> and <span class="process-math">\(1 - p \gt 0\text{,}\)</span> so <span class="process-math">\(\frac{dp}{dt} \lt 0\text{.}\)</span> For <span class="process-math">\(0 \lt p \lt 1\text{,}\)</span> both factors are positive, so <span class="process-math">\(\frac{dp}{dt} \gt 0\text{.}\)</span> For <span class="process-math">\(p \gt 1\text{,}\)</span> <span class="process-math">\(1 - p \lt 0\text{,}\)</span> so <span class="process-math">\(\frac{dp}{dt} \lt 0\text{.}\)</span> So <span class="process-math">\(p = 0\)</span> is unstable and <span class="process-math">\(p = 1\)</span> is stable.</div>
+</li>
+<li data-component="answer" id="rs-check-ode-phase-line_opt_b">
+<div class="para" id="check-ode-phase-line-2-2-1-1"><span class="process-math">\(\longrightarrow \underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet} \longrightarrow\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-phase-line_opt_b">
+<div class="para" id="check-ode-phase-line-2-2-2-1">Not quite. The arrows are backward. Try a value between 0 and 1, like <span class="process-math">\(p = \frac{1}{2}\text{:}\)</span> both factors are positive, so <span class="process-math">\(\frac{dp}{dt} \gt 0\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-ode-phase-line_opt_c">
+<div class="para" id="check-ode-phase-line-2-3-1-1"><span class="process-math">\(\longrightarrow \underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet} \longrightarrow\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-phase-line_opt_c">
+<div class="para" id="check-ode-phase-line-2-3-2-1">Not quite. Check the sign for <span class="process-math">\(p \gt 1\text{:}\)</span> then <span class="process-math">\(1 - p \lt 0\text{,}\)</span> so <span class="process-math">\(\frac{dp}{dt} \lt 0\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-ode-phase-line_opt_d">
+<div class="para" id="check-ode-phase-line-2-4-1-1"><span class="process-math">\(\longleftarrow \underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet} \longleftarrow\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-phase-line_opt_d">
+<div class="para" id="check-ode-phase-line-2-4-2-1">Not quite. Check the sign for <span class="process-math">\(0 \lt p \lt 1\text{:}\)</span> both factors are positive, so <span class="process-math">\(\frac{dp}{dt} \gt 0\text{.}\)</span>
+</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 9.2.7"><a tabindex="-1" href="#check-ode-phase-line" title="Copy heading and permalink for Checkpoint 9.2.7" aria-label="Copy heading and permalink for Checkpoint 9.2.7">🔗</a></div>
+</article>
+<article class="exercise exercise-like" id="check-ode-basin"><h2 class="heading">
+<span class="type">Checkpoint</span><span class="space heading-divison-mark heading-divison-mark__space"> </span><span class="codenumber">9.2.8</span><span class="period heading-divison-mark heading-divison-mark__period">.</span>
+</h2>
+<div class="ptx-runestone-container"><div class="runestone multiplechoice_section">
+<div class="exercise-statement">
+<div class="para" id="check-ode-basin-1-1">For <span class="process-math">\(\frac{dp}{dt} = p(1 - p)\text{,}\)</span> what is the basin of attraction of the stable equilibrium <span class="process-math">\(p = 1\text{?}\)</span><div class="autopermalink" aria-hidden="true" data-description="Paragraph"><a tabindex="-1" href="#check-ode-basin-1-1" title="Copy heading and permalink for Paragraph" aria-label="Copy heading and permalink for Paragraph">🔗</a></div>
+</div>
+</div>
+<ul data-component="multiplechoice" class="exercise-interactives" id="rs-check-ode-basin" data-multipleanswers="false">
+<li data-component="answer" id="rs-check-ode-basin_opt_a">
+<div class="para" id="check-ode-basin-2-1-1-1"><span class="process-math">\([0, \infty)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-basin_opt_a">
+<div class="para" id="check-ode-basin-2-1-2-1">Close, but check <span class="process-math">\(p(0) = 0\text{:}\)</span> that solution stays at the equilibrium 0 forever, so it never approaches 1.</div>
+</li>
+<li data-component="answer" id="rs-check-ode-basin_opt_b" data-correct="">
+<div class="para" id="check-ode-basin-2-2-1-1"><span class="process-math">\((0, \infty)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-basin_opt_b">
+<div class="para" id="check-ode-basin-2-2-2-1">Right. Every solution that starts above 0 approaches 1: from below if <span class="process-math">\(0 \lt p(0) \lt 1\text{,}\)</span> and from above if <span class="process-math">\(p(0) \gt 1\text{.}\)</span>
+</div>
+</li>
+<li data-component="answer" id="rs-check-ode-basin_opt_c">
+<div class="para" id="check-ode-basin-2-3-1-1"><span class="process-math">\((0, 1)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-basin_opt_c">
+<div class="para" id="check-ode-basin-2-3-2-1">Not quite. Solutions that start above 1 also approach 1, since the arrow for <span class="process-math">\(p \gt 1\)</span> points left.</div>
+</li>
+<li data-component="answer" id="rs-check-ode-basin_opt_d">
+<div class="para" id="check-ode-basin-2-4-1-1"><span class="process-math">\((-\infty, \infty)\)</span></div>
+</li>
+<li data-component="feedback" id="rs-check-ode-basin_opt_d">
+<div class="para" id="check-ode-basin-2-4-2-1">Not quite. Solutions that start below 0 decrease, moving away from 0 and never reaching 1.</div>
+</li>
+</ul>
+</div></div>
+<div class="autopermalink" aria-hidden="true" data-description="Checkpoint 9.2.8"><a tabindex="-1" href="#check-ode-basin" title="Copy heading and permalink for Checkpoint 9.2.8" aria-label="Copy heading and permalink for Checkpoint 9.2.8">🔗</a></div>
+</article><div class="interactive-iframe-container"><iframe src="external/question-form.html?section=9.2" id="question-form-9-2" style="width:600px; height:300px; display: block; "></iframe></div>
+<div class="interactive-iframe-container__opener"><a href="question-form-9-2.html" title="Open in new tab" aria-label="Open in new tab" target="_blank"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe89e;</span></a></div>
+<div class="autopermalink" aria-hidden="true" data-description="Section 9.2: Stability and the Phase Line"><a tabindex="-1" href="#ch9-page2-stability" title="Copy heading and permalink for Section 9.2: Stability and the Phase Line" aria-label="Copy heading and permalink for Section 9.2: Stability and the Phase Line">🔗</a></div>
+</section>
+</div>
+<div id="ptx-content-footer" class="ptx-content-footer">
+<a class="previous-button button" href="ch9-page1-autonomous-equations.html" title="Previous"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cb;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5ce;</span><span class="name">Top</span></a><a class="next-button button" href="ch-evolutionary-dynamics.html" title="Next"><span class="name">Next</span><span class="icon material-symbols-outlined" aria-hidden="true">&#xe5cc;</span></a>
+</div></main>
+</div>
+<div id="ptx-page-footer" class="ptx-page-footer">
+<a class="pretext-link" href="https://pretextbook.org" title="PreTeXt"><div class="logo"><svg xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="338 3000 8772 6866" role="img"><title>PreTeXt logo</title><g style="stroke-width:.025in; stroke:currentColor; fill:none"><polyline points="472,3590 472,9732 " style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round; "></polyline><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,9448 A 4660 4660  0  0  1  8598  9259"></path><path style="stroke-width:174;stroke-linecap:butt;" d="M 4488,9685 A 4228 4228  0  0  0   472  9732"></path><path style="stroke-width:126;stroke-linecap:butt;" d="M 4724,3590 A 4241 4241  0  0  1  8598  3496"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,3496  A 4241 4241  0  0  1  4724  3590"></path><path style="stroke-width:126;stroke-linecap:round;" d="M 850,9259  A 4507 4507  0  0  1  4724  9448"></path><polyline points="5385,4299 4062,8125" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8598,3496 8598,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="850,3496 850,9259" style="stroke-width:126; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="4960,9685 4488,9685" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="3070,4582 1889,6141 3070,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="6418,4582 7600,6141 6418,7700" style="stroke-width:300; stroke-linejoin:miter; stroke-linecap:round;"></polyline><polyline points="8976,3590 8976,9732" style="stroke-width:174; stroke-linejoin:miter; stroke-linecap:round;"></polyline><path style="stroke-width:174;stroke-linecap:butt;" d="M 4960,9685 A 4228 4228  0  0  1  8976  9732"></path></g></svg></div></a><a class="runestone-link" href="https://runestone.academy" title="Runestone Academy"><img class="logo" alt="Runestone Academy logo" src="data:image/png;base64,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"></a><a class="mathjax-link" href="https://www.mathjax.org" title="MathJax"><img class="logo" alt="MathJax logo" src="data:image/png;base64,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"></a>
+</div>
+</body>
+</html>
