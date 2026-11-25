@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 10 answers.
+
+     Same structure as ch6-answers.ptx: an <exercises> division, so every
+     level is a dropdown. Exercise numbering restarts inside each
+     <exercises> division, so the numbers here line up with
+     ch10-exercises.ptx automatically. Keep the order of <exercise>
+     elements (and of their tasks) identical to that file.
+  -->
+
+<exercises xml:id="ch10-answers" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Answers to Ch. 10 Exercises</title>
+
+  <introduction>
+    <p>
+      Answers to the exercises of this chapter. Click an
+      exercise to open it, click a part to open that part, then click
+      <term>Solution</term> to reveal the answer.
+    </p>
+    <p>
+      These are the answers to the questions, not fully worked solutions. Enough is shown that you can
+      tell whether your own work got to the correct conclusion.
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-replicator-derive">
+    <title>Deriving the Replicator Equation</title>
+
+    <task xml:id="ans-replicator-derive-system">
+      <title>The replicator system</title>
+      <statement>
+        <p>
+          Derive the replicator system.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dot{p}_1 = (4p_2 - 5p_1p_2)p_1</m> and
+          <m>\dot{p}_2 = (p_1 - 5p_1p_2)p_2</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-derive-reduce">
+      <title>One equation</title>
+      <statement>
+        <p>
+          Reduce to <m>\dot{p} = f(p)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dot{p} = p(1 - p)(4 - 5p)</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-derive-equilibria">
+      <title>Equilibria</title>
+      <statement>
+        <p>
+          Find the equilibria.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p = 0</m>, <m>p = \frac{4}{5}</m>, and <m>p = 1</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-derive-theorems">
+      <title>Using Theorems 10.1 and 10.2</title>
+      <statement>
+        <p>
+          Explain why <m>p = 0</m> and <m>p = 1</m> are equilibria, and
+          check Theorem 10.2 at the interior equilibrium.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p = 0</m> and <m>p = 1</m> are pure states (Theorem 10.1(4)).
+          At <m>p = \frac{4}{5}</m>,
+          <m>\pi_1(a, \sigma) = 4p_2 = \frac{4}{5}</m> and
+          <m>\pi_1(b, \sigma) = p_1 = \frac{4}{5}</m>.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-replicator-phase-line">
+    <title>Phase Line and Stability</title>
+
+    <task xml:id="ans-replicator-phase-line-sketch">
+      <title>The phase line</title>
+      <statement>
+        <p>
+          Sketch <m>f(p)</m> and the phase line.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{4/5}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-phase-line-behavior">
+      <title>Typical solutions</title>
+      <statement>
+        <p>
+          Describe a typical solution.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Every solution starting in <m>(0, 1)</m> approaches
+          <m>p = \frac{4}{5}</m>. Near 0, <m>p</m> increases; near 1,
+          <m>p</m> decreases.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-phase-line-ess">
+      <title>Connection to Theorem 8.5</title>
+      <statement>
+        <p>
+          Analyze the game with Theorem 8.5 and connect it to part (b).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Case (4) (<m>a \lt c</m>, <m>d \lt b</m>): the only evolutionarily
+          stable state is <m>\frac{4}{5}a + \frac{1}{5}b</m>, the same as
+          the stable equilibrium.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-phase-line-start">
+      <title>Starting at the equilibrium</title>
+      <statement>
+        <p>
+          Start exactly at the interior equilibrium, then just below it.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          It stays at <m>\frac{4}{5}</m> forever. Just below, <m>p</m>
+          increases toward <m>\frac{4}{5}</m>.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-phase-line-intuition">
+      <title>Intuition from the game</title>
+      <statement>
+        <p>
+          Explain why a population of mostly <m>a</m>-players moves toward
+          more <m>b</m>-players.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Against an <m>a</m>-player, <m>a</m> earns 0 but <m>b</m> earns 1,
+          so when most players use <m>a</m>, <m>b</m> does better and spreads.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-replicator-outside-cases">
+    <title>A Game Outside the Four Cases</title>
+
+    <task xml:id="ans-replicator-outside-cases-reduce">
+      <title>One equation</title>
+      <statement>
+        <p>
+          Reduce to <m>\dot{p} = f(p)</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dot{p} = -p(1 - p)^2</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-outside-cases-equilibria">
+      <title>Equilibria</title>
+      <statement>
+        <p>
+          Find the equilibria.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p = 0</m> and <m>p = 1</m>
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-outside-cases-phase-line">
+      <title>The phase line</title>
+      <statement>
+        <p>
+          Sketch <m>f(p)</m> and the phase line.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\underset{0}{\bullet} \longleftarrow\!\!\longleftarrow\!\!\longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>:
+          <m>p = 0</m> is stable and <m>p = 1</m> is unstable.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-outside-cases-interpret">
+      <title>Interpretation</title>
+      <statement>
+        <p>
+          Interpret part (c).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Unless everyone starts with <m>s</m>, <m>s</m> dies out and the
+          population approaches all-<m>h</m>.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-outside-cases-ess">
+      <title>Comparing with evolutionary stability</title>
+      <statement>
+        <p>
+          Compare with the evolutionarily stable states, and explain why the
+          game is not in Figure 10.3.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The only evolutionarily stable state is <m>h</m>, which matches
+          the stable equilibrium <m>p = 0</m>. The game has
+          <m>a = c = 4</m>, and the four cases require <m>a \neq c</m>.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-outside-cases-thm-10-3">
+      <title>Theorem 10.3 at all-<m>s</m></title>
+      <statement>
+        <p>
+          Does Theorem 10.3 apply at all-<m>s</m>, and is all-<m>s</m>
+          stable?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          No: an <m>h</m>-player earns 4, the same as the average, not more.
+          All-<m>s</m> is still unstable, so Theorem 10.3 is not the only
+          way an equilibrium can be unstable.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="ans-hw-replicator-theorems-fsp">
+    <title>Using the Theorems with Three Strategies</title>
+
+    <task xml:id="ans-replicator-theorems-fsp-equilibria">
+      <title>Three equilibria</title>
+      <statement>
+        <p>
+          Name three equilibria using Theorem 10.1.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          All-<m>F</m>, all-<m>S</m>, and all-<m>P</m>.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-theorems-fsp-all-f">
+      <title>The all-<m>F</m> state</title>
+      <statement>
+        <p>
+          Is <m>(F, F)</m> a Nash equilibrium?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          No: against <m>F</m>, <m>S</m> earns <m>10 \gt 6</m>. So all-<m>F</m>
+          is an equilibrium but not a Nash equilibrium.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-theorems-fsp-invade">
+      <title>Invading all-<m>F</m></title>
+      <statement>
+        <p>
+          Apply Theorem 10.3 near all-<m>F</m>, and consider starting with no
+          <m>S</m>-players.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          No solution with some <m>S</m>-players approaches all-<m>F</m>.
+          With no <m>S</m>-players, the population stays at all-<m>F</m>.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-theorems-fsp-all-s">
+      <title>The all-<m>S</m> state</title>
+      <statement>
+        <p>
+          Show all-<m>S</m> is evolutionarily stable, and apply Theorem 10.4.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>(S, S)</m> is a strict Nash equilibrium (<m>0 \gt -2</m> and
+          <m>0 \gt -1</m>), so all-<m>S</m> is evolutionarily stable (Theorem
+          8.2) and therefore asymptotically stable.
+        </p>
+      </solution>
+    </task>
+    <task xml:id="ans-replicator-theorems-fsp-all-p">
+      <title>The all-<m>P</m> state</title>
+      <statement>
+        <p>
+          Show <m>(P, P)</m> is a Nash equilibrium but all-<m>P</m> is not
+          evolutionarily stable, and find the classmate's error.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Against <m>P</m>, <m>F</m> earns 6 and <m>S</m> earns 5, neither more
+          than 6. But <m>\pi_1(P, F) = 6</m> is not more than
+          <m>\pi_1(F, F) = 6</m>, so Theorem 8.1(2) fails. The error:
+          Theorem 10.4 only goes from evolutionarily stable to
+          asymptotically stable, not the other way.
+        </p>
+      </solution>
+    </task>
+  </exercise>
+</exercises>

@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch10-page2-dynamics-two-strategies" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Two Pure Strategies, and a Look Beyond</title>
+
+  <p>
+    Now we generalize what we did for Microsoft vs. Apple to any symmetric
+    game with two pure strategies. The payoff matrix has
+    the form:
+  </p>
+
+  <table xml:id="table-ch10-general-2x2">
+    <title>A symmetric game with two pure strategies</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Player 2: <m>s_1</m></cell>
+        <cell>Player 2: <m>s_2</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Player 1: <m>s_1</m></cell>
+        <cell><m>(a, a)</m></cell>
+        <cell><m>(b, c)</m></cell>
+      </row>
+      <row>
+        <cell>Player 1: <m>s_2</m></cell>
+        <cell><m>(c, b)</m></cell>
+        <cell><m>(d, d)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <!-- ============================================================ -->
+  <!-- Reading 1: Section 10.3                                      -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-10-3">
+    <title>Section 10.3, Evolutionary Dynamics with Two Pure Strategies</title>
+    <p>
+      <alert>Read Section 10.3.</alert>
+    </p>
+    <p>
+      Read through the setup, but you can skim the algebra: the
+      computations follow the same steps as Microsoft vs. Apple, just with
+      letters instead of numbers. Take note of the result at the end and of
+      Figure 10.3, which we summarize below!
+    </p>
+    <p>
+      <alert>Note:</alert> Figure 10.3 has a typo. It labels two of the
+      pictures <q>(3)</q>. The bottom-right picture, with <m>a \lt c</m> and
+      <m>d \lt b</m>, is case (4).
+    </p>
+  </assemblage>
+
+  <p>
+    Alright, now for a quick summary! After substituting
+    <m>p_2 = 1 - p_1</m>, the replicator system becomes the single equation
+    <me>
+      \dot{p}_1 = p_1(1 - p_1)\bigl((a - c) + (d - b)p_1 - (d - b)\bigr).
+    </me>
+    Its equilibria are:
+    <ul>
+      <li>
+        <p>
+          <m>p_1 = 0</m>,
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>p_1 = 1</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          <m>\displaystyle p_1^* = \frac{d - b}{(a - c) + (d - b)}</m>,
+          provided <m>p_1^*</m> is between 0 and 1.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    For <m>0 \lt p_1 \lt 1</m>, the factors <m>p_1</m> and <m>1 - p_1</m>
+    are positive, so the sign of <m>\dot{p}_1</m> comes from the last
+    factor. That factor is linear in <m>p_1</m>, so it changes sign at most
+    once. This gives the four possible cases shown in Figure 10.3.
+  </p>
+
+  <paragraphs xml:id="para-ch10-compare-thm-8-5">
+    <title>Comparing with Theorem 8.5</title>
+    <p>
+      These are exactly the four cases of Theorem 8.5 from Chapter 8 (see
+      <xref ref="read-8-4-part1" text="title"/>), and two things match up.
+    </p>
+    <p>
+      First, the formula for the interior equilibrium <m>p_1^*</m> is the same as formula (8.5) in the
+      book. So the interior equilibrium of the replicator system is exactly
+      the mixed-strategy Nash equilibrium
+      <m>\sigma^* = p_1^* s_1 + (1 - p_1^*)s_2</m>.
+    </p>
+    <p>
+      Second, here are the four cases, with the stable equilibria of the
+      replicator system next to the evolutionarily stable states from
+      Theorem 8.5:
+    </p>
+  </paragraphs>
+
+  <table xml:id="table-ch10-stable-vs-ess">
+    <title>Stable equilibria and evolutionarily stable states</title>
+    <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col right="minor"/>
+      <col right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell>Case</cell>
+        <cell>Conditions</cell>
+        <cell>Stable equilibria of the replicator equation <m>\dot{p}_1</m></cell>
+        <cell>Evolutionarily stable states (Theorem 8.5)</cell>
+      </row>
+      <row bottom="minor">
+        <cell>(1)</cell>
+        <cell><m>a \gt c</m>, <m>d \lt b</m></cell>
+        <cell><m>p_1 = 1</m></cell>
+        <cell><m>s_1</m> (<m>p_1 = 1</m>)</cell>
+      </row>
+      <row bottom="minor">
+        <cell>(2)</cell>
+        <cell><m>a \lt c</m>, <m>d \gt b</m></cell>
+        <cell><m>p_1 = 0</m></cell>
+        <cell><m>s_2</m> (<m>p_1 = 0</m>)</cell>
+      </row>
+      <row bottom="minor">
+        <cell>(3)</cell>
+        <cell><m>a \gt c</m>, <m>d \gt b</m></cell>
+        <cell><m>p_1 = 0</m> and <m>p_1 = 1</m></cell>
+        <cell><m>s_2</m> (<m>p_1 = 0</m>) and <m>s_1</m> (<m>p_1 = 1</m>)</cell>
+      </row>
+      <row>
+        <cell>(4)</cell>
+        <cell><m>a \lt c</m>, <m>d \lt b</m></cell>
+        <cell><m>p_1 = p_1^*</m></cell>
+        <cell><m>\sigma^*</m> (<m>p_1 = p_1^*</m>)</cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    The last two columns match in every row. (These four cases assume
+    <m>a \neq c</m> and <m>b \neq d</m>.) As the book puts it at the end
+    of Section 10.3: <alert>in all cases, the asymptotically stable
+    equilibria correspond to evolutionarily stable population
+    states.</alert> So for games with two pure strategies, the static idea
+    from Chapter 8 (a state that can't be invaded) and the dynamic idea from
+    this chapter (a state the population returns to) give the same answer.
+    This is what we saw for Microsoft vs. Apple, which is in case (3).
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Hawks and Doves                                              -->
+  <!-- ============================================================ -->
+
+  <paragraphs xml:id="para-ch10-hawks-doves">
+    <title>Hawks and Doves</title>
+    <p>
+      Recall the game of Hawks and Doves from Section 8.4.3. Animals fight
+      over a resource using one of two strategies: Hawk (<m>h</m>), which
+      fights until injured or until the opponent retreats, and Dove
+      (<m>d</m>), which displays hostility but retreats if the opponent
+      won't. The parameters are
+      <ul>
+        <li>
+          <p>
+            <m>v</m> = value of what they are fighting over,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>w</m> = cost of injury,
+          </p>
+        </li>
+        <li>
+          <p>
+            <m>t</m> = cost of protracted display,
+          </p>
+        </li>
+      </ul>
+      where <m>v</m>, <m>w</m>, and <m>t</m> are all positive and
+      <m>v \lt w</m>. The payoff matrix is
+    </p>
+  </paragraphs>
+
+  <table xml:id="table-ch10-hawks-doves">
+    <title>Hawks and Doves</title>
+    <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+      <col halign="left" right="minor"/>
+      <col right="minor"/>
+      <col/>
+      <row header="yes" bottom="minor">
+        <cell></cell>
+        <cell>Animal 2: <m>h</m></cell>
+        <cell>Animal 2: <m>d</m></cell>
+      </row>
+      <row bottom="minor">
+        <cell>Animal 1: <m>h</m></cell>
+        <cell><m>\left(\frac{v - w}{2}, \frac{v - w}{2}\right)</m></cell>
+        <cell><m>(v, 0)</m></cell>
+      </row>
+      <row>
+        <cell>Animal 1: <m>d</m></cell>
+        <cell><m>(0, v)</m></cell>
+        <cell><m>\left(\frac{v}{2} - t, \frac{v}{2} - t\right)</m></cell>
+      </row>
+    </tabular>
+  </table>
+
+  <p>
+    Before reading the book's analysis, let's see how much we can figure out
+    from Figure 10.3 alone. Take <m>s_1 = h</m> and <m>s_2 = d</m>.
+  </p>
+
+  <exercise xml:id="check-hd-which-case">
+    <statement>
+      <p>
+        Which case of Figure 10.3 is Hawks and Doves in?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p>Case (1): <m>a \gt c</m> and <m>d \lt b</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Here <m>a = \frac{v - w}{2}</m> and <m>c = 0</m>.
+            Since <m>v \lt w</m>, <m>a</m> is negative, so <m>a \lt c</m>: a
+            hawk does worse than a dove against a hawk.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Case (2): <m>a \lt c</m> and <m>d \gt b</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. <m>a \lt c</m> is right, but compare <m>d</m> and
+            <m>b</m>: <m>d = \frac{v}{2} - t</m> and <m>b = v</m>. Since
+            <m>t \gt 0</m>, <m>d \lt b</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Case (3): <m>a \gt c</m> and <m>d \gt b</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Case (3) would mean a hawk does better than a dove
+            against a hawk. But <m>a = \frac{v - w}{2} \lt 0 = c</m>, since
+            the cost of injury is larger than the value of the resource.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>Case (4): <m>a \lt c</m> and <m>d \lt b</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Right. <m>a = \frac{v - w}{2} \lt 0 = c</m> because
+            <m>v \lt w</m>, and <m>d = \frac{v}{2} - t \lt v = b</m> because
+            <m>t \gt 0</m>. Each strategy is the best response to the other.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-hd-conclusion">
+    <statement>
+      <p>
+        Knowing only which case Hawks and Doves is in, what can we conclude
+        about the evolution of the population?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            From any starting state with <m>0 \lt p_1 \lt 1</m>, the
+            population tends toward the mixed state
+            <m>\sigma^* = p_1^* h + (1 - p_1^*)d</m>.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. In case (4), <m>p_1^*</m> is the only stable equilibrium,
+            and both pure states are unstable. This agrees with Theorem 8.5,
+            which says <m>\sigma^*</m> is evolutionarily stable.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Hawks take over the population.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. In case (4), the all-hawk state <m>p_1 = 1</m> is
+            unstable. When almost everyone is a hawk, doves do better,
+            because they avoid costly injuries.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>Doves take over the population.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. In case (4), the all-dove state <m>p_1 = 0</m> is
+            unstable. When almost everyone is a dove, a hawk takes the
+            resource from every dove it meets.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            It depends on the starting state: some populations end up all
+            hawks and some end up all doves.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. That describes case (3), with a tipping point. In
+            case (4), the arrows on both sides point toward <m>p_1^*</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Reading 2: Section 10.4                                      -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-10-4">
+    <title>Section 10.4, Hawks and Doves Revisited</title>
+    <p>
+      <alert>Read Section 10.4.</alert>
+    </p>
+    <p>
+      The book confirms our conclusion by computing directly. Make sure you
+      get the gist of each step. The algebra in step 3 can be skimmed.
+      <ol marker="1.">
+        <li>
+          <p>
+            Compute the payoffs <m>\pi_1(h, \sigma)</m>,
+            <m>\pi_1(d, \sigma)</m>, and <m>\pi_1(\sigma, \sigma)</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Write the replicator equation for <m>\dot{p}_1</m>. (The book
+            also writes <m>\dot{p}_2</m>, but we don't need it.)
+          </p>
+        </li>
+        <li>
+          <p>
+            Substitute <m>p_2 = 1 - p_1</m> and factor out
+            <m>1 - p_1</m>, to get
+            <m>\dot{p}_1 = \frac{1}{2}(1 - p_1)\bigl(v + 2t - p_1(w + 2t)\bigr)p_1</m>.
+          </p>
+        </li>
+        <li>
+          <p>
+            Find the equilibria: <m>p_1 = 0</m>, <m>p_1 = 1</m>, and
+            <m>p_1^* = \frac{v + 2t}{w + 2t}</m>, which is the mixed Nash
+            equilibrium from Section 8.4.3.
+          </p>
+        </li>
+        <li>
+          <p>
+            Use the phase portrait (Figure 10.4) to determine stability:
+            <m>p_1^*</m> is stable.
+          </p>
+        </li>
+        <li>
+          <p>
+            Notice the book's last sentence: we could have gotten this phase
+            portrait from case (4) of Figure 10.3, which is exactly what you
+            just did.
+          </p>
+        </li>
+      </ol>
+    </p>
+  </assemblage>
+
+
+
+  <!-- ============================================================ -->
+  <!-- Reading 3: Section 10.5 (setup only)                         -->
+  <!-- ============================================================ -->
+
+  <p>
+    So far, every population has tended towards an equilibrium. To finish,
+    let's take a quick look at what can happen with three strategies. We
+    won't go into the mathematical techniques used in this section, so this
+    is just a quick look to get the main idea!
+  </p>
+
+  <assemblage xml:id="read-10-5">
+    <title>Section 10.5, Side-blotched Lizards</title>
+    <p>
+      <alert>Skim Section 10.5.</alert> This section is here to show you
+      something new: with three strategies, a population doesn't have to
+      settle down at an equilibrium at all. Read the background on the
+      lizards and look at the payoff matrix. You can skip the rest of the
+      math. With three strategies, the replicator system has two variables,
+      and we won't be doing multivariable analysis in this class. Then look
+      at Figure 10.5 and read the conclusion at the end of the section.
+    </p>
+  </assemblage>
+
+  <p>
+    Figure 10.5 shows the direction the population moves from each state in
+    the triangle of possible population states. The arrows circle around the
+    interior equilibrium
+    <m>\sigma^* = \frac{1}{3}O + \frac{1}{3}Y + \frac{1}{3}B</m>. The book
+    shows that the population cycles forever. It goes from mostly
+    orange-throats, to mostly yellow-stripes, to mostly blue-throats, and
+    back again! This behavior is observed in real lizard populations.
+  </p>
+  <p>
+    This is a new kind of behavior. With two pure strategies, every
+    population tends to an equilibrium. With three, a population might never
+    settle down at all. Here <m>\sigma^*</m> is a Nash equilibrium but not an
+    evolutionarily stable state, and studying the dynamics shows what the
+    population actually does.
+  </p>
+
+  <interactive xml:id="question-form-10-2" iframe="question-form.html?section=10.2" width="100%" aspect="2:1"/>
+</section>

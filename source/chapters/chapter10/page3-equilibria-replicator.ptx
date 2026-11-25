@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch10-page3-equilibria-replicator" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Equilibria of the Replicator System</title>
+
+  <p>
+    We have already seen some connections between equilibria of the
+    replicator system, Nash equilibria, and evolutionarily stable states.
+    This makes sense, since in each of these settings, an equilibrium is
+    often a state that a population tends toward or gets stuck at. In this
+    section, we look at some theorems that make these connections clearer!
+  </p>
+  <p>
+    Before reading, let's recall two things:
+  </p>
+  <p>
+    An equilibrium is <term>asymptotically stable</term> if every solution
+    that starts close enough to it stays close to it and approaches it as
+    <m>t \to \infty</m>. On a phase line, this means the arrows on both
+    sides point toward it.
+  </p>
+  <p>
+    The theorems also refer to the two conditions of Theorem 5.2, the
+    Fundamental Theorem of Nash Equilibria (see
+    <xref ref="read-5-1-theorems" text="title"/>). For a population state
+    <m>\sigma</m>, <m>(\sigma, \sigma)</m> is a Nash equilibrium exactly
+    when:
+    <ol marker="(1)">
+      <li>
+        <p>
+          every active strategy at <m>\sigma</m> earns the same payoff
+          <m>\pi_1(s_i, \sigma)</m>, and
+        </p>
+      </li>
+      <li>
+        <p>
+          no inactive strategy earns more than the active strategies.
+        </p>
+      </li>
+    </ol>
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Reading: Section 10.6                                        -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-10-6">
+    <title>Section 10.6, Equilibria of the Replicator System</title>
+    <p>
+      <alert>Read Section 10.6</alert>, as follows:
+      <ul>
+        <li>
+          <p>
+            Read the statements and proofs of Theorems 10.2 and 10.3, and
+            the paragraph after the proof of Theorem 10.3 that interprets
+            it.
+          </p>
+        </li>
+        <li>
+          <p>
+            Read the statement of Theorem 10.4. You can skip Lemma 10.5 and
+            the proof of Theorem 10.4.
+          </p>
+        </li>
+      </ul>
+    </p>
+  </assemblage>
+
+  <p>
+    Let's restate each theorem for reference and explore each one a bit
+    further!
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Theorem 10.2                                                 -->
+  <!-- ============================================================ -->
+
+  <theorem xml:id="thm-10-2-restated">
+    <title>Theorem 10.2</title>
+    <statement>
+      <p>
+        Let <m>p \in \Sigma</m>, and let <m>\sigma</m> be the corresponding
+        population state. Then <m>p</m> is an equilibrium of the replicator
+        system if and only if <m>(\sigma, \sigma)</m> satisfies condition
+        (1) of the Fundamental Theorem of Nash Equilibria (Theorem 5.2).
+      </p>
+      <p>
+        In other words, if <m>p \in \Sigma_I</m> for some nonempty subset
+        <m>I</m> of <m>\{1, \ldots, n\}</m>, then <m>p</m> is an equilibrium
+        of the replicator system if and only if all
+        <m>\pi_1(s_i, \sigma)</m> with <m>i \in I</m> are equal.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    So <alert>a population state is an equilibrium exactly when every active strategy earns the same payoff.</alert> As in condition (1) of the
+    Fundamental Theorem of Nash Equilibria, only the active strategies are compared.
+  </p>
+
+  <p>
+    We saw this in Microsoft vs. Apple: the equilibrium
+    <m>p_1 = \frac{2}{3}</m> is exactly where Microsoft and Apple users earn
+    the same payoff.
+  </p>
+
+  <exercise xml:id="check-thm-10-2-all-in-use">
+    <statement>
+      <p>
+        Suppose every strategy is active at <m>\sigma</m> (all
+        <m>p_i \gt 0</m>). Which statement is true?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\sigma</m> is an equilibrium if and only if
+            <m>(\sigma, \sigma)</m> is a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Condition (2) of Theorem 5.2 is about inactive strategies,
+            and here there are none. So a Nash equilibrium only needs
+            condition (1), which is exactly what Theorem 10.2 requires for an
+            equilibrium.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\sigma</m> can be an equilibrium without
+            <m>(\sigma, \sigma)</m> being a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. That can only happen if condition (2) fails, which
+            needs an inactive strategy that does better. Here every strategy is active.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>(\sigma, \sigma)</m> can be a Nash equilibrium without
+            <m>\sigma</m> being an equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. A Nash equilibrium satisfies condition (1), so by
+            Theorem 10.2 it is always an equilibrium.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Theorem 10.3                                                 -->
+  <!-- ============================================================ -->
+
+  <theorem xml:id="thm-10-3-restated">
+    <title>Theorem 10.3</title>
+    <statement>
+      <p>
+        Let <m>p^* \in \Sigma_I</m> be an equilibrium of the replicator
+        system, and let <m>\sigma^*</m> be the corresponding population
+        state. Suppose <m>(\sigma^*, \sigma^*)</m> does not satisfy
+        condition (2) of Theorem 5.2; that is, suppose there is an
+        <m>i \notin I</m> such that
+        <m>\pi_1(s_i, \sigma^*) \gt \pi_1(\sigma^*, \sigma^*)</m>. Let
+        <m>J</m> be a subset of <m>\{1, \ldots, n\}</m> that includes both
+        <m>i</m> and <m>I</m>. Then no solution <m>p(t)</m> of the
+        replicator system that lies in <m>\Sigma_J</m> approaches
+        <m>p^*</m> as <m>t \to \infty</m>.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    The idea is simpler than it looks! <alert>If an inactive strategy <m>s_i</m> would do better than the
+    population average, the population can't settle at that state.</alert>
+    In this case, <m>p^*</m> is an equilibrium, but it is an unstable one! If you introduce a few
+    individuals using the better strategy <m>s_i</m>, their share grows, so the
+    population moves away. (If that strategy stays inactive, the
+    population can stay at <m>p^*</m>, since by Theorem 10.1(1) an inactive strategy never appears on its own.)
+  </p>
+  <p>
+    Combined with Theorem 10.2, this says that <alert>a population can only
+    settle at a Nash equilibrium.</alert> Theorem 10.2 handles condition
+    (1), and Theorem 10.3 handles condition (2).
+  </p>
+
+  <exercise xml:id="check-thm-10-3-hawks-doves">
+    <statement>
+      <p>
+        In Hawks and Doves, consider the all-dove state <m>p_1 = 0</m>.
+        Hawks are inactive, but a hawk would earn <m>v</m> against the doves,
+        while the doves earn only <m>\frac{v}{2} - t</m>. What does Theorem
+        10.3 tell us?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            The all-dove state is an equilibrium, but no solution with some
+            hawks approaches it.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Since <m>v \gt \frac{v}{2} - t</m>, the inactive strategy
+            <m>h</m> does better, so condition (2) fails. A few hawks invade,
+            and the population moves away. That's why <m>p_1 = 0</m> was
+            unstable on the phase line on the previous page.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>The all-dove state is not an equilibrium.</p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The all-dove state is a pure state, so it is an
+            equilibrium (Theorem 10.1(4)). Theorem 10.3 is about whether
+            solutions approach it.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            A population that starts with all doves will eventually have
+            some hawks.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. An inactive strategy never appears on its own (Theorem
+            10.1(1)), so an all-dove population stays all doves. Theorem 10.3
+            is about populations that already have a few hawks.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Theorem 10.4                                                 -->
+  <!-- ============================================================ -->
+
+
+  <p>And last, we have Theorem 10.4!</p>
+  <theorem xml:id="thm-10-4-restated">
+    <title>Theorem 10.4</title>
+    <statement>
+      <p>
+        Let <m>p^* \in \Sigma</m>. Suppose the corresponding population
+        state <m>\sigma^*</m> is evolutionarily stable. Then <m>p^*</m> is
+        an asymptotically stable equilibrium of the replicator system.
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    So <alert>every evolutionarily stable state is asymptotically
+    stable.</alert> Being evolutionarily stable (Chapter 8) is a
+    <em>static</em> condition: we look at a single, fixed state
+    <m>\sigma^*</m> and check that any small group of invaders does worse
+    than the rest of the population. Nothing changes over time. Being
+    asymptotically stable is a <em>dynamic</em> condition: it is about how
+    the population changes over time, returning to <m>\sigma^*</m> after
+    small deviations. Theorem 10.4 says the static condition guarantees the
+    dynamic one.
+  </p>
+  <p>
+    This theorem <alert>only goes in one direction</alert>. An
+    asymptotically stable equilibrium does not have to be an evolutionarily
+    stable state. For games with two pure strategies, though, the two ideas
+    match exactly in the four cases of Figure 10.3 (when <m>a \neq c</m> and
+    <m>b \neq d</m>), as we saw in
+    <xref ref="table-ch10-stable-vs-ess"/> on the previous page.
+  </p>
+
+  <exercise xml:id="check-thm-10-4-hawks-doves">
+    <statement>
+      <p>
+        In Hawks and Doves, the mixed state
+        <m>\sigma^* = p_1^* h + (1 - p_1^*)d</m> with
+        <m>p_1^* = \frac{v + 2t}{w + 2t}</m> is evolutionarily stable (case
+        (4) of Theorem 8.5). What does Theorem 10.4 tell us?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>p_1^*</m> is an asymptotically stable equilibrium of the
+            replicator system.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. This matches the phase line we found on the previous page,
+            where the arrows on both sides point toward <m>p_1^*</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>p_1^*</m> is the only equilibrium of the replicator system.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. <m>p_1 = 0</m> and <m>p_1 = 1</m> are also equilibria
+            (Theorem 10.1(4)). Theorem 10.4 is about stability, not about
+            how many equilibria there are.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>p_1^*</m> is an equilibrium, but we can't say anything about
+            its stability.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Since <m>\sigma^*</m> is evolutionarily stable,
+            Theorem 10.4 tells us that <m>p_1^*</m> is asymptotically
+            stable.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>p_1^*</m> is a Nash equilibrium, but it is unstable.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. It is a Nash equilibrium, but Theorem 10.4 says it is
+            asymptotically stable, since <m>\sigma^*</m> is evolutionarily
+            stable.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <!-- Wrap-up                                                      -->
+  <!-- ============================================================ -->
+
+  <p>
+    Let's finish by putting the theorems together.
+  </p>
+
+  <exercise xml:id="check-ch10-wrapup-stability">
+    <statement>
+      <p>
+        Which of the following statements are true? <alert>Select all that apply.</alert>
+      </p>
+    </statement>
+    <choices randomize="no" multiple-correct="yes">
+      <choice>
+        <statement>
+          <p>
+            If <m>\sigma</m> is an equilibrium of the replicator system, then
+            <m>(\sigma, \sigma)</m> is a Nash equilibrium.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            False. This is only guaranteed when every strategy is active.
+            Theorem 10.2 gives condition (1) of Theorem 5.2, but not
+            condition (2). For example, the all-dove state in Hawks and Doves
+            is an equilibrium, but it is not a Nash equilibrium, since a hawk
+            would do better.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            Every evolutionarily stable state is asymptotically stable.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            True. This is Theorem 10.4.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            If a population state is not evolutionarily stable, then it is
+            not asymptotically stable.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            False. This doesn't follow from Theorem 10.4. The contrapositive
+            of Theorem 10.4 is <q>if a state is not asymptotically stable,
+            then it is not evolutionarily stable,</q> which is a different
+            statement. For example, in the lizards game, <m>\sigma^*</m> is
+            not evolutionarily stable, and Theorem 10.4 tells us nothing
+            about its stability. (The analysis in Section 10.5 shows the
+            population cycles around it, but that comes from a separate
+            argument.)
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            For a game with two pure strategies (with <m>a \neq c</m> and
+            <m>b \neq d</m>), a population state is asymptotically stable
+            exactly when it is evolutionarily stable.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            True. This is what we saw on the previous page: in all four
+            cases, the stable equilibria are exactly the evolutionarily
+            stable states.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    Notice the difference between the first statement in this checkpoint and
+    <xref ref="check-thm-10-2-all-in-use"/>. In
+    <xref ref="check-thm-10-2-all-in-use"/>, every strategy was active, so
+    there was nothing to check in condition (2) of Theorem 5.2! Here,
+    <m>\sigma</m> could have inactive strategies.
+  </p>
+  <interactive xml:id="question-form-10-3" iframe="question-form.html?section=10.3" width="100%" aspect="2:1"/>
+</section>

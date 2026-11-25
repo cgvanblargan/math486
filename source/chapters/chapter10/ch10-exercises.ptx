@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 10 exercises.
+
+     One flat list, numbered in order. Which exercises get assigned
+     together lives in the course schedule, not here.
+
+     Adapted from the previous instructor's Lesson 13 written homework:
+     Exercise 1 = old Exercise 1, plus new part (d) on Theorems 10.1 and
+     10.2. Exercise 2 = old Problem 1 (same game), plus new parts (d) and
+     (e). Exercise 3 = old Exercise 2 (the a = c game from an earlier
+     homework), plus new parts (e) and (f). Exercise 4 replaces old
+     Problem 2 (Jacobian and eigenvalues): same F/S/P game, but only
+     uses Theorems 10.1-10.4, no multivariable analysis.
+
+     The old homework called the game in Exercises 1 and 2 a
+     "coordination game," but it is case (4) of Figure 10.3, so that
+     label was dropped.
+
+     Confidence checks: computational parts have a short <solution>
+     with the final answer only. Explanation parts have none.
+
+     Uses Sections 10.1-10.4 and 10.6 (Theorems 10.1-10.4), Theorem 8.5,
+     and the phase line from Chapter 9.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch10-exercises">
+  <title>Exercises</title>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-replicator-derive">
+    <title>Deriving the Replicator Equation</title>
+
+    <introduction>
+      <p>
+        Consider the following symmetric game:
+      </p>
+      <table xml:id="table-hw-replicator-ab">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>a</m></cell>
+            <cell>Player 2: <m>b</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>a</m></cell>
+            <cell><m>(0, 0)</m></cell>
+            <cell><m>(4, 1)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>b</m></cell>
+            <cell><m>(1, 4)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-replicator-derive-system">
+      <statement>
+        <p>
+          Let <m>\sigma = p_1 a + p_2 b</m> denote the population state.
+          Derive the replicator system for this game (a system of two
+          differential equations <m>\dot{p}_1 = g(p_1, p_2)</m> and
+          <m>\dot{p}_2 = h(p_1, p_2)</m>).
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dot{p}_1 = (4p_2 - 5p_1p_2)p_1</m> and
+          <m>\dot{p}_2 = (p_1 - 5p_1p_2)p_2</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-derive-reduce">
+      <statement>
+        <p>
+          Let <m>p_1 = p</m>, so that <m>p_2 = 1 - p</m>. Reduce the system
+          from part (a) to a single differential equation
+          <m>\dot{p} = f(p)</m>.
+        </p>
+      </statement>
+      <hint>
+        <p>
+          You should expect <m>f(p)</m> to have both <m>p</m> and
+          <m>1 - p</m> as factors.
+        </p>
+      </hint>
+      <solution>
+        <p>
+          <m>\dot{p} = p(1 - p)(4 - 5p)</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-derive-equilibria">
+      <statement>
+        <p>
+          Find the equilibria of <m>\dot{p} = f(p)</m> in <m>[0, 1]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p = 0</m>, <m>p = \frac{4}{5}</m>, and <m>p = 1</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-derive-theorems">
+      <statement>
+        <p>
+          Without using your formula for <m>f(p)</m>, explain why
+          <m>p = 0</m> and <m>p = 1</m> must be equilibria. Then use Theorem
+          10.2 to explain why the interior equilibrium is where both
+          strategies earn the same payoff, and check that this holds at your
+          answer from part (c).
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-replicator-phase-line">
+    <title>Phase Line and Stability</title>
+
+    <introduction>
+      <p>
+        This is a continuation of <xref ref="hw-replicator-derive"/>, with
+        the same game.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-replicator-phase-line-sketch">
+      <statement>
+        <p>
+          Using your results from <xref ref="hw-replicator-derive"/>, sketch
+          a graph of <m>f(p)</m> and use it to sketch the phase line on
+          <m>[0, 1]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{4/5}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>,
+          so <m>p = \frac{4}{5}</m> is stable and <m>p = 0</m> and
+          <m>p = 1</m> are unstable.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-phase-line-behavior">
+      <statement>
+        <p>
+          Summarize in words the behavior of a typical solution that does not
+          begin at an equilibrium. What happens to a solution that begins
+          with <m>p</m> near 0? What about one that begins with <m>p</m> near
+          1?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-phase-line-ess">
+      <statement>
+        <p>
+          Analyze the game using Theorem 8.5, and explain the connection
+          between the results of that analysis and part (b).
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-phase-line-start">
+      <statement>
+        <p>
+          Suppose the population starts exactly at the interior equilibrium.
+          What happens? What if it starts just below it?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-phase-line-intuition">
+      <statement>
+        <p>
+          In Microsoft vs. Apple, the mixed equilibrium was unstable, but
+          here it is stable. Explain in terms of the game itself, not the
+          math, why a population that is mostly <m>a</m>-players moves toward
+          more <m>b</m>-players.
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-replicator-outside-cases">
+    <title>A Game Outside the Four Cases</title>
+
+    <introduction>
+      <p>
+        Consider the following game from an earlier homework:
+      </p>
+      <table xml:id="table-hw-replicator-sh">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>s</m></cell>
+            <cell>Player 2: <m>h</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>s</m></cell>
+            <cell><m>(4, 4)</m></cell>
+            <cell><m>(0, 4)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>h</m></cell>
+            <cell><m>(4, 0)</m></cell>
+            <cell><m>(1, 1)</m></cell>
+          </row>
+        </tabular>
+      </table>
+    </introduction>
+
+    <task xml:id="hw-replicator-outside-cases-reduce">
+      <statement>
+        <p>
+          Derive the replicator system for this game and reduce it to a
+          single differential equation <m>\dot{p} = f(p)</m>, where
+          <m>p</m> is the share using <m>s</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\dot{p} = -p(1 - p)^2</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-equilibria">
+      <statement>
+        <p>
+          Find the equilibria of <m>\dot{p} = f(p)</m> in <m>[0, 1]</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>p = 0</m> and <m>p = 1</m>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-phase-line">
+      <statement>
+        <p>
+          Sketch a graph of <m>f(p)</m> and use it to draw the phase line.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          <m>\underset{0}{\bullet} \longleftarrow\!\!\longleftarrow\!\!\longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>,
+          so <m>p = 0</m> is stable and <m>p = 1</m> is unstable.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-interpret">
+      <statement>
+        <p>
+          Give a brief interpretation of your results from part (c).
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-ess">
+      <statement>
+        <p>
+          In an earlier homework, you found the evolutionarily stable states
+          of this game. Compare them with the stability of the equilibria
+          from part (c). Then explain why this game does not fit any of the
+          four cases in Figure 10.3.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-thm-10-3">
+      <statement>
+        <p>
+          Consider the all-<m>s</m> state. Does Theorem 10.3 apply to it? Is
+          the all-<m>s</m> state stable? What does this tell you about what
+          Theorem 10.3 can and can't tell you?
+        </p>
+      </statement>
+    </task>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-replicator-theorems-fsp">
+    <title>Using the Theorems with Three Strategies</title>
+
+    <introduction>
+      <p>
+        In an earlier homework, we considered a Prisoner's Dilemma repeated
+        for two stages, with three strategies:
+        <ul>
+          <li>
+            <p>
+              Always cooperate (<m>F</m>)
+            </p>
+          </li>
+          <li>
+            <p>
+              Always defect (<m>S</m>)
+            </p>
+          </li>
+          <li>
+            <p>
+              Tit-for-tat (<m>P</m>): choose <m>C</m> in stage 1. In stage 2,
+              copy the other player's move from stage 1.
+            </p>
+          </li>
+        </ul>
+        This led to the following game:
+      </p>
+      <table xml:id="table-hw-replicator-fsp">
+        <title>The game</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>F</m></cell>
+            <cell>Player 2: <m>S</m></cell>
+            <cell>Player 2: <m>P</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>F</m></cell>
+            <cell><m>(6, 6)</m></cell>
+            <cell><m>(-2, 10)</m></cell>
+            <cell><m>(6, 6)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>S</m></cell>
+            <cell><m>(10, -2)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+            <cell><m>(5, -1)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>P</m></cell>
+            <cell><m>(6, 6)</m></cell>
+            <cell><m>(-1, 5)</m></cell>
+            <cell><m>(6, 6)</m></cell>
+          </row>
+        </tabular>
+      </table>
+      <p>
+        With three strategies, the replicator system has two variables, so
+        we won't analyze it directly. Instead, answer each part using
+        Theorems 10.1 through 10.4.
+      </p>
+    </introduction>
+
+    <task xml:id="hw-replicator-theorems-fsp-equilibria">
+      <statement>
+        <p>
+          Use Theorem 10.1 to name three equilibria of the replicator system
+          without any computation.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          The pure states: all-<m>F</m>, all-<m>S</m>, and all-<m>P</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-theorems-fsp-all-f">
+      <statement>
+        <p>
+          Consider the all-<m>F</m> state, where everyone always cooperates.
+          Is <m>(F, F)</m> a Nash equilibrium? Use this to explain why an
+          equilibrium of the replicator system does not have to be a Nash
+          equilibrium.
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-theorems-fsp-invade">
+      <statement>
+        <p>
+          What does Theorem 10.3 tell you about populations near the
+          all-<m>F</m> state that contain some <m>S</m>-players? What happens
+          if the population starts at all-<m>F</m> with no <m>S</m>-players at
+          all?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-theorems-fsp-all-s">
+      <statement>
+        <p>
+          Show that the all-<m>S</m> state is evolutionarily stable. What does
+          Theorem 10.4 tell you about it?
+        </p>
+      </statement>
+    </task>
+
+    <task xml:id="hw-replicator-theorems-fsp-all-p">
+      <statement>
+        <p>
+          Show that <m>(P, P)</m> is a Nash equilibrium but that the
+          all-<m>P</m> state is not evolutionarily stable. A classmate says,
+          <q>Since the all-<m>P</m> state isn't evolutionarily stable,
+          Theorem 10.4 shows that it is unstable.</q> Explain the error.
+        </p>
+      </statement>
+    </task>
+
+    <conclusion>
+      <p>
+        <em>Remark:</em> For a complete analysis of this game with slightly
+        different payoffs, see Section 10.7 of the book.
+      </p>
+    </conclusion>
+  </exercise>
+</exercises>

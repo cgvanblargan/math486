@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch10-page1-replicator-system" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>The Replicator System</title>
+
+  <p>
+    In this chapter, we continue to study evolutionary games, so we are
+    dealing with a large population whose members play a symmetric two-player game against each other over and
+    over. In Chapter 8, the population state <m>\sigma</m> was fixed, and we
+    asked whether it was evolutionarily stable, that is, whether it could
+    hold off a small group of invaders.
+  </p>
+  <p>
+    In this chapter, we model the population state as changing continuously
+    over time. We will write the population state as a function of time:
+    <me>
+      \sigma(t) = p_1(t)s_1 + p_2(t)s_2 + \cdots + p_n(t)s_n,
+    </me>
+    where <m>p_i(t)</m> is the fraction of the population using strategy
+    <m>s_i</m> at time <m>t</m>. The state at the start is
+    <m>\sigma(0)</m>.
+  </p>
+  <p>
+    This makes differential equations a natural model, and we can use the
+    ideas from Chapter 9 to analyze their solutions and equilibria. If a
+    strategy does well, you'd expect the portion of the population using it
+    to increase with time. On the other hand, a strategy that doesn't do
+    well should die out! We will look for asymptotically stable equilibria
+    that the population state approaches.
+  </p>
+
+  <!-- ============================================================ -->
+  <!-- Reading 1: Section 10.1                                      -->
+  <!-- ============================================================ -->
+
+  <assemblage xml:id="read-10-1">
+    <title>Section 10.1, Replicator System</title>
+    <p>
+      <alert>Read Section 10.1.</alert> 
+    </p>
+    <p>
+      In the reading, the following important ideas are introduced:
+      <ul>
+        <li>
+          <p>
+            The <term>replicator system</term> (10.1) is the system of
+            differential equations that models how the population state
+            changes:
+            <me>
+              \dot{p}_i = \bigl(\pi_1(s_i, \sigma) - \pi_1(\sigma, \sigma)\bigr)p_i,
+              \qquad i = 1, \ldots, n.
+            </me>
+          </p>
+        </li>
+        <li>
+          <p>
+            Theorem 10.1 lists some basic properties of the replicator
+            system, about which sets of population states solutions stay in
+            (<term>invariance</term>) and which states are always
+            equilibria.
+          </p>
+        </li>
+      </ul>
+      Reading the proof of Theorem 10.1
+      will help you get acquainted with the concepts and notation, but it is
+      not strictly required to get through the material.
+    </p>
+  </assemblage>
+
+  <p>
+    Let's write down the important ideas from the reading for reference.
+    We will use all of them throughout this chapter.
+  </p>
+
+  <paragraphs xml:id="para-ch10-replicator-equation">
+    <title>The replicator system</title>
+    <p>
+      Here is the replicator system again, with the different parts labeled. (Note that in the replicator system,
+      <m>\sigma</m>, <m>p_i</m>, and <m>\dot{p}_i</m> are all functions of
+      time.)
+      <me>
+        \underbrace{\dot{p}_i}_{\substack{\text{rate of change of}\\ \text{the share using } s_i}}
+        \;=\;
+        \underbrace{\bigl(\pi_1(s_i, \sigma) - \pi_1(\sigma, \sigma)\bigr)}_{\substack{\text{how much better } s_i \text{ does}\\ \text{than the population average}}}
+        \;
+        \underbrace{p_i}_{\substack{\text{current share}\\ \text{using } s_i}}
+      </me>
+    </p>
+    <p>
+      Recall that <m>\pi_1(s_i, \sigma)</m> is the expected payoff to an
+      individual using <m>s_i</m> against a random member of the population,
+      and <m>\pi_1(\sigma, \sigma)</m> is the average payoff in the
+      population. Both are computed using the <em>current</em> state
+      <m>\sigma = \sigma(t)</m>, so as the population changes, the payoffs
+      change too. 
+    </p>
+  </paragraphs>
+
+  <exercise xml:id="check-replicator-signs">
+    <statement>
+      <p>
+        Using the labeled replicator system, which of the following
+        statements are true? <alert>Select all that apply.</alert>
+      </p>
+    </statement>
+    <choices randomize="no" multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p>
+            If <m>s_i</m> does better than average, <m>p_i</m> increases.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            True. The payoff advantage is positive and <m>p_i \gt 0</m>, so
+            <m>\dot{p}_i \gt 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            If <m>s_i</m> does worse than average, <m>p_i</m> increases.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            False. The payoff advantage is negative, so
+            <m>\dot{p}_i \lt 0</m> and <m>p_i</m> decreases.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p>
+            If <m>s_i</m> does exactly as well as average, or nobody uses it,
+            <m>p_i</m> stays constant.
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            True. In the first case the payoff advantage is 0, and in the
+            second case <m>p_i = 0</m>. Either way, <m>\dot{p}_i = 0</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    The book gives two ways to interpret this. In biology, strategies with
+    higher payoffs have more offspring. In social situations, people see
+    which strategies are succeeding and copy them.
+  </p>
+
+  <paragraphs xml:id="para-ch10-simplex">
+    <title>The simplex and its strata</title>
+    <p>
+      The replicator system only makes sense for population states, where
+      every share is nonnegative and the shares add up to 1. This set is
+      called the <term>simplex</term>:
+      <me>
+        \Sigma = \Bigl\{(p_1, \ldots, p_n) : \text{all } p_i \geq 0 \text{ and } \sum p_i = 1\Bigr\}.
+      </me>
+    </p>
+    <p>
+      The simplex is split into pieces called <term>strata</term> based on
+      which strategies are actually in use. For a nonempty set
+      <m>I \subseteq \{1, \ldots, n\}</m>, the stratum <m>\Sigma_I</m>
+      contains the states where exactly the strategies with
+      <m>i \in I</m> are used:
+      <me>
+        \Sigma_I = \Bigl\{(p_1, \ldots, p_n) : p_i \gt 0 \text{ if } i \in I,\ p_i = 0 \text{ if } i \notin I, \text{ and } \sum p_i = 1\Bigr\}.
+      </me>
+    </p>
+    <p>
+      Figure 10.1 gives a good visualization of the different strata for
+      <m>n = 3</m>.
+    </p>
+    
+  </paragraphs>
+  <p>
+    Last, we restate Theorem 10.1 for reference, and then we'll see a quick
+    interpretation of each part!
+  </p>
+  <theorem xml:id="thm-10-1-restated">
+    <title>Theorem 10.1</title>
+    <statement>
+      <p>
+        The replicator system has the following properties:
+        <ol marker="(1)">
+          <li>
+            <p>
+              If <m>p_i = 0</m>, then <m>\dot{p}_i = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Let <m>S(p_1, \ldots, p_n) = \sum p_i</m>. If <m>S = 1</m>,
+              then <m>\dot{S} = 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              Each stratum <m>\Sigma_I</m> is invariant.
+            </p>
+          </li>
+          <li>
+            <p>
+              Each stratum <m>\Sigma_{\{i\}}</m> is an equilibrium.
+            </p>
+          </li>
+        </ol>
+      </p>
+    </statement>
+  </theorem>
+
+  <p>
+    Here are ways to think about each part of the theorem:
+    <ul>
+      <li>
+        <p>
+          <alert>(1)</alert> An inactive strategy stays inactive. The model
+          has no mutation, so a new strategy can never appear on its own.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>(2)</alert> The fractions of the population using each
+          strategy always add up to 1. It's good that this is true!
+          Otherwise, <m>\sigma(t)</m> would stop being a legitimate
+          population state.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>(3)</alert> A solution never leaves the stratum it starts
+          in. In particular, an active strategy never dies out completely in
+          finite time. Its share can <em>approach</em> 0 as
+          <m>t \to \infty</m>, but it never reaches 0.
+        </p>
+      </li>
+      <li>
+        <p>
+          <alert>(4)</alert> Note that <m>\Sigma_{\{i\}}</m> consists of just
+          the pure state <m>s_i</m>. So this says every pure state, where the
+          whole population uses one strategy, is an equilibrium. That is,
+          if the initial population state uses only this pure strategy, it
+          stays that way for all time! However, <alert>an equilibrium does
+          not have to be stable</alert>: nearby solutions could move away
+          from it. Deciding which equilibria are stable is a big part of
+          this chapter.
+        </p>
+      </li>
+    </ul>
+  </p>
+
+  <paragraphs xml:id="para-ch10-reduction">
+    <title>Reducing the number of equations</title>
+    <p>
+      The end of Section 10.1 points out that we don't need all
+      <m>n</m> equations. Since the shares add up to 1, we can use
+      <m>p_n = 1 - p_1 - \cdots - p_{n-1}</m> and keep only the first
+      <m>n - 1</m> equations. We will see this in the Microsoft vs. Apple
+      example coming up!
+    </p>
+  
+  </paragraphs>
+
+  <!-- ============================================================ -->
+  <!-- Example: Microsoft vs. Apple                                 -->
+  <!-- ============================================================ -->
+  <p>
+    In Section 10.2, the book discusses an example: Microsoft vs. Apple. I
+    have broken down the math in the following example block, with some
+    dropdown solutions and checkpoint questions. You can read it in the book
+    first if you like, but this breaks down the different steps, and some
+    parts will have you thinking more actively about the example!
+  </p>
+  <example xml:id="eg-microsoft-apple">
+    <title>Microsoft vs. Apple</title>
+    <introduction>
+      <p>
+       In the early days of personal computers, you could buy a
+        computer running Microsoft Windows or one running Apple's operating
+        system. Apple's was better, but neither handled files from the other
+        well, so if you and your coworker used different systems, not much
+        got done. The strategies are buy Microsoft (<m>m</m>) or buy Apple
+        (<m>a</m>):
+      </p>
+
+      <table xml:id="table-ch10-microsoft-apple">
+        <title>Microsoft vs. Apple</title>
+        <tabular row-headers="yes" halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell>
+            <cell>Player 2: <m>m</m></cell>
+            <cell>Player 2: <m>a</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>m</m></cell>
+            <cell><m>(1, 1)</m></cell>
+            <cell><m>(0, 0)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>a</m></cell>
+            <cell><m>(0, 0)</m></cell>
+            <cell><m>(2, 2)</m></cell>
+          </row>
+        </tabular>
+      </table>
+
+      <p>
+        This is case (3) of Theorem 8.5 (a game like Stag Hunt). As the book
+        lists, there are three Nash equilibria:
+        <ul>
+          <li>
+            <p>
+              <m>(m, m)</m> and <m>(a, a)</m>, which are strict, so the
+              population states <m>m</m> and <m>a</m> are evolutionarily
+              stable;
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>(\sigma^*, \sigma^*)</m> with
+              <m>\sigma^* = \frac{2}{3}m + \frac{1}{3}a</m>, which is not
+              evolutionarily stable.
+            </p>
+          </li>
+        </ul>
+        Now let's see what the replicator system says. Write the population
+        state as <m>\sigma = p_1 m + p_2 a</m>, so <m>p_1</m> is the share
+        using Microsoft and <m>p_2</m> is the share using Apple.
+      </p>
+    </introduction>
+
+    <task xml:id="eg-ms-apple-payoffs">
+      <title>The payoffs</title>
+      <statement>
+        <p>
+          Find <m>\pi_1(m, \sigma)</m>, <m>\pi_1(a, \sigma)</m>, and
+          <m>\pi_1(\sigma, \sigma)</m> in terms of <m>p_1</m> and
+          <m>p_2</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          A Microsoft user gets 1 against another Microsoft user and 0
+          against an Apple user, so
+          <me>
+            \pi_1(m, \sigma) = p_1 \cdot 1 + p_2 \cdot 0 = p_1.
+          </me>
+          An Apple user gets 0 against a Microsoft user and 2 against
+          another Apple user, so
+          <me>
+            \pi_1(a, \sigma) = p_1 \cdot 0 + p_2 \cdot 2 = 2p_2.
+          </me>
+          The average payoff weights each strategy's payoff by its share:
+          <me>
+            \pi_1(\sigma, \sigma) = p_1 \pi_1(m, \sigma) + p_2 \pi_1(a, \sigma) = p_1^2 + 2p_2^2.
+          </me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="eg-ms-apple-p1dot">
+      <title>The equation for <m>\dot{p}_1</m></title>
+      <statement>
+        <p>
+          Write the replicator equation for <m>\dot{p}_1</m>.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Plug the payoffs into
+          <m>\dot{p}_1 = \bigl(\pi_1(m, \sigma) - \pi_1(\sigma, \sigma)\bigr)p_1</m>:
+          <me>
+            \dot{p}_1 = \bigl(p_1 - (p_1^2 + 2p_2^2)\bigr)p_1.
+          </me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="check-ms-apple-p2dot">
+      <title>The equation for <m>\dot{p}_2</m></title>
+      <statement>
+        <p>
+          Now try it yourself! Which of the following is the replicator
+          equation for <m>\dot{p}_2</m>?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p><m>\dot{p}_2 = \bigl(2p_2 - (p_1^2 + 2p_2^2)\bigr)p_2</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Right. This is
+              <m>\bigl(\pi_1(a, \sigma) - \pi_1(\sigma, \sigma)\bigr)p_2</m>,
+              with <m>\pi_1(a, \sigma) = 2p_2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\dot{p}_2 = 2p_2 - (p_1^2 + 2p_2^2)</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. This is the payoff advantage of <m>a</m>, but the
+              replicator equation multiplies it by the current share
+              <m>p_2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\dot{p}_2 = \bigl(p_1 - (p_1^2 + 2p_2^2)\bigr)p_2</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. This uses <m>\pi_1(m, \sigma) = p_1</m>, the payoff
+              to a Microsoft user. For <m>\dot{p}_2</m>, we need the payoff
+              to an Apple user, <m>\pi_1(a, \sigma) = 2p_2</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>\dot{p}_2 = \bigl((p_1^2 + 2p_2^2) - 2p_2\bigr)p_2</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. The subtraction is backward: this would make Apple
+              shrink when it does better than average. The replicator
+              equation uses the strategy's payoff <em>minus</em> the
+              average.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="eg-ms-apple-reduce">
+      <title>Reducing to one variable</title>
+      <statement>
+        <p>
+          As we noted after Theorem 10.1, we only need one of these
+          equations: since <m>p_2 = 1 - p_1</m>, knowing <m>p_1(t)</m> tells
+          us <m>p_2(t)</m> too. Substitute <m>p_2 = 1 - p_1</m> into the
+          equation for <m>\dot{p}_1</m> and factor it.
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Start with the equation for <m>\dot{p}_1</m> and substitute
+          <m>p_2 = 1 - p_1</m>:
+          <me>
+            \dot{p}_1 = \bigl(p_1 - p_1^2 - 2p_2^2\bigr)p_1
+            = \bigl(p_1 - p_1^2 - 2\underbrace{(1 - p_1)^2}_{p_2 = 1 - p_1}\bigr)p_1.
+          </me>
+          We know in advance that <m>1 - p_1</m> must be a factor, since
+          <m>p_1 = 1</m> is an equilibrium. To pull it out, notice that
+          <m>p_1 - p_1^2 = (1 - p_1)p_1</m>:
+          <md>
+            <mrow>\dot{p}_1 \amp = \bigl((1 - p_1)p_1 - 2(1 - p_1)^2\bigr)p_1</mrow>
+            <mrow>\amp = (1 - p_1)\bigl(p_1 - 2(1 - p_1)\bigr)p_1</mrow>
+            <mrow>\amp = p_1(1 - p_1)(3p_1 - 2).</mrow>
+          </md>
+          So the whole replicator system comes down to one autonomous
+          differential equation,
+          <me>
+            \dot{p}_1 = p_1(1 - p_1)(3p_1 - 2).
+          </me>
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="check-ms-apple-equilibria">
+      <title>The equilibria</title>
+      <statement>
+        <p>
+          Now let's find all the equilibria and draw the whole phase line.
+        </p>
+        <p>
+          Which values of <m>p_1</m> in <m>[0, 1]</m> are equilibria of
+          <m>\dot{p}_1 = p_1(1 - p_1)(3p_1 - 2)</m>?
+          <alert>Select all that apply.</alert>
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement>
+            <p><m>p_1 = 0</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Yes. This is the factor <m>p_1</m>, and it is the pure state
+              where everyone uses Apple, which Theorem 10.1(4) says is
+              always an equilibrium.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>p_1 = \frac{1}{3}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              No. At <m>p_1 = \frac{1}{3}</m>, the factor
+              <m>3p_1 - 2 = -1</m>, so <m>\dot{p}_1 \neq 0</m>. (The
+              equilibrium <m>\sigma^*</m> has <m>p_2 = \frac{1}{3}</m>, not
+              <m>p_1</m>.)
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>p_1 = \frac{1}{2}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              No. At <m>p_1 = \frac{1}{2}</m>, the factor
+              <m>3p_1 - 2 = -\frac{1}{2}</m>, so <m>\dot{p}_1 \neq 0</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>p_1 = \frac{2}{3}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Yes. This is where <m>3p_1 - 2 = 0</m>. It is also where both
+              strategies earn the same payoff:
+              <m>\pi_1(m, \sigma) = p_1 = \frac{2}{3}</m> and
+              <m>\pi_1(a, \sigma) = 2p_2 = \frac{2}{3}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>p_1 = 1</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Yes. This is the factor <m>1 - p_1</m>, and it is the pure
+              state where everyone uses Microsoft.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <task xml:id="check-ms-apple-phase-line">
+      <title>The phase line</title>
+      <statement>
+        <p>
+          Which is the phase line for
+          <m>\dot{p}_1 = p_1(1 - p_1)(3p_1 - 2)</m> on <m>[0, 1]</m>?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice correct="yes">
+          <statement>
+            <p>
+              <m>\underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{2/3}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Right. For <m>0 \lt p_1 \lt \frac{2}{3}</m>, the factors
+              <m>p_1</m> and <m>1 - p_1</m> are positive and
+              <m>3p_1 - 2</m> is negative, so <m>\dot{p}_1 \lt 0</m> and the
+              arrows point left. For <m>\frac{2}{3} \lt p_1 \lt 1</m>, all
+              three factors are positive, so the arrows point right.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{2/3}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. The arrows are backward. For
+              <m>0 \lt p_1 \lt \frac{2}{3}</m>, the factor <m>3p_1 - 2</m>
+              is negative, so <m>\dot{p}_1 \lt 0</m> and the arrows point
+              left.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{2/3}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. The sign of <m>\dot{p}_1</m> changes at
+              <m>\frac{2}{3}</m>, because the factor <m>3p_1 - 2</m> changes
+              sign there: it is negative below <m>\frac{2}{3}</m>.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>
+              <m>\underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{2/3}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet}</m>
+            </p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. The sign of <m>\dot{p}_1</m> changes at
+              <m>\frac{2}{3}</m>, because the factor <m>3p_1 - 2</m> changes
+              sign there: it is positive above <m>\frac{2}{3}</m>.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </task>
+
+    <conclusion>
+      <p>
+        From the phase line, we can read off the stability of each
+        equilibrium:
+        <ul>
+          <li>
+            <p>
+              <m>p_1 = 0</m> (everyone uses Apple) is stable.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>p_1 = 1</m> (everyone uses Microsoft) is
+              stable.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>p_1 = \frac{2}{3}</m> is unstable. It is a
+              tipping point between the other two.
+            </p>
+          </li>
+        </ul>
+      </p>
+      <p>
+        You will be asked to interpret the equilibria and their stability in
+        the checkpoints after the reading!
+      </p>
+      <p>
+        Compare this with the game analysis at the start of the example. The
+        three equilibria of the replicator system match the three symmetric
+        Nash equilibria exactly: <m>p_1 = 1</m> is <m>(m, m)</m>,
+        <m>p_1 = 0</m> is <m>(a, a)</m>, and <m>p_1 = \frac{2}{3}</m> is
+        <m>(\sigma^*, \sigma^*)</m>. Even better, <alert>the stable equilibria
+        are exactly the evolutionarily stable states</alert> <m>m</m> and
+        <m>a</m>, and the unstable one is <m>\sigma^*</m>, which is not
+        evolutionarily stable. We will see later that this is
+        not a coincidence!
+      </p>
+    </conclusion>
+  </example>
+
+    <!-- ============================================================ -->
+    <!-- Reading 2: Section 10.2                                      -->
+    <!-- ============================================================ -->
+
+    <assemblage xml:id="read-10-2">
+      <title>Section 10.2, Microsoft vs. Apple</title>
+      <p>
+        <alert>Read Section 10.2.</alert>
+      </p>
+      <p>
+        We already did the math in the example above, so you can skim over the
+        computations. Read it for the full context: the book's discussion of
+        the game, Figure 10.2, and why the worse computer can still take
+        over.
+      </p>
+    </assemblage>
+    <p>
+      Now let's make sure you can correctly interpret the equilibria and
+      their stability!
+    </p>
+    <exercise xml:id="check-ms-apple-initial-share">
+      <statement>
+        <p>
+          For which initial Microsoft shares <m>p_1(0)</m> does the
+          population eventually end up with everyone using Microsoft?
+        </p>
+      </statement>
+      <choices randomize="no">
+        <choice>
+          <statement>
+            <p><m>p_1(0) \gt \frac{1}{2}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. A Microsoft majority is not enough. For every
+              <m>p_1</m> between <m>0</m> and <m>\frac{2}{3}</m>, the
+              Microsoft share shrinks.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>p_1(0) \geq \frac{2}{3}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Close, but check the endpoint. If <m>p_1(0) = \frac{2}{3}</m>,
+              the population starts at an equilibrium, so it stays at
+              <m>\frac{2}{3}</m> forever.
+            </p>
+          </feedback>
+        </choice>
+        <choice correct="yes">
+          <statement>
+            <p><m>p_1(0) \gt \frac{2}{3}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Right. This is the basin of attraction of <m>p_1 = 1</m>. Any
+              population that starts with more than <m>\frac{2}{3}</m> using
+              Microsoft ends up all Microsoft, even though everyone would be
+              better off with Apple. Similarly, <m>[0, \frac{2}{3})</m> is the
+              basin of attraction of <m>p_1 = 0</m>: starting with fewer than
+              <m>\frac{2}{3}</m> using Microsoft, everyone ends up with
+              Apple.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p><m>p_1(0) \gt \frac{1}{3}</m></p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. The tipping point is at <m>p_1 = \frac{2}{3}</m>,
+              not <m>\frac{1}{3}</m>. (It is <m>p_2</m> that equals
+              <m>\frac{1}{3}</m> there.)
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <exercise xml:id="check-ms-apple-start-at-sigma-star">
+      <statement>
+        <p>
+          Suppose the population starts at
+          <m>\sigma(0) = \frac{2}{3}m + \frac{1}{3}a</m>, so
+          <m>p_1(0) = \frac{2}{3}</m>. How does the population evolve over
+          time?
+        </p>
+      </statement>
+      <choices randomize="yes">
+        <choice correct="yes">
+          <statement>
+            <p>It stays at <m>p_1 = \frac{2}{3}</m> forever.</p>
+          </statement>
+          <feedback>
+            <p>
+              Right. <m>p_1 = \frac{2}{3}</m> is an equilibrium, so
+              <m>\dot{p}_1 = 0</m> there and the population never moves. It
+              is unstable, but that only matters if the population starts
+              <em>near</em> <m>\frac{2}{3}</m> rather than exactly at it.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It moves toward everyone using Microsoft.</p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. That happens if the population starts
+              <em>above</em> <m>\frac{2}{3}</m>. Starting exactly at the
+              equilibrium, <m>\dot{p}_1 = 0</m>, so nothing changes.
+            </p>
+          </feedback>
+        </choice>
+        <choice>
+          <statement>
+            <p>It moves toward everyone using Apple.</p>
+          </statement>
+          <feedback>
+            <p>
+              Not quite. That happens if the population starts
+              <em>below</em> <m>\frac{2}{3}</m>. Starting exactly at the
+              equilibrium, <m>\dot{p}_1 = 0</m>, so nothing changes.
+            </p>
+          </feedback>
+        </choice>
+      </choices>
+    </exercise>
+
+    <remark xml:id="remark-ms-apple-mystery">
+      <p>
+        The book calls the mixed Nash equilibrium
+        <m>\sigma^* = \frac{2}{3}m + \frac{1}{3}a</m> a <q>mystery</q>: why
+        would anyone choose the worse computer with higher probability? Because
+        <m>\sigma^*</m> is unstable, it is not a state the population is
+        likely to settle into. It is better thought of as the
+        tipping point between the two basins of attraction.
+        Since Apple users get twice the payoff when they match, Microsoft
+        needs more than <m>\frac{2}{3}</m> of the population before it does
+        better than Apple. Any small deviation from <m>\sigma^*</m> sends
+        the population all the way to everyone using Microsoft or everyone
+        using Apple.
+      </p>
+    </remark>
+
+  <interactive xml:id="question-form-10-1" iframe="question-form.html?section=10.1" width="100%" aspect="2:1"/>
+</section>

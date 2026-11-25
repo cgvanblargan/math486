@@ -4,19 +4,13 @@
 <chapter xml:id="ch-evolutionary-dynamics" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Evolutionary Dynamics</title>
 
-  <introduction>
-    <p>
-      Content for this chapter has not been written yet.
-    </p>
-  </introduction>
 
-  <section xml:id="ch-evolutionary-dynamics-placeholder">
-    <title>Placeholder</title>
-    <p>
-      <alert>Placeholder.</alert> This chapter has no sections yet. Add
-      real sections/pages to this chapter in tools/book_structure.yaml and
-      rerun tools/build_structure.py.
-    </p>
-  </section>
+<xi:include href="./page1-replicator-system.ptx" />
+
+<xi:include href="./page2-dynamics-two-strategies.ptx" />
+<xi:include href="./page3-equilibria-replicator.ptx" />
+<xi:include href="./ch10-exercises.ptx" />
+<xi:include href="./ch10-answers.ptx"/>
+
 
 </chapter>
