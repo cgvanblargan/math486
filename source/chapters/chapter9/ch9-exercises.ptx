@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- Chapter 9 exercises.
+
+     One flat list, numbered in order. Two quick phase-line warm-ups
+     before Chapter 10: Exercise 1 has one stable and one unstable
+     equilibrium, Exercise 2 has a semistable equilibrium.
+
+     Both have full inline solutions, on purpose, so students can check
+     that they are confident with phase lines before Chapter 10. No
+     separate answers page for this chapter.
+
+     Add more by appending another <exercise> below; numbering of the
+     existing ones will not shift. -->
+
+<exercises xml:id="ch9-exercises">
+  <title>Exercises</title>
+
+  <introduction>
+    <p>
+      These two exercises are quick practice with phase lines. Solutions are
+      given for both, so you can check that you're confident with this
+      material before we use it in Chapter 10.
+    </p>
+  </introduction>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ode-stable-unstable">
+    <title>A Stable and an Unstable Equilibrium</title>
+    <statement>
+      <p>
+        Consider the differential equation
+        <me>
+          \frac{dp}{dt} = p^2 - p - 6.
+        </me>
+        Find the equilibria by solving <m>f(p) = 0</m>, draw the phase line,
+        and classify each equilibrium as stable, unstable, or semistable.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Factor <m>f(p)</m> first.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>f(p) = (p - 3)(p + 2)</m>, so the equilibria are <m>p = -2</m> and
+        <m>p = 3</m>. The phase line is
+        <me>
+          \longrightarrow \underset{-2}{\bullet} \longleftarrow\!\!\longleftarrow \underset{3}{\bullet} \longrightarrow
+        </me>
+        so <m>p = -2</m> is stable and <m>p = 3</m> is unstable.
+      </p>
+    </solution>
+  </exercise>
+
+  <!-- ============================================================ -->
+  <exercise xml:id="hw-ode-semistable">
+    <title>A Semistable Equilibrium</title>
+    <statement>
+      <p>
+        Consider the differential equation
+        <me>
+          \frac{dp}{dt} = p^2 + 8p + 16.
+        </me>
+        Find the equilibria by solving <m>f(p) = 0</m>, draw the phase line,
+        and classify each equilibrium as stable, unstable, or semistable.
+      </p>
+    </statement>
+    <hint>
+      <p>
+        Factor <m>f(p)</m> first.
+      </p>
+    </hint>
+    <solution>
+      <p>
+        <m>f(p) = (p + 4)^2</m>, so the only equilibrium is <m>p = -4</m>.
+        Since <m>(p + 4)^2 \gt 0</m> on both sides of <m>-4</m>, the phase
+        line is
+        <me>
+          \longrightarrow \underset{-4}{\bullet} \longrightarrow
+        </me>
+        so <m>p = -4</m> is semistable.
+      </p>
+    </solution>
+  </exercise>
+</exercises>

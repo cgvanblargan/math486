@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch9-page2-stability" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Stability and the Phase Line</title>
+
+  <p>
+    On the previous page, we found the equilibria of an autonomous
+    differential equation <m>\frac{dp}{dt} = f(p)</m>. As we mentioned, we
+    can study the behavior of solutions without actually finding the general
+    solution. On this page, we look at solutions that start near an
+    equilibrium and determine whether they move toward it or away from it.
+    This ultimately lets us understand the long-term behavior of solutions.
+  </p>
+
+  <paragraphs xml:id="para-ode-unstable-example">
+    <title>An unstable equilibrium</title>
+    <p>
+      Recall that <m>\frac{dp}{dt} = p</m> has general solution
+      <m>p(t) = Ce^t</m>, and its only equilibrium is <m>p = 0</m>. Here are
+      several solutions again, with the equilibrium highlighted:
+    </p>
+  </paragraphs>
+
+  <figure xml:id="fig-ode-unstable">
+    <caption>
+      Solutions of <m>\frac{dp}{dt} = p</m>. Solutions that start near the
+      equilibrium <m>p = 0</m> move away from it.
+    </caption>
+    <image width="65%">
+      <shortdescription>Solutions of dp/dt = p moving away from the equilibrium p = 0</shortdescription>
+      <description>
+        <p>
+          The equilibrium <m>p = 0</m> is drawn as a highlighted horizontal line.
+          Solutions starting at <m>p(0) = 2</m>, <m>1</m>, and
+          <m>\frac{1}{2}</m> increase away from it, and solutions starting at
+          <m>-\frac{1}{2}</m>, <m>-1</m>, and <m>-2</m> decrease away from it.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}
+        \begin{axis}[
+          axis lines=middle, xlabel={$t$}, ylabel={$p$},
+          xmin=-0.05, xmax=1.6, ymin=-5.5, ymax=5.5,
+          ytick={-2,-1,1,2}, xtick=\empty, samples=60, clip=false,
+          every axis plot/.append style={thick},
+          xlabel style={anchor=north east}, ylabel style={anchor=south},
+          width=8cm, height=6.5cm,
+        ]
+        \addplot[blue, domain=0:1.0116] {2*exp(x)};
+        \addplot[blue!65, domain=0:1.6000] {1*exp(x)};
+        \addplot[blue!40, domain=0:1.6000] {0.5*exp(x)};
+        \addplot[red!40, domain=0:1.6000] {-0.5*exp(x)};
+        \addplot[red!65, domain=0:1.6000] {-1*exp(x)};
+        \addplot[red, domain=0:1.0116] {-2*exp(x)};
+        \addplot[orange!90!black, line width=2pt, domain=0:1.6] {0};
+        \node[anchor=west, text=orange!90!black, font=\small, align=left] at (axis cs:1.6,0) {equilibrium\\$p = 0$};
+        \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    A solution that starts slightly above 0 grows, and a solution that starts
+    slightly below 0 decreases. Either way, it moves away from the
+    equilibrium, no matter how close to 0 it starts. We call the equilibrium
+    <m>p = 0</m> <term>unstable</term>.
+  </p>
+
+  <paragraphs xml:id="para-ode-stable-example">
+    <title>A stable equilibrium</title>
+    <p>
+      Now consider <m>\frac{dp}{dt} = -p</m>. A quick check shows that
+      <m>p(t) = Ce^{-t}</m> is the general solution, since
+      <m>\frac{d}{dt}\left(Ce^{-t}\right) = -Ce^{-t}</m>. Again, the only
+      equilibrium is <m>p = 0</m>.
+    </p>
+  </paragraphs>
+
+  <figure xml:id="fig-ode-stable">
+    <caption>
+      Solutions of <m>\frac{dp}{dt} = -p</m>. Solutions approach the
+      equilibrium <m>p = 0</m>.
+    </caption>
+    <image width="65%">
+      <shortdescription>Solutions of dp/dt = -p approaching the equilibrium p = 0</shortdescription>
+      <description>
+        <p>
+          The equilibrium <m>p = 0</m> is drawn as a highlighted horizontal line.
+          Solutions starting at <m>p(0) = 2</m>, <m>1</m>, and
+          <m>\frac{1}{2}</m> decrease toward it, and solutions starting at
+          <m>-\frac{1}{2}</m>, <m>-1</m>, and <m>-2</m> increase toward it.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}
+        \begin{axis}[
+          axis lines=middle, xlabel={$t$}, ylabel={$p$},
+          xmin=-0.05, xmax=3, ymin=-2.5, ymax=2.5,
+          ytick={-2,-1,1,2}, xtick=\empty, samples=60, clip=false,
+          every axis plot/.append style={thick},
+          xlabel style={anchor=north east}, ylabel style={anchor=south},
+          width=8cm, height=6.5cm,
+        ]
+        \addplot[blue, domain=0:3] {2*exp(-x)};
+        \addplot[blue!65, domain=0:3] {1*exp(-x)};
+        \addplot[blue!40, domain=0:3] {0.5*exp(-x)};
+        \addplot[red!40, domain=0:3] {-0.5*exp(-x)};
+        \addplot[red!65, domain=0:3] {-1*exp(-x)};
+        \addplot[red, domain=0:3] {-2*exp(-x)};
+        \addplot[orange!90!black, line width=2pt, domain=0:3] {0};
+        \node[anchor=west, text=orange!90!black, font=\small, align=left] at (axis cs:3,0) {equilibrium\\$p = 0$};
+        \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    This time, every solution approaches 0 as <m>t \to \infty</m>, from
+    above or from below. We call the equilibrium <m>p = 0</m>
+    <term>stable</term>.
+  </p>
+
+  <paragraphs xml:id="para-ode-phase-line">
+    <title>The phase line</title>
+    <p>
+      We will skip over some of the underlying theory, but the ideas for
+      doing this with any <m>\frac{dp}{dt} = f(p)</m> are simple, as long as
+      <m>f</m> is nice enough (for example, if <m>f</m> has a continuous
+      derivative, which is true for every <m>f</m> in this class). In that
+      case, solutions can't cross each other. In particular, a solution can
+      never cross an equilibrium, so a solution that starts between two
+      equilibria stays between them.
+    </p>
+    <p>
+      This means we only need to know the <em>sign</em> of <m>f(p)</m>:
+      <ul>
+        <li>
+          <p>
+            Where <m>f(p) \gt 0</m>, we have <m>\frac{dp}{dt} \gt 0</m>, so
+            <m>p</m> is increasing.
+          </p>
+        </li>
+        <li>
+          <p>
+            Where <m>f(p) \lt 0</m>, we have <m>\frac{dp}{dt} \lt 0</m>, so
+            <m>p</m> is decreasing.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      For example, take <m>\frac{dp}{dt} = (p - 2)(p + 3)</m> from the
+      previous page, with equilibria <m>p = -3</m> and <m>p = 2</m>.
+      Checking the sign of each factor:
+      <ul>
+        <li>
+          <p>
+            For <m>p \lt -3</m>, both factors are negative, so
+            <m>\frac{dp}{dt} \gt 0</m> and <m>p</m> is increasing.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>-3 \lt p \lt 2</m>, <m>p - 2 \lt 0</m> and
+            <m>p + 3 \gt 0</m>, so <m>\frac{dp}{dt} \lt 0</m> and <m>p</m> is
+            decreasing.
+          </p>
+        </li>
+        <li>
+          <p>
+            For <m>p \gt 2</m>, both factors are positive, so
+            <m>\frac{dp}{dt} \gt 0</m> and <m>p</m> is increasing.
+          </p>
+        </li>
+      </ul>
+    </p>
+    <p>
+      We record this on a <term>phase line</term>: a number line for
+      <m>p</m>, with a dot at each equilibrium and an arrow on each interval
+      between them. An arrow pointing <alert>right</alert> means <m>p</m> is
+      increasing there, and an arrow pointing <alert>left</alert> means
+      <m>p</m> is decreasing.
+    </p>
+  </paragraphs>
+
+  <figure xml:id="fig-ode-phase-line">
+    <caption>
+      Left: the graph of <m>f(p) = (p - 2)(p + 3)</m>, with the phase line
+      below it. Right: sketches of solutions <m>p(t)</m>, with the equilibria
+      highlighted. Arrows pointing right on the phase line correspond to
+      solutions going up on the right.
+    </caption>
+    <image width="100%">
+      <shortdescription>Graph of f(p) = (p - 2)(p + 3) with its phase line, and sketches of solutions</shortdescription>
+      <description>
+        <p>
+          On the left is the graph of <m>f(p) = (p - 2)(p + 3)</m>, an upward
+          parabola crossing the <m>p</m>-axis at <m>-3</m> and <m>2</m>. It
+          is above the axis for <m>p \lt -3</m> and <m>p \gt 2</m>, labeled
+          <q>dp/dt &gt; 0, p increasing,</q> and below the axis for
+          <m>-3 \lt p \lt 2</m>, labeled <q>dp/dt &lt; 0, p decreasing.</q>
+          Below the graph is the phase line: an arrow pointing right for
+          <m>p \lt -3</m>, an arrow pointing left for <m>-3 \lt p \lt 2</m>,
+          and an arrow pointing right for <m>p \gt 2</m>. The equilibrium
+          <m>-3</m> is labeled stable and <m>2</m> is labeled unstable.
+          On the right are solutions <m>p(t)</m>, with the equilibria
+          <m>p = 2</m> and <m>p = -3</m> drawn as highlighted horizontal lines.
+          Solutions starting above 2 increase without bound, solutions
+          starting between <m>-3</m> and 2 decrease toward <m>-3</m>, and
+          solutions starting below <m>-3</m> increase toward <m>-3</m>.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}
+        % ---------- left: graph of f(p) with phase line ----------
+        \begin{axis}[
+          name=fplot,
+          axis lines=middle, xlabel={$p$}, ylabel={$\frac{dp}{dt} = f(p)$},
+          xmin=-5, xmax=4, ymin=-8, ymax=10,
+          xtick={-3,2}, ytick=\empty, clip=false,
+          xlabel style={anchor=north west}, ylabel style={anchor=south},
+          width=7.2cm, height=6.5cm, domain=-5:4, samples=80,
+        ]
+        \addplot[black, thick, domain=-4.53:3.53] {(x-2)*(x+3)};
+        \node[text=blue, font=\scriptsize, align=center] at (axis cs:-4.1,6.5) {$dp/dt > 0$\\$p$ increasing};
+        \node[text=red!80!black, font=\scriptsize, align=center] at (axis cs:-0.5,-3.2) {$dp/dt &lt; 0$\\$p$ decreasing};
+        \node[text=blue, font=\scriptsize, align=center] at (axis cs:3.0,6.5) {$dp/dt > 0$\\$p$ increasing};
+        % phase line below
+        \draw[thick] (axis cs:-5,-11) -- (axis cs:4,-11);
+        \draw[-latex, very thick, blue] (axis cs:-4.8,-11) -- (axis cs:-3.3,-11);
+        \draw[-latex, very thick, red!80!black] (axis cs:1.7,-11) -- (axis cs:-2.7,-11);
+        \draw[-latex, very thick, blue] (axis cs:2.3,-11) -- (axis cs:3.9,-11);
+        \fill[black] (axis cs:-3,-11) circle (2.5pt);
+        \fill[black] (axis cs:2,-11) circle (2.5pt);
+        \node[below, font=\scriptsize] at (axis cs:-3,-11.4) {$-3$ (stable)};
+        \node[below, font=\scriptsize] at (axis cs:2,-11.4) {$2$ (unstable)};
+        \node[anchor=east, font=\scriptsize] at (axis cs:-5,-11) {phase line};
+        \end{axis}
+        % ---------- right: solutions p(t) ----------
+        \begin{axis}[
+          at={(fplot.east)}, anchor=west, xshift=1.6cm,
+          axis lines=middle, xlabel={$t$}, ylabel={$p$},
+          xmin=-0.02, xmax=1.2, ymin=-5, ymax=4.5,
+          xtick=\empty, ytick={-3,2}, clip=false,
+          xlabel style={anchor=north east}, ylabel style={anchor=south},
+          width=6.2cm, height=6.5cm,
+          every axis plot/.append style={thick},
+        ]
+        \addplot[orange!90!black, line width=2pt, domain=0:1.2] {2};
+        \addplot[orange!90!black, line width=2pt, domain=0:1.2] {-3};
+        \addplot[blue, domain=0:0.3008, samples=80] {(2+3*(0.074074)*exp(5*x))/(1-(0.074074)*exp(5*x))};
+        \addplot[blue!60, domain=0:0.5666, samples=80] {(2+3*(0.019608)*exp(5*x))/(1-(0.019608)*exp(5*x))};
+        \addplot[red!80!black, domain=0:1.2000, samples=80] {(2+3*(-0.020408)*exp(5*x))/(1-(-0.020408)*exp(5*x))};
+        \addplot[red!65, domain=0:1.2000, samples=80] {(2+3*(-0.250000)*exp(5*x))/(1-(-0.250000)*exp(5*x))};
+        \addplot[red!50, domain=0:1.2000, samples=80] {(2+3*(-1.500000)*exp(5*x))/(1-(-1.500000)*exp(5*x))};
+        \addplot[red!35, domain=0:1.2000, samples=80] {(2+3*(-9.000000)*exp(5*x))/(1-(-9.000000)*exp(5*x))};
+        \addplot[blue, domain=0:1.2000, samples=80] {(2+3*(4.333333)*exp(5*x))/(1-(4.333333)*exp(5*x))};
+        \addplot[blue!60, domain=0:1.2000, samples=80] {(2+3*(9.333333)*exp(5*x))/(1-(9.333333)*exp(5*x))};
+        \node[text=blue, font=\scriptsize, anchor=west] at (axis cs:0.55,3.6) {increasing};
+        \node[text=red!80!black, font=\scriptsize, anchor=west] at (axis cs:0.75,1.0) {decreasing};
+        \node[text=blue, font=\scriptsize, anchor=west] at (axis cs:0.55,-4.4) {increasing};
+        \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    Understanding how the three pictures relate lets you visualize how the
+    sign of <m>f(p)</m> determines what happens to the solutions. However, we
+    can determine stability directly from the phase line:
+    <ul>
+      <li>
+        <p>
+          At <m>p = -3</m>, the arrows on both sides point <em>toward</em> the
+          equilibrium. Solutions that start near <m>-3</m> approach it, so
+          <m>p = -3</m> is <alert>stable</alert>.
+        </p>
+      </li>
+      <li>
+        <p>
+          At <m>p = 2</m>, the arrows on both sides point <em>away</em> from
+          the equilibrium. Solutions that start near 2 move away from it, so
+          <m>p = 2</m> is <alert>unstable</alert>.
+        </p>
+      </li>
+    </ul>
+  </p>
+  <p>
+    You should be able to connect these ideas to the direction of the arrows
+    and to the sketches of solutions approaching or moving away from the
+    equilibria. However, the precise reason this always works depends on an
+    existence and uniqueness theorem, which we won't go into.
+  </p>
+
+
+  <paragraphs xml:id="para-ode-semistable">
+    <title>A semistable equilibrium</title>
+    <p>
+      There is one more possibility: the arrows on both sides can point the
+      same way. For example, <m>\frac{dp}{dt} = (p + 1)^2</m> has the
+      equilibrium <m>p = -1</m>, and <m>(p + 1)^2 \gt 0</m> on both sides of
+      it.
+    </p>
+  </paragraphs>
+
+  <figure xml:id="fig-ode-semistable">
+    <caption>
+      The phase line and solutions of <m>\frac{dp}{dt} = (p + 1)^2</m>.
+    </caption>
+    <image width="90%">
+      <shortdescription>Phase line and solutions of dp/dt = (p + 1) squared</shortdescription>
+      <description>
+        <p>
+          On the left is the phase line, with the equilibrium <m>-1</m> labeled
+          semistable and arrows pointing right on both sides of it. On the
+          right are solutions <m>p(t)</m>, with the equilibrium <m>p = -1</m>
+          drawn as a highlighted horizontal line. Solutions starting below
+          <m>-1</m> increase toward it, and solutions starting above
+          <m>-1</m> increase away from it without bound.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}
+        % ---------- left: phase line ----------
+        \begin{scope}[yshift=2.2cm]
+        \draw[thick] (-2.6,0) -- (2.6,0);
+        \draw[-latex, very thick, blue] (-2.5,0) -- (-0.35,0);
+        \draw[-latex, very thick, blue] (0.25,0) -- (2.5,0);
+        \fill[black] (0,0) circle (2.5pt);
+        \node[below, font=\scriptsize] at (0,-0.15) {$-1$ (semistable)};
+        \node[above, font=\scriptsize] at (0,0.6) {phase line for $dp/dt = (p+1)^2$};
+        \node[right, font=\scriptsize] at (2.6,0) {$p$};
+        \end{scope}
+        % ---------- right: solutions ----------
+        \begin{axis}[
+          at={(4.6cm,0)}, anchor=south west,
+          axis lines=left, xlabel={$t$}, ylabel={$p$}, ylabel style={rotate=-90},
+          xmin=0, xmax=4, ymin=-3.2, ymax=2,
+          xtick=\empty, ytick={-1}, clip=true,
+          width=6.2cm, height=6cm,
+          every axis plot/.append style={thick},
+        ]
+        \addplot[orange!90!black, line width=2pt, domain=0:4] {-1};
+        \addplot[blue, domain=0:4, samples=80] {-1 - 1/(x + 0.500000)};
+        \addplot[blue!65, domain=0:4, samples=80] {-1 - 1/(x + 1.000000)};
+        \addplot[blue!40, domain=0:4, samples=80] {-1 - 1/(x + 2.500000)};
+        \addplot[blue!40, domain=0:2.1667, samples=80] {-1 - 1/(x + -2.500000)};
+        \addplot[blue!65, domain=0:0.9167, samples=80] {-1 - 1/(x + -1.250000)};
+        \addplot[blue, domain=0:0.3333, samples=80] {-1 - 1/(x + -0.666667)};
+        \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    Solutions that start below <m>-1</m> approach it, but solutions that
+    start above <m>-1</m> move away from it. We call <m>p = -1</m>
+    <term>semistable</term>. Since some nearby solutions move away, a
+    semistable equilibrium is not stable.
+  </p>
+
+  <paragraphs xml:id="para-ode-technical-defs">
+    <title>The technical definitions</title>
+    <p>
+      For all the equations in this class, stability will work out the way
+      we have described, by reading the phase line. For reference, here are
+      the technical definitions from Section 9.4.3 of the book, written for
+      one variable.
+    </p>
+  </paragraphs>
+
+  <definition xml:id="def-ode-stability">
+    <title>Stable and Asymptotically Stable</title>
+    <statement>
+      <p>
+        Let <m>k</m> be an equilibrium of <m>\frac{dp}{dt} = f(p)</m>.
+        <ul>
+          <li>
+            <p>
+              <m>k</m> is <term>stable</term> if solutions that start near
+              <m>k</m> stay near <m>k</m> in future time. More precisely, for
+              each <m>\epsilon \gt 0</m> there is a <m>\delta \gt 0</m> such
+              that if <m>|p(0) - k| \lt \delta</m>, then
+              <m>|p(t) - k| \lt \epsilon</m> for all <m>t \geq 0</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>k</m> is <term>asymptotically stable</term> if solutions that
+              start near <m>k</m> stay near <m>k</m> in future time, and in
+              addition approach <m>k</m> as <m>t \to \infty</m>. More
+              precisely, for each <m>\epsilon \gt 0</m> there is a
+              <m>\delta \gt 0</m> such that if <m>|p(0) - k| \lt \delta</m>,
+              then (i) <m>|p(t) - k| \lt \epsilon</m> for all
+              <m>t \geq 0</m>, and (ii) <m>p(t) \to k</m> as
+              <m>t \to \infty</m>.
+            </p>
+          </li>
+        </ul>
+        An equilibrium that is not stable is called <term>unstable</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    On a phase line, if the arrows on both sides point toward an equilibrium,
+    it is asymptotically stable. If the arrows on at least one side point
+    away, it is unstable. So in this class, when we call an equilibrium on a
+    phase line <q>stable,</q> we mean asymptotically stable.
+  </p>
+
+  <definition xml:id="def-basin-of-attraction">
+    <title>Basin of Attraction</title>
+    <statement>
+      <p>
+        The <term>basin of attraction</term> of an asymptotically stable
+        equilibrium <m>k</m> is the set of starting values <m>p(0)</m> whose
+        solutions approach <m>k</m> as <m>t \to \infty</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For example, for <m>\frac{dp}{dt} = (p - 2)(p + 3)</m>, every solution
+    that starts below 2 approaches <m>-3</m>, so the basin of attraction of
+    <m>p = -3</m> is <m>(-\infty, 2)</m>. Solutions that start at exactly
+    <m>p(0) = 2</m> stay at 2, and solutions that start above 2 increase
+    without bound.
+  </p>
+
+  <p>
+    Let's practice with an equation that will look familiar in Chapter 10.
+  </p>
+
+  <exercise xml:id="check-ode-phase-line">
+    <statement>
+      <p>
+        Which is the phase line for <m>\frac{dp}{dt} = p(1 - p)</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice correct="yes">
+        <statement>
+          <p>
+            <m>\longleftarrow \underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet} \longleftarrow</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Right. For <m>p \lt 0</m>, <m>p \lt 0</m> and <m>1 - p \gt 0</m>,
+            so <m>\frac{dp}{dt} \lt 0</m>. For <m>0 \lt p \lt 1</m>, both
+            factors are positive, so <m>\frac{dp}{dt} \gt 0</m>. For
+            <m>p \gt 1</m>, <m>1 - p \lt 0</m>, so <m>\frac{dp}{dt} \lt 0</m>.
+            So <m>p = 0</m> is unstable and <m>p = 1</m> is stable.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\longrightarrow \underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet} \longrightarrow</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The arrows are backward. Try a value between 0 and 1,
+            like <m>p = \frac{1}{2}</m>: both factors are positive, so
+            <m>\frac{dp}{dt} \gt 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\longrightarrow \underset{0}{\bullet} \longrightarrow\!\!\longrightarrow \underset{1}{\bullet} \longrightarrow</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Check the sign for <m>p \gt 1</m>: then
+            <m>1 - p \lt 0</m>, so <m>\frac{dp}{dt} \lt 0</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p>
+            <m>\longleftarrow \underset{0}{\bullet} \longleftarrow\!\!\longleftarrow \underset{1}{\bullet} \longleftarrow</m>
+          </p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Check the sign for <m>0 \lt p \lt 1</m>: both factors
+            are positive, so <m>\frac{dp}{dt} \gt 0</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <exercise xml:id="check-ode-basin">
+    <statement>
+      <p>
+        For <m>\frac{dp}{dt} = p(1 - p)</m>, what is the basin of attraction
+        of the stable equilibrium <m>p = 1</m>?
+      </p>
+    </statement>
+    <choices randomize="no">
+      <choice>
+        <statement>
+          <p><m>[0, \infty)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Close, but check <m>p(0) = 0</m>: that solution stays at the
+            equilibrium 0 forever, so it never approaches 1.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>(0, \infty)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Right. Every solution that starts above 0 approaches 1: from
+            below if <m>0 \lt p(0) \lt 1</m>, and from above if
+            <m>p(0) \gt 1</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>(0, 1)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Solutions that start above 1 also approach 1, since
+            the arrow for <m>p \gt 1</m> points left.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>(-\infty, \infty)</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. Solutions that start below 0 decrease, moving away
+            from 0 and never reaching 1.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <interactive xml:id="question-form-9-2" iframe="question-form.html?section=9.2" width="100%" aspect="2:1"/>
+</section>

@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<section xml:id="ch9-page1-autonomous-equations" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Autonomous Differential Equations and Equilibria</title>
+
+  <p>
+    In this chapter, we cover the parts of Chapter 9 of the book that are
+    relevant to what we will be doing in the next chapter. You're welcome to
+    look at Chapter 9, but it goes into much more than we cover here, and
+    more than we will need!
+  </p>
+  <p>
+    In Chapter 10, we will model populations whose makeup changes over time.
+    To do that, we need <term>differential equations</term>, which are
+    equations that relate an unknown function to its derivative. In this
+    class, we will only look at one kind, called autonomous differential
+    equations.
+  </p>
+
+  <definition xml:id="def-autonomous-ode">
+    <title>Autonomous Differential Equation</title>
+    <statement>
+      <p>
+        An <term>autonomous differential equation</term> is a differential
+        equation of the form
+        <me>
+          \frac{dp}{dt} = f(p),
+        </me>
+        where <m>p = p(t)</m> is an unknown function of time <m>t</m>, and
+        the right side <m>f(p)</m> depends only on <m>p</m>, not on
+        <m>t</m>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    The book often writes <m>\dot{p}</m> for <m>\frac{dp}{dt}</m>, so the
+    equation can also be written <m>\dot{p} = f(p)</m>. We will use both.
+  </p>
+
+  <p>
+    Here is the simplest example. Suppose a population grows at a rate
+    proportional to its size, with proportionality constant 1. If <m>p(t)</m>
+    is the size of the population at time <m>t</m>, this says
+    <me>
+      \frac{dp}{dt} = p.
+    </me>
+    That is, a solution to this equation is a function <m>p(t)</m> whose
+    derivative is equal to itself!
+  </p>
+
+  <exercise xml:id="check-ode-derivative-itself">
+    <statement>
+      <p>
+        Which famous function is equal to its own derivative?
+      </p>
+    </statement>
+    <choices randomize="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>p(t) = e^t</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Right! <m>\frac{d}{dt}e^t = e^t</m>, so <m>p(t) = e^t</m> is a
+            solution of <m>\frac{dp}{dt} = p</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>p(t) = t^2</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The derivative of <m>t^2</m> is <m>2t</m>, which is
+            not <m>t^2</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>p(t) = \ln t</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The derivative of <m>\ln t</m> is <m>\frac{1}{t}</m>,
+            which is not <m>\ln t</m>.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>p(t) = \sin t</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Not quite. The derivative of <m>\sin t</m> is <m>\cos t</m>,
+            which is not <m>\sin t</m>.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <p>
+    In fact, <m>p(t) = Ce^t</m> works for <em>any</em> constant <m>C</m>,
+    since
+    <me>
+      \frac{d}{dt}\left(Ce^t\right) = Ce^t.
+    </me>
+    Plugging in <m>t = 0</m> gives <m>p(0) = Ce^0 = C</m>, so the constant
+    <m>C</m> is just the starting value of the population. Each choice of
+    <m>p(0)</m> gives a different solution:
+  </p>
+
+  <figure xml:id="fig-ode-exp-solutions">
+    <caption>
+      Solutions <m>p(t) = Ce^t</m> of <m>\frac{dp}{dt} = p</m> for several
+      starting values <m>p(0) = C</m>.
+    </caption>
+    <image width="70%">
+      <shortdescription>Graph of solutions p of t equals C e to the t for five starting values</shortdescription>
+      <description>
+        <p>
+          Five solution curves are drawn for t greater than or equal to 0, starting at
+          <m>p(0) = 2</m>, <m>1</m>, <m>0</m>, <m>-1</m>, and <m>-2</m>. The
+          curves starting at 2 and 1 rise faster and faster, the curves
+          starting at <m>-1</m> and <m>-2</m> fall faster and faster, and the
+          curve starting at 0 stays at 0.
+        </p>
+      </description>
+      <latex-image>
+        \begin{tikzpicture}
+        \begin{axis}[
+          axis lines=middle,
+          xlabel={$t$}, ylabel={$p$},
+          xmin=-0.05, xmax=1.6, ymin=-6, ymax=6,
+          ytick=\empty, xtick={1},
+          domain=0:1.6, samples=60,
+          clip=false,
+          every axis plot/.append style={thick},
+          xlabel style={anchor=west}, ylabel style={anchor=south},
+        ]
+        \addplot[blue, domain=0:1.0986] {2*exp(x)};
+        \addplot[blue!65] {1*exp(x)};
+        \addplot[black] {0};
+        \addplot[red!65] {-1*exp(x)};
+        \addplot[red, domain=0:1.0986] {-2*exp(x)};
+        \fill[blue] (axis cs:0,2) circle (1.8pt);
+        \node[anchor=east, text=blue] at (axis cs:0,2) {$p(0) = 2$};
+        \fill[blue!65] (axis cs:0,1) circle (1.8pt);
+        \node[anchor=east, text=blue!65] at (axis cs:0,1) {$p(0) = 1$};
+        \fill[black] (axis cs:0,0) circle (1.8pt);
+        \node[anchor=east, text=black] at (axis cs:0,0) {$p(0) = 0$};
+        \fill[red!65] (axis cs:0,-1) circle (1.8pt);
+        \node[anchor=east, text=red!65] at (axis cs:0,-1) {$p(0) = -1$};
+        \fill[red] (axis cs:0,-2) circle (1.8pt);
+        \node[anchor=east, text=red] at (axis cs:0,-2) {$p(0) = -2$};
+        \end{axis}
+        \end{tikzpicture}
+      </latex-image>
+    </image>
+  </figure>
+
+  <p>
+    Mathematically, <m>p</m> can be any real number, including negative
+    numbers. For a population, of course, only <m>p \geq 0</m> makes sense.
+    (In Chapter 10, <m>p</m> will be a fraction of a population, so only
+    <m>0 \leq p \leq 1</m> will matter.)
+  </p>
+
+  <definition xml:id="def-general-particular-solution">
+    <title>General and Particular Solutions</title>
+    <statement>
+      <p>
+        The <term>general solution</term> of a differential equation is a
+        formula that describes all of its solutions, usually involving an
+        arbitrary constant such as <m>C</m>.
+      </p>
+      <p>
+        A <term>particular solution</term> is one specific solution. It is
+        usually determined by a starting value <m>p(0)</m>, called an
+        <term>initial condition</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    For example, <m>p(t) = Ce^t</m> is the general solution of
+    <m>\frac{dp}{dt} = p</m>, and <m>p(t) = 2e^t</m> is the particular
+    solution with <m>p(0) = 2</m>.
+  </p>
+
+  <p>
+    Now suppose the population grows at a rate proportional to its size,
+    with proportionality constant 3:
+    <me>
+      \frac{dp}{dt} = 3p.
+    </me>
+    A quick check shows that anything of the form <m>p(t) = Ce^{3t}</m> is a
+    solution, since <m>\frac{d}{dt}\left(Ce^{3t}\right) = 3Ce^{3t}</m>. It
+    turns out that these are all of the solutions, so <m>p(t) = Ce^{3t}</m>
+    is the general solution. (The same is true for <m>Ce^t</m> above. We
+    won't prove that there are no other solutions.)
+  </p>
+
+  <p>
+    Notice that in both examples, setting <m>C = 0</m> gives
+    <m>p(t) = 0</m>, a constant solution. If the population starts at
+    <m>p(0) = 0</m>, it stays there forever! We will see that constant
+    solutions like this turn out to be very important for understanding the
+    behavior of all the other solutions. They are called equilibrium
+    solutions.
+  </p>
+
+  <definition xml:id="def-equilibrium-solution">
+    <title>Equilibrium Solution</title>
+    <statement>
+      <p>
+        A solution of <m>\frac{dp}{dt} = f(p)</m> of the form
+        <m>p(t) = k</m> for some constant <m>k</m> is called an
+        <term>equilibrium solution</term>. We often just call the number
+        <m>k</m> an <term>equilibrium</term>.
+      </p>
+    </statement>
+  </definition>
+
+  <p>
+    To find the equilibria, we don't have to solve the differential equation
+    at all. The following fact will be very useful for us!
+  </p>
+
+  <fact xml:id="fact-equilibria-zeros">
+    <title>Finding Equilibria</title>
+    <statement>
+      <p>
+        <m>p(t) = k</m> is an equilibrium solution of
+        <m>\frac{dp}{dt} = f(p)</m> if and only if <m>f(k) = 0</m>.
+      </p>
+    </statement>
+    <proof>
+      <title>Justification</title>
+      <p>
+        If <m>p(t) = k</m> is a solution, then
+        <m>f(k) = \frac{dp}{dt} = 0</m>, since <m>p</m> is constant.
+        Conversely, if <m>f(k) = 0</m>, then <m>p(t) = k</m> has
+        <m>\frac{dp}{dt} = 0 = f(k)</m>, so it is a solution.
+      </p>
+    </proof>
+  </fact>
+  <p>
+    In general, solving differential equations can be much more complicated
+    than it was for something like <m>\frac{dp}{dt} = 3p</m>. Much of what we
+    will be doing involves studying the behavior of solutions without
+    actually solving the differential equation. In the example below, we find
+    the equilibria using the fact above, instead of finding all the solutions
+    and picking out the constant ones.
+  </p>
+  <example xml:id="eg-ode-equilibria">
+    <title>Finding equilibria</title>
+    <statement>
+      <p>
+        Find the equilibrium solutions of
+        <m>\frac{dp}{dt} = (p - 2)(p + 3)</m>.
+      </p>
+    </statement>
+    <solution>
+      <p>
+        Here <m>f(p) = (p - 2)(p + 3)</m>. Setting <m>f(p) = 0</m> gives
+        <m>p = 2</m> or <m>p = -3</m>, so the equilibrium solutions are
+        <m>p(t) = 2</m> and <m>p(t) = -3</m>.
+      </p>
+    </solution>
+  </example>
+
+  <exercise xml:id="check-ode-equilibria">
+    <statement>
+      <p>
+        Which of the following are equilibrium solutions of
+        <m>\frac{dp}{dt} = p^2 - 1</m>? Don't forget to factor first!
+        <alert>Select all that apply.</alert>
+      </p>
+    </statement>
+    <choices randomize="no" multiple-correct="yes">
+      <choice correct="yes">
+        <statement>
+          <p><m>p(t) = 1</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Yes. <m>p^2 - 1 = (p - 1)(p + 1)</m>, and <m>p = 1</m> makes the
+            first factor 0.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>p(t) = 0</m></p>
+        </statement>
+        <feedback>
+          <p>
+            No. <m>f(0) = 0^2 - 1 = -1</m>, which is not 0.
+          </p>
+        </feedback>
+      </choice>
+      <choice correct="yes">
+        <statement>
+          <p><m>p(t) = -1</m></p>
+        </statement>
+        <feedback>
+          <p>
+            Yes. <m>p^2 - 1 = (p - 1)(p + 1)</m>, and <m>p = -1</m> makes the
+            second factor 0.
+          </p>
+        </feedback>
+      </choice>
+      <choice>
+        <statement>
+          <p><m>p(t) = 2</m></p>
+        </statement>
+        <feedback>
+          <p>
+            No. <m>f(2) = 2^2 - 1 = 3</m>, which is not 0.
+          </p>
+        </feedback>
+      </choice>
+    </choices>
+  </exercise>
+
+  <interactive xml:id="question-form-9-1" iframe="question-form.html?section=9.1" width="100%" aspect="2:1"/>
+</section>

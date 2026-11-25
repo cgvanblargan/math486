@@ -4,19 +4,9 @@
 <chapter xml:id="ch-differential-equations" xmlns:xi="http://www.w3.org/2001/XInclude">
   <title>Differential Equations</title>
 
-  <introduction>
-    <p>
-      Content for this chapter has not been written yet.
-    </p>
-  </introduction>
 
-  <section xml:id="ch-differential-equations-placeholder">
-    <title>Placeholder</title>
-    <p>
-      <alert>Placeholder.</alert> This chapter has no sections yet. Add
-      real sections/pages to this chapter in tools/book_structure.yaml and
-      rerun tools/build_structure.py.
-    </p>
-  </section>
+<xi:include href="./page1-autonomous-equations.ptx" />
+
+<xi:include href="./page2-stability.ptx" />
 
 </chapter>
