@@ -3277,6 +3277,33 @@ var ptx_lunr_docs = [
   "body": "  For , what is the basin of attraction of the stable equilibrium ?         Close, but check : that solution stays at the equilibrium 0 forever, so it never approaches 1.         Right. Every solution that starts above 0 approaches 1: from below if , and from above if .         Not quite. Solutions that start above 1 also approach 1, since the arrow for points left.         Not quite. Solutions that start below 0 decrease, moving away from 0 and never reaching 1.     "
 },
 {
+  "id": "ch9-exercises",
+  "level": "1",
+  "url": "ch9-exercises.html",
+  "type": "Exercises",
+  "number": "9.3",
+  "title": "Exercises",
+  "body": " Exercises   These two exercises are quick practice with phase lines. Solutions are given for both, so you can check that you're confident with this material before we use it in Chapter 10.     A Stable and an Unstable Equilibrium   Consider the differential equation Find the equilibria by solving , draw the phase line, and classify each equilibrium as stable, unstable, or semistable.    Factor first.     , so the equilibria are and . The phase line is so is stable and is unstable.      A Semistable Equilibrium   Consider the differential equation Find the equilibria by solving , draw the phase line, and classify each equilibrium as stable, unstable, or semistable.    Factor first.     , so the only equilibrium is . Since on both sides of , the phase line is so is semistable.    "
+},
+{
+  "id": "hw-ode-stable-unstable",
+  "level": "2",
+  "url": "ch9-exercises.html#hw-ode-stable-unstable",
+  "type": "Exercise",
+  "number": "9.3.1",
+  "title": "A Stable and an Unstable Equilibrium.",
+  "body": " A Stable and an Unstable Equilibrium   Consider the differential equation Find the equilibria by solving , draw the phase line, and classify each equilibrium as stable, unstable, or semistable.    Factor first.     , so the equilibria are and . The phase line is so is stable and is unstable.   "
+},
+{
+  "id": "hw-ode-semistable",
+  "level": "2",
+  "url": "ch9-exercises.html#hw-ode-semistable",
+  "type": "Exercise",
+  "number": "9.3.2",
+  "title": "A Semistable Equilibrium.",
+  "body": " A Semistable Equilibrium   Consider the differential equation Find the equilibria by solving , draw the phase line, and classify each equilibrium as stable, unstable, or semistable.    Factor first.     , so the only equilibrium is . Since on both sides of , the phase line is so is semistable.   "
+},
+{
   "id": "ch10-page1-replicator-system",
   "level": "1",
   "url": "ch10-page1-replicator-system.html",
@@ -3545,60 +3572,6 @@ var ptx_lunr_docs = [
   "number": "10.4.4",
   "title": "Using the Theorems with Three Strategies.",
   "body": " Using the Theorems with Three Strategies   In an earlier homework, we considered a Prisoner's Dilemma repeated for two stages, with three strategies:   Always cooperate ( )    Always defect ( )    Tit-for-tat ( ): choose in stage 1. In stage 2, copy the other player's move from stage 1.   This led to the following game:   The game         Player 2:  Player 2:  Player 2:    Player 1:       Player 1:       Player 1:        With three strategies, the replicator system has two variables, so we won't analyze it directly. Instead, answer each part using Theorems 10.1 through 10.4.     Use Theorem 10.1 to name three equilibria of the replicator system without any computation.    The pure states: all- , all- , and all- .      Consider the all- state, where everyone always cooperates.   Use best response (box each player's best responses in the payoff matrix) to show that is not a Nash equilibrium.    By Theorem 10.1, the all- state is an equilibrium of the replicator system. Why doesn't this contradict Theorem 10.2?         Again consider the all- state, where .   A quick computation shows that and . What does Theorem 10.3 tell you about the behavior over time of solutions that contain some -players?    What happens if the population starts at all- with no -players at all? Which part of Theorem 10.1 tells you this?         Notice that is a strict Nash equilibrium. Use one theorem from Chapter 8 and another from Chapter 10 to conclude that the all- state is an asymptotically stable equilibrium of the replicator system.      Notice that the all- state is not evolutionarily stable. A quick check shows that is a Nash equilibrium. However, it fails condition (2) of Theorem 8.1: taking , we have , but , so is not greater than .  A classmate says, Since the all- state isn't evolutionarily stable, Theorem 10.4 shows that it is not asymptotically stable. Explain the error.      Remark: The classmate's conclusion happens to be true, even though the reasoning is not. Section 10.7 of the book analyzes this game with slightly different payoffs, and shows that populations near the all- state stay near it, but don't return exactly to all- .   "
-},
-{
-  "id": "ch10-answers",
-  "level": "1",
-  "url": "ch10-answers.html",
-  "type": "Exercises",
-  "number": "10.5",
-  "title": "Answers to Ch. 10 Exercises",
-  "body": " Answers to Ch. 10 Exercises   Answers to the exercises of this chapter. Click an exercise to open it, click a part to open that part, then click Solution to reveal the answer.  These are the answers to the questions, not fully worked solutions. Enough is shown that you can tell whether your own work got to the correct conclusion.     Deriving the Replicator Equation   The replicator system   Derive the replicator system.     and      One equation   Reduce to .          Equilibria   Find the equilibria.     , , and      Using Theorems 10.1 and 10.2   Explain why and are equilibria, and which theorem says the interior equilibrium has equal payoffs.    Theorem 10.1(4): and are pure states. Theorem 10.2: at an interior equilibrium , both strategies are active, so .       Phase Line and Stability   The phase line   Sketch and the phase line.          Typical solutions   Describe a typical solution.    Every solution starting in approaches . Near 0, increases; near 1, decreases.     Connection to Theorem 8.5   Which case of Theorem 8.5, and how does it connect to part (b)?    Case (4) ( , ): the only evolutionarily stable state is , the same as the stable equilibrium.     Starting at the equilibrium   Start exactly at the interior equilibrium, then just below it.    It stays at forever. Just below, increases toward .       A Game Outside the Four Cases   One equation   Reduce to .          Equilibria   Find the equilibria.     and      The phase line   Sketch and the phase line.     : is stable and is unstable.     Interpretation   Interpret part (c).    Unless everyone starts with , dies out and the population approaches all- .     No other symmetric Nash equilibria   Which theorem shows there are no other symmetric Nash equilibria?    Theorem 10.2: a symmetric Nash equilibrium satisfies condition (1), so is an equilibrium of the replicator system. By part (b), the only equilibria are and .     Comparing with evolutionary stability   Compare with the evolutionarily stable states, and explain why the game is not in Figure 10.3.    The only evolutionarily stable state is , which matches the stable equilibrium . The game has , and the four cases require .     Theorem 10.3 at all-   Compute the payoffs at all- , decide whether Theorem 10.3 applies, and explain why there is no contradiction.     , so the strict inequality fails and Theorem 10.3 does not apply. No contradiction: Theorem 10.3 only gives one way an equilibrium can fail to be approached. It doesn't say every unstable equilibrium is of that kind.       Using the Theorems with Three Strategies   Three equilibria   Name three equilibria using Theorem 10.1.    All- , all- , and all- .     The all- state   Use best response to show is not a Nash equilibrium, and explain why this doesn't contradict Theorem 10.2.          Player 2: Player 2: Player 2:    Player 1:    Player 1:    Player 1:     has no boxes, so it is not a Nash equilibrium. No contradiction: Theorem 10.2 only requires condition (1), which holds since is the only active strategy.     Invading all-   Apply Theorem 10.3 at all- , and consider starting with no -players.    Since , no solution containing some -players approaches all- . With no -players, the population stays at all- (Theorem 10.1(4)).     The all- state   Use a theorem from Chapter 8 and one from Chapter 10 to show all- is asymptotically stable.    Theorem 8.2: is a strict Nash equilibrium, so all- is evolutionarily stable. Theorem 10.4: so it is an asymptotically stable equilibrium.     The classmate's error   Explain the error in the classmate's reasoning.    Theorem 10.4 only goes from evolutionarily stable to asymptotically stable. It says nothing about a state that is not evolutionarily stable.     "
-},
-{
-  "id": "ch10-answers-2-1",
-  "level": "2",
-  "url": "ch10-answers.html#ch10-answers-2-1",
-  "type": "Paragraph (with a defined term)",
-  "number": "",
-  "title": "",
-  "body": "Solution "
-},
-{
-  "id": "ans-hw-replicator-derive",
-  "level": "2",
-  "url": "ch10-answers.html#ans-hw-replicator-derive",
-  "type": "Exercise",
-  "number": "10.5.1",
-  "title": "Deriving the Replicator Equation.",
-  "body": " Deriving the Replicator Equation   The replicator system   Derive the replicator system.     and      One equation   Reduce to .          Equilibria   Find the equilibria.     , , and      Using Theorems 10.1 and 10.2   Explain why and are equilibria, and which theorem says the interior equilibrium has equal payoffs.    Theorem 10.1(4): and are pure states. Theorem 10.2: at an interior equilibrium , both strategies are active, so .    "
-},
-{
-  "id": "ans-hw-replicator-phase-line",
-  "level": "2",
-  "url": "ch10-answers.html#ans-hw-replicator-phase-line",
-  "type": "Exercise",
-  "number": "10.5.2",
-  "title": "Phase Line and Stability.",
-  "body": " Phase Line and Stability   The phase line   Sketch and the phase line.          Typical solutions   Describe a typical solution.    Every solution starting in approaches . Near 0, increases; near 1, decreases.     Connection to Theorem 8.5   Which case of Theorem 8.5, and how does it connect to part (b)?    Case (4) ( , ): the only evolutionarily stable state is , the same as the stable equilibrium.     Starting at the equilibrium   Start exactly at the interior equilibrium, then just below it.    It stays at forever. Just below, increases toward .    "
-},
-{
-  "id": "ans-hw-replicator-outside-cases",
-  "level": "2",
-  "url": "ch10-answers.html#ans-hw-replicator-outside-cases",
-  "type": "Exercise",
-  "number": "10.5.3",
-  "title": "A Game Outside the Four Cases.",
-  "body": " A Game Outside the Four Cases   One equation   Reduce to .          Equilibria   Find the equilibria.     and      The phase line   Sketch and the phase line.     : is stable and is unstable.     Interpretation   Interpret part (c).    Unless everyone starts with , dies out and the population approaches all- .     No other symmetric Nash equilibria   Which theorem shows there are no other symmetric Nash equilibria?    Theorem 10.2: a symmetric Nash equilibrium satisfies condition (1), so is an equilibrium of the replicator system. By part (b), the only equilibria are and .     Comparing with evolutionary stability   Compare with the evolutionarily stable states, and explain why the game is not in Figure 10.3.    The only evolutionarily stable state is , which matches the stable equilibrium . The game has , and the four cases require .     Theorem 10.3 at all-   Compute the payoffs at all- , decide whether Theorem 10.3 applies, and explain why there is no contradiction.     , so the strict inequality fails and Theorem 10.3 does not apply. No contradiction: Theorem 10.3 only gives one way an equilibrium can fail to be approached. It doesn't say every unstable equilibrium is of that kind.    "
-},
-{
-  "id": "ans-hw-replicator-theorems-fsp",
-  "level": "2",
-  "url": "ch10-answers.html#ans-hw-replicator-theorems-fsp",
-  "type": "Exercise",
-  "number": "10.5.4",
-  "title": "Using the Theorems with Three Strategies.",
-  "body": " Using the Theorems with Three Strategies   Three equilibria   Name three equilibria using Theorem 10.1.    All- , all- , and all- .     The all- state   Use best response to show is not a Nash equilibrium, and explain why this doesn't contradict Theorem 10.2.          Player 2: Player 2: Player 2:    Player 1:    Player 1:    Player 1:     has no boxes, so it is not a Nash equilibrium. No contradiction: Theorem 10.2 only requires condition (1), which holds since is the only active strategy.     Invading all-   Apply Theorem 10.3 at all- , and consider starting with no -players.    Since , no solution containing some -players approaches all- . With no -players, the population stays at all- (Theorem 10.1(4)).     The all- state   Use a theorem from Chapter 8 and one from Chapter 10 to show all- is asymptotically stable.    Theorem 8.2: is a strict Nash equilibrium, so all- is evolutionarily stable. Theorem 10.4: so it is an asymptotically stable equilibrium.     The classmate's error   Explain the error in the classmate's reasoning.    Theorem 10.4 only goes from evolutionarily stable to asymptotically stable. It says nothing about a state that is not evolutionarily stable.    "
 },
 {
   "id": "back-colophon",
