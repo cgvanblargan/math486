@@ -7,9 +7,10 @@
 
      Adapted from the previous instructor's Lesson 13 written homework:
      Exercise 1 = old Exercise 1, plus new part (d) on Theorems 10.1 and
-     10.2. Exercise 2 = old Problem 1 (same game), plus new parts (d) and
-     (e). Exercise 3 = old Exercise 2 (the a = c game from an earlier
-     homework), plus new parts (e) and (f). Exercise 4 replaces old
+     10.2. Exercise 2 = old Problem 1 (same game), plus new part (d) and a
+     closing remark on the intuition. Exercise 3 = old Exercise 2 (the
+     Stag Hunt with Easily Spooked Hares, a = c, same game as Ch. 8
+     Exercise hw-ess-theorem-8-1), plus new parts (e), (f), and (g). Exercise 4 replaces old
      Problem 2 (Jacobian and eigenvalues): same F/S/P game, but only
      uses Theorems 10.1-10.4, no multivariable analysis.
 
@@ -17,8 +18,9 @@
      "coordination game," but it is case (4) of Figure 10.3, so that
      label was dropped.
 
-     Confidence checks: computational parts have a short <solution>
-     with the final answer only. Explanation parts have none.
+     Confidence checks: only selected parts have a short inline
+     <solution> (1(b), 2(a), 3(c), 3(d)). Full answers are on
+     ch10-answers.ptx.
 
      Uses Sections 10.1-10.4 and 10.6 (Theorems 10.1-10.4), Theorem 8.5,
      and the phase line from Chapter 9.
@@ -71,12 +73,6 @@
           <m>\dot{p}_2 = h(p_1, p_2)</m>).
         </p>
       </statement>
-      <solution>
-        <p>
-          <m>\dot{p}_1 = (4p_2 - 5p_1p_2)p_1</m> and
-          <m>\dot{p}_2 = (p_1 - 5p_1p_2)p_2</m>
-        </p>
-      </solution>
     </task>
 
     <task xml:id="hw-replicator-derive-reduce">
@@ -106,21 +102,17 @@
           Find the equilibria of <m>\dot{p} = f(p)</m> in <m>[0, 1]</m>.
         </p>
       </statement>
-      <solution>
-        <p>
-          <m>p = 0</m>, <m>p = \frac{4}{5}</m>, and <m>p = 1</m>
-        </p>
-      </solution>
     </task>
 
     <task xml:id="hw-replicator-derive-theorems">
       <statement>
         <p>
-          Without using your formula for <m>f(p)</m>, explain why
-          <m>p = 0</m> and <m>p = 1</m> must be equilibria. Then use Theorem
-          10.2 to explain why the interior equilibrium is where both
-          strategies earn the same payoff, and check that this holds at your
-          answer from part (c).
+          Without using your formula for <m>f(p)</m>, explain why we already
+          know that <m>p = 0</m> and <m>p = 1</m> must be equilibria. Which
+          theorem tells us this? Then explain which theorem tells us that the
+          interior equilibrium (the one between 0 and 1) is where both
+          strategies earn the same payoff against the population state at that
+          equilibrium, and why.
         </p>
       </statement>
     </task>
@@ -168,8 +160,9 @@
     <task xml:id="hw-replicator-phase-line-ess">
       <statement>
         <p>
-          Analyze the game using Theorem 8.5, and explain the connection
-          between the results of that analysis and part (b).
+          Analyze the game using Theorem 8.5: which case is this game in, and
+          what does that case tell you? Then explain the connection between
+          the results of that analysis and part (b).
         </p>
       </statement>
     </task>
@@ -183,16 +176,17 @@
       </statement>
     </task>
 
-    <task xml:id="hw-replicator-phase-line-intuition">
-      <statement>
-        <p>
-          In Microsoft vs. Apple, the mixed equilibrium was unstable, but
-          here it is stable. Explain in terms of the game itself, not the
-          math, why a population that is mostly <m>a</m>-players moves toward
-          more <m>b</m>-players.
-        </p>
-      </statement>
-    </task>
+    <conclusion>
+      <p>
+        <em>Remark:</em> In Microsoft vs. Apple, the mixed equilibrium was
+        unstable, but here it is stable. You can see why from the game itself.
+        When almost everyone plays <m>a</m>, a typical opponent plays
+        <m>a</m>, so <m>b</m> earns 1 while <m>a</m> earns 0, and <m>b</m>
+        spreads. When almost everyone plays <m>b</m>, <m>a</m> earns 4 while
+        <m>b</m> earns 0, and <m>a</m> spreads. Either way, the population is
+        pushed toward a mix of the two strategies.
+      </p>
+    </conclusion>
   </exercise>
 
   <!-- ============================================================ -->
@@ -201,7 +195,14 @@
 
     <introduction>
       <p>
-        Consider the following game from an earlier homework:
+        This is the Stag Hunt with Easily Spooked Hares from Section 8.6.3 of
+        the book, which you analyzed in <xref ref="hw-ess-theorem-8-1"/>
+        (there, with <m>a</m> = stag and <m>b</m> = hare). Two hunters
+        together can kill a stag, worth 4 to each of them. A hunter alone
+        can't kill a stag, but can catch four hares, each worth 1. If both
+        hunters go after the hares, the hares run away and each hunter catches
+        only one. The strategies are hunt the stag (<m>s</m>) or hunt the
+        hares (<m>h</m>):
       </p>
       <table xml:id="table-hw-replicator-sh">
         <title>The game</title>
@@ -236,11 +237,6 @@
           <m>p</m> is the share using <m>s</m>.
         </p>
       </statement>
-      <solution>
-        <p>
-          <m>\dot{p} = -p(1 - p)^2</m>
-        </p>
-      </solution>
     </task>
 
     <task xml:id="hw-replicator-outside-cases-equilibria">
@@ -249,11 +245,6 @@
           Find the equilibria of <m>\dot{p} = f(p)</m> in <m>[0, 1]</m>.
         </p>
       </statement>
-      <solution>
-        <p>
-          <m>p = 0</m> and <m>p = 1</m>
-        </p>
-      </solution>
     </task>
 
     <task xml:id="hw-replicator-outside-cases-phase-line">
@@ -276,15 +267,32 @@
           Give a brief interpretation of your results from part (c).
         </p>
       </statement>
+      <solution>
+        <p>
+          Unless everyone starts with <m>s</m>, <m>s</m> dies out and the
+          population approaches all-<m>h</m>.
+        </p>
+      </solution>
+    </task>
+
+    <task xml:id="hw-replicator-outside-cases-symmetric-ne">
+      <statement>
+        <p>
+          In <xref ref="hw-ess-theorem-8-1"/>, you found that <m>(s, s)</m>
+          and <m>(h, h)</m> are Nash equilibria. Which theorem from this
+          chapter, combined with your answer to part (b), tells us that there
+          are no other symmetric Nash equilibria? Explain.
+        </p>
+      </statement>
     </task>
 
     <task xml:id="hw-replicator-outside-cases-ess">
       <statement>
         <p>
-          In an earlier homework, you found the evolutionarily stable states
-          of this game. Compare them with the stability of the equilibria
-          from part (c). Then explain why this game does not fit any of the
-          four cases in Figure 10.3.
+          In <xref ref="hw-ess-theorem-8-1"/>, you found the evolutionarily
+          stable states of this game. Compare them with the stability of the
+          equilibria from part (c). Then explain why this game does not fit
+          any of the four cases in <xref ref="table-ch10-stable-vs-ess"/>.
         </p>
       </statement>
     </task>
@@ -292,9 +300,29 @@
     <task xml:id="hw-replicator-outside-cases-thm-10-3">
       <statement>
         <p>
-          Consider the all-<m>s</m> state. Does Theorem 10.3 apply to it? Is
-          the all-<m>s</m> state stable? What does this tell you about what
-          Theorem 10.3 can and can't tell you?
+          Consider the all-<m>s</m> state, where <m>\sigma = s</m>.
+          <ul>
+            <li>
+              <p>
+                Compute <m>\pi_1(h, \sigma)</m>, the payoff an <m>h</m>-player
+                would earn, and <m>\pi_1(\sigma, \sigma)</m>, the population's
+                average payoff.
+              </p>
+            </li>
+            <li>
+              <p>
+                Theorem 10.3 needs
+                <m>\pi_1(h, \sigma) \gt \pi_1(\sigma, \sigma)</m>. Does that
+                hold here? Does Theorem 10.3 apply?
+              </p>
+            </li>
+            <li>
+              <p>
+                From our analysis earlier, the all-<m>s</m> state is unstable.
+                Why doesn't this contradict Theorem 10.3?
+              </p>
+            </li>
+          </ul>
         </p>
       </statement>
     </task>
@@ -386,9 +414,22 @@
       <statement>
         <p>
           Consider the all-<m>F</m> state, where everyone always cooperates.
-          Is <m>(F, F)</m> a Nash equilibrium? Use this to explain why an
-          equilibrium of the replicator system does not have to be a Nash
-          equilibrium.
+          <ul>
+            <li>
+              <p>
+                Use best response (box each player's best responses in the
+                payoff matrix) to show that <m>(F, F)</m> is not a Nash
+                equilibrium.
+              </p>
+            </li>
+            <li>
+              <p>
+                By Theorem 10.1, the all-<m>F</m> state is an equilibrium of
+                the replicator system. Why doesn't this contradict Theorem
+                10.2?
+              </p>
+            </li>
+          </ul>
         </p>
       </statement>
     </task>
@@ -396,10 +437,24 @@
     <task xml:id="hw-replicator-theorems-fsp-invade">
       <statement>
         <p>
-          What does Theorem 10.3 tell you about populations near the
-          all-<m>F</m> state that contain some <m>S</m>-players? What happens
-          if the population starts at all-<m>F</m> with no <m>S</m>-players at
-          all?
+          Again consider the all-<m>F</m> state, where <m>\sigma = F</m>.
+          <ul>
+            <li>
+              <p>
+                A quick computation shows that <m>\pi_1(S, \sigma) = 10</m> and
+                <m>\pi_1(\sigma, \sigma) = 6</m>. What does Theorem 10.3 tell
+                you about the behavior over time of solutions that contain some
+                <m>S</m>-players?
+              </p>
+            </li>
+            <li>
+              <p>
+                What happens if the population starts at all-<m>F</m> with no
+                <m>S</m>-players at all? Which part of Theorem 10.1 tells you
+                this?
+              </p>
+            </li>
+          </ul>
         </p>
       </statement>
     </task>
@@ -407,8 +462,10 @@
     <task xml:id="hw-replicator-theorems-fsp-all-s">
       <statement>
         <p>
-          Show that the all-<m>S</m> state is evolutionarily stable. What does
-          Theorem 10.4 tell you about it?
+          Notice that <m>(S, S)</m> is a strict Nash equilibrium. Use one
+          theorem from Chapter 8 and another from Chapter 10 to conclude that
+          the all-<m>S</m> state is an asymptotically stable equilibrium of
+          the replicator system.
         </p>
       </statement>
     </task>
@@ -416,18 +473,29 @@
     <task xml:id="hw-replicator-theorems-fsp-all-p">
       <statement>
         <p>
-          Show that <m>(P, P)</m> is a Nash equilibrium but that the
-          all-<m>P</m> state is not evolutionarily stable. A classmate says,
-          <q>Since the all-<m>P</m> state isn't evolutionarily stable,
-          Theorem 10.4 shows that it is unstable.</q> Explain the error.
+          Notice that the all-<m>P</m> state is not evolutionarily stable. A
+          quick check shows that <m>(P, P)</m> is a Nash equilibrium.
+          However, it fails condition (2) of Theorem 8.1: taking
+          <m>\tau = F</m>, we have <m>\pi_1(F, P) = \pi_1(P, P) = 6</m>, but
+          <m>\pi_1(P, F) = \pi_1(F, F) = 6</m>, so <m>\pi_1(P, F)</m> is not
+          greater than <m>\pi_1(F, F)</m>.
+        </p>
+        <p>
+          A classmate says, <q>Since the all-<m>P</m> state isn't
+          evolutionarily stable, Theorem 10.4 shows that it is not asymptotically
+          stable.</q>
+          Explain the error.
         </p>
       </statement>
     </task>
 
     <conclusion>
       <p>
-        <em>Remark:</em> For a complete analysis of this game with slightly
-        different payoffs, see Section 10.7 of the book.
+        <em>Remark:</em> The classmate's conclusion happens to be true, even
+        though the reasoning is not. Section 10.7 of the book analyzes this
+        game with slightly different payoffs, and shows that populations near
+        the all-<m>P</m> state stay near it, but don't return exactly to
+        all-<m>P</m>.
       </p>
     </conclusion>
   </exercise>

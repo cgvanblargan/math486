@@ -72,16 +72,16 @@
       <title>Using Theorems 10.1 and 10.2</title>
       <statement>
         <p>
-          Explain why <m>p = 0</m> and <m>p = 1</m> are equilibria, and
-          check Theorem 10.2 at the interior equilibrium.
+          Explain why <m>p = 0</m> and <m>p = 1</m> are equilibria, and which
+          theorem says the interior equilibrium has equal payoffs.
         </p>
       </statement>
       <solution>
         <p>
-          <m>p = 0</m> and <m>p = 1</m> are pure states (Theorem 10.1(4)).
-          At <m>p = \frac{4}{5}</m>,
-          <m>\pi_1(a, \sigma) = 4p_2 = \frac{4}{5}</m> and
-          <m>\pi_1(b, \sigma) = p_1 = \frac{4}{5}</m>.
+          Theorem 10.1(4): <m>p = 0</m> and <m>p = 1</m> are pure states.
+          Theorem 10.2: at an interior equilibrium <m>\sigma^*</m>, both
+          strategies are active, so
+          <m>\pi_1(a, \sigma^*) = \pi_1(b, \sigma^*)</m>.
         </p>
       </solution>
     </task>
@@ -123,7 +123,7 @@
       <title>Connection to Theorem 8.5</title>
       <statement>
         <p>
-          Analyze the game with Theorem 8.5 and connect it to part (b).
+          Which case of Theorem 8.5, and how does it connect to part (b)?
         </p>
       </statement>
       <solution>
@@ -145,21 +145,6 @@
         <p>
           It stays at <m>\frac{4}{5}</m> forever. Just below, <m>p</m>
           increases toward <m>\frac{4}{5}</m>.
-        </p>
-      </solution>
-    </task>
-    <task xml:id="ans-replicator-phase-line-intuition">
-      <title>Intuition from the game</title>
-      <statement>
-        <p>
-          Explain why a population of mostly <m>a</m>-players moves toward
-          more <m>b</m>-players.
-        </p>
-      </statement>
-      <solution>
-        <p>
-          Against an <m>a</m>-player, <m>a</m> earns 0 but <m>b</m> earns 1,
-          so when most players use <m>a</m>, <m>b</m> does better and spreads.
         </p>
       </solution>
     </task>
@@ -223,6 +208,22 @@
         </p>
       </solution>
     </task>
+    <task xml:id="ans-replicator-outside-cases-symmetric-ne">
+      <title>No other symmetric Nash equilibria</title>
+      <statement>
+        <p>
+          Which theorem shows there are no other symmetric Nash equilibria?
+        </p>
+      </statement>
+      <solution>
+        <p>
+          Theorem 10.2: a symmetric Nash equilibrium <m>(\sigma, \sigma)</m>
+          satisfies condition (1), so <m>\sigma</m> is an equilibrium of the
+          replicator system. By part (b), the only equilibria are
+          <m>p = 0</m> and <m>p = 1</m>.
+        </p>
+      </solution>
+    </task>
     <task xml:id="ans-replicator-outside-cases-ess">
       <title>Comparing with evolutionary stability</title>
       <statement>
@@ -243,15 +244,17 @@
       <title>Theorem 10.3 at all-<m>s</m></title>
       <statement>
         <p>
-          Does Theorem 10.3 apply at all-<m>s</m>, and is all-<m>s</m>
-          stable?
+          Compute the payoffs at all-<m>s</m>, decide whether Theorem 10.3
+          applies, and explain why there is no contradiction.
         </p>
       </statement>
       <solution>
         <p>
-          No: an <m>h</m>-player earns 4, the same as the average, not more.
-          All-<m>s</m> is still unstable, so Theorem 10.3 is not the only
-          way an equilibrium can be unstable.
+          <m>\pi_1(h, \sigma) = 4 = \pi_1(\sigma, \sigma)</m>, so the strict
+          inequality fails and Theorem 10.3 does not apply. No contradiction:
+          Theorem 10.3 only gives one way an equilibrium can fail to be
+          approached. It doesn't say every unstable equilibrium is of that
+          kind.
         </p>
       </solution>
     </task>
@@ -278,13 +281,33 @@
       <title>The all-<m>F</m> state</title>
       <statement>
         <p>
-          Is <m>(F, F)</m> a Nash equilibrium?
+          Use best response to show <m>(F, F)</m> is not a Nash equilibrium,
+          and explain why this doesn't contradict Theorem 10.2.
         </p>
       </statement>
       <solution>
+        <tabular halign="center" top="minor" bottom="minor" left="minor" right="minor">
+          <col halign="left" right="minor"/>
+          <col right="minor"/>
+          <col right="minor"/>
+          <col/>
+          <row header="yes" bottom="minor">
+            <cell></cell><cell>Player 2: <m>F</m></cell><cell>Player 2: <m>S</m></cell><cell>Player 2: <m>P</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>F</m></cell><cell><m>(6, 6)</m></cell><cell><m>(-2, \boxed{10})</m></cell><cell><m>(\boxed{6}, 6)</m></cell>
+          </row>
+          <row bottom="minor">
+            <cell>Player 1: <m>S</m></cell><cell><m>(\boxed{10}, -2)</m></cell><cell><m>(\boxed{0}, \boxed{0})</m></cell><cell><m>(5, -1)</m></cell>
+          </row>
+          <row>
+            <cell>Player 1: <m>P</m></cell><cell><m>(6, \boxed{6})</m></cell><cell><m>(-1, 5)</m></cell><cell><m>(\boxed{6}, \boxed{6})</m></cell>
+          </row>
+        </tabular>
         <p>
-          No: against <m>F</m>, <m>S</m> earns <m>10 \gt 6</m>. So all-<m>F</m>
-          is an equilibrium but not a Nash equilibrium.
+          <m>(F, F)</m> has no boxes, so it is not a Nash equilibrium. No
+          contradiction: Theorem 10.2 only requires condition (1), which holds
+          since <m>F</m> is the only active strategy.
         </p>
       </solution>
     </task>
@@ -292,14 +315,15 @@
       <title>Invading all-<m>F</m></title>
       <statement>
         <p>
-          Apply Theorem 10.3 near all-<m>F</m>, and consider starting with no
+          Apply Theorem 10.3 at all-<m>F</m>, and consider starting with no
           <m>S</m>-players.
         </p>
       </statement>
       <solution>
         <p>
-          No solution with some <m>S</m>-players approaches all-<m>F</m>.
-          With no <m>S</m>-players, the population stays at all-<m>F</m>.
+          Since <m>10 \gt 6</m>, no solution containing some <m>S</m>-players
+          approaches all-<m>F</m>. With no <m>S</m>-players, the population
+          stays at all-<m>F</m> (Theorem 10.1(4)).
         </p>
       </solution>
     </task>
@@ -307,32 +331,30 @@
       <title>The all-<m>S</m> state</title>
       <statement>
         <p>
-          Show all-<m>S</m> is evolutionarily stable, and apply Theorem 10.4.
+          Use a theorem from Chapter 8 and one from Chapter 10 to show all-<m>S</m>
+          is asymptotically stable.
         </p>
       </statement>
       <solution>
         <p>
-          <m>(S, S)</m> is a strict Nash equilibrium (<m>0 \gt -2</m> and
-          <m>0 \gt -1</m>), so all-<m>S</m> is evolutionarily stable (Theorem
-          8.2) and therefore asymptotically stable.
+          Theorem 8.2: <m>(S, S)</m> is a strict Nash equilibrium, so all-<m>S</m>
+          is evolutionarily stable. Theorem 10.4: so it is an asymptotically
+          stable equilibrium.
         </p>
       </solution>
     </task>
     <task xml:id="ans-replicator-theorems-fsp-all-p">
-      <title>The all-<m>P</m> state</title>
+      <title>The classmate's error</title>
       <statement>
         <p>
-          Show <m>(P, P)</m> is a Nash equilibrium but all-<m>P</m> is not
-          evolutionarily stable, and find the classmate's error.
+          Explain the error in the classmate's reasoning.
         </p>
       </statement>
       <solution>
         <p>
-          Against <m>P</m>, <m>F</m> earns 6 and <m>S</m> earns 5, neither more
-          than 6. But <m>\pi_1(P, F) = 6</m> is not more than
-          <m>\pi_1(F, F) = 6</m>, so Theorem 8.1(2) fails. The error:
-          Theorem 10.4 only goes from evolutionarily stable to
-          asymptotically stable, not the other way.
+          Theorem 10.4 only goes from evolutionarily stable to asymptotically
+          stable. It says nothing about a state that is not evolutionarily
+          stable.
         </p>
       </solution>
     </task>
