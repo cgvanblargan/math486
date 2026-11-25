@@ -8,5 +8,6 @@
 <xi:include href="./page1-autonomous-equations.ptx" />
 
 <xi:include href="./page2-stability.ptx" />
+<xi:include href="./ch9-exercises.ptx" />
 
 </chapter>
